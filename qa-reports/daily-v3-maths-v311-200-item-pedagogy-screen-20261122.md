@@ -5,7 +5,7 @@
 ## Source control & method
 - Exact archived student question paper: `Lux_Maths_Y9_V3_All_200_Student.pdf` (74 pages); worked-answer PDF `Lux_Maths_Y9_V3_All_200_Answers.pdf` (39 pages); formal indexed `Lux_Maths_V3_1_Formal_Academic_QA_Register_20261122.csv`.
 - Read and parsed **200/200 Q-numbered student stems/options** and **200/200 Q-numbered worked-solution entries**, reconciling exactly with the **200 unique question IDs** in the formal register. The indexed PDF extraction can reorder superscripts/fraction layout; do not use its flattened text as a replacement for the original JSON or as visual iPad evidence.
-- **50 template IDs × exactly four variants = 200 items**. One representative prompt/answer per family was examined for learning demand and known misinterpretation risks; individual per-option distractor mechanisms and proofread every formula *are not yet completed*. High-risk examples from the full ten-question original JSON reviewer sample were considered separately.
+- **50 source template labels × exactly four variants = 200 items**. Template labels are not proof of 50 independently distinct mathematical concepts; cross-grade duplicates are documented below. One representative prompt/answer per family was examined for learning demand and known misinterpretation risks; individual per-option distractor mechanisms and proofread every formula *are not yet completed*. High-risk examples from the full ten-question original JSON reviewer sample were considered separately.
 - Mathematical stem answers and unique keyed choices remain recorded **PASS 200/200 in the existing independent solver audit**. They were not rerun in this work. The maths result must not be confused with academic release clearance.
 - School source: [Tiffin Girls Mathematics Year9 Curriculum Outline 2026–27](https://fra1.digitaloceanspaces.com/tiffingirls.org/wp-content/uploads/2026/07/10161919/Year-9-Maths-2026-2027.pdf), p.1 Autumn and pp.2–3 Spring/Summer. Autumn lists index laws incl. negative powers, standard form, rearranging formulae, linear graphs and simultaneous equations. Spring explicitly covers perpendicular bisectors under Construction/Loci; **Summer** explicitly lists working with **Algebraic Fractions**. Broad Autumn rearranging does NOT certify every algebraic-fraction/surd variant already taught.
 - Exam board: [AQA GCSE Mathematics 8300, specification at a glance](https://www.aqa.org.uk/subjects/mathematics/gcse/mathematics-8300/specification/specification-at-a-glance), Higher covers **grades 4–9**; a question's *target* grade is not an independently calibrated exam grade.
@@ -15,7 +15,7 @@
 |---|---|---|
 | 200 mathematical stems, unique six choices | Prior independent two-part mathematical checks | PASS 200/200, **not repeated** |
 | PDF question/answer/ID/source-register reconciliation | All 200 Q labels and 200 ID records | **PASS 200/200 structural coverage** |
-| Representative pedagogical demand screening | 50 distinct families, 4 variants each | **REVIEWED FOR RISK**, not grade-certified |
+| Representative pedagogical demand screening | 50 source template labels, 4 variants each | **REVIEWED FOR RISK**, not grade-certified |
 | Confirmed exact skill taught by TGS teacher | No class-level source evidence | **0/200 approved** |
 | Individually benchmarked Grade 7–9 demand | Missing external question-level benchmark | **0/200 certified** |
 | Five plausible, distinct, source-specific misconceptions per question | Missing option-by-option rationale (1,000 rationales) | **0/200 certified** |
@@ -33,7 +33,7 @@ Scope categories (overlap avoided by this primary family label): AUTUMN_BROAD=14
 5. **Domain/editorial checks**: `REARRANGING-016` and `-023` had redundant `1z` in original worked steps, already edited only in the staged V3.1.1 candidate; for rearranging fractions/roots validate excluded values, invertibility and branch restrictions in the worked explanation.
 6. **Daily Tasks anti-repetition weakness**: 50 distinct template labels can overstate *genuine* conceptual diversity (examples above); review equivalent-concept groups before granting new mastery / daily credit. The separate 20-day zero-adjacent-template result is not yet a zero-adjacent-*concept* result.
 
-## Family-by-family qualitative findings (50 concepts; four questions each)
+## Source-template-by-source-template qualitative findings (50 labels; four questions each)
 | Template | Items | Last source ID | Broad scope | Screening finding | Specific teaching/grade/distractor observation |
 |---|---:|---|---|---|---|
 | `V2-INDICES-1` | 4 | `LUX-MATH-Y9-INDICES-004` | AUTUMN_BROAD | **GRADE_REVIEW** | Negative-power conversions and a linear exponent equation; G7 is provisional, not benchmarked. |
@@ -294,6 +294,6 @@ Every row below records traceable coverage and a family-level risk for that exac
 | 200 | `LUX-MATH-Y9-SIMULTANEOUS-040` | Simultaneous equations | G8-9 | `V3-SIM-G89-COEFFICIENTS-BOTH-DEPEND-ON-K` | AUTUMN_BROAD | GRADE_REVIEW | — | **HOLD** |
 
 ## Release hold and next check
-Do not mark any item `academicQA=approved` from this document. The next Academic QA increment is the **1,000 source-specific option-by-option misconception reviews** (all 5 wrong choices × 200), evidence-backed real GCSE demand benchmarking for potentially inflated families, teacher-taught subskills, and full worked-explanation domain checks. Do not add filler rationales. Only audited, genuinely Grade 7+ and taught questions can enter the approved Maths assignment pool, preserving 10 Maths MCQs/day, six A–F options and 9/10 success rule. Physical iPad QA and current CI remain separate release blockers.
+Do not mark any item `academicQA=approved` from this document. A new fail-closed Draft source intake now requires independent reviewer evidence for each semantic `conceptFamilyId`; same-concept variants across different source template IDs cannot count as distinct Daily slots. The next Academic QA increment is the **1,000 source-specific option-by-option misconception reviews** (all 5 wrong choices × 200), evidence-backed real GCSE demand benchmarking for potentially inflated families, teacher-taught subskills, and full worked-explanation domain checks. Do not add filler rationales. Only audited, genuinely Grade 7+ and taught questions can enter the approved Maths assignment pool, preserving 10 Maths MCQs/day, six A–F options and 9/10 success rule. Physical iPad QA and current CI remain separate release blockers.
 
 **PR #306 stays Draft, 0/200 live-approved, no main or live learner data change.**
