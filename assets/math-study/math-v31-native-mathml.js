@@ -83,8 +83,20 @@ export function latexMathML(latex){
 export function mathsRichTextHTML(source){
  if(typeof source!=='string'||source.length>9000)throw Error('Maths text too long');
  const parts=source.split('$');if(parts.length%2!==1)throw Error('Unpaired Maths delimiter');
- return parts.map((part,i)=>i%2?latexMathML(part):
-   '<span>'+escapeText(part.replace(/\*\*/g,''))+'</span>').join('');
+ const html=[];
+ for(let i=0;i<parts.length;i++){
+  const part=parts[i];
+  if(i%2===0){html.push('<span>'+escapeText(part.replace(/\*\*/g,''))+'</span>');continue;}
+  // Original source uses "cm$^3$" and "m$^3=...$"; attach units.
+  if(part.startsWith('^')&&i>0){
+   const match=parts[i-1].match(/(cm|mm|km|m)$/);
+   if(!match)throw Error('Orphan unit exponent');
+   const unit=match[1],last=html.pop();
+   html.push(last.slice(0,-(unit.length+7))+'</span>');
+   html.push(latexMathML(unit+part));
+  } else html.push(latexMathML(part));
+ }
+ return html.join('');
 }
 export function mathsOptionHTML(option){
  if(!option||!['A','B','C','D','E','F'].includes(option.id))
