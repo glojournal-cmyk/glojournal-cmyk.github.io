@@ -9,6 +9,9 @@ const bank=topics.flatMap((topicId,t)=>grades.flatMap((difficultyTarget,k)=>
  Array.from({length:4},(_,v)=>({
   id:'fixture-'+t+'-'+k+'-'+v,subject:'maths',year:9,topicId,topic:slugs[t],
   difficultyTarget,grade:difficultyTarget.slice(1),templateId:'template-'+t+'-'+k,
+  conceptFamilyId:'template-'+t+'-'+k,
+  conceptFamilyEvidence:'synthetic family equivalence test',
+  conceptFamilyReviewer:'synthetic reviewer',
   academicQA:'approved',taughtVerified:true,mathDailyEnabled:true,renderRequired:true,
   sourceRef:'synthetic CI fixture only',qaReviewer:'synthetic fixture',
   workedSolution:['fixture solution 1','fixture solution 2'],
@@ -32,7 +35,9 @@ test('actual V3 planner consumes 200 synthetic unique question IDs in 20 fixed 4
   assert.equal(maths.supplyBlocked,undefined,day);
   assert.equal(maths.approvedQuestionIds.length,10,day);
   assert.equal(new Set(maths.approvedQuestionIds).size,10,day);
-  const templates=Object.values(maths.approvedConceptByQuestion);
+  const templates=Object.values(maths.approvedTemplateByQuestion);
+  const families=Object.values(maths.approvedConceptByQuestion);
+  assert.equal(new Set(families).size,10,day);
   assert.equal(new Set(templates).size,10,day);
   assert.equal(templates.filter(x=>previous.has(x)).length,0,day+' no adjacent repeat');
   for(const id of maths.approvedQuestionIds){
