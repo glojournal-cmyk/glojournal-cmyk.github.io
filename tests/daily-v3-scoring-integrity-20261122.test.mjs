@@ -100,3 +100,20 @@ test('persisted V3 assignments survive JSON round trip and cannot be reassigned 
  assert.equal(unchanged.progress,0);
  assert.equal(unchanged.done,false);
 });
+
+test('cross-task duplicate question credited in Standard A or Year9 Light cannot inflate Standard B or Languages',()=>{
+ const tasks=plan(),b=tasks.find(t=>t.id==='y8-standard-b'),l=tasks.find(t=>t.id==='languages-standard');
+ const id=b.approvedQuestionIds[0],lId=l.languageSplit.latin.approvedQuestionIds[0];
+ const events=[
+   entry(b,id,true,{dailyTaskId:'year9-light'}),
+   entry(b,id,true),
+   {day,year:8,subject:'latin',topicId:l.languageSplit.latin.topicId,
+     dailyTaskId:'latin-standard',questionId:lId,correct:true,formal:true},
+   {day,year:8,subject:'latin',topicId:l.languageSplit.latin.topicId,
+     dailyTaskId:'languages-standard',questionId:lId,correct:true,formal:true}
+ ];
+ const s={...base(),daily:tasks,formalAttemptLog:events};
+ assert.equal(v3ScopedQuestionEvidence(s,b,day).correct,0);
+ assert.equal(languageEvidence(s,day).latin.correct,0);
+ assert.equal(s.xp,1243);assert.equal(s.mp,89);
+});
