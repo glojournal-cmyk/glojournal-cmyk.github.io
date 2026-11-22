@@ -12,7 +12,7 @@ export function pinnedV3DailyPractice({dailyLocked=false,taskId=null,assignment=
  if(!assignment||assignment.id!==taskId||assignment.dailyV3!==true||
     assignment.supplyBlocked===true||assignment.planDate!==day||
     !nonEmpty(topicId)||!Array.isArray(questions)||
-    Number(assignment.assignedYear)!==TARGETS[taskId].year||
+    (taskId!=='languages-standard'&&Number(assignment.assignedYear)!==TARGETS[taskId].year)||
     Number(year)!==TARGETS[taskId].year)
    return blocked('missing-or-invalid-v3-assignment');
  let allowed,expectedTopic,required;
