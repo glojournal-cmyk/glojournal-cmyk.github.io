@@ -9,7 +9,7 @@ const latexToNumber=s=>{
  const trimmed=s.trim();
  if(/^-?\d+$/.test(trimmed))return Number(trimmed);
  const fraction=/^(-?)\\frac\{(\d+)\}\{(\d+)\}$/.exec(trimmed);
- assert.ok(fraction,'unable to evaluate question's exact A-F option '+trimmed);
+ assert.ok(fraction,"unable to evaluate exact A-F option "++trimmed);
  return (fraction[1]?-1:1)*Number(fraction[2])/Number(fraction[3]);
 };
 const approx=(actual,expected,context='')=>assert.ok(
