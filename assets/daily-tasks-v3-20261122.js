@@ -163,7 +163,29 @@ export function buildDailyV3(state,legacy=[],manifest=V3_APPROVED,{mathAttempts=
     href:'/study/maths/daily/',xp:15,assignedSubject:'maths',assignedYear:9},day):
     blocked('maths-daily','Maths Daily · GCSE Higher',10,9,
       'Awaiting separately supplied and independently Academic-QA-approved GCSE Higher Maths bank. Never use filler.',day);
-  const due=passthrough('due-review'); // Keep genuine Year 8 Day 2/7 recall from V2.
+  // Year 9 Due requires question-level saved due evidence and QA approval.
+  // Year 8 Mastery Day 2/7 recall always remains the priority.
+  const originalDue=passthrough('due-review');
+  const pendingYear8Recall=originalDue.masteryCheck===true;
+  const dueCandidates=(manifest.year9Due||[]).filter(e=>
+    approveTopic(e,9,e.subject)&&!reserved.has(e.topicId)).map(entry=>{
+      const dueGroups=entry.concepts.filter(g=>g?.conceptId&&Array.isArray(g.ids)&&
+        g.ids.some(id=>state.reviews?.[id]?.due&&
+          dayOf(state.reviews[id].due)<=day));
+      return {entry,dueGroups};
+    }).filter(x=>x.dueGroups.length>=10)
+    .sort((a,b)=>b.dueGroups.length-a.dueGroups.length||
+      a.entry.topicId.localeCompare(b.entry.topicId));
+  const year9Due=!pendingYear8Recall?dueCandidates[0]:null;
+  const due=year9Due?tagged({
+    id:'due-review',title:'Due Review · Year 9 · '+(year9Due.entry.title||year9Due.entry.topicId),
+    detail:'Ten distinct Year 9 concepts backed by actual saved due dates; not consolidation.',
+    target:10,progress:0,xp:15,assignedSubject:year9Due.entry.subject,
+    assignedYear:9,assignedTopic:year9Due.entry.topicId,
+    assignedLabel:year9Due.entry.title||year9Due.entry.topicId,
+    approvedQuestionIds:year9Due.dueGroups.slice(0,10).map(g=>g.ids[0]),
+    href:'/study/'+year9Due.entry.subject+'/practise?daily=1&locked=1&year=9&mode=due&task=due-review&topic='+encodeURIComponent(year9Due.entry.topicId)
+  },day):originalDue;
   const plan=[passthrough('french-vocab'),passthrough('latin-vocab'),language,
     passthrough('y8-standard-a'),standardB,
     passthrough('y8-mastery-a'),passthrough('y8-mastery-b'),mathsTask,due,
