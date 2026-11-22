@@ -170,7 +170,7 @@ export function saveVerifiedBiologyAnswerSync(state,source){
   const candidate=[...(state.daily||[]),...(state.dailyLog?.[source.day]?.tasks||[])]
     .find(t=>t?.id===source.taskId&&t.assignedSubject===source.subject&&
       Number(t.assignedYear)===Number(source.year)&&t.assignedTopic);
-  if(!candidate)return false;
+  if(!candidate||isFoodTestsQaHeld(candidate.assignedTopic))return false;
   const task={...candidate,planDate:source.day};
   const receipt=sanitized(source,task);
   if(!receipt)return false;
@@ -186,16 +186,16 @@ export async function saveCompletedDailyReceipt(state,source){
   const candidate=[...(state.daily||[]),...(state.dailyLog?.[source.day]?.tasks||[])]
     .find(t=>t?.id===source.taskId&&t.assignedSubject===source.subject&&
       Number(t.assignedYear)===Number(source.year)&&t.assignedTopic);
-  if(!candidate)return false;
+  if(!candidate||isFoodTestsQaHeld(candidate.assignedTopic))return false;
   const task={...candidate,planDate:source.day};
   const receipt=sanitized(source,task);
-  if(!receipt)return false;
+  if(!receipt||receipt.questions.some(q=>isFoodTestsQaHeld(q)))return false;
   // Even if the iPad has lost the live React daily array, a genuine dated
   // assignment can verify this completed quiz; never replace that assignment
   // or guess a different topic.
   const verificationState={...state,daily:[task]};
   const verified=reconcileDailySession(verificationState,{...receipt,year:receipt.year});
-  if(!verified.target)return false;
+  if(!verified.target||verified.reason==='academic-qa-hold')return false;
   // A dated, locked session with fewer visible questions than its 15-question
   // Home target still proves those actually marked answers. Preserve that
   // PARTIAL score (e.g. 10/15) on Safari instead of losing the entire session.
@@ -225,11 +225,13 @@ export async function saveCompletedDailyReceipt(state,source){
  * select the unanswered/incorrect original question on a follow-up visit.
  * This read never changes progress or grants any credit. */
 export function readDailyRetryReceiptSync({day,taskId,subject,year,topicId,mode}={}){
+ if(isFoodTestsQaHeld(topicId))return null;
  const matches=readFallback().filter(r=>r.day===day&&r.taskId===taskId&&
    r.subject===subject&&r.year===Number(year)&&r.topicId===topicId&&r.mode===mode);
  return matches.sort((a,b)=>Number(b.at||0)-Number(a.at||0))[0]||null;
 }
 export async function readDailyRetryReceipt(options={}){
+ if(isFoodTestsQaHeld(options?.topicId))return null;
  const fallback=readDailyRetryReceiptSync(options);
  const saved=(await all()).filter(r=>r.day===options.day&&r.taskId===options.taskId&&
    r.subject===options.subject&&r.year===Number(options.year)&&
@@ -244,7 +246,8 @@ export function reconcileCompletedDailyReceipts(state,receipts){
     return null;
   let next=state,changed=false;
   for(const item of receipts||[]){
-    if(!valid(item)||item.day!==state.today)continue;
+    if(!valid(item)||item.day!==state.today||isFoodTestsQaHeld(item.topicId)||
+       item.questions.some(q=>isFoodTestsQaHeld(q)))continue;
     const task=next.daily.find(t=>t.id===item.taskId);
     if(!task||task.planDate!==item.day||task.assignedSubject!==item.subject||
       task.assignedTopic!==item.topicId||Number(task.target)!==item.target||
