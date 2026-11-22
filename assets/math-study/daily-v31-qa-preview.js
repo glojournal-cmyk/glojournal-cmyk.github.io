@@ -6,7 +6,9 @@ if(params.get('qa')==='1'){
  section.hidden=false;
  const el=id=>document.getElementById(id);
  const status=msg=>{el('qa-message').textContent=msg};
- const dataPath='/qa-staging/math-v31-original-sample10.json';
+ const revised=params.get('bank')==='revised';
+ const dataPath=revised?'/qa-staging/math-v311-reviewed-200.json':'/qa-staging/math-v31-original-sample10.json';
+ if(revised)section.querySelector('h2').textContent='Reviewer preview · 200 revised questions';
  const state={index:0,answers:[],rendered:false,sourceStatus:'QA_ONLY_NOT_APPROVED'};
  const fail=e=>{el('qa-question').hidden=true;status('Maths QA preview blocked: '+(e?.message||String(e))+
   '. No raw LaTeX or unmarked Daily credit will be shown.')};
@@ -20,6 +22,23 @@ if(params.get('qa')==='1'){
   return items;
  }
  function guard(pack){
+  if(revised){
+   if(pack?.status!=='DRAFT_CONTENT_REVIEW'||pack.questions?.length!==200)
+    throw Error('Incorrect revised question bank');
+   const ids=new Set(), topics=new Map();
+   for(const q of pack.questions){
+    if(!q.revisionId||ids.has(q.revisionId)||q.dailyEligible!==false||
+       !q.topicId||!q.sourceId||!q.stem||!q.workedSolutionSteps?.length||
+       q.options?.map(o=>o.id).join('')!=='ABCDEF'||
+       !q.options.some(o=>o.id===q.correctOptionId&&o.latex===q.correctAnswerLatex)||
+       q.options.some(o=>o.id!==q.correctOptionId&&!o.errorPath))
+      throw Error('Incomplete revised question');
+    ids.add(q.revisionId);
+    topics.set(q.topicId,(topics.get(q.topicId)||0)+1);
+   }
+   if(topics.size!==5||[...topics.values()].some(n=>n!==40))throw Error('Incorrect topic coverage');
+   return pack.questions.map(q=>({...q,id:q.revisionId}));
+  }
   if(pack?.status!=='QA_ONLY_NOT_APPROVED'||!Array.isArray(pack.questions)||pack.questions.length!==10)
    throw Error('Incorrect QA sample provenance');
   const ids=new Set(),topics=new Map(),bands=new Map(),templates=new Set();
@@ -41,10 +60,10 @@ if(params.get('qa')==='1'){
  async function draw(){
   state.rendered=false;
   const q=questions[state.index];
-  if(!q){status('All ten QA previews inspected. No learner progress or credit was saved.');
+  if(!q){status(revised?'All 200 revised questions inspected.':'All ten QA previews inspected. No learner progress or credit was saved.');
    el('qa-question').hidden=true;return}
   const root=el('qa-question'),formula=el('qa-formula'),choices=el('qa-choices');
-  el('qa-position').textContent='Question '+(state.index+1)+' / 10 · '+q.difficultyTarget;
+  el('qa-position').textContent='Question '+(state.index+1)+(revised?' / '+questions.length:' / 10 · '+q.difficultyTarget);
   el('qa-identifier').textContent=q.id+' · '+q.topicId;
   root.dataset.questionId=q.id;
   formula.classList.remove('ready');choices.classList.remove('ready');
@@ -92,6 +111,14 @@ if(params.get('qa')==='1'){
   const response=await fetch(dataPath,{cache:'no-store'});
   if(!response.ok)throw Error('QA sample data could not be loaded');
   questions=guard(await response.json());
+  if(revised){
+   state.sourceStatus='DRAFT_CONTENT_REVIEW';
+   const start=params.get('item');
+   if(start!==null){
+    state.index=questions.findIndex(q=>q.sourceId===start);
+    if(state.index<0)throw Error('Unknown source question ID');
+   }
+  }
   await draw();
  }catch(e){fail(e)}
  window.__mathsQAReviewerState=()=>({index:state.index,answers:[...state.answers],

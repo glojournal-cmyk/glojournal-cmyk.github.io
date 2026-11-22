@@ -63,6 +63,31 @@ async function inspect(name,browserType){
   assert.equal(final.reviewer.answers.length,1);
   assert.equal(final.reviewer.sourceStatus,'QA_ONLY_NOT_APPROVED');
   await page.screenshot({path:out+'/'+name+'-passed.png',fullPage:true});
+  await context.setOffline(false);
+  await page.goto(base+'/study/maths/daily/?qa=1&bank=revised');
+  await page.waitForFunction(()=>window.__mathsQAReviewerState?.().rendered);
+  const revised=JSON.parse(fs.readFileSync('qa-staging/math-v311-reviewed-200.json','utf8'));
+  await context.setOffline(true);
+  const inspected=await page.evaluate(rows=>{
+   let markedCorrect=0;
+   for(const [index,row] of rows.entries()){
+    const card=document.querySelector('#qa-question');
+    const buttons=[...card.querySelectorAll('.choice')];
+    if(card.dataset.questionId!==row.revisionId||buttons.length!==6)throw Error(row.sourceId);
+    const expectCorrect=index%2===0;
+    buttons.find(button=>(button.dataset.optionId===row.correctOptionId)===expectCorrect).click();
+    const result=card.querySelector('#qa-result').textContent.startsWith('Correct option');
+    if(result!==expectCorrect||!buttons.every(button=>button.disabled)||
+       card.querySelectorAll('#qa-solution li').length!==row.workedSolutionSteps.length)
+     throw Error('Answer or solution mismatch for '+row.sourceId);
+    markedCorrect+=Number(result);
+    card.querySelector('#qa-next').click();
+   }
+   return {markedCorrect,answers:window.__mathsQAReviewerState().answers.length,
+    finished:document.querySelector('#qa-question').hidden,storage:Object.keys(localStorage).sort()};
+  },revised.questions);
+  assert.deepEqual(inspected,{markedCorrect:100,answers:200,finished:true,storage:initial.keys});
+  assert.deepEqual(errors,[]);
   results.push({browser:name,pass:true,firstQuestion:source.questions[0].id,
     secondQuestion:source.questions[1].id,nativeOfflineMathML:true,storageUnchanged:true});
  }catch(e){
