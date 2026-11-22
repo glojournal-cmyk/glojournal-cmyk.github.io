@@ -304,9 +304,18 @@ export function buildDailyV3(state,legacy=[],manifest=V3_APPROVED,{mathAttempts=
   const pendingYear8Recall=originalDue.masteryCheck===true;
   const dueCandidates=(manifest.year9Due||[]).filter(e=>
     approveTopic(e,9,e.subject)&&!reserved.has(e.topicId)).map(entry=>{
-      const dueGroups=entry.concepts.filter(g=>g?.conceptId&&Array.isArray(g.ids)&&
-        g.ids.some(id=>state.reviews?.[id]?.due&&
-          dayOf(state.reviews[id].due)<=day));
+      // A concept is due only when an EXACT approved member question has a
+      // saved due date. Do not select g.ids[0] when only a different
+      // alternate ID is due; do not re-use the same concept or question twice.
+      const usedConcepts=new Set(),usedIds=new Set(),dueGroups=[];
+      for(const g of entry.concepts){
+        if(!g?.conceptId||!Array.isArray(g.ids)||usedConcepts.has(g.conceptId))continue;
+        const questionId=g.ids.find(id=>id&&!usedIds.has(id)&&
+          state.reviews?.[id]?.due&&dayOf(state.reviews[id].due)<=day);
+        if(!questionId)continue;
+        usedConcepts.add(g.conceptId);usedIds.add(questionId);
+        dueGroups.push({conceptId:g.conceptId,questionId});
+      }
       return {entry,dueGroups};
     }).filter(x=>x.dueGroups.length>=10)
     .sort((a,b)=>b.dueGroups.length-a.dueGroups.length||
@@ -318,7 +327,9 @@ export function buildDailyV3(state,legacy=[],manifest=V3_APPROVED,{mathAttempts=
     target:10,progress:0,xp:15,assignedSubject:year9Due.entry.subject,
     assignedYear:9,assignedTopic:year9Due.entry.topicId,
     assignedLabel:year9Due.entry.title||year9Due.entry.topicId,
-    approvedQuestionIds:year9Due.dueGroups.slice(0,10).map(g=>g.ids[0]),
+    approvedQuestionIds:year9Due.dueGroups.slice(0,10).map(g=>g.questionId),
+    approvedConceptByQuestion:Object.fromEntries(year9Due.dueGroups.slice(0,10)
+      .map(g=>[g.questionId,g.conceptId])),
     href:'/study/'+year9Due.entry.subject+'/practise?daily=1&locked=1&year=9&mode=due&task=due-review&topic='+encodeURIComponent(year9Due.entry.topicId)
   },day):(pendingYear8Recall&&Number(originalDue.target)===5&&Number(originalDue.progress)===0
     ? {...originalDue,target:10,detail:'Year 8 Day 2/7 recall within a 10-question Due Review; five additional unassisted consolidation questions required. Existing recall evidence is assessed separately.'}
