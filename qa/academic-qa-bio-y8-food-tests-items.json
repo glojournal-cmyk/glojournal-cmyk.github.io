@@ -93,6 +93,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted false or contradictory statement scored > 0. Verify and repair overcredit."
+        },
+        {
+          "severity": "P0",
+          "status": "guarded-rule-revised-awaiting-independent-review",
+          "issue": "Replaced vulnerable generic matcher for this question with a restricted, explicit concept rubric. Valid paraphrase and incorrect answer probes now pass preflight; no approval implied."
         }
       ],
       "testEvidence": [
@@ -110,11 +115,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-six-guarded-acceptance.mjs",
+          "type": "targeted-protected-mark-points",
+          "curatedPreflight": {
+            "total": 7,
+            "passing": 7
+          },
+          "integrationPreflight": {
+            "passing": 49,
+            "total": 49,
+            "perBundle": true,
+            "fullDataset": 196,
+            "postFixPassing": 159,
+            "oldPassing": 148,
+            "untouchedQuestionRegressions": 0
+          },
+          "status": "V8 function-level preflight passed; Node run and independent academic review pending",
+          "approved": false
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-benedict-s-solution-mc",
@@ -2835,6 +2860,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted false or contradictory statement scored > 0. Verify and repair overcredit."
+        },
+        {
+          "severity": "P0",
+          "status": "guarded-rule-revised-awaiting-independent-review",
+          "issue": "Replaced vulnerable generic matcher for this question with a restricted, explicit concept rubric. Valid paraphrase and incorrect answer probes now pass preflight; no approval implied."
         }
       ],
       "testEvidence": [
@@ -2852,11 +2882,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-six-guarded-acceptance.mjs",
+          "type": "targeted-protected-mark-points",
+          "curatedPreflight": {
+            "total": 9,
+            "passing": 9
+          },
+          "integrationPreflight": {
+            "passing": 49,
+            "total": 49,
+            "perBundle": true,
+            "fullDataset": 196,
+            "postFixPassing": 159,
+            "oldPassing": 148,
+            "untouchedQuestionRegressions": 0
+          },
+          "status": "V8 function-level preflight passed; Node run and independent academic review pending",
+          "approved": false
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-iodine-control",
@@ -3181,6 +3231,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted false or contradictory statement scored > 0. Verify and repair overcredit."
+        },
+        {
+          "severity": "P0",
+          "status": "guarded-rule-revised-awaiting-independent-review",
+          "issue": "Replaced vulnerable generic matcher for this question with a restricted, explicit concept rubric. Valid paraphrase and incorrect answer probes now pass preflight; no approval implied."
         }
       ],
       "testEvidence": [
@@ -3198,11 +3253,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-six-guarded-acceptance.mjs",
+          "type": "targeted-protected-mark-points",
+          "curatedPreflight": {
+            "total": 8,
+            "passing": 8
+          },
+          "integrationPreflight": {
+            "passing": 49,
+            "total": 49,
+            "perBundle": true,
+            "fullDataset": 196,
+            "postFixPassing": 159,
+            "oldPassing": 148,
+            "untouchedQuestionRegressions": 0
+          },
+          "status": "V8 function-level preflight passed; Node run and independent academic review pending",
+          "approved": false
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-fair-reagent",
@@ -3259,6 +3334,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted false or contradictory statement scored > 0. Verify and repair overcredit."
+        },
+        {
+          "severity": "P0",
+          "status": "guarded-rule-revised-awaiting-independent-review",
+          "issue": "Replaced vulnerable generic matcher for this question with a restricted, explicit concept rubric. Valid paraphrase and incorrect answer probes now pass preflight; no approval implied."
         }
       ],
       "testEvidence": [
@@ -3276,11 +3356,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-six-guarded-acceptance.mjs",
+          "type": "targeted-protected-mark-points",
+          "curatedPreflight": {
+            "total": 8,
+            "passing": 8
+          },
+          "integrationPreflight": {
+            "passing": 49,
+            "total": 49,
+            "perBundle": true,
+            "fullDataset": 196,
+            "postFixPassing": 159,
+            "oldPassing": 148,
+            "untouchedQuestionRegressions": 0
+          },
+          "status": "V8 function-level preflight passed; Node run and independent academic review pending",
+          "approved": false
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-cloudy-not-protein",
@@ -3849,6 +3949,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted false or contradictory statement scored > 0. Verify and repair overcredit."
+        },
+        {
+          "severity": "P0",
+          "status": "guarded-rule-revised-awaiting-independent-review",
+          "issue": "Replaced vulnerable generic matcher for this question with a restricted, explicit concept rubric. Valid paraphrase and incorrect answer probes now pass preflight; no approval implied."
         }
       ],
       "testEvidence": [
@@ -3866,11 +3971,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-six-guarded-acceptance.mjs",
+          "type": "targeted-protected-mark-points",
+          "curatedPreflight": {
+            "total": 8,
+            "passing": 8
+          },
+          "integrationPreflight": {
+            "passing": 49,
+            "total": 49,
+            "perBundle": true,
+            "fullDataset": 196,
+            "postFixPassing": 159,
+            "oldPassing": 148,
+            "untouchedQuestionRegressions": 0
+          },
+          "status": "V8 function-level preflight passed; Node run and independent academic review pending",
+          "approved": false
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-test-plan",
@@ -3927,6 +4052,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted false or contradictory statement scored > 0. Verify and repair overcredit."
+        },
+        {
+          "severity": "P0",
+          "status": "guarded-rule-revised-awaiting-independent-review",
+          "issue": "Replaced vulnerable generic matcher for this question with a restricted, explicit concept rubric. Valid paraphrase and incorrect answer probes now pass preflight; no approval implied."
         }
       ],
       "testEvidence": [
@@ -3944,11 +4074,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-six-guarded-acceptance.mjs",
+          "type": "targeted-protected-mark-points",
+          "curatedPreflight": {
+            "total": 9,
+            "passing": 9
+          },
+          "integrationPreflight": {
+            "passing": 49,
+            "total": 49,
+            "perBundle": true,
+            "fullDataset": 196,
+            "postFixPassing": 159,
+            "oldPassing": 148,
+            "untouchedQuestionRegressions": 0
+          },
+          "status": "V8 function-level preflight passed; Node run and independent academic review pending",
+          "approved": false
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-result-not-proof",
@@ -4280,7 +4430,7 @@
     }
   ],
   "markingCounterexamples": "tests/food-tests-marking-counterexamples.mjs",
-  "testStatus": "51 other mark_points items assessed with 196 V8 probes; Node and independent QA pending.",
+  "testStatus": "Six high-risk Food Tests items have guarded scoring on QA branch: 49/49 per bundle preflight, 159/196 overall, 37 remaining paraphrase mismatches; Node and independent Academic QA still pending.",
   "markingDiagnostic": {
     "fixture": "qa/food-tests-51-markpoints-probes.json",
     "report": "qa/food-tests-51-markpoints-preflight.json",
@@ -4295,6 +4445,17 @@
       "affectedQuestions": 43
     },
     "nodeExecuted": false,
-    "approved": 0
+    "approved": 0,
+    "sixItemGuarded": {
+      "module": "assets/food-tests-six-guarded-rubric-20261122.js",
+      "runner": "tests/food-tests-six-guarded-acceptance.mjs",
+      "curatedCases": 49,
+      "curatedPassed": 49,
+      "full196PostFix": 159,
+      "full196Failures": 37,
+      "other45Changed": 0,
+      "nodeExecuted": false,
+      "approved": 0
+    }
   }
 }
