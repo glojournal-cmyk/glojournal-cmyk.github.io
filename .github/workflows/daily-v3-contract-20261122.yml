@@ -29,6 +29,8 @@ on:
       - 'tests/daily-v3-maths-indices-005-008-distractor-qa-20261122.test.mjs'
       - 'tests/daily-v3-maths-original-systems-20261122.test.mjs'
       - 'tests/daily-v3-maths-standard-form-033-036-repair-20261122.test.mjs'
+      - 'tests/daily-v3-maths-standard-form-density-7-repairs-20261122.test.mjs'
+      - 'qa-staging/math-v311-standard-form-density-7-repairs-20261122.json'
       - 'qa-staging/math-v311-standard-form-033-036-distinct-replacements-20261122.json'
       - 'qa-staging/math-v311-simultaneous-original-system-collisions-20261122.json'
       - 'qa-reports/daily-v3-maths-indices-005-008-source-distractors-20261122.md'
@@ -66,6 +68,8 @@ on:
       - 'tests/daily-v3-maths-indices-005-008-distractor-qa-20261122.test.mjs'
       - 'tests/daily-v3-maths-original-systems-20261122.test.mjs'
       - 'tests/daily-v3-maths-standard-form-033-036-repair-20261122.test.mjs'
+      - 'tests/daily-v3-maths-standard-form-density-7-repairs-20261122.test.mjs'
+      - 'qa-staging/math-v311-standard-form-density-7-repairs-20261122.json'
       - 'qa-staging/math-v311-standard-form-033-036-distinct-replacements-20261122.json'
       - 'qa-staging/math-v311-simultaneous-original-system-collisions-20261122.json'
       - 'qa-reports/daily-v3-maths-indices-005-008-source-distractors-20261122.md'
@@ -107,13 +111,14 @@ jobs:
           node --check tests/daily-v3-maths-indices-005-008-distractor-qa-20261122.test.mjs
           node --check tests/daily-v3-maths-original-systems-20261122.test.mjs
           node --check tests/daily-v3-maths-standard-form-033-036-repair-20261122.test.mjs
+          node --check tests/daily-v3-maths-standard-form-density-7-repairs-20261122.test.mjs
           node --check tests/daily-v3-maths-planner-integration-20261122.test.mjs
           node --check tests/daily-v3-academic-approved-20261122.test.mjs
           node --check tests/daily-v3-scoring-integrity-20261122.test.mjs
           node --check tests/daily-v3-contract-20261122.test.mjs
           node --check tests/daily-v3-vocab-20261122.test.mjs
       - name: Unit tests - Daily V3 contract
-        run: node --test tests/daily-v3-contract-20261122.test.mjs tests/daily-v3-vocab-20261122.test.mjs tests/daily-v3-academic-approved-20261122.test.mjs tests/daily-v3-scoring-integrity-20261122.test.mjs tests/daily-v3-maths-v31-intake-20261122.test.mjs tests/daily-v3-maths-selector-20261122.test.mjs tests/daily-v3-maths-qa-preview-20261122.test.mjs tests/daily-v3-maths-pedagogical-candidates-20261122.test.mjs tests/daily-v3-maths-indices-005-008-distractor-qa-20261122.test.mjs tests/daily-v3-maths-original-systems-20261122.test.mjs tests/daily-v3-maths-standard-form-033-036-repair-20261122.test.mjs tests/daily-v3-maths-planner-integration-20261122.test.mjs tests/daily-v3-mathml-offline-20261122.test.mjs tests/daily-v3-maths-formal-submission-20261122.test.mjs tests/daily-v3-maths-idb-fallback-20261122.test.mjs
+        run: node --test tests/daily-v3-contract-20261122.test.mjs tests/daily-v3-vocab-20261122.test.mjs tests/daily-v3-academic-approved-20261122.test.mjs tests/daily-v3-scoring-integrity-20261122.test.mjs tests/daily-v3-maths-v31-intake-20261122.test.mjs tests/daily-v3-maths-selector-20261122.test.mjs tests/daily-v3-maths-qa-preview-20261122.test.mjs tests/daily-v3-maths-pedagogical-candidates-20261122.test.mjs tests/daily-v3-maths-indices-005-008-distractor-qa-20261122.test.mjs tests/daily-v3-maths-original-systems-20261122.test.mjs tests/daily-v3-maths-standard-form-033-036-repair-20261122.test.mjs tests/daily-v3-maths-standard-form-density-7-repairs-20261122.test.mjs tests/daily-v3-maths-planner-integration-20261122.test.mjs tests/daily-v3-mathml-offline-20261122.test.mjs tests/daily-v3-maths-formal-submission-20261122.test.mjs tests/daily-v3-maths-idb-fallback-20261122.test.mjs
       - name: Existing Daily V2, vocabulary, Recovery and concept supply regression
         run: |
           node --test tests/daily-vocab-year9-three-20261021.test.mjs tests/daily-20261103-inflight-and-window.test.mjs tests/question-supply-preflight-20261111.test.mjs tests/recovery-all-tasks-ledger.test.mjs
