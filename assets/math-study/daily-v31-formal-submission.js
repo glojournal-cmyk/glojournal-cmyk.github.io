@@ -1,5 +1,6 @@
 // Pure Maths Daily submission boundary. NEVER writes XP/MP, storage or ledger.
 import {verifiedSourceSystemKeyForMathsId} from './math-v311-original-system-collisions.js';
+import {mathsOriginalGradeDemandDecision} from './math-v311-grade-demand-gate.js';
 // The caller must persist a returned formal answer using the existing durable
 // study-evidence API. This module alone cannot award a Daily completion.
 const TOPICS=new Set(['math-y9-indices','math-y9-standard-form','math-y9-changing-subject','math-y9-straight-line-graphs','math-y9-simultaneous-equations']);
@@ -49,6 +50,8 @@ export function verifyMathDailyAssignment(task,questions,day){
      q.academicQA!=='approved'||q.taughtVerified!==true||
      q.mathDailyEnabled!==true||q.renderRequired!==true)
     issues.push('question-not-independently-approved:'+q.id);
+  const gradeDemand=mathsOriginalGradeDemandDecision(q);
+  if(!gradeDemand.ok)issues.push(gradeDemand.reason+':'+q.id);
   if(!text(q.templateId)||concepts.has(q.templateId))
     issues.push('duplicate-template-concept:'+q.id);
   concepts.add(q.templateId);
