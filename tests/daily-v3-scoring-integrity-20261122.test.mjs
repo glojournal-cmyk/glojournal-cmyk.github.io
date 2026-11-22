@@ -164,6 +164,20 @@ test('blocked and malformed Year 9 Daily task cannot mint credit from replayed a
    assert.equal(x.completed,false);
  }
 });
+test('missing formal:true cannot be treated as independently marked Language or Year 9 credit',()=>{
+ const tasks=plan(),b=tasks.find(t=>t.id==='y8-standard-b');
+ const l=tasks.find(t=>t.id==='languages-standard');
+ const bEntry=entry(b,b.approvedQuestionIds[0],true,{formal:undefined});
+ assert.equal(v3ScopedQuestionEvidence({...base(),daily:tasks,formalAttemptLog:[bEntry]},b,day).correct,0);
+ for(const subject of ['latin','french']){
+   const id=l.languageSplit[subject].approvedQuestionIds[0];
+   const attempt={day,year:8,subject,topicId:l.languageSplit[subject].topicId,
+     dailyTaskId:'languages-standard',questionId:id,correct:true};
+   const info=languageEvidence({...base(),daily:tasks,formalAttemptLog:[attempt]},day);
+   assert.equal(info[subject].correct,0,'missing formal answer marking must not count');
+   assert.equal(info.completed,false);
+ }
+});
 test('V3 planner never changes original XP, MP, streak, Mastery, Recovery, seenCorrect or completed historic Daily receipt',()=>{
  const seed=base(),copy=JSON.stringify(seed);
  const first=buildDailyV3(seed,legacy());
