@@ -2662,6 +2662,20 @@ function dailyVocabSubject(subject, meta = {}) {
 }
 
 function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
+  // SAFETY: the legacy synchronous recordAttempt grants core XP *before* its
+  // fire-and-forget IndexedDB backup resolves. A Year 9 Maths Daily answer
+  // MUST NOT enter this path: it needs a signed ten-question assignment,
+  // server-independent A-F first-answer marking and durable save ACK first.
+  // Until the dedicated graded player is wired and independently audited,
+  // fail closed with no store write, XP, MP, Mastery or Daily credit.
+  const legacyTaskFromRoute = typeof window !== "undefined"
+    ? new URLSearchParams(window.location.search).get("task") : null;
+  if (meta?.progressionTask==="maths-daily"||
+      meta?.dailyTaskId==="maths-daily"||
+      legacyTaskFromRoute==="maths-daily") {
+    return {blocked:true,reason:"maths-daily-requires-durable-verified-submission",
+      awarded:0,xp:0,mp:0};
+  }
   const before = store.getState();
   const dueBefore = !!before.reviews?.[questionId]?.due && before.reviews[questionId].due <= todayKey();
   const resolved = inferAttemptMeta(questionId, subject, meta || {});
