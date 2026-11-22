@@ -1,0 +1,36 @@
+name: Daily Tasks V3 contract and safety gates
+on:
+  push:
+    branches: [feature/daily-tasks-v3-20261122]
+    paths:
+      - 'assets/daily-tasks-v3-20261122.js'
+      - 'assets/daily-vocab-20261003.js'
+      - 'assets/index-BLVOhKhN.js'
+      - 'tests/daily-v3-contract-20261122.test.mjs'
+      - '.github/workflows/daily-v3-contract-20261122.yml'
+  pull_request:
+    paths:
+      - 'assets/daily-tasks-v3-20261122.js'
+      - 'assets/daily-vocab-20261003.js'
+      - 'assets/index-BLVOhKhN.js'
+      - 'tests/daily-v3-contract-20261122.test.mjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  v3-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax and integrity
+        run: |
+          node --check assets/daily-tasks-v3-20261122.js
+          node --check assets/daily-vocab-20261003.js
+          node --check assets/index-BLVOhKhN.js
+          node --check tests/daily-v3-contract-20261122.test.mjs
+      - name: Unit tests - Daily V3 contract
+        run: node --test tests/daily-v3-contract-20261122.test.mjs
