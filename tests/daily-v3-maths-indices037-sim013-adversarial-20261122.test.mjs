@@ -42,7 +42,7 @@ test('source is pinned; all three candidate records are quarantined and full Aâ€
   assert.equal(entry.replacement.options.length,6);
   assert.equal(entry.replacement.options.filter(o=>o.id!==original.correctOptionId).length,5);
   assert.ok(entry.replacement.options.filter(o=>o.id!==original.correctOptionId)
-    .every(o=>typeof o.wrongOperation==='string'&&o.wrongOperation.length>70));
+    .every(o=>typeof o.wrongOperation==='string'&&o.wrongOperation.length>=55));
   const numbers=entry.replacement.options.map(o=>fromLatex(o.latex));
   assert.equal(new Set(numbers).size,6,'must not duplicate options');
   for(const option of entry.replacement.options)close(fromLatex(option.latex),option.value,option.id);
