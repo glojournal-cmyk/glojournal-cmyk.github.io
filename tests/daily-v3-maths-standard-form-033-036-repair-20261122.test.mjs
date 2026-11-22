@@ -24,6 +24,16 @@ test('four source replacements stay QA-only; preserve original A-F answer letter
  assert.equal(pack.teacherTaughtConfirmed,false);
  assert.equal(pack.independentGradeCalibrated,false);
  assert.equal(pack.independentDistractorApproved,false);
+ assert.match(pack.schoolYear9OfficialCurriculum.url,/Year-9-Maths-2026-2027\.pdf/);
+ assert.equal(pack.schoolYear9OfficialCurriculum.reversePercentagesTerm,'Spring');
+ assert.equal(pack.schoolYear9OfficialCurriculum.compoundPercentageChangeTerm,'Spring');
+ for(const p of pack.patches){
+  assert.equal(p.curriculumSafety.autumnMathDailyEligible,false);
+  assert.equal(p.curriculumSafety.exactMethodActuallyTaught,false);
+  assert.equal(p.curriculumSafety.reviewerMustResolveBeforeRelease,true);
+ }
+ assert.equal(bySuffix('035').curriculumSafety.officialTermScope,'SPRING_REVERSE_PERCENTAGE');
+ assert.equal(bySuffix('036').curriculumSafety.officialTermScope,'SPRING_COMPOUND_PERCENTAGE_CHANGE');
  assert.equal(pack.patches.length,4);
  assert.deepEqual(pack.patches.map(p=>p.questionId),[33,34,35,36].map(n=>
   'LUX-MATH-Y9-STANDARD_FORM-'+String(n).padStart(3,'0')));
