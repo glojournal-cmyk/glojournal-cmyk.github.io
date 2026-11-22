@@ -2,6 +2,7 @@ import {readFileSync} from 'node:fs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {verifyMathDailyAssignment,makeVerifiedMathsSubmission} from '../assets/math-study/daily-v31-formal-submission.js';
+import {mathsEvidence} from '../assets/daily-tasks-v3-20261122.js';
 const day='2026-11-23';
 const topics=['math-y9-indices','math-y9-standard-form','math-y9-changing-subject',
  'math-y9-straight-line-graphs','math-y9-simultaneous-equations'];
@@ -99,6 +100,12 @@ test('dated Maths task compaction does not convert a finished failed 8/10 attemp
    formal:true,correct:i<8,selectedOptionId:i<8?'B':'A',at:day+'T12:00:00Z'
  }));
  assert.equal(attempts.length,10);
+ const failed=mathsEvidence(attempts,day,task);
+ assert.equal(failed.submitted,10);
+ assert.equal(failed.correct,8);
+ assert.equal(failed.completed,false);
+ const ninth=attempts.map((a,i)=>i===8?{...a,correct:true,selectedOptionId:'B'}:a);
+ assert.equal(mathsEvidence(ninth,day,task).completed,true);
 });
 
 test('actual Scholar recordAttempt wrapper persists the A-F selected answer and assistance/recovery flags',()=>{
