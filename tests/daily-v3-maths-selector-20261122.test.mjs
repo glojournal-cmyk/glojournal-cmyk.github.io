@@ -68,6 +68,19 @@ test('Different source template IDs cannot masquerade as different Maths concept
  assert.equal(result.ready,false,'there are only nine semantic concepts despite ten template IDs');
 });
 
+test('adjacent-day concept family reservation works even with a different template label',()=>{
+ const day='2026-11-23';
+ const noHistory=selectMathsV31Daily({approvedQuestions:fixture,day});
+ assert.equal(noHistory.ready,true);
+ const family=noHistory.questions[0].conceptFamilyId;
+ const history=[{date:'2026-11-22',questionIds:[],templateIds:['different-source-template'],
+   conceptFamilyIds:[family]}];
+ const next=selectMathsV31Daily({approvedQuestions:fixture,day,history});
+ assert.equal(next.ready,true,next.issues.join(','));
+ assert.equal(next.diagnostics.previousDayConceptFamilyRepeats,0);
+ assert.ok(!next.questions.some(q=>q.conceptFamilyId===family));
+});
+
 test('one already-used ID is not recycled to make artificial ten without independent fresh replacements',()=>{
  const bank=fixture.slice(0,10),history=[{date:'2026-11-22',questionIds:bank.map(q=>q.id),
    templateIds:bank.map(q=>q.templateId)}];
