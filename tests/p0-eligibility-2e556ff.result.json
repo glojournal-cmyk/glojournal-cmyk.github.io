@@ -23,6 +23,14 @@
       }
     },
     {
+      "id": "current.daily.same-receipt-does-not-double",
+      "ok": true,
+      "actual": {
+        "progress": 1,
+        "reason": "already-counted"
+      }
+    },
+    {
       "id": "current.daily.explicit-formal-false-no-progress",
       "ok": true,
       "actual": {
@@ -36,6 +44,14 @@
       "actual": {
         "stage": "check2",
         "due": "2026-11-24"
+      }
+    },
+    {
+      "id": "current.mastery.same-attempt-id-does-not-double",
+      "ok": true,
+      "actual": {
+        "once": 1,
+        "twice": 1
       }
     },
     {

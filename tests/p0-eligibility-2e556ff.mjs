@@ -2,10 +2,16 @@
 // Documents current P0 behaviour. Does not modify the app or main.
 // Rerun: node p0-eligibility-2e556ff.mjs
 const COMMIT = "2e556ffcb48f6c7346b3b663f8058f57271b643d";
+const EXPECTED = {
+  "mastery-v2-20261018.js": "5ddf9bd5e165294928d543ec8132b58a911b9fc96bd468e85c5acda933a8c92d",
+  "daily-session-credit-20261021.js": "a802fdb1e7307cfe5f249753c756b07b7e553005de84906da54da7118e36c05d",
+  "daily-curriculum-20261004.js": "12f17bea7f61f7fcb99f8e9cb02514dcfe000462f405bee862699edc2fee9489",
+  "index-BLVOhKhN.core.js": "565e190951fd139fe860849c46b8bdeb2d3cb5d2076d15438cf2272918ebe4e2",
+};
 const BASE = `https://raw.githubusercontent.com/glojournal-cmyk/glojournal-cmyk.github.io/${COMMIT}`;
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, writeFile, readFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
-import { pathToFileURL } from "node:url";
+import { pathToFileURL, fileURLToPath } from "node:url";
 import { tmpdir } from "node:os";
 import path from "node:path";
 
@@ -18,11 +24,24 @@ const files = {
 const dir = path.join(tmpdir(), `lux-p0-${COMMIT.slice(0, 12)}`);
 await mkdir(dir, { recursive: true });
 const hashes = {};
+const here = path.dirname(fileURLToPath(import.meta.url));
 for (const [name, rel] of Object.entries(files)) {
-  const res = await fetch(BASE + rel);
-  if (!res.ok) throw new Error(`fetch ${rel} ${res.status}`);
-  const buf = Buffer.from(await res.arrayBuffer());
-  hashes[name] = createHash("sha256").update(buf).digest("hex");
+  const localCandidates = [
+    path.resolve(here, "..", rel.slice(1)),
+    path.resolve(rel.slice(1)),
+  ];
+  let buf = null;
+  for (const candidate of localCandidates) {
+    try { buf = await readFile(candidate); break; } catch { /* try next */ }
+  }
+  if (!buf) {
+    const res = await fetch(BASE + rel);
+    if (!res.ok) throw new Error(`fetch ${rel} ${res.status}`);
+    buf = Buffer.from(await res.arrayBuffer());
+  }
+  const hash = createHash("sha256").update(buf).digest("hex");
+  if (hash !== EXPECTED[name]) throw new Error(`sha256 mismatch ${name}: ${hash}`);
+  hashes[name] = hash;
   await writeFile(path.join(dir, name), buf);
 }
 const mastery = await import(pathToFileURL(path.join(dir, "mastery-v2-20261018.js")).href);
@@ -83,6 +102,12 @@ function expect(id, ok, actual) { if (!ok) throw new Error(id + " " + JSON.strin
     answers: [{ questionId: "UNAPPROVED-1", correct: true }],
   });
   expect("current.daily.missing-flag-credits", result.changed === true && result.progress === 1, { progress: result.progress, reason: result.reason });
+  const again = credit.reconcileDailySession({ today: day, daily: result.daily, formalAttemptLog: [{ day, dailyTaskId: "y8-standard-a", subject: "biology", year: 8, correct: true, questionId: "UNAPPROVED-1", topicId: topic, attemptId: "same-daily" }] }, {
+    day, taskId: "y8-standard-a", subject: "biology", year: 8, mode: "standard",
+    questions: [{ id: "UNAPPROVED-1", topicId: topic }],
+    answers: [{ questionId: "UNAPPROVED-1", correct: true }],
+  });
+  expect("current.daily.same-receipt-does-not-double", again.changed === false && again.progress === 1, { progress: again.progress, reason: again.reason });
 }
 {
   const result = credit.reconcileDailySession(dailyState(), {
@@ -99,6 +124,9 @@ function masteryEntry(n, overrides = {}) {
 let stat = {};
 for (let n = 1; n <= 20; n++) stat = { masteryV2: mastery.addMasteryEvidence(stat, masteryEntry(n)) };
 expect("current.mastery.assisted-typed-short-reaches-check2", stat.masteryV2.stage === "check2" && stat.masteryV2.due === "2026-11-24", { stage: stat.masteryV2.stage, due: stat.masteryV2.due });
+const once = mastery.addMasteryEvidence({}, masteryEntry(1));
+const twice = mastery.addMasteryEvidence({ masteryV2: once }, masteryEntry(1));
+expect("current.mastery.same-attempt-id-does-not-double", once.attempts.length === 1 && twice.attempts.length === 1, { once: once.attempts.length, twice: twice.attempts.length });
 
 const beforeDue = { masteryV2: mastery.addMasteryEvidence(stat, { questionId: "R1", day: "2026-11-23", year: 8, mode: "retention", correct: true, assisted: true, format: "mc_single" }) };
 expect("current.mastery.retention-before-due-does-not-advance", beforeDue.masteryV2.stage === "check2" && (beforeDue.masteryV2.checks || []).length === 0, { stage: beforeDue.masteryV2.stage, checks: beforeDue.masteryV2.checks });

@@ -1,0 +1,135 @@
+{
+  "commit": "2e556ffcb48f6c7346b3b663f8058f57271b643d",
+  "kind": "formal-bank-fingerprint-inventory",
+  "not": [
+    "academic-approval-allowlist",
+    "proof-that-live-daily-draws-these-files",
+    "permission-to-deploy-a-credit-gate"
+  ],
+  "scope": [
+    "content/topics/*.json questions[]",
+    "assets/math-study/math-y9-indices.json questions[]"
+  ],
+  "excluded": [
+    "scholar-marking-v8/bank.json",
+    "questions embedded only inside bundled JavaScript",
+    "assessment/banks"
+  ],
+  "fingerprint": "sha256 of JSON {format,prompt,stimulus,options,answer} with sorted keys. feedbackSha256 is separate and is not the approval fingerprint.",
+  "approvalValues": {
+    "not-approved": "No per-question academic sign-off is recorded in this inventory."
+  },
+  "qaStatusValues": {
+    "not-recorded": "No cited automated or academic evidence for this item.",
+    "regression-covered": "An automated regression asserts part of the mark scheme. This is not academic approval."
+  },
+  "topicFiles": 254,
+  "unreadableOrSkipped": [],
+  "questions": 15788,
+  "distinctQuestionIds": 15788,
+  "duplicateQuestionIds": [],
+  "duplicateQuestionIdCount": 0,
+  "formalField": {
+    "absent": 15652,
+    "present": 136
+  },
+  "qaStatus": {
+    "not-recorded": 15720,
+    "regression-covered": 68
+  },
+  "approval": {
+    "not-approved": 15788
+  },
+  "bySubjectYear": [
+    {
+      "subject": "biology",
+      "year": 8,
+      "qaStatus": "not-recorded",
+      "questions": 1046
+    },
+    {
+      "subject": "biology",
+      "year": 8,
+      "qaStatus": "regression-covered",
+      "questions": 65
+    },
+    {
+      "subject": "biology",
+      "year": 9,
+      "qaStatus": "not-recorded",
+      "questions": 992
+    },
+    {
+      "subject": "chemistry",
+      "year": 8,
+      "qaStatus": "not-recorded",
+      "questions": 367
+    },
+    {
+      "subject": "chemistry",
+      "year": 8,
+      "qaStatus": "regression-covered",
+      "questions": 1
+    },
+    {
+      "subject": "chemistry",
+      "year": 9,
+      "qaStatus": "not-recorded",
+      "questions": 1222
+    },
+    {
+      "subject": "english",
+      "year": 9,
+      "qaStatus": "not-recorded",
+      "questions": 148
+    },
+    {
+      "subject": "french",
+      "year": 8,
+      "qaStatus": "not-recorded",
+      "questions": 5635
+    },
+    {
+      "subject": "french",
+      "year": 9,
+      "qaStatus": "not-recorded",
+      "questions": 814
+    },
+    {
+      "subject": "latin",
+      "year": 8,
+      "qaStatus": "not-recorded",
+      "questions": 2502
+    },
+    {
+      "subject": "latin",
+      "year": 9,
+      "qaStatus": "not-recorded",
+      "questions": 1365
+    },
+    {
+      "subject": "maths",
+      "year": 9,
+      "qaStatus": "not-recorded",
+      "questions": 98
+    },
+    {
+      "subject": "maths",
+      "year": 9,
+      "qaStatus": "regression-covered",
+      "questions": 2
+    },
+    {
+      "subject": "physics",
+      "year": 8,
+      "qaStatus": "not-recorded",
+      "questions": 465
+    },
+    {
+      "subject": "physics",
+      "year": 9,
+      "qaStatus": "not-recorded",
+      "questions": 1066
+    }
+  ]
+}
