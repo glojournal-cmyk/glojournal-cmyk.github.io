@@ -1,0 +1,1355 @@
+{
+  "status": "FORTY_SOURCE_BASED_WORKED_MODEL_INVERSIONS_QA_ONLY_NOT_OFFICIAL_MARK_SCHEME",
+  "date": "2026-11-22",
+  "scope": "40 full candidate model derivations per actual original Changing Subject Q81–120, tied to the original correct-letter key and source equation parameters, NOT an exact typeset original A-F option comparison.",
+  "sourceEvidence": [
+    "qa-staging/math-v311-batch40-changing-subject-source-qa-20261122.json",
+    "qa-staging/math-v311-changing-subject40-independent-inverse-check-20261122.json",
+    "qa-staging/math-v311-changing-subject40-inverse-domains-and-uniqueness-20261122.json"
+  ],
+  "sourceQuestionCount": 40,
+  "originalPrintedCorrectOptionsVisuallyCertified": 0,
+  "sourceWrongOptionPedagogyApproved": 0,
+  "independentExamGrade7PlusApproved": 0,
+  "allTGSAutumnTaughtProven": false,
+  "canonicalBankChanged": false,
+  "studentCreditAllowed": false,
+  "workedSolutions": [
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-001",
+      "originalQuestion": 81,
+      "originalPrintedCorrectLetter": "C",
+      "sourceMathFamily": "RATIONAL_MOBIUS",
+      "sourceCoefficients": [
+        0,
+        2,
+        -6,
+        2,
+        5
+      ],
+      "independentDerivedModelAnswer": "x=(-6-5(y-0))/(2(y-0)-2)",
+      "workedAlgebraSteps": [
+        "Set z=y-0",
+        "Cross-multiply: z(2x+5)=2x+-6",
+        "Collect (2z-2)x=-6-5z",
+        "Divide by nonzero 2z-2; replace z by y-0"
+      ],
+      "sourceDomainAndRangeRestrictions": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=22, so inverse is unique on the permitted domain.",
+      "forbiddenOriginalX": [
+        -2.5
+      ],
+      "forbiddenY": [
+        1
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-002",
+      "originalQuestion": 82,
+      "originalPrintedCorrectLetter": "F",
+      "sourceMathFamily": "RATIONAL_MOBIUS",
+      "sourceCoefficients": [
+        0,
+        3,
+        -12,
+        3,
+        6
+      ],
+      "independentDerivedModelAnswer": "x=(-12-6(y-0))/(3(y-0)-3)",
+      "workedAlgebraSteps": [
+        "Set z=y-0",
+        "Cross-multiply: z(3x+6)=3x+-12",
+        "Collect (3z-3)x=-12-6z",
+        "Divide by nonzero 3z-3; replace z by y-0"
+      ],
+      "sourceDomainAndRangeRestrictions": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=54, so inverse is unique on the permitted domain.",
+      "forbiddenOriginalX": [
+        -2
+      ],
+      "forbiddenY": [
+        1
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-003",
+      "originalQuestion": 83,
+      "originalPrintedCorrectLetter": "D",
+      "sourceMathFamily": "RATIONAL_MOBIUS",
+      "sourceCoefficients": [
+        0,
+        4,
+        -20,
+        4,
+        7
+      ],
+      "independentDerivedModelAnswer": "x=(-20-7(y-0))/(4(y-0)-4)",
+      "workedAlgebraSteps": [
+        "Set z=y-0",
+        "Cross-multiply: z(4x+7)=4x+-20",
+        "Collect (4z-4)x=-20-7z",
+        "Divide by nonzero 4z-4; replace z by y-0"
+      ],
+      "sourceDomainAndRangeRestrictions": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=108, so inverse is unique on the permitted domain.",
+      "forbiddenOriginalX": [
+        -1.75
+      ],
+      "forbiddenY": [
+        1
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-004",
+      "originalQuestion": 84,
+      "originalPrintedCorrectLetter": "C",
+      "sourceMathFamily": "RATIONAL_MOBIUS",
+      "sourceCoefficients": [
+        0,
+        5,
+        -30,
+        5,
+        8
+      ],
+      "independentDerivedModelAnswer": "x=(-30-8(y-0))/(5(y-0)-5)",
+      "workedAlgebraSteps": [
+        "Set z=y-0",
+        "Cross-multiply: z(5x+8)=5x+-30",
+        "Collect (5z-5)x=-30-8z",
+        "Divide by nonzero 5z-5; replace z by y-0"
+      ],
+      "sourceDomainAndRangeRestrictions": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=190, so inverse is unique on the permitted domain.",
+      "forbiddenOriginalX": [
+        -1.6
+      ],
+      "forbiddenY": [
+        1
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-005",
+      "originalQuestion": 85,
+      "originalPrintedCorrectLetter": "E",
+      "sourceMathFamily": "AFFINE_PRINCIPAL_SQUARE_ROOT",
+      "sourceCoefficients": [
+        2,
+        3,
+        2,
+        4
+      ],
+      "independentDerivedModelAnswer": "x=(((y+4)/2)²-2)/3",
+      "workedAlgebraSteps": [
+        "Move -4 across: y+4=2√(3x+2)",
+        "Keep nonnegative branch y+4≥0; divide by 2 and square",
+        "(3x+2)=(y+4)²/4",
+        "Rearrange x=[(y+4)²/4-2]/3"
+      ],
+      "sourceDomainAndRangeRestrictions": "Principal square root imposes x >= -c/b and y >= -d. Squaring without y>=-d would introduce an extraneous branch.",
+      "forbiddenOriginalX": [],
+      "forbiddenY": [],
+      "principalRootYMinimumInclusive": -4,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-006",
+      "originalQuestion": 86,
+      "originalPrintedCorrectLetter": "C",
+      "sourceMathFamily": "AFFINE_PRINCIPAL_SQUARE_ROOT",
+      "sourceCoefficients": [
+        3,
+        4,
+        3,
+        5
+      ],
+      "independentDerivedModelAnswer": "x=(((y+5)/3)²-3)/4",
+      "workedAlgebraSteps": [
+        "Move -5 across: y+5=3√(4x+3)",
+        "Keep nonnegative branch y+5≥0; divide by 3 and square",
+        "(4x+3)=(y+5)²/9",
+        "Rearrange x=[(y+5)²/9-3]/4"
+      ],
+      "sourceDomainAndRangeRestrictions": "Principal square root imposes x >= -c/b and y >= -d. Squaring without y>=-d would introduce an extraneous branch.",
+      "forbiddenOriginalX": [],
+      "forbiddenY": [],
+      "principalRootYMinimumInclusive": -5,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-007",
+      "originalQuestion": 87,
+      "originalPrintedCorrectLetter": "F",
+      "sourceMathFamily": "AFFINE_PRINCIPAL_SQUARE_ROOT",
+      "sourceCoefficients": [
+        4,
+        5,
+        4,
+        6
+      ],
+      "independentDerivedModelAnswer": "x=(((y+6)/4)²-4)/5",
+      "workedAlgebraSteps": [
+        "Move -6 across: y+6=4√(5x+4)",
+        "Keep nonnegative branch y+6≥0; divide by 4 and square",
+        "(5x+4)=(y+6)²/16",
+        "Rearrange x=[(y+6)²/16-4]/5"
+      ],
+      "sourceDomainAndRangeRestrictions": "Principal square root imposes x >= -c/b and y >= -d. Squaring without y>=-d would introduce an extraneous branch.",
+      "forbiddenOriginalX": [],
+      "forbiddenY": [],
+      "principalRootYMinimumInclusive": -6,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-008",
+      "originalQuestion": 88,
+      "originalPrintedCorrectLetter": "A",
+      "sourceMathFamily": "AFFINE_PRINCIPAL_SQUARE_ROOT",
+      "sourceCoefficients": [
+        5,
+        6,
+        5,
+        7
+      ],
+      "independentDerivedModelAnswer": "x=(((y+7)/5)²-5)/6",
+      "workedAlgebraSteps": [
+        "Move -7 across: y+7=5√(6x+5)",
+        "Keep nonnegative branch y+7≥0; divide by 5 and square",
+        "(6x+5)=(y+7)²/25",
+        "Rearrange x=[(y+7)²/25-5]/6"
+      ],
+      "sourceDomainAndRangeRestrictions": "Principal square root imposes x >= -c/b and y >= -d. Squaring without y>=-d would introduce an extraneous branch.",
+      "forbiddenOriginalX": [],
+      "forbiddenY": [],
+      "principalRootYMinimumInclusive": -7,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-009",
+      "originalQuestion": 89,
+      "originalPrintedCorrectLetter": "E",
+      "sourceMathFamily": "RATIONAL_MOBIUS",
+      "sourceCoefficients": [
+        1,
+        2,
+        3,
+        2,
+        4
+      ],
+      "independentDerivedModelAnswer": "x=(3-4(y-1))/(2(y-1)-2)",
+      "workedAlgebraSteps": [
+        "Set z=y-1",
+        "Cross-multiply: z(2x+4)=2x+3",
+        "Collect (2z-2)x=3-4z",
+        "Divide by nonzero 2z-2; replace z by y-1"
+      ],
+      "sourceDomainAndRangeRestrictions": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=2, so inverse is unique on the permitted domain.",
+      "forbiddenOriginalX": [
+        -2
+      ],
+      "forbiddenY": [
+        2
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-010",
+      "originalQuestion": 90,
+      "originalPrintedCorrectLetter": "C",
+      "sourceMathFamily": "RATIONAL_MOBIUS",
+      "sourceCoefficients": [
+        2,
+        3,
+        4,
+        3,
+        5
+      ],
+      "independentDerivedModelAnswer": "x=(4-5(y-2))/(3(y-2)-3)",
+      "workedAlgebraSteps": [
+        "Set z=y-2",
+        "Cross-multiply: z(3x+5)=3x+4",
+        "Collect (3z-3)x=4-5z",
+        "Divide by nonzero 3z-3; replace z by y-2"
+      ],
+      "sourceDomainAndRangeRestrictions": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=3, so inverse is unique on the permitted domain.",
+      "forbiddenOriginalX": [
+        -1.6666666666666667
+      ],
+      "forbiddenY": [
+        3
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-011",
+      "originalQuestion": 91,
+      "originalPrintedCorrectLetter": "A",
+      "sourceMathFamily": "RATIONAL_MOBIUS",
+      "sourceCoefficients": [
+        3,
+        4,
+        5,
+        4,
+        6
+      ],
+      "independentDerivedModelAnswer": "x=(5-6(y-3))/(4(y-3)-4)",
+      "workedAlgebraSteps": [
+        "Set z=y-3",
+        "Cross-multiply: z(4x+6)=4x+5",
+        "Collect (4z-4)x=5-6z",
+        "Divide by nonzero 4z-4; replace z by y-3"
+      ],
+      "sourceDomainAndRangeRestrictions": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=4, so inverse is unique on the permitted domain.",
+      "forbiddenOriginalX": [
+        -1.5
+      ],
+      "forbiddenY": [
+        4
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-012",
+      "originalQuestion": 92,
+      "originalPrintedCorrectLetter": "A",
+      "sourceMathFamily": "SHIFTED_RECIPROCAL",
+      "sourceCoefficients": [
+        1,
+        3,
+        2,
+        1
+      ],
+      "independentDerivedModelAnswer": "x=(3/(y-1)-1)/2",
+      "workedAlgebraSteps": [
+        "Isolate y-1=3/(2x+1)",
+        "Require y-1 != 0 before taking reciprocals",
+        "Write 2x+1=3/(y-1)",
+        "Solve x=(3/(y-1)-1)/2"
+      ],
+      "sourceDomainAndRangeRestrictions": "Original denominator bx+c cannot be 0; shift s is an unattainable horizontal asymptote.",
+      "forbiddenOriginalX": [
+        -0.5
+      ],
+      "forbiddenY": [
+        1
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-013",
+      "originalQuestion": 93,
+      "originalPrintedCorrectLetter": "E",
+      "sourceMathFamily": "SHIFTED_RECIPROCAL",
+      "sourceCoefficients": [
+        2,
+        4,
+        3,
+        2
+      ],
+      "independentDerivedModelAnswer": "x=(4/(y-2)-2)/3",
+      "workedAlgebraSteps": [
+        "Isolate y-2=4/(3x+2)",
+        "Require y-2 != 0 before taking reciprocals",
+        "Write 3x+2=4/(y-2)",
+        "Solve x=(4/(y-2)-2)/3"
+      ],
+      "sourceDomainAndRangeRestrictions": "Original denominator bx+c cannot be 0; shift s is an unattainable horizontal asymptote.",
+      "forbiddenOriginalX": [
+        -0.6666666666666666
+      ],
+      "forbiddenY": [
+        2
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-014",
+      "originalQuestion": 94,
+      "originalPrintedCorrectLetter": "D",
+      "sourceMathFamily": "SHIFTED_RECIPROCAL",
+      "sourceCoefficients": [
+        3,
+        5,
+        2,
+        3
+      ],
+      "independentDerivedModelAnswer": "x=(5/(y-3)-3)/2",
+      "workedAlgebraSteps": [
+        "Isolate y-3=5/(2x+3)",
+        "Require y-3 != 0 before taking reciprocals",
+        "Write 2x+3=5/(y-3)",
+        "Solve x=(5/(y-3)-3)/2"
+      ],
+      "sourceDomainAndRangeRestrictions": "Original denominator bx+c cannot be 0; shift s is an unattainable horizontal asymptote.",
+      "forbiddenOriginalX": [
+        -1.5
+      ],
+      "forbiddenY": [
+        3
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-015",
+      "originalQuestion": 95,
+      "originalPrintedCorrectLetter": "A",
+      "sourceMathFamily": "SHIFTED_RECIPROCAL",
+      "sourceCoefficients": [
+        4,
+        6,
+        3,
+        4
+      ],
+      "independentDerivedModelAnswer": "x=(6/(y-4)-4)/3",
+      "workedAlgebraSteps": [
+        "Isolate y-4=6/(3x+4)",
+        "Require y-4 != 0 before taking reciprocals",
+        "Write 3x+4=6/(y-4)",
+        "Solve x=(6/(y-4)-4)/3"
+      ],
+      "sourceDomainAndRangeRestrictions": "Original denominator bx+c cannot be 0; shift s is an unattainable horizontal asymptote.",
+      "forbiddenOriginalX": [
+        -1.3333333333333333
+      ],
+      "forbiddenY": [
+        4
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-016",
+      "originalQuestion": 96,
+      "originalPrintedCorrectLetter": "B",
+      "sourceMathFamily": "RATIONAL_MOBIUS",
+      "sourceCoefficients": [
+        1,
+        2,
+        3,
+        1,
+        4
+      ],
+      "independentDerivedModelAnswer": "x=(3-4(y-1))/(1(y-1)-2)",
+      "workedAlgebraSteps": [
+        "Set z=y-1",
+        "Cross-multiply: z(1x+4)=2x+3",
+        "Collect (1z-2)x=3-4z",
+        "Divide by nonzero 1z-2; replace z by y-1"
+      ],
+      "sourceDomainAndRangeRestrictions": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=5, so inverse is unique on the permitted domain.",
+      "forbiddenOriginalX": [
+        -4
+      ],
+      "forbiddenY": [
+        3
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-017",
+      "originalQuestion": 97,
+      "originalPrintedCorrectLetter": "B",
+      "sourceMathFamily": "RATIONAL_MOBIUS",
+      "sourceCoefficients": [
+        2,
+        3,
+        4,
+        2,
+        5
+      ],
+      "independentDerivedModelAnswer": "x=(4-5(y-2))/(2(y-2)-3)",
+      "workedAlgebraSteps": [
+        "Set z=y-2",
+        "Cross-multiply: z(2x+5)=3x+4",
+        "Collect (2z-3)x=4-5z",
+        "Divide by nonzero 2z-3; replace z by y-2"
+      ],
+      "sourceDomainAndRangeRestrictions": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=7, so inverse is unique on the permitted domain.",
+      "forbiddenOriginalX": [
+        -2.5
+      ],
+      "forbiddenY": [
+        3.5
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-018",
+      "originalQuestion": 98,
+      "originalPrintedCorrectLetter": "A",
+      "sourceMathFamily": "RATIONAL_MOBIUS",
+      "sourceCoefficients": [
+        4,
+        5,
+        6,
+        5,
+        7
+      ],
+      "independentDerivedModelAnswer": "x=(6-7(y-4))/(5(y-4)-5)",
+      "workedAlgebraSteps": [
+        "Set z=y-4",
+        "Cross-multiply: z(5x+7)=5x+6",
+        "Collect (5z-5)x=6-7z",
+        "Divide by nonzero 5z-5; replace z by y-4"
+      ],
+      "sourceDomainAndRangeRestrictions": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=5, so inverse is unique on the permitted domain.",
+      "forbiddenOriginalX": [
+        -1.4
+      ],
+      "forbiddenY": [
+        5
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-019",
+      "originalQuestion": 99,
+      "originalPrintedCorrectLetter": "D",
+      "sourceMathFamily": "INVERSE_OF_RECIPROCAL",
+      "sourceCoefficients": [
+        1,
+        2,
+        3,
+        2
+      ],
+      "independentDerivedModelAnswer": "x=(2/(1/y-1)-2)/3",
+      "workedAlgebraSteps": [
+        "Isolate 1/y-1=2/(3x+2)",
+        "Require 1/y-1 != 0 before taking reciprocals",
+        "Write 3x+2=2/(1/y-1)",
+        "Solve x=(2/(1/y-1)-2)/3"
+      ],
+      "sourceDomainAndRangeRestrictions": "Both 1/y and 1/(bx+c) require nonzero denominators; even where bx+c !=0, RHS must not vanish because 1/y=0 has no finite solution. Finite y=0 and y=1/s are impossible.",
+      "forbiddenOriginalX": [
+        -0.6666666666666666,
+        -1.3333333333333333
+      ],
+      "forbiddenY": [
+        0,
+        1
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-020",
+      "originalQuestion": 100,
+      "originalPrintedCorrectLetter": "B",
+      "sourceMathFamily": "INVERSE_OF_RECIPROCAL",
+      "sourceCoefficients": [
+        2,
+        3,
+        4,
+        3
+      ],
+      "independentDerivedModelAnswer": "x=(3/(1/y-2)-3)/4",
+      "workedAlgebraSteps": [
+        "Isolate 1/y-2=3/(4x+3)",
+        "Require 1/y-2 != 0 before taking reciprocals",
+        "Write 4x+3=3/(1/y-2)",
+        "Solve x=(3/(1/y-2)-3)/4"
+      ],
+      "sourceDomainAndRangeRestrictions": "Both 1/y and 1/(bx+c) require nonzero denominators; even where bx+c !=0, RHS must not vanish because 1/y=0 has no finite solution. Finite y=0 and y=1/s are impossible.",
+      "forbiddenOriginalX": [
+        -0.75,
+        -1.125
+      ],
+      "forbiddenY": [
+        0,
+        0.5
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-021",
+      "originalQuestion": 101,
+      "originalPrintedCorrectLetter": "D",
+      "sourceMathFamily": "INVERSE_OF_RECIPROCAL",
+      "sourceCoefficients": [
+        3,
+        4,
+        5,
+        4
+      ],
+      "independentDerivedModelAnswer": "x=(4/(1/y-3)-4)/5",
+      "workedAlgebraSteps": [
+        "Isolate 1/y-3=4/(5x+4)",
+        "Require 1/y-3 != 0 before taking reciprocals",
+        "Write 5x+4=4/(1/y-3)",
+        "Solve x=(4/(1/y-3)-4)/5"
+      ],
+      "sourceDomainAndRangeRestrictions": "Both 1/y and 1/(bx+c) require nonzero denominators; even where bx+c !=0, RHS must not vanish because 1/y=0 has no finite solution. Finite y=0 and y=1/s are impossible.",
+      "forbiddenOriginalX": [
+        -0.8,
+        -1.0666666666666667
+      ],
+      "forbiddenY": [
+        0,
+        0.3333333333333333
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-022",
+      "originalQuestion": 102,
+      "originalPrintedCorrectLetter": "E",
+      "sourceMathFamily": "INVERSE_OF_RECIPROCAL",
+      "sourceCoefficients": [
+        4,
+        5,
+        6,
+        5
+      ],
+      "independentDerivedModelAnswer": "x=(5/(1/y-4)-5)/6",
+      "workedAlgebraSteps": [
+        "Isolate 1/y-4=5/(6x+5)",
+        "Require 1/y-4 != 0 before taking reciprocals",
+        "Write 6x+5=5/(1/y-4)",
+        "Solve x=(5/(1/y-4)-5)/6"
+      ],
+      "sourceDomainAndRangeRestrictions": "Both 1/y and 1/(bx+c) require nonzero denominators; even where bx+c !=0, RHS must not vanish because 1/y=0 has no finite solution. Finite y=0 and y=1/s are impossible.",
+      "forbiddenOriginalX": [
+        -0.8333333333333334,
+        -1.0416666666666667
+      ],
+      "forbiddenY": [
+        0,
+        0.25
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-023",
+      "originalQuestion": 103,
+      "originalPrintedCorrectLetter": "D",
+      "sourceMathFamily": "RATIONAL_MOBIUS",
+      "sourceCoefficients": [
+        1,
+        4,
+        5,
+        1,
+        6
+      ],
+      "independentDerivedModelAnswer": "x=(5-6(y-1))/(1(y-1)-4)",
+      "workedAlgebraSteps": [
+        "Set z=y-1",
+        "Cross-multiply: z(1x+6)=4x+5",
+        "Collect (1z-4)x=5-6z",
+        "Divide by nonzero 1z-4; replace z by y-1"
+      ],
+      "sourceDomainAndRangeRestrictions": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=19, so inverse is unique on the permitted domain.",
+      "forbiddenOriginalX": [
+        -6
+      ],
+      "forbiddenY": [
+        5
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-024",
+      "originalQuestion": 104,
+      "originalPrintedCorrectLetter": "A",
+      "sourceMathFamily": "RATIONAL_MOBIUS",
+      "sourceCoefficients": [
+        2,
+        5,
+        6,
+        2,
+        7
+      ],
+      "independentDerivedModelAnswer": "x=(6-7(y-2))/(2(y-2)-5)",
+      "workedAlgebraSteps": [
+        "Set z=y-2",
+        "Cross-multiply: z(2x+7)=5x+6",
+        "Collect (2z-5)x=6-7z",
+        "Divide by nonzero 2z-5; replace z by y-2"
+      ],
+      "sourceDomainAndRangeRestrictions": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=23, so inverse is unique on the permitted domain.",
+      "forbiddenOriginalX": [
+        -3.5
+      ],
+      "forbiddenY": [
+        4.5
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-025",
+      "originalQuestion": 105,
+      "originalPrintedCorrectLetter": "B",
+      "sourceMathFamily": "PRINCIPAL_ROOT_OF_RECIPROCAL",
+      "sourceCoefficients": [
+        1,
+        3,
+        2,
+        3
+      ],
+      "independentDerivedModelAnswer": "x=(3/(y-1)²-3)/2",
+      "workedAlgebraSteps": [
+        "Move 1 across and choose positive branch: y-1=√(3/(2x+3))",
+        "Square: (y-1)²=3/(2x+3)",
+        "Cross-multiply using y>1",
+        "Solve x=(3/(y-1)²-3)/2"
+      ],
+      "sourceDomainAndRangeRestrictions": "Positive numerator a requires bx+c >0 (not >=0); x > -c/b and y > s. Squaring requires positive branch.",
+      "forbiddenOriginalX": [
+        -1.5
+      ],
+      "forbiddenY": [],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": 1,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-026",
+      "originalQuestion": 106,
+      "originalPrintedCorrectLetter": "B",
+      "sourceMathFamily": "PRINCIPAL_ROOT_OF_RECIPROCAL",
+      "sourceCoefficients": [
+        2,
+        4,
+        3,
+        4
+      ],
+      "independentDerivedModelAnswer": "x=(4/(y-2)²-4)/3",
+      "workedAlgebraSteps": [
+        "Move 2 across and choose positive branch: y-2=√(4/(3x+4))",
+        "Square: (y-2)²=4/(3x+4)",
+        "Cross-multiply using y>2",
+        "Solve x=(4/(y-2)²-4)/3"
+      ],
+      "sourceDomainAndRangeRestrictions": "Positive numerator a requires bx+c >0 (not >=0); x > -c/b and y > s. Squaring requires positive branch.",
+      "forbiddenOriginalX": [
+        -1.3333333333333333
+      ],
+      "forbiddenY": [],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": 2,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-027",
+      "originalQuestion": 107,
+      "originalPrintedCorrectLetter": "F",
+      "sourceMathFamily": "PRINCIPAL_ROOT_OF_RECIPROCAL",
+      "sourceCoefficients": [
+        1,
+        5,
+        4,
+        5
+      ],
+      "independentDerivedModelAnswer": "x=(5/(y-1)²-5)/4",
+      "workedAlgebraSteps": [
+        "Move 1 across and choose positive branch: y-1=√(5/(4x+5))",
+        "Square: (y-1)²=5/(4x+5)",
+        "Cross-multiply using y>1",
+        "Solve x=(5/(y-1)²-5)/4"
+      ],
+      "sourceDomainAndRangeRestrictions": "Positive numerator a requires bx+c >0 (not >=0); x > -c/b and y > s. Squaring requires positive branch.",
+      "forbiddenOriginalX": [
+        -1.25
+      ],
+      "forbiddenY": [],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": 1,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-028",
+      "originalQuestion": 108,
+      "originalPrintedCorrectLetter": "A",
+      "sourceMathFamily": "PRINCIPAL_ROOT_OF_RECIPROCAL",
+      "sourceCoefficients": [
+        2,
+        6,
+        5,
+        6
+      ],
+      "independentDerivedModelAnswer": "x=(6/(y-2)²-6)/5",
+      "workedAlgebraSteps": [
+        "Move 2 across and choose positive branch: y-2=√(6/(5x+6))",
+        "Square: (y-2)²=6/(5x+6)",
+        "Cross-multiply using y>2",
+        "Solve x=(6/(y-2)²-6)/5"
+      ],
+      "sourceDomainAndRangeRestrictions": "Positive numerator a requires bx+c >0 (not >=0); x > -c/b and y > s. Squaring requires positive branch.",
+      "forbiddenOriginalX": [
+        -1.2
+      ],
+      "forbiddenY": [],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": 2,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-029",
+      "originalQuestion": 109,
+      "originalPrintedCorrectLetter": "F",
+      "sourceMathFamily": "FACTOR_RATIONAL_MOBIUS",
+      "sourceCoefficients": [
+        1,
+        2,
+        1,
+        3,
+        5
+      ],
+      "independentDerivedModelAnswer": "x=(2-5(y-1))/(3(y-1)-2)",
+      "workedAlgebraSteps": [
+        "Set z=y-1",
+        "Cross-multiply: z(3x+5)=2x+2",
+        "Collect (3z-2)x=2-5z",
+        "Divide by nonzero 3z-2; replace z by y-1"
+      ],
+      "sourceDomainAndRangeRestrictions": "Finite x excludes −d/c; y excludes s+a/c; nonzero determinant a(d-b*c)=4 ensures unique solution.",
+      "forbiddenOriginalX": [
+        -1.6666666666666667
+      ],
+      "forbiddenY": [
+        1.6666666666666665
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-030",
+      "originalQuestion": 110,
+      "originalPrintedCorrectLetter": "A",
+      "sourceMathFamily": "FACTOR_RATIONAL_MOBIUS",
+      "sourceCoefficients": [
+        2,
+        3,
+        2,
+        4,
+        6
+      ],
+      "independentDerivedModelAnswer": "x=(6-6(y-2))/(4(y-2)-3)",
+      "workedAlgebraSteps": [
+        "Set z=y-2",
+        "Cross-multiply: z(4x+6)=3x+6",
+        "Collect (4z-3)x=6-6z",
+        "Divide by nonzero 4z-3; replace z by y-2"
+      ],
+      "sourceDomainAndRangeRestrictions": "Finite x excludes −d/c; y excludes s+a/c; nonzero determinant a(d-b*c)=-6 ensures unique solution.",
+      "forbiddenOriginalX": [
+        -1.5
+      ],
+      "forbiddenY": [
+        2.75
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-031",
+      "originalQuestion": 111,
+      "originalPrintedCorrectLetter": "E",
+      "sourceMathFamily": "FACTOR_RATIONAL_MOBIUS",
+      "sourceCoefficients": [
+        1,
+        4,
+        3,
+        5,
+        7
+      ],
+      "independentDerivedModelAnswer": "x=(12-7(y-1))/(5(y-1)-4)",
+      "workedAlgebraSteps": [
+        "Set z=y-1",
+        "Cross-multiply: z(5x+7)=4x+12",
+        "Collect (5z-4)x=12-7z",
+        "Divide by nonzero 5z-4; replace z by y-1"
+      ],
+      "sourceDomainAndRangeRestrictions": "Finite x excludes −d/c; y excludes s+a/c; nonzero determinant a(d-b*c)=-32 ensures unique solution.",
+      "forbiddenOriginalX": [
+        -1.4
+      ],
+      "forbiddenY": [
+        1.8
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-032",
+      "originalQuestion": 112,
+      "originalPrintedCorrectLetter": "D",
+      "sourceMathFamily": "FACTOR_RATIONAL_MOBIUS",
+      "sourceCoefficients": [
+        2,
+        5,
+        4,
+        6,
+        8
+      ],
+      "independentDerivedModelAnswer": "x=(20-8(y-2))/(6(y-2)-5)",
+      "workedAlgebraSteps": [
+        "Set z=y-2",
+        "Cross-multiply: z(6x+8)=5x+20",
+        "Collect (6z-5)x=20-8z",
+        "Divide by nonzero 6z-5; replace z by y-2"
+      ],
+      "sourceDomainAndRangeRestrictions": "Finite x excludes −d/c; y excludes s+a/c; nonzero determinant a(d-b*c)=-80 ensures unique solution.",
+      "forbiddenOriginalX": [
+        -1.3333333333333333
+      ],
+      "forbiddenY": [
+        2.8333333333333335
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-033",
+      "originalQuestion": 113,
+      "originalPrintedCorrectLetter": "A",
+      "sourceMathFamily": "NESTED_DENOMINATOR",
+      "sourceCoefficients": [
+        1,
+        2,
+        2,
+        3,
+        1
+      ],
+      "independentDerivedModelAnswer": "x=3/(2/(y-1)-2)-1",
+      "workedAlgebraSteps": [
+        "Subtract 1",
+        "Invert outer quotient: 2/(y-1)=2+3/(x+1)",
+        "Move 2, then invert the inner quotient",
+        "x=3/(2/(y-1)-2)-1"
+      ],
+      "sourceDomainAndRangeRestrictions": "Require x+d != 0 and b+c/(x+d) !=0, which excludes x=-d and x=-d-c/b. Finite y cannot equal s or s+a/b; reversing double divisions without these exclusions creates invalid x.",
+      "forbiddenOriginalX": [
+        -1,
+        -2.5
+      ],
+      "forbiddenY": [
+        1,
+        2
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-034",
+      "originalQuestion": 114,
+      "originalPrintedCorrectLetter": "B",
+      "sourceMathFamily": "NESTED_DENOMINATOR",
+      "sourceCoefficients": [
+        2,
+        3,
+        3,
+        4,
+        2
+      ],
+      "independentDerivedModelAnswer": "x=4/(3/(y-2)-3)-2",
+      "workedAlgebraSteps": [
+        "Subtract 2",
+        "Invert outer quotient: 3/(y-2)=3+4/(x+2)",
+        "Move 3, then invert the inner quotient",
+        "x=4/(3/(y-2)-3)-2"
+      ],
+      "sourceDomainAndRangeRestrictions": "Require x+d != 0 and b+c/(x+d) !=0, which excludes x=-d and x=-d-c/b. Finite y cannot equal s or s+a/b; reversing double divisions without these exclusions creates invalid x.",
+      "forbiddenOriginalX": [
+        -2,
+        -3.333333333333333
+      ],
+      "forbiddenY": [
+        2,
+        3
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-035",
+      "originalQuestion": 115,
+      "originalPrintedCorrectLetter": "B",
+      "sourceMathFamily": "NESTED_DENOMINATOR",
+      "sourceCoefficients": [
+        3,
+        4,
+        4,
+        5,
+        3
+      ],
+      "independentDerivedModelAnswer": "x=5/(4/(y-3)-4)-3",
+      "workedAlgebraSteps": [
+        "Subtract 3",
+        "Invert outer quotient: 4/(y-3)=4+5/(x+3)",
+        "Move 4, then invert the inner quotient",
+        "x=5/(4/(y-3)-4)-3"
+      ],
+      "sourceDomainAndRangeRestrictions": "Require x+d != 0 and b+c/(x+d) !=0, which excludes x=-d and x=-d-c/b. Finite y cannot equal s or s+a/b; reversing double divisions without these exclusions creates invalid x.",
+      "forbiddenOriginalX": [
+        -3,
+        -4.25
+      ],
+      "forbiddenY": [
+        3,
+        4
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-036",
+      "originalQuestion": 116,
+      "originalPrintedCorrectLetter": "F",
+      "sourceMathFamily": "NESTED_DENOMINATOR",
+      "sourceCoefficients": [
+        4,
+        5,
+        5,
+        6,
+        4
+      ],
+      "independentDerivedModelAnswer": "x=6/(5/(y-4)-5)-4",
+      "workedAlgebraSteps": [
+        "Subtract 4",
+        "Invert outer quotient: 5/(y-4)=5+6/(x+4)",
+        "Move 5, then invert the inner quotient",
+        "x=6/(5/(y-4)-5)-4"
+      ],
+      "sourceDomainAndRangeRestrictions": "Require x+d != 0 and b+c/(x+d) !=0, which excludes x=-d and x=-d-c/b. Finite y cannot equal s or s+a/b; reversing double divisions without these exclusions creates invalid x.",
+      "forbiddenOriginalX": [
+        -4,
+        -5.2
+      ],
+      "forbiddenY": [
+        4,
+        5
+      ],
+      "principalRootYMinimumInclusive": null,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-037",
+      "originalQuestion": 117,
+      "originalPrintedCorrectLetter": "A",
+      "sourceMathFamily": "PRINCIPAL_ROOT_OF_MOBIUS",
+      "sourceCoefficients": [
+        1,
+        2,
+        3,
+        1,
+        4
+      ],
+      "independentDerivedModelAnswer": "x=(3-4(y-1)²)/(1(y-1)²-2)",
+      "workedAlgebraSteps": [
+        "Set z=y-1, require z>=0",
+        "Square z²=(2x+3)/(1x+4)",
+        "Collect (1z²-2)x=3-4z²",
+        "Solve x=(3-4z²)/(1z²-2); restore z=y-1"
+      ],
+      "sourceDomainAndRangeRestrictions": "Original radicand (a*x+b)/(c*x+d) must be >=0, excluding denominator zero, x=-d/c. Range y>=s further excludes y=s+sqrt(a/c), its nonattained horizontal asymptote; determinant=5.",
+      "forbiddenOriginalX": [
+        -4
+      ],
+      "forbiddenY": [
+        2.414213562373095
+      ],
+      "principalRootYMinimumInclusive": 1,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-038",
+      "originalQuestion": 118,
+      "originalPrintedCorrectLetter": "F",
+      "sourceMathFamily": "PRINCIPAL_ROOT_OF_MOBIUS",
+      "sourceCoefficients": [
+        2,
+        3,
+        4,
+        2,
+        5
+      ],
+      "independentDerivedModelAnswer": "x=(4-5(y-2)²)/(2(y-2)²-3)",
+      "workedAlgebraSteps": [
+        "Set z=y-2, require z>=0",
+        "Square z²=(3x+4)/(2x+5)",
+        "Collect (2z²-3)x=4-5z²",
+        "Solve x=(4-5z²)/(2z²-3); restore z=y-2"
+      ],
+      "sourceDomainAndRangeRestrictions": "Original radicand (a*x+b)/(c*x+d) must be >=0, excluding denominator zero, x=-d/c. Range y>=s further excludes y=s+sqrt(a/c), its nonattained horizontal asymptote; determinant=7.",
+      "forbiddenOriginalX": [
+        -2.5
+      ],
+      "forbiddenY": [
+        3.224744871391589
+      ],
+      "principalRootYMinimumInclusive": 2,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-039",
+      "originalQuestion": 119,
+      "originalPrintedCorrectLetter": "F",
+      "sourceMathFamily": "PRINCIPAL_ROOT_OF_MOBIUS",
+      "sourceCoefficients": [
+        1,
+        4,
+        5,
+        1,
+        6
+      ],
+      "independentDerivedModelAnswer": "x=(5-6(y-1)²)/(1(y-1)²-4)",
+      "workedAlgebraSteps": [
+        "Set z=y-1, require z>=0",
+        "Square z²=(4x+5)/(1x+6)",
+        "Collect (1z²-4)x=5-6z²",
+        "Solve x=(5-6z²)/(1z²-4); restore z=y-1"
+      ],
+      "sourceDomainAndRangeRestrictions": "Original radicand (a*x+b)/(c*x+d) must be >=0, excluding denominator zero, x=-d/c. Range y>=s further excludes y=s+sqrt(a/c), its nonattained horizontal asymptote; determinant=19.",
+      "forbiddenOriginalX": [
+        -6
+      ],
+      "forbiddenY": [
+        3
+      ],
+      "principalRootYMinimumInclusive": 1,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-040",
+      "originalQuestion": 120,
+      "originalPrintedCorrectLetter": "E",
+      "sourceMathFamily": "PRINCIPAL_ROOT_OF_MOBIUS",
+      "sourceCoefficients": [
+        2,
+        5,
+        6,
+        2,
+        7
+      ],
+      "independentDerivedModelAnswer": "x=(6-7(y-2)²)/(2(y-2)²-5)",
+      "workedAlgebraSteps": [
+        "Set z=y-2, require z>=0",
+        "Square z²=(5x+6)/(2x+7)",
+        "Collect (2z²-5)x=6-7z²",
+        "Solve x=(6-7z²)/(2z²-5); restore z=y-2"
+      ],
+      "sourceDomainAndRangeRestrictions": "Original radicand (a*x+b)/(c*x+d) must be >=0, excluding denominator zero, x=-d/c. Range y>=s further excludes y=s+sqrt(a/c), its nonattained horizontal asymptote; determinant=23.",
+      "forbiddenOriginalX": [
+        -3.5
+      ],
+      "forbiddenY": [
+        3.58113883008419
+      ],
+      "principalRootYMinimumInclusive": 2,
+      "principalRootYMinimumExclusive": null,
+      "originalRawSourceCorrectChoiceVisuallyCertified": false,
+      "independentMarkingRubricCertified": false,
+      "externalGrade7PlusCertified": false,
+      "exactTgsTaughtSubskillConfirmed": false,
+      "studentCredit": false
+    }
+  ]
+}
