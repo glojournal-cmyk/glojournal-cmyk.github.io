@@ -71,13 +71,13 @@ export function v3ScopedQuestionEvidence(state,task,day){
   // in another Daily task, even when it appears under a different task ID.
   const elsewhere=new Set((state.formalAttemptLog||[]).filter(e=>
     e?.day===day&&e?.dailyTaskId&&e.dailyTaskId!==task?.id&&
-    e.formal!==false&&e.repair!==true&&!e.recoveryFor&&e.questionId)
+    e.formal===true&&e.repair!==true&&!e.recoveryFor&&e.questionId)
     .map(e=>String(e.questionId).split('@')[0]));
   const attempts=new Map();
   for(const e of state.formalAttemptLog||[]){
     if(e?.day!==day||e?.dailyTaskId!==task?.id||
        e?.subject!==task.assignedSubject||Number(e?.year)!==Number(task.assignedYear)||
-       e?.topicId!==task.assignedTopic||e.formal===false||e.repair===true||
+       e?.topicId!==task.assignedTopic||e.formal!==true||e.repair===true||
        e.recoveryFor||e.assisted===true||e.hintUsed===true||e.scaffolded===true||
        typeof e.correct!=='boolean'||!e.questionId)continue;
     const id=String(e.questionId).split('@')[0];
@@ -126,7 +126,7 @@ export function languageEvidence(state,day,taskId='languages-standard'){
   for(const subject of ['latin','french']){
     const journal=(state.formalAttemptLog||[]).filter(e=>
       e?.day===day&&e.dailyTaskId===taskId&&e.subject===subject&&Number(e.year)===8&&
-      e.formal!==false&&e.repair!==true&&e.recoveryFor==null&&
+      e.formal===true&&e.repair!==true&&e.recoveryFor==null&&
       e.assisted!==true&&e.hintUsed!==true&&e.scaffolded!==true&&
       e.questionId&&typeof e.correct==='boolean');
     const unique=new Map();
