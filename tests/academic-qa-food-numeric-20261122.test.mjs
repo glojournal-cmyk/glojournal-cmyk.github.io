@@ -63,4 +63,34 @@ check(chem,"250 - 400 = -150 kJ exothermic",true,"Correct numeric and exothermic
 check(chem,"-150 kJ endothermic",false,"Wrong classification must not count correct");
 check(chem,"-140 kJ exothermic",false,"Incorrect energy change");
 
-console.log("PASS: 64 food-test cases and feedback, 2 indices workings, 9 numeric/units/classification checks");
+// Ethanol emulsion tests are unheated. Never reintroduce the erroneous
+// description that heating ethanol is a required food-test step.
+const waterBathIds=[
+ "bio-y8-food-tests-water-bath-mc",
+ "bio-y8-food-tests-water-bath-name",
+ "bio-y8-food-tests-water-bath-explain"
+];
+for(const id of waterBathIds){
+ const item=food.questions.find(q=>q.id===id);
+ assert.ok(item,"Missing revised water-bath concept "+id);
+ const all=JSON.stringify(item);
+ assert.ok(all.includes("ethanol emulsion test does not require heating"),id);
+ assert.ok(!/required indirect heating method for ethanol/i.test(all),id);
+ assert.ok(item.answer.mode==="mark_points"
+   ? item.answer.markPoints.some(p=>p.includes("ethanol emulsion test does not require heating"))
+   : item.answer.accepted.includes("water bath"),id+" answer changed");
+}
+const waterBathMC=food.questions.find(q=>q.id===waterBathIds[0]);
+assert.equal(waterBathMC.options.length,4);
+assert.equal(new Set(waterBathMC.options).size,4);
+assert.ok(waterBathMC.options.includes("water bath"));
+const ethanol=food.questions.find(q=>q.id==="bio-y8-app-ethanol-safety");
+assert.ok(ethanol);
+assert.ok(/why heating is unnecessary/i.test(ethanol.prompt));
+assert.equal(ethanol.answer.totalMarks,2);
+assert.equal(ethanol.answer.markPoints.length,2);
+assert.ok(ethanol.answer.markPoints[0].includes("highly flammable"));
+assert.ok(ethanol.answer.markPoints[1].includes("heating is not needed"));
+assert.ok(!/ethanol must be heated in a water bath/i.test(JSON.stringify(ethanol)));
+assert.equal(food.questions.length,143);
+console.log("PASS: 64 food cases, 4 unheated ethanol corrections, 2 indices workings, 9 numeric/units checks");
