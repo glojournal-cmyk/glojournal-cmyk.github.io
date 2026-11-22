@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {
   FOOD_TESTS_QA_HOLD_IDS, FOOD_TESTS_QA_TOPIC,
-  isFoodTestsQaHeld, canEarnFormalCredit, foodTestsPupilVerdict
+  isFoodTestsQaHeld, canEarnFormalCredit, foodTestsPupilVerdict, saveHeldPracticeCompletion
 } from '../assets/food-tests-qa-credit-gate-20261122.js';
 import {verifiedQuizSlots,reconcileDailySession} from '../assets/daily-session-credit-20261021.js';
 import {saveVerifiedBiologyAnswerSync} from '../assets/daily-completed-session-receipts-20261024.js';
@@ -200,4 +200,50 @@ test('real catalog still provides two independent unheld 20-question Year 8 Mast
  assert.notEqual(masteries[0].assignedTopic,masteries[1].assignedTopic,'Mastery must use independent bank families');
  assert.ok(plan.filter(t=>t.assignedTopic===FOOD_TESTS_QA_TOPIC).length===0,
    'new plan must never route to held Food Tests');
+});
+
+test('iPad unmarked completion reports saved only after durable draft-save acknowledgment',async()=>{
+ const data={base:[{id:'bio-y8-food-tests-test'}],sessionLog:[],ce:true};
+ const calls=[];
+ assert.equal(await saveHeldPracticeCompletion({save:async(k,v)=>{calls.push([k,v]);return true;}},'held-practice',data),true);
+ assert.equal(calls.length,1);
+ assert.equal(calls[0][0],'held-practice');
+ assert.strictEqual(calls[0][1],data);
+ assert.equal(await saveHeldPracticeCompletion({save:()=>false},'held-practice',data),false);
+ assert.equal(await saveHeldPracticeCompletion({save:()=>undefined},'held-practice',data),false);
+ assert.equal(await saveHeldPracticeCompletion({save:()=>{throw Error('quota exceeded')}},'held-practice',data),false);
+ assert.equal(await saveHeldPracticeCompletion(null,'held-practice',data),false);
+ assert.equal(await saveHeldPracticeCompletion({save:()=>true},'',data),false);
+ let confirm;
+ const pending=saveHeldPracticeCompletion({save:()=>new Promise(resolve=>{confirm=resolve})},'held-practice',data,300);
+ await Promise.resolve();
+ await Promise.resolve();
+ assert.equal(typeof confirm,'function');
+ confirm(true);
+ assert.equal(await pending,true,'completion waits for the actual save result');
+ assert.equal(await saveHeldPracticeCompletion({save:()=>new Promise(()=>{})},'held-practice',data,15),false,
+   'stalled IndexedDB/localStorage save must fail closed instead of trapping Finish');
+});
+
+test('both quiz routes must await persisted practice before showing a saved result',()=>{
+ for(const path of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-rWAnuDVj.js']){
+  const src=read(path),start=src.indexOf('if(A.length&&A.every(isFoodTestsQaHeld)){');
+  const end=src.indexOf('// The result card must reconcile actual checked answers',start);
+  assert.ok(start>0&&end>start,path);
+  const branch=src.slice(start,end);
+  assert.ok(src.includes('async function pe()'),path);
+  assert.ok(branch.includes('const savedPractice=await saveHeldPracticeCompletion'),path);
+  assert.ok(branch.includes('ce:!0,sessionLog,J'),path);
+  assert.ok(branch.includes('setFinishFailure(\'Practice could not be saved. Keep this page open and retry Finish.\')'),path);
+  assert.ok(branch.includes('if(!savedPractice){'),path);
+  const save=branch.indexOf('const savedPractice=await saveHeldPracticeCompletion');
+  const fail=branch.indexOf('if(!savedPractice){');
+  const final=branch.indexOf('le(!0)');
+  const toast=branch.indexOf("u('Practice saved'");
+  assert.ok(save>=0&&fail>save&&final>fail&&toast>final,
+   'never transition to result or toast until save success');
+  const failed=branch.slice(fail,final);
+  assert.ok(failed.includes('setDraftError(true)')&&failed.includes('return;'),
+   'failed save must leave the question visible and allow retry');
+ }
 });
