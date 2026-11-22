@@ -1997,7 +1997,8 @@ function normalizeState() {
   // Reconcile the completion award after the canonical daily list is stored.
   const settled = store.getState();
   if (settled.today === calendarToday && settled.daily?.length &&
-      settled.daily.every((task) => task.progress >= task.target) &&
+      settled.daily.every((task) => task.progress >= task.target &&
+        (task.id!=="maths-daily"||task.done===true)) &&
       !settled.dailyCompleteAwarded?.[calendarToday]) {
     originalBumpDaily("study-session", 0);
   }
