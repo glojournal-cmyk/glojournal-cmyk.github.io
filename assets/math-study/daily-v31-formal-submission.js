@@ -12,13 +12,13 @@ export function verifyMathDailyAssignment(task,questions,day){
     task?.dailyV3!==true||task?.supplyBlocked===true||
     Number(task?.assignedYear)!==9||task?.assignedSubject!=='maths')
    issues.push('inactive-or-unapproved-dated-assignment');
- const allowed=task?.approvedQuestionIds||[];
+ const allowed=Array.isArray(task?.approvedQuestionIds)?task.approvedQuestionIds:[];
  const answers=task?.approvedCorrectOptionByQuestion||{};
  if(!Array.isArray(allowed)||allowed.length!==10||new Set(allowed).size!==10||
     Object.keys(answers).length!==10||!allowed.every(id=>CHOICES.includes(answers[id])))
    issues.push('missing-pinned-ten-ID-key-map');
  const bank=new Map();
- for(const q of questions||[]){
+ for(const q of Array.isArray(questions)?questions:[]){
   if(!text(q?.id)||bank.has(q.id)){issues.push('duplicate-or-empty-bank-id');continue}
   bank.set(q.id,q);
  }
@@ -41,6 +41,9 @@ export function verifyMathDailyAssignment(task,questions,day){
     issues.push('unrenderable-or-incomplete-six-options:'+q.id);
   if(answers[q.id]!==q.correctOptionId)
     issues.push('pinned-marking-key-mismatch:'+q.id);
+  if(!text(q.sourceRef)||!text(q.qaReviewer)||!text(q.mathsChecker)||
+     !q.options?.filter(o=>o.id!==q.correctOptionId).every(o=>text(o.misconception)))
+    issues.push('pedagogical-signoff-or-distractor-rationale-missing:'+q.id);
  }
  if(Object.keys(topics).length!==5||Object.values(topics).some(n=>n!==2))
     issues.push('incorrect-five-topic-two-each-mix');
