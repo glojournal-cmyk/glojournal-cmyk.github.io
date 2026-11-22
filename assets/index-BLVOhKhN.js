@@ -1499,6 +1499,9 @@ function compactDailyTasks(daily) {
         approvedQuestionIds:task.approvedQuestionIds.slice(0,20).map(String),
         approvedConceptByQuestion:Object.fromEntries(Object.entries(task.approvedConceptByQuestion||{})
           .filter(([id])=>task.approvedQuestionIds.includes(id)).slice(0,20)),
+        ...(task.id==='maths-daily'?{approvedTemplateByQuestion:Object.fromEntries(
+          Object.entries(task.approvedTemplateByQuestion||{})
+          .filter(([id])=>task.approvedQuestionIds.includes(id)).slice(0,10))}:{}),
         // Maths first-submission grading must survive dated-log compaction.
         ...(task.id==='maths-daily'?{approvedCorrectOptionByQuestion:Object.fromEntries(
           Object.entries(task.approvedCorrectOptionByQuestion||{})
