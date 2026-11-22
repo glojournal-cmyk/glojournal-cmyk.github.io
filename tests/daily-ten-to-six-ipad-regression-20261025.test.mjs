@@ -112,7 +112,8 @@ test('QA-held Biology Food Tests cannot manufacture a completed iPad quiz receip
  try{
   const snapshot={today:day,daily:[task],dailyLog:{[day]:{date:day,tasks:[task],total:1,done:0}},
     formalAttemptLog:[]};
-  const {saveCompletedDailyReceipt,reconcileCompletedDailyReceipts}
+  const {saveCompletedDailyReceipt,reconcileCompletedDailyReceipts,
+    readDailyRetryReceiptSync,readDailyRetryReceipt}
     =await import('../assets/daily-completed-session-receipts-20261024.js');
   assert.equal(await saveCompletedDailyReceipt(snapshot,source),false,
    'new QA-held Food Tests receipt must be rejected even if all answers claim correct');
@@ -124,6 +125,15 @@ test('QA-held Biology Food Tests cannot manufacture a completed iPad quiz receip
     answers:answers.map(a=>({questionId:a.questionId,correct:true,formal:true,repair:false}))};
   assert.equal(reconcileCompletedDailyReceipts(snapshot,[legacy]),null,
    'even an old validly structured receipt cannot retrospectively award new credit');
+  saved.set('lux-daily-completed-sessions-safe-v1',JSON.stringify([legacy]));
+  const originalJSON=saved.get('lux-daily-completed-sessions-safe-v1');
+  const receiptKey={day,taskId:id,subject:'biology',year:8,topicId:topic,mode:'standard'};
+  assert.equal(readDailyRetryReceiptSync(receiptKey),null,
+    'old QA-held receipt cannot be used as fresh retry proof');
+  assert.equal(await readDailyRetryReceipt(receiptKey),null,
+    'async retry must reject held receipts even if IndexedDB contains one');
+  assert.equal(saved.get('lux-daily-completed-sessions-safe-v1'),originalJSON,
+    'the old receipt bytes must not be deleted or changed');
   assert.equal(snapshot.daily[0].progress,6,'previously saved progress must remain untouched');
  }finally{globalThis.localStorage=oldLocal;}
 });
