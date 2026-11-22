@@ -1,6 +1,6 @@
 # Daily Tasks V3 — Academic QA Report
 **Review date:** 22 November 2026  
-**Status:** **BLOCKED FOR ACADEMIC SIGN-OFF; DO NOT DEPLOY**  
+**Status:** **40 specific questions cross-checked and allowlisted; overall academic sign-off still BLOCKED pending full end-to-end QA and Maths bank**  
 **Repository:** `glojournal-cmyk/glojournal-cmyk.github.io`  
 **Scope:** existing Year 8 / Year 9 structured banks, vocabulary taught-source eligibility, proposed composite Languages Standard, Year 9 Standard B, Due Review, GCSE Higher Maths.  
 **Evidence:** `scripts/daily-v3-bank-audit-20261122.mjs` run in GitHub Actions, source `content/topics/*.json`; `tests/daily-v3-contract-20261122.test.mjs`, `tests/daily-v3-vocab-20261122.test.mjs`.
@@ -9,9 +9,10 @@
 - **Raw** = number of question records currently stored; **not** number taught, usable or correct.
 - **Structural candidate** = enabled, non-preview, non-draft, formal, non-repair item passing a *mechanical* filter only. **Not Academic-QA-accepted.**
 - **Distinct candidate concepts** = unique `conceptId` (or `id` when absent) across structural candidates; concept identity is not proof of independent assessability.
-- **QA accepted: 0. QA rejected: 0. QA pending: all inventoried records** *within this V3 review*. Previously performed QA on unrelated versions is not invalidated; there is simply no independently verified V3 acceptance manifest with taught-source evidence. Pending is not a declaration that a question is incorrect.
+- **Updated after the initial inventory:** **40 specific questions accepted into V3 whitelist; zero explicitly rejected; all other records remain pending**. See [40-question verified register](daily-v3-approved-question-register-20261122.md). The inventory below predates the separate per-item source review; its summary counts must **not** be interpreted as current accepted totals.
+- Review performed against actual uploaded teacher material and checked original answer keys; automated tests independently cross-check every approved ID and bank SHA. This is not an external human second-reviewer certification. Previous unrelated QA records remain intact.
 
-## Read-only source inventory (all are academic QA pending)
+## Read-only source inventory (original baseline, **before** 40-item follow-up QA)
 | Subject/year | Topic files | Raw | Preview | Structural candidates | Distinct candidate concept IDs |
 |:--|--:|--:|--:|--:|--:|
 | Biology Y8 | 37 | 1,111 | 0 | 1,097 | 563 |
@@ -42,11 +43,15 @@ These findings are **supply triage**, not claims of educational suitability, gra
 ## Taught vocabulary: blocked until source-matched
 The existing `assets/daily-vocab-y9-20261021.js` has built-in Year 9 entries (and Latin booklet sources). Existence in the code is **not** confirmation a word was taught. V3's `V3_APPROVED.year9Vocabulary` is intentionally empty until each word is linked to teacher-taught, checked material and its headword/meaning/accepted forms are reviewed. Result: **20 Year 7–8 + up to 10 accepted Y9 words when available; otherwise use 7–8 words for the shortfall.** On this branch's *current empty manifest*, the safe fallback is **30 Y7–8** in each language. Earlier days' 27+3 plan remains historical.
 
-## Language Standard: blocked until two independently approved pools exist
-Required acceptance: 5 Latin and 5 French **grammar/application** concepts, teacher-taught, age-appropriate, with each answer and alternatives validated. The V3 planner refuses to present a ready card until both 5-concept groups are approved. The shared card must not complete from ten Latin answers or five Latin answers alone. Structural tests verify independent buckets, but not independent academic correctness or actual iPad scoring.
+## Languages Standard: selected question content checked; app-level acceptance pending
+Two Latin Year8 grammar topics now have five approved question IDs each: `la-y8-case-functions` and `la-y8-present-person-and-number`. Two French Year8 grammar/application topics have five approved question IDs each: `fr-y8-s01-quick-rules` and `fr-y8-s06-present-tense`. Teacher guide confirms Latin noun cases and regular present person/number; the French Y9 Carnet recaps relevant prior present/perfect grammar. Full item IDs, accepted answers and source references are recorded in the 40-question register. The V3 planner provides a separate five-ID locked session for each language; it independently counts correct answers by dated subject/year/topic/approved concept ID. One side alone does not complete 5+5.
+**Status:** content source/answer audit complete for these 20 *specific* items. Browser practice submission and iPad persistence still need independent testing.
 
-## Standard B Y9: blocked until verified ten *distinct independently assessable* taught concepts
-Planner refuses a Year 8 substitute. It tests true 0, 5, 9, 10, 15, 20 candidate-concept counts in artificial controlled fixtures, including variant collapse, but **does not prove** any live Y9 topic has ten reviewed, fresh, unassisted concepts. Each accepted group needs correct marking, alternative answer checks, topic-specific teaching evidence, and proof 10 can be selected from real saved state without double-credit.
+## Standard B Y9: 20 accepted questions across 2 independently selectable Year9 topics
+- `fr-y9-u1-perfect-tense`: 10 separately assessed verb and auxiliary/participle/agreement skills, including `j'ai visité`, `il a été`, `elle est allée`, `elles sont arrivées`, `ils sont partis`.
+- `fr-y9-oct17-future-tense-holidays`: 10 separate future-stem/negation/reflexive/near-future skills, including `j'aurai`, `je serai`, `j'irai`, `je ferai`, `je devrai`, `je pourrai`, negative and reflexive applications.
+Both align to TGS French Year9 Carnet's stated perfect/future grammar, not merely app source titles. Original bank accepted answers and feedback were checked item by item. The planner considers only uncredited approved concept groups and declines an exhausted topic; if both sources have fewer than ten new concepts, **Standard B visibly blocks**. It never substitutes Year8.
+**Status:** 20 question-level content checks completed; real app picker, answer persistence, same-day overlap and scoring browser tests are separate release gates.
 
 ## Mastery and Due Review
 Original Year 8 85% Mastery / Day 2 and 7 recall logic is intentionally reused, not rewritten. V3 supports a Year 9 Due source only where each selected concept has actually saved `reviews[id].due <= day` and a separate Y9 QA manifest. Actual learning-history + same-day overlap, Recovery, assignment continuation, and post-answer scoring require regression with real device snapshots. Consolidation must never be called genuinely due. Guided or scaffolded questions are not academically accepted for full unassisted mastery credit.
@@ -55,8 +60,8 @@ Original Year 8 85% Mastery / Day 2 and 7 recall logic is intentionally reused, 
 No separate Maths question bank was provided in this request. **0 academic questions accepted / 0 genuine question difficulties verified.** V3 checks the intended 4 Grade 7 + 4 Grade 8 + 2 Grade 8–9 metadata bands and six distinct non-empty option IDs and texts, one correct-option ID, distractor rationales, worked solution presence and QA provenance in *synthetic unit tests*. Such a validator **cannot establish** mathematical uniqueness, equivalent symbolic solutions, appropriate grade difficulty, accurate working, plausible misconceptions, good LaTeX rendering, or fair mark schemes. These require independent specialist checking of the actual supplied bank. No random filler is allowed.
 
 ## Sign-off checklist / blockers
-1. Obtain the actual teacher materials for all proposed Y9 vocabulary and Y9 Standard B; per-topic line-by-line taught-source match. Preview/question existence is not evidence.
-2. Independently verify each selected question's curriculum fit, wording, unique correct answer, alternate acceptable responses, format, answer feedback and misconception traps. Count by **concept**, not item ID, and separate rejected from pending.
+1. Keep the 40-item checked source whitelist under regression; obtain the missing precise word-by-word Year9 vocabulary evidence separately. Any additional Y9 topics must pass individual teacher source and content review before addition. Preview/question existence is not evidence.
+2. Keep all 40 approved IDs source-hash-locked and run an actual question rendering/marking trial; for any additional question, repeat the same curriculum, wording, key, alternatives, feedback, misconception and independent-concept checks.
 3. Confirm Language Standard pools: Latin 5 + French 5 genuine applied questions; verify production marking, no partial cross-credit.
 4. Obtain user-supplied Maths bank. Audit every question for GCSE Higher 7–9 challenge, six mathematically unique options, correctly worked methods, readable iPad maths, repetition and spaced reattempt fairness.
 5. Check actual Year 8/9 Due evidence, Mastery Day2/7, 85% pass rules, and exclusion of scaffolded or guided full-credit answers.
