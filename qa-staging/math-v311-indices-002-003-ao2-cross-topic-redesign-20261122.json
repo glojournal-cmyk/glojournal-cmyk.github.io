@@ -1,0 +1,159 @@
+{
+  "status": "QA_ONLY_NOT_CANONICAL_NOT_RELEASED",
+  "date": "2026-11-22",
+  "basis": {
+    "student": "Lux_Maths_Y9_V3_All_200_Student.pdf page 1",
+    "answer": "Lux_Maths_Y9_V3_All_200_Answers.pdf page 1",
+    "sourceFamily": "V2-INDICES-1 four scaled source equations",
+    "earlierStaging": "qa-staging/math-v311-indices-001-004-two-ao2-redesigns-20261122.json"
+  },
+  "scope": "Two additional distinct candidate concepts, Q2 and Q3; preserve source original correct-choice letters only as reference. Each candidate's correct mathematical value differs from original and MUST receive a new canonical ID before any approved migration.",
+  "canonicalBankModified": false,
+  "liveAppModified": false,
+  "studentCreditEnabled": false,
+  "independentGrade7PlusCertified": false,
+  "actualTgsTaughtConfirmed": false,
+  "independentMisconceptionReviewPassed": false,
+  "rawCanonicalBankShaVerified": false,
+  "physicalIpadPwaQAPassed": false,
+  "subjectAcademicQaApproved": 0,
+  "neverImportDirectly": true,
+  "candidates": [
+    {
+      "originId": "LUX-MATH-Y9-INDICES-002",
+      "paperQuestion": 2,
+      "newCandidateVersionId": "QA-REDESIGN-INDICES-002-TWO-MODEL-CROSSOVER-V1",
+      "originalCorrectOptionId": "C",
+      "originalAnswer": 3,
+      "distinctConcept": "Compare two powers of 2 with n in both exponents; determine first integer at which ordering crosses, keeping strict inequality distinct from equality.",
+      "taughtScope": "TGS Autumn Index Laws broadly; strict algebraic inequalities and crossover reasoning not confirmed as specifically taught",
+      "gradeHypothesis": "AO2_COMPARISON_BOUNDARY_PLAUSIBLE_NOT_GCSE_CALIBRATED",
+      "replacement": {
+        "stem": "For each non-negative integer n, let A(n)=\\frac{4^{n+3}\\times8^{4-n}}{2^3} and B(n)=4^{n-2}\\times2^5. What is the smallest n for which B(n)>A(n)?",
+        "correctOptionId": "C",
+        "options": [
+          {
+            "id": "A",
+            "latex": "3",
+            "computedValue": 3,
+            "wrongOperation": "Incorrectly convert the 4 in A(n) as base 2, so A(n) is wrongly 2^(12−2n). Then 2n+1>12−2n gives 4n>11 and smallest n=3."
+          },
+          {
+            "id": "B",
+            "latex": "4",
+            "computedValue": 4,
+            "wrongOperation": "Correctly derive 3n>14 but round the threshold 14/3 down to n=4, instead of finding the first integer strictly greater than 14/3."
+          },
+          {
+            "id": "C",
+            "latex": "5",
+            "computedValue": 5,
+            "wrongOperation": null
+          },
+          {
+            "id": "D",
+            "latex": "6",
+            "computedValue": 6,
+            "wrongOperation": "Omit the +1 when expanding B(n)=2^[2(n−2)+5], wrongly using 2^(2n). Then 2n>15−n gives n>5; answer 6."
+          },
+          {
+            "id": "E",
+            "latex": "7",
+            "computedValue": 7,
+            "wrongOperation": "Incorrectly convert 4^(n−2) as 2^(n−2) for B(n), so B(n)=2^(n+3). Then n+3>15−n gives n>6; answer 7."
+          },
+          {
+            "id": "F",
+            "latex": "9",
+            "computedValue": 9,
+            "wrongOperation": "Mistake 4 in A(n) for 8, so A(n) is wrongly constant 2^18. Compare B(n)=2^(2n+1) and require 2n+1>18; first n=9."
+          }
+        ],
+        "workedSolutionSteps": [
+          "A(n)=2^{2(n+3)+3(4-n)-3}=2^{15-n}.",
+          "B(n)=2^{2(n-2)+5}=2^{2n+1}. Since the base 2 exceeds 1, B(n)>A(n) exactly when 2n+1>15-n.",
+          "Thus 3n>14, i.e. n>14/3. The smallest non-negative integer is n=5, option C.",
+          "At n=4, B=2^9<A=2^11; at n=5, B=2^11>A=2^10. This verifies the first crossover rather than an equality case."
+        ],
+        "counterexampleBoundary": {
+          "n4": {
+            "expA": 11,
+            "expB": 9
+          },
+          "n5": {
+            "expA": 10,
+            "expB": 11
+          }
+        }
+      },
+      "pedagogySignoff": false,
+      "actualTgsTeachingEvidence": false,
+      "grade7Benchmark": false,
+      "originalBankEdited": false,
+      "release": "HOLD_INDEPENDENT_GRADE_TAUGHT_DISTRACTOR_QA_AND_NEW_ID"
+    },
+    {
+      "originId": "LUX-MATH-Y9-INDICES-003",
+      "paperQuestion": 3,
+      "newCandidateVersionId": "QA-REDESIGN-INDICES-003-HCF-LCM-RECONSTRUCTION-V1",
+      "originalCorrectOptionId": "E",
+      "originalAnswer": 4,
+      "distinctConcept": "Reconstruct an integer parameter using product of HCF and LCM for two exponential integers; verify which one gives the minimum/maximum exponent.",
+      "taughtScope": "Year 9 Autumn Index Laws heading is official; whether HCF/LCM-of-powers and parameter reconstruction were taught in the current class is unverified",
+      "gradeHypothesis": "AO2_NUMBER_STRUCTURE_AND_VERIFICATION_PLAUSIBLE_NOT_GCSE_CALIBRATED",
+      "replacement": {
+        "stem": "For an integer n with 3\\le n\\le19, define P(n)=\\frac{4^{n+4}\\times8^{5-n}}{2^4} and Q(n)=4^{n-3}. Both numbers are positive integers. Their highest common factor is 2^8 and their lowest common multiple is 2^{16}. Which value of n satisfies both facts?",
+        "correctOptionId": "E",
+        "options": [
+          {
+            "id": "A",
+            "latex": "3",
+            "computedValue": 3,
+            "wrongOperation": "Use only P(n)=2^16 (assume P is the LCM), giving 19−n=16 and n=3, without verifying Q=1 and the incorrect HCF=1."
+          },
+          {
+            "id": "B",
+            "latex": "7",
+            "computedValue": 7,
+            "wrongOperation": "Use only Q(n)=2^8 (assume Q is the HCF), giving 2n−6=8 and n=7, but ignore that the LCM is 2^12, not 2^16."
+          },
+          {
+            "id": "C",
+            "latex": "9",
+            "computedValue": 9,
+            "wrongOperation": "Use HCF×LCM=PQ correctly, but wrongly expand the Q exponent 2(n−3) as 2n−4; then 19−n+2n−4=24 implies n=9."
+          },
+          {
+            "id": "D",
+            "latex": "15",
+            "computedValue": 15,
+            "wrongOperation": "Omit division by 2^4 in P(n), wrongly taking P=2^(23−n), then equate P to the HCF 2^8 and conclude n=15."
+          },
+          {
+            "id": "E",
+            "latex": "11",
+            "computedValue": 11,
+            "wrongOperation": null
+          },
+          {
+            "id": "F",
+            "latex": "19",
+            "computedValue": 19,
+            "wrongOperation": "Convert 4^(n−3) incorrectly to 2^(n−3) rather than 2^[2(n−3)], equate Q to the LCM 2^16 and get n=19, ignoring HCF."
+          }
+        ],
+        "workedSolutionSteps": [
+          "P(n)=2^{2(n+4)+3(5-n)-4}=2^{19-n}; Q(n)=2^{2(n-3)}=2^{2n-6}.",
+          "For two positive integers, HCF(P,Q)\\times LCM(P,Q)=P Q. The given product is 2^{8+16}=2^{24}.",
+          "Hence 2^{(19-n)+(2n-6)}=2^{13+n}=2^{24}, giving n=11.",
+          "Check at n=11: P=2^8 and Q=2^{16}; the HCF is 2^8 and the LCM is 2^{16}. Therefore E is uniquely valid."
+        ]
+      },
+      "pedagogySignoff": false,
+      "actualTgsTeachingEvidence": false,
+      "grade7Benchmark": false,
+      "originalBankEdited": false,
+      "release": "HOLD_INDEPENDENT_GRADE_TAUGHT_DISTRACTOR_QA_AND_NEW_ID"
+    }
+  ]
+}
