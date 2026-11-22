@@ -2033,11 +2033,13 @@ const STUDY_REWARD_XP = {
 // V3 evidence-scoped tasks must use their immutable dated formal answer ledger,
 // not the core progress-only daily counter. Year 8 Due / Standard B remain legacy.
 function v3EvidenceOwnedTask(task) {
-  return task?.dailyV3===true && (
-    task.id==="maths-daily" || task.id==="languages-standard" ||
-    (Number(task.assignedYear)===9 &&
-      (task.id==="y8-standard-b" || task.id==="due-review"))
-  );
+  if(!task)return false;
+  // These two IDs exist only in V3. Treat a missing V3 tag in a damaged
+  // restored row as UNVERIFIED, never as permission to grant Daily XP.
+  if(task.id==="maths-daily"||task.id==="languages-standard")return true;
+  // Year 8/legacy Standard B and Due must retain their existing behaviour.
+  return task.dailyV3===true && Number(task.assignedYear)===9 &&
+    (task.id==="y8-standard-b"||task.id==="due-review");
 }
 
 function patchedAward(kind, options = {}) {
