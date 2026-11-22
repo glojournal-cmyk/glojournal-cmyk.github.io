@@ -177,8 +177,8 @@ function verifiedFoodMarkEvidence(rule,response){
  // "but" can be part of ONE correct explanation (e.g. identifies some
  // nutrients but cannot establish overall dietary health). Do not split it.
  // Explicitly denying the entire proposition cannot earn its marks.
- const clauses=text.split(/\\.(?!\\d)|[!?;\\n]/i).map(v=>v.trim()).filter(Boolean)
-  .filter(clause=>!/\\b(?:it\\s+is\\s+not\\s+true\\s+that|it.s\\s+not\\s+true\\s+that|false\\s+that|incorrect\\s+to\\s+say)\\b/i.test(clause));
+ const clauses=text.split(/\.(?!\d)|[!?;\n]/i).map(v=>v.trim()).filter(Boolean)
+  .filter(clause=>!/\b(?:it\s+is\s+not\s+true\s+that|it.s\s+not\s+true\s+that|false\s+that|incorrect\s+to\s+say)\b/i.test(clause));
  const matches=(pattern,value)=>{
   try{return new RegExp(pattern,"i").test(value)}catch{return false}
  };
