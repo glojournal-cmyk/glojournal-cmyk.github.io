@@ -6,6 +6,7 @@ on:
       - '.github/workflows/daily-v3-maths-browser-20261122.yml'
       - 'study/maths/daily/index.html'
       - 'assets/math-study/daily-v31-qa-preview.js'
+      - 'assets/math-study/math-v31-native-mathml.js'
       - 'qa-staging/math-v31-original-sample10.json'
       - 'tests/daily-v3-maths-ipad-browser-20261122.mjs'
   workflow_dispatch:
@@ -24,7 +25,7 @@ jobs:
         run: |
           npm install --no-save playwright
           npx playwright install --with-deps chromium webkit
-      - name: Confirm Maths QA-only preview, real formula rendering and no learner state writes
+      - name: Confirm offline MathML QA-only preview, 6-option grading and no learner state writes
         run: node tests/daily-v3-maths-ipad-browser-20261122.mjs
       - uses: actions/upload-artifact@v4
         if: always()
