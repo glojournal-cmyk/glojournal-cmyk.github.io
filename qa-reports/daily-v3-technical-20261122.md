@@ -4,7 +4,7 @@
 **Base:** `main` at `c37627acafde596ac5ef9232d25346efe6d90827`  
 **Development branch:** `feature/daily-tasks-v3-20261122`  
 **Live deployment:** **NOT PERFORMED; NOT VERIFIED**. No change was merged to `main` and no claim about production PWA state is made.  
-**Unit test evidence:** [Daily V3 contract workflow run 45011210120](https://github.com/glojournal-cmyk/glojournal-cmyk.github.io/actions/runs/45011210120): 17/17 V3 unit tests passed. Further regression run may have newer results.
+**Unit test evidence:** [Daily V3 contract workflow run 45011210120](https://github.com/glojournal-cmyk/glojournal-cmyk.github.io/actions/runs/45011210120): 17/17 V3 unit tests passed. Existing Daily/Vocab/Recovery source regression run [45011421000](https://github.com/glojournal-cmyk/glojournal-cmyk.github.io/actions/runs/45011421000): **59/59 passed**.
 
 ## Files changed
 ### Runtime
@@ -57,7 +57,7 @@
 
 ## Regression record and important limitations
 - V3 contract suite: **17 passed, 0 failed** at `7666cb726de1da02452f1b05e82c0ca766b429be` (workflow 45011210120).
-- Initial expanded legacy regression suite: **58 passed, 1 failed** (workflow 45011321308), because a hard-coded 3 November expectation said 110 qualified Year8 packs while the current repo catalog has 111. Neither V3 code nor its branch changes `content/catalog.json`. The stale test fixture was updated to the current **111** without removing per-topic source/concept assertions; a follow-up run determines whether other regression blockers exist.
+- Initial expanded legacy regression suite: **58 passed, 1 failed** (workflow 45011321308), solely due to a stale 3 November fixed expectation of 110 qualified Year8 packs. The current repository has 111; the branch has not changed `content/catalog.json`. That fixed expected count was updated to **111** while retaining full source-by-concept checks. The repeat legacy run [45011421000](https://github.com/glojournal-cmyk/glojournal-cmyk.github.io/actions/runs/45011421000) passed **59/59**, with V3 contract **17/17** passed in the same CI run. This validates these specific tests, not device or academic quality.
 - **Do not interpret unit or source-inventory green as full technical QA, full academic signoff or device QA.**
 
 ## Release gates remaining
