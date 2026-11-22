@@ -112,7 +112,10 @@
         "reviewScope": "Indices Autumn heading only; square-root indices explicitly taught status not confirmed",
         "difficulty": "Provisional G8–9 may overstate complexity; check shared method with INDICES-029–032",
         "formalQA": "PENDING_INDEPENDENT_GRADE_TAUGHT_AND_PEDAGOGICAL_REVIEW"
-      }
+      },
+      "candidateVersionId": "LUX-MATH-Y9-INDICES-037::source-stem-option-repair-v2",
+      "importInstruction": "MUST_VERIFY_CANONICAL_BANK_RAW_JSON_SHA_BEFORE_PATCHING",
+      "independentApproval": "NOT_GRANTED"
     },
     {
       "questionId": "LUX-MATH-Y9-SIMULTANEOUS-013",
@@ -207,7 +210,10 @@
         "reviewScope": "Simultaneous Equations listed as Autumn, but exact parallel no-solution criterion and school completion unverified",
         "difficulty": "Mostly a one-step proportionality check; Grade 7 is not independently justified",
         "formalQA": "HOLD_GRADE_TARGET_NOT_EVIDENCED"
-      }
+      },
+      "candidateVersionId": "LUX-MATH-Y9-SIMULTANEOUS-013::source-stem-option-repair-v2",
+      "importInstruction": "MUST_VERIFY_CANONICAL_BANK_RAW_JSON_SHA_BEFORE_PATCHING",
+      "independentApproval": "NOT_GRANTED"
     },
     {
       "questionId": "LUX-MATH-Y9-SIMULTANEOUS-013",
@@ -304,8 +310,12 @@
         "difficulty": "Increased AO2 requirement: equate variable coefficient ratios, solve parameter equation, distinguish coincidence vs distinctness. Grade 7 still provisional until exam calibration",
         "formalQA": "HOLD_FOR_GRADE_AND_TEACHER_VERIFICATION",
         "canonicalStemChanged": true
-      }
+      },
+      "candidateVersionId": "LUX-MATH-Y9-SIMULTANEOUS-013::new-stem-grade-uplift-v1",
+      "importInstruction": "MUST_ASSIGN_NEW_CANONICAL_ID_AND_INDEPENDENT_SOURCE_SHA_BEFORE_IMPORT",
+      "independentApproval": "NOT_GRANTED"
     }
   ],
-  "note": "Three QA-only candidates for two source IDs: INDICES-037 complete A–F replacement; SIMULTANEOUS-013 exact-stem A–F and a separate parameterized higher-demand stem. No automatic bank replacement or release."
+  "note": "Three QA-only candidates for two source IDs: INDICES-037 complete A–F replacement; SIMULTANEOUS-013 exact-stem A–F and a separate parameterized higher-demand stem. No automatic bank replacement or release.",
+  "prohibition": "Duplicate original questionId occurs intentionally across alternative QA candidate variants; NEVER import this manifest directly or overwrite original source ID with the grade-uplift stem. Version/new canonical ID approval is required."
 }
