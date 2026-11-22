@@ -63,7 +63,7 @@ for(const [id,fn] of Object.entries(cases)){
 }
 test('original four densities are 300/400/500/600, not retroactively rewritten',()=>{
  const origDensity=[(2e12*3e-9)/2e1,(3e13*4e-9)/3e2,(4e14*5e-9)/4e3,(5e15*6e-9)/5e4];
- assert.deepEqual(origDensity,[300,400,500,600]);
+ origDensity.forEach((x,i)=>close(x,[300,400,500,600][i],'original source Q'+(41+i)));
  assert.deepEqual(['001','002','003','004'].map(n=>by(n).candidateCorrectValue),[.3,.4,.8,5e14]);
  assert.ok(staged.patches.every(p=>p.review!=='approved'));
 });
