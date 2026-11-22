@@ -117,3 +117,74 @@ test('incorrect answer keeps its model and reasoning expanded',()=>{
  assert.ok(textOf(tree).includes('Not quite.'));assert.ok(textOf(tree).includes('Correct answer'));assert.ok(textOf(tree).includes('Trois means three.'));
  assert.equal(flatten(tree).some(n=>n?.type==='details'&&textOf(n).includes('Answer & explanation')),false,'Errors show the model and reasoning immediately');
 });
+
+test('a Food Tests answer stays unmarked while iPad draft save is pending, then shows neutral completion',async()=>{
+ const q=JSON.parse(read('content/topics/bio-y8-food-tests.json')).questions
+  .find(q=>q.id==='bio-y8-food-tests-iodine-solution-mc');
+ assert.ok(q&&q.format==='mc_single'&&q.answer.accepted[0]);
+ const state=newState(),runner=hooks(), calls=[];
+ state.recordAttempt=(...args)=>calls.push(['attempt',args]);
+ state.award=(...args)=>calls.push(['award',args]);
+ state.bumpDaily=(...args)=>calls.push(['daily',args]);
+ let confirm;
+ const environment=env(state,runner);
+ environment.LuxPracticeDrafts={
+  save:(_key,data)=>data.ce?new Promise(resolve=>{confirm=resolve;calls.push(['completed-draft',data]);}):true,
+  clear:()=>true,key:()=>'draft',read:()=>null
+ };
+ const ctx=vm.createContext({...context,...environment});
+ vm.runInContext(quiz.slice(quiz.indexOf('function re('),quiz.indexOf('function ie(')),ctx);
+ const props={title:'Food Tests',subject:'biology',items:[q],size:1,backHref:'/study/biology',resumeMode:'standard'};
+ let tree=runner.render(()=>ctx.H(props));
+ button(tree,q.answer.accepted[0]).props.onClick();
+ tree=runner.render(()=>ctx.H(props));
+ assert.ok(textOf(tree).includes('Practice saved. Not a formal mark.'));
+ assert.equal(/Correct answer|Not quite\.|\bCorrect!\b|\bWrong\b/.test(textOf(tree)),false);
+ assert.equal(flatten(tree).some(n=>n?.type==='details'&&textOf(n).includes('Answer & explanation')),false);
+ assert.equal(calls.some(x=>x[0]==='award'||x[0]==='daily'),false,
+   'unmarked Food Tests may not grant XP or Daily progress');
+ button(tree,'Finish').props.onClick();
+ await new Promise(resolve=>setImmediate(resolve));
+ tree=runner.render(()=>ctx.H(props));
+ assert.equal(typeof confirm,'function','Finish must initiate a completion draft save');
+ assert.equal(flatten(tree).some(n=>n?.props?.unmarked===true),false,
+   'must not show completed result while a save is pending');
+ const submitted=calls.find(x=>x[0]==='completed-draft')?.[1];
+ assert.equal(submitted?.ce,true);
+ assert.equal(submitted?.sessionLog?.[0]?.formal,false);
+ confirm(true);
+ await new Promise(resolve=>setImmediate(resolve));
+ tree=runner.render(()=>ctx.H(props));
+ assert.ok(flatten(tree).some(n=>n?.props?.unmarked===true),
+   'only acknowledged completion may show unmarked summary');
+});
+
+test('a failed Food Tests iPad save leaves answers visible and never shows a success result',async()=>{
+ const q=JSON.parse(read('content/topics/bio-y8-food-tests.json')).questions
+  .find(q=>q.id==='bio-y8-food-tests-iodine-solution-mc');
+ const state=newState(),runner=hooks();let confirm;
+ const environment=env(state,runner);
+ environment.LuxPracticeDrafts={
+  save:(_key,data)=>data.ce?new Promise(resolve=>{confirm=resolve;}):false,
+  clear:()=>true,key:()=>'draft',read:()=>null
+ };
+ const ctx=vm.createContext({...context,...environment});
+ vm.runInContext(quiz.slice(quiz.indexOf('function re('),quiz.indexOf('function ie(')),ctx);
+ const props={title:'Food Tests',subject:'biology',items:[q],size:1,backHref:'/study/biology',resumeMode:'standard'};
+ let tree=runner.render(()=>ctx.H(props));
+ button(tree,q.answer.accepted[0]).props.onClick();
+ tree=runner.render(()=>ctx.H(props));
+ button(tree,'Finish').props.onClick();
+ await new Promise(resolve=>setImmediate(resolve));
+ assert.equal(typeof confirm,'function');
+ confirm(false);
+ await new Promise(resolve=>setImmediate(resolve));
+ tree=runner.render(()=>ctx.H(props));
+ assert.equal(flatten(tree).some(n=>n?.props?.unmarked===true),false,
+   'failed save must not show a completed result');
+ assert.ok(textOf(tree).includes('Could not save this practice on this device'),
+   'storage error must be shown, not hidden');
+ assert.ok(textOf(tree).includes('Question 1 / 1'),'attempt remains on screen');
+ assert.ok(flatten(tree).some(n=>n?.props?.children==='Finish'),
+   'Finish must remain available for retry');
+});
