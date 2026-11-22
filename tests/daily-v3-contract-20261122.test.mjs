@@ -86,7 +86,7 @@ test('Standard B Year 9 is assigned only with ten certified Year 9 concepts',()=
 });
 test('Languages Standard never completes with Latin alone',()=>{
   const rows=Array.from({length:10},(_,i)=>({
-    day,dailyTaskId:'languages-standard',subject:'latin',questionId:'latin'+i,
+    day,year:8,dailyTaskId:'languages-standard',subject:'latin',questionId:'latin'+i,
     correct:true,formal:true
   }));
   let s=state({formalAttemptLog:rows});
@@ -94,7 +94,7 @@ test('Languages Standard never completes with Latin alone',()=>{
   assert.equal(languageEvidence(s,day).progress,5);
   assert.equal(languageEvidence(s,day).completed,false);
   s.formalAttemptLog.push(...Array.from({length:5},(_,i)=>({
-    day,dailyTaskId:'languages-standard',subject:'french',questionId:'fr'+i,correct:true,formal:true
+    day,year:8,dailyTaskId:'languages-standard',subject:'french',questionId:'fr'+i,correct:true,formal:true
   })));
   assert.equal(languageEvidence(s,day).completed,true);
   assert.equal(languageEvidence(s,day).progress,10);
