@@ -21,7 +21,9 @@ const topic=(subject,year,topicId,concepts)=>({
   concepts:Array.from({length:concepts},(_,i)=>({conceptId:topicId+'-'+i,ids:[topicId+'-q'+i]}))
 });
 const makeMath=(id,grade='7')=>({
-  id,topic:'indices',grade,templateId:'unique-template-'+id,academicQA:'approved',taughtVerified:true,
+  id,subject:'maths',year:9,topicId:'math-y9-indices',topic:'indices',grade,difficultyTarget:grade==='8-9'?'G8-9':'G'+grade,
+  templateId:'unique-template-'+id,academicQA:'approved',taughtVerified:true,
+  mathDailyEnabled:true,renderRequired:true,
   sourceRef:'teacher-confirmed-index-law-source',qaReviewer:'independent-reviewer',
   options:Array.from({length:6},(_,i)=>({id:'abcdef'[i],text:String(i+1),
     ...(i?{misconception:'confuses law '+i}:{})})),
@@ -122,8 +124,11 @@ test('six-option Maths answer validator rejects filler, repeated answers and mis
 });
 test('Maths plan requires genuine 4/4/2 band supply, never lower-level filler',()=>{
   const few=Array.from({length:4},(_,i)=>makeMath('g7-'+i,'7'));
+  const topics=['math-y9-indices','math-y9-standard-form','math-y9-changing-subject',
+    'math-y9-straight-line-graphs','math-y9-simultaneous-equations'];
   const enough=[...few,...Array.from({length:4},(_,i)=>makeMath('g8-'+i,'8')),
-    ...Array.from({length:2},(_,i)=>makeMath('g89-'+i,'8-9'))];
+    ...Array.from({length:2},(_,i)=>makeMath('g89-'+i,'8-9'))]
+    .map((q,i)=>({...q,topicId:topics[Math.floor(i/2)]}));
   assert.equal(buildDailyV3(state(),old(),{...V3_APPROVED,maths:few})
     .find(t=>t.id==='maths-daily').supplyBlocked,true);
   assert.equal(buildDailyV3(state(),old(),{...V3_APPROVED,maths:enough})
@@ -210,11 +215,13 @@ test('unapproved Maths card is never completed by arbitrary ten marked submissio
  assert.equal(card.done,false);
 });
 test('Maths task credit is scoped to ten pinned, unassisted, first submitted formal answers',()=>{
+ const topics=['math-y9-indices','math-y9-standard-form','math-y9-changing-subject',
+   'math-y9-straight-line-graphs','math-y9-simultaneous-equations'];
  const questions=[
    ...Array.from({length:4},(_,i)=>makeMath('v7-'+i,'7')),
    ...Array.from({length:4},(_,i)=>makeMath('v8-'+i,'8')),
    ...Array.from({length:2},(_,i)=>makeMath('v89-'+i,'8-9'))
- ];
+ ].map((q,i)=>({...q,topicId:topics[Math.floor(i/2)]}));
  const original=buildDailyV3(state(),old(),{...V3_APPROVED,maths:questions,mathsRuntimeReady:true});
  const task=original.find(x=>x.id==='maths-daily');
  const attempts=task.approvedQuestionIds.map((questionId,i)=>({
