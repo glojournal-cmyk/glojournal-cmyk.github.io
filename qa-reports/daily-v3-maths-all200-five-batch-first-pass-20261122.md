@@ -33,6 +33,18 @@ The source files are still authoritative. PDF text extraction can flatten roots,
 - [Graphs 40 coordinate calculations](../qa-staging/math-v311-straight-line-graphs40-independent-geometry-20261122.json)
 - [Simultaneous 40 systems and derived values](../qa-staging/math-v311-simultaneous40-independent-elimination-20261122.json)
 
+## Original A–F choice corpus: 1,200 source options, 1,000 remaining diagnostic decisions
+
+Five additional source-preserving option ledgers were generated from the actual archived student PDF: **240 option records per topic = 1,200 original A–F choices**, with **exactly 200 source correct-key slots** and **1,000 original wrong-answer distractor slots**. Every slot keeps its original question ID, source template, printed choice letter, extracted text, original key flag, and **independent misconception pedagogy approval = false**. These are **review worklists, NOT 1,000 verified wrong-operation paths**. Extracted vertically stacked fractions require original-PDF visual checking.
+
+- [Indices: 240 original options / 200 wrong choices awaiting QA](../qa-staging/math-v311-indices-240-source-options-qa-ledger-20261122.json)
+- [Standard Form: 240 / 200](../qa-staging/math-v311-standard-form-240-source-options-qa-ledger-20261122.json)
+- [Changing the Subject: 240 / 200](../qa-staging/math-v311-changing-subject-240-source-options-qa-ledger-20261122.json)
+- [Straight-line Graphs: 240 / 200](../qa-staging/math-v311-straight-line-graphs-240-source-options-qa-ledger-20261122.json)
+- [Simultaneous Equations: 240 / 200](../qa-staging/math-v311-simultaneous-equations-240-source-options-qa-ledger-20261122.json)
+
+The [regression check](../tests/daily-v3-maths-original-1200-options-review-pending-20261122.test.mjs) ensures 6/6 choice starts and exact 1+5 correct/wrong slots per each of the 200 source questions and specifically **forbids promotion** of any of the 1,000 still-unreviewed pedagogical rationales.
+
 ## 2. Specific substantive academic issues found or reconfirmed
 
 **High-band sameness, even with correct answers:** original **Graphs Q157–160** all give **xP+yP=7**. Original **Simultaneous Q185–188** all give **crate − box = 5 kg**. Original **Standard Form Q73–76** all give **1.116 × 10^5 g/packet**. Such whole-family repetition needs actual redrafting; changing input numbers alone does not turn the family into independent Grade 8–9 concepts.
