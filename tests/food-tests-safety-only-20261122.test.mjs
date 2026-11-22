@@ -34,6 +34,7 @@ test('exactly the existing 143 Food Tests questions are on academic hold',()=>{
  assert.equal(isFoodTestsQaHeld(other),false);
  assert.equal(foodTestsPupilVerdict(other),null);
  assert.equal(isFoodTestsQaHeld({id:'future',topicId:FOOD_TESTS_QA_TOPIC}),true);
+ assert.equal(isFoodTestsQaHeld(FOOD_TESTS_QA_TOPIC),true,'exact topic string must be held for older saved Daily cards');
 });
 
 test('new held Food Tests answers cannot earn verified Daily slots or Mastery evidence',()=>{
