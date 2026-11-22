@@ -34,7 +34,7 @@ export function mathsV31SignoffIssues(question,signoff={}){
    if(!filled(signoff.distractorRationales?.[option.id]))
      issues.push('missing-rationale-'+option.id);
  }
- if(signoff.ipadLatexRendererVerified!==true||!filled(signoff.rendererEvidence))
+ if(signoff.ipadNativeMathMLVerified!==true||!filled(signoff.rendererEvidence))
    issues.push('ipad-maths-rendering-unverified');
  return issues;
 }
@@ -47,10 +47,18 @@ export function stageMathsV31Question(question,signoff={}){
  const choices=Array.isArray(question?.options)?question.options:[];
  if(choices.length!==6)reasons.push('exactly-six-options');
  if(choices.some(c=>!filled(c?.id)||!filled(c?.latex))||
-    duplicates(choices.map(c=>c.id)))reasons.push('option-schema-invalid');
+    duplicates(choices.map(c=>c.id))||
+    !['A','B','C','D','E','F'].every(id=>choices.some(c=>c.id===id)))
+    reasons.push('option-schema-invalid');
+ if(duplicates(choices.map(c=>String(c.latex||'').normalize('NFKC').trim())))
+    reasons.push('identical-option-expression');
  if(!choices.some(c=>c.id===question?.correctOptionId)||
    choices.filter(c=>c.id===question?.correctOptionId).length!==1)
     reasons.push('unique-key-missing');
+ if(question?.qa?.mathSecondPassVerified!==true||
+    question?.qa?.oneCorrectChoiceSecondPass!==true||
+    question?.qa?.sixMathematicallyDistinctChoicesSecondPass!==true)
+    reasons.push('source-maths-second-pass-incomplete');
  if(!filled(question?.stem)||!filled(question?.id)||!filled(question?.templateId)||
     !filled(question?.correctAnswerLatex))reasons.push('stem-answer-concept-required');
  if(!Array.isArray(question?.workedSolutionSteps)||
@@ -69,8 +77,8 @@ export function stageMathsV31Question(question,signoff={}){
   templateId:question?.templateId,conceptId:question?.templateId,
   stemLatex:question?.stem,answerLatex:question?.correctAnswerLatex,
   format:'mc_single',correctOptionId:question?.correctOptionId,
-  // .text satisfies the legacy metadata validator ONLY; actual UI MUST render
-  // .latex via KaTeX or MathJax. Do not show raw LaTeX as plain text.
+  // .text satisfies the legacy metadata validator ONLY; actual UI MUST use
+  // the tested native MathML renderer; never show raw TeX as plain text.
   options:choices.map(o=>({id:o.id,latex:o.latex,text:o.latex,
    misconception:signoff.distractorRationales?.[o.id]||''})),
   workedSolution:question?.workedSolutionSteps||[],
@@ -87,9 +95,14 @@ export function stageMathsV31Question(question,signoff={}){
  };
  return {eligible,issues:reasons,question:adapted};
 }
-export function auditMathsV31Pack(pack,signoffs={}){
+export function auditMathsV31Pack(pack,signoffs={}, {verifiedSourceSha256=null}={}){
  const issues=[];
+ // A bank's self-declared provenance is insufficient. The importing caller
+ // MUST hash the exact uploaded RAW BYTES independently before any admission.
+ if(verifiedSourceSha256!==V31_SOURCE_SHA256)
+   issues.push('independently-verified-raw-bank-sha-required');
  if(pack?.version!=='3.1-independent-maths-second-pass')issues.push('not-V3.1-reviewed-bank');
+ if(pack?.questionCount!==200)issues.push('source-header-question-count-mismatch');
  if(!Array.isArray(pack?.questions)||pack.questions.length!==200)
    issues.push('expect-200-questions');
  const questions=Array.isArray(pack?.questions)?pack.questions:[];
