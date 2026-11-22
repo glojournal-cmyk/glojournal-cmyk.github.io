@@ -17,10 +17,12 @@
       "rules": [
         {
           "all": [
-            "benedict",
-            "(?:reducing\\s+sugar|glucose|sugar)"
+            "(?:reduc\\w*\\s+sugar|glucose|sugars?)",
+            "(?:detect|test|reagent|used|benedict)"
           ],
-          "notAnywhere": [],
+          "notAnywhere": [
+            "\\b(?:iodine|biuret)\\b.{0,25}\\b(?:sugar|glucose)\\b"
+          ],
           "alternatives": [
             "Benedict's solution tests for reducing sugars"
           ]
@@ -51,8 +53,8 @@
       "rules": [
         {
           "all": [
-            "blue[\\s-]*black",
-            "starch"
+            "starch",
+            "(?:iodine|blue[\\s-]*black|colour|color|positive)"
           ],
           "notAnywhere": [],
           "alternatives": [
@@ -68,8 +70,8 @@
       "rules": [
         {
           "all": [
-            "(?:brick[\\s-]*red|red\\s+precipitate)",
-            "(?:sugar|glucose|benedict)"
+            "(?:reducing\\s+sugar|glucose|benedict)",
+            "(?:positive|red|heating|heat|sugar)"
           ],
           "notAnywhere": [],
           "alternatives": [
@@ -85,8 +87,8 @@
       "rules": [
         {
           "all": [
-            "(?:lilac|purple|violet)",
-            "protein"
+            "protein",
+            "(?:biuret|positive|lilac|purple|violet|colour|color)"
           ],
           "notAnywhere": [],
           "alternatives": [
@@ -102,8 +104,8 @@
       "rules": [
         {
           "all": [
-            "(?:cloudy|milky|white\\s+emulsion)",
-            "(?:lipid|fat)"
+            "(?:lipid|fat)",
+            "(?:ethanol|emulsion|cloudy|milky|white|positive)"
           ],
           "notAnywhere": [],
           "alternatives": [
@@ -119,7 +121,7 @@
       "rules": [
         {
           "all": [
-            "(?:water\\s*bath|indirect\\s+heat|controlled\\s+heat)",
+            "(?:water\\s*bath|indirect|controlled|safe)",
             "(?:benedict|heat|warm)"
           ],
           "notAnywhere": [],
@@ -147,7 +149,7 @@
         {
           "all": [
             "(?:ethanol|emulsion)",
-            "(?:no\\s+heat|not\\s+heat|need\\s+not\\s+be\\s+heat|without\\s+heat|unheated|heating\\s+is\\s+not\\s+needed|no\\s+heating)"
+            "(?:no\\s+heat|not\\s+heat|need\\s+not\\s+be\\s+heat|without\\s+heat|unheated|heating\\s+is\\s+not\\s+needed|does\\s+not\\s+need\\s+heat|no\\s+heating)"
           ],
           "notAnywhere": [],
           "alternatives": [
@@ -900,8 +902,8 @@
       "rules": [
         {
           "all": [
-            "(?:food\\s+test|nutrient|protein|sugar)",
-            "(?:not|cannot|does\\s+not|only|limited|health|balanced)"
+            "(?:food\\s*test|nutrient|protein|sugar|balance)",
+            "(?:not|cannot|does\\s+not|only|limited|health|balance)"
           ],
           "notAnywhere": [],
           "alternatives": [
@@ -1123,7 +1125,7 @@
         {
           "all": [
             "iodine",
-            "(?:no\\s+heat|not\\s+heat|without\\s+heat|unheated|unnecessary|does\\s+not\\s+need\\s+heat|no\\s+need\\s+to\\s+heat)"
+            "(?:no\\s+heat|not\\s+heat|without\\s+heat|unheated|unnecessary|does\\s+not\\s+(?:need|require)\\s+heat|no\\s+need\\s+to\\s+heat)"
           ],
           "notAnywhere": [],
           "alternatives": [
