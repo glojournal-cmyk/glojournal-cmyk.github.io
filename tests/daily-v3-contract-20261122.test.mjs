@@ -255,6 +255,34 @@ test('Maths task credit is scoped to ten pinned, unassisted, first submitted for
     {...attempts[0],correct:true,selectedOptionId:'A'},{...attempts[1],questionId:'not-assigned',correct:true},
     {...attempts[2],repair:true,questionId:attempts[2].questionId},
     {...attempts[3],hintUsed:true,questionId:attempts[3].questionId}],day,task);
+ // Persisted credit must verify the actual active Maths task, the ten
+ // reviewed concept families, and a real London-local answer timestamp.
+ for(const bad of [
+   {...task,id:'ordinary-maths-practise'},
+   {...task,dailyV3:false},
+   {...task,assignedSubject:'physics'},
+   {...task,approvedConceptByQuestion:{}},
+   {...task,approvedCorrectOptionByQuestion:{}},
+   {...task,approvedQuestionIds:task.approvedQuestionIds.slice(0,9)},
+   {...task,planDate:'2026-11-22'}
+ ]){
+   assert.equal(mathsEvidence(attempts,day,bad).submitted,0,
+     'incorrectly signed task must never credit: '+bad.id);
+ }
+ const oldStamp=attempts.map(e=>({...e,submittedAt:'2001-01-01T12:00:00Z'}));
+ assert.equal(mathsEvidence(oldStamp,day,task).submitted,0,
+   'forged task day cannot make a 2001 answer into a 2026 Daily result');
+ const unstamped=attempts.map(e=>({...e,submittedAt:'2026-11-23T12:00:00'}));
+ assert.equal(mathsEvidence(unstamped,day,task).submitted,0,
+   'timezone-less timestamps do not prove the London submission day');
+ const summerDay='2026-07-01',summerTask={...task,planDate:summerDay};
+ const summer=attempts.map(e=>({...e,day:summerDay,
+   submittedAt:'2026-06-30T23:30:00Z'}));
+ assert.equal(mathsEvidence(summer,summerDay,summerTask).submitted,10,
+   '30 June 23:30Z is 1 July in BST');
+ const nextDay=summer.map(e=>({...e,submittedAt:'2026-07-01T23:30:00Z'}));
+ assert.equal(mathsEvidence(nextDay,summerDay,summerTask).submitted,0,
+   '1 July 23:30Z is 2 July in BST');
  assert.equal(scoped.submitted,10);
  assert.equal(scoped.correct,9);
  assert.equal(scoped.completed,true);
