@@ -108,8 +108,8 @@
               "\\b(?:test\\w*|detect\\w*|reagent)\\b"
             ],
             "notAnywhere": [
-              "\\bbenedict\\w*\\b[^.!?;\\n]*\\bstarch\\b",
-              "\\bbiuret\\b[^.!?;\\n]*\\bstarch\\b"
+              "\\bbenedict(?:['’]?s)?\\s+(?:solution|reagent|test)?\\s*(?:is\\s+(?:a\\s+)?(?:starch\\s+test|for\\s+starch)|(?:tests?|detects?)\\s+(?:for\\s+)?starch)\\b",
+              "\\bbiuret\\s+(?:solution|reagent|test)?\\s*(?:is\\s+(?:a\\s+)?(?:starch\\s+test|for\\s+starch)|(?:tests?|detects?)\\s+(?:for\\s+)?starch)\\b"
             ]
           }
         ],
@@ -364,8 +364,8 @@
               "\\b(?:test\\w*|detect\\w*|reagent|positive)\\b"
             ],
             "notAnywhere": [
-              "\\biodine\\b[^.!?;\\n]*\\bprotein\\b",
-              "\\bbenedict\\w*\\b[^.!?;\\n]*\\bprotein\\b"
+              "\\biodine\\s+(?:solution|reagent|test)?\\s*(?:is\\s+(?:a\\s+)?(?:protein\\s+test|for\\s+proteins?)|(?:tests?|detects?)\\s+(?:for\\s+)?proteins?)\\b",
+              "\\bbenedict(?:['’]?s)?\\s+(?:solution|reagent|test)?\\s*(?:is\\s+(?:a\\s+)?(?:protein\\s+test|for\\s+proteins?)|(?:tests?|detects?)\\s+(?:for\\s+)?proteins?)\\b"
             ]
           }
         ],
