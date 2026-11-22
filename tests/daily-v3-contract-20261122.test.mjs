@@ -25,9 +25,9 @@ const makeMath=(id,grade='7')=>({
   templateId:'unique-template-'+id,academicQA:'approved',taughtVerified:true,
   mathDailyEnabled:true,renderRequired:true,
   sourceRef:'teacher-confirmed-index-law-source',qaReviewer:'independent-reviewer',
-  options:Array.from({length:6},(_,i)=>({id:'abcdef'[i],text:String(i+1),
+  options:Array.from({length:6},(_,i)=>({id:'ABCDEF'[i],text:String(i+1),
     ...(i?{misconception:'confuses law '+i}:{})})),
-  correctOptionId:'a',workedSolution:['Apply the law of indices.','Simplify the powers.']
+  correctOptionId:'A',workedSolution:['Apply the law of indices.','Simplify the powers.']
 });
 test('fixed V3 contract: ten tasks and 165 questions',()=>{
   assert.equal(V3_TASK_SPEC.length,10);
@@ -119,7 +119,7 @@ test('six-option Maths answer validator rejects filler, repeated answers and mis
   assert.ok(validateMathQuestion({...accepted,academicQA:'pending'}).issues.includes('not-academic-qa-approved'));
   assert.ok(validateMathQuestion({...accepted,options:accepted.options.slice(0,5)}).issues.includes('six-options-required'));
   assert.ok(validateMathQuestion({...accepted,correctOptionId:'z'}).issues.includes('unique-correct-id-required'));
-  const duplicated={...accepted,options:[...accepted.options.slice(0,5),{id:'f',text:'1',misconception:'same'}]};
+  const duplicated={...accepted,options:[...accepted.options.slice(0,5),{id:'F',text:'1',misconception:'same'}]};
   assert.ok(validateMathQuestion(duplicated).issues.includes('duplicate-or-empty-options'));
 });
 test('Maths plan requires genuine 4/4/2 band supply, never lower-level filler',()=>{
@@ -226,10 +226,11 @@ test('Maths task credit is scoped to ten pinned, unassisted, first submitted for
  const task=original.find(x=>x.id==='maths-daily');
  const attempts=task.approvedQuestionIds.map((questionId,i)=>({
    questionId,day,subject:'maths',year:9,dailyTaskId:'maths-daily',
-   correct:i!==0,formal:true,submittedAt:day+'T12:00:00Z'
+   correct:i!==0,selectedOptionId:i===0?'B':'A',
+   formal:true,submittedAt:day+'T12:00:00Z'
  }));
  const scoped=mathsEvidence([...attempts,
-    {...attempts[0],correct:true},{...attempts[1],questionId:'not-assigned',correct:true},
+    {...attempts[0],correct:true,selectedOptionId:'A'},{...attempts[1],questionId:'not-assigned',correct:true},
     {...attempts[2],repair:true,questionId:attempts[2].questionId},
     {...attempts[3],hintUsed:true,questionId:attempts[3].questionId}],day,task);
  assert.equal(scoped.submitted,10);
@@ -237,4 +238,12 @@ test('Maths task credit is scoped to ten pinned, unassisted, first submitted for
  assert.equal(scoped.completed,true);
  assert.equal(scoped.targetMet,true);
  assert.equal(mathsEvidence(attempts.slice(0,9),day,task).completed,false);
+ const eight=attempts.map((a,i)=>i===1?{...a,correct:false,selectedOptionId:'B'}:a);
+ const eightEvidence=mathsEvidence(eight,day,task);
+ assert.equal(eightEvidence.submitted,10);
+ assert.equal(eightEvidence.correct,8);
+ assert.equal(eightEvidence.attemptFinished,true);
+ assert.equal(eightEvidence.completed,false,'Ten attempted but below 9/10 must not clear Maths Daily');
+ assert.equal(mathsEvidence(attempts.map(({selectedOptionId,...rest})=>rest),day,task).submitted,0,
+   'correct:true without actual selected option cannot mint credit');
 });
