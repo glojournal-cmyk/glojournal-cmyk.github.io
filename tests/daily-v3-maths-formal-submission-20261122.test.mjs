@@ -1,3 +1,4 @@
+import {readFileSync} from 'node:fs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {verifyMathDailyAssignment,makeVerifiedMathsSubmission} from '../assets/math-study/daily-v31-formal-submission.js';
@@ -60,4 +61,20 @@ test('null/malformed task, bank and receipts never throw or grant student credit
  assert.equal(verifyMathDailyAssignment(null,null,day).valid,false);
  assert.equal(makeVerifiedMathsSubmission({}).accepted,false);
  assert.equal(makeVerifiedMathsSubmission({...args,approvedQuestions:[]}).accepted,false);
+});
+
+test('actual Scholar recordAttempt wrapper persists the A-F selected answer and assistance/recovery flags',()=>{
+ const wrapper=readFileSync('assets/index-BLVOhKhN.js','utf8');
+ const idx=wrapper.indexOf('  const evidenceEntry={');
+ assert.ok(idx>=0);
+ const proof=wrapper.slice(idx,idx+1700);
+ for(const token of [
+   'selectedOptionId:', 'meta.selectedOptionId', 'assisted: meta.assisted===true',
+   'hintUsed: meta.hintUsed===true','scaffolded: meta.scaffolded===true',
+   'recoveryFor: inRecovery ? recoverDate : null'
+ ])assert.ok(proof.includes(token),token);
+ assert.ok(wrapper.includes('void saveMarkedAnswer({'),'durable IndexedDB backup retained');
+ assert.ok(wrapper.includes('formalAttemptLog:globalThis.LuxWeeklyEvidence.append('));
+ assert.ok(wrapper.includes('approvedCorrectOptionByQuestion:Object.fromEntries('),
+   'dated Maths answer key survives compact backup');
 });
