@@ -1,0 +1,1533 @@
+{
+  "status": "CHANGING_SUBJECT_40_DOMAIN_AND_INVERSE_UNIQUENESS_MATH_VERIFIED_SOURCE_OPTIONS_PEDAGOGY_HELD",
+  "date": "2026-11-22",
+  "sourceFiles": [
+    "qa-staging/math-v311-batch40-changing-subject-source-qa-20261122.json",
+    "qa-staging/math-v311-changing-subject40-independent-inverse-check-20261122.json"
+  ],
+  "caveat": "40 source mathematical formula forms were transcribed in the previous independent inverse pass. Domain and range are derived symbolically from each family's original coefficients here; original A-F typeset formulas have NOT been faithfully reconstructed from PDF text. Numerical probes do not establish identities over every real x without algebraic derivation; determinant, roots, poles and branch restrictions are separately verified.",
+  "statistics": {
+    "sourceQuestions": 40,
+    "sourceCorrectAnswerKeyLettersReconciled": 40,
+    "independentForwardInverseNumericProbes": 160,
+    "nonconstantFiniteInverseFunctions": 40,
+    "originalInverseOutputAsymptoteOrForbiddenYQuestions": 32,
+    "squareRootPrincipalBranchQuestions": 12,
+    "explicitYRootBranchStatements": 12,
+    "originalTypesetAnswerOptionsVisuallyApproved": 0,
+    "independentlyPlausibleDistractorErrorPathsApproved": 0,
+    "independentGrade7PlusApproved": 0,
+    "courseAutumnTaughtVerified": 0,
+    "mathematicalShapes": {
+      "RATIONAL_MOBIUS": 12,
+      "AFFINE_PRINCIPAL_SQUARE_ROOT": 4,
+      "SHIFTED_RECIPROCAL": 4,
+      "INVERSE_OF_RECIPROCAL": 4,
+      "PRINCIPAL_ROOT_OF_RECIPROCAL": 4,
+      "FACTOR_RATIONAL_MOBIUS": 4,
+      "NESTED_DENOMINATOR": 4,
+      "PRINCIPAL_ROOT_OF_MOBIUS": 4
+    }
+  },
+  "fortySourceRecords": [
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-001",
+      "originalPaperQuestion": 81,
+      "sourceTemplate": "V2-SUBJECT-1",
+      "provisionalGrade": "G7",
+      "originalCorrectAnswerLetter": "C",
+      "sourceAssumptionSnippet": "Q81. Changing the Subject                                                         Target: G7 (provisional)            2(x − 3) Given y =           , make x the subject. Assume all expressions are defined.             2x + 5     6 − 5y",
+      "sourceStructuralFamily": "simple-rational",
+      "actualSourceParameters": [
+        0,
+        2,
+        -6,
+        2,
+        5
+      ],
+      "shape": "RATIONAL_MOBIUS",
+      "nonzeroMobiusDeterminant": 22,
+      "excludedOriginalInputXPoints": [
+        -2.5
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        1
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=22, so inverse is unique on the permitted domain.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-002",
+      "originalPaperQuestion": 82,
+      "sourceTemplate": "V2-SUBJECT-1",
+      "provisionalGrade": "G7",
+      "originalCorrectAnswerLetter": "F",
+      "sourceAssumptionSnippet": "Q82. Changing the Subject                                                      Target: G7 (provisional)           3(x − 4) Given y =          , make x the subject. Assume all expressions are defined.            3x + 6     12 − 6y",
+      "sourceStructuralFamily": "simple-rational",
+      "actualSourceParameters": [
+        0,
+        3,
+        -12,
+        3,
+        6
+      ],
+      "shape": "RATIONAL_MOBIUS",
+      "nonzeroMobiusDeterminant": 54,
+      "excludedOriginalInputXPoints": [
+        -2
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        1
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=54, so inverse is unique on the permitted domain.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-003",
+      "originalPaperQuestion": 83,
+      "sourceTemplate": "V2-SUBJECT-1",
+      "provisionalGrade": "G7",
+      "originalCorrectAnswerLetter": "D",
+      "sourceAssumptionSnippet": "Q83. Changing the Subject                                                      Target: G7 (provisional)           4(x − 5) Given y =          , make x the subject. Assume all expressions are defined.            4x + 7     7y + 20",
+      "sourceStructuralFamily": "simple-rational",
+      "actualSourceParameters": [
+        0,
+        4,
+        -20,
+        4,
+        7
+      ],
+      "shape": "RATIONAL_MOBIUS",
+      "nonzeroMobiusDeterminant": 108,
+      "excludedOriginalInputXPoints": [
+        -1.75
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        1
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=108, so inverse is unique on the permitted domain.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-004",
+      "originalPaperQuestion": 84,
+      "sourceTemplate": "V2-SUBJECT-1",
+      "provisionalGrade": "G7",
+      "originalCorrectAnswerLetter": "C",
+      "sourceAssumptionSnippet": "Q84. Changing the Subject                                                      Target: G7 (provisional)           5(x − 6) Given y =          , make x the subject. Assume all expressions are defined.            5x + 8     30 − 8y",
+      "sourceStructuralFamily": "simple-rational",
+      "actualSourceParameters": [
+        0,
+        5,
+        -30,
+        5,
+        8
+      ],
+      "shape": "RATIONAL_MOBIUS",
+      "nonzeroMobiusDeterminant": 190,
+      "excludedOriginalInputXPoints": [
+        -1.6
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        1
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=190, so inverse is unique on the permitted domain.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-005",
+      "originalPaperQuestion": 85,
+      "sourceTemplate": "V2-SUBJECT-2",
+      "provisionalGrade": "G7",
+      "originalCorrectAnswerLetter": "E",
+      "sourceAssumptionSnippet": "Q85. Changing the Subject                                                      Target: G7 (provisional)                                                   √ For y ≥ −4, make x the subject of y = 2 3x + 2 − 4.      (y     )2         −  2      2",
+      "sourceStructuralFamily": "affine-surd",
+      "actualSourceParameters": [
+        2,
+        3,
+        2,
+        4
+      ],
+      "shape": "AFFINE_PRINCIPAL_SQUARE_ROOT",
+      "nonzeroMobiusDeterminant": null,
+      "excludedOriginalInputXPoints": [],
+      "originalInputMinInclusive": -0.6666666666666666,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [],
+      "inverseOutputYMinInclusive": -4,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": true,
+      "inverseDomainAuditExplanation": "Principal square root imposes x >= -c/b and y >= -d. Squaring without y>=-d would introduce an extraneous branch.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-006",
+      "originalPaperQuestion": 86,
+      "sourceTemplate": "V2-SUBJECT-2",
+      "provisionalGrade": "G7",
+      "originalCorrectAnswerLetter": "C",
+      "sourceAssumptionSnippet": "Q86. Changing the Subject                              Target: G7 (provisional)                                                   √ For y ≥ −5, make x the subject of y = 3 4x + 3 − 5.    (y + 5)2 1",
+      "sourceStructuralFamily": "affine-surd",
+      "actualSourceParameters": [
+        3,
+        4,
+        3,
+        5
+      ],
+      "shape": "AFFINE_PRINCIPAL_SQUARE_ROOT",
+      "nonzeroMobiusDeterminant": null,
+      "excludedOriginalInputXPoints": [],
+      "originalInputMinInclusive": -0.75,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [],
+      "inverseOutputYMinInclusive": -5,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": true,
+      "inverseDomainAuditExplanation": "Principal square root imposes x >= -c/b and y >= -d. Squaring without y>=-d would introduce an extraneous branch.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-007",
+      "originalPaperQuestion": 87,
+      "sourceTemplate": "V2-SUBJECT-2",
+      "provisionalGrade": "G7",
+      "originalCorrectAnswerLetter": "F",
+      "sourceAssumptionSnippet": "Q87. Changing the Subject                              Target: G7 (provisional)                                                   √ For y ≥ −6, make x the subject of y = 4 5x + 4 − 6.       (      )         y 3 2",
+      "sourceStructuralFamily": "affine-surd",
+      "actualSourceParameters": [
+        4,
+        5,
+        4,
+        6
+      ],
+      "shape": "AFFINE_PRINCIPAL_SQUARE_ROOT",
+      "nonzeroMobiusDeterminant": null,
+      "excludedOriginalInputXPoints": [],
+      "originalInputMinInclusive": -0.8,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [],
+      "inverseOutputYMinInclusive": -6,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": true,
+      "inverseDomainAuditExplanation": "Principal square root imposes x >= -c/b and y >= -d. Squaring without y>=-d would introduce an extraneous branch.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-008",
+      "originalPaperQuestion": 88,
+      "sourceTemplate": "V2-SUBJECT-2",
+      "provisionalGrade": "G7",
+      "originalCorrectAnswerLetter": "A",
+      "sourceAssumptionSnippet": "Q88. Changing the Subject                              Target: G7 (provisional)                                                   √ For y ≥ −7, make x the subject of y = 5 6x + 5 − 7.      y 2 + 14y − 76",
+      "sourceStructuralFamily": "affine-surd",
+      "actualSourceParameters": [
+        5,
+        6,
+        5,
+        7
+      ],
+      "shape": "AFFINE_PRINCIPAL_SQUARE_ROOT",
+      "nonzeroMobiusDeterminant": null,
+      "excludedOriginalInputXPoints": [],
+      "originalInputMinInclusive": -0.8333333333333334,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [],
+      "inverseOutputYMinInclusive": -7,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": true,
+      "inverseDomainAuditExplanation": "Principal square root imposes x >= -c/b and y >= -d. Squaring without y>=-d would introduce an extraneous branch.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-009",
+      "originalPaperQuestion": 89,
+      "sourceTemplate": "V2-SUBJECT-3",
+      "provisionalGrade": "G7",
+      "originalCorrectAnswerLetter": "E",
+      "sourceAssumptionSnippet": "Q89. Changing the Subject                              Target: G7 (provisional)                                       2x + 3 Make x the subject of y = 1 +                .                                       2x + 4      7 − 4y",
+      "sourceStructuralFamily": "shifted-rational-original",
+      "actualSourceParameters": [
+        1,
+        2,
+        3,
+        2,
+        4
+      ],
+      "shape": "RATIONAL_MOBIUS",
+      "nonzeroMobiusDeterminant": 2,
+      "excludedOriginalInputXPoints": [
+        -2
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        2
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=2, so inverse is unique on the permitted domain.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-010",
+      "originalPaperQuestion": 90,
+      "sourceTemplate": "V2-SUBJECT-3",
+      "provisionalGrade": "G7",
+      "originalCorrectAnswerLetter": "C",
+      "sourceAssumptionSnippet": "Q90. Changing the Subject                              Target: G7 (provisional)                                       3x + 4 Make x the subject of y = 2 +                .                                       3x + 5      14 − 5y",
+      "sourceStructuralFamily": "shifted-rational-original",
+      "actualSourceParameters": [
+        2,
+        3,
+        4,
+        3,
+        5
+      ],
+      "shape": "RATIONAL_MOBIUS",
+      "nonzeroMobiusDeterminant": 3,
+      "excludedOriginalInputXPoints": [
+        -1.6666666666666667
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        3
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=3, so inverse is unique on the permitted domain.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-011",
+      "originalPaperQuestion": 91,
+      "sourceTemplate": "V2-SUBJECT-3",
+      "provisionalGrade": "G7",
+      "originalCorrectAnswerLetter": "A",
+      "sourceAssumptionSnippet": "Q91. Changing the Subject                              Target: G7 (provisional)                                       4x + 5 Make x the subject of y = 3 +                .                                       4x + 6         6y − 23",
+      "sourceStructuralFamily": "shifted-rational-original",
+      "actualSourceParameters": [
+        3,
+        4,
+        5,
+        4,
+        6
+      ],
+      "shape": "RATIONAL_MOBIUS",
+      "nonzeroMobiusDeterminant": 4,
+      "excludedOriginalInputXPoints": [
+        -1.5
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        4
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=4, so inverse is unique on the permitted domain.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-012",
+      "originalPaperQuestion": 92,
+      "sourceTemplate": "V3-REAR-G8-SHIFT-RECIPROCAL",
+      "provisionalGrade": "G8",
+      "originalCorrectAnswerLetter": "A",
+      "sourceAssumptionSnippet": "Q92. Changing the Subject                              Target: G8 (provisional)                                         3 Make x the subject of y = 1 +                .                                       2x + 1           y−4",
+      "sourceStructuralFamily": "shifted-reciprocal",
+      "actualSourceParameters": [
+        1,
+        3,
+        2,
+        1
+      ],
+      "shape": "SHIFTED_RECIPROCAL",
+      "nonzeroMobiusDeterminant": null,
+      "excludedOriginalInputXPoints": [
+        -0.5
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        1
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Original denominator bx+c cannot be 0; shift s is an unattainable horizontal asymptote.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-013",
+      "originalPaperQuestion": 93,
+      "sourceTemplate": "V3-REAR-G8-SHIFT-RECIPROCAL",
+      "provisionalGrade": "G8",
+      "originalCorrectAnswerLetter": "E",
+      "sourceAssumptionSnippet": "Q93. Changing the Subject                              Target: G8 (provisional)                                 4 Make x the subject of y = 2 +        .                               3x + 2         2 (y − 4)",
+      "sourceStructuralFamily": "shifted-reciprocal",
+      "actualSourceParameters": [
+        2,
+        4,
+        3,
+        2
+      ],
+      "shape": "SHIFTED_RECIPROCAL",
+      "nonzeroMobiusDeterminant": null,
+      "excludedOriginalInputXPoints": [
+        -0.6666666666666666
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        2
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Original denominator bx+c cannot be 0; shift s is an unattainable horizontal asymptote.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-014",
+      "originalPaperQuestion": 94,
+      "sourceTemplate": "V3-REAR-G8-SHIFT-RECIPROCAL",
+      "provisionalGrade": "G8",
+      "originalCorrectAnswerLetter": "D",
+      "sourceAssumptionSnippet": "Q94. Changing the Subject                              Target: G8 (provisional)                                         5 Make x the subject of y = 3 +                .                                       2x + 3         3y − 13",
+      "sourceStructuralFamily": "shifted-reciprocal",
+      "actualSourceParameters": [
+        3,
+        5,
+        2,
+        3
+      ],
+      "shape": "SHIFTED_RECIPROCAL",
+      "nonzeroMobiusDeterminant": null,
+      "excludedOriginalInputXPoints": [
+        -1.5
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        3
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Original denominator bx+c cannot be 0; shift s is an unattainable horizontal asymptote.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-015",
+      "originalPaperQuestion": 95,
+      "sourceTemplate": "V3-REAR-G8-SHIFT-RECIPROCAL",
+      "provisionalGrade": "G8",
+      "originalCorrectAnswerLetter": "A",
+      "sourceAssumptionSnippet": "Q95. Changing the Subject                              Target: G8 (provisional)                                         6 Make x the subject of y = 4 +                .                                       3x + 4         2 (2y − 11)",
+      "sourceStructuralFamily": "shifted-reciprocal",
+      "actualSourceParameters": [
+        4,
+        6,
+        3,
+        4
+      ],
+      "shape": "SHIFTED_RECIPROCAL",
+      "nonzeroMobiusDeterminant": null,
+      "excludedOriginalInputXPoints": [
+        -1.3333333333333333
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        4
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Original denominator bx+c cannot be 0; shift s is an unattainable horizontal asymptote.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-016",
+      "originalPaperQuestion": 96,
+      "sourceTemplate": "V3-REAR-G8-SHIFTED-RATIONAL",
+      "provisionalGrade": "G8",
+      "originalCorrectAnswerLetter": "B",
+      "sourceAssumptionSnippet": "Q96. Changing the Subject                              Target: G8 (provisional)                                       2x + 3 Make x the subject of y = 1 +                .                                        x+4         3y − 4",
+      "sourceStructuralFamily": "shifted-rational-secondary",
+      "actualSourceParameters": [
+        1,
+        2,
+        3,
+        1,
+        4
+      ],
+      "shape": "RATIONAL_MOBIUS",
+      "nonzeroMobiusDeterminant": 5,
+      "excludedOriginalInputXPoints": [
+        -4
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        3
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=5, so inverse is unique on the permitted domain.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-017",
+      "originalPaperQuestion": 97,
+      "sourceTemplate": "V3-REAR-G8-SHIFTED-RATIONAL",
+      "provisionalGrade": "G8",
+      "originalCorrectAnswerLetter": "B",
+      "sourceAssumptionSnippet": "Q97. Changing the Subject                              Target: G8 (provisional)                               3x + 4 Make x the subject of y = 2 +        .                               2x + 5       2y − 7",
+      "sourceStructuralFamily": "shifted-rational-secondary",
+      "actualSourceParameters": [
+        2,
+        3,
+        4,
+        2,
+        5
+      ],
+      "shape": "RATIONAL_MOBIUS",
+      "nonzeroMobiusDeterminant": 7,
+      "excludedOriginalInputXPoints": [
+        -2.5
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        3.5
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=7, so inverse is unique on the permitted domain.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-018",
+      "originalPaperQuestion": 98,
+      "sourceTemplate": "V2-SUBJECT-3",
+      "provisionalGrade": "G7",
+      "originalCorrectAnswerLetter": "A",
+      "sourceAssumptionSnippet": "Q98. Changing the Subject                                                    Target: G7 (provisional)                                       5x + 6 Make x the subject of y = 4 +                .                                       5x + 7         7y − 34",
+      "sourceStructuralFamily": "shifted-rational-original",
+      "actualSourceParameters": [
+        4,
+        5,
+        6,
+        5,
+        7
+      ],
+      "shape": "RATIONAL_MOBIUS",
+      "nonzeroMobiusDeterminant": 5,
+      "excludedOriginalInputXPoints": [
+        -1.4
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        5
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=5, so inverse is unique on the permitted domain.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-019",
+      "originalPaperQuestion": 99,
+      "sourceTemplate": "V2-SUBJECT-4",
+      "provisionalGrade": "G7",
+      "originalCorrectAnswerLetter": "D",
+      "sourceAssumptionSnippet": "Q99. Changing the Subject                                                 Target: G7 (provisional)                      1    2 Make x the subject of =        + 1. Assume all denominators are non-zero.                      y  3x + 2     2     2",
+      "sourceStructuralFamily": "reciprocal-of-y",
+      "actualSourceParameters": [
+        1,
+        2,
+        3,
+        2
+      ],
+      "shape": "INVERSE_OF_RECIPROCAL",
+      "nonzeroMobiusDeterminant": null,
+      "excludedOriginalInputXPoints": [
+        -0.6666666666666666,
+        -1.3333333333333333
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        0,
+        1
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Both 1/y and 1/(bx+c) require nonzero denominators; even where bx+c !=0, RHS must not vanish because 1/y=0 has no finite solution. Finite y=0 and y=1/s are impossible.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-020",
+      "originalPaperQuestion": 100,
+      "sourceTemplate": "V2-SUBJECT-4",
+      "provisionalGrade": "G7",
+      "originalCorrectAnswerLetter": "B",
+      "sourceAssumptionSnippet": "Q100. Changing the Subject                                                Target: G7 (provisional)                      1    3 Make x the subject of =        + 2. Assume all denominators are non-zero.                      y  4x + 3     3    3",
+      "sourceStructuralFamily": "reciprocal-of-y",
+      "actualSourceParameters": [
+        2,
+        3,
+        4,
+        3
+      ],
+      "shape": "INVERSE_OF_RECIPROCAL",
+      "nonzeroMobiusDeterminant": null,
+      "excludedOriginalInputXPoints": [
+        -0.75,
+        -1.125
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        0,
+        0.5
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Both 1/y and 1/(bx+c) require nonzero denominators; even where bx+c !=0, RHS must not vanish because 1/y=0 has no finite solution. Finite y=0 and y=1/s are impossible.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-021",
+      "originalPaperQuestion": 101,
+      "sourceTemplate": "V2-SUBJECT-4",
+      "provisionalGrade": "G7",
+      "originalCorrectAnswerLetter": "D",
+      "sourceAssumptionSnippet": "Q101. Changing the Subject                                                Target: G7 (provisional)                      1    4 Make x the subject of =        + 3. Assume all denominators are non-zero.                      y  5x + 4         16    4",
+      "sourceStructuralFamily": "reciprocal-of-y",
+      "actualSourceParameters": [
+        3,
+        4,
+        5,
+        4
+      ],
+      "shape": "INVERSE_OF_RECIPROCAL",
+      "nonzeroMobiusDeterminant": null,
+      "excludedOriginalInputXPoints": [
+        -0.8,
+        -1.0666666666666667
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        0,
+        0.3333333333333333
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Both 1/y and 1/(bx+c) require nonzero denominators; even where bx+c !=0, RHS must not vanish because 1/y=0 has no finite solution. Finite y=0 and y=1/s are impossible.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-022",
+      "originalPaperQuestion": 102,
+      "sourceTemplate": "V2-SUBJECT-4",
+      "provisionalGrade": "G7",
+      "originalCorrectAnswerLetter": "E",
+      "sourceAssumptionSnippet": "Q102. Changing the Subject                                                Target: G7 (provisional)                      1    5 Make x the subject of =        + 4. Assume all denominators are non-zero.                      y  6x + 5                 30",
+      "sourceStructuralFamily": "reciprocal-of-y",
+      "actualSourceParameters": [
+        4,
+        5,
+        6,
+        5
+      ],
+      "shape": "INVERSE_OF_RECIPROCAL",
+      "nonzeroMobiusDeterminant": null,
+      "excludedOriginalInputXPoints": [
+        -0.8333333333333334,
+        -1.0416666666666667
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        0,
+        0.25
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Both 1/y and 1/(bx+c) require nonzero denominators; even where bx+c !=0, RHS must not vanish because 1/y=0 has no finite solution. Finite y=0 and y=1/s are impossible.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-023",
+      "originalPaperQuestion": 103,
+      "sourceTemplate": "V3-REAR-G8-SHIFTED-RATIONAL",
+      "provisionalGrade": "G8",
+      "originalCorrectAnswerLetter": "D",
+      "sourceAssumptionSnippet": "Q103. Changing the Subject                                                   Target: G8 (provisional)                               4x + 5 Make x the subject of y = 1 +        .                                x+6         2 (3y − 5)",
+      "sourceStructuralFamily": "shifted-rational-secondary",
+      "actualSourceParameters": [
+        1,
+        4,
+        5,
+        1,
+        6
+      ],
+      "shape": "RATIONAL_MOBIUS",
+      "nonzeroMobiusDeterminant": 19,
+      "excludedOriginalInputXPoints": [
+        -6
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        5
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=19, so inverse is unique on the permitted domain.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-024",
+      "originalPaperQuestion": 104,
+      "sourceTemplate": "V3-REAR-G8-SHIFTED-RATIONAL",
+      "provisionalGrade": "G8",
+      "originalCorrectAnswerLetter": "A",
+      "sourceAssumptionSnippet": "Q104. Changing the Subject                               Target: G8 (provisional)                                       5x + 6 Make x the subject of y = 2 +                .                                       2x + 7         7y − 20",
+      "sourceStructuralFamily": "shifted-rational-secondary",
+      "actualSourceParameters": [
+        2,
+        5,
+        6,
+        2,
+        7
+      ],
+      "shape": "RATIONAL_MOBIUS",
+      "nonzeroMobiusDeterminant": 23,
+      "excludedOriginalInputXPoints": [
+        -3.5
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        4.5
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Finite x must avoid x=−d/c; finite y cannot equal asymptotic s+a/c. Determinant a*d−b*c=23, so inverse is unique on the permitted domain.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-025",
+      "originalPaperQuestion": 105,
+      "sourceTemplate": "V3-REAR-G8-RECIPROCAL-SURD",
+      "provisionalGrade": "G8",
+      "originalCorrectAnswerLetter": "B",
+      "sourceAssumptionSnippet": "Q105. Changing the Subject                               Target: G8 (provisional)                                  3 Make x the subject of y = 1 + √        . Assume y > 1.                                 2x + 3         (y − 4) (y + 2)",
+      "sourceStructuralFamily": "root-reciprocal",
+      "actualSourceParameters": [
+        1,
+        3,
+        2,
+        3
+      ],
+      "shape": "PRINCIPAL_ROOT_OF_RECIPROCAL",
+      "nonzeroMobiusDeterminant": null,
+      "excludedOriginalInputXPoints": [
+        -1.5
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": -1.5,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": 1,
+      "sourceContainsExplicitPrincipalRootYBranch": true,
+      "inverseDomainAuditExplanation": "Positive numerator a requires bx+c >0 (not >=0); x > -c/b and y > s. Squaring requires positive branch.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-026",
+      "originalPaperQuestion": 106,
+      "sourceTemplate": "V3-REAR-G8-RECIPROCAL-SURD",
+      "provisionalGrade": "G8",
+      "originalCorrectAnswerLetter": "B",
+      "sourceAssumptionSnippet": "Q106. Changing the Subject                                       Target: G8 (provisional)                                          4 Make x the subject of y = 2 + √                . Assume y > 2.                                         3x + 4         3 (y − 2)2",
+      "sourceStructuralFamily": "root-reciprocal",
+      "actualSourceParameters": [
+        2,
+        4,
+        3,
+        4
+      ],
+      "shape": "PRINCIPAL_ROOT_OF_RECIPROCAL",
+      "nonzeroMobiusDeterminant": null,
+      "excludedOriginalInputXPoints": [
+        -1.3333333333333333
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": -1.3333333333333333,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": 2,
+      "sourceContainsExplicitPrincipalRootYBranch": true,
+      "inverseDomainAuditExplanation": "Positive numerator a requires bx+c >0 (not >=0); x > -c/b and y > s. Squaring requires positive branch.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-027",
+      "originalPaperQuestion": 107,
+      "sourceTemplate": "V3-REAR-G8-RECIPROCAL-SURD",
+      "provisionalGrade": "G8",
+      "originalCorrectAnswerLetter": "F",
+      "sourceAssumptionSnippet": "Q107. Changing the Subject                                       Target: G8 (provisional)                                          5 Make x the subject of y = 1 + √                . Assume y > 1.                                         4x + 5        (             )       5 y 2 − 2y − 4",
+      "sourceStructuralFamily": "root-reciprocal",
+      "actualSourceParameters": [
+        1,
+        5,
+        4,
+        5
+      ],
+      "shape": "PRINCIPAL_ROOT_OF_RECIPROCAL",
+      "nonzeroMobiusDeterminant": null,
+      "excludedOriginalInputXPoints": [
+        -1.25
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": -1.25,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": 1,
+      "sourceContainsExplicitPrincipalRootYBranch": true,
+      "inverseDomainAuditExplanation": "Positive numerator a requires bx+c >0 (not >=0); x > -c/b and y > s. Squaring requires positive branch.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-028",
+      "originalPaperQuestion": 108,
+      "sourceTemplate": "V3-REAR-G8-RECIPROCAL-SURD",
+      "provisionalGrade": "G8",
+      "originalCorrectAnswerLetter": "A",
+      "sourceAssumptionSnippet": "Q108. Changing the Subject                                       Target: G8 (provisional)                                          6 Make x the subject of y = 2 + √                . Assume y > 2.                                         5x + 6          (             )         6 y 2 − 4y − 2",
+      "sourceStructuralFamily": "root-reciprocal",
+      "actualSourceParameters": [
+        2,
+        6,
+        5,
+        6
+      ],
+      "shape": "PRINCIPAL_ROOT_OF_RECIPROCAL",
+      "nonzeroMobiusDeterminant": null,
+      "excludedOriginalInputXPoints": [
+        -1.2
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": -1.2,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": 2,
+      "sourceContainsExplicitPrincipalRootYBranch": true,
+      "inverseDomainAuditExplanation": "Positive numerator a requires bx+c >0 (not >=0); x > -c/b and y > s. Squaring requires positive branch.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-029",
+      "originalPaperQuestion": 109,
+      "sourceTemplate": "V3-REAR-G8-FACTOR-FRACTION",
+      "provisionalGrade": "G8",
+      "originalCorrectAnswerLetter": "F",
+      "sourceAssumptionSnippet": "Q109. Changing the Subject                                       Target: G8 (provisional)                                       2(x + 1) Make x the subject of y = 1 +                  .                                        3x + 5         4 (2y − 3)",
+      "sourceStructuralFamily": "factor-fraction",
+      "actualSourceParameters": [
+        1,
+        2,
+        1,
+        3,
+        5
+      ],
+      "shape": "FACTOR_RATIONAL_MOBIUS",
+      "nonzeroMobiusDeterminant": 4,
+      "excludedOriginalInputXPoints": [
+        -1.6666666666666667
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        1.6666666666666665
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Finite x excludes −d/c; y excludes s+a/c; nonzero determinant a(d-b*c)=4 ensures unique solution.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-030",
+      "originalPaperQuestion": 110,
+      "sourceTemplate": "V3-REAR-G8-FACTOR-FRACTION",
+      "provisionalGrade": "G8",
+      "originalCorrectAnswerLetter": "A",
+      "sourceAssumptionSnippet": "Q110. Changing the Subject                             Target: G8 (provisional)                                       3(x + 2) Make x the subject of y = 2 +                  .                                        4x + 6         6 (y − 3)",
+      "sourceStructuralFamily": "factor-fraction",
+      "actualSourceParameters": [
+        2,
+        3,
+        2,
+        4,
+        6
+      ],
+      "shape": "FACTOR_RATIONAL_MOBIUS",
+      "nonzeroMobiusDeterminant": -6,
+      "excludedOriginalInputXPoints": [
+        -1.5
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        2.75
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Finite x excludes −d/c; y excludes s+a/c; nonzero determinant a(d-b*c)=-6 ensures unique solution.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-031",
+      "originalPaperQuestion": 111,
+      "sourceTemplate": "V3-REAR-G8-FACTOR-FRACTION",
+      "provisionalGrade": "G8",
+      "originalCorrectAnswerLetter": "E",
+      "sourceAssumptionSnippet": "Q111. Changing the Subject                             Target: G8 (provisional)                                       4(x + 3) Make x the subject of y = 1 +                  .                                        5x + 7         7y − 19",
+      "sourceStructuralFamily": "factor-fraction",
+      "actualSourceParameters": [
+        1,
+        4,
+        3,
+        5,
+        7
+      ],
+      "shape": "FACTOR_RATIONAL_MOBIUS",
+      "nonzeroMobiusDeterminant": -32,
+      "excludedOriginalInputXPoints": [
+        -1.4
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        1.8
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Finite x excludes −d/c; y excludes s+a/c; nonzero determinant a(d-b*c)=-32 ensures unique solution.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-032",
+      "originalPaperQuestion": 112,
+      "sourceTemplate": "V3-REAR-G8-FACTOR-FRACTION",
+      "provisionalGrade": "G8",
+      "originalCorrectAnswerLetter": "D",
+      "sourceAssumptionSnippet": "Q112. Changing the Subject                                                               Target: G8 (provisional)                                       5(x + 4) Make x the subject of y = 2 +                  .                                        6x + 8         8y − 35",
+      "sourceStructuralFamily": "factor-fraction",
+      "actualSourceParameters": [
+        2,
+        5,
+        4,
+        6,
+        8
+      ],
+      "shape": "FACTOR_RATIONAL_MOBIUS",
+      "nonzeroMobiusDeterminant": -80,
+      "excludedOriginalInputXPoints": [
+        -1.3333333333333333
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        2.8333333333333335
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Finite x excludes −d/c; y excludes s+a/c; nonzero determinant a(d-b*c)=-80 ensures unique solution.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-033",
+      "originalPaperQuestion": 113,
+      "sourceTemplate": "V3-REAR-G89-NESTED-DENOMINATOR",
+      "provisionalGrade": "G8-9",
+      "originalCorrectAnswerLetter": "A",
+      "sourceAssumptionSnippet": "Q113. Changing the Subject                                                             Target: G8-9 (provisional)                                            2 Make x the subject of y = 1 +                      . Assume all denominators are non-zero.                                             3                                       2+                                            x+1          5y − 7",
+      "sourceStructuralFamily": "nested-denominator",
+      "actualSourceParameters": [
+        1,
+        2,
+        2,
+        3,
+        1
+      ],
+      "shape": "NESTED_DENOMINATOR",
+      "nonzeroMobiusDeterminant": null,
+      "excludedOriginalInputXPoints": [
+        -1,
+        -2.5
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        1,
+        2
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Require x+d != 0 and b+c/(x+d) !=0, which excludes x=-d and x=-d-c/b. Finite y cannot equal s or s+a/b; reversing double divisions without these exclusions creates invalid x.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-034",
+      "originalPaperQuestion": 114,
+      "sourceTemplate": "V3-REAR-G89-NESTED-DENOMINATOR",
+      "provisionalGrade": "G8-9",
+      "originalCorrectAnswerLetter": "B",
+      "sourceAssumptionSnippet": "Q114. Changing the Subject                                                            Target: G8-9 (provisional)                                            3 Make x the subject of y = 2 +                     . Assume all denominators are non-zero.                                           4                                       3+                                          x+2         7y − 17",
+      "sourceStructuralFamily": "nested-denominator",
+      "actualSourceParameters": [
+        2,
+        3,
+        3,
+        4,
+        2
+      ],
+      "shape": "NESTED_DENOMINATOR",
+      "nonzeroMobiusDeterminant": null,
+      "excludedOriginalInputXPoints": [
+        -2,
+        -3.333333333333333
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        2,
+        3
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Require x+d != 0 and b+c/(x+d) !=0, which excludes x=-d and x=-d-c/b. Finite y cannot equal s or s+a/b; reversing double divisions without these exclusions creates invalid x.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-035",
+      "originalPaperQuestion": 115,
+      "sourceTemplate": "V3-REAR-G89-NESTED-DENOMINATOR",
+      "provisionalGrade": "G8-9",
+      "originalCorrectAnswerLetter": "B",
+      "sourceAssumptionSnippet": "Q115. Changing the Subject                                                            Target: G8-9 (provisional)                                            4 Make x the subject of y = 3 +                     . Assume all denominators are non-zero.                                             5                                       4+                                            x+3         4 (y − 4)",
+      "sourceStructuralFamily": "nested-denominator",
+      "actualSourceParameters": [
+        3,
+        4,
+        4,
+        5,
+        3
+      ],
+      "shape": "NESTED_DENOMINATOR",
+      "nonzeroMobiusDeterminant": null,
+      "excludedOriginalInputXPoints": [
+        -3,
+        -4.25
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        3,
+        4
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Require x+d != 0 and b+c/(x+d) !=0, which excludes x=-d and x=-d-c/b. Finite y cannot equal s or s+a/b; reversing double divisions without these exclusions creates invalid x.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-036",
+      "originalPaperQuestion": 116,
+      "sourceTemplate": "V3-REAR-G89-NESTED-DENOMINATOR",
+      "provisionalGrade": "G8-9",
+      "originalCorrectAnswerLetter": "F",
+      "sourceAssumptionSnippet": "Q116. Changing the Subject                                                            Target: G8-9 (provisional)                                            5 Make x the subject of y = 4 +                     . Assume all denominators are non-zero.                                           6                                       5+                                          x+4         2 (13y − 62)",
+      "sourceStructuralFamily": "nested-denominator",
+      "actualSourceParameters": [
+        4,
+        5,
+        5,
+        6,
+        4
+      ],
+      "shape": "NESTED_DENOMINATOR",
+      "nonzeroMobiusDeterminant": null,
+      "excludedOriginalInputXPoints": [
+        -4,
+        -5.2
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": null,
+      "excludedInverseOutputYValues": [
+        4,
+        5
+      ],
+      "inverseOutputYMinInclusive": null,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": null,
+      "inverseDomainAuditExplanation": "Require x+d != 0 and b+c/(x+d) !=0, which excludes x=-d and x=-d-c/b. Finite y cannot equal s or s+a/b; reversing double divisions without these exclusions creates invalid x.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-037",
+      "originalPaperQuestion": 117,
+      "sourceTemplate": "V3-REAR-G89-SURD-FRACTION",
+      "provisionalGrade": "G8-9",
+      "originalCorrectAnswerLetter": "A",
+      "sourceAssumptionSnippet": "Q117. Changing the Subject                                                            Target: G8-9 (provisional)                                       √                                           2x + 3 Make x the subject of y = 1 +                    . Assume y ≥ 1 and all denominators are non-zero.                                           x+4         4y 2 − 8y + 1",
+      "sourceStructuralFamily": "surds-of-rational",
+      "actualSourceParameters": [
+        1,
+        2,
+        3,
+        1,
+        4
+      ],
+      "shape": "PRINCIPAL_ROOT_OF_MOBIUS",
+      "nonzeroMobiusDeterminant": 5,
+      "excludedOriginalInputXPoints": [
+        -4
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": "(a*x+b)/(c*x+d) >= 0 and c*x+d != 0",
+      "excludedInverseOutputYValues": [
+        2.414213562373095
+      ],
+      "inverseOutputYMinInclusive": 1,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": true,
+      "inverseDomainAuditExplanation": "Original radicand (a*x+b)/(c*x+d) must be >=0, excluding denominator zero, x=-d/c. Range y>=s further excludes y=s+sqrt(a/c), its nonattained horizontal asymptote; determinant=5.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-038",
+      "originalPaperQuestion": 118,
+      "sourceTemplate": "V3-REAR-G89-SURD-FRACTION",
+      "provisionalGrade": "G8-9",
+      "originalCorrectAnswerLetter": "F",
+      "sourceAssumptionSnippet": "Q118. Changing the Subject                                                            Target: G8-9 (provisional)                                       √                                           3x + 4 Make x the subject of y = 2 +                    . Assume y ≥ 2 and all denominators are non-zero.                                           2x + 5         7 (y − 3) (y − 1)",
+      "sourceStructuralFamily": "surds-of-rational",
+      "actualSourceParameters": [
+        2,
+        3,
+        4,
+        2,
+        5
+      ],
+      "shape": "PRINCIPAL_ROOT_OF_MOBIUS",
+      "nonzeroMobiusDeterminant": 7,
+      "excludedOriginalInputXPoints": [
+        -2.5
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": "(a*x+b)/(c*x+d) >= 0 and c*x+d != 0",
+      "excludedInverseOutputYValues": [
+        3.224744871391589
+      ],
+      "inverseOutputYMinInclusive": 2,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": true,
+      "inverseDomainAuditExplanation": "Original radicand (a*x+b)/(c*x+d) must be >=0, excluding denominator zero, x=-d/c. Range y>=s further excludes y=s+sqrt(a/c), its nonattained horizontal asymptote; determinant=7.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-039",
+      "originalPaperQuestion": 119,
+      "sourceTemplate": "V3-REAR-G89-SURD-FRACTION",
+      "provisionalGrade": "G8-9",
+      "originalCorrectAnswerLetter": "F",
+      "sourceAssumptionSnippet": "Q119. Changing the Subject                                                            Target: G8-9 (provisional)                                       √                                           4x + 5 Make x the subject of y = 1 +                    . Assume y ≥ 1 and all denominators are non-zero.                                           x+6         6y 2 − 12y + 1",
+      "sourceStructuralFamily": "surds-of-rational",
+      "actualSourceParameters": [
+        1,
+        4,
+        5,
+        1,
+        6
+      ],
+      "shape": "PRINCIPAL_ROOT_OF_MOBIUS",
+      "nonzeroMobiusDeterminant": 19,
+      "excludedOriginalInputXPoints": [
+        -6
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": "(a*x+b)/(c*x+d) >= 0 and c*x+d != 0",
+      "excludedInverseOutputYValues": [
+        3
+      ],
+      "inverseOutputYMinInclusive": 1,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": true,
+      "inverseDomainAuditExplanation": "Original radicand (a*x+b)/(c*x+d) must be >=0, excluding denominator zero, x=-d/c. Range y>=s further excludes y=s+sqrt(a/c), its nonattained horizontal asymptote; determinant=19.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-REARRANGING-040",
+      "originalPaperQuestion": 120,
+      "sourceTemplate": "V3-REAR-G89-SURD-FRACTION",
+      "provisionalGrade": "G8-9",
+      "originalCorrectAnswerLetter": "E",
+      "sourceAssumptionSnippet": "Q120. Changing the Subject                                                            Target: G8-9 (provisional)                                       √                                           5x + 6 Make x the subject of y = 2 +                    . Assume y ≥ 2 and all denominators are non-zero.                                           2x + 7          7y 2 − 28y + 22",
+      "sourceStructuralFamily": "surds-of-rational",
+      "actualSourceParameters": [
+        2,
+        5,
+        6,
+        2,
+        7
+      ],
+      "shape": "PRINCIPAL_ROOT_OF_MOBIUS",
+      "nonzeroMobiusDeterminant": 23,
+      "excludedOriginalInputXPoints": [
+        -3.5
+      ],
+      "originalInputMinInclusive": null,
+      "originalInputMinExclusive": null,
+      "originalInputExtraRequirement": "(a*x+b)/(c*x+d) >= 0 and c*x+d != 0",
+      "excludedInverseOutputYValues": [
+        3.58113883008419
+      ],
+      "inverseOutputYMinInclusive": 2,
+      "inverseOutputYMinExclusive": null,
+      "sourceContainsExplicitPrincipalRootYBranch": true,
+      "inverseDomainAuditExplanation": "Original radicand (a*x+b)/(c*x+d) must be >=0, excluding denominator zero, x=-d/c. Range y>=s further excludes y=s+sqrt(a/c), its nonattained horizontal asymptote; determinant=23.",
+      "independentFourInverseProbeChecksPassed": true,
+      "exactOriginalOptionTypesetMathVisuallyConfirmed": false,
+      "independentSixChoiceSymbolicEquivalenceReviewed": false,
+      "independentlyBenchmarkedG7Plus": false,
+      "actualTGSAutumnSubskillConfirmed": false,
+      "allFiveOriginalWrongChoiceMisconceptionsProved": false,
+      "eligibleForDailyCredit": false
+    }
+  ],
+  "anyStudentCreditAllowed": false,
+  "anyOriginalSourceBankChanged": false,
+  "formalIndependentAcademicApprovals": 0
+}
