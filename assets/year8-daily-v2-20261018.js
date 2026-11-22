@@ -1,4 +1,5 @@
 import {curriculumTopics,curriculumHref} from './daily-curriculum-20261004.js';
+import {isFoodTestsQaHeld} from './food-tests-qa-credit-gate-20261122.js';
 import {coveredTopic,masteryStage} from './mastery-v2-20261018.js';
 import {dailyVocabTotal} from './daily-vocab-total-20261020.js?v=20261023-final-credit1';
 import {datedAssignmentEvidence} from './daily-dated-assignment-evidence-20261103.js';
@@ -247,13 +248,13 @@ export function buildYear8DailyV2(state,getCatalog,learning={}) {
     // permanent lock: choose a certified 20+ concept source instead.
     // Any dated attempt (even wrong) or correct credit keeps its original task.
     const unopenedIneligibleMastery=id.startsWith('y8-mastery-')&&
-      old?.assignedTopic&&(!canAssignVerifiedYear8Mastery(old.assignedTopic)||
+      old?.assignedTopic&&(isFoodTestsQaHeld(old.assignedTopic)||!canAssignVerifiedYear8Mastery(old.assignedTopic)||
         !canStart(old.assignedTopic,Math.max(20,Number(old.target)||20),id))&&
       !old.done&&!(Number(old.progress)>0)&&
       !entries.some(e=>e.dailyTaskId===id);
     const unopenedIneligibleStandard=/^(?:y8-standard-[ab]|latin-standard|weakness-review|due-review)$/.test(id)&&
       Number(old?.target||10)>=10&&
-      old?.assignedTopic&&(!canAssignVerifiedYear8Standard(old.assignedTopic)||
+      old?.assignedTopic&&(isFoodTestsQaHeld(old.assignedTopic)||!canAssignVerifiedYear8Standard(old.assignedTopic)||
         !canStart(old.assignedTopic,Math.max(10,Number(old.target)||10),id))&&
       !old.done&&!(Number(old.progress)>0)&&
       !entries.some(e=>e.dailyTaskId===id);
