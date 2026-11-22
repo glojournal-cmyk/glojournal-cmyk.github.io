@@ -24,7 +24,7 @@
             "\\b(?:iodine|biuret)\\b.{0,25}\\b(?:sugar|glucose)\\b",
             "\\bbrick[\\s-]*red\\b[^.!?;]{0,55}\\b(?:reducing\\s+)?sugars?\\s+(?:is\\s+)?(?:absent|not\\s+present|not\\s+detected)\\b",
             "\\bbrick[\\s-]*red\\b[^.!?;]{0,50}\\b(?:no|not|absent|negative)\\b[^.!?;]{0,20}\\b(?:reducing\\s+)?sugars?\\b",
-            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:is\\s+for|tests?\\s+(?:for\\s+)?|detects?\\s+(?:for\\s+)?|means\\s+)\\s+starch\\b"
+            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b"
           ],
           "alternatives": [
             "Benedict's solution tests for reducing sugars"
@@ -616,8 +616,8 @@
             "(?:detect|present|positive|found|contain)"
           ],
           "notAnywhere": [
-            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:is\\s+for|tests?\\s+(?:for\\s+)?|detects?\\s+(?:for\\s+)?|means\\s+)\\s+starch\\b",
-            "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:tests?\\s+(?:for\\s+)?|detects?\\s+(?:for\\s+)?|is\\s+for)\\s+proteins?\\b"
+            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b",
+            "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)proteins?\\b"
           ],
           "alternatives": [
             "iodine shows starch was detected"
@@ -630,7 +630,7 @@
           ],
           "notAnywhere": [
             "\\bbenedict(?:['’]?s)?\\b[^.!?;]{0,95}\\b(?:does\\s+not|doesn.t|cannot|never)\\s+(?:test|detect)\\s+(?:for\\s+)?reducing\\s+sugars?\\b",
-            "\\bbiuret(?:\\s+(?:reagent|solution|test))?\\s+(?:tests?\\s+(?:for\\s+)?|detects?\\s+(?:for\\s+)?|is\\s+for)\\s+reducing\\s+sugars?\\b"
+            "\\bbiuret(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)reducing\\s+sugars?\\b"
           ],
           "alternatives": [
             "no reducing sugar was detected"
@@ -659,8 +659,8 @@
             "(?:no|not|absent|negative|undetect|none)"
           ],
           "notAnywhere": [
-            "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:tests?\\s+(?:for\\s+)?|detects?\\s+(?:for\\s+)?|is\\s+for)\\s+proteins?\\b",
-            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:is\\s+for|tests?\\s+(?:for\\s+)?|detects?\\s+(?:for\\s+)?|means\\s+)\\s+starch\\b",
+            "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)proteins?\\b",
+            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b",
             "\\bblue[\\s-]*black\\b[^.!?;]{0,55}\\b(?:no|not|absent|negative)\\b[^.!?;]{0,18}\\bstarch\\b"
           ],
           "alternatives": [
@@ -691,8 +691,8 @@
           ],
           "notAnywhere": [
             "\\bbenedict(?:['’]?s)?\\b[^.!?;]{0,95}\\b(?:does\\s+not|doesn.t|cannot|never)\\s+(?:test|detect)\\s+(?:for\\s+)?reducing\\s+sugars?\\b",
-            "\\bbiuret(?:\\s+(?:reagent|solution|test))?\\s+(?:tests?\\s+(?:for\\s+)?|detects?\\s+(?:for\\s+)?|is\\s+for)\\s+reducing\\s+sugars?\\b",
-            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:is\\s+for|tests?\\s+(?:for\\s+)?|detects?\\s+(?:for\\s+)?|means\\s+)\\s+starch\\b"
+            "\\bbiuret(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)reducing\\s+sugars?\\b",
+            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b"
           ],
           "alternatives": [
             "no reducing sugar was detected"
@@ -721,8 +721,8 @@
             "(?:no|not|absent|negative|undetect|none)"
           ],
           "notAnywhere": [
-            "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:tests?\\s+(?:for\\s+)?|detects?\\s+(?:for\\s+)?|is\\s+for)\\s+proteins?\\b",
-            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:is\\s+for|tests?\\s+(?:for\\s+)?|detects?\\s+(?:for\\s+)?|means\\s+)\\s+starch\\b",
+            "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)proteins?\\b",
+            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b",
             "\\bblue[\\s-]*black\\b[^.!?;]{0,55}\\b(?:no|not|absent|negative)\\b[^.!?;]{0,18}\\bstarch\\b"
           ],
           "alternatives": [
@@ -1073,9 +1073,9 @@
             "(?:reducing\\s+sugar|glucose|sugar)"
           ],
           "notAnywhere": [
-            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:is\\s+for|tests?\\s+(?:for\\s+)?|detects?\\s+(?:for\\s+)?|means\\s+)\\s+starch\\b",
+            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b",
             "\\bbenedict(?:['’]?s)?\\b[^.!?;]{0,95}\\b(?:does\\s+not|doesn.t|cannot|never)\\s+(?:test|detect)\\s+(?:for\\s+)?reducing\\s+sugars?\\b",
-            "\\bbiuret(?:\\s+(?:reagent|solution|test))?\\s+(?:tests?\\s+(?:for\\s+)?|detects?\\s+(?:for\\s+)?|is\\s+for)\\s+reducing\\s+sugars?\\b"
+            "\\bbiuret(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)reducing\\s+sugars?\\b"
           ],
           "alternatives": [
             "the blue Benedict's test did not detect reducing sugar"
@@ -1087,7 +1087,7 @@
             "(?:not|cannot|does\\s+not|non\\s+reduc|other|doesn.t)"
           ],
           "notAnywhere": [
-            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:is\\s+for|tests?\\s+(?:for\\s+)?|detects?\\s+(?:for\\s+)?|means\\s+)\\s+starch\\b",
+            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b",
             "\\bbenedict(?:['’]?s)?\\b[^.!?;]{0,95}\\b(?:does\\s+not|doesn.t|cannot|never)\\s+(?:test|detect)\\s+(?:for\\s+)?reducing\\s+sugars?\\b"
           ],
           "alternatives": [
@@ -1108,7 +1108,7 @@
             "(?:not|instead|only|rather|no|wrong)"
           ],
           "notAnywhere": [
-            "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:tests?\\s+(?:for\\s+)?|detects?\\s+(?:for\\s+)?|is\\s+for)\\s+proteins?\\b"
+            "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)proteins?\\b"
           ],
           "alternatives": [
             "iodine tests starch not protein"
@@ -1233,8 +1233,8 @@
             "(?:not|no|absent|negative|undetect|none)"
           ],
           "notAnywhere": [
-            "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:tests?\\s+(?:for\\s+)?|detects?\\s+(?:for\\s+)?|is\\s+for)\\s+proteins?\\b",
-            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:is\\s+for|tests?\\s+(?:for\\s+)?|detects?\\s+(?:for\\s+)?|means\\s+)\\s+starch\\b",
+            "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)proteins?\\b",
+            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b",
             "\\bblue[\\s-]*black\\b[^.!?;]{0,55}\\b(?:no|not|absent|negative)\\b[^.!?;]{0,18}\\bstarch\\b"
           ],
           "alternatives": [
@@ -1247,8 +1247,8 @@
             "(?:not|no|absent|negative|undetect|none)"
           ],
           "notAnywhere": [
-            "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:tests?\\s+(?:for\\s+)?|detects?\\s+(?:for\\s+)?|is\\s+for)\\s+proteins?\\b",
-            "\\bbiuret(?:\\s+(?:reagent|solution|test))?\\s+(?:tests?\\s+(?:for\\s+)?|detects?\\s+(?:for\\s+)?|is\\s+for)\\s+reducing\\s+sugars?\\b"
+            "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)proteins?\\b",
+            "\\bbiuret(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)reducing\\s+sugars?\\b"
           ],
           "alternatives": [
             "Biuret did not detect protein"
