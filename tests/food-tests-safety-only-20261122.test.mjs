@@ -8,6 +8,8 @@ import {
 import {verifiedQuizSlots,reconcileDailySession} from '../assets/daily-session-credit-20261021.js';
 import {saveVerifiedBiologyAnswerSync} from '../assets/daily-completed-session-receipts-20261024.js';
 import {addMasteryEvidence} from '../assets/mastery-v2-20261018.js';
+import {curriculumTopics,creditCurriculumAttempt} from '../assets/daily-curriculum-20261004.js';
+import {buildYear8DailyV2} from '../assets/year8-daily-v2-20261018.js';
 
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const bank=JSON.parse(read('content/topics/bio-y8-food-tests.json'));
@@ -113,4 +115,37 @@ test('unmarked Food Tests remain neutral at quiz completion and review-history s
   assert.ok(src.includes('!isFoodTestsQaHeld(Y)?(0,T.jsx)(ReviewProgress'),path);
   assert.ok(src.includes('!qaHeld&&window.dispatchEvent(new CustomEvent("scholar:question-answered"'),path);
  }
+});
+
+test('QA-held Food Tests cannot be newly assigned; already-started Daily records remain pinned',()=>{
+ const catalog=JSON.parse(read('content/catalog.json')).topics;
+ const getCatalog=(subject,year)=>catalog.filter(t=>t.subject===subject&&Number(t.year)===year);
+ const biology=curriculumTopics('biology',8,getCatalog,{});
+ assert.ok(biology.length>1);
+ assert.equal(biology.some(t=>t.topicId===FOOD_TESTS_QA_TOPIC),false);
+ const today='2026-11-22';
+ const old={id:'y8-standard-a',planDate:today,assignedSubject:'biology',
+   assignedYear:8,assignedTopic:FOOD_TESTS_QA_TOPIC,assignedLabel:'Food tests',
+   target:10,progress:0,done:false,
+   href:'/study/biology/practise?daily=1&locked=1&year=8&mode=standard&task=y8-standard-a&topic='+FOOD_TESTS_QA_TOPIC};
+ const state={today,daily:[old],dailyLog:{},year:8,formalAttemptLog:[],
+   reviews:{},topicStats:{},skillStats:{}};
+ const fresh=buildYear8DailyV2(state,getCatalog,{}).find(t=>t.id===old.id);
+ assert.ok(fresh,'Daily task should still exist');
+ assert.notEqual(fresh.assignedTopic,FOOD_TESTS_QA_TOPIC,'unopened held question bank must rotate');
+ assert.ok(!isFoodTestsQaHeld(fresh.assignedTopic),'reassigned topic must be eligible');
+ assert.equal(old.assignedTopic,FOOD_TESTS_QA_TOPIC,'original task must not be edited');
+ const started=buildYear8DailyV2({...state,daily:[{...old,progress:3}]},getCatalog,{})
+   .find(t=>t.id===old.id);
+ assert.equal(started.assignedTopic,FOOD_TESTS_QA_TOPIC,'started history stays pinned');
+ assert.equal(started.progress,3,'historical marks are never rewritten');
+});
+test('held topic is excluded from formal curriculum-credit ledger',()=>{
+ const prior={'2026-11-22':{sentinel:true}};
+ const result=creditCurriculumAttempt(prior,{questionId:topicQ[0].id,topicId:FOOD_TESTS_QA_TOPIC,
+   task:'y8-practise',mode:'standard',day:'2026-11-22',formal:true,repair:false});
+ assert.strictEqual(result,prior);
+ const future=creditCurriculumAttempt(prior,{questionId:'unseen-food-20261122',topicId:FOOD_TESTS_QA_TOPIC,
+   task:'y8-practise',mode:'standard',day:'2026-11-22',formal:true,repair:false});
+ assert.strictEqual(future,prior);
 });
