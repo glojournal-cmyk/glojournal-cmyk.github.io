@@ -1,0 +1,59 @@
+// QA branch only: executable Node acceptance for targeted Food Tests changes.
+// Zero academic approvals are implied by a passing function-level test.
+import {readFileSync} from 'node:fs';
+import {fileURLToPath} from 'node:url';
+import path from 'node:path';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+const read=(p)=>readFileSync(path.join(root,p),'utf8');
+const bank=JSON.parse(read('content/topics/bio-y8-food-tests.json'));
+const catalog=JSON.parse(read('content/catalog.json'));
+const rubricSrc=read('assets/food-tests-ethanol-rubric-20261122.js');
+const score=new Function(rubricSrc.replace('export ','')+'\nreturn scoreFoodTestsEthanolSafety')();
+const cases=[
+ ["Ethanol catches fire easily. Shake the sample with ethanol, then add water.",2],
+ ["Ethanol is highly flammable. Shake the sample with ethanol and then add water.",2],
+ ["Ethanol is flammable, so we should mix the food with ethanol and then add water.",2],
+ ["Alcohol ignites easily. Mix the sample with ethanol before adding water.",2],
+ ["Ethanol is very flammable. Never use a naked flame.",1],
+ ["I would shake the sample with ethanol and then add water.",1],
+ ["Heat ethanol over a flame, then add water.",0],
+ ["Ethanol is flammable, so I will heat it over a naked flame before adding water.",1],
+ ["Ethanol is flammable. Pour water into the sample, then heat ethanol over a flame.",1],
+ ["Ethanol is flammable. Add only water to the sample.",1],
+ ["Ethanol is flammable. Add ethanol and water to the food without shaking.",1],
+ ["Water and ethanol are mixed. Add water then ethanol.",0],
+ ["Ethanol is flammable. Add ethanol to the sample, shake, then add water.",2],
+ ["Ethanol may catch fire. The sample is mixed with ethanol and water is then added.",2],
+ ["Ethanol cannot catch fire. Shake sample with ethanol, then add water.",1],
+ ["Ethanol is flammable. Don't shake sample with ethanol, add water.",1],
+ ["Ethanol is flammable. First add water then shake with ethanol.",1],
+ ["Ethanol is highly flammable. Shake sample with ethanol then add water but boil ethanol over a flame.",1],
+ ["Ethanol is flammable. Mix water and ethanol with the sample.",1],
+ ["Ethanol is flammable. Shake sample with ethanol, add water, but do not heat ethanol.",2],
+ ["Ethanol is not flammable. Shake sample with ethanol then add water.",1],
+ ["Ethanol burns easily. Swirl food with ethanol and then add water.",2]
+];
+function endOf(s,at){const start=s.indexOf('{',at);let depth=0;for(let j=start;j<s.length;j++){if(s[j]==='{')depth++;else if(s[j]==='}'){depth--;if(!depth)return j+1;}}throw Error('unclosed');}
+const found=[];
+for(const f of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-rWAnuDVj.js']){
+ const s=read(f),at=s.indexOf('function B(e,t,n,r)');
+ if(at<0||!s.includes("import {scoreFoodTestsEthanolSafety}"))throw Error('missing scorer integration '+f);
+ const B=new Function('scoreFoodTestsEthanolSafety','L','I',s.slice(at,endOf(s,at))+'\nreturn B;')(score,()=>'',()=>[]);
+ const q=bank.questions.find(q=>q.id==='bio-y8-app-ethanol-safety');
+ for(const [answer,expected] of cases){const got=B(q,answer,'biology',{});if(got.score!==expected||got.total!==2||got.ok!==(expected===2))throw Error(f+': '+answer+': '+JSON.stringify(got));}
+ found.push({file:f,passed:cases.length});
+}
+const source=read('assets/daily-curriculum-20261004.js'),at=source.indexOf('export function selectProgressionQuestions(');
+if(at<0)throw Error('selector absent');
+const selector=new Function(source.slice(at,endOf(source,at)).replace('export ','')+'\nreturn selectProgressionQuestions')();
+const cases64=bank.questions.filter(q=>q.id.startsWith('bio-y8-food-tests-case-20261025-'));
+const groupCounts={};for(const q of cases64)groupCounts[q.dailyConceptGroup]=(groupCounts[q.dailyConceptGroup]||0)+1;
+if(cases64.length!==64||Object.keys(groupCounts).length!==16||Object.values(groupCounts).some(n=>n!==4))throw Error('invalid 16x4 case grouping');
+const sampled=selector(cases64,'standard',64);
+if(sampled.length!==16||new Set(sampled.map(q=>q.dailyConceptGroup)).size!==16)throw Error('duplicate concepts served within session');
+const mc=bank.questions.filter(q=>q.format==='mc_single'&&!q.id.includes('case-'));
+if(mc.length!==9||mc.some(q=>q.options.length!==4||q.options.filter(x=>q.answer.accepted.includes(x)).length!==1||new Set(q.options).size!==4))throw Error('MCQ bad options');
+if(bank.questions.length!==143||bank.questions.some(q=>q.status!=='enabled'))throw Error('changed bank count or status');
+const row=catalog.topics.find(q=>q.topicId==='bio-y8-food-tests');
+if(row.questions!==143||row.enabled!==143||row.formats.mc_single!==73||row.formats.mark_points!==52)throw Error('catalog drift');
+console.log(JSON.stringify({kind:'food-tests-batch-qa',approved:0,ethanol:found,concepts:16,scenarioVariants:64,scenarioServedInOneSitting:sampled.length,mcqChecked:9,questions:143},null,2));

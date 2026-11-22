@@ -55,7 +55,18 @@ export function curriculumHref(pick,mode,task){
  return `/study/${pick?.subject||'latin'}/practise?${p}`;
 }
 export function selectProgressionQuestions(ranked,mode,size){
- const unique=[...new Map(ranked.filter(q=>q.formal!==false&&!q._repair&&q.status!=='preview').map(q=>[q.id,q])).values()];
+ const byId=[...new Map(ranked.filter(q=>q.formal!==false&&!q._repair&&q.status!=='preview').map(q=>[q.id,q])).values()];
+ // QA Food Tests: each of the 16 four-indicator patterns has four wording variants.
+ // Keep all question IDs for later sessions, but never give two of the same
+ // dailyConceptGroup in one progression sitting. No historical IDs are changed.
+ const seenConceptGroups=new Set();
+ const unique=byId.filter(q=>{
+  const group=q.dailyConceptGroup;
+  if(!group)return true;
+  if(seenConceptGroups.has(group))return false;
+  seenConceptGroups.add(group);
+  return true;
+ });
  const depth=q=>Number(q._sessionDepth)||Number(q.cognitiveDepth)||Number(q.difficulty)||(['mc_single','matching','sorting','diagram_label'].includes(q.format)?1:['typed_exact','typed_short','spelling_restore','word_tiles'].includes(q.format)?2:['calculation','controlled_translation','sequence','unordered_set'].includes(q.format)?3:4);
  const production=q=>['typed_exact','typed_short','typed_equivalent','spelling_restore','controlled_translation','mark_points','extended_response','practical_design','calculation','unordered_set'].includes(q.format);
  const mastery=mode==='mastery'||mode==='year8long';

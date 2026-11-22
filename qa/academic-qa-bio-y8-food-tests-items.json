@@ -1,7 +1,7 @@
 {
   "commitBase": "2e556ffcb48f6c7346b3b663f8058f57271b643d",
   "topicFile": "content/topics/bio-y8-food-tests.json",
-  "round": "1-revision-draft",
+  "round": "1-batch-revision-draft",
   "decision": "not-approved",
   "approved": 0,
   "questions": 143,
@@ -13,35 +13,51 @@
   "meaning": "No finding means the item has not been individually verified. It does not mean the item is wrong, and it is not approval.",
   "fingerprint": "sha256 of JSON {format,prompt,stimulus,options,answer,taskLabel,taskInstruction}. Status is not part of the hash.",
   "changedQuestionIds": [
+    "bio-y8-food-tests-iodine-solution-mc",
+    "bio-y8-food-tests-benedict-s-solution-mc",
+    "bio-y8-food-tests-biuret-solution-mc",
+    "bio-y8-food-tests-ethanol-emulsion-test-mc",
+    "bio-y8-food-tests-blue-black-mc",
+    "bio-y8-food-tests-brick-red-mc",
     "bio-y8-food-tests-brick-red-name",
+    "bio-y8-food-tests-lilac-or-purple-mc",
+    "bio-y8-food-tests-cloudy-white-emulsion-mc",
     "bio-y8-food-tests-water-bath-mc",
     "bio-y8-food-tests-water-bath-name",
     "bio-y8-food-tests-water-bath-explain",
     "bio-y8-app-ethanol-safety"
   ],
   "counts": {
-    "contentChanged": 5,
-    "needsRevision": 125,
-    "revisedAwaitingIndependentReview": 2,
-    "notIndividuallyReviewed": 16
+    "contentChanged": 13,
+    "needsRevision": 116,
+    "revisedAwaitingIndependentReview": 11,
+    "notIndividuallyReviewed": 16,
+    "qaMetadataChanged": 64,
+    "scorerChanged": 1
   },
   "questionsRegister": [
     {
       "questionId": "bio-y8-food-tests-iodine-solution-mc",
       "format": "mc_single",
       "originalFingerprint": "5c7059ba604aa4d80f7a26505fd4d254c42d1ac30e667e8703ffe029fc15934b",
-      "revisedFingerprint": null,
-      "contentChanged": false,
+      "revisedFingerprint": "15c5b61e84fc1fe79200198c765fa247261b48bed8db9cdc4d22afed12eec090",
+      "contentChanged": true,
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Foundation MCQ still has at least one out-of-topic distractor."
+          "status": "revised-awaiting-independent-review",
+          "issue": "Replaced unrelated distractors with food-test reagents, observations or equipment; requires independent QA."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "MCQ single accepted option and distinct near-topic distractors",
+          "status": "function-level QA preflight; Node independent run pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
-      "academicStatus": "needs-revision",
+      "academicStatus": "revised-awaiting-independent-review",
       "approved": false
     },
     {
@@ -78,18 +94,24 @@
       "questionId": "bio-y8-food-tests-benedict-s-solution-mc",
       "format": "mc_single",
       "originalFingerprint": "f508e3669d30e58deee120e5f3d45d524d26b3cab0419aee025fb64ca79f9b8a",
-      "revisedFingerprint": null,
-      "contentChanged": false,
+      "revisedFingerprint": "27cbdc4ddb454d318ceda6563be3051a784413759ae0986cceb9234c92e99e94",
+      "contentChanged": true,
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Foundation MCQ still has at least one out-of-topic distractor."
+          "status": "revised-awaiting-independent-review",
+          "issue": "Replaced unrelated distractors with food-test reagents, observations or equipment; requires independent QA."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "MCQ single accepted option and distinct near-topic distractors",
+          "status": "function-level QA preflight; Node independent run pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
-      "academicStatus": "needs-revision",
+      "academicStatus": "revised-awaiting-independent-review",
       "approved": false
     },
     {
@@ -126,18 +148,24 @@
       "questionId": "bio-y8-food-tests-biuret-solution-mc",
       "format": "mc_single",
       "originalFingerprint": "534ee860d3b189b793cc9d5002b977f69f87c709f4e7a59f85366bd269ffb022",
-      "revisedFingerprint": null,
-      "contentChanged": false,
+      "revisedFingerprint": "7a7a5ba700ee4788afcfd855358ceaed3be11dfc5c3d504791184223ad59f000",
+      "contentChanged": true,
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Foundation MCQ still has at least one out-of-topic distractor."
+          "status": "revised-awaiting-independent-review",
+          "issue": "Replaced unrelated distractors with food-test reagents, observations or equipment; requires independent QA."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "MCQ single accepted option and distinct near-topic distractors",
+          "status": "function-level QA preflight; Node independent run pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
-      "academicStatus": "needs-revision",
+      "academicStatus": "revised-awaiting-independent-review",
       "approved": false
     },
     {
@@ -174,18 +202,24 @@
       "questionId": "bio-y8-food-tests-ethanol-emulsion-test-mc",
       "format": "mc_single",
       "originalFingerprint": "788e995df0e95a98297977302342f9f07cd547664c0490c566db0395173bf7ac",
-      "revisedFingerprint": null,
-      "contentChanged": false,
+      "revisedFingerprint": "66d2b5dd827a6ad6b4eda00c815cd1e8f51787ac20fd9a201fe2bf49bd9fd204",
+      "contentChanged": true,
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Foundation MCQ still has at least one out-of-topic distractor."
+          "status": "revised-awaiting-independent-review",
+          "issue": "Replaced unrelated distractors with food-test reagents, observations or equipment; requires independent QA."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "MCQ single accepted option and distinct near-topic distractors",
+          "status": "function-level QA preflight; Node independent run pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
-      "academicStatus": "needs-revision",
+      "academicStatus": "revised-awaiting-independent-review",
       "approved": false
     },
     {
@@ -222,18 +256,24 @@
       "questionId": "bio-y8-food-tests-blue-black-mc",
       "format": "mc_single",
       "originalFingerprint": "390145c3d4c25f1d7689a6ffe9b691486704a40065ac5e52fe375a1a9991d786",
-      "revisedFingerprint": null,
-      "contentChanged": false,
+      "revisedFingerprint": "70ed297cd24512c7cb7f15e6887ad5155714fe764220d2550aa1bcb93ed3abf3",
+      "contentChanged": true,
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Foundation MCQ still has at least one out-of-topic distractor."
+          "status": "revised-awaiting-independent-review",
+          "issue": "Replaced unrelated distractors with food-test reagents, observations or equipment; requires independent QA."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "MCQ single accepted option and distinct near-topic distractors",
+          "status": "function-level QA preflight; Node independent run pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
-      "academicStatus": "needs-revision",
+      "academicStatus": "revised-awaiting-independent-review",
       "approved": false
     },
     {
@@ -270,18 +310,24 @@
       "questionId": "bio-y8-food-tests-brick-red-mc",
       "format": "mc_single",
       "originalFingerprint": "13e883763a465b93d970c29327b3a2c62e05aff7457187642261ec276775191f",
-      "revisedFingerprint": null,
-      "contentChanged": false,
+      "revisedFingerprint": "1615aaa8dff641fdfc6c12be10c9b625a1f04034cce4105d3a96cbe020e43cb3",
+      "contentChanged": true,
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Foundation MCQ still has at least one out-of-topic distractor."
+          "status": "revised-awaiting-independent-review",
+          "issue": "Replaced unrelated distractors with food-test reagents, observations or equipment; requires independent QA."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "MCQ single accepted option and distinct near-topic distractors",
+          "status": "function-level QA preflight; Node independent run pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
-      "academicStatus": "needs-revision",
+      "academicStatus": "revised-awaiting-independent-review",
       "approved": false
     },
     {
@@ -344,18 +390,24 @@
       "questionId": "bio-y8-food-tests-lilac-or-purple-mc",
       "format": "mc_single",
       "originalFingerprint": "8321481e5a44c2dd8c416e565ddd106f1c82af97fb958d33273380bb07fa7e7b",
-      "revisedFingerprint": null,
-      "contentChanged": false,
+      "revisedFingerprint": "a0c2d6cbbfa687e5fd9adc2b73a9bb218aa4c6be6c01d1be012677072010544c",
+      "contentChanged": true,
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Foundation MCQ still has at least one out-of-topic distractor."
+          "status": "revised-awaiting-independent-review",
+          "issue": "Replaced unrelated distractors with food-test reagents, observations or equipment; requires independent QA."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "MCQ single accepted option and distinct near-topic distractors",
+          "status": "function-level QA preflight; Node independent run pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
-      "academicStatus": "needs-revision",
+      "academicStatus": "revised-awaiting-independent-review",
       "approved": false
     },
     {
@@ -392,18 +444,24 @@
       "questionId": "bio-y8-food-tests-cloudy-white-emulsion-mc",
       "format": "mc_single",
       "originalFingerprint": "be46180b5e6b5cfd8d471d884eb1116a2727983b710f6ecbcfea008455c65fbd",
-      "revisedFingerprint": null,
-      "contentChanged": false,
+      "revisedFingerprint": "872fe13217132e63968f4c046970ae0301cfa580967815036ee18d5a6725d370",
+      "contentChanged": true,
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Foundation MCQ still has at least one out-of-topic distractor."
+          "status": "revised-awaiting-independent-review",
+          "issue": "Replaced unrelated distractors with food-test reagents, observations or equipment; requires independent QA."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "MCQ single accepted option and distinct near-topic distractors",
+          "status": "function-level QA preflight; Node independent run pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
-      "academicStatus": "needs-revision",
+      "academicStatus": "revised-awaiting-independent-review",
       "approved": false
     },
     {
@@ -440,7 +498,7 @@
       "questionId": "bio-y8-food-tests-water-bath-mc",
       "format": "mc_single",
       "originalFingerprint": "9d12f653543a5ad2061944f1d48fd100999a1b703833c90ce5ea68cbcebe8288",
-      "revisedFingerprint": "fa94626650e858eb4e8f972e028dd5241555c80ad9fc5551aaa19622cb4c798e",
+      "revisedFingerprint": "d732f25605fc761b63c50a371c9673043d6080b7c133ba4f7154bedf9d5fd51f",
       "contentChanged": true,
       "qaFindings": [
         {
@@ -450,13 +508,19 @@
         },
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Foundation MCQ still has at least one out-of-topic distractor."
+          "status": "revised-awaiting-independent-review",
+          "issue": "Replaced unrelated distractors with food-test reagents, observations or equipment; requires independent QA."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "MCQ single accepted option and distinct near-topic distractors",
+          "status": "function-level QA preflight; Node independent run pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
-      "academicStatus": "needs-revision",
+      "academicStatus": "revised-awaiting-independent-review",
       "approved": false
     },
     {
@@ -608,8 +672,8 @@
         },
         {
           "severity": "open",
-          "status": "not-tested",
-          "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+          "status": "partially-tested",
+          "issue": "The dedicated ethanol rubric passed 22 positive/negative preflight cases; independent review and broader paraphrase coverage pending."
         }
       ],
       "testEvidence": [
@@ -649,11 +713,19 @@
             }
           ],
           "note": "Academic target for the flammable paraphrase plus correct method was 2/2. The marker gave 0/2 when the student said catches fire, and 1/2 when the student said highly flammable but did not repeat without heating. The wrong flame answer also scored 0/2, so the item does not separate it from the correct paraphrase."
+        },
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "22 positive, partial and adversarial safety/procedure cases in both scorer bundles",
+          "passed": 22,
+          "total": 22,
+          "environment": "isolated V8 function-level preflight; Node and PWA E2E pending"
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-1-1",
@@ -664,14 +736,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-1-2",
@@ -682,14 +762,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-protein-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-1-3",
@@ -700,14 +788,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-protein-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-1-4",
@@ -718,14 +814,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-protein-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-1-5",
@@ -736,14 +840,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-1-6",
@@ -754,14 +866,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-1-7",
@@ -772,14 +892,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-1-8",
@@ -790,14 +918,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-1-9",
@@ -808,14 +944,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-1-10",
@@ -826,14 +970,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-protein",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-1-11",
@@ -844,14 +996,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-protein",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-1-12",
@@ -862,14 +1022,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-protein",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-1-13",
@@ -880,14 +1048,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-1-14",
@@ -898,14 +1074,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-1-15",
@@ -916,14 +1100,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-1-16",
@@ -934,14 +1126,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-none-of-these-four-nutrients",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-2-1",
@@ -952,14 +1152,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-2-2",
@@ -970,14 +1178,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-protein-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-2-3",
@@ -988,14 +1204,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-protein-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-2-4",
@@ -1006,14 +1230,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-protein-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-2-5",
@@ -1024,14 +1256,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-2-6",
@@ -1042,14 +1282,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-2-7",
@@ -1060,14 +1308,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-2-8",
@@ -1078,14 +1334,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-2-9",
@@ -1096,14 +1360,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-2-10",
@@ -1114,14 +1386,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-protein",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-2-11",
@@ -1132,14 +1412,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-protein",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-2-12",
@@ -1150,14 +1438,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-protein",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-2-13",
@@ -1168,14 +1464,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-2-14",
@@ -1186,14 +1490,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-2-15",
@@ -1204,14 +1516,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-2-16",
@@ -1222,14 +1542,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-none-of-these-four-nutrients",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-3-1",
@@ -1240,14 +1568,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-3-2",
@@ -1258,14 +1594,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-protein-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-3-3",
@@ -1276,14 +1620,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-protein-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-3-4",
@@ -1294,14 +1646,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-protein-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-3-5",
@@ -1312,14 +1672,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-3-6",
@@ -1330,14 +1698,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-3-7",
@@ -1348,14 +1724,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-3-8",
@@ -1366,14 +1750,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-3-9",
@@ -1384,14 +1776,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-3-10",
@@ -1402,14 +1802,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-protein",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-3-11",
@@ -1420,14 +1828,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-protein",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-3-12",
@@ -1438,14 +1854,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-protein",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-3-13",
@@ -1456,14 +1880,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-3-14",
@@ -1474,14 +1906,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-3-15",
@@ -1492,14 +1932,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-3-16",
@@ -1510,14 +1958,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-none-of-these-four-nutrients",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-4-1",
@@ -1528,14 +1984,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-4-2",
@@ -1546,14 +2010,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-protein-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-4-3",
@@ -1564,14 +2036,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-protein-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-4-4",
@@ -1582,14 +2062,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-protein-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-4-5",
@@ -1600,14 +2088,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-4-6",
@@ -1618,14 +2114,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-4-7",
@@ -1636,14 +2140,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-4-8",
@@ -1654,14 +2166,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-lipid",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-4-9",
@@ -1672,14 +2192,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-4-10",
@@ -1690,14 +2218,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-protein",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-4-11",
@@ -1708,14 +2244,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-protein",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-4-12",
@@ -1726,14 +2270,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-protein",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-4-13",
@@ -1744,14 +2296,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-4-14",
@@ -1762,14 +2322,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-4-15",
@@ -1780,14 +2348,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-case-20261025-4-16",
@@ -1798,14 +2374,22 @@
       "qaFindings": [
         {
           "severity": "P2",
-          "status": "open",
-          "issue": "Scenario item in a 16-combination set repeated four times. Concept link not added."
+          "status": "mitigated-awaiting-e2e",
+          "issue": "One of four variants per combination is selectable in a single progression sitting; cross-task and cross-day protection not independently verified."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "four scenario variants linked to one of 16 result groups; single progression sitting",
+          "status": "function-level selector preflight passed; multi-task/iPad E2E pending"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-none-of-these-four-nutrients",
+      "qaMetadataChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-sample-separation",
@@ -2606,5 +3190,6 @@
       "approved": false
     }
   ],
-  "markingCounterexamples": "tests/food-tests-marking-counterexamples.mjs"
+  "markingCounterexamples": "tests/food-tests-marking-counterexamples.mjs",
+  "testStatus": "Function-level preflight complete; Node + independent academic QA + PWA not complete."
 }
