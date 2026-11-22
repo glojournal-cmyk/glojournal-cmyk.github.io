@@ -34,12 +34,12 @@ for(const file of names){
   results.push(row);
   const group=subject+'-y'+year;
   byYearSubject[group]??={topics:0,rawQuestions:0,previewQuestions:0,candidateQuestions:0,
-    candidateConcepts:0,qaAcceptedQuestions:0,qaRejectedQuestions:0};
+    candidateConcepts:0,qaAcceptedQuestions:0,qaRejectedQuestions:0,qaPendingQuestions:0};
   const target=byYearSubject[group];
   target.topics++;target.rawQuestions+=all.length;target.previewQuestions+=preview;
   target.candidateQuestions+=candidates.length;target.candidateConcepts+=concepts.size;
   // No file is accepted based on structural inspection alone.
-  target.qaRejectedQuestions+=all.length;
+  target.qaPendingQuestions+=all.length;
   if(missingConcept||missingAnswer||duplicates)issues.push({file,missingConcept,missingAnswer,duplicates});
 }
 const topYear9=results.filter(x=>x.year===9).sort((a,b)=>b.distinctCandidateConcepts-a.distinctCandidateConcepts).slice(0,15)
