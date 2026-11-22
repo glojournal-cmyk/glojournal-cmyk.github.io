@@ -54,7 +54,9 @@ test('QuizSession practice feedback remains, while XP, Daily and formal records 
   assert.match(src,/formal:!qaHeld&&Y\.formal!==!1/);
   assert.match(src,/!qaHeld&&x\(Y\.id,formalOk,a,/);
   assert.match(src,/qaHeld\|\|!!Y\._dailyYear8/);
-  assert.match(src,/Practice only.*Academic QA pending/);
+  assert.match(src,/foodTestsPupilVerdict\(Y\)/);
+  assert.match(src,/Practice saved\. Not a formal mark\./);
+  assert.equal(src.includes('${n.model||L(Y)}'), false);
  }
 });
 test('All 52 structured concept drafts are unapproved and cannot score',()=>{

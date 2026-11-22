@@ -153,3 +153,10 @@ export function isFoodTestsQaHeld(value){
  return pending.has(id)||id.startsWith('bio-y8-food-tests-')||topic===FOOD_TESTS_QA_TOPIC;
 }
 export function canEarnFormalCredit(value){return !isFoodTestsQaHeld(value);}
+// Pupil-facing result for an unapproved Food Tests answer. The prose matcher
+// may be wrong, so it must not be shown as correct or incorrect and must not
+// reveal a model answer. Formal credit stays closed.
+export function foodTestsPupilVerdict(value){
+ if(!isFoodTestsQaHeld(value))return null;
+ return {ok:false,practiceOnly:true,formalCredit:false,errorKind:'unmarked',score:null,total:null,pointResults:null,model:'Practice only — Academic QA pending. No Daily / MP / Mastery credit.'};
+}

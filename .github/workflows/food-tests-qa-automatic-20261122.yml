@@ -57,9 +57,11 @@ jobs:
           # the 196-item regression, 62 ethanol cases and 148 adversarial cases.
           node tests/food-tests-remaining-37-acceptance.mjs
           node tests/food-tests-four-confirmed-overcredit-acceptance.mjs
-      - name: Strict unseen wording acceptance - fail on any score mismatch
+      - name: Record unseen prose mismatches; fail if a pupil still receives a formal verdict
         if: always()
-        run: node tests/food-tests-37-unseen-diagnostic.mjs --write --strict
+        run: |
+          node tests/food-tests-37-unseen-diagnostic.mjs --write
+          node --test tests/food-tests-pupil-unmarked-20261122.test.mjs
       - name: Upload QA evidence
         if: always()
         uses: actions/upload-artifact@v4
