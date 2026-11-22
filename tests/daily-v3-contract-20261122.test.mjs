@@ -90,20 +90,38 @@ test('Standard B Year 9 is assigned only with ten certified Year 9 concepts',()=
   assert.match(b.href,/year=9/);assert.ok(!b.href.includes('year=8'));
   assert.equal(plan.find(t=>t.id==='y8-standard-a').assignedYear,8);
 });
-test('Languages Standard never completes with Latin alone',()=>{
-  const rows=Array.from({length:10},(_,i)=>({
-    day,year:8,dailyTaskId:'languages-standard',subject:'latin',questionId:'latin'+i,
+test('Languages Standard requires independent signed Latin 5 + French 5, never Latin alone',()=>{
+  const approved={...V3_APPROVED,languageGrammar:{
+    latin:[topic('latin',8,'la-y8-case-functions',5)],
+    french:[topic('french',8,'fr-y8-verb-agreement',5)]
+  }};
+  const assigned=buildDailyV3(state(),old(),approved);
+  const task=assigned.find(t=>t.id==='languages-standard');
+  assert.equal(task.supplyBlocked,undefined);
+  const events=subject=>task.languageSplit[subject].approvedQuestionIds.map(id=>({
+    day,year:8,dailyTaskId:'languages-standard',subject,
+    questionId:id,topicId:task.languageSplit[subject].topicId,
     correct:true,formal:true
   }));
-  let s=state({formalAttemptLog:rows});
-  assert.deepEqual(languageEvidence(s,day).latin,{attempts:10,correct:5});
+  const s=state({daily:assigned,formalAttemptLog:[
+    ...events('latin'),
+    ...Array.from({length:5},(_,i)=>({
+      day,year:8,dailyTaskId:'languages-standard',subject:'latin',
+      questionId:'unapproved-latin-'+i,topicId:task.languageSplit.latin.topicId,
+      correct:true,formal:true
+    }))
+  ]});
+  assert.deepEqual(languageEvidence(s,day).latin,{attempts:5,correct:5},
+    'unapproved extra Latin cannot count as five more');
+  assert.equal(languageEvidence(s,day).french.correct,0);
   assert.equal(languageEvidence(s,day).progress,5);
   assert.equal(languageEvidence(s,day).completed,false);
-  s.formalAttemptLog.push(...Array.from({length:5},(_,i)=>({
-    day,year:8,dailyTaskId:'languages-standard',subject:'french',questionId:'fr'+i,correct:true,formal:true
-  })));
+  s.formalAttemptLog.push(...events('french'));
   assert.equal(languageEvidence(s,day).completed,true);
   assert.equal(languageEvidence(s,day).progress,10);
+  const unsigned=state({formalAttemptLog:[...events('latin'),...events('french')]});
+  assert.equal(languageEvidence(unsigned,day).progress,0,
+    'matching self-reported task IDs without pinned daily assignment never count');
 });
 test('Language card preserves independently assigned approved Latin and French sources',()=>{
   const approved={...V3_APPROVED,languageGrammar:{
