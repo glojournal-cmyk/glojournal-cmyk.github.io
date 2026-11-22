@@ -133,21 +133,30 @@ export function mathsEvidence(attempts=[],day,task=null){
     return {submitted:0,correct:0,attemptFinished:false,completed:false,targetMet:false};
   const seen=new Map();
   for(const a of attempts){
-    if(a?.day!==day||!a.questionId||!validDate(day)||typeof a.correct!=='boolean'||
-       !(a.submittedAt||a.at))continue;
+    if(a?.day!==day||!a.questionId||!validDate(day))continue;
     const id=String(a.questionId).split('@')[0];
-    if(task&&(!accepted.has(id)||!Object.hasOwn(correctIds,id)||
-       !['A','B','C','D','E','F'].includes(a.selectedOptionId)||
-       a.correct!==(a.selectedOptionId===correctIds[id])||
-       a.dailyTaskId!=='maths-daily'||a.subject!=='maths'||
-       Number(a.year)!==9||a.formal!==true||a.repair===true||a.hintUsed===true||
-       a.scaffolded===true||a.assisted===true||a.recoveryFor))continue;
-    // First formally submitted unassisted answer wins. Repeats cannot rewrite
-    // the original mark or inflate a daily score.
-    if(!seen.has(id))seen.set(id,a);
+    if(task){
+      if(!accepted.has(id)||!Object.hasOwn(correctIds,id)||
+         a.dailyTaskId!=='maths-daily'||a.subject!=='maths'||
+         Number(a.year)!==9||a.formal!==true)continue;
+      if(seen.has(id))continue;
+      // Reserve the FIRST formal submitted ID even if the answer payload was
+      // malformed or assisted. It can never be replaced by a later correct
+      // submission, hint reset or an untrusted bare correct:true assertion.
+      const firstValid=typeof a.correct==='boolean'&&
+        Boolean(a.submittedAt||a.at)&&
+        ['A','B','C','D','E','F'].includes(a.selectedOptionId)&&
+        a.correct===(a.selectedOptionId===correctIds[id])&&
+        a.repair!==true&&a.hintUsed!==true&&
+        a.scaffolded!==true&&a.assisted!==true&&!a.recoveryFor;
+      seen.set(id,firstValid?a:null);
+    }else if(typeof a.correct==='boolean'&&(a.submittedAt||a.at)&&!seen.has(id)){
+      seen.set(id,a); // legacy two-argument isolated QA only
+    }
   }
-  const submitted=Math.min(10,seen.size);
-  const correct=[...seen.values()].filter(a=>a.correct).length;
+  const graded=[...seen.values()].filter(Boolean);
+  const submitted=Math.min(10,graded.length);
+  const correct=graded.filter(a=>a.correct).length;
   const targetMet=submitted===10&&correct>=9;
   // 10 submitted but fewer than nine correct is a *completed attempt*, NOT
   // Daily clearance, Mastery, XP or MP. Never reward an unpassed Maths check.
