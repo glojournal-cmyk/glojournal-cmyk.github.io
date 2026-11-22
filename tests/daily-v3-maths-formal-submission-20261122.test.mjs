@@ -112,7 +112,9 @@ test('actual Scholar recordAttempt wrapper persists the A-F selected answer and 
  const wrapper=readFileSync('assets/index-BLVOhKhN.js','utf8');
  const idx=wrapper.indexOf('  const evidenceEntry={');
  assert.ok(idx>=0);
- const proof=wrapper.slice(idx,idx+1700);
+ const end=wrapper.indexOf('  // Persist a small, verified answer event',idx);
+ assert.ok(end>idx,'end of first-answer evidence record must exist');
+ const proof=wrapper.slice(idx,end);
  for(const token of [
    'selectedOptionId:', 'meta.selectedOptionId', 'assisted: meta.assisted===true',
    'hintUsed: meta.hintUsed===true','scaffolded: meta.scaffolded===true',
