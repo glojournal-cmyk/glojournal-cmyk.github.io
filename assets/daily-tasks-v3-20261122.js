@@ -196,6 +196,12 @@ export function mathsEvidence(attempts=[],day,task=null){
   const accepted=task?new Set(ids):null;
   const correctIds=task?.approvedCorrectOptionByQuestion||{};
   const families=task?.approvedConceptByQuestion||{};
+  // Source V3.1 has 0/200 formal independent Grade7+ approvals. An old or
+  // tampered dated task must not credit any of these original IDs based only
+  // on a pinned A–F key. Future release requires a versioned, independently
+  // source-hashed question/grade-evidence snapshot in each assignment.
+  if(task&&ids.some(id=>typeof id==='string'&&id.startsWith('LUX-MATH-Y9-')))
+    return {submitted:0,correct:0,attemptFinished:false,completed:false,targetMet:false};
   if(task&&(!validDate(day)||task.id!=='maths-daily'||
      task.dailyV3!==true||task.supplyBlocked===true||task.planDate!==day||
      task.assignedSubject!=='maths'||Number(task.assignedYear)!==9||
