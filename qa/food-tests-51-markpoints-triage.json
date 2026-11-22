@@ -1,0 +1,993 @@
+{
+  "kind": "food-tests-51-markpoints-risk-triage",
+  "sourceCommit": "454af08cb5f90c7fd42a5080ae24b496a15c0a67",
+  "preflight": "qa/food-tests-51-markpoints-preflight.json",
+  "fixtures": "qa/food-tests-51-markpoints-probes.json",
+  "nodeRunner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+  "approval": 0,
+  "independentReview": "pending",
+  "decision": "No content or marker edits until independent validation of the counterexample expectations. Prioritise 6 over-credit items, then 37 additional affected under-credit-only items. 8 items without mismatches still require broader QA.",
+  "summary": {
+    "total": 51,
+    "structuredGuardRequired": 6,
+    "undercreditOnly": 37,
+    "withoutMismatch": 8,
+    "classes": {
+      "overcredit-structured-guard-required": 6,
+      "no-mismatch-in-limited-probes": 8,
+      "paraphrase-undermark-bounded-alternatives-candidate": 20,
+      "paraphrase-undermark-structured-rubric-candidate": 17
+    }
+  },
+  "rows": [
+    {
+      "questionId": "bio-y8-food-tests-iodine-solution-explain",
+      "marks": 1,
+      "priority": "P0",
+      "classification": "overcredit-structured-guard-required",
+      "academicExpected": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 0,
+        "counterexample": 1
+      },
+      "undercredit": true,
+      "overcredit": true,
+      "recommendation": "Block scientifically false statements; define explicit correct/incorrect concept rules; rerun all positive and negative cases. Simple synonym expansion is insufficient.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-benedict-s-solution-explain",
+      "marks": 1,
+      "priority": "P2",
+      "classification": "no-mismatch-in-limited-probes",
+      "academicExpected": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "undercredit": false,
+      "overcredit": false,
+      "recommendation": "Expand real-student wording, negation and cross-point tests; do not equate current 3/4 probes with academic approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-biuret-solution-explain",
+      "marks": 1,
+      "priority": "P2",
+      "classification": "no-mismatch-in-limited-probes",
+      "academicExpected": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "undercredit": false,
+      "overcredit": false,
+      "recommendation": "Expand real-student wording, negation and cross-point tests; do not equate current 3/4 probes with academic approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-ethanol-emulsion-test-explain",
+      "marks": 1,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-bounded-alternatives-candidate",
+      "academicExpected": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 0,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Add bounded legitimate scientific paraphrases per mark point with explicit rejection probes; do not change global scorer without regression.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-blue-black-explain",
+      "marks": 1,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-bounded-alternatives-candidate",
+      "academicExpected": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 0,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Add bounded legitimate scientific paraphrases per mark point with explicit rejection probes; do not change global scorer without regression.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-brick-red-explain",
+      "marks": 1,
+      "priority": "P2",
+      "classification": "no-mismatch-in-limited-probes",
+      "academicExpected": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "undercredit": false,
+      "overcredit": false,
+      "recommendation": "Expand real-student wording, negation and cross-point tests; do not equate current 3/4 probes with academic approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-lilac-or-purple-explain",
+      "marks": 1,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-bounded-alternatives-candidate",
+      "academicExpected": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 0,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Add bounded legitimate scientific paraphrases per mark point with explicit rejection probes; do not change global scorer without regression.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-cloudy-white-emulsion-explain",
+      "marks": 1,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-bounded-alternatives-candidate",
+      "academicExpected": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 0,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Add bounded legitimate scientific paraphrases per mark point with explicit rejection probes; do not change global scorer without regression.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-water-bath-explain",
+      "marks": 2,
+      "priority": "P2",
+      "classification": "no-mismatch-in-limited-probes",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "undercredit": false,
+      "overcredit": false,
+      "recommendation": "Expand real-student wording, negation and cross-point tests; do not equate current 3/4 probes with academic approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-app-benedicts-method",
+      "marks": 3,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-bounded-alternatives-candidate",
+      "academicExpected": {
+        "paraphrase": 3,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Add bounded legitimate scientific paraphrases per mark point with explicit rejection probes; do not change global scorer without regression.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-sample-separation",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-bounded-alternatives-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 0,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Add bounded legitimate scientific paraphrases per mark point with explicit rejection probes; do not change global scorer without regression.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-iodine-repeat",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-bounded-alternatives-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Add bounded legitimate scientific paraphrases per mark point with explicit rejection probes; do not change global scorer without regression.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-benedict-no-heat",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-structured-rubric-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 0,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Review conclusion polarity, test order and required distinct points; consider targeted structured rubric; test contradictions before approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-negative-sugar",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-structured-rubric-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Review conclusion polarity, test order and required distinct points; consider targeted structured rubric; test contradictions before approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-positive-sugar",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-structured-rubric-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Review conclusion polarity, test order and required distinct points; consider targeted structured rubric; test contradictions before approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-biuret-control",
+      "marks": 2,
+      "priority": "P0",
+      "classification": "overcredit-structured-guard-required",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 1,
+        "counterexample": 1
+      },
+      "undercredit": true,
+      "overcredit": true,
+      "recommendation": "Block scientifically false statements; define explicit correct/incorrect concept rules; rerun all positive and negative cases. Simple synonym expansion is insufficient.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-iodine-control",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-bounded-alternatives-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Add bounded legitimate scientific paraphrases per mark point with explicit rejection probes; do not change global scorer without regression.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-repeatability",
+      "marks": 2,
+      "priority": "P2",
+      "classification": "no-mismatch-in-limited-probes",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "undercredit": false,
+      "overcredit": false,
+      "recommendation": "Expand real-student wording, negation and cross-point tests; do not equate current 3/4 probes with academic approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-cross-contamination",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-bounded-alternatives-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 0,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Add bounded legitimate scientific paraphrases per mark point with explicit rejection probes; do not change global scorer without regression.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-structured-rubric-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 0,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Review conclusion polarity, test order and required distinct points; consider targeted structured rubric; test contradictions before approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-ethanol-ventilation",
+      "marks": 2,
+      "priority": "P2",
+      "classification": "no-mismatch-in-limited-probes",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "undercredit": false,
+      "overcredit": false,
+      "recommendation": "Expand real-student wording, negation and cross-point tests; do not equate current 3/4 probes with academic approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-benedict-hot-tube",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-bounded-alternatives-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Add bounded legitimate scientific paraphrases per mark point with explicit rejection probes; do not change global scorer without regression.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-protein-extraction",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-bounded-alternatives-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 0,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Add bounded legitimate scientific paraphrases per mark point with explicit rejection probes; do not change global scorer without regression.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-starch-extraction",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-bounded-alternatives-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Add bounded legitimate scientific paraphrases per mark point with explicit rejection probes; do not change global scorer without regression.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-fair-amount",
+      "marks": 2,
+      "priority": "P0",
+      "classification": "overcredit-structured-guard-required",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 0,
+        "counterexample": 1
+      },
+      "undercredit": true,
+      "overcredit": true,
+      "recommendation": "Block scientifically false statements; define explicit correct/incorrect concept rules; rerun all positive and negative cases. Simple synonym expansion is insufficient.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-fair-reagent",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-bounded-alternatives-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 0,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Add bounded legitimate scientific paraphrases per mark point with explicit rejection probes; do not change global scorer without regression.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-sugar-strength",
+      "marks": 2,
+      "priority": "P0",
+      "classification": "overcredit-structured-guard-required",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 2,
+        "counterexample": 1
+      },
+      "undercredit": false,
+      "overcredit": true,
+      "recommendation": "Block scientifically false statements; define explicit correct/incorrect concept rules; rerun all positive and negative cases. Simple synonym expansion is insufficient.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-cloudy-not-protein",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-structured-rubric-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Review conclusion polarity, test order and required distinct points; consider targeted structured rubric; test contradictions before approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-starch-vs-glucose",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-structured-rubric-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 0,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Review conclusion polarity, test order and required distinct points; consider targeted structured rubric; test contradictions before approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-sugar-vs-starch",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-structured-rubric-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Review conclusion polarity, test order and required distinct points; consider targeted structured rubric; test contradictions before approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-biuret-vs-sugar",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-structured-rubric-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 0,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Review conclusion polarity, test order and required distinct points; consider targeted structured rubric; test contradictions before approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-lipid-vs-starch",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-structured-rubric-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Review conclusion polarity, test order and required distinct points; consider targeted structured rubric; test contradictions before approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-all-negative",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-structured-rubric-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 0,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Review conclusion polarity, test order and required distinct points; consider targeted structured rubric; test contradictions before approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-retest-ethanol",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-structured-rubric-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 0,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Review conclusion polarity, test order and required distinct points; consider targeted structured rubric; test contradictions before approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-glassware",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-bounded-alternatives-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Add bounded legitimate scientific paraphrases per mark point with explicit rejection probes; do not change global scorer without regression.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-eyes",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-bounded-alternatives-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Add bounded legitimate scientific paraphrases per mark point with explicit rejection probes; do not change global scorer without regression.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-heat-variable",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-bounded-alternatives-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 0,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Add bounded legitimate scientific paraphrases per mark point with explicit rejection probes; do not change global scorer without regression.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-no-taste",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-bounded-alternatives-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 0,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Add bounded legitimate scientific paraphrases per mark point with explicit rejection probes; do not change global scorer without regression.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-recording",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-bounded-alternatives-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Add bounded legitimate scientific paraphrases per mark point with explicit rejection probes; do not change global scorer without regression.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-inference",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-bounded-alternatives-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 0,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Add bounded legitimate scientific paraphrases per mark point with explicit rejection probes; do not change global scorer without regression.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-weak-blueblack",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-bounded-alternatives-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Add bounded legitimate scientific paraphrases per mark point with explicit rejection probes; do not change global scorer without regression.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-temperature-safety",
+      "marks": 2,
+      "priority": "P0",
+      "classification": "overcredit-structured-guard-required",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 1,
+        "counterexample": 1
+      },
+      "undercredit": true,
+      "overcredit": true,
+      "recommendation": "Block scientifically false statements; define explicit correct/incorrect concept rules; rerun all positive and negative cases. Simple synonym expansion is insufficient.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-test-plan",
+      "marks": 2,
+      "priority": "P2",
+      "classification": "no-mismatch-in-limited-probes",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "undercredit": false,
+      "overcredit": false,
+      "recommendation": "Expand real-student wording, negation and cross-point tests; do not equate current 3/4 probes with academic approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat",
+      "marks": 2,
+      "priority": "P0",
+      "classification": "overcredit-structured-guard-required",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 1,
+        "counterexample": 1
+      },
+      "undercredit": true,
+      "overcredit": true,
+      "recommendation": "Block scientifically false statements; define explicit correct/incorrect concept rules; rerun all positive and negative cases. Simple synonym expansion is insufficient.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-result-not-proof",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-structured-rubric-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 0,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Review conclusion polarity, test order and required distinct points; consider targeted structured rubric; test contradictions before approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-wrong-reagent",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-structured-rubric-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Review conclusion polarity, test order and required distinct points; consider targeted structured rubric; test contradictions before approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-uncertain-emulsion",
+      "marks": 2,
+      "priority": "P2",
+      "classification": "no-mismatch-in-limited-probes",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "undercredit": false,
+      "overcredit": false,
+      "recommendation": "Expand real-student wording, negation and cross-point tests; do not equate current 3/4 probes with academic approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-iodine-no-heat",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-structured-rubric-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 0,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Review conclusion polarity, test order and required distinct points; consider targeted structured rubric; test contradictions before approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-safe-bunsen",
+      "marks": 2,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-structured-rubric-candidate",
+      "academicExpected": {
+        "paraphrase": 2,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Review conclusion polarity, test order and required distinct points; consider targeted structured rubric; test contradictions before approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-unknown-analysis",
+      "marks": 3,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-structured-rubric-candidate",
+      "academicExpected": {
+        "paraphrase": 3,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Review conclusion polarity, test order and required distinct points; consider targeted structured rubric; test contradictions before approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-sugar-analysis",
+      "marks": 3,
+      "priority": "P1",
+      "classification": "paraphrase-undermark-structured-rubric-candidate",
+      "academicExpected": {
+        "paraphrase": 3,
+        "counterexample": 0
+      },
+      "observed": {
+        "paraphrase": 1,
+        "counterexample": 0
+      },
+      "undercredit": true,
+      "overcredit": false,
+      "recommendation": "Review conclusion polarity, test order and required distinct points; consider targeted structured rubric; test contradictions before approval.",
+      "independentReviewerDecision": "pending",
+      "approved": false
+    }
+  ]
+}
