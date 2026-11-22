@@ -52,6 +52,7 @@ jobs:
       - name: Existing Daily V2, vocabulary, Recovery and concept supply regression
         run: |
           node --test tests/daily-vocab-year9-three-20261021.test.mjs tests/daily-20261103-inflight-and-window.test.mjs tests/question-supply-preflight-20261111.test.mjs tests/recovery-all-tasks-ledger.test.mjs
+          node --test tests/storage-quota.test.mjs tests/p0-saving-fault-injection.mjs tests/daily-ipad-reliability-20261023.test.mjs tests/daily-task-persistence-qa.mjs tests/backup-vault.test.mjs tests/daily-session-credit-20261021.test.mjs
       - name: Read-only Year 8/9 concept supply inventory
         run: node scripts/daily-v3-bank-audit-20261122.mjs
       - uses: actions/upload-artifact@v4
