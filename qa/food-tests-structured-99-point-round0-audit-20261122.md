@@ -22,7 +22,7 @@
 | Original Food Tests questions academically approved | 0 / 143 | **HOLD** |
 
 ## Explicit Academic QA defects / risks — not a pass
-1. **Distractor plausibility NOT SIGNED OFF.** 65 of 297 wrong options contain absolutes such as `always`, `never`, `cannot`, `only`, `all` or `impossible`. These may make the wrong choice trivially identifiable. Some are scientifically false but too obviously false for a high-quality test. 19 wrong options contain five or fewer words. All need question-by-question educational review.
+1. **Distractor plausibility NOT SIGNED OFF.** The reported count is DISPUTED: an independent follow-up reports **55/297**, while a reproducible read-back using `\\b(always|never|cannot|can't|automatically|guarantees?|impossible|only|all|every)\\b` (case-insensitive, testing each wrong option once) yields **65/297**; excluding the term `all` gives **54/297**. These are not reconcilable without the exact 55-count code or scope. The number is NOT a signoff metric. Absolutist wording may reveal wrong choices trivially. **19/297** wrong options have five or fewer words. Every distractor requires individual academic QA.
 2. **Independent stem quality NOT SIGNED OFF.** In 44 source items, several mark points intentionally inherit the same scenario stem. Although the four choices differ, the exact sub-question focus and independence must be checked by a subject reviewer. The `concept` property is a **key**, and must never be rendered to pupils.
 3. **Key verification incomplete.** The choice matching the source's `concept` is identifiable by schema, but this only establishes faithful transcription of the *draft concept*, not independent scientific adjudication. Four distractors may overlap semantically or depend on omitted lab conditions; each requires checking.
 4. **Source curricula and actual taught sequence pending.** A generic Year 8 Food Tests topic label alone does not prove any particular class has been taught that subskill.
@@ -38,7 +38,9 @@
   - `node --test tests/food-tests-qa-credit-hold-20261122.test.mjs`
   - `node --test tests/food-tests-99-point-candidate-qa-20261122.test.mjs`
   - Existing Food Tests historical/unseen regressions remain in workflow.
-- GitHub connector has **not returned a completed green Actions run** for this new workflow at this review; therefore CI result is **NOT VERIFIED**, not PASS.
+- Initial no-deploy Food Tests workflow [run 45064824159](https://github.com/glojournal-cmyk/glojournal-cmyk.github.io/actions/runs/45064824159) **succeeded technically**, but its unseen diagnostic ran with `--write` only; 29 known unseen paraphrase mismatches were not an exit-code failure. **DO NOT call unseen testing PASS.**
+- Follow-up QA-branch CI changed to `--write --strict` at commit `34b03b632ee2725a43b1eb691bb08ac4f57b51dd`; with known unresolved mismatches the strict step is expected to fail. This is **not a production regression**: it explicitly exposes a pre-existing academic acceptance failure. New CI completion must be checked independently.
+- `MERGEABLE` on GitHub means no merge conflict; it is NOT Academic QA signoff. The Draft PR must remain unmerged/unreleased. Passing or failing workflows are not a reliable merge barrier without enforceable branch protection / required checks.
 - A Vercel combined commit status currently says failure with `upgradeToPro=build-rate-limit`; this is not evidence that the Node tests passed or failed.
 
 ## Next required reviewer actions
