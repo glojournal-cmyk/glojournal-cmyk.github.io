@@ -163,7 +163,7 @@ export function foodTestsPupilVerdict(value){
 
 // A practice completion must never claim "saved" before iPad storage confirms.
 // Preserve the existing draft on failure and let the pupil retry Finish.
-export async function saveHeldPracticeCompletion(drafts,key,data,timeoutMs=3000){
+export async function saveHeldPracticeCompletion(drafts,key,data,timeoutMs=8000){
  // Existing practice-drafts.save(ce:true) DELETES the draft rather than
  // persisting it. Completion is stored under ce:false with a separate flag.
  if(!drafts||typeof drafts.save!=='function'||!key||
@@ -172,7 +172,7 @@ export async function saveHeldPracticeCompletion(drafts,key,data,timeoutMs=3000)
  // success or trap Finish indefinitely; a timeout is a save failure.
  let timer;
  try{
-  const maxWait=Math.max(1,Math.min(10000,Number(timeoutMs)||3000));
+  const maxWait=Math.max(1,Math.min(15000,Number(timeoutMs)||8000));
   const completed=await Promise.race([
    Promise.resolve().then(()=>drafts.save(key,data)),
    new Promise(resolve=>{timer=setTimeout(()=>resolve(false),maxWait)})
