@@ -2031,6 +2031,19 @@ const STUDY_REWARD_XP = {
 };
 
 function patchedAward(kind, options = {}) {
+  // Core bumpDaily checks only raw progress and pre-flags Daily Complete.
+  // Maths 10/10 submitted but <9 correct is NOT a Daily pass, so never
+  // award overall Daily XP or permanently consume its once-a-day receipt.
+  if (kind==="daily_complete" && store.getState().daily?.some(task=>
+      task.id==="maths-daily" && task.dailyV3===true && task.done!==true)) {
+    const state=store.getState(),day=todayKey();
+    if(state.dailyCompleteAwarded?.[day]){
+      const ledger={...(state.dailyCompleteAwarded||{})};
+      delete ledger[day];
+      store.setState({dailyCompleteAwarded:ledger});
+    }
+    return {awarded:0,levelUp:false,unlocked:[]};
+  }
   if (options?.amount != null || !(kind in STUDY_REWARD_XP)) return originalAward(kind, options);
 
   const state = store.getState();
