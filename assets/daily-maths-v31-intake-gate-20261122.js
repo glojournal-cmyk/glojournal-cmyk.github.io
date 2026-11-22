@@ -3,6 +3,12 @@
 // Converting fields must never silently manufacture taught/grade/QA evidence.
 export const V31_SOURCE_SHA256 =
   '6fa88943a4233be04fc6be9f43f2079ffb008906c155d018913541852bb94268';
+export const V31_EDITORIAL_CANDIDATE_SHA256 =
+  'cb26ea0dd961228dd95e47c29b5ce210f7261e9cb06eadb7b9c6a4824f2419ae';
+export const V31_SOURCE_BY_VERSION=Object.freeze({
+  '3.1-independent-maths-second-pass':V31_SOURCE_SHA256,
+  '3.1.1-editorial-candidate-not-approved':V31_EDITORIAL_CANDIDATE_SHA256
+});
 export const V31_TOPIC_MAP=Object.freeze({
   'math-y9-indices':'indices',
   'math-y9-standard-form':'standard-form',
@@ -19,7 +25,8 @@ const duplicates=arr=>new Set(arr).size!==arr.length;
 // full worked-solution proof and browser rendering each require EXTERNAL documented evidence.
 export function mathsV31SignoffIssues(question,signoff={}){
  const issues=[];
- if(signoff.bankSha256!==V31_SOURCE_SHA256)issues.push('source-sha-approval-required');
+ if(!Object.values(V31_SOURCE_BY_VERSION).includes(signoff.bankSha256))
+   issues.push('source-sha-approval-required');
  if(signoff.questionId!==question?.id)issues.push('question-id-signed-off-individually');
  if(signoff.teacherTaughtConfirmed!==true||!filled(signoff.teacherEvidence))
    issues.push('teacher-taught-subskill-unverified');
@@ -87,7 +94,7 @@ export function stageMathsV31Question(question,signoff={}){
   sourceRef:signoff.teacherEvidence||'',
   qaReviewer:signoff.pedagogyReviewer||'',
   mathsChecker:signoff.mathsChecker||'',
-  approvedBankSha256:eligible?V31_SOURCE_SHA256:null,
+  approvedBankSha256:eligible?signoff.bankSha256:null,
   qaSourceStatus:question?.qa?.status||'unverified',
   renderRequired:true,
   // Both approval and a real Maths player/session are mandatory.
@@ -99,18 +106,20 @@ export function auditMathsV31Pack(pack,signoffs={}, {verifiedSourceSha256=null}=
  const issues=[];
  // A bank's self-declared provenance is insufficient. The importing caller
  // MUST hash the exact uploaded RAW BYTES independently before any admission.
- if(verifiedSourceSha256!==V31_SOURCE_SHA256)
+ const expectedSha=V31_SOURCE_BY_VERSION[pack?.version]||null;
+ if(!expectedSha)issues.push('unrecognized-bank-version');
+ if(!expectedSha||verifiedSourceSha256!==expectedSha)
    issues.push('independently-verified-raw-bank-sha-required');
- if(pack?.version!=='3.1-independent-maths-second-pass')issues.push('not-V3.1-reviewed-bank');
  if(pack?.questionCount!==200)issues.push('source-header-question-count-mismatch');
  if(!Array.isArray(pack?.questions)||pack.questions.length!==200)
    issues.push('expect-200-questions');
  const questions=Array.isArray(pack?.questions)?pack.questions:[];
  if(duplicates(questions.map(q=>q.id)))issues.push('duplicate-question-ID');
- const results=questions.map(q=>stageMathsV31Question(q,signoffs[q.id]));
+ const results=questions.map(q=>stageMathsV31Question(q,
+    signoffs[q.id]?.bankSha256===expectedSha?signoffs[q.id]:{}));
  const eligible=results.filter(r=>r.eligible);
  const blocked=results.filter(r=>!r.eligible);
- return {issues,sourceSHA256Expected:V31_SOURCE_SHA256,total:questions.length,
+ return {issues,sourceSHA256Expected:expectedSha,total:questions.length,
     eligible:issues.length===0?eligible.length:0,blocked:blocked.length,
     items:results.map(r=>({id:r.question.id,topicId:r.question.topicId,
       templateId:r.question.templateId,grade:r.question.gradeLabel,
