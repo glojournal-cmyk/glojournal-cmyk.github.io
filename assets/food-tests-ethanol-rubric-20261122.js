@@ -8,16 +8,21 @@ export function scoreFoodTestsEthanolSafety(response){
   && !/\b(?:ethanol|alcohol|it)\s+(?:cannot|can't|can not|does not)\s+(?:ignite|burn|catch fire)\b/.test(s);
  // A negated safety claim is not a positive safety explanation.
  const deniesFire=/\b(?:ethanol|alcohol|it)\b[^.!?;\n]{0,45}\b(?:(?:is|was|are)\s+(?:not\s+|non[-\s]?)(?:highly\s+|very\s+)?flammable|(?:isn't|isnt|wasn't|wasnt|aren't|arent)\s+(?:highly\s+|very\s+)?flammable|non[-\s]?flammable|(?:cannot|can't|cant|can not|doesn't|doesnt|does not)\s+(?:ignite|burn|catch fire))\b/.test(s);
- if(deniesFire)safety=false;
+ // Modal denials ("will not catch fire", "won't burn") negate the safety idea.
+ const deniesFutureFire=/\b(?:ethanol|alcohol|it)\b[^.!?;\n]{0,45}\b(?:(?:will|would|can|could|shall|should)\s+(?:not|never)|(?:won't|wont|wouldn't|wouldnt|can't|cant|cannot|couldn't|couldnt))\s+(?:catch\s+fire|ignite|burn)\b/.test(s);
+ if(deniesFire||deniesFutureFire)safety=false;
  const clauses=s.split(/[.!?;\n]/).map(x=>x.trim()).filter(Boolean);
  const hasAct=clauses.some(clause=>
   (/\b(?:shake|shaken|shaking|shook|mix|mixed|mixing|stir|stirring|swirl|swirling)\b.{0,70}\b(?:ethanol|alcohol)\b|\b(?:ethanol|alcohol)\b.{0,70}\b(?:shake|shaken|shaking|shook|mix|mixed|mixing|stir|stirring|swirl|swirling)\b/.test(clause))
   && /\b(?:sample|food|extract|mixture)\b/.test(clause));
  const actionPos=s.search(/\b(?:shake|shaken|shaking|shook|mix|mixed|mixing|stir|stirring|swirl|swirling)\b[^.!?;\n]{0,70}\b(?:ethanol|alcohol)\b|\b(?:ethanol|alcohol)\b[^.!?;\n]{0,70}\b(?:shake|shaken|shaking|shook|mix|mixed|mixing|stir|stirring|swirl|swirling)\b/);
- const waterPos=s.search(/\b(?:add|adding|added|pour|pouring)\s+(?:in\s+)?(?:some\s+)?(?:the\s+)?water\b|\bwater\s+(?:(?:is|was|should be|will be)\s+)?(?:then\s+)?added\b/);
+ const waterPos=s.search(/\b(?:add|adding|added|pour|pouring)\s+(?:in\s+)?(?:some\s+)?(?:the\s+)?water\b|\bwater\s+(?:(?:is|was|be|should be|will be)\s+)?(?:then\s+)?added\b/);
  // Passive order is legitimate: water was added AFTER the sample
  // had been shaken with ethanol, even when "water" occurs first in the prose.
  const waterAddedAfter=/\bwater\b[^.!?;\n]{0,35}\b(?:added|poured|introduced)\s+after\b[^.!?;\n]{0,85}\b(?:shaken|shake|shook|mixed|mix|stirred)\b[^.!?;\n]{0,50}\b(?:ethanol|alcohol)\b/.test(s);
+ // Correct active order even when the instruction starts with water:
+ // "Add water after shaking the sample with ethanol."
+ const addWaterAfterAction=/\b(?:add|added|adding|pour|poured|pouring)\s+(?:(?:in|the|some)\s+){0,2}water\s+(?:in\s+)?after\b[^.!?;\n]{0,95}\b(?:shake|shaken|shaking|shook|mix|mixed|mixing|stir|stirred|stirring|swirl|swirled|swirling)\b[^.!?;\n]{0,65}\b(?:ethanol|alcohol)\b/.test(s);
  const warningAgainstPremix=/\b(?:do not|don't|never|avoid|without)\s+(?:first\s+)?(?:mix|mixing|premix|pre-mix|shake|shaking)\s+(?:the\s+)?(?:ethanol|alcohol)\s+(?:and|with)\s+water\b/;
  const otherNegatedProcedure=clauses.some(clause=>
    /\b(?:without|not|never|no|don't|do not)\s+(?:\w+\s+){0,3}?(?:shake|shaken|shaking|shook|mix|mixing|mixed|stir|stirring|swirl|swirling)\b/.test(clause)
@@ -27,7 +32,9 @@ export function scoreFoodTestsEthanolSafety(response){
    && !warningAgainstPremix.test(clause));
  // Do not let "water is then added. Alcohol is flammable" look like
  // "water then ethanol": sequencing must stay within a clause.
- const reversedOrder=clauses.some(clause=>
+ // "sample was shaken with ethanol AFTER adding water" is the wrong order.
+ const ethanolAfterWater=/\b(?:shake|shaken|shaking|shook|mix|mixed|mixing|stir|stirred|stirring)\b[^.!?;\n]{0,85}\b(?:ethanol|alcohol)\b[^.!?;\n]{0,25}\bafter\s+(?:adding|added|pouring|poured)\s+(?:in\s+)?(?:the\s+)?water\b/.test(s);
+ const reversedOrder=ethanolAfterWater||clauses.some(clause=>
    /\bwater\b[^.!?;\n]{0,28}\b(?:before|then|first|followed by)\b[^.!?;\n]{0,30}\b(?:ethanol|alcohol)\b|\b(?:add|adding)\s+(?:the\s+)?water\s+first\b/.test(clause));
  const unsafeHeating=clauses.some(clause=>{
    const active=/\b(?:heat|heating|heated|warm|warming|warmed|boil|boiling|boiled)\s+(?:up\s+)?(?:the\s+)?(?:ethanol|alcohol)\b/g;
@@ -43,7 +50,7 @@ export function scoreFoodTestsEthanolSafety(response){
    }
    return false;
  });
- const procedure=hasAct&&actionPos>=0&&(waterPos>actionPos||waterAddedAfter)
+ const procedure=hasAct&&actionPos>=0&&(waterPos>actionPos||waterAddedAfter||addWaterAfterAction)
    &&!otherNegatedProcedure&&!unsafePremix&&!reversedOrder&&!unsafeHeating;
  const pointResults=[!!safety,!!procedure];
  const score=pointResults.filter(Boolean).length;

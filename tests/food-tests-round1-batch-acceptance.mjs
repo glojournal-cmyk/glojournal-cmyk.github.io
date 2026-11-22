@@ -53,6 +53,26 @@ const cases=[
  ["Ethanol is flammable. Add water first, and then shake the food in ethanol.",1],
  ["Ethanol is flammable. Mix ethanol and water together, then add food.",1],
  ["Ethanol is flammable. The sample was shaken with ethanol. Then water was added.",2],
+ // Round 1 extended: explicit after-order, modal negation and near-misses.
+ ["Ethanol is flammable. Add water after shaking the sample with ethanol.",2],
+ ["The ethanol will not catch fire. Shake the sample with ethanol, then add water.",1],
+ ["Ethanol is flammable. Pour water in after shaking food with ethanol.",2],
+ ["Ethanol catches fire easily. Add water after mixing a food sample with alcohol.",2],
+ ["Ethanol is flammable. Add water before shaking the sample with ethanol.",1],
+ ["Ethanol will not ignite. Shake the sample with ethanol, then add water.",1],
+ ["Alcohol won't catch fire. Shake the sample with ethanol, then add water.",1],
+ ["Ethanol would not catch fire. Shake the sample with ethanol, then add water.",1],
+ ["Ethanol is flammable. Add water after heating the sample in ethanol without shaking.",1],
+ ["Ethanol is flammable. Add water after mixing ethanol and water.",1],
+ ["Ethanol will catch fire near a naked flame. Shake the food sample with ethanol and then add water.",2],
+ ["Ethanol won't burn. Shake the sample with ethanol, then add water.",1],
+ ["Ethanol is flammable. Add water after shaking the sample with ethanol; then heat ethanol directly over a flame.",1],
+ ["Ethanol is flammable. Add water after shaking the sample with ethanol, but add water first.",1],
+ ["Ethanol will never catch fire. Shake the food with ethanol before adding water.",1],
+ ["Ethanol is flammable. Add water after the sample was shaken in ethanol.",2],
+ ["Ethanol is flammable. Only after shaking the sample with ethanol should water be added.",2],
+ ["Ethanol is flammable. The sample was shaken with ethanol after adding water.",1],
+ ["Ethanol isn't flammable. Add water after shaking the sample with ethanol.",1],
 ];
 function endOf(s,at){const start=s.indexOf('{',at);let depth=0;for(let j=start;j<s.length;j++){if(s[j]==='{')depth++;else if(s[j]==='}'){depth--;if(!depth)return j+1;}}throw Error('unclosed');}
 const found=[];
@@ -62,6 +82,14 @@ for(const f of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-rWA
  const B=new Function('scoreFoodTestsEthanolSafety','L','I',s.slice(at,endOf(s,at))+'\nreturn B;')(score,()=>'',()=>[]);
  const q=bank.questions.find(q=>q.id==='bio-y8-app-ethanol-safety');
  for(const [answer,expected] of cases){const got=B(q,answer,'biology',{});if(got.score!==expected||got.total!==2||got.ok!==(expected===2))throw Error(f+': '+answer+': '+JSON.stringify(got));}
+ const critical=[
+  ["Ethanol is flammable. Add water after shaking the sample with ethanol.",[true,true]],
+  ["The ethanol will not catch fire. Shake the sample with ethanol, then add water.",[false,true]]
+ ];
+ for(const [answer,expectedPoints] of critical){
+  const got=B(q,answer,'biology',{});
+  if(JSON.stringify(got.pointResults)!==JSON.stringify(expectedPoints))throw Error('critical mark points: '+answer+': '+JSON.stringify(got.pointResults));
+ }
  found.push({file:f,passed:cases.length});
 }
 const source=read('assets/daily-curriculum-20261004.js'),at=source.indexOf('export function selectProgressionQuestions(');

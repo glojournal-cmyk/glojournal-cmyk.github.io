@@ -673,7 +673,7 @@
         {
           "severity": "open",
           "status": "partially-tested",
-          "issue": "Dedicated scorer passed 43 curated positive, partial and contradictory cases in V8 preflight. Independent Node execution, paraphrase coverage and academic review still pending."
+          "issue": "Dedicated ethanol rubric: 62/62 expanded scorer entrypoint cases pass function-level preflight, including after-order and future-negation. Independent Node execution, wider paraphrase review and academic signoff remain pending."
         }
       ],
       "testEvidence": [
@@ -735,6 +735,25 @@
           },
           "status": "Node rerun pending; not academic sign-off",
           "previousNodeEvidence": "qa/food-tests-round1-batch-node-result.json (22/22 plus 0/5 supplementary probes)"
+        },
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "19 additional ethanol rubric counterexamples: after-order, future modal negation, unsafe sequence; 2 exact-probe pointResults asserted",
+          "expected": {
+            "passed": 62,
+            "total": 62,
+            "perBundle": true
+          },
+          "observedPreflight": {
+            "passed": 62,
+            "total": 62,
+            "bundles": [
+              "assets/quiz-session-y8fix-20260920.js",
+              "assets/quiz-session-rWAnuDVj.js"
+            ]
+          },
+          "status": "V8 function-level preflight complete; Node execution and academic signoff pending",
+          "previousNodeResult": "qa/food-tests-ethanol-43-node-result.json"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -3206,5 +3225,5 @@
     }
   ],
   "markingCounterexamples": "tests/food-tests-marking-counterexamples.mjs",
-  "testStatus": "43-case V8 scorer preflight passed; new Node regression and independent academic review pending."
+  "testStatus": "62/62 per bundle in V8 function-level preflight; await Node run; 0 academic approvals."
 }
