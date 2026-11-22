@@ -50,10 +50,14 @@ test('Exact duplicate givens block same-day even when forged concept labels diff
   }:q);
   assert.equal(new Set(two.map(q=>q.templateId)).size,10);
   assert.equal(new Set(two.map(q=>q.conceptFamilyId)).size,10);
+  assert.equal(verifiedSourceSystemKeyForMathsId(a),verifiedSourceSystemKeyForMathsId(b),
+    'actual PDF equations collide even when labels are wrong');
   const denied=selectMathsV31Daily({approvedQuestions:two,day:'2026-11-23'});
   assert.equal(denied.ready,false,'must block the original repeated system despite divergent concept metadata');
   assert.deepEqual(denied.questions,[]);
-  const repairedFixture=two.map(q=>q.id===b?{...q,id:'synthetic-different-question'}:q);
+  // The two ORIGINAL source IDs are both blocked by grade triage even if they
+  // carry forged review metadata. Use distinct synthetic IDs for positive supply.
+  const repairedFixture=two.map(q=>q.id===a||q.id===b?{...q,id:'synthetic-repaired-'+q.id}:q);
   const allowed=selectMathsV31Daily({approvedQuestions:repairedFixture,day:'2026-11-23'});
   assert.equal(allowed.ready,true,allowed.issues.join(','));
   assert.equal(allowed.questions.length,10);
