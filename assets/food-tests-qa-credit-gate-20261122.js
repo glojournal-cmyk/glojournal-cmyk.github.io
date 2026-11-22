@@ -164,7 +164,10 @@ export function foodTestsPupilVerdict(value){
 // A practice completion must never claim "saved" before iPad storage confirms.
 // Preserve the existing draft on failure and let the pupil retry Finish.
 export async function saveHeldPracticeCompletion(drafts,key,data,timeoutMs=3000){
- if(!drafts||typeof drafts.save!=='function'||!key)return false;
+ // Existing practice-drafts.save(ce:true) DELETES the draft rather than
+ // persisting it. Completion is stored under ce:false with a separate flag.
+ if(!drafts||typeof drafts.save!=='function'||!key||
+    data?.ce!==false||data?.unmarkedCompleted!==true)return false;
  // iPad Safari can leave an IndexedDB promise pending. Never show a false
  // success or trap Finish indefinitely; a timeout is a save failure.
  let timer;
