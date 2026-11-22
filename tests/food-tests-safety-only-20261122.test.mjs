@@ -140,6 +140,32 @@ test('QA-held Food Tests cannot be newly assigned; already-started Daily records
  assert.equal(started.assignedTopic,FOOD_TESTS_QA_TOPIC,'started history stays pinned');
  assert.equal(started.progress,3,'historical marks are never rewritten');
 });
+test('neutral end-screen renders no grade or misleading XP/skill analysis',()=>{
+ const source=read('assets/session-reflection-20261004.js');
+ const start=source.indexOf("if(unmarked)return h('section'");
+ const end=source.indexOf('const points=improvementPoints',start);
+ assert.ok(start>=0&&end>start);
+ // Execute only the isolated, early-return neutral view using a minimal element
+ // factory. No React, browser, source data or learner store is required.
+ const render=new Function('h','unmarked','backHref',source.slice(start,end)+'return null;');
+ const h=(type,props,...children)=>({type,props:props||{},children});
+ const node=render(h,true,'/study/biology/practise');
+ assert.equal(node?.props?.['aria-label'],'Unmarked practice saved');
+ const strings=[];
+ const visit=x=>{
+   if(typeof x==='string')strings.push(x);
+   else if(Array.isArray(x))x.forEach(visit);
+   else if(x&&typeof x==='object')visit(x.children);
+ };
+ visit(node);
+ const visible=strings.join(' | ');
+ assert.ok(visible.includes('Practice saved. Not a formal mark.'),visible);
+ assert.ok(visible.includes('No right or wrong decision was made'),visible);
+ assert.ok(visible.includes('does not earn Daily, MP, Mastery or XP credit'),visible);
+ assert.equal(/First-pass correct|Session score|\d+\s*\/\s*\d+|\d+%|Detailed results & skill analysis|No missed answers/.test(visible),false,visible);
+ assert.equal(render(h,false,'/study/biology/practise'),null,'nonheld subjects continue through unchanged graded renderer');
+});
+
 test('held topic is excluded from formal curriculum-credit ledger',()=>{
  const prior={'2026-11-22':{sentinel:true}};
  const result=creditCurriculumAttempt(prior,{questionId:topicQ[0].id,topicId:FOOD_TESTS_QA_TOPIC,
