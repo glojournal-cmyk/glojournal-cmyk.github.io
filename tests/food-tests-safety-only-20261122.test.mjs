@@ -10,6 +10,8 @@ import {saveVerifiedBiologyAnswerSync} from '../assets/daily-completed-session-r
 import {addMasteryEvidence} from '../assets/mastery-v2-20261018.js';
 import {curriculumTopics,creditCurriculumAttempt} from '../assets/daily-curriculum-20261004.js';
 import {buildYear8DailyV2} from '../assets/year8-daily-v2-20261018.js';
+import {preflightYear8Task} from '../assets/question-supply-preflight-20261111.js';
+import {canAssignVerifiedYear8Mastery} from '../assets/year8-mastery-source-capacity-20261103.js';
 
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const bank=JSON.parse(read('content/topics/bio-y8-food-tests.json'));
@@ -175,4 +177,27 @@ test('held topic is excluded from formal curriculum-credit ledger',()=>{
  const future=creditCurriculumAttempt(prior,{questionId:'unseen-food-20261122',topicId:FOOD_TESTS_QA_TOPIC,
    task:'y8-practise',mode:'standard',day:'2026-11-22',formal:true,repair:false});
  assert.strictEqual(future,prior);
+});
+
+test('real catalog still provides two independent unheld 20-question Year 8 Mastery slots',()=>{
+ const full=JSON.parse(read('content/catalog.json')).topics;
+ const getCatalog=(subject,year)=>full.filter(t=>t.subject===subject&&Number(t.year)===year);
+ const date='2026-11-22',state={today:date,year:9,daily:[],dailyLog:{},
+    topicStats:{},formalAttemptLog:[],reviews:{},skillStats:{}};
+ const plan=buildYear8DailyV2(state,getCatalog,{});
+ const masteries=['y8-mastery-a','y8-mastery-b'].map(id=>plan.find(t=>t.id===id));
+ assert.equal(masteries.length,2);
+ for(const m of masteries){
+   assert.ok(m,'both Mastery IDs must remain present');
+   assert.equal(m.target,20,m.id);
+   assert.notEqual(m.supplyBlocked,true,m.id);
+   assert.equal(new URL(m.href,'https://scholar.invalid').searchParams.get('mode'),'mastery',m.id);
+   assert.ok(m.assignedTopic,m.id);
+   assert.equal(isFoodTestsQaHeld(m.assignedTopic),false,m.id);
+   assert.equal(canAssignVerifiedYear8Mastery(m.assignedTopic),true,m.assignedTopic);
+   assert.equal(preflightYear8Task(m.assignedTopic,state,20).canStart,true,m.assignedTopic);
+ }
+ assert.notEqual(masteries[0].assignedTopic,masteries[1].assignedTopic,'Mastery must use independent bank families');
+ assert.ok(plan.filter(t=>t.assignedTopic===FOOD_TESTS_QA_TOPIC).length===0,
+   'new plan must never route to held Food Tests');
 });
