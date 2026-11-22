@@ -1,0 +1,84 @@
+{
+  "kind": "food-tests-round1-batch-node-result",
+  "qaCommitReviewed": "96f9ecaad6e014c6ca563a7b23d64f824a3b2cef",
+  "main": "2e556ffcb48f6c7346b3b663f8058f57271b643d",
+  "approved": 0,
+  "batchTest": {
+    "command": "node tests/food-tests-round1-batch-acceptance.mjs",
+    "exitCode": 0,
+    "ethanolCasesPerBundle": 22,
+    "bundles": [
+      "assets/quiz-session-y8fix-20260920.js",
+      "assets/quiz-session-rWAnuDVj.js"
+    ],
+    "scenarioServedInOneSitting": 16,
+    "scenarioVariants": 64,
+    "conceptGroups": 16
+  },
+  "historical6of12": "qa/food-tests-ethanol-marking-acceptance.result.json remains the old generic-matcher run",
+  "modelAnswersOnIntegratedPath": "52/52 full marks. This does not test paraphrases of the other 51 mark-point items.",
+  "fingerprints": "The 143-row register matches a fresh hash of the current topic file. qa/formal-bank-fingerprints-2e556ff.jsonl was not rebuilt and still holds the pre-revision hash for changed items.",
+  "extraProbes": {
+    "kind": "ethanol-extra-probes",
+    "passed": 0,
+    "total": 5,
+    "results": [
+      {
+        "name": "caution against premixing should not cancel a correct method",
+        "expected": 2,
+        "actual": 1,
+        "pointResults": [
+          true,
+          false
+        ],
+        "pass": false
+      },
+      {
+        "name": "past participle shaken, water was then added",
+        "expected": 2,
+        "actual": 1,
+        "pointResults": [
+          true,
+          false
+        ],
+        "pass": false
+      },
+      {
+        "name": "after expresses the correct order",
+        "expected": 2,
+        "actual": 1,
+        "pointResults": [
+          true,
+          false
+        ],
+        "pass": false
+      },
+      {
+        "name": "non-flammable contradicts safety",
+        "expected": 1,
+        "actual": 2,
+        "pointResults": [
+          true,
+          true
+        ],
+        "pass": false
+      },
+      {
+        "name": "isn't flammable contradicts safety",
+        "expected": 1,
+        "actual": 2,
+        "pointResults": [
+          true,
+          true
+        ],
+        "pass": false
+      }
+    ]
+  },
+  "notSignedOff": [
+    "cross-day or cross-task dedupe",
+    "paraphrase fairness of the other 51 mark-point items",
+    "iPad end to end",
+    "academic approval"
+  ]
+}
