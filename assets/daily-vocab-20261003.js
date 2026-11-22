@@ -1,4 +1,5 @@
 import {LATIN_BOOKLET_GROUPS} from './latin-vocabulary-booklet-20261023.js';
+import {V3_START_DATE,V3_APPROVED} from './daily-tasks-v3-20261122.js';
 // Only independent word meanings, spellings and dictionary entries count as Daily Vocab.
 // Grammar transformations, sentences and comprehension belong to their own subject practice.
 function directionOf(q) {
@@ -126,7 +127,14 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
       if(isHeadword(q,'latin'))add(q,false);
     }
   }
+  // V3 requires explicit teacher-taught and independently QA-approved headwords.
+  // An internal Year 9 bank entry is NOT by itself evidence of teaching.
+  const v3=day>=V3_START_DATE;
+  const approvedYear9=new Set((V3_APPROVED.year9Vocabulary?.[subject]||[])
+    .filter(x=>x?.academicQA==='approved'&&x?.taughtVerified===true&&x?.topicId)
+    .map(x=>x.topicId+'|'+wordKey(x.term)));
   for(const q of year9Items){
+    if(v3&&!approvedYear9.has(q.topicId+'|'+wordKey(q._vocabTerm||q.stimulus?.text)))continue;
     const year9=Number(q.year)===9&&String(q.conceptId||'').startsWith(
       (subject==='french'?'fr':'la')+'-y9-concept-vocab-');
     if(year9&&q.status!=='disabled'&&q.formal!==false&&isHeadword(q,subject))add(q,true);
@@ -217,7 +225,7 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
     for(const concept of conceptsFor(questionId))
       if(concept.includes('-y9-vocab-'))seenYear9Today.add(concept);
   }
-  const year9Remaining=Math.max(0,3-seenYear9Today.size);
+  const year9Remaining=Math.max(0,(v3?10:3)-seenYear9Today.size);
   const year9Target=Math.min(size,year9Remaining,rows.filter(r=>
     r.year9&&!credited.has(r.concept)&&(!r.wrong||r.due)).length);
   const selected=[],used=new Set();
