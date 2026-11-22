@@ -8,6 +8,7 @@ on:
       - 'assets/math-study/daily-v31-qa-preview.js'
       - 'assets/math-study/math-v31-native-mathml.js'
       - 'qa-staging/math-v31-original-sample10.json'
+      - 'qa-staging/math-v311-reviewed-200.json'
       - 'tests/daily-v3-maths-ipad-browser-20261122.mjs'
   workflow_dispatch:
 permissions:
