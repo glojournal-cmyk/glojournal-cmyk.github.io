@@ -47,6 +47,22 @@ test('wrong day, unassigned ID, Recovery, hint, assisted answer or bad choice mu
   {assisted:true},{hintUsed:true},{scaffolded:true}
  ])assert.equal(makeVerifiedMathsSubmission({...args,...change}).accepted,false,JSON.stringify(change));
 });
+test('a submitted timestamp must be real ISO and match London task date, including BST midnight',()=>{
+ for(const stamp of [
+   '2026-11-23-not-a-timestamp','2026-11-23T99:00:00Z',
+   '2026-11-23T12:00:00','2026-11-23T12:00:00.000Zextra',
+   '2026-11-23T12:00:00+99:00'
+ ])assert.equal(makeVerifiedMathsSubmission({...args,submittedAt:stamp}).accepted,false,stamp);
+ const summerDay='2026-07-01';
+ const summerTask={...task,planDate:summerDay};
+ const summer={...args,day:summerDay,task:summerTask};
+ // A 30 June UTC instant is already 1 July in Britain in the summer.
+ for(const stamp of ['2026-06-30T23:30:00.000Z','2026-07-01T00:30:00+01:00'])
+  assert.equal(makeVerifiedMathsSubmission({...summer,submittedAt:stamp}).accepted,true,stamp);
+ // But 1 July 23:30Z is 2 July in British Summer Time.
+ assert.equal(makeVerifiedMathsSubmission({...summer,submittedAt:'2026-07-01T23:30:00.000Z'}).accepted,false);
+});
+
 test('source self-reported maths correctness never substitutes for reviewer/teacher signoffs',()=>{
  const pending=questions.map(q=>({...q,academicQA:'pending'}));
  assert.equal(verifyMathDailyAssignment(task,pending,day).valid,false);
