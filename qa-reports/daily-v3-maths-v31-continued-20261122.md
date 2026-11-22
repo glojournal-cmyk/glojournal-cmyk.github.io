@@ -40,3 +40,11 @@ Compared each sample question's mathematical stem with an independently construc
 2. Independent GCSE Higher Grade 7–9 difficulty calibration and five misconception-based distractors per approved item.
 3. Working **local/offline maths renderer**, actual ten-question student session, reload/resume, first-submission scoring, saved date/XP/MP ledger, Recovery and PWA storage quota protection.
 4. Full WebKit/Chromium automated tests and physical iPad acceptance. **No current student or Live Pages data was modified.**
+
+## 22 November scoped scoring hardening (Draft PR only)
+- `validateMathQuestion` now insists on exact six choices **A–F**.
+- Each pinned ten-question Daily assignment retains `approvedCorrectOptionByQuestion`, mapping original question IDs to independently approved choice keys; these mappings survive dated Daily log compaction.
+- `mathsEvidence` counts **only the first formally submitted, unassisted selectedOptionId** whose `correct` marker agrees with that day's pinned answer key. A bare `correct:true`, repeat, repair or unapproved question earns zero Maths Daily credit.
+- **10 attempted is not 10 passed**: at least **9 correct out of 10 submitted** is required for `completed=true`. An 8/10 attempt is retained as an attempt, but it cannot grant Daily clearance, XP or MP.
+- Actual production Maths player remains unbuilt, and the default manifest continues to keep Maths blocked. The reviewer-only preview never writes any actual learner answer evidence.
+- Newly added unit tests and WebKit/Chromium QA workflows have been queued; **no assertion of full CI/device success** until their latest runs complete.
