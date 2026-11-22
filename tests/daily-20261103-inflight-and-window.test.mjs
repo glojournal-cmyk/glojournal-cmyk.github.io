@@ -311,7 +311,7 @@ test('unopened impossible Science Standard is safely reassigned; started one sta
  assert.equal(matched.target,10,'never reduce threshold to saved answers');
 });
 
-test('all 115 eligible Year 8 topic packs have accurate Standard concept-capacity routing',()=>{
+test('all 116 enabled Year 8 packs, including 111 with independent response formats, have verified Standard routing',()=>{
  const subjects=['latin','french','biology','chemistry','physics'];
  const qualified=catalog.filter(t=>t.year===8&&subjects.includes(t.subject)&&
   t.status==='enabled'&&Number(t.enabled)>=15&&
@@ -319,7 +319,21 @@ test('all 115 eligible Year 8 topic packs have accurate Standard concept-capacit
    'typed_exact','typed_short','typed_equivalent','spelling_restore','controlled_translation',
    'mark_points','extended_response','practical_design','calculation','unordered_set']
    .includes(k)&&Number(v)>0)));
- assert.equal(qualified.length,110,'five non-production-only Latin packs are excluded by the real Daily curriculum filter');
+ const allEligibleCatalog=catalog.filter(t=>t.year===8&&subjects.includes(t.subject)&&
+  t.status==='enabled'&&Number(t.enabled)>=15);
+ const filteredOut=allEligibleCatalog.filter(t=>!qualified.some(q=>q.topicId===t.topicId));
+ assert.equal(allEligibleCatalog.length,116,'source catalog contains 116 enabled Year 8 packs with 15+ questions');
+ assert.deepEqual(filteredOut.map(t=>t.topicId).sort(),[
+   'la-y8-choose-the-set-text-translation',
+   'la-y8-present-person-and-number',
+   'la-y8-restore-the-set-text',
+   'la-y8-set-text-grammar',
+   'la-y8-tense-recognition-from-models'
+ ].sort(),'only the five known multiple-choice-only Latin packs may be excluded');
+ assert.ok(filteredOut.every(t=>t.subject==='latin'&&
+   Object.keys(t.formats||{}).every(k=>k==='mc_single')),
+   'excluded packs must have no independent-response format');
+ assert.equal(qualified.length,111,'116 enabled packs less five multiple-choice-only Latin packs');
  assert.equal(Object.keys(verifiedYear8OtherShortConcepts).length,9);
  let ineligible=0;
  for(const t of qualified){

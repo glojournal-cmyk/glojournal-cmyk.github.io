@@ -1,0 +1,38 @@
+name: Daily capacity and Latin standalone route QA (no deploy)
+on:
+  push:
+    branches:
+      - fix/qa-daily-capacity-latin-standalone-20261122
+    paths:
+      - 'tests/daily-20261103-inflight-and-window.test.mjs'
+      - 'tests/route-shell-qa.mjs'
+      - 'tests/overall-app-qa.mjs'
+      - '.github/workflows/qa-daily-capacity-latin-standalone-20261122.yml'
+  pull_request:
+    paths:
+      - 'tests/daily-20261103-inflight-and-window.test.mjs'
+      - 'tests/route-shell-qa.mjs'
+      - 'tests/overall-app-qa.mjs'
+      - '.github/workflows/qa-daily-capacity-latin-standalone-20261122.yml'
+permissions:
+  contents: read
+jobs:
+  independent-preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax checks
+        run: |
+          node --check tests/daily-20261103-inflight-and-window.test.mjs
+          node --check tests/route-shell-qa.mjs
+          node --check tests/overall-app-qa.mjs
+      - name: Verify all Year 8 independent concept packs and Daily early Finish
+        run: node --test tests/daily-20261103-inflight-and-window.test.mjs
+      - name: Verify Latin reading edition standalone routing
+        run: node tests/route-shell-qa.mjs
+      - name: Verify whole-site HTML shells including standalone Latin reading layout
+        run: node tests/overall-app-qa.mjs
