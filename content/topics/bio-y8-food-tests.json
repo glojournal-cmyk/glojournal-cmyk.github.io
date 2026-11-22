@@ -4840,18 +4840,18 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mark_points",
-      "prompt": "Two bread samples are compared using iodine. Explain why equal masses of each sample should be tested.",
+      "prompt": "Two bread samples are compared using iodine. Identify the variable that should be kept constant and explain why this matters for a fair comparison.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "the amount of sample is a control variable",
-          "different masses could make the comparison unfair"
+          "keep the mass of each bread sample the same",
+          "unequal bread sample masses could cause a difference in the iodine result unrelated to whether starch was present"
         ],
         "totalMarks": 2,
-        "modelAnswer": "the amount of sample is a control variable; different masses could make the comparison unfair",
+        "modelAnswer": "keep the mass of each bread sample the same; unequal bread sample masses could cause a difference in the iodine result unrelated to whether starch was present",
         "markPointEvidence": [
           {
             "all": [
@@ -4880,13 +4880,14 @@
       },
       "stimulus": {},
       "feedback": {
-        "short": "the amount of sample is a control variable; different masses could make the comparison unfair",
+        "short": "keep the mass of each bread sample the same; unequal bread sample masses could cause a difference in the iodine result unrelated to whether starch was present",
         "steps": [
-          "the amount of sample is a control variable",
-          "different masses could make the comparison unfair"
+          "keep the mass of each bread sample the same",
+          "unequal bread sample masses could cause a difference in the iodine result unrelated to whether starch was present",
+          "Award one mark for identifying the controlled sample mass and one for explaining the risk of a misleading comparison."
         ],
-        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
-        "remember": "Use the observations, not guesses, to identify food groups."
+        "commonError": "Giving only 'make it fair' without explaining which sample variable is controlled or why unequal sample masses might affect interpretation.",
+        "remember": "Control the amount of bread tested, so any observed difference is not simply caused by unequal sample size."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
