@@ -38,9 +38,11 @@ test('Live Maths Daily page is fail-closed, never imports Scholar state or write
  assert.ok(html.includes('daily-v31-qa-preview.js'));
  assert.ok(js.includes("params.get('qa')==='1'"));
  assert.ok(js.includes("QA_ONLY_NOT_APPROVED"));
- assert.ok(js.includes("window.MathJax.typesetPromise"));
+ assert.ok(js.includes('mathsRichTextHTML'));
+ assert.ok(js.includes('mathsOptionHTML'));
+ assert.doesNotMatch(js,/MathJax|cdn\.jsdelivr|katex\.min\.js/);
  assert.ok(js.includes('root.dataset.questionId=q.id'));
  assert.ok(js.includes('optionId===q.correctOptionId'));
  assert.doesNotMatch(js,/\blocalStorage\b|\bsessionStorage\b|\bindexedDB\b|__luxStore|bumpDaily|award\(/);
- assert.doesNotMatch(html,/__luxStore|bumpDaily|localStorage|indexedDB/);
+ assert.doesNotMatch(html,/__luxStore|bumpDaily|localStorage|indexedDB|MathJax|cdn\.jsdelivr/);
 });
