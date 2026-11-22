@@ -75,6 +75,8 @@ const audited=[
  ['unknown-analysis','Biuret stays blue; protein is present.',0],
  // Equivalently correct, concise responses must stay creditworthy.
  ['iodine-solution-explain','iodine detects starch',1],
+ ['iodine-solution-explain',"Unlike Benedict's solution, iodine tests for starch",1],
+ ['biuret-solution-explain','Unlike iodine, Biuret tests for protein',1],
  ['biuret-solution-explain','Biuret tests for proteins',1],
  ['negative-sugar',"Benedict's solution stays blue; no reducing sugar detected",2],
  ['benedicts-method',"Add Benedict's reagent to the sample; heat in a hot water bath; turns orange",3],
@@ -86,7 +88,7 @@ const audited=[
  ['sugar-analysis','Reducing sugar is present',1]
 ];
 
-test('fifteen positive/negative source-specific marking acceptance cases',()=>{
+test('seventeen positive/negative source-specific marking acceptance cases',()=>{
  for(const [suffix,answer,expected] of audited){
   const q=find(suffix);
   const result=B(q,answer,'biology',{});
