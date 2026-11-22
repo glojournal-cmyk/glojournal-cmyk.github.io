@@ -142,8 +142,11 @@ export function mathsEvidence(attempts=[],day,task=null){
   }
   const submitted=Math.min(10,seen.size);
   const correct=[...seen.values()].filter(a=>a.correct).length;
-  return {submitted,correct,completed:submitted===10,
-    targetMet:submitted===10&&correct>=9};
+  const targetMet=submitted===10&&correct>=9;
+  // 10 submitted but fewer than nine correct is a *completed attempt*, NOT
+  // Daily clearance, Mastery, XP or MP. Never reward an unpassed Maths check.
+  return {submitted,correct,attemptFinished:submitted===10,
+    completed:targetMet,targetMet};
 }
 const blocked=(id,title,target,year,reason,day)=>({
   id,title,target,progress:0,done:false,supplyBlocked:true,
