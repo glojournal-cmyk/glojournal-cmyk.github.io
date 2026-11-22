@@ -183,9 +183,11 @@ function verifiedFoodMarkEvidence(rule,response){
   try{return new RegExp(pattern,"i").test(value)}catch{return false}
  };
  const negatives=rule.notAnywhere||[];
+ // An item-specific forbidden statement is already a complete
+ // *incorrect claim* pattern, not a bag of scientific words. A student's
+ // "not/no" within that false claim must never disable the exclusion.
  const falseClaim=clauses.some(clause=>
-  negatives.some(pattern=>matches(pattern,clause))&&
-  !/\b(?:not|no|never|without|doesn't|isn't|cannot|can't)\b/i.test(clause));
+  negatives.some(pattern=>matches(pattern,clause)));
  if(falseClaim)return false;
  return clauses.some(clause=>
   rule.all.every(pattern=>matches(pattern,clause))&&
