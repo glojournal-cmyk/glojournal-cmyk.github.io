@@ -1998,7 +1998,7 @@ function normalizeState() {
   const settled = store.getState();
   if (settled.today === calendarToday && settled.daily?.length &&
       settled.daily.every((task) => task.progress >= task.target &&
-        (task.id!=="maths-daily"||task.done===true)) &&
+        (!v3EvidenceOwnedTask(task)||task.done===true)) &&
       !settled.dailyCompleteAwarded?.[calendarToday]) {
     originalBumpDaily("study-session", 0);
   }
@@ -2030,12 +2030,21 @@ const STUDY_REWARD_XP = {
   mastery_retention: 10,
 };
 
+// V3 evidence-scoped tasks must use their immutable dated formal answer ledger,
+// not the core progress-only daily counter. Year 8 Due / Standard B remain legacy.
+function v3EvidenceOwnedTask(task) {
+  return task?.dailyV3===true && (
+    task.id==="maths-daily" || task.id==="languages-standard" ||
+    (Number(task.assignedYear)===9 &&
+      (task.id==="y8-standard-b" || task.id==="due-review"))
+  );
+}
+
 function patchedAward(kind, options = {}) {
-  // Core bumpDaily checks only raw progress and pre-flags Daily Complete.
-  // Maths 10/10 submitted but <9 correct is NOT a Daily pass, so never
-  // award overall Daily XP or permanently consume its once-a-day receipt.
+  // Core bumps progress-based cards and may pre-flag Daily Complete. Only
+  // a real evidence-verified V3 completion can unlock the full-day reward.
   if (kind==="daily_complete" && store.getState().daily?.some(task=>
-      task.id==="maths-daily" && task.dailyV3===true && task.done!==true)) {
+      v3EvidenceOwnedTask(task) && task.done!==true)) {
     const state=store.getState(),day=todayKey();
     if(state.dailyCompleteAwarded?.[day]){
       const ledger={...(state.dailyCompleteAwarded||{})};
@@ -3200,11 +3209,13 @@ function patchedRecordSpelling(questionId, correct) {
   return result;
 }
 
-// The generic Daily counter can award completion from raw progress without
-// checking the Maths 9/10 keyed first-answer result. Never let legacy quiz
-// screens bump the dedicated Maths card; it is evidence-owned only.
+// Generic counters cannot award a signed V3 question, even if a legacy
+// player or an outdated route calls bumpDaily() after a correct answer.
+// Preserve all existing Year 8 and ordinary game/practice progression.
 function patchedBumpDaily(taskId, increment=1) {
-  if(taskId==="maths-daily")return null;
+  if(taskId==="maths-daily"||taskId==="languages-standard")return null;
+  const assigned=(store.getState().daily||[]).find(t=>t?.id===taskId);
+  if(v3EvidenceOwnedTask(assigned))return null;
   return originalBumpDaily(taskId,increment);
 }
 
