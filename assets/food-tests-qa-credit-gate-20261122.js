@@ -163,9 +163,18 @@ export function foodTestsPupilVerdict(value){
 
 // A practice completion must never claim "saved" before iPad storage confirms.
 // Preserve the existing draft on failure and let the pupil retry Finish.
-export async function saveHeldPracticeCompletion(drafts,key,data){
+export async function saveHeldPracticeCompletion(drafts,key,data,timeoutMs=3000){
+ if(!drafts||typeof drafts.save!=='function'||!key)return false;
+ // iPad Safari can leave an IndexedDB promise pending. Never show a false
+ // success or trap Finish indefinitely; a timeout is a save failure.
+ let timer;
  try{
-  if(!drafts||typeof drafts.save!=='function'||!key)return false;
-  return (await drafts.save(key,data))===true;
+  const maxWait=Math.max(1,Math.min(10000,Number(timeoutMs)||3000));
+  const completed=await Promise.race([
+   Promise.resolve().then(()=>drafts.save(key,data)),
+   new Promise(resolve=>{timer=setTimeout(()=>resolve(false),maxWait)})
+  ]);
+  return completed===true;
  }catch{return false}
+ finally{if(timer)clearTimeout(timer)}
 }
