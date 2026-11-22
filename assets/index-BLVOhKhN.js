@@ -11,6 +11,7 @@ import {applyRecoveryReceipts, saveRecoveryReceipt} from "./recovery-receipt-202
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import {addMasteryEvidence,masteryStage,coveredTopic} from "./mastery-v2-20261018.js?v=20261023-mastery-count20-v1";
 import {buildYear8DailyV2,verifiedOct23DatedRow} from "./year8-daily-v2-20261018.js?v=20261025-scorefix2&latinrotation=20261101a&latincapacity=20261107a&dailyfix=20261104-regression1&supply=20261111a&frenchExam=20261114b";
+import {V3_START_DATE,buildDailyV3} from "./daily-tasks-v3-20261122.js";
 import "./journey-navigation-20261004.js?v=20261024-latin-ipad-date2&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
@@ -1303,7 +1304,8 @@ function buildAdaptiveDaily(state) {
         (getTopicCatalog(subject, 8) || []).length > 0);
     } catch {}
     if (!catalogReady && Array.isArray(state.daily) && state.daily.length) return state.daily;
-    return buildYear8DailyV2(state,getTopicCatalog,readCurriculumLearning());
+    const legacyPlan = buildYear8DailyV2(state,getTopicCatalog,readCurriculumLearning());
+    return state.today>=V3_START_DATE ? buildDailyV3(state,legacyPlan) : legacyPlan;
   }
   function masteryKeyCount(topicId) {
     const day = state.today || todayKey();
