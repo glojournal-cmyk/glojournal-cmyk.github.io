@@ -119,6 +119,51 @@ test('missing or incomplete saved Language 5+5 concept assignments cannot count 
    assert.equal(e.completed,false);
  }
 });
+test('Year 9 Due Review pins actual due member IDs and independently distinct concepts',()=>{
+ const ids=Array.from({length:10},(_,i)=>'due-variant-'+i);
+ const topic={academicQA:'approved',taughtVerified:true,subject:'chemistry',year:9,
+   topicId:'chem-y9-synthetic-due',title:'Synthetic approved due',
+   concepts:ids.map((id,i)=>({conceptId:'due-concept-'+i,
+     ids:['not-due-primary-'+i,id]}))};
+ const reviews=Object.fromEntries(ids.map(id=>[id,{due:'2026-11-22'}]));
+ const state={...base(),reviews};
+ const manifest={...V3_APPROVED,year9Due:[topic]};
+ const tasks=buildDailyV3(state,legacy(),manifest);
+ const due=tasks.find(t=>t.id==='due-review');
+ assert.equal(due.assignedYear,9);
+ assert.deepEqual(due.approvedQuestionIds,ids,
+   'must choose the reviewed due alternative, not an unrelated primary ID');
+ assert.equal(Object.keys(due.approvedConceptByQuestion).length,10);
+ assert.equal(new Set(Object.values(due.approvedConceptByQuestion)).size,10);
+ const answers=ids.map(id=>({day,year:9,subject:'chemistry',topicId:topic.topicId,
+   dailyTaskId:'due-review',questionId:id,correct:true,formal:true}));
+ const populated={...state,daily:tasks,formalAttemptLog:answers};
+ assert.equal(v3ScopedQuestionEvidence(populated,due,day).correct,10);
+ const rebuilt=buildDailyV3(populated,legacy(),manifest).find(t=>t.id==='due-review');
+ assert.equal(rebuilt.progress,10);
+ assert.equal(rebuilt.done,true);
+ const wrongIds=answers.map(x=>({...x,questionId:'not-due-primary-'+x.questionId.slice(-1)}));
+ assert.equal(v3ScopedQuestionEvidence({...populated,formalAttemptLog:wrongIds},due,day).correct,0,
+   'not-due alternatives cannot count as the pinned assignment');
+});
+test('blocked and malformed Year 9 Daily task cannot mint credit from replayed answers',()=>{
+ const b=plan().find(t=>t.id==='y8-standard-b');
+ const events=b.approvedQuestionIds.map(id=>entry(b,id,true));
+ const state={...base(),daily:plan(),formalAttemptLog:events};
+ assert.equal(v3ScopedQuestionEvidence(state,b,day).correct,10);
+ for(const bad of [
+   {...b,supplyBlocked:true},
+   {...b,planDate:'2026-11-22'},
+   {...b,approvedConceptByQuestion:{}},
+   {...b,approvedQuestionIds:b.approvedQuestionIds.slice(0,9)},
+   {...b,dailyV3:false},
+   {...b,assignedYear:8}
+ ]){
+   const x=v3ScopedQuestionEvidence(state,bad,day);
+   assert.equal(x.correct,0,'unsigned/scoped card must never earn credit');
+   assert.equal(x.completed,false);
+ }
+});
 test('V3 planner never changes original XP, MP, streak, Mastery, Recovery, seenCorrect or completed historic Daily receipt',()=>{
  const seed=base(),copy=JSON.stringify(seed);
  const first=buildDailyV3(seed,legacy());
