@@ -1495,6 +1495,11 @@ function compactDailyTasks(daily) {
       done: progress >= target,
       ...(task.correctOnlyEvidence===true?{correctOnlyEvidence:true}:{}),
       ...(task.dailyV3===true?{dailyV3:true,planVersion:3,supplyBlocked:task.supplyBlocked===true}:{}),
+      ...(task.dailyV3===true&&Array.isArray(task.approvedQuestionIds)?{
+        approvedQuestionIds:task.approvedQuestionIds.slice(0,20).map(String),
+        approvedConceptByQuestion:Object.fromEntries(Object.entries(task.approvedConceptByQuestion||{})
+          .filter(([id])=>task.approvedQuestionIds.includes(id)).slice(0,20))
+      }:{}),
       // Preserve the exact two-subject V3 assignment identity in dated logs.
       // Only the ten selected question IDs are retained; no whole-bank copy.
       ...(task.dailyV3===true&&task.languageSplit?{languageSplit:Object.fromEntries(
