@@ -18,7 +18,26 @@ export function scoreFoodTestsRemaining37(question,response){
   return result(Array(question.answer.markPoints.length).fill(false));
  }
  const marks=question.answer.markPoints.length;
- if(n===normalize(entry.paraphrase))return result(Array(marks).fill(true));
+// Four independently confirmed false-credit mechanisms, scoped to four
+ // Food Tests items. This does not add paraphrases to a whitelist.
+ const falseIodineRepeat=question.id==="bio-y8-food-tests-application-20261025-iodine-repeat"
+  && /\b(?:(?:only|just)\s+(?:test|check|measure|run|perform)\s+(?:the\s+test\s+)?once|(?:test|check|measure|run|perform)\s+(?:the\s+test\s+)?only\s+once)\b/i.test(answer)
+  && /\b(?:chang(?:e|ing)|vary|varying|different|unequal)\b[^.!?;\n]{0,55}\b(?:volume|amount|iodine|sample)\b/i.test(answer)
+  && !/\b(?:not|never|don't|do\s+not|avoid|instead\s+of)\b[^.!?;\n]{0,18}\b(?:(?:only|just)\s+)?(?:test|check|measure|run|perform)\s+(?:the\s+test\s+)?(?:only\s+)?once\b/i.test(answer);
+ const falseStarchAccess=question.id==="bio-y8-food-tests-application-20261025-starch-extraction"
+  && /\b(?:grind(?:ing)?|ground|crush(?:ing)?|crushed|mash(?:ing)?|mashed)\b[^.!?;\n]{0,105}\b(?:block(?:s|ed|ing)?|prevent(?:s|ed|ing)?|stop(?:s|ped|ping)?|inhibit(?:s|ed)?)\b[^.!?;\n]{0,60}\biodine\b/i.test(answer)
+  && !/\b(?:not|never|does\s+not|doesn't|won't|cannot|can't)\b[^.!?;\n]{0,20}\b(?:block|prevent|stop|inhibit)\b/i.test(answer);
+ const falseBenedictNegative=question.id==="bio-y8-food-tests-application-20261025-negative-sugar"
+  && /\b(?:benedict(?:'s)?|mixture|reagent|solution)\b[^.!?;\n]{0,85}\b(?:became|turned|changed\s+to|went)\s+(?:brick[- ]?)?(?:red|orange|green|yellow)\b/i.test(answer)
+  && /\b(?:no|none|without|not\s+(?:present|detected|found)|absent)\b[^.!?;\n]{0,50}\b(?:reducing\s+)?sugars?\b/i.test(answer)
+  && !/\b(?:didn't|did\s+not|never|hasn't|hadn't)\s+(?:become|turn|change|go)\b[^.!?;\n]{0,20}\b(?:red|orange|green|yellow)\b/i.test(answer);
+ const falseBiuretSugar=question.id==="bio-y8-food-tests-application-20261025-biuret-vs-sugar"
+  && /\b(?:biuret|purple|violet|lilac)\b[^.!?;\n]{0,90}\b(?:means?|shows?|indicates?|proves?|there\s+is)\b[^.!?;\n]{0,22}\b(?:no|not|absent|zero)\s+proteins?\b/i.test(answer)
+  && /\b(?:benedict(?:'s)?|blue)\b[^.!?;\n]{0,85}\b(?:means?|shows?|indicates?|proves?)\b[^.!?;\n]{0,25}\b(?:high|lots?\s+of|plenty\s+of|more)\s+(?:reducing\s+)?sugar\b/i.test(answer)
+  && !/\b(?:does\s+not|doesn't|cannot|can't|never)\s+(?:mean|show|indicate|prove)\s+no\s+protein\b/i.test(answer);
+ if(falseIodineRepeat||falseStarchAccess||falseBenedictNegative||falseBiuretSugar)
+  return result(Array(marks).fill(false));
+  if(n===normalize(entry.paraphrase))return result(Array(marks).fill(true));
  // Bounded alternative: do not change generic R() scoring for other answers.
  if(entry.kind==="bounded")return null;
  if(n===normalize(question.answer.modelAnswer||question.answer.markPoints.join("; ")))

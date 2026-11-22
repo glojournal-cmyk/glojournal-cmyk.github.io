@@ -1,0 +1,68 @@
+{
+  "kind": "Food Tests four confirmed false-credit safeguards",
+  "basedOnHeldoutCommit": "b7ba2ee945c163c625c36b7308f0ac0b9e8ac944",
+  "approved": 0,
+  "scope": [
+    "bio-y8-food-tests-application-20261025-iodine-repeat",
+    "bio-y8-food-tests-application-20261025-negative-sugar",
+    "bio-y8-food-tests-application-20261025-starch-extraction",
+    "bio-y8-food-tests-application-20261025-biuret-vs-sugar"
+  ],
+  "expertAdjudication": "The four underlying unseen incorrect answers must score 0. The all-negative item is separate; its original answer remains provisionally 1/2 pending formal rubric review.",
+  "cases": [
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-iodine-repeat",
+      "answer": "Test only once, changing the volume of iodine and sample between tubes.",
+      "expected": 0,
+      "kind": "confirmed-scientifically-incorrect-conclusion"
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-iodine-repeat",
+      "answer": "Only test once and vary the iodine volume for every food sample.",
+      "expected": 0,
+      "kind": "confirmed-scientifically-incorrect-conclusion"
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-negative-sugar",
+      "answer": "The heated Benedict's became red, which proves the sample has no reducing sugar.",
+      "expected": 0,
+      "kind": "confirmed-scientifically-incorrect-conclusion"
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-negative-sugar",
+      "answer": "Benedict's reagent turned orange, so no sugars were detected.",
+      "expected": 0,
+      "kind": "confirmed-scientifically-incorrect-conclusion"
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-starch-extraction",
+      "answer": "Grinding the potato blocks iodine from contacting the starch.",
+      "expected": 0,
+      "kind": "confirmed-scientifically-incorrect-conclusion"
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-starch-extraction",
+      "answer": "Crushing the potato prevents iodine reaching starch.",
+      "expected": 0,
+      "kind": "confirmed-scientifically-incorrect-conclusion"
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-biuret-vs-sugar",
+      "answer": "Biuret purple means no protein and Benedict's blue means high sugar.",
+      "expected": 0,
+      "kind": "confirmed-scientifically-incorrect-conclusion"
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-biuret-vs-sugar",
+      "answer": "The purple Biuret result shows no protein and blue Benedict's shows lots of sugar.",
+      "expected": 0,
+      "kind": "confirmed-scientifically-incorrect-conclusion"
+    }
+  ],
+  "allNegative": {
+    "questionId": "bio-y8-food-tests-application-20261025-all-negative",
+    "answer": "All four negative tests prove that the food contains no nutrients whatsoever.",
+    "expected": 1,
+    "markingNote": "Four negative results may earn one observation mark; the claim that no nutrients whatsoever exist earns no conclusion mark."
+  }
+}

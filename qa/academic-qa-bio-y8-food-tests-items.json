@@ -2962,6 +2962,11 @@
           "severity": "P0",
           "status": "held-out-candidate-defect",
           "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
+        },
+        {
+          "severity": "P0",
+          "status": "guarded-repair-awaiting-independent-qa",
+          "issue": "Independent reviewer confirmed the held-out scientifically wrong conclusion should earn 0/2. Scoped contradiction guard passed V8 B-path preflight; Node and unseen paraphrase validation remain pending."
         }
       ],
       "testEvidence": [
@@ -3011,6 +3016,15 @@
           },
           "source": "qa/food-tests-37-unseen-preflight.json",
           "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
+        },
+        {
+          "runner": "tests/food-tests-four-confirmed-overcredit-acceptance.mjs",
+          "kind": "four independently confirmed false-credit cases with two wrong phrasings each",
+          "expectedScore": 0,
+          "curatedWrongCases": 2,
+          "preflight": "V8 8/8 in both production B paths; baseline 455/455, heldout 44/74; all-negative 1/2 unchanged",
+          "status": "candidate repair on QA only; independent Node re-run and broader academic validation pending",
+          "source": "qa/food-tests-four-confirmed-overcredit-preflight.json"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -3126,6 +3140,11 @@
           "severity": "P0",
           "status": "held-out-candidate-defect",
           "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
+        },
+        {
+          "severity": "P0",
+          "status": "guarded-repair-awaiting-independent-qa",
+          "issue": "Independent reviewer confirmed the held-out scientifically wrong conclusion should earn 0/2. Scoped contradiction guard passed V8 B-path preflight; Node and unseen paraphrase validation remain pending."
         }
       ],
       "testEvidence": [
@@ -3175,6 +3194,15 @@
           },
           "source": "qa/food-tests-37-unseen-preflight.json",
           "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
+        },
+        {
+          "runner": "tests/food-tests-four-confirmed-overcredit-acceptance.mjs",
+          "kind": "four independently confirmed false-credit cases with two wrong phrasings each",
+          "expectedScore": 0,
+          "curatedWrongCases": 2,
+          "preflight": "V8 8/8 in both production B paths; baseline 455/455, heldout 44/74; all-negative 1/2 unchanged",
+          "status": "candidate repair on QA only; independent Node re-run and broader academic validation pending",
+          "source": "qa/food-tests-four-confirmed-overcredit-preflight.json"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -3832,6 +3860,11 @@
           "severity": "P0",
           "status": "held-out-candidate-defect",
           "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
+        },
+        {
+          "severity": "P0",
+          "status": "guarded-repair-awaiting-independent-qa",
+          "issue": "Independent reviewer confirmed the held-out scientifically wrong conclusion should earn 0/2. Scoped contradiction guard passed V8 B-path preflight; Node and unseen paraphrase validation remain pending."
         }
       ],
       "testEvidence": [
@@ -3881,6 +3914,15 @@
           },
           "source": "qa/food-tests-37-unseen-preflight.json",
           "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
+        },
+        {
+          "runner": "tests/food-tests-four-confirmed-overcredit-acceptance.mjs",
+          "kind": "four independently confirmed false-credit cases with two wrong phrasings each",
+          "expectedScore": 0,
+          "curatedWrongCases": 2,
+          "preflight": "V8 8/8 in both production B paths; baseline 455/455, heldout 44/74; all-negative 1/2 unchanged",
+          "status": "candidate repair on QA only; independent Node re-run and broader academic validation pending",
+          "source": "qa/food-tests-four-confirmed-overcredit-preflight.json"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -4365,6 +4407,11 @@
           "severity": "P0",
           "status": "held-out-candidate-defect",
           "issue": "New independent-language hold-out probe does not meet provisional expected mark. See qa/food-tests-37-unseen-preflight.json; independently adjudicate before repairing."
+        },
+        {
+          "severity": "P0",
+          "status": "guarded-repair-awaiting-independent-qa",
+          "issue": "Independent reviewer confirmed the held-out scientifically wrong conclusion should earn 0/2. Scoped contradiction guard passed V8 B-path preflight; Node and unseen paraphrase validation remain pending."
         }
       ],
       "testEvidence": [
@@ -4414,6 +4461,15 @@
           },
           "source": "qa/food-tests-37-unseen-preflight.json",
           "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
+        },
+        {
+          "runner": "tests/food-tests-four-confirmed-overcredit-acceptance.mjs",
+          "kind": "four independently confirmed false-credit cases with two wrong phrasings each",
+          "expectedScore": 0,
+          "curatedWrongCases": 2,
+          "preflight": "V8 8/8 in both production B paths; baseline 455/455, heldout 44/74; all-negative 1/2 unchanged",
+          "status": "candidate repair on QA only; independent Node re-run and broader academic validation pending",
+          "source": "qa/food-tests-four-confirmed-overcredit-preflight.json"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -4578,6 +4634,14 @@
           },
           "source": "qa/food-tests-37-unseen-preflight.json",
           "status": "V8 function-level diagnostic only; Node and independent academic judgment pending; not approved"
+        },
+        {
+          "kind": "explicit partial-credit academic adjudication",
+          "expected": 1,
+          "actualPreflight": 1,
+          "conclusionMark": 0,
+          "note": "Describing four negative test results may earn 1 mark; falsely generalising to absence of all nutrients is not a full-credit answer. Formal rubric to be reviewed independently.",
+          "status": "partial credit under review, not approved"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -5986,7 +6050,7 @@
     }
   ],
   "markingCounterexamples": "tests/food-tests-marking-counterexamples.mjs",
-  "testStatus": "455/455 existing Node accepted, but 74 new held-out QA probes: 40/74 match (29 provisional under-credit, 5 provisional over-credit). All 143 remain pending. No merge/deploy.",
+  "testStatus": "Independent Node 455/455 accepted at bfe5d2b; 74 held-out tests yielded 40/74 (provisional 29 under, 5 over). Four confirmed overcredit answers now score 0 in V8 preflight, changing held-out raw match to 44/74; all-negative 1/2 judged provisionally defensible. 29 unseen paraphrases still undercredited. New Node and independent QA pending.",
   "markingDiagnostic": {
     "fixture": "qa/food-tests-51-markpoints-probes.json",
     "report": "qa/food-tests-51-markpoints-preflight.json",
@@ -6122,6 +6186,27 @@
       "approval": 0,
       "independentAcademicReview": "pending"
     },
-    "nodeEvidence": "qa/food-tests-51-markpoints-node-result.json"
+    "nodeEvidence": "qa/food-tests-51-markpoints-node-result.json",
+    "confirmedFourOvercredit": {
+      "baseCommit": "b7ba2ee945c163c625c36b7308f0ac0b9e8ac944",
+      "runner": "tests/food-tests-four-confirmed-overcredit-acceptance.mjs",
+      "probes": "qa/food-tests-four-confirmed-overcredit-probes.json",
+      "questions": [
+        "bio-y8-food-tests-application-20261025-iodine-repeat",
+        "bio-y8-food-tests-application-20261025-negative-sugar",
+        "bio-y8-food-tests-application-20261025-starch-extraction",
+        "bio-y8-food-tests-application-20261025-biuret-vs-sugar"
+      ],
+      "zeroCreditConfirmed": 4,
+      "wrongPhrases": 8,
+      "previous455": "455/455",
+      "postFix455": "455/455 V8 preflight",
+      "heldoutRawMatched": "44/74",
+      "heldoutAdjustedForAllNegativePartial": "45/74",
+      "unseenUndercredit": 29,
+      "allNegative": "1/2 unchanged, requires formal rubric review",
+      "nodeExecuted": false,
+      "academicApproved": 0
+    }
   }
 }
