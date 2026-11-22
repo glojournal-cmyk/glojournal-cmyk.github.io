@@ -21,7 +21,9 @@ for(const [name,engine,viewport] of [
    status:200,contentType:'application/pdf',body:'%PDF-1.4\n%%EOF\n',
    headers:{'Access-Control-Allow-Origin':'*'}}));
  await page.goto(BASE+'/notes/',{waitUntil:'domcontentloaded'});
- await page.waitForFunction(()=>document.querySelector('#status')?.textContent?.includes('7 / 97 Notes available'));
+ // Six on-site Latin image PDFs + one on-site HTML reading edition + the one
+ // mocked French Cloudflare PDF = eight available resources, out of 97 entries.
+ await page.waitForFunction(()=>document.querySelector('#status')?.textContent?.includes('8 / 97 Notes available'));
  assert.equal(await page.locator('#yearSelect').inputValue(),'year9');
  assert.equal(await page.locator('#subjectScreen').isVisible(),true);
  assert.equal(await page.locator('#detailScreen').isVisible(),false);
