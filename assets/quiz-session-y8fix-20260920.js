@@ -1,4 +1,4 @@
-import {isFoodTestsQaHeld,foodTestsPupilVerdict} from './food-tests-qa-credit-gate-20261122.js';
+import {isFoodTestsQaHeld,foodTestsPupilVerdict,saveHeldPracticeCompletion} from './food-tests-qa-credit-gate-20261122.js';
 import {scoreCategoryMapText} from './category-map-marking-20261110.js';
 import {practiceSessionYear} from './practice-session-year-20261026.js';
 import {saveCompletedDailyReceipt,saveVerifiedBiologyAnswerSync,restoreCompletedDailyReceipts,readDailyRetryReceiptSync} from './daily-completed-session-receipts-20261024.js?v=20261026-bio-savefix2&modeguard=20261030-2';
@@ -389,6 +389,26 @@ function H({title:e,kicker:t,items:n,repairItems:repairBank=[],subject:a,dailyId
   // Unapproved Food Tests are entirely practice-only: no rubric, Daily receipt,
   // Recovery marks, achievements or false 0/N end screen.
   if(A.length&&A.every(isFoodTestsQaHeld)){
+    const resumeURL=new URL(location.href);
+    resumeURL.pathname=`/study/${a}/practise`;
+    resumeURL.searchParams.set("year",String(sessionYear));
+    resumeURL.searchParams.set("mode",resumeMode||resumeURL.searchParams.get("mode")||"standard");
+    if(g)resumeURL.searchParams.set("topic",g);
+    const isDaily=!!journeyTaskId||!!c;
+    const unmarkedDraft={base:A,rr,j,N,F,R,H,oe,G,q,ce:!0,sessionLog,J,
+      reviewHistory,rewardStartXP,href:resumeURL.pathname+resumeURL.search,
+      title:e,daily:isDaily,dailyTaskId:journeyTaskId||c,planDate:isDaily?sessionPlanDay:null};
+    // The completed result is truthful only after local storage acknowledges
+    // this exact practice. A failed save leaves the current answers visible.
+    const savedPractice=await saveHeldPracticeCompletion(globalThis.LuxPracticeDrafts,
+      draftKey,unmarkedDraft);
+    if(!savedPractice){
+      setDraftError(true);
+      setFinishFailure('Practice could not be saved. Keep this page open and retry Finish.');
+      return;
+    }
+    setDraftError(false);
+    setFinishFailure(null);
     le(!0);
     u('Practice saved',{description:'Not a formal mark. No Daily / MP / Mastery credit.'});
     return;
