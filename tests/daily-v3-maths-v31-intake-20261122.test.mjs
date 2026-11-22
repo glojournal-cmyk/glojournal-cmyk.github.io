@@ -36,6 +36,8 @@ test('Second-round pack self-declared math pass is never equivalent to an indepe
 });
 test('Missing any one distractor pedagogical rationale prevents academic enablement',()=>{
  const x=sample();
+ // Positive signoff fixture must NOT be a source item flagged for upgrade.
+ x.id='synthetic-independent-maths-approval-test';
  const s={
    bankSha256:V31_SOURCE_SHA256,questionId:x.id,
    teacherTaughtConfirmed:true,teacherEvidence:'teacher page / taught subsection',
@@ -55,6 +57,25 @@ test('Missing any one distractor pedagogical rationale prevents academic enablem
  s.conceptFamilyEvidence='synthetic equivalence review';
  delete s.distractorRationales.E;
  assert.equal(stageMathsV31Question(x,s).eligible,false,'missing review for E');
+});
+test('even a forged fully signed original low-demand source item is not admitted',()=>{
+ const q=sample();
+ const s={
+   bankSha256:V31_SOURCE_SHA256,questionId:q.id,
+   teacherTaughtConfirmed:true,teacherEvidence:'synthetic teacher handout item',
+   gradeIndependentlyCalibrated:true,gradeBenchmark:'synthetic external grade benchmark',
+   gradeDemandQA:'VERIFIED_G7_PLUS',gradeDemandReviewer:'synthetic external evaluator',
+   conceptFamilyId:'synthetic reviewed family',
+   conceptFamilyEvidence:'synthetic family proof',conceptFamilyReviewer:'synthetic reviewer',
+   workedSolutionProofChecked:true,mathsChecker:'synthetic checker',
+   pedagogyReviewer:'synthetic specialist',
+   distractorRationales:{A:'synthetic a error',C:'synthetic c error',D:'synthetic d error',
+     E:'synthetic e error',F:'synthetic f error'},
+   ipadNativeMathMLVerified:true,rendererEvidence:'synthetic device checklist'
+ };
+ const result=stageMathsV31Question(q,s);
+ assert.equal(result.eligible,false);
+ assert.ok(result.issues.includes('original-grade-triage-rewrite-or-taught-hold'));
 });
 test('A duplicate ID or an incomplete raw pack is rejected before any import',()=>{
  const x=sample();
