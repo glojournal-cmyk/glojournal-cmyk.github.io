@@ -35,7 +35,8 @@ test('fixed V3 contract: ten tasks and 165 questions',()=>{
 });
 test('unapproved supply cannot be invented and weak review is no longer compulsory',()=>{
   const snapshot=JSON.stringify(state());
-  const result=buildDailyV3(state(),old());
+  const empty={...V3_APPROVED,languageGrammar:{latin:[],french:[]},year9Standard:[]};
+  const result=buildDailyV3(state(),old(),empty);
   assert.deepEqual(result.map(x=>x.id),V3_TASK_SPEC.map(x=>x[0]));
   assert.ok(!result.some(x=>x.id==='weakness-review'));
   for(const id of ['languages-standard','y8-standard-b','maths-daily']){
@@ -157,4 +158,35 @@ test('unopened Day 2/7 recall does not shrink ten-card V3 daily quota',()=>{
   assert.equal(plan.find(t=>t.id==='due-review').target,10);
   assert.equal(plan.reduce((n,t)=>n+t.target,0),165);
   assert.equal(plan.find(t=>t.id==='due-review').progress,0);
+});
+
+test('actual reviewed whitelists activate both Language parts and an exclusively Year 9 Standard B',()=>{
+  const plan=buildDailyV3(state(),old());
+  const lang=plan.find(t=>t.id==='languages-standard');
+  const b=plan.find(t=>t.id==='y8-standard-b');
+  assert.equal(lang.supplyBlocked,undefined);
+  assert.equal(lang.languageSplit.latin.approvedQuestionIds.length,5);
+  assert.equal(lang.languageSplit.french.approvedQuestionIds.length,5);
+  assert.equal(b.supplyBlocked,undefined);
+  assert.equal(b.assignedYear,9);
+  assert.equal(b.approvedQuestionIds.length,10);
+  assert.equal(plan.reduce((sum,t)=>sum+t.target,0),165);
+});
+test('when future tense question supply is depleted, Standard B falls back to independently reviewed Year 9 perfect tense',()=>{
+  const future=V3_APPROVED.year9Standard.find(t=>t.topicId.includes('future-tense'));
+  const perfect=V3_APPROVED.year9Standard.find(t=>t.topicId.includes('perfect-tense'));
+  assert.ok(future&&perfect);
+  const seen=Object.fromEntries(future.concepts.map(c=>[c.ids[0],1]));
+  const plan=buildDailyV3(state({seenCorrect:seen}),old());
+  const b=plan.find(t=>t.id==='y8-standard-b');
+  assert.equal(b.assignedTopic,perfect.topicId);
+  assert.equal(b.approvedQuestionIds.length,10);
+});
+test('when all separately reviewed Year 9 topics are depleted, Standard B flags shortage without Year 8 substitution',()=>{
+  const seen=Object.fromEntries(V3_APPROVED.year9Standard.flatMap(t=>t.concepts).map(c=>[c.ids[0],1]));
+  const plan=buildDailyV3(state({seenCorrect:seen}),old());
+  const b=plan.find(t=>t.id==='y8-standard-b');
+  assert.equal(b.assignedYear,9);
+  assert.equal(b.progress,0);
+  assert.equal(b.supplyBlocked,true);
 });
