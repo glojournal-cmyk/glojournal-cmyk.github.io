@@ -171,7 +171,9 @@ function semanticPointMatch(point,response,alternatives=[]){
 // General semantic similarity alone can otherwise credit a wrong reagent
 // (e.g. "Benedict is for starch") as an unrelated observation mark.
 function verifiedFoodMarkEvidence(rule,response){
- if(!rule)return true;
+ // Food Tests marking is source-QA-owned. An unreviewed or damaged rubric
+ // must NOT fall through to similarity-only credit.
+ if(!rule)return false;
  if(!Array.isArray(rule.all)||!rule.all.length)return false;
  const text=String(response??"");
  // "but" can be part of ONE correct explanation (e.g. identifies some
