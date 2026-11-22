@@ -120,14 +120,28 @@ export function validateMathQuestion(q){
   if(!String(q?.sourceRef||'').trim()||!String(q?.qaReviewer||'').trim())issues.push('qa-provenance-required');
   return {valid:issues.length===0,issues};
 }
-export function mathsEvidence(attempts=[],day){
+export function mathsEvidence(attempts=[],day,task=null){
+  // Production V3 always supplies the immutable 10-question assignment.
+  // Two-argument mode is retained only for legacy isolated validator tests.
+  const accepted=task?new Set(task.approvedQuestionIds||[]):null;
+  if(task&&(!validDate(day)||task.supplyBlocked===true||task.planDate!==day||
+     accepted.size!==10||Number(task.assignedYear)!==9))
+    return {submitted:0,correct:0,completed:false,targetMet:false};
   const seen=new Map();
   for(const a of attempts){
     if(a?.day!==day||!a.questionId||!validDate(day)||typeof a.correct!=='boolean'||!a.submittedAt)continue;
-    if(!seen.has(a.questionId))seen.set(a.questionId,a);
+    const id=String(a.questionId).split('@')[0];
+    if(task&&(!accepted.has(id)||a.dailyTaskId!=='maths-daily'||a.subject!=='maths'||
+       Number(a.year)!==9||a.formal!==true||a.repair===true||a.hintUsed===true||
+       a.scaffolded===true||a.assisted===true||a.recoveryFor))continue;
+    // First formally submitted unassisted answer wins. Repeats cannot rewrite
+    // the original mark or inflate a daily score.
+    if(!seen.has(id))seen.set(id,a);
   }
-  return {submitted:Math.min(10,seen.size),correct:[...seen.values()].filter(a=>a.correct).length,
-    completed:seen.size>=10,targetMet:seen.size>=10&&[...seen.values()].filter(a=>a.correct).length>=9};
+  const submitted=Math.min(10,seen.size);
+  const correct=[...seen.values()].filter(a=>a.correct).length;
+  return {submitted,correct,completed:submitted===10,
+    targetMet:submitted===10&&correct>=9};
 }
 const blocked=(id,title,target,year,reason,day)=>({
   id,title,target,progress:0,done:false,supplyBlocked:true,
@@ -147,7 +161,9 @@ export function buildDailyV3(state,legacy=[],manifest=V3_APPROVED,{mathAttempts=
      (dated.some(isStarted)||(state.formalAttemptLog||[]).some(e=>
        e.day===day&&e.dailyTaskId)))return legacy;
   if(dated.length===10&&dated.every(t=>t.dailyV3===true)){
-    const languages=languageEvidence(state,day),maths=mathsEvidence(mathAttempts,day);
+    const languages=languageEvidence(state,day);
+    const assignedMath=dated.find(t=>t.id==='maths-daily');
+    const maths=mathsEvidence(mathAttempts,day,assignedMath||{supplyBlocked:true});
     return dated.map(t=>t.id==='languages-standard'?
       {...t,progress:languages.progress,done:languages.completed,
         languageEvidence:languages}:t.id==='maths-daily'?
@@ -196,15 +212,31 @@ export function buildDailyV3(state,legacy=[],manifest=V3_APPROVED,{mathAttempts=
     approvedConceptByQuestion:Object.fromEntries(distinctApprovedConcepts(stdB,state).slice(0,10).map(g=>[g.ids[0],g.conceptId]))
   },day):blocked('y8-standard-b','Standard B · Year 9',10,9,
     'Year 9 question supply: fewer than ten independently approved taught concepts. No Year 8 substitution.',day);
-  const maths=mathsEvidence(mathAttempts,day);
   const mathBank=(manifest.maths||[]).filter(q=>validateMathQuestion(q).valid);
   const bands={'7':4,'8':4,'8-9':2};
-  const mathReady=Object.entries(bands).every(([grade,n])=>mathBank.filter(q=>String(q.grade)===grade).length>=n);
-  const mathsTask=mathReady?tagged({id:'maths-daily',title:'Maths Daily · GCSE Higher',target:10,progress:maths.submitted,
-    done:maths.completed,mathsEvidence:maths,detail:'10 MC questions, six choices each. Target 9/10; written methods require separate assessment.',
-    href:'/study/maths/daily/',xp:15,assignedSubject:'maths',assignedYear:9},day):
+  const selectedMath=Object.entries(bands).flatMap(([grade,n])=>
+    mathBank.filter(q=>String(q.grade)===grade).slice(0,n));
+  // Actual browser quiz/player rendering and marking must be explicitly
+  // device-QA verified before allowing Maths Daily to start. A JSON pack
+  // with mathematical PASS metadata alone is NEVER enough.
+  const mathReady=manifest.mathsRuntimeReady===true&&
+    Object.entries(bands).every(([grade,n])=>selectedMath.filter(q=>String(q.grade)===grade).length===n)&&
+    selectedMath.length===10&&
+    new Set(selectedMath.map(q=>q.id)).size===10&&
+    new Set(selectedMath.map(q=>q.templateId||q.conceptId)).size===10;
+  const mathsAssignment=mathReady?tagged({
+    id:'maths-daily',title:'Maths Daily · GCSE Higher',target:10,
+    progress:0,done:false,
+    detail:'10 independently approved MC questions; target 9/10 does not replace written working.',
+    href:'/study/maths/daily/',xp:15,assignedSubject:'maths',assignedYear:9,
+    approvedQuestionIds:selectedMath.map(q=>q.id),
+    approvedConceptByQuestion:Object.fromEntries(selectedMath.map(q=>[q.id,q.templateId||q.conceptId])),
+  },day):null;
+  const maths=mathsEvidence(mathAttempts,day,mathsAssignment||{supplyBlocked:true});
+  const mathsTask=mathsAssignment?
+    {...mathsAssignment,progress:maths.submitted,done:maths.completed,mathsEvidence:maths}:
     blocked('maths-daily','Maths Daily · GCSE Higher',10,9,
-      'Awaiting separately supplied and independently Academic-QA-approved GCSE Higher Maths bank. Never use filler.',day);
+      'Maths V3.1 awaiting individual taught/grade/distractor QA and a verified iPad quiz renderer. No practice or credit until approved.',day);
   // Year 9 Due requires question-level saved due evidence and QA approval.
   // Year 8 Mastery Day 2/7 recall always remains the priority.
   const originalDue=passthrough('due-review');
