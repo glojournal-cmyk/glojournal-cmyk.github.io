@@ -99,6 +99,53 @@
         "forbiddenY": 5
       },
       "notes": "Do not change source stem/options/answer. Teacher taught rational formula depth, difficulty, iPad maths rendering still unverified."
+    },
+    {
+      "questionId": "LUX-MATH-Y9-INDICES-037",
+      "kind": "ONE_DISTRACTOR_REPLACEMENT_PEDAGOGICAL",
+      "originalCorrectOptionId": "F",
+      "originalDifficultyTarget": "G8-9",
+      "originalChoiceId": "D",
+      "originalChoiceLatex": "-3",
+      "replacement": {
+        "options": [
+          {
+            "id": "A",
+            "latex": "0"
+          },
+          {
+            "id": "B",
+            "latex": "\\frac{5}{2}"
+          },
+          {
+            "id": "C",
+            "latex": "4"
+          },
+          {
+            "id": "D",
+            "latex": "6",
+            "misconception": "After obtaining n=2 correctly, evaluate n²+n instead of n²−n: 2²+2=6."
+          },
+          {
+            "id": "E",
+            "latex": "1"
+          },
+          {
+            "id": "F",
+            "latex": "2"
+          }
+        ]
+      },
+      "verification": {
+        "nFromCommonBaseExponent": 2,
+        "correctAnswer": 2,
+        "correctOptionId": "F",
+        "alternateDValue": 6,
+        "distinctOptions": 6,
+        "wrongPath": "n²+n for n=2 instead of n²−n",
+        "sourceQuestionId": "LUX-MATH-Y9-INDICES-037"
+      },
+      "notes": "Original −3 is unmotivated; the new 6 has an explicit and independently recomputed wrong expression substitution. Maths answer key F unchanged. Staging only; student bank and approval untouched until independent pedagogy/grade/taught checks."
     }
   ]
 }
