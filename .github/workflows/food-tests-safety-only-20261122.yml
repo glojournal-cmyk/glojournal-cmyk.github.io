@@ -11,6 +11,8 @@ on:
       - 'assets/daily-completed-session-receipts-20261024.js'
       - 'assets/mastery-v2-20261018.js'
       - 'assets/session-reflection-20261004.js'
+      - 'assets/daily-curriculum-20261004.js'
+      - 'assets/year8-daily-v2-20261018.js'
       - 'tests/food-tests-safety-only-20261122.test.mjs'
       - '.github/workflows/food-tests-safety-only-20261122.yml'
   pull_request:
@@ -22,6 +24,8 @@ on:
       - 'assets/daily-completed-session-receipts-20261024.js'
       - 'assets/mastery-v2-20261018.js'
       - 'assets/session-reflection-20261004.js'
+      - 'assets/daily-curriculum-20261004.js'
+      - 'assets/year8-daily-v2-20261018.js'
       - 'tests/food-tests-safety-only-20261122.test.mjs'
       - '.github/workflows/food-tests-safety-only-20261122.yml'
   workflow_dispatch:
@@ -45,6 +49,8 @@ jobs:
           node --check assets/daily-completed-session-receipts-20261024.js
           node --check assets/mastery-v2-20261018.js
           node --check assets/session-reflection-20261004.js
+          node --check assets/daily-curriculum-20261004.js
+          node --check assets/year8-daily-v2-20261018.js
           node --check tests/food-tests-safety-only-20261122.test.mjs
       - name: Academic hold and unmarked practice-only regression
         run: node --test tests/food-tests-safety-only-20261122.test.mjs
