@@ -400,9 +400,13 @@ function H({title:e,kicker:t,items:n,repairItems:repairBank=[],subject:a,dailyId
       title:e,daily:isDaily,dailyTaskId:journeyTaskId||c,planDate:isDaily?sessionPlanDay:null};
     // The completed result is truthful only after local storage acknowledges
     // this exact practice. A failed save leaves the current answers visible.
+    // Stop the auto-save effect from writing a stale in-progress snapshot
+    // behind the completed record while Safari's async write is pending.
+    discardDraft.current=true;
     const savedPractice=await saveHeldPracticeCompletion(globalThis.LuxPracticeDrafts,
       draftKey,unmarkedDraft);
     if(!savedPractice){
+      discardDraft.current=false;
       setDraftError(true);
       setFinishFailure('Practice could not be saved. Keep this page open and retry Finish.');
       return;
