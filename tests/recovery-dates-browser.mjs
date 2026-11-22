@@ -110,17 +110,26 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
    return 29-Math.round((Date.parse(today+'T12:00:00Z')-Date.parse(target+'T12:00:00Z'))/86400000);
   },date);
   await page.locator('.lux-record-dot').nth(index).click();
+  // The 30-day record redraws its entire dot/list DOM on store updates.
+  // Wait for the clicked calendar date to own the selected state before
+  // inspecting that day's links; a prior day's detail may still be visible.
+  await page.waitForFunction(i=>document.querySelectorAll('.lux-record-dot')[i]
+    ?.classList.contains('is-selected')===true,index);
   const detail=page.locator('.lux-record-detail');
   assert.ok(await detail.isVisible());
   const proof=await page.evaluate(async target=>{
    const {C:store}=await import([...document.scripts].find(x=>x.src.includes('/assets/index-BLVOhKhN.js')).src);
    return store.getState().dailyLog?.[target]?.tasks?.find(t=>t.id==='french-vocab');
   },date);
-  const link=detail.locator('a.lux-record-recovery[href*="task=french-vocab"]');
-  if(proof?.recovered||proof?.done)assert.equal(await link.count(),0,'credited task must not be offered again');
+  const links=detail.locator('a.lux-record-recovery[href*="task=french-vocab"]');
+  // Atomic DOM read: a React/store re-render can detach the anchor between
+  // a separate count() and getAttribute(), causing a false 30-second timeout.
+  const hrefs=await links.evaluateAll(anchors=>anchors.map(a=>a.getAttribute('href')));
+  if(proof?.recovered||proof?.done)assert.deepEqual(hrefs,[],
+    'credited task must not be offered again');
   else {
-   assert.equal(await link.count(),1,'uncompleted date must have an actionable recovery link');
-   assert.ok((await link.getAttribute('href')).includes('recover='+date));
+   assert.equal(hrefs.length,1,'uncompleted date must have an actionable recovery link');
+   assert.ok(hrefs[0]?.includes('recover='+date),'Recovery must link to the selected missed day');
   }
  }
  await page.locator('.lux-record-close').click();
