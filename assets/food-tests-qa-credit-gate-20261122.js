@@ -150,7 +150,7 @@ const pending=new Set(FOOD_TESTS_QA_HOLD_IDS);
 export function isFoodTestsQaHeld(value){
  const id=typeof value==='string'?value:String(value?.id||value?.questionId||'');
  const topic=value&&typeof value==='object'?String(value.topicId||''):'';
- return pending.has(id)||id.startsWith('bio-y8-food-tests-')||topic===FOOD_TESTS_QA_TOPIC;
+ return pending.has(id)||id===FOOD_TESTS_QA_TOPIC||id.startsWith('bio-y8-food-tests-')||topic===FOOD_TESTS_QA_TOPIC;
 }
 export function canEarnFormalCredit(value){return !isFoodTestsQaHeld(value);}
 // Pupil-facing result for an unapproved Food Tests answer. The prose matcher
