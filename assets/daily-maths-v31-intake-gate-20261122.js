@@ -65,6 +65,7 @@ export function stageMathsV31Question(question,signoff={}){
   topic:V31_TOPIC_MAP[question?.topicId]||'unsupported',
   grade:V31_BANDS[question?.difficultyTarget]||'unverified',
   gradeLabel:question?.difficultyTarget,
+  difficultyTarget:question?.difficultyTarget, // required by the real 4/4/2 selector
   templateId:question?.templateId,conceptId:question?.templateId,
   stemLatex:question?.stem,answerLatex:question?.correctAnswerLatex,
   format:'mc_single',correctOptionId:question?.correctOptionId,
