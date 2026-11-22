@@ -1,3 +1,4 @@
+import {mathsRichTextHTML,mathsOptionHTML} from './math-v31-native-mathml.js';
 // REVIEW ONLY: 10 originally supplied Maths V3.1 questions, no Scholar store or persistence.
 const params=new URLSearchParams(location.search);
 const section=document.getElementById('qa-preview');
@@ -10,14 +11,6 @@ if(params.get('qa')==='1'){
  const fail=e=>{el('qa-question').hidden=true;status('Maths QA preview blocked: '+(e?.message||String(e))+
   '. No raw LaTeX or unmarked Daily credit will be shown.')};
  const escapeLabel=s=>String(s||'').slice(0,200);
- function mathScript(){
-  return new Promise((resolve,reject)=>{
-   const script=document.createElement('script');
-   script.src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js';
-   script.onload=resolve;script.onerror=()=>reject(Error('MathJax renderer unavailable'));
-   document.head.append(script);
-  });
- }
  function shuffle(list,seed){
   const items=[...list];let s=seed;
   for(let i=items.length-1;i>0;i--){
@@ -25,10 +18,6 @@ if(params.get('qa')==='1'){
    const j=s%(i+1);[items[i],items[j]]=[items[j],items[i]];
   }
   return items;
- }
- async function typeset(nodes){
-  if(!window.MathJax?.typesetPromise)throw Error('MathJax formula engine not ready');
-  await window.MathJax.typesetPromise(nodes);
  }
  function guard(pack){
   if(pack?.status!=='QA_ONLY_NOT_APPROVED'||!Array.isArray(pack.questions)||pack.questions.length!==10)
@@ -59,19 +48,22 @@ if(params.get('qa')==='1'){
   el('qa-identifier').textContent=q.id+' · '+q.topicId;
   root.dataset.questionId=q.id;
   formula.classList.remove('ready');choices.classList.remove('ready');
-  formula.textContent=q.stem;choices.replaceChildren();
+  // Prevalidate the entire visible card: a single bad formula blocks the QA preview.
+  const renderedStem=mathsRichTextHTML(q.stem);
+  const optionRendering=new Map(q.options.map(o=>[o.id,mathsOptionHTML(o)]));
+  const renderedWorking=q.workedSolutionSteps.map(step=>mathsRichTextHTML(step));
+  formula.innerHTML=renderedStem;choices.replaceChildren();
   el('qa-worked').hidden=true;el('qa-next').hidden=true;
   const seed=Array.from(q.id).reduce((n,c)=>(Math.imul(n,33)+c.charCodeAt(0))>>>0,5381);
   for(const o of shuffle(q.options,seed)){
    const b=document.createElement('button');
    b.type='button';b.className='choice';b.dataset.optionId=o.id;
-   b.setAttribute('aria-pressed','false');b.textContent=o.id+'. $'+o.latex+'$';
+   b.setAttribute('aria-pressed','false');b.innerHTML='<strong>'+o.id+'.</strong> '+optionRendering.get(o.id);
    b.addEventListener('click',()=>answer(q,o.id,b));
    choices.append(b);
   }
   root.hidden=false;
-  status('Typesetting question and six choices…');
-  await typeset([formula,choices]);
+  status('Rendering native offline MathML; no external CDN required.');
   formula.classList.add('ready');choices.classList.add('ready');
   state.rendered=true;
   status('Reviewer preview only · no score is recorded.');
@@ -85,13 +77,12 @@ if(params.get('qa')==='1'){
   }
   const worked=el('qa-worked'),steps=el('qa-solution');
   steps.replaceChildren();
-  for(const step of q.workedSolutionSteps){
-   const li=document.createElement('li');li.textContent=step;steps.append(li);
+  for(const html of q.workedSolutionSteps.map(step=>mathsRichTextHTML(step))){
+   const li=document.createElement('li');li.innerHTML=html;steps.append(li);
   }
   el('qa-result').textContent=correct?'Correct option (QA preview only).':
    'Incorrect option. Correct source choice: '+q.correctOptionId+'.';
   worked.hidden=false;
-  await typeset([steps]);
   el('qa-next').hidden=false;
   status('Preview answer checked; no Student XP, MP, Daily or Mastery credit was recorded.');
  }
@@ -101,8 +92,6 @@ if(params.get('qa')==='1'){
   const response=await fetch(dataPath,{cache:'no-store'});
   if(!response.ok)throw Error('QA sample data could not be loaded');
   questions=guard(await response.json());
-  await mathScript();
-  await window.MathJax.startup.promise;
   await draw();
  }catch(e){fail(e)}
  window.__mathsQAReviewerState=()=>({index:state.index,answers:[...state.answers],
