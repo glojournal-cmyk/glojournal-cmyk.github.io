@@ -111,6 +111,10 @@ export function validateMathQuestion(q){
   if(!['indices','standard-form','changing-subject','straight-line-graphs','simultaneous-equations'].includes(q?.topic))issues.push('topic-unverified');
   if(!['7','8','8-9'].includes(String(q?.grade)))issues.push('invalid-grade');
   if(q?.academicQA!=='approved'||q?.taughtVerified!==true)issues.push('not-academic-qa-approved');
+  if(!String(q?.conceptFamilyId||'').trim()||
+     !String(q?.conceptFamilyEvidence||'').trim()||
+     !String(q?.conceptFamilyReviewer||'').trim())
+    issues.push('semantic-concept-family-signoff-required');
   if(!Array.isArray(q?.options)||q.options.length!==6)issues.push('six-options-required');
   const options=Array.isArray(q?.options)?q.options:[];
   if(new Set(options.map(x=>canonical(x?.text))).size!==6||options.some(x=>!canonical(x?.text)))issues.push('duplicate-or-empty-options');
@@ -240,7 +244,8 @@ export function buildDailyV3(state,legacy=[],manifest=V3_APPROVED,{mathAttempts=
     const task=(row?.tasks||[]).find(t=>t.id==='maths-daily');
     return task?.approvedQuestionIds?.length?[{
       date:historyDate,questionIds:task.approvedQuestionIds,
-      templateIds:Object.values(task.approvedConceptByQuestion||{})
+      templateIds:Object.values(task.approvedTemplateByQuestion||task.approvedConceptByQuestion||{}),
+      conceptFamilyIds:Object.values(task.approvedConceptByQuestion||{})
     }]:[];
   });
   const mathSelection=selectMathsV31Daily({
@@ -257,7 +262,8 @@ export function buildDailyV3(state,legacy=[],manifest=V3_APPROVED,{mathAttempts=
     detail:'10 independently approved MC questions; target 9/10 does not replace written working.',
     href:'/study/maths/daily/',xp:15,assignedSubject:'maths',assignedYear:9,
     approvedQuestionIds:selectedMath.map(q=>q.id),
-    approvedConceptByQuestion:Object.fromEntries(selectedMath.map(q=>[q.id,q.templateId||q.conceptId])),
+    approvedConceptByQuestion:Object.fromEntries(selectedMath.map(q=>[q.id,q.conceptFamilyId])),
+    approvedTemplateByQuestion:Object.fromEntries(selectedMath.map(q=>[q.id,q.templateId])),
     approvedCorrectOptionByQuestion:Object.fromEntries(selectedMath.map(q=>[q.id,q.correctOptionId])),
   },day):null;
   const maths=mathsEvidence(mathAttempts,day,mathsAssignment||{supplyBlocked:true});
