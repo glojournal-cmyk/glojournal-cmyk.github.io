@@ -93,7 +93,7 @@ export function mathsRichTextHTML(source){
    if(!match)throw Error('Orphan unit exponent');
    const unit=match[1],last=html.pop();
    html.push(last.slice(0,-(unit.length+7))+'</span>');
-   html.push(latexMathML(unit+part));
+   html.push(latexMathML('\\mathrm{'+unit+'}'+part));
   } else html.push(latexMathML(part));
  }
  return html.join('');
