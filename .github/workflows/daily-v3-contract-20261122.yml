@@ -38,6 +38,9 @@ jobs:
           node --check tests/daily-v3-vocab-20261122.test.mjs
       - name: Unit tests - Daily V3 contract
         run: node --test tests/daily-v3-contract-20261122.test.mjs tests/daily-v3-vocab-20261122.test.mjs
+      - name: Existing Daily V2, vocabulary, Recovery and concept supply regression
+        run: |
+          node --test tests/daily-vocab-year9-three-20261021.test.mjs tests/daily-20261103-inflight-and-window.test.mjs tests/question-supply-preflight-20261111.test.mjs tests/recovery-all-tasks-ledger.test.mjs
       - name: Read-only Year 8/9 concept supply inventory
         run: node scripts/daily-v3-bank-audit-20261122.mjs
       - uses: actions/upload-artifact@v4
