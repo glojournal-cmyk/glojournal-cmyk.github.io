@@ -8,6 +8,7 @@ on:
       - 'assets/index-BLVOhKhN.js'
       - 'tests/daily-v3-contract-20261122.test.mjs'
       - 'tests/daily-v3-vocab-20261122.test.mjs'
+      - 'tests/daily-20261103-inflight-and-window.test.mjs'
       - 'scripts/daily-v3-bank-audit-20261122.mjs'
       - '.github/workflows/daily-v3-contract-20261122.yml'
   pull_request:
@@ -17,6 +18,7 @@ on:
       - 'assets/index-BLVOhKhN.js'
       - 'tests/daily-v3-contract-20261122.test.mjs'
       - 'tests/daily-v3-vocab-20261122.test.mjs'
+      - 'tests/daily-20261103-inflight-and-window.test.mjs'
   workflow_dispatch:
 permissions:
   contents: read
