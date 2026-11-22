@@ -246,4 +246,12 @@ test('Maths task credit is scoped to ten pinned, unassisted, first submitted for
  assert.equal(eightEvidence.completed,false,'Ten attempted but below 9/10 must not clear Maths Daily');
  assert.equal(mathsEvidence(attempts.map(({selectedOptionId,...rest})=>rest),day,task).submitted,0,
    'correct:true without actual selected option cannot mint credit');
+ const noSelected=attempts.map(a=>({...a}));
+ const malformedFirst={...noSelected[0],selectedOptionId:null,correct:true};
+ const correctedLater={...noSelected[0],selectedOptionId:'A',correct:true};
+ const invalidFirst=mathsEvidence([malformedFirst,correctedLater,...noSelected.slice(1)],day,task);
+ assert.equal(invalidFirst.submitted,9,
+   'Malformed first formal attempt must reserve its ID and block later correct repeats');
+ assert.equal(invalidFirst.completed,false);
+
 });
