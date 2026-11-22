@@ -87,6 +87,11 @@ const U=(0,w.useMemo)(()=>{let t=e===`biology`&&N===9&&E!==`due`&&E!==`weak`?z.f
    const matched=t.filter(q=>allowed.has(q.id)&&q.preview!==true&&q.formal!==false);
    return selectProgressionQuestions(RQ(matched,e,W),'standard',W);
  }
+ if(dailyLocked&&canonicalTask==='due-review'&&Number(assignment?.assignedYear)===9){
+   const allowed=new Set(assignment?.approvedQuestionIds||[]);
+   const verifiedDue=t.filter(q=>allowed.has(q.id)&&q.preview!==true&&q.formal!==false);
+   return selectProgressionQuestions(RQ(verifiedDue,e,W),'standard',W);
+ }
  if(dailyLocked&&canonicalTask==='y8-standard-b'&&Number(assignment?.assignedYear)===9){
    const allowed=new Set(assignment?.approvedQuestionIds||[]);
    t=t.filter(q=>allowed.has(q.id)&&q.preview!==true&&q.formal!==false);
