@@ -1492,7 +1492,11 @@ function compactDailyTasks(daily) {
       title: String(task.title || task.id),
       progress,
       target,
-      done: progress >= target,
+      // Maths progress counts submitted questions, but only >=9/10 FIRST
+      // correctly marked answers may clear Daily. Never change a failed
+      // 8/10 attempt into 'done' while compacting the dated history.
+      done: task.dailyV3===true && task.id==='maths-daily'
+        ? task.done===true : progress >= target,
       ...(task.correctOnlyEvidence===true?{correctOnlyEvidence:true}:{}),
       ...(task.dailyV3===true?{dailyV3:true,planVersion:3,supplyBlocked:task.supplyBlocked===true}:{}),
       ...(task.dailyV3===true&&Array.isArray(task.approvedQuestionIds)?{
