@@ -72,7 +72,7 @@
     },
     {
       "questionId": "LUX-MATH-Y9-REARRANGING-023",
-      "kind": "DOMAIN_AND_EDITORIAL_WORKED_STEPS_ONLY",
+      "kind": "DOMAIN_AND_PEDAGOGICAL_DISTRACTORS_CANDIDATE",
       "originalCorrectOptionId": "D",
       "originalDifficultyTarget": "G8",
       "originalWorkedSolutionSteps": [
@@ -83,6 +83,38 @@
         "workedSolutionSteps": [
           "Domain: the original denominator requires $x\\ne-6$. Put $z=y-1$ and multiply both sides by $x+6$: $z(x+6)=4x+5$.",
           "Collect $x$: $(z-4)x=5-6z$. Since $z=4$ would give the impossible statement $24=5$, $y\\ne5$. Thus $x=\\dfrac{11-6y}{y-5}=-\\dfrac{6y-11}{y-5}$."
+        ],
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\frac{5-6y}{y-4}",
+            "misconception": "Ignore the outer +1 and directly solve y=(4x+5)/(x+6), giving x=(5−6y)/(y−4)."
+          },
+          {
+            "id": "B",
+            "latex": "\\frac{6y-1}{y-5}",
+            "misconception": "After expanding z(x+6)=4x+5, move +6z to the RHS with the wrong sign: (z−4)x=5+6z."
+          },
+          {
+            "id": "C",
+            "latex": "\\frac{6-6y}{y-5}",
+            "misconception": "Mistakenly distribute 6(y−1) as 6y−1, giving (y−5)x=5−(6y−1)=6−6y."
+          },
+          {
+            "id": "D",
+            "latex": "\\frac{11-6y}{y-5}",
+            "misconception": null
+          },
+          {
+            "id": "E",
+            "latex": "\\frac{11-6y}{y+3}",
+            "misconception": "Collect 4x on the wrong side with a plus sign: (z+4)x=5−6z, making denominator y+3."
+          },
+          {
+            "id": "F",
+            "latex": "\\frac{-6y-1}{y-3}",
+            "misconception": "Add the external 1 instead of subtracting it when isolating the fraction: set z=y+1 rather than z=y−1."
+          }
         ]
       },
       "verification": {
@@ -96,9 +128,21 @@
         ],
         "inverseChecksPassed": 6,
         "forbiddenX": -6,
-        "forbiddenY": 5
+        "forbiddenY": 5,
+        "distinctOptions": 6,
+        "correctOptionId": "D",
+        "sampleY": 2,
+        "computedAtSampleY": {
+          "A": 3.5,
+          "B": -3.6666666666666665,
+          "C": 2,
+          "D": 0.3333333333333333,
+          "E": -0.2,
+          "F": 13
+        },
+        "distractorErrorPaths": "Five independently specified algebraic slips, source-matched at y=2"
       },
-      "notes": "Do not change source stem/options/answer. Teacher taught rational formula depth, difficulty, iPad maths rendering still unverified."
+      "notes": "All five candidate wrong rational expressions now map to a specific algebraic mistake, and correct inversion/domain are checked. These are staging alternatives only; school-taught depth and target Grade G8 still need separate independent reviewer approval. Original question and answer D unchanged."
     },
     {
       "questionId": "LUX-MATH-Y9-INDICES-037",
