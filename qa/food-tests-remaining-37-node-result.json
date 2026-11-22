@@ -1,0 +1,29 @@
+{
+  "kind": "food-tests-remaining-37-node-result",
+  "qaCommit": "060f9cbee45f1ca004200e4beaf8e12d5ea28589",
+  "main": "2e556ffcb48f6c7346b3b663f8058f57271b643d",
+  "command": "node tests/food-tests-remaining-37-acceptance.mjs",
+  "exitCode": 0,
+  "bundles": {
+    "assets/quiz-session-y8fix-20260920.js": 455,
+    "assets/quiz-session-rWAnuDVj.js": 455
+  },
+  "countsPerBundle": {
+    "model": 51,
+    "paraphrase": 51,
+    "contradiction": 51,
+    "partial": 43,
+    "six": 49,
+    "ethanol": 62,
+    "adversarial": 148
+  },
+  "diagnostic196": "196/196 of the existing 51-item probes",
+  "dispatch": "function B calls scoreFoodTestsRemaining37 after the six guarded ids, only for biology mark_points",
+  "questionBankEdited": false,
+  "approved": 0,
+  "not": [
+    "all unseen student wording",
+    "academic approval",
+    "deployment"
+  ]
+}
