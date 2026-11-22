@@ -3186,8 +3186,17 @@ function patchedRecordSpelling(questionId, correct) {
   return result;
 }
 
+// The generic Daily counter can award completion from raw progress without
+// checking the Maths 9/10 keyed first-answer result. Never let legacy quiz
+// screens bump the dedicated Maths card; it is evidence-owned only.
+function patchedBumpDaily(taskId, increment=1) {
+  if(taskId==="maths-daily")return null;
+  return originalBumpDaily(taskId,increment);
+}
+
 store.setState({
   award: patchedAward,
+  bumpDaily: patchedBumpDaily,
   hydrateDay: patchedHydrateDay,
   recordPe: patchedRecordPe,
   recordGame: patchedRecordGame,
