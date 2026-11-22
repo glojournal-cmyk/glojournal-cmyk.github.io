@@ -89,3 +89,28 @@ test('this isolated patch does not import the unreviewed 99-point draft or heuri
   assert.equal(src.includes('food-tests-ethanol-rubric'),false);
  }
 });
+
+test('unmarked Food Tests remain neutral at quiz completion and review-history screens',()=>{
+ const resultModule=read('assets/session-reflection-20261004.js');
+ assert.ok(resultModule.includes('unmarked=false'), 'unmarked flag must not alter other subject result views');
+ const start=resultModule.indexOf("if(unmarked)return h('section'");
+ const end=resultModule.indexOf('const points=improvementPoints',start);
+ assert.ok(start>=0&&end>start,'neutral branch must return before graded result calculations');
+ const neutral=resultModule.slice(start,end);
+ assert.ok(neutral.includes('Practice saved. Not a formal mark.'));
+ assert.ok(neutral.includes('No right or wrong decision was made'));
+ assert.ok(neutral.includes('does not earn Daily, MP, Mastery or XP credit'));
+ assert.ok(!neutral.includes('String(first)'));
+ assert.ok(!neutral.includes('score.percentage'));
+ assert.ok(!neutral.includes('Detailed results & skill analysis'));
+ for(const path of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-rWAnuDVj.js']){
+  const src=read(path);
+  assert.ok(src.includes('unmarked:A.length>0&&A.every(isFoodTestsQaHeld)'),path);
+  assert.ok(src.includes('if(A.length&&A.every(isFoodTestsQaHeld)){'),path);
+  assert.ok(src.includes("u('Practice saved',{description:'Not a formal mark. No Daily / MP / Mastery credit.'})"),path);
+  assert.ok(src.includes('A.filter(e=>e.formal!==!1&&!isFoodTestsQaHeld(e))'),path);
+  assert.ok(src.includes('correction=G&&!G.practiceOnly?buildCorrection'),path);
+  assert.ok(src.includes('!isFoodTestsQaHeld(Y)?(0,T.jsx)(ReviewProgress'),path);
+  assert.ok(src.includes('!qaHeld&&window.dispatchEvent(new CustomEvent("scholar:question-answered"'),path);
+ }
+});
