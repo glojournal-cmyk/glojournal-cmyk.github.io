@@ -24,6 +24,21 @@ Following the preliminary 200/200 **source answer** audit, Standard Form now has
 
 No source items or existing QA-only redrafts were imported; origin key letter and historical progress were not changed. Source maths, source-option interpretation, independent difficulty, curriculum scope, distractor pedagogy and app/device safety remain **separate signoff gates**.
 
+## Changing the Subject second-pass — full Q81–120 original domain/concept QA
+
+A second complete topic batch now provides **40 source-specific worked inverse equations**, **40 detailed original domain/range restrictions**, **160 initial plus extended positive/negative valid-domain checks**, and **240 original mathematical option records**. All 240 original answer options are spatially multilined and **none has a verified original rendered-PDF exact mathematical formula**. The source answer-key letters match the original CSV, but no independent Grade 7+ or five-distractor pedagogy signoff is implied.
+
+**Important conceptual risk:** **28/40** original rearrangements from **seven template IDs** reduce to fractional-linear inverses `y=(Ax+B)/(Cx+D)` with nonzero determinant; **12/40** require genuine principal-root restrictions. Among the 28, **eight** original questions lose an undefined x value if the source expression is naively simplified: **Q99–102** originally contain `1/y`, and **Q113–116** contain a nested denominator. These eight "removable holes" must remain prohibited despite the simplified Mobius form. Counts: **32** source questions with explicit finite y exclusions, **12** root branches and **40** source equation models, **all still formally blocked** pending individual taught, options and grade QA.
+
+- [Full 40 question source-and-domain Academic QA report](daily-v3-maths-changing-subject40-full-academic-domain-option-qa-20261122.md)
+- [40 full worked inverse formula derivations](../qa-staging/math-v311-changing-subject40-full-worked-source-derivations-20261122.json)
+- [40 exact input and output domain restrictions](../qa-staging/math-v311-changing-subject40-inverse-domains-and-uniqueness-20261122.json)
+- [28 original fractional-linear common-core and eight lost-hole proofs](../qa-staging/math-v311-changing-subject40-shared-mobius-28-source-core-20261122.json)
+- [All 240 originally extracted A-F option snippets, visually unreconciled](../qa-staging/math-v311-changing-subject40-original-240-option-typeset-risk-20261122.json)
+- [CI #45069236963 — 251/251 tests PASS](https://github.com/glojournal-cmyk/glojournal-cmyk.github.io/actions/runs/45069236963)
+
+The formal Changing Subject originals **remain 0/40 approved** and in the 80-item taught-scope-hold pool. No new question or historic score changed.
+
 ## 1. Batch processing — all five subjects completed in this pass
 
 The original user-uploaded 74-page **Lux_Maths_Y9_V3_All_200_Student.pdf**, 39-page **Lux_Maths_Y9_V3_All_200_Answers.pdf**, and **Lux_Maths_V3_1_Formal_Academic_QA_Register_20261122.csv** were reopened and all 200 numbered original questions, six original A–F option *labels* per question, and source answer letters rechecked. Reconstructing the actual formatted option expressions requires the separate follow-up visual QA noted above. Five source-preserving packs were created, each including exact PDF-extracted question content, original worked solution, source page, original answer letter, topic, template, preliminary curriculum and grade risk and all release HOLD flags.
