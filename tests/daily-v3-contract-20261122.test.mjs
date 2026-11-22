@@ -147,3 +147,14 @@ test('existing V3 plan keeps assignments across planner rebuild',()=>{
   assert.equal(changed.find(t=>t.id==='y8-standard-a').progress,7);
   assert.equal(changed.find(t=>t.id==='y8-standard-b').assignedTopic,'chem-y9-certified');
 });
+
+test('unopened Day 2/7 recall does not shrink ten-card V3 daily quota',()=>{
+  const legacy=old();
+  const due=legacy.find(t=>t.id==='due-review');
+  due.target=5;due.masteryCheck=true;due.href='/study/latin/practise?daily=1&locked=1&mode=due&task=due-review';
+  const plan=buildDailyV3(state(),legacy);
+  assert.equal(plan.length,10);
+  assert.equal(plan.find(t=>t.id==='due-review').target,10);
+  assert.equal(plan.reduce((n,t)=>n+t.target,0),165);
+  assert.equal(plan.find(t=>t.id==='due-review').progress,0);
+});
