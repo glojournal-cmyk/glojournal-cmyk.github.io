@@ -100,7 +100,21 @@
         "markPoints": [
           "the reagent used to test for starch"
         ],
-        "modelAnswer": "the reagent used to test for starch"
+        "modelAnswer": "the reagent used to test for starch",
+        "markPointEvidence": [
+          {
+            "all": [
+              "\\biodine\\b",
+              "\\bstarch\\b"
+            ]
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "iodine tests for starch",
+            "iodine detects starch"
+          ]
+        ]
       },
       "stimulus": {
         "text": "iodine solution"
@@ -338,7 +352,21 @@
         "markPoints": [
           "the reagent used to test for protein"
         ],
-        "modelAnswer": "the reagent used to test for protein"
+        "modelAnswer": "the reagent used to test for protein",
+        "markPointEvidence": [
+          {
+            "all": [
+              "\\bbiuret\\b",
+              "\\bprotein\\b"
+            ]
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "Biuret detects protein",
+            "Biuret tests for proteins"
+          ]
+        ]
       },
       "stimulus": {
         "text": "Biuret solution"
@@ -1187,7 +1215,40 @@
           "heat in a hot-water bath",
           "positive result changes from blue towards green, yellow, orange or brick-red"
         ],
-        "totalMarks": 3
+        "totalMarks": 3,
+        "markPointEvidence": [
+          {
+            "all": [
+              "\\b(?:add|mix|put|pour|pipette|use)\\b",
+              "\\bbenedict\\w*\\b"
+            ]
+          },
+          {
+            "all": [
+              "\\b(?:heat|warm|hot|boil)\\b",
+              "\\bwater\\s*bath\\b"
+            ]
+          },
+          {
+            "all": [
+              "\\b(?:green|yellow|orange|red|brick)\\b"
+            ]
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "mix Benedict's reagent with the sample",
+            "add Benedict's reagent to the food"
+          ],
+          [
+            "warm the mixture in a water bath",
+            "heat it in a hot water bath"
+          ],
+          [
+            "turns orange",
+            "a green yellow orange or brick red colour forms"
+          ]
+        ]
       },
       "stimulus": {},
       "feedback": {
@@ -3893,7 +3954,31 @@
           "no reducing sugar was detected"
         ],
         "totalMarks": 2,
-        "modelAnswer": "Benedict's solution remains blue; no reducing sugar was detected"
+        "modelAnswer": "Benedict's solution remains blue; no reducing sugar was detected",
+        "markPointEvidence": [
+          {
+            "all": [
+              "\\bblue\\b"
+            ]
+          },
+          {
+            "all": [
+              "\\b(?:reduc\\w*\\s+sugar|glucose)\\b",
+              "\\b(?:no|not|absent|negative|undetected|none)\\b"
+            ]
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "the solution stays blue",
+            "Benedict's reagent is still blue"
+          ],
+          [
+            "no reducing sugar was found",
+            "reducing sugar is absent",
+            "negative for reducing sugar"
+          ]
+        ]
       },
       "stimulus": {},
       "feedback": {
@@ -4001,7 +4086,30 @@
           "iodine should turn blue-black"
         ],
         "totalMarks": 2,
-        "modelAnswer": "test a known starch solution; iodine should turn blue-black"
+        "modelAnswer": "test a known starch solution; iodine should turn blue-black",
+        "markPointEvidence": [
+          {
+            "all": [
+              "\\b(?:known|control)\\b",
+              "\\bstarch\\b"
+            ]
+          },
+          {
+            "all": [
+              "\\bblue[\\s-]*black\\b"
+            ]
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "use a known sample containing starch",
+            "use starch as the positive control"
+          ],
+          [
+            "iodine turns blue-black",
+            "it should go blue-black"
+          ]
+        ]
       },
       "stimulus": {},
       "feedback": {
@@ -5190,7 +5298,44 @@
           "lipid was not detected"
         ],
         "totalMarks": 3,
-        "modelAnswer": "starch is present; protein is present; lipid was not detected"
+        "modelAnswer": "starch is present; protein is present; lipid was not detected",
+        "markPointEvidence": [
+          {
+            "all": [
+              "\\bstarch\\b",
+              "\\b(?:present|detect\\w*|contain\\w*|positive)\\b"
+            ]
+          },
+          {
+            "all": [
+              "\\bprotein\\b",
+              "\\b(?:present|detect\\w*|contain\\w*|positive)\\b"
+            ],
+            "notAnywhere": [
+              "\\bbiuret\\b[^.!?;\\n]*\\b(?:remain\\w*|stay\\w*|is)\\s+blue\\b"
+            ]
+          },
+          {
+            "all": [
+              "\\blipid\\w*\\b",
+              "\\b(?:no|not|absent|negative|undetected|none)\\b"
+            ]
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "starch is detected",
+            "contains starch"
+          ],
+          [
+            "protein was found",
+            "contains protein"
+          ],
+          [
+            "there were no lipids detected",
+            "lipid is absent"
+          ]
+        ]
       },
       "stimulus": {},
       "feedback": {
