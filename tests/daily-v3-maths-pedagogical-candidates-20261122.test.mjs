@@ -11,13 +11,14 @@ const fromLatex=latex=>{
 };
 const same=(a,b)=>assert.ok(Math.abs(a-b)<1e-11,a+' != '+b);
 
-test('candidate is staging-only, no learner credit, with exact two question IDs',()=>{
+test('candidate is staging-only, no learner credit, with exact three question IDs',()=>{
   assert.equal(candidate.status,'QA_STAGING_NOT_ACADEMIC_APPROVED');
   assert.equal(candidate.applyToCanonicalBank,false);
   assert.equal(candidate.studentCredit,false);
   assert.equal(candidate.academicQAGate,'BLOCKED');
   assert.deepEqual(candidate.patches.map(p=>p.questionId),[
-    'LUX-MATH-Y9-STANDARD_FORM-017','LUX-MATH-Y9-REARRANGING-023'
+    'LUX-MATH-Y9-STANDARD_FORM-017','LUX-MATH-Y9-REARRANGING-023',
+    'LUX-MATH-Y9-INDICES-037'
   ]);
 });
 test('density: unique A-F, C correct and five reconstructable arithmetic mistakes',()=>{
@@ -45,4 +46,24 @@ test('rational rearrangement: correct option unchanged and domain-safe inverse',
     const y=1+(4*x+5)/(x+6);
     same((11-6*y)/(y-5),x);
   }
+});
+
+test('indices: source answer F stays n²−n=2 and candidate D=6 follows an explicit mistake',()=>{
+ const patch=byId('INDICES-037');
+ assert.equal(patch.originalCorrectOptionId,'F');
+ assert.equal(patch.originalChoiceId,'D');
+ assert.equal(patch.originalChoiceLatex,'-3');
+ const options=patch.replacement.options;
+ assert.equal(options.length,6);
+ assert.deepEqual(options.map(o=>o.id),['A','B','C','D','E','F']);
+ assert.equal(new Set(options.map(o=>o.latex)).size,6);
+ const n=(9-5)/2,correct=n**2-n,wrong=n**2+n;
+ assert.equal(n,2);
+ assert.equal(correct,2);
+ assert.equal(wrong,6);
+ assert.equal(options.find(o=>o.id==='F').latex,String(correct));
+ assert.equal(options.find(o=>o.id==='D').latex,String(wrong));
+ assert.match(options.find(o=>o.id==='D').misconception,/n²\+n/);
+ assert.equal(patch.verification.correctOptionId,'F');
+ assert.equal(patch.verification.distinctOptions,6);
 });
