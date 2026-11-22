@@ -78,13 +78,16 @@ export function v3ScopedQuestionEvidence(state,task,day){
     if(e?.day!==day||e?.dailyTaskId!==task?.id||
        e?.subject!==task.assignedSubject||Number(e?.year)!==Number(task.assignedYear)||
        e?.topicId!==task.assignedTopic||e.formal!==true||e.repair===true||
-       e.recoveryFor||e.assisted===true||e.hintUsed===true||e.scaffolded===true||
-       typeof e.correct!=='boolean'||!e.questionId)continue;
+       e.recoveryFor||typeof e.correct!=='boolean'||!e.questionId)continue;
     const id=String(e.questionId).split('@')[0];
     if(elsewhere.has(id)||!allowed.has(id)||!Object.hasOwn(concepts,id))continue;
     const key=concepts[id];
-    const previous=attempts.get(key);
-    attempts.set(key,previous===true||e.correct===true);
+    // Once the first formal concept answer is submitted, a wrong answer or
+    // one exposing hints/scaffolding reserves that concept with zero credit.
+    // Later retries cannot change it to correct within this dated assignment.
+    if(!attempts.has(key))attempts.set(key,
+      e.correct===true&&e.assisted!==true&&e.hintUsed!==true&&
+      e.scaffolded!==true);
   }
   const correct=[...attempts.values()].filter(Boolean).length;
   return {attempts:attempts.size,correct:Math.min(Number(task.target)||10,correct),
@@ -127,7 +130,6 @@ export function languageEvidence(state,day,taskId='languages-standard'){
     const journal=(state.formalAttemptLog||[]).filter(e=>
       e?.day===day&&e.dailyTaskId===taskId&&e.subject===subject&&Number(e.year)===8&&
       e.formal===true&&e.repair!==true&&e.recoveryFor==null&&
-      e.assisted!==true&&e.hintUsed!==true&&e.scaffolded!==true&&
       e.questionId&&typeof e.correct==='boolean');
     const unique=new Map();
     const split=parts[subject],concepts=split.approvedConceptByQuestion;
@@ -138,7 +140,12 @@ export function languageEvidence(state,day,taskId='languages-standard'){
       if(elsewhere.has(id)||!Object.hasOwn(concepts,id)||
          e.topicId!==split.topicId)continue;
       const concept=concepts[id];
-      unique.set(concept,Boolean(e.correct)||unique.get(concept)===true);
+      // Keep the FIRST formal submission for this concept, including an
+      // assisted/hint/scaffolded attempt as a non-credit reservation. Correct
+      // retries cannot overwrite the initial question exposure.
+      if(!unique.has(concept))unique.set(concept,
+        e.correct===true&&e.assisted!==true&&e.hintUsed!==true&&
+        e.scaffolded!==true);
     }
     result[subject]={attempts:unique.size,correct:Math.min(5,[...unique.values()].filter(Boolean).length)};
   }
