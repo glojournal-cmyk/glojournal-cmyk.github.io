@@ -40,6 +40,9 @@ test('Missing any one distractor pedagogical rationale prevents academic enablem
    bankSha256:V31_SOURCE_SHA256,questionId:x.id,
    teacherTaughtConfirmed:true,teacherEvidence:'teacher page / taught subsection',
    gradeIndependentlyCalibrated:true,gradeBenchmark:'GCSE Higher item matched and reviewed',
+   conceptFamilyId:'y9-indices-exponent-equation',
+   conceptFamilyEvidence:'synthetic equivalence review',
+   conceptFamilyReviewer:'synthetic independent reviewer',
    workedSolutionProofChecked:true,mathsChecker:'separate independent checker',
    pedagogyReviewer:'independent curriculum specialist',
    distractorRationales:{A:'zero exponent misconception',C:'wrong base conversion',
@@ -47,6 +50,9 @@ test('Missing any one distractor pedagogical rationale prevents academic enablem
    ipadNativeMathMLVerified:true,rendererEvidence:'iPad WebKit offline MathML question and worked steps screenshot QA'
  };
  assert.equal(stageMathsV31Question(x,s).eligible,true,'synthetic fully evidenced manifest');
+ delete s.conceptFamilyEvidence;
+ assert.equal(stageMathsV31Question(x,s).eligible,false,'missing independent concept evidence');
+ s.conceptFamilyEvidence='synthetic equivalence review';
  delete s.distractorRationales.E;
  assert.equal(stageMathsV31Question(x,s).eligible,false,'missing review for E');
 });
