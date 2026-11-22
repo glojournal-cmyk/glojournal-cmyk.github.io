@@ -1,4 +1,5 @@
 // Pure Maths Daily submission boundary. NEVER writes XP/MP, storage or ledger.
+import {verifiedSourceSystemKeyForMathsId} from './math-v311-original-system-collisions.js';
 // The caller must persist a returned formal answer using the existing durable
 // study-evidence API. This module alone cannot award a Daily completion.
 const TOPICS=new Set(['math-y9-indices','math-y9-standard-form','math-y9-changing-subject','math-y9-straight-line-graphs','math-y9-simultaneous-equations']);
@@ -39,7 +40,7 @@ export function verifyMathDailyAssignment(task,questions,day){
  }
  const selected=allowed.map(id=>bank.get(id));
  if(selected.some(q=>!q))issues.push('pinned-question-missing-from-approved-bank');
- const topics={},bands={},concepts=new Set(),families=new Set();
+ const topics={},bands={},concepts=new Set(),families=new Set(),originalSystems=new Set();
  for(const q of selected){
   if(!q)continue;
   topics[q.topicId]=(topics[q.topicId]||0)+1;
@@ -55,6 +56,13 @@ export function verifyMathDailyAssignment(task,questions,day){
      pinnedFamilies[q.id]!==q.conceptFamilyId)
     issues.push('missing-or-duplicate-reviewed-semantic-concept:'+q.id);
   families.add(q.conceptFamilyId);
+  // Independent original-PDF evidence overrides mistakenly distinct reviewed
+  // concept labels for mathematically identical simultaneous systems.
+  const system=verifiedSourceSystemKeyForMathsId(q.id);
+  if(system){
+    if(originalSystems.has(system))issues.push('repeated-original-equation-system:'+q.id);
+    originalSystems.add(system);
+  }
   if(!Array.isArray(q.options)||q.options.length!==6||
      !CHOICES.every(c=>q.options.filter(o=>o?.id===c&&text(o?.latex||o?.text)).length===1))
     issues.push('unrenderable-or-incomplete-six-options:'+q.id);
