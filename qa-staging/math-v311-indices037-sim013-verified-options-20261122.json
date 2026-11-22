@@ -1,0 +1,311 @@
+{
+  "status": "QA_STAGING_NOT_APPROVED",
+  "date": "2026-11-22",
+  "baseSource": "qa-staging/math-v31-original-sample10.json",
+  "baseSourceBlobSha": "2638a3b0ea387189ef2a278e21803219164986a2",
+  "sourceOriginals": "Lux_Maths_Y9_V3_All_200_Student.pdf original Q37 and Q173, corresponding answer PDF; exact 10-sample JSON opened",
+  "concepts": [
+    "powers of two and exponent equations",
+    "parallel distinct linear simultaneous systems"
+  ],
+  "canonicalOriginal200BankModified": false,
+  "appliedToLiveApp": false,
+  "mathDailyEnabled": false,
+  "studentCredit": false,
+  "independentGradeCalibration": false,
+  "exactTgsSchoolTaughtSubskillConfirmed": false,
+  "empiricalStudentErrorEvidence": false,
+  "independentAcademicReviewerSigned": false,
+  "actualPwaBrowserQA": false,
+  "entries": [
+    {
+      "questionId": "LUX-MATH-Y9-INDICES-037",
+      "scope": "ORIGINAL_STEM_OPTION_REPAIR",
+      "original": {
+        "id": "LUX-MATH-Y9-INDICES-037",
+        "topicId": "math-y9-indices",
+        "difficultyTarget": "G8-9",
+        "templateId": "V3-IND-G89-EXPONENT-THEN-EXPRESSION",
+        "stem": "Find $n$ such that $\\dfrac{\\sqrt{2^{2n+6}}\\times16^{n-1}}{8^{n-2}}=2^{9}$, and then give $n^2-n$.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "0"
+          },
+          {
+            "id": "B",
+            "latex": "\\frac{5}{2}"
+          },
+          {
+            "id": "C",
+            "latex": "4"
+          },
+          {
+            "id": "D",
+            "latex": "-3"
+          },
+          {
+            "id": "E",
+            "latex": "1"
+          },
+          {
+            "id": "F",
+            "latex": "2"
+          }
+        ],
+        "correctOptionId": "F",
+        "workedSolutionSteps": [
+          "Express all terms as base $2$: the left-hand exponent is $(n+3)+4(n-1)-3(n-2)=2n+5$.",
+          "So $2n+5=9$ and $n=2$. Finally $n^2-n=2$."
+        ]
+      },
+      "replacement": {
+        "stem": "Find $n$ such that $\\dfrac{\\sqrt{2^{2n+6}}\\times16^{n-1}}{8^{n-2}}=2^{9}$, and then give $n^2-n$.",
+        "correctOptionId": "F",
+        "options": [
+          {
+            "id": "A",
+            "latex": "0",
+            "value": 0,
+            "wrongOperation": "After solving n=2, mistakenly evaluate n²−2n instead of n²−n: 2²−2×2=0."
+          },
+          {
+            "id": "B",
+            "latex": "12",
+            "value": 12,
+            "wrongOperation": "After equating 2n+5=9, get 2n=4 but omit division by 2, take n=4 and evaluate n²−n=16−4=12."
+          },
+          {
+            "id": "C",
+            "latex": "4",
+            "value": 4,
+            "wrongOperation": "After finding n=2, omit the subtract-n term and evaluate n² only: 2²=4."
+          },
+          {
+            "id": "D",
+            "latex": "6",
+            "value": 6,
+            "wrongOperation": "After finding n=2, change the minus in n²−n to a plus: 2²+2=6."
+          },
+          {
+            "id": "E",
+            "latex": "-\\frac{2}{9}",
+            "value": -0.2222222222222222,
+            "wrongOperation": "Ignore the square-root exponent halving: use 2n+6 rather than n+3, making the total exponent 3n+8=9, so n=1/3 and n²−n=1/9−1/3=−2/9."
+          },
+          {
+            "id": "F",
+            "latex": "2",
+            "value": 2,
+            "wrongOperation": null
+          }
+        ],
+        "workedSolutionSteps": [
+          "Since 2^{2n+6} is positive, \\sqrt{2^{2n+6}}=2^{n+3}. Convert 16^{n-1}=2^{4n-4} and 8^{n-2}=2^{3n-6}.",
+          "Combine exponents: (n+3)+(4n-4)-(3n-6)=2n+5, so 2^{2n+5}=2^9 and n=2.",
+          "Evaluate n^2-n=2^2-2=2. Correct option F."
+        ]
+      },
+      "verification": {
+        "correctValue": 2,
+        "distinctNumericChoices": 6,
+        "reviewScope": "Indices Autumn heading only; square-root indices explicitly taught status not confirmed",
+        "difficulty": "Provisional G8–9 may overstate complexity; check shared method with INDICES-029–032",
+        "formalQA": "PENDING_INDEPENDENT_GRADE_TAUGHT_AND_PEDAGOGICAL_REVIEW"
+      }
+    },
+    {
+      "questionId": "LUX-MATH-Y9-SIMULTANEOUS-013",
+      "scope": "ORIGINAL_STEM_OPTION_REPAIR",
+      "original": {
+        "id": "LUX-MATH-Y9-SIMULTANEOUS-013",
+        "topicId": "math-y9-simultaneous-equations",
+        "difficultyTarget": "G7",
+        "templateId": "V2-SIMULTANEOUS-4",
+        "stem": "For what value of $k$ do the equations $\\begin{cases} 2x+3y=7\\\\ kx+6y=15\\end{cases}$ have **no solution**?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "6"
+          },
+          {
+            "id": "B",
+            "latex": "5"
+          },
+          {
+            "id": "C",
+            "latex": "4"
+          },
+          {
+            "id": "D",
+            "latex": "-4"
+          },
+          {
+            "id": "E",
+            "latex": "2"
+          },
+          {
+            "id": "F",
+            "latex": "3"
+          }
+        ],
+        "correctOptionId": "C",
+        "workedSolutionSteps": [
+          "To have no solution, the two lines must be parallel: the coefficient of $y$ doubles, so $k=2(2)=4$.",
+          "The constants do not double: $2(7)=14\\ne 15$, so the lines are distinct and never intersect."
+        ]
+      },
+      "replacement": {
+        "stem": "For what value of $k$ do the equations $\\begin{cases} 2x+3y=7\\\\ kx+6y=15\\end{cases}$ have **no solution**?",
+        "correctOptionId": "C",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\frac{30}{7}",
+            "value": 4.285714285714286,
+            "wrongOperation": "Match the ratio of x-coefficients to the 15:7 constant ratio, setting k/2=15/7, but ignore that the y-coefficients require ratio 6/3=2: k=30/7."
+          },
+          {
+            "id": "B",
+            "latex": "5",
+            "value": 5,
+            "wrongOperation": "Treat the change in the y coefficient as an additive difference +3 rather than a doubling and add +3 to the original x coefficient: k=2+(6−3)=5."
+          },
+          {
+            "id": "C",
+            "latex": "4",
+            "value": 4,
+            "wrongOperation": null
+          },
+          {
+            "id": "D",
+            "latex": "-9",
+            "value": -9,
+            "wrongOperation": "Confuse parallel and perpendicular lines: slopes −2/3 and −k/6 have product k/9; require k/9=−1, giving k=−9."
+          },
+          {
+            "id": "E",
+            "latex": "2",
+            "value": 2,
+            "wrongOperation": "Keep the x coefficient from the first equation unchanged at k=2, forgetting that the y coefficient doubled from 3 to 6."
+          },
+          {
+            "id": "F",
+            "latex": "12",
+            "value": 12,
+            "wrongOperation": "Use the second equation's y coefficient 6 itself as the scale factor, rather than the ratio 6/3=2, obtaining k=2×6=12."
+          }
+        ],
+        "workedSolutionSteps": [
+          "For no solution, coefficient pairs must be proportional but constant terms must not have the same ratio.",
+          "The y coefficient doubles from 3 to 6, so require k=2(2)=4. The second equation has 4x+6y=15, whereas doubling the first gives 4x+6y=14, so the lines are distinct and parallel."
+        ]
+      },
+      "verification": {
+        "correctValue": 4,
+        "distinctNumericChoices": 6,
+        "reviewScope": "Simultaneous Equations listed as Autumn, but exact parallel no-solution criterion and school completion unverified",
+        "difficulty": "Mostly a one-step proportionality check; Grade 7 is not independently justified",
+        "formalQA": "HOLD_GRADE_TARGET_NOT_EVIDENCED"
+      }
+    },
+    {
+      "questionId": "LUX-MATH-Y9-SIMULTANEOUS-013",
+      "scope": "PROPOSED_REPLACEMENT_FOR_GRADE_UPLIFT",
+      "original": {
+        "id": "LUX-MATH-Y9-SIMULTANEOUS-013",
+        "topicId": "math-y9-simultaneous-equations",
+        "difficultyTarget": "G7",
+        "templateId": "V2-SIMULTANEOUS-4",
+        "stem": "For what value of $k$ do the equations $\\begin{cases} 2x+3y=7\\\\ kx+6y=15\\end{cases}$ have **no solution**?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "6"
+          },
+          {
+            "id": "B",
+            "latex": "5"
+          },
+          {
+            "id": "C",
+            "latex": "4"
+          },
+          {
+            "id": "D",
+            "latex": "-4"
+          },
+          {
+            "id": "E",
+            "latex": "2"
+          },
+          {
+            "id": "F",
+            "latex": "3"
+          }
+        ],
+        "correctOptionId": "C",
+        "workedSolutionSteps": [
+          "To have no solution, the two lines must be parallel: the coefficient of $y$ doubles, so $k=2(2)=4$.",
+          "The constants do not double: $2(7)=14\\ne 15$, so the lines are distinct and never intersect."
+        ]
+      },
+      "replacement": {
+        "stem": "For which value of k do the simultaneous equations \\begin{cases} 2x+3y=7 \\\\ (k+1)x+(2k-2)y=15 \\end{cases} have no solution? Explain why the lines are distinct rather than coincident.",
+        "correctOptionId": "C",
+        "options": [
+          {
+            "id": "A",
+            "latex": "-1",
+            "value": -1,
+            "wrongOperation": "Mistakenly change (2k−2) into (2k+2) when forming the cross-product: 3(k+1)=2(2k+2), giving 3k+3=4k+4 and k=−1."
+          },
+          {
+            "id": "B",
+            "latex": "5",
+            "value": 5,
+            "wrongOperation": "Forget to double the constant −2 when expanding 2(2k−2), using 4k−2: 3k+3=4k−2, so k=5."
+          },
+          {
+            "id": "C",
+            "latex": "7",
+            "value": 7,
+            "wrongOperation": null
+          },
+          {
+            "id": "D",
+            "latex": "\\frac{23}{7}",
+            "value": 3.2857142857142856,
+            "wrongOperation": "Set the ratio of x coefficients equal to the ratio of constants (k+1)/2=15/7 rather than the ratio of variable coefficients; solve k=30/7−1=23/7."
+          },
+          {
+            "id": "E",
+            "latex": "\\frac{1}{2}",
+            "value": 0.5,
+            "wrongOperation": "Mistakenly test for perpendicular lines: slopes −2/3 and −(k+1)/(2k−2) have product −1 when 2(k+1)=−3(2k−2), giving k=1/2."
+          },
+          {
+            "id": "F",
+            "latex": "-7",
+            "value": -7,
+            "wrongOperation": "Set up the correct parallel condition 3(k+1)=2(2k−2), reach −k=−7, but fail to reverse the sign on division by −1 and answer k=−7."
+          }
+        ],
+        "workedSolutionSteps": [
+          "For no solution require the lines to be parallel: 2(2k-2)-3(k+1)=0, equivalently 3(k+1)=2(2k-2).",
+          "Expand: 3k+3=4k-4, therefore k=7. At k=7 the second left side is 8x+12y, four times the first left side.",
+          "However four times the first right side is 4(7)=28, not 15. Thus the equations are inconsistent and there is no solution; correct option C."
+        ]
+      },
+      "verification": {
+        "correctValue": 7,
+        "distinctNumericChoices": 6,
+        "reviewScope": "Parameterized parallel conditions are simultaneous equations, but their actual lesson coverage at TGS is unverified",
+        "difficulty": "Increased AO2 requirement: equate variable coefficient ratios, solve parameter equation, distinguish coincidence vs distinctness. Grade 7 still provisional until exam calibration",
+        "formalQA": "HOLD_FOR_GRADE_AND_TEACHER_VERIFICATION",
+        "canonicalStemChanged": true
+      }
+    }
+  ],
+  "note": "Three QA-only candidates for two source IDs: INDICES-037 complete A–F replacement; SIMULTANEOUS-013 exact-stem A–F and a separate parameterized higher-demand stem. No automatic bank replacement or release."
+}
