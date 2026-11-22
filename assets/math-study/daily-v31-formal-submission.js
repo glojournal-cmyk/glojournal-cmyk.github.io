@@ -6,6 +6,18 @@ const BANDS=Object.freeze({'G7':4,'G8':4,'G8-9':2});
 const CHOICES=['A','B','C','D','E','F'];
 const text=x=>typeof x==='string'&&x.trim().length>0;
 const date=x=>typeof x==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(x);
+// Validate a real instant against the school's Europe/London task date.
+// UTC ISO dates can differ from the local task day around BST midnight;
+// startsWith(day) wrongly rejects those answers and accepts fake timestamps.
+const submittedOnSchoolDay=(stamp,day)=>{
+ if(!text(stamp)||!/^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\\.[0-9]{1,3})?(?:Z|[+-][0-9]{2}:[0-9]{2})$/.test(stamp))return false;
+ const instant=Date.parse(stamp);
+ if(!Number.isFinite(instant))return false;
+ const parts=Object.fromEntries(new Intl.DateTimeFormat('en-GB',{
+  timeZone:'Europe/London',year:'numeric',month:'2-digit',day:'2-digit'
+ }).formatToParts(new Date(instant)).map(p=>[p.type,p.value]));
+ return [parts.year,parts.month,parts.day].join('-')===day;
+};
 export function verifyMathDailyAssignment(task,questions,day){
  const issues=[];
  if(!date(day)||task?.planDate!==day||task?.id!=='maths-daily'||
@@ -56,7 +68,7 @@ export function makeVerifiedMathsSubmission({day,task,approvedQuestions,question
  const check=verifyMathDailyAssignment(task,approvedQuestions,day);
  if(!check.valid)return {accepted:false,reasons:check.issues};
  if(!CHOICES.includes(selectedOptionId))return {accepted:false,reasons:['invalid-A-F-choice']};
- if(!text(submittedAt)||!submittedAt.startsWith(day))
+ if(!submittedOnSchoolDay(submittedAt,day))
    return {accepted:false,reasons:['missing-or-wrong-day-submission-time']};
  if(assisted||hintUsed||scaffolded||recoveryFor)
    return {accepted:false,reasons:['assisted-or-recovery-answer-not-daily-credit']};
