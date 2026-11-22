@@ -50,10 +50,13 @@ jobs:
       - name: Existing practice scoring regression
         run: |
           node tests/food-tests-round1-batch-acceptance.mjs
-          node tests/food-tests-six-guarded-acceptance.mjs
+          # The old six-guard runner asserts a pre-37-repair snapshot (159/196).
+          # Current 37-item runner checks all six guarded questions (49/49),
+          # the 196-item regression, 62 ethanol cases and 148 adversarial cases.
           node tests/food-tests-remaining-37-acceptance.mjs
           node tests/food-tests-four-confirmed-overcredit-acceptance.mjs
       - name: Unseen wording diagnostic - never automatically approved
+        if: always()
         run: node tests/food-tests-37-unseen-diagnostic.mjs --write
       - name: Upload QA evidence
         if: always()
