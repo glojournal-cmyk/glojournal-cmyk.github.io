@@ -42,7 +42,7 @@ test('all 40 Indices, 40 Standard Form and 40 Simultaneous values independently 
  assert.equal(ind.independentAnswerValuesMatchOriginalWorkedKeys,40);
  assert.equal(sf.sourceMathAnswerMatched,40);
  assert.equal(sim.computedSourceAnswerMatches,40);
- for(const q of ind.questions){assert.equal(q.matchedOriginalWorkedAnswerNumeric,true);assert.equal(q.studentCreditEligible,false)}
+ for(const q of ind.questions){assert.equal(q.matchedOriginalWorkedAnswerNumeric,true);assert.equal(q.eligibleForStudentCredit,false)}
  for(const q of sf.questions){
   close(q.independentCalculatedNumeric,q.printedCorrectAnswerValue,q.sourceId);
   assert.equal(q.sourceGrade7PlusIndependentlyApproved,false);
