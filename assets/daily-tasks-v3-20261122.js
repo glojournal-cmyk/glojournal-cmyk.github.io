@@ -185,7 +185,9 @@ export function buildDailyV3(state,legacy=[],manifest=V3_APPROVED,{mathAttempts=
     assignedLabel:year9Due.entry.title||year9Due.entry.topicId,
     approvedQuestionIds:year9Due.dueGroups.slice(0,10).map(g=>g.ids[0]),
     href:'/study/'+year9Due.entry.subject+'/practise?daily=1&locked=1&year=9&mode=due&task=due-review&topic='+encodeURIComponent(year9Due.entry.topicId)
-  },day):originalDue;
+  },day):(pendingYear8Recall&&Number(originalDue.target)===5&&Number(originalDue.progress)===0
+    ? {...originalDue,target:10,detail:'Year 8 Day 2/7 recall within a 10-question Due Review; five additional unassisted consolidation questions required. Existing recall evidence is assessed separately.'}
+    : originalDue);
   const plan=[passthrough('french-vocab'),passthrough('latin-vocab'),language,
     passthrough('y8-standard-a'),standardB,
     passthrough('y8-mastery-a'),passthrough('y8-mastery-b'),mathsTask,due,
