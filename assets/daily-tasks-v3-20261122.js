@@ -53,6 +53,12 @@ export function chooseApprovedTopic(entries,state,year,subject,count,reserved=ne
 export function v3ScopedQuestionEvidence(state,task,day){
   const allowed=new Set(task?.approvedQuestionIds||[]);
   const concepts=task?.approvedConceptByQuestion||{};
+  // Same-day cross-task reservation: an assessed question cannot be counted
+  // in another Daily task, even when it appears under a different task ID.
+  const elsewhere=new Set((state.formalAttemptLog||[]).filter(e=>
+    e?.day===day&&e?.dailyTaskId&&e.dailyTaskId!==task?.id&&
+    e.formal!==false&&e.repair!==true&&!e.recoveryFor&&e.questionId)
+    .map(e=>String(e.questionId).split('@')[0]));
   const attempts=new Map();
   for(const e of state.formalAttemptLog||[]){
     if(e?.day!==day||e?.dailyTaskId!==task?.id||
@@ -61,7 +67,7 @@ export function v3ScopedQuestionEvidence(state,task,day){
        e.recoveryFor||e.assisted===true||e.hintUsed===true||e.scaffolded===true||
        typeof e.correct!=='boolean'||!e.questionId)continue;
     const id=String(e.questionId).split('@')[0];
-    if(!allowed.has(id)||!Object.hasOwn(concepts,id))continue;
+    if(elsewhere.has(id)||!allowed.has(id)||!Object.hasOwn(concepts,id))continue;
     const key=concepts[id];
     const previous=attempts.get(key);
     attempts.set(key,previous===true||e.correct===true);
@@ -73,6 +79,10 @@ export function v3ScopedQuestionEvidence(state,task,day){
 
 export function languageEvidence(state,day,taskId='languages-standard'){
   const result={latin:{attempts:0,correct:0},french:{attempts:0,correct:0}};
+  const elsewhere=new Set((state.formalAttemptLog||[]).filter(e=>
+    e?.day===day&&e?.dailyTaskId&&e.dailyTaskId!==taskId&&
+    e.formal!==false&&e.repair!==true&&!e.recoveryFor&&e.questionId)
+    .map(e=>String(e.questionId).split('@')[0]));
   for(const subject of ['latin','french']){
     const journal=(state.formalAttemptLog||[]).filter(e=>
       e?.day===day&&e.dailyTaskId===taskId&&e.subject===subject&&Number(e.year)===8&&
@@ -86,7 +96,7 @@ export function languageEvidence(state,day,taskId='languages-standard'){
       const id=String(e.questionId).split('@')[0];
       // An opposite translation or alternate form is the SAME concept.
       const concept=concepts[id]||id;
-      if(split&&(!Object.hasOwn(concepts,id)||e.topicId!==split.topicId))continue; // not assigned/approved
+      if(elsewhere.has(id)||split&&(!Object.hasOwn(concepts,id)||e.topicId!==split.topicId))continue; // no cross-task or unapproved credit
       unique.set(concept,Boolean(e.correct)||unique.get(concept)===true);
     }
     result[subject]={attempts:unique.size,correct:Math.min(5,[...unique.values()].filter(Boolean).length)};
