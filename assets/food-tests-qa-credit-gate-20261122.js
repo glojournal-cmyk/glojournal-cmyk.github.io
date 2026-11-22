@@ -160,3 +160,12 @@ export function foodTestsPupilVerdict(value){
  if(!isFoodTestsQaHeld(value))return null;
  return {ok:false,practiceOnly:true,formalCredit:false,errorKind:'unmarked',score:null,total:null,pointResults:null,model:'Practice saved. Not a formal mark.'};
 }
+
+// A practice completion must never claim "saved" before iPad storage confirms.
+// Preserve the existing draft on failure and let the pupil retry Finish.
+export async function saveHeldPracticeCompletion(drafts,key,data){
+ try{
+  if(!drafts||typeof drafts.save!=='function'||!key)return false;
+  return (await drafts.save(key,data))===true;
+ }catch{return false}
+}
