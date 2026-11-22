@@ -1498,7 +1498,11 @@ function compactDailyTasks(daily) {
       ...(task.dailyV3===true&&Array.isArray(task.approvedQuestionIds)?{
         approvedQuestionIds:task.approvedQuestionIds.slice(0,20).map(String),
         approvedConceptByQuestion:Object.fromEntries(Object.entries(task.approvedConceptByQuestion||{})
-          .filter(([id])=>task.approvedQuestionIds.includes(id)).slice(0,20))
+          .filter(([id])=>task.approvedQuestionIds.includes(id)).slice(0,20)),
+        // Maths first-submission grading must survive dated-log compaction.
+        ...(task.id==='maths-daily'?{approvedCorrectOptionByQuestion:Object.fromEntries(
+          Object.entries(task.approvedCorrectOptionByQuestion||{})
+          .filter(([id])=>task.approvedQuestionIds.includes(id)).slice(0,10))}:{})
       }:{}),
       // Preserve the exact two-subject V3 assignment identity in dated logs.
       // Only the ten selected question IDs are retained; no whole-bank copy.
