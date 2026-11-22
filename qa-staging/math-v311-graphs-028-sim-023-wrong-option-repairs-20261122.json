@@ -1,0 +1,195 @@
+{
+  "status": "QA_STAGING_NOT_ACADEMICALLY_APPROVED",
+  "purpose": "Replace source options with five demonstrated arithmetical/algebraic error pathways per question, without changing canonical bank.",
+  "originalSamplePath": "qa-staging/math-v31-original-sample10.json",
+  "originalSampleGithubBlobSha": "2638a3b0ea387189ef2a278e21803219164986a2",
+  "sourceOfTruth": "archived 200-item Maths student and answers PDFs, corroborated by original 10-question JSON sample",
+  "referenceAqaScheme": "https://www.aqa.org.uk/subjects/mathematics/gcse/mathematics-8300/specification/scheme-of-assessment",
+  "referenceTgsCurriculum": "https://fra1.digitaloceanspaces.com/tiffingirls.org/wp-content/uploads/2026/07/10161919/Year-9-Maths-2026-2027.pdf",
+  "canonicalBankModified": false,
+  "mathDailyEnabled": false,
+  "studentCredit": false,
+  "fullOriginal200BankDigestVerified": false,
+  "teacherTaughtSubskillVerified": false,
+  "independentGradeBenchmarkPassed": false,
+  "externalReviewerSignoff": false,
+  "devicePwaQAPassed": false,
+  "patches": [
+    {
+      "questionId": "LUX-MATH-Y9-GRAPHS-028",
+      "originalCorrectOptionId": "C",
+      "originalDifficultyTarget": "G8",
+      "originalStem": "Lines $y=2 \\left(2 x - 3\\right)$ and $y=- 2 \\left(2 x - 13\\right)$ meet at $P$. A line through $P$ is parallel to the segment joining $A(1, 2)$ to $B(6, -2)$. Find its $x$-intercept.",
+      "originalOptions": [
+        {
+          "id": "A",
+          "latex": "\\frac{37}{2}"
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{27}{2}"
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{33}{2}"
+        },
+        {
+          "id": "D",
+          "latex": "33"
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{35}{2}"
+        },
+        {
+          "id": "F",
+          "latex": "17"
+        }
+      ],
+      "originalWorkedSolutionSteps": [
+        "Solve the two given lines to get $P=(4,10)$. The gradient of $AB$ is $\\dfrac{-4}{5}=- \\frac{4}{5}$.",
+        "The line through $P$ has the same gradient. Put $y=0$ in $y-10=- \\frac{4}{5}(x-4)$, giving $x=\\frac{33}{2}$."
+      ],
+      "curriculumReview": "TGS_AUTUMN_LINEAR_GRAPHS_BUT_PARALLEL_LINE_DEMAND_UNVERIFIED",
+      "difficultyReview": "Requires intersection of two nonparallel lines, gradient from points and transfer to a new line's x-axis intercept; more multi-stage than a single slope problem, but not automatically Grade 8.",
+      "replacement": {
+        "stem": "Lines $y=2 \\left(2 x - 3\\right)$ and $y=- 2 \\left(2 x - 13\\right)$ meet at $P$. A line through $P$ is parallel to the segment joining $A(1, 2)$ to $B(6, -2)$. Find its $x$-intercept.",
+        "correctOptionId": "C",
+        "options": [
+          {
+            "id": "A",
+            "latex": "-\\frac{17}{2}",
+            "wrongOperation": "Take the absolute value of the rise (4) and therefore use positive +4/5 rather than negative −4/5 as the AB gradient. Wrong intercept: x=4−10/(4/5)=−17/2.",
+            "computedValue": -8.5
+          },
+          {
+            "id": "B",
+            "latex": "-4",
+            "wrongOperation": "Use gradient +5/4 of the line perpendicular to AB, although the question asks for a line parallel to AB. Then x=4−10/(5/4)=−4.",
+            "computedValue": -4
+          },
+          {
+            "id": "C",
+            "latex": "\\frac{33}{2}",
+            "wrongOperation": null,
+            "computedValue": 16.5
+          },
+          {
+            "id": "D",
+            "latex": "\\frac{66}{5}",
+            "wrongOperation": "Calculate and report the y-intercept c of the correct parallel line instead of the requested x-intercept: c=10−(−4/5)×4=66/5.",
+            "computedValue": 13.2
+          },
+          {
+            "id": "E",
+            "latex": "\\frac{25}{2}",
+            "wrongOperation": "Drop the horizontal translation x−4 and solve 0=10−(4/5)x, giving x=10×(5/4)=25/2 instead of 4+25/2.",
+            "computedValue": 12.5
+          },
+          {
+            "id": "F",
+            "latex": "\\frac{3}{2}",
+            "wrongOperation": "Use the slope 4 of the first given intersecting line y=4x−6, rather than the slope of segment AB. Then x=4−10/4=3/2.",
+            "computedValue": 1.5
+          }
+        ],
+        "workedSolutionSteps": [
+          "First given line $y=4x-6$, second $y=-4x+26$. Equating them yields $P=(4,10)$.",
+          "Segment $A(1,2)$ to $B(6,-2)$ has gradient $(-2-2)/(6-1)=-4/5$. A parallel line through P has equation $y-10=-\\frac45(x-4)$.",
+          "Set $y=0$: $-10=-\\frac45(x-4)$ so $x=4+\\frac{50}{4}=\\frac{33}{2}$."
+        ]
+      },
+      "fiveWrongMethodsAreMathematicallyReconstructable": true,
+      "fiveWrongMethodsAreVerifiedStudentMisconceptions": false,
+      "release": "HOLD_FOR_TGS_TAUGHT_CONFIRMATION_GRADE_CALIBRATION_INDEPENDENT_QA"
+    },
+    {
+      "questionId": "LUX-MATH-Y9-SIMULTANEOUS-023",
+      "originalCorrectOptionId": "D",
+      "originalDifficultyTarget": "G8",
+      "originalStem": "Given $\\begin{cases} 4x+3y=25\\\\ 3x-4y=0\\end{cases}$, calculate $2x^2-y$.",
+      "originalOptions": [
+        {
+          "id": "A",
+          "latex": "27"
+        },
+        {
+          "id": "B",
+          "latex": "31"
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{29}{2}"
+        },
+        {
+          "id": "D",
+          "latex": "29"
+        },
+        {
+          "id": "E",
+          "latex": "26"
+        },
+        {
+          "id": "F",
+          "latex": "58"
+        }
+      ],
+      "originalWorkedSolutionSteps": [
+        "Eliminate a variable from the two equations to get $x=4$ and $y=3$.",
+        "Then $2x^2-y=2(4)^2-3=29$."
+      ],
+      "curriculumReview": "TGS_AUTUMN_SIMULTANEOUS_EQUATIONS_QUADRATIC_EXPRESSIONS",
+      "difficultyReview": "Elimination plus routine evaluation of 2x²−y is not demonstrably Grade 8. Even with better wrong choices, do NOT treat this question as qualifying for G7+ until difficulty benchmark and a substantive increase in reasoning.",
+      "replacement": {
+        "stem": "Given $\\begin{cases} 4x+3y=25\\\\ 3x-4y=0\\end{cases}$, calculate $2x^2-y$.",
+        "correctOptionId": "D",
+        "options": [
+          {
+            "id": "A",
+            "latex": "35",
+            "wrongOperation": "Add y rather than subtract y when evaluating $2x^2-y$ after correctly obtaining x=4, y=3: $2(4)^2+3=35$.",
+            "computedValue": 35
+          },
+          {
+            "id": "B",
+            "latex": "13",
+            "wrongOperation": "Omit the outer factor 2 multiplying $x^2$ and then subtract y: $4^2-3=13$.",
+            "computedValue": 13
+          },
+          {
+            "id": "C",
+            "latex": "21",
+            "wrongOperation": "Misinterpret the square $x^2$ as the product xy while keeping the coefficient 2: $2(4)(3)-3=21$.",
+            "computedValue": 21
+          },
+          {
+            "id": "D",
+            "latex": "29",
+            "wrongOperation": null,
+            "computedValue": 29
+          },
+          {
+            "id": "E",
+            "latex": "61",
+            "wrongOperation": "Square the entire product 2x rather than applying 2 only to the squared x: $(2\\cdot4)^2-3=61$.",
+            "computedValue": 61
+          },
+          {
+            "id": "F",
+            "latex": "26",
+            "wrongOperation": "Subtract 2y instead of just y after correctly evaluating $2x^2$: $2(4)^2-2(3)=26$.",
+            "computedValue": 26
+          }
+        ],
+        "workedSolutionSteps": [
+          "Multiply/eliminate: $4x+3y=25$, $3x-4y=0$ yield $x=4$ and $y=3$.",
+          "Check both: $4(4)+3(3)=25$ and $3(4)-4(3)=0$.",
+          "Required expression: $2x^2-y=2(4^2)-3=32-3=29$."
+        ]
+      },
+      "fiveWrongMethodsAreMathematicallyReconstructable": true,
+      "fiveWrongMethodsAreVerifiedStudentMisconceptions": false,
+      "release": "HOLD_FOR_TGS_TAUGHT_CONFIRMATION_GRADE_CALIBRATION_INDEPENDENT_QA"
+    }
+  ]
+}
