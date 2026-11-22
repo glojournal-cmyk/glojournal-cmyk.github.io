@@ -22,7 +22,11 @@ const topic=(subject,year,topicId,concepts)=>({
 });
 const makeMath=(id,grade='7')=>({
   id,subject:'maths',year:9,topicId:'math-y9-indices',topic:'indices',grade,difficultyTarget:grade==='8-9'?'G8-9':'G'+grade,
-  templateId:'unique-template-'+id,academicQA:'approved',taughtVerified:true,
+  templateId:'unique-template-'+id,
+  conceptFamilyId:'unique-template-'+id,
+  conceptFamilyEvidence:'synthetic concept check',
+  conceptFamilyReviewer:'synthetic reviewer',
+  academicQA:'approved',taughtVerified:true,
   mathDailyEnabled:true,renderRequired:true,
   sourceRef:'teacher-confirmed-index-law-source',qaReviewer:'independent-reviewer',
   options:Array.from({length:6},(_,i)=>({id:'ABCDEF'[i],text:String(i+1),
