@@ -33,6 +33,9 @@ test('offline native MathML supports fractions, nested radicals, indexes, cases,
  assert.match(latexMathML(expressions[0]),/<msqrt>/);
  assert.match(latexMathML(expressions[0]),/<msup>/);
  assert.match(latexMathML(expressions[3]),/<mtable/);
+ assert.match(mathsRichTextHTML('Ticket price $1(11)+4(6)=£35$.'),/<mtext>£<\/mtext>/);
+ assert.match(mathsRichTextHTML('Two tickets cost £40. How much for a child?'),/Two tickets cost £40/);
+ assert.doesNotMatch(mathsRichTextHTML('Two tickets cost £40.'),/<math /);
  for(const source of [
   'The volume is $2\\times10^{4}$ cm$^3$.',
   'Convert $2\\times10^{-3}$ m$^3=2\\times10^{3}$ cm$^3$.',
