@@ -11,6 +11,7 @@ on:
       - 'assets/daily-maths-v31-intake-gate-20261122.js'
       - 'assets/durable-study-evidence-20261018.js'
       - 'assets/math-study/daily-v31-selector.js'
+      - 'assets/math-study/math-v311-original-system-collisions.js'
       - 'assets/math-study/daily-v31-formal-submission.js'
       - 'assets/math-study/math-v31-native-mathml.js'
       - 'assets/math-study/daily-v31-qa-preview.js'
@@ -45,6 +46,7 @@ on:
       - 'assets/daily-maths-v31-intake-gate-20261122.js'
       - 'assets/durable-study-evidence-20261018.js'
       - 'assets/math-study/daily-v31-selector.js'
+      - 'assets/math-study/math-v311-original-system-collisions.js'
       - 'assets/math-study/daily-v31-formal-submission.js'
       - 'assets/math-study/math-v31-native-mathml.js'
       - 'assets/math-study/daily-v31-qa-preview.js'
@@ -88,6 +90,7 @@ jobs:
           node --check assets/daily-maths-v31-intake-gate-20261122.js
           node --check tests/daily-v3-maths-v31-intake-20261122.test.mjs
           node --check assets/math-study/daily-v31-selector.js
+          node --check assets/math-study/math-v311-original-system-collisions.js
           node --check tests/daily-v3-maths-selector-20261122.test.mjs
           node --check assets/math-study/daily-v31-qa-preview.js
           node --check assets/math-study/daily-v31-formal-submission.js
