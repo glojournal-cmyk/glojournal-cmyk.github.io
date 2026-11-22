@@ -24,8 +24,9 @@ async function inspect(name,browserType){
  const browser=await browserType.launch({headless:true});
  const context=await browser.newContext({viewport:{width:1024,height:1366},isMobile:true,hasTouch:true,
    timezoneId:'Europe/London'});
- const page=await context.newPage(),errors=[];
+ const page=await context.newPage(),errors=[],externalRequests=[];
  page.on('pageerror',e=>errors.push(e.message));
+ page.on('request',r=>{if(!r.url().startsWith(base+'/'))externalRequests.push(r.url())});
  page.setDefaultTimeout(20000);
  try{
   await page.goto(base+'/study/maths/daily/',{waitUntil:'domcontentloaded'});
@@ -41,6 +42,8 @@ async function inspect(name,browserType){
   assert.equal(await page.locator('#qa-choices button.choice').count(),6);
   assert.ok(await page.locator('math[xmlns="http://www.w3.org/1998/Math/MathML"]').count()>0,
     'Offline native MathML must actually render formulas on WebKit/Chromium');
+  // The renderer must keep working after the browser loses network.
+  await context.setOffline(true);
   const option=source.questions[0].correctOptionId;
   await page.locator('#qa-choices button[data-option-id="'+option+'"]').click();
   await page.locator('#qa-worked').waitFor({state:'visible'});
@@ -54,6 +57,7 @@ async function inspect(name,browserType){
    keys:Object.keys(localStorage).sort(),attempts:localStorage.getItem('lux-scholar-garden-v1'),
    reviewer:window.__mathsQAReviewerState()
   }));
+  assert.deepEqual(externalRequests,[],'Offline native rendering must make no third-party CDN requests');
   assert.deepEqual(final.keys,initial.keys,'QA must never write learner storage');
   assert.equal(final.attempts,initial.attempts,'QA must not change main learner state');
   assert.equal(final.reviewer.answers.length,1);
