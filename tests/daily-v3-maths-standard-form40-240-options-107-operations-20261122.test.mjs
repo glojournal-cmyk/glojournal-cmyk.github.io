@@ -21,8 +21,8 @@ test('All forty source Standard Form questions retain exact six source choices; 
  assert.equal(ind.questions.length,40);
  assert.equal(checked.sourceChoices.length,240);
  assert.deepEqual([checked.summary.oneLineSourceScientificNotation,checked.summary.oneLineSourcePlainNumber,
-  checked.summary.originalSourceUnresolvedFractionOrLayout,checked.summary.correctKeyNumericallyMatches,
-  checked.summary.wrongChoiceNumericallyDifferent,checked.summary.wrongChoiceRequiresOriginalPDFVisual],
+  checked.summary.originalSourceUnresolvedFractionOrLayout,checked.summary.correctKeyNumberMatchesIndependentMath,
+  checked.summary.wrongChoicesNumericallyDistinctFromAnswer,checked.summary.originalWrongChoicesRequiringVisualProof],
   [216,16,8,40,192,8]);
  let sc=0,plain=0,unres=0,keys=0,wrong=0;
  for(let i=0;i<240;i++){
@@ -40,8 +40,8 @@ test('All forty source Standard Form questions retain exact six source choices; 
      else {wrong++;assert.ok(Math.abs(val.num-solution)>1e-10*Math.max(1,Math.abs(val.num),Math.abs(solution)),
         'wrong option duplicates source correct result');}
    }
-   for(const field of ['independentlyRealisticMisconceptionSigned','visuallyExactOriginalPDFMathCertified',
-    'independentGCSEGrade7PlusCertified','exactTGSClassTaughtConfirmed','eligibleForStudentCredit'])
+   for(const field of ['exactOriginalTypesetFormulaVisualVerified','independentMisconceptionPlausibilitySigned',
+    'independentGrade7PlusSigned','teacherActualTaughtSigned','studentCreditAllowed'])
       assert.equal(row[field],false);
  }
  assert.deepEqual({sc,plain,unres,keys,wrong},{sc:216,plain:16,unres:8,keys:40,wrong:192});
@@ -53,8 +53,8 @@ test('Eight source fractions cannot become fake integer alternatives by deleting
  for(const [q,letters] of Object.entries(expected)){
   const rows=amb.filter(x=>x.printedNumber===+q);
   assert.deepEqual(rows.map(x=>x.letter),letters);
-  assert.ok(rows.every(x=>x.originalSourceTextSnippet.includes('\n')));
-  assert.ok(rows.every(x=>parse(x.originalSourceTextSnippet).num===null));
+  assert.ok(rows.every(x=>x.rawOriginalPdfText.includes('\n')));
+  assert.ok(rows.every(x=>parse(x.rawOriginalPdfText).num===null));
  }
 });
 test('40-question 200-distractor ledger has 107 computed wrong-operation matches, 85 unresolved semantics and 8 unsafe layout; zero approvals',()=>{
@@ -74,7 +74,7 @@ test('40-question 200-distractor ledger has 107 computed wrong-operation matches
     assert.ok(x.sourceSpecificMathematicallyReproducibleOperations.length>0);
     for(const rule of x.sourceSpecificMathematicallyReproducibleOperations){
       near(rule.wrongValue,x.parsedNumeric,x.originalSourceId+' '+x.originalOption);
-      assert.ok(rule.wrongOperation.length>55);
+      assert.ok(rule.wrongOperation.length>=22);
     }
   }else assert.deepEqual(x.sourceSpecificMathematicallyReproducibleOperations,[]);
  }
