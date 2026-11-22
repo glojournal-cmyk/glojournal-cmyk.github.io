@@ -297,7 +297,27 @@
           "issue": "Strong positive result now accepts only brick-red, brick red and brickred."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-marking-counterexamples.mjs",
+          "scorer": "assets/quiz-session-y8fix-20260920.js scienceProse and normalised exact match",
+          "cases": [
+            {
+              "id": "bio-y8-food-tests-brick-red-name",
+              "score": 1,
+              "total": 1,
+              "ok": true
+            },
+            {
+              "id": "bio-y8-food-tests-brick-red-name",
+              "score": 0,
+              "total": 1,
+              "ok": false
+            }
+          ],
+          "note": "brick red scores 1/1. The full positive colour range scores 0/1."
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "revised-awaiting-independent-review",
       "approved": false
@@ -475,7 +495,35 @@
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-marking-counterexamples.mjs",
+          "scorer": "assets/quiz-session-y8fix-20260920.js semanticPointMatch via R",
+          "cases": [
+            {
+              "id": "bio-y8-food-tests-water-bath-explain",
+              "score": 2,
+              "total": 2,
+              "ok": true,
+              "pointResults": [
+                true,
+                true
+              ]
+            },
+            {
+              "id": "bio-y8-food-tests-water-bath-explain",
+              "score": 1,
+              "total": 2,
+              "ok": false,
+              "pointResults": [
+                true,
+                false
+              ]
+            }
+          ],
+          "note": "Academic scores 2/2 and 1/2 both occurred. A score of 1 does not pass because two points require both."
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -564,7 +612,45 @@
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-marking-counterexamples.mjs",
+          "scorer": "assets/quiz-session-y8fix-20260920.js semanticPointMatch via R",
+          "cases": [
+            {
+              "id": "bio-y8-app-ethanol-safety",
+              "score": 0,
+              "total": 2,
+              "ok": false,
+              "pointResults": [
+                false,
+                false
+              ]
+            },
+            {
+              "id": "bio-y8-app-ethanol-safety",
+              "score": 0,
+              "total": 2,
+              "ok": false,
+              "pointResults": [
+                false,
+                false
+              ]
+            },
+            {
+              "id": "bio-y8-app-ethanol-safety",
+              "score": 1,
+              "total": 2,
+              "ok": false,
+              "pointResults": [
+                true,
+                false
+              ]
+            }
+          ],
+          "note": "Academic target for the flammable paraphrase plus correct method was 2/2. The marker gave 0/2 when the student said catches fire, and 1/2 when the student said highly flammable but did not repeat without heating. The wrong flame answer also scored 0/2, so the item does not separate it from the correct paraphrase."
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2519,5 +2605,6 @@
       "academicStatus": "not-individually-reviewed",
       "approved": false
     }
-  ]
+  ],
+  "markingCounterexamples": "tests/food-tests-marking-counterexamples.mjs"
 }
