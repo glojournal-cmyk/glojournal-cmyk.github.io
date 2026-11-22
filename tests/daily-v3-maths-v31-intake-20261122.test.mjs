@@ -10,7 +10,8 @@ const sample=()=>({
   options:['0','2','3','6','-4','-2'].map((latex,i)=>({id:'ABCDEF'[i],latex})),
   correctOptionId:'B',correctAnswerLatex:'2',
   workedSolutionSteps:['Rewrite powers as base 2.','Equate exponents and solve n=2.'],
-  qa:{mathSecondPassVerified:true,independentAcademicSignoff:false},
+  qa:{mathSecondPassVerified:true,oneCorrectChoiceSecondPass:true,
+    sixMathematicallyDistinctChoicesSecondPass:true,independentAcademicSignoff:false},
   academicReview:{confirmedTaught:false,gradeBandIndependentSignoff:false}
 });
 test('V3.1 source headings map into the existing Maths contract WITHOUT inventing academic QA',()=>{
@@ -43,7 +44,7 @@ test('Missing any one distractor pedagogical rationale prevents academic enablem
    pedagogyReviewer:'independent curriculum specialist',
    distractorRationales:{A:'zero exponent misconception',C:'wrong base conversion',
       D:'multiply exponents instead of adding',E:'miss a minus sign',F:'incorrect power cancellation'},
-   ipadLatexRendererVerified:true,rendererEvidence:'iPad WebKit question and worked steps screenshot QA'
+   ipadNativeMathMLVerified:true,rendererEvidence:'iPad WebKit offline MathML question and worked steps screenshot QA'
  };
  assert.equal(stageMathsV31Question(x,s).eligible,true,'synthetic fully evidenced manifest');
  delete s.distractorRationales.E;
@@ -54,5 +55,16 @@ test('A duplicate ID or an incomplete raw pack is rejected before any import',()
  const invalid=auditMathsV31Pack({version:'3.1-independent-maths-second-pass',questions:[x,{...x}]});
  assert.ok(invalid.issues.includes('expect-200-questions'));
  assert.ok(invalid.issues.includes('duplicate-question-ID'));
+ assert.ok(invalid.issues.includes('independently-verified-raw-bank-sha-required'));
+ assert.ok(invalid.issues.includes('source-header-question-count-mismatch'));
  assert.equal(invalid.eligible,0);
+});
+
+test('A signed-looking record cannot bypass the independent raw-bank digest or six A-F option keys',()=>{
+ const q=sample();
+ assert.ok(stageMathsV31Question({...q,options:q.options.map(o=>({...o,id:o.id.toLowerCase()}))}).issues.includes('option-schema-invalid'));
+ assert.ok(stageMathsV31Question({...q,qa:{...q.qa,mathSecondPassVerified:false}}).issues.includes('source-maths-second-pass-incomplete'));
+ const fake={version:'3.1-independent-maths-second-pass',questionCount:200,
+   questions:Array.from({length:200},(_,i)=>({...q,id:'sample-'+i}))};
+ assert.ok(auditMathsV31Pack(fake).issues.includes('independently-verified-raw-bank-sha-required'));
 });
