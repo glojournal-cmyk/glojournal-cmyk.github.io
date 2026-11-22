@@ -37,8 +37,9 @@ test('scope: only one genuine dated correct per independently approved Standard 
  assert.equal(rebuilt.find(x=>x.id===b.id).progress,9);
  assert.equal(rebuilt.find(x=>x.id===b.id).done,false);
  s.formalAttemptLog.push(entry(b,ids[0],true));
- assert.equal(v3ScopedQuestionEvidence(s,b,day).correct,10);
- assert.equal(buildDailyV3(s,legacy()).find(x=>x.id===b.id).done,true);
+ assert.equal(v3ScopedQuestionEvidence(s,b,day).correct,9,
+   'a later correct retry cannot wash a wrong first answer into Daily credit');
+ assert.equal(buildDailyV3(s,legacy()).find(x=>x.id===b.id).done,false);
 });
 test('wrong year, other subject, other topic, other day or different Daily task cannot leak credit to Standard B',()=>{
  const b=plan().find(x=>x.id==='y8-standard-b');
@@ -69,8 +70,30 @@ test('Languages only counts five approved original-question concepts in EACH cor
  const update=buildDailyV3(s,legacy()).find(x=>x.id==='languages-standard');
  assert.equal(update.progress,8);
  s.formalAttemptLog.push(...french.slice(3));
- assert.equal(languageEvidence(s,day).completed,true);
- assert.equal(buildDailyV3(s,legacy()).find(x=>x.id==='languages-standard').progress,10);
+ assert.equal(languageEvidence(s,day).completed,false,
+   'a corrected or post-hint retry cannot replace the first formal result');
+ assert.equal(buildDailyV3(s,legacy()).find(x=>x.id==='languages-standard').progress,8);
+});
+test('first formal answer wins: wrong and hinted Language or Year9 attempts cannot be overwritten',()=>{
+ const tasks=plan(),standard=tasks.find(t=>t.id==='y8-standard-b');
+ const langs=tasks.find(t=>t.id==='languages-standard');
+ for(const first of [{correct:false},{correct:true,hintUsed:true},
+   {correct:true,assisted:true},{correct:true,scaffolded:true}]){
+  const id=standard.approvedQuestionIds[0];
+  const early=entry(standard,id,first.correct,first);
+  const later=entry(standard,id,true);
+  const e=v3ScopedQuestionEvidence({...base(),daily:tasks,formalAttemptLog:[early,later]},standard,day);
+  assert.equal(e.correct,0,'Year9 retry credit forbidden: '+JSON.stringify(first));
+  assert.equal(e.completed,false);
+  const lid=langs.languageSplit.latin.approvedQuestionIds[0];
+  const item=(payload)=>({day,year:8,subject:'latin',
+    topicId:langs.languageSplit.latin.topicId,
+    dailyTaskId:'languages-standard',questionId:lid,
+    correct:true,formal:true,...payload});
+  const proof=languageEvidence({...base(),daily:tasks,
+    formalAttemptLog:[item(first),item({correct:true})]},day);
+  assert.equal(proof.latin.correct,0,'Language retry credit forbidden: '+JSON.stringify(first));
+ }
 });
 test('BLOCKED Languages Standard cannot be turned into 10/10 by tagged but unapproved formal answers',()=>{
  const initial=buildDailyV3(base(),legacy(),{
