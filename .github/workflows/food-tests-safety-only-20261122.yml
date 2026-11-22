@@ -14,6 +14,7 @@ on:
       - 'assets/daily-curriculum-20261004.js'
       - 'assets/year8-daily-v2-20261018.js'
       - 'tests/food-tests-safety-only-20261122.test.mjs'
+      - 'tests/daily-mastered-loop-20261023.test.mjs'
       - '.github/workflows/food-tests-safety-only-20261122.yml'
   pull_request:
     paths:
@@ -27,6 +28,7 @@ on:
       - 'assets/daily-curriculum-20261004.js'
       - 'assets/year8-daily-v2-20261018.js'
       - 'tests/food-tests-safety-only-20261122.test.mjs'
+      - 'tests/daily-mastered-loop-20261023.test.mjs'
       - '.github/workflows/food-tests-safety-only-20261122.yml'
   workflow_dispatch:
 permissions:
@@ -52,5 +54,8 @@ jobs:
           node --check assets/daily-curriculum-20261004.js
           node --check assets/year8-daily-v2-20261018.js
           node --check tests/food-tests-safety-only-20261122.test.mjs
+          node --check tests/daily-mastered-loop-20261023.test.mjs
       - name: Academic hold and unmarked practice-only regression
         run: node --test tests/food-tests-safety-only-20261122.test.mjs
+      - name: Mastery two-slot 20-question regression without QA-held banks
+        run: node --test tests/daily-mastered-loop-20261023.test.mjs
