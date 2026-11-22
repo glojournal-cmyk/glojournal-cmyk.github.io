@@ -1,5 +1,6 @@
 // Daily Tasks V3 contract and safety gates. No learner state is mutated here.
 import {V3_ACADEMIC_WHITELIST} from './daily-v3-approved-content-20261122.js';
+import {selectMathsV31Daily} from './math-study/daily-v31-selector.js';
 // Academic QA manifests start EMPTY. Absence of verification blocks supply;
 // it must never be interpreted as permission to select arbitrary catalog items.
 export const V3_START_DATE = '2026-11-23';
@@ -129,7 +130,8 @@ export function mathsEvidence(attempts=[],day,task=null){
     return {submitted:0,correct:0,completed:false,targetMet:false};
   const seen=new Map();
   for(const a of attempts){
-    if(a?.day!==day||!a.questionId||!validDate(day)||typeof a.correct!=='boolean'||!a.submittedAt)continue;
+    if(a?.day!==day||!a.questionId||!validDate(day)||typeof a.correct!=='boolean'||
+       !(a.submittedAt||a.at))continue;
     const id=String(a.questionId).split('@')[0];
     if(task&&(!accepted.has(id)||a.dailyTaskId!=='maths-daily'||a.subject!=='maths'||
        Number(a.year)!==9||a.formal!==true||a.repair===true||a.hintUsed===true||
@@ -151,7 +153,8 @@ const blocked=(id,title,target,year,reason,day)=>({
 const tagged=(task,day)=>({...task,planDate:day,dailyV3:true,planVersion:3});
 const isStarted=t=>Number(t?.progress)>0||t?.done===true||
   (Array.isArray(t?.verifiedCorrectIds)&&t.verifiedCorrectIds.length>0);
-export function buildDailyV3(state,legacy=[],manifest=V3_APPROVED,{mathAttempts=[]}={}){
+export function buildDailyV3(state,legacy=[],manifest=V3_APPROVED,{mathAttempts=null}={}){
+  if(mathAttempts===null)mathAttempts=(state.formalAttemptLog||[]).filter(e=>e?.dailyTaskId==='maths-daily');
   const day=dayOf(state.today);
   if(!validDate(day)||day<V3_START_DATE)return legacy;
   const dated=(state.daily||[]).filter(t=>t?.planDate===day);
@@ -213,17 +216,23 @@ export function buildDailyV3(state,legacy=[],manifest=V3_APPROVED,{mathAttempts=
   },day):blocked('y8-standard-b','Standard B · Year 9',10,9,
     'Year 9 question supply: fewer than ten independently approved taught concepts. No Year 8 substitution.',day);
   const mathBank=(manifest.maths||[]).filter(q=>validateMathQuestion(q).valid);
-  const bands={'7':4,'8':4,'8-9':2};
-  const selectedMath=Object.entries(bands).flatMap(([grade,n])=>
-    mathBank.filter(q=>String(q.grade)===grade).slice(0,n));
-  // Actual browser quiz/player rendering and marking must be explicitly
-  // device-QA verified before allowing Maths Daily to start. A JSON pack
-  // with mathematical PASS metadata alone is NEVER enough.
-  const mathReady=manifest.mathsRuntimeReady===true&&
-    Object.entries(bands).every(([grade,n])=>selectedMath.filter(q=>String(q.grade)===grade).length===n)&&
-    selectedMath.length===10&&
-    new Set(selectedMath.map(q=>q.id)).size===10&&
-    new Set(selectedMath.map(q=>q.templateId||q.conceptId)).size===10;
+  // The saved receipt is the ONLY source of former question/template reservations.
+  // The selector never mutates student state, and there is no fresh fallback.
+  const mathsHistory=Object.entries(state.dailyLog||{}).flatMap(([historyDate,row])=>{
+    const task=(row?.tasks||[]).find(t=>t.id==='maths-daily');
+    return task?.approvedQuestionIds?.length?[{
+      date:historyDate,questionIds:task.approvedQuestionIds,
+      templateIds:Object.values(task.approvedConceptByQuestion||{})
+    }]:[];
+  });
+  const mathSelection=selectMathsV31Daily({
+    approvedQuestions:mathBank,day,history:mathsHistory
+  });
+  const selectedMath=mathSelection.questions;
+  // Runtime must have proven real WebKit maths rendering, marking and storage.
+  // An uploaded JSON mathematical PASS alone never opens a scoring session.
+  const mathReady=manifest.mathsRuntimeReady===true&&mathSelection.ready&&
+    selectedMath.every(q=>validateMathQuestion(q).valid);
   const mathsAssignment=mathReady?tagged({
     id:'maths-daily',title:'Maths Daily · GCSE Higher',target:10,
     progress:0,done:false,
