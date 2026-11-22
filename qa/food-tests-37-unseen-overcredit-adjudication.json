@@ -1,0 +1,44 @@
+{
+  "kind": "food-tests-37-unseen-overcredit-adjudication",
+  "nodeResult": "qa/food-tests-37-unseen-node-result.json",
+  "qaCommit": "8c4073fc8d3792fccf5178b79964487b9a0935a0",
+  "command": "node tests/food-tests-37-unseen-diagnostic.mjs --write",
+  "exitCode": 0,
+  "bundlesAgree": true,
+  "summary": {
+    "cases": 74,
+    "matches": 40,
+    "underCredit": 29,
+    "overCreditCandidates": 5
+  },
+  "approved": 0,
+  "clearOvercreditExpectedZero": [
+    {
+      "id": "bio-y8-food-tests-application-20261025-iodine-repeat",
+      "why": "Testing once and changing the iodine volume is the opposite of both mark points. Matching the word volume is false credit."
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-negative-sugar",
+      "why": "A red result does not mean no reducing sugar. The negation is attached to a false observation, so 1/2 is not fair."
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-starch-extraction",
+      "why": "Saying grinding blocks contact is the opposite of the point. The words iodine and contact are not enough."
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-biuret-vs-sugar",
+      "why": "Purple means protein is present, and blue Benedict's is not high sugar. The word no belongs to protein, not sugar."
+    }
+  ],
+  "notConfirmedOvercredit": {
+    "id": "bio-y8-food-tests-application-20261025-all-negative",
+    "actual": "1/2",
+    "fixtureExpected": 0,
+    "decision": "Do not treat 1/2 as a confirmed error yet. The answer does cite four negative tests, which is the first point, and wrongly says they prove no nutrients at all, which must not get the second point or full marks."
+  },
+  "not": [
+    "approval",
+    "whitelist of the 29 unseen paraphrases",
+    "scorer edit"
+  ]
+}
