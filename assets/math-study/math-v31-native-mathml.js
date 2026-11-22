@@ -57,6 +57,7 @@ export function latexMathML(latex){
   if(/[a-zA-Z]/.test(c)){i++;return mi(c)}
   if('()+-=,<>[]|:;/%*'.includes(c)){i++;return mo(c)}
   if(c==='−'||c==='×'||c==='÷'||c==='≤'||c==='≥'||c==='≠'){i++;return mo(c)}
+  if(c==='£'){i++;return '<mtext>£</mtext>'}
   if(c==='&'||c==='#')err('unsafe symbol');
   err('unrecognized character');
  }
