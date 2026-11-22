@@ -48,7 +48,9 @@ function resolveDailyAssignment(subject,params,daily=[],history={}){
  }
 
  if(params.get(`daily`)!==`1`||params.get(`locked`)!==`1`)return null;
- const id=params.get(`task`),matches=t=>[t.assignedSubject,t.reviewSubject,t.focusSubject].includes(subject)||(()=>{try{const url=new URL(String(t.href||``),`https://scholar.invalid`);return url.pathname.replace(/\/$/,``)===`/study/${subject}/practise`}catch{return!1}})();
+ const id=params.get(`task`),matches=t=>(t.id===`languages-standard`&&
+   t.languageSplit?.[subject]?.subject===subject&&Number(t.languageSplit[subject].year)===8)||
+   [t.assignedSubject,t.reviewSubject,t.focusSubject].includes(subject)||(()=>{try{const url=new URL(String(t.href||``),`https://scholar.invalid`);return url.pathname.replace(/\/$/,``)===`/study/${subject}/practise`}catch{return!1}})();
  let task=daily.find(t=>t.id===id&&matches(t));
  // Older review cards linked to y8-mastery before their catalogue topic was available.
  if(!task&&id===`y8-mastery`&&!params.get(`topic`))task=daily.find(t=>t.id===`year8-long-review`&&matches(t));
