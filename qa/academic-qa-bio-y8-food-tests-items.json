@@ -673,7 +673,7 @@
         {
           "severity": "open",
           "status": "partially-tested",
-          "issue": "The dedicated ethanol rubric passed 22 positive/negative preflight cases; independent review and broader paraphrase coverage pending."
+          "issue": "Dedicated scorer passed 43 curated positive, partial and contradictory cases in V8 preflight. Independent Node execution, paraphrase coverage and academic review still pending."
         }
       ],
       "testEvidence": [
@@ -720,6 +720,21 @@
           "passed": 22,
           "total": 22,
           "environment": "isolated V8 function-level preflight; Node and PWA E2E pending"
+        },
+        {
+          "runner": "tests/food-tests-round1-batch-acceptance.mjs",
+          "kind": "Expanded regression for ethanol safety/procedure including 21 additional passive, order, negation and contradiction formulations",
+          "expected": {
+            "passed": 43,
+            "total": 43
+          },
+          "observedPreflight": {
+            "passed": 43,
+            "total": 43,
+            "runner": "V8 isolated function"
+          },
+          "status": "Node rerun pending; not academic sign-off",
+          "previousNodeEvidence": "qa/food-tests-round1-batch-node-result.json (22/22 plus 0/5 supplementary probes)"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -3191,5 +3206,5 @@
     }
   ],
   "markingCounterexamples": "tests/food-tests-marking-counterexamples.mjs",
-  "testStatus": "Function-level preflight complete; Node + independent academic QA + PWA not complete."
+  "testStatus": "43-case V8 scorer preflight passed; new Node regression and independent academic review pending."
 }
