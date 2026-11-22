@@ -161,7 +161,7 @@ export function buildDailyV3(state,legacy=[],manifest=V3_APPROVED,{mathAttempts=
   const old=new Map(legacy.map(t=>[t.id,t]));
   const passthrough=id=>old.get(id)?tagged(old.get(id),day):
     blocked(id,'Supply unavailable · '+id,V3_TASK_SPEC.find(e=>e[0]===id)?.[1]||10,8,'Existing planner source unavailable.',day);
-  const reserved=new Set(['y8-standard-a','y8-mastery-a','y8-mastery-b','year9-light']
+  const reserved=new Set(['y8-standard-a','y8-mastery-a','y8-mastery-b','due-review','year9-light']
     .map(id=>old.get(id)?.assignedTopic).filter(Boolean));
   const stdB=(manifest.year9Standard||[]).flatMap(e=>
     chooseApprovedTopic([e],state,9,e.subject,10,reserved)?[e]:[])
