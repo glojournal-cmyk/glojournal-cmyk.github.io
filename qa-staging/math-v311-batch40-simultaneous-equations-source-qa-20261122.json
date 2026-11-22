@@ -1,0 +1,2110 @@
+{
+  "status": "40_ITEM_SOURCE_QA_PACKET_NOT_FORMAL_ACADEMIC_APPROVAL",
+  "createdDate": "2026-11-22",
+  "topicId": "math-y9-simultaneous-equations",
+  "sourceDocuments": [
+    "Lux_Maths_Y9_V3_All_200_Student.pdf",
+    "Lux_Maths_Y9_V3_All_200_Answers.pdf",
+    "Lux_Maths_V3_1_Formal_Academic_QA_Register_20261122.csv"
+  ],
+  "sourcePreservationWarning": "Text was extracted from the original uploaded PDF; superscripts/fractions may be flattened and must be checked visually against the original typeset pages before mathematical signing. The PDF text is NOT treated as complete symbolic machine-readable data.",
+  "educationalEvidence": "Existing family-level 200-item triage copied by original ID. No individual GCSE grade certified, no five-pedagogy signer, no observed student misconceptions.",
+  "counts": {
+    "questions": 40,
+    "sourceFamilies": 10,
+    "variantsPerFamily": 4,
+    "sourceAnswerOptionMatch": 40,
+    "allSixALetters": 40,
+    "extractionFlagged": 0,
+    "triageActions": {
+      "UPGRADE_STEM_FOR_G7PLUS": 27,
+      "RETAIN_FOR_EXTERNAL_BENCHMARK": 8,
+      "REWRITE_CONTEXT_OR_DUPLICATE": 5
+    },
+    "formalQAApproved": 0,
+    "mathsDailyEligible": 0
+  },
+  "familyToOriginalQuestionIds": {
+    "V3-SIM-G7-SOLVE-DERIVED": [
+      "LUX-MATH-Y9-SIMULTANEOUS-001",
+      "LUX-MATH-Y9-SIMULTANEOUS-002",
+      "LUX-MATH-Y9-SIMULTANEOUS-003",
+      "LUX-MATH-Y9-SIMULTANEOUS-004"
+    ],
+    "V3-SIM-G7-NEW-TICKET-COMBINATION": [
+      "LUX-MATH-Y9-SIMULTANEOUS-005",
+      "LUX-MATH-Y9-SIMULTANEOUS-006",
+      "LUX-MATH-Y9-SIMULTANEOUS-007",
+      "LUX-MATH-Y9-SIMULTANEOUS-008"
+    ],
+    "V2-SIMULTANEOUS-3": [
+      "LUX-MATH-Y9-SIMULTANEOUS-009",
+      "LUX-MATH-Y9-SIMULTANEOUS-010",
+      "LUX-MATH-Y9-SIMULTANEOUS-011",
+      "LUX-MATH-Y9-SIMULTANEOUS-012"
+    ],
+    "V2-SIMULTANEOUS-4": [
+      "LUX-MATH-Y9-SIMULTANEOUS-013",
+      "LUX-MATH-Y9-SIMULTANEOUS-014",
+      "LUX-MATH-Y9-SIMULTANEOUS-015",
+      "LUX-MATH-Y9-SIMULTANEOUS-016"
+    ],
+    "V3-SIM-G8-TICKET-NEW-COMBO": [
+      "LUX-MATH-Y9-SIMULTANEOUS-017",
+      "LUX-MATH-Y9-SIMULTANEOUS-018",
+      "LUX-MATH-Y9-SIMULTANEOUS-019",
+      "LUX-MATH-Y9-SIMULTANEOUS-020"
+    ],
+    "V3-SIM-G8-SOLVE-THEN-NONLINEAR": [
+      "LUX-MATH-Y9-SIMULTANEOUS-021",
+      "LUX-MATH-Y9-SIMULTANEOUS-022",
+      "LUX-MATH-Y9-SIMULTANEOUS-023",
+      "LUX-MATH-Y9-SIMULTANEOUS-024"
+    ],
+    "V3-SIM-G8-MASS-DIFFERENCE": [
+      "LUX-MATH-Y9-SIMULTANEOUS-025",
+      "LUX-MATH-Y9-SIMULTANEOUS-026",
+      "LUX-MATH-Y9-SIMULTANEOUS-027",
+      "LUX-MATH-Y9-SIMULTANEOUS-028"
+    ],
+    "V3-SIM-G8-DERIVED-COMBINATION": [
+      "LUX-MATH-Y9-SIMULTANEOUS-029",
+      "LUX-MATH-Y9-SIMULTANEOUS-030",
+      "LUX-MATH-Y9-SIMULTANEOUS-031",
+      "LUX-MATH-Y9-SIMULTANEOUS-032"
+    ],
+    "V3-SIM-G89-UNKNOWN-COEFFICIENT": [
+      "LUX-MATH-Y9-SIMULTANEOUS-033",
+      "LUX-MATH-Y9-SIMULTANEOUS-034",
+      "LUX-MATH-Y9-SIMULTANEOUS-035",
+      "LUX-MATH-Y9-SIMULTANEOUS-036"
+    ],
+    "V3-SIM-G89-COEFFICIENTS-BOTH-DEPEND-ON-K": [
+      "LUX-MATH-Y9-SIMULTANEOUS-037",
+      "LUX-MATH-Y9-SIMULTANEOUS-038",
+      "LUX-MATH-Y9-SIMULTANEOUS-039",
+      "LUX-MATH-Y9-SIMULTANEOUS-040"
+    ]
+  },
+  "studentCreditGuard": {
+    "XP": false,
+    "MP": false,
+    "Mastery": false,
+    "Recovery": false,
+    "Daily": false
+  },
+  "sourceQuestionRows": [
+    {
+      "sourceIndex": 161,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-001",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V3-SIM-G7-SOLVE-DERIVED",
+      "originalSourceStudentPdfPage": 61,
+      "originalSourceAnswersPdfPage": 31,
+      "originalRegisteredCorrectOption": "C",
+      "originalPrintedCorrectOption": "C",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q161. Simultaneous Equations                           Target: G7 (provisional)\n      {\n        2x + 3y = 7\nGiven               , calculate x2 + y.\n        3x − 2y = 4\nA. 6\n      5\nB.\n      2\nC. 5\n\nD. 10\n\nE. 8\n     11\nF.\n     2",
+      "extractedWorkedAnswerText": "Q161. Simultaneous Equations                                                         Target: G7 (provisional)\n      {\n        2x + 3y = 7\nGiven               , calculate x2 + y.\n        3x − 2y = 4\nCorrect answer: C          5\n1. Eliminate to solve the simultaneous equations: x = 2 and y = 1.\n2. Then x2 + y = 22 + 1 = 5.\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                             Page 31 of 39\n<PARSED TEXT FOR PAGE: 32 / 39>\nLux et Labor — Mathematics V3.1                                                           REVIEW COPY",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "6"
+        },
+        {
+          "letter": "B",
+          "inlineText": "2"
+        },
+        {
+          "letter": "C",
+          "inlineText": "5"
+        },
+        {
+          "letter": "D",
+          "inlineText": "10"
+        },
+        {
+          "letter": "E",
+          "inlineText": "8"
+        },
+        {
+          "letter": "F",
+          "inlineText": "2"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Solve 2×2 linear system and calculate x²+y; near G8 SOLVE-THEN-NONLINEAR.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 162,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-002",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V3-SIM-G7-SOLVE-DERIVED",
+      "originalSourceStudentPdfPage": 61,
+      "originalSourceAnswersPdfPage": 32,
+      "originalRegisteredCorrectOption": "A",
+      "originalPrintedCorrectOption": "A",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q162. Simultaneous Equations                           Target: G7 (provisional)\n      {\n        3x + 4y = 17\nGiven                , calculate x2 + y.\n        4x − 3y = 6\nA. 11\n      23\nB.\n       2\n       1\nC.\n      11\nD. 14\n     11\nE.\n      2\nF. 22",
+      "extractedWorkedAnswerText": "Q162. Simultaneous Equations                                                      Target: G7 (provisional)\n      {\n        3x + 4y = 17\nGiven                , calculate x2 + y.\n        4x − 3y = 6\nCorrect answer: A          11\n1. Eliminate to solve the simultaneous equations: x = 3 and y = 2.\n2. Then x2 + y = 32 + 2 = 11.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "11"
+        },
+        {
+          "letter": "B",
+          "inlineText": "2"
+        },
+        {
+          "letter": "C",
+          "inlineText": "11"
+        },
+        {
+          "letter": "D",
+          "inlineText": "14"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "22"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Solve 2×2 linear system and calculate x²+y; near G8 SOLVE-THEN-NONLINEAR.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 163,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-003",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V3-SIM-G7-SOLVE-DERIVED",
+      "originalSourceStudentPdfPage": 61,
+      "originalSourceAnswersPdfPage": 32,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q163. Simultaneous Equations                           Target: G7 (provisional)\n      {\n        4x + 5y = 31\nGiven                , calculate x2 + y.\n        5x − 4y = 8\nA. 20\n\nB. 21\n\nC. 38\n      37\nD.\n       2\nE. −19\n\nF. 19\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending               Page 61 of 74\n<PARSED TEXT FOR PAGE: 62 / 74>\nLux et Labor — Mathematics V3.1                                                           REVIEW COPY",
+      "extractedWorkedAnswerText": "Q163. Simultaneous Equations                                                      Target: G7 (provisional)\n      {\n        4x + 5y = 31\nGiven                , calculate x2 + y.\n        5x − 4y = 8\nCorrect answer: F          19\n1. Eliminate to solve the simultaneous equations: x = 4 and y = 3.\n2. Then x2 + y = 42 + 3 = 19.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "20"
+        },
+        {
+          "letter": "B",
+          "inlineText": "21"
+        },
+        {
+          "letter": "C",
+          "inlineText": "38"
+        },
+        {
+          "letter": "D",
+          "inlineText": "2"
+        },
+        {
+          "letter": "E",
+          "inlineText": "−19"
+        },
+        {
+          "letter": "F",
+          "inlineText": "19"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Solve 2×2 linear system and calculate x²+y; near G8 SOLVE-THEN-NONLINEAR.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 164,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-004",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V3-SIM-G7-SOLVE-DERIVED",
+      "originalSourceStudentPdfPage": 62,
+      "originalSourceAnswersPdfPage": 32,
+      "originalRegisteredCorrectOption": "A",
+      "originalPrintedCorrectOption": "A",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q164. Simultaneous Equations                                                      Target: G7 (provisional)\n      {\n        5x + 6y = 49\nGiven                , calculate x2 + y.\n        6x − 5y = 10\nA. 29\n\nB. 32\n\nC. 26\n\nD. 28\n     59\nE.\n      2\nF. 24",
+      "extractedWorkedAnswerText": "Q164. Simultaneous Equations                                                      Target: G7 (provisional)\n      {\n        5x + 6y = 49\nGiven                , calculate x2 + y.\n        6x − 5y = 10\nCorrect answer: A          29\n1. Eliminate to solve the simultaneous equations: x = 5 and y = 4.\n2. Then x2 + y = 52 + 4 = 29.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "29"
+        },
+        {
+          "letter": "B",
+          "inlineText": "32"
+        },
+        {
+          "letter": "C",
+          "inlineText": "26"
+        },
+        {
+          "letter": "D",
+          "inlineText": "28"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "24"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Solve 2×2 linear system and calculate x²+y; near G8 SOLVE-THEN-NONLINEAR.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 165,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-005",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V3-SIM-G7-NEW-TICKET-COMBINATION",
+      "originalSourceStudentPdfPage": 62,
+      "originalSourceAnswersPdfPage": 32,
+      "originalRegisteredCorrectOption": "D",
+      "originalPrintedCorrectOption": "D",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q165. Simultaneous Equations                                                      Target: G7 (provisional)\nAt a venue, 2 adult tickets and 3 child tickets cost £40. Another purchase of 3 adult tickets and 2 child\ntickets costs £45. How much do 1 adult and 4 child tickets cost?\nA. 34\n\nB. 27\n\nC. 33\n\nD. 35\n\nE. 43\n\nF. 37",
+      "extractedWorkedAnswerText": "Q165. Simultaneous Equations                                                      Target: G7 (provisional)\nAt a venue, 2 adult tickets and 3 child tickets cost £40. Another purchase of 3 adult tickets and 2 child\ntickets costs £45. How much do 1 adult and 4 child tickets cost?\nCorrect answer: D          35\n1. Let adult and child prices be a, c. Solve 2a + 3c = 40 and 3a + 2c = 45 to obtain a = 11 and c = 6.\n2. The required different combination costs 1(11) + 4(6) = £35.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "34"
+        },
+        {
+          "letter": "B",
+          "inlineText": "27"
+        },
+        {
+          "letter": "C",
+          "inlineText": "33"
+        },
+        {
+          "letter": "D",
+          "inlineText": "35"
+        },
+        {
+          "letter": "E",
+          "inlineText": "43"
+        },
+        {
+          "letter": "F",
+          "inlineText": "37"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Solve two ticket prices then price new mix; same model as G8 TICKET-NEW-COMBO, different numbers.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 166,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-006",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V3-SIM-G7-NEW-TICKET-COMBINATION",
+      "originalSourceStudentPdfPage": 62,
+      "originalSourceAnswersPdfPage": 32,
+      "originalRegisteredCorrectOption": "D",
+      "originalPrintedCorrectOption": "D",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q166. Simultaneous Equations                                                      Target: G7 (provisional)\nAt a venue, 3 adult tickets and 4 child tickets cost £64. Another purchase of 4 adult tickets and 3 child\ntickets costs £69. How much do 1 adult and 5 child tickets cost?\nA. 94\n\nB. 57\n\nC. 42\n\nD. 47\n\nE. 46\n\nF. 37\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                          Page 62 of 74\n<PARSED TEXT FOR PAGE: 63 / 74>\nLux et Labor — Mathematics V3.1                                                           REVIEW COPY",
+      "extractedWorkedAnswerText": "Q166. Simultaneous Equations                                                      Target: G7 (provisional)\nAt a venue, 3 adult tickets and 4 child tickets cost £64. Another purchase of 4 adult tickets and 3 child\ntickets costs £69. How much do 1 adult and 5 child tickets cost?\nCorrect answer: D          47\n1. Let adult and child prices be a, c. Solve 3a + 4c = 64 and 4a + 3c = 69 to obtain a = 12 and c = 7.\n2. The required different combination costs 1(12) + 5(7) = £47.\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                          Page 32 of 39\n<PARSED TEXT FOR PAGE: 33 / 39>\nLux et Labor — Mathematics V3.1                                                           REVIEW COPY",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "94"
+        },
+        {
+          "letter": "B",
+          "inlineText": "57"
+        },
+        {
+          "letter": "C",
+          "inlineText": "42"
+        },
+        {
+          "letter": "D",
+          "inlineText": "47"
+        },
+        {
+          "letter": "E",
+          "inlineText": "46"
+        },
+        {
+          "letter": "F",
+          "inlineText": "37"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Solve two ticket prices then price new mix; same model as G8 TICKET-NEW-COMBO, different numbers.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 167,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-007",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V3-SIM-G7-NEW-TICKET-COMBINATION",
+      "originalSourceStudentPdfPage": 63,
+      "originalSourceAnswersPdfPage": 33,
+      "originalRegisteredCorrectOption": "B",
+      "originalPrintedCorrectOption": "B",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q167. Simultaneous Equations                                                       Target: G7 (provisional)\nAt a venue, 4 adult tickets and 5 child tickets cost £92. Another purchase of 5 adult tickets and 4 child\ntickets costs £97. How much do 4 adult and 1 child tickets cost?\nA. 61\n\nB. 60\n\nC. 30\n\nD. 62\n\nE. 59\n\nF. 70",
+      "extractedWorkedAnswerText": "Q167. Simultaneous Equations                                                       Target: G7 (provisional)\nAt a venue, 4 adult tickets and 5 child tickets cost £92. Another purchase of 5 adult tickets and 4 child\ntickets costs £97. How much do 4 adult and 1 child tickets cost?\nCorrect answer: B          60\n1. Let adult and child prices be a, c. Solve 4a + 5c = 92 and 5a + 4c = 97 to obtain a = 13 and c = 8.\n2. The required different combination costs 4(13) + 1(8) = £60.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "61"
+        },
+        {
+          "letter": "B",
+          "inlineText": "60"
+        },
+        {
+          "letter": "C",
+          "inlineText": "30"
+        },
+        {
+          "letter": "D",
+          "inlineText": "62"
+        },
+        {
+          "letter": "E",
+          "inlineText": "59"
+        },
+        {
+          "letter": "F",
+          "inlineText": "70"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Solve two ticket prices then price new mix; same model as G8 TICKET-NEW-COMBO, different numbers.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 168,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-008",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V3-SIM-G7-NEW-TICKET-COMBINATION",
+      "originalSourceStudentPdfPage": 63,
+      "originalSourceAnswersPdfPage": 33,
+      "originalRegisteredCorrectOption": "A",
+      "originalPrintedCorrectOption": "A",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q168. Simultaneous Equations                                                       Target: G7 (provisional)\nAt a venue, 5 adult tickets and 6 child tickets cost £124. Another purchase of 6 adult tickets and 5 child\ntickets costs £129. How much do 4 adult and 2 child tickets cost?\nA. 74\n\nB. 75\n\nC. 66\n\nD. 64\n\nE. 84\n\nF. 79",
+      "extractedWorkedAnswerText": "Q168. Simultaneous Equations                                                       Target: G7 (provisional)\nAt a venue, 5 adult tickets and 6 child tickets cost £124. Another purchase of 6 adult tickets and 5 child\ntickets costs £129. How much do 4 adult and 2 child tickets cost?\nCorrect answer: A          74\n1. Let adult and child prices be a, c. Solve 5a + 6c = 124 and 6a + 5c = 129 to obtain a = 14 and c = 9.\n2. The required different combination costs 4(14) + 2(9) = £74.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "74"
+        },
+        {
+          "letter": "B",
+          "inlineText": "75"
+        },
+        {
+          "letter": "C",
+          "inlineText": "66"
+        },
+        {
+          "letter": "D",
+          "inlineText": "64"
+        },
+        {
+          "letter": "E",
+          "inlineText": "84"
+        },
+        {
+          "letter": "F",
+          "inlineText": "79"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Solve two ticket prices then price new mix; same model as G8 TICKET-NEW-COMBO, different numbers.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 169,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-009",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-SIMULTANEOUS-3",
+      "originalSourceStudentPdfPage": 63,
+      "originalSourceAnswersPdfPage": 33,
+      "originalRegisteredCorrectOption": "C",
+      "originalPrintedCorrectOption": "C",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q169. Simultaneous Equations                                                       Target: G7 (provisional)\n      \n       2x + 3y = 7\nSolve      2      2 and give the value of xy.\n      3x − 2y = 4\n\nA. 4\n\nB. 3\n\nC. 2\n\nD. 5\n\nE. −2\n\nF. 1\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                           Page 63 of 74\n<PARSED TEXT FOR PAGE: 64 / 74>\nLux et Labor — Mathematics V3.1                               REVIEW COPY",
+      "extractedWorkedAnswerText": "Q169. Simultaneous Equations                                                       Target: G7 (provisional)\n      \n       2x + 3y = 7\nSolve      2      2 and give the value of xy.\n      3x − 2y = 4\n\nCorrect answer: C          2\n1. Multiply the first equation by 2, then eliminate a variable from 2x + 3y = 7 and 3x − 2y = 4.\n2. This gives x = 2, y = 1; therefore xy = 2 × 1 = 2.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "4"
+        },
+        {
+          "letter": "B",
+          "inlineText": "3"
+        },
+        {
+          "letter": "C",
+          "inlineText": "2"
+        },
+        {
+          "letter": "D",
+          "inlineText": "5"
+        },
+        {
+          "letter": "E",
+          "inlineText": "−2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "1"
+        }
+      ],
+      "triageAction": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "sourceFamilyObservation": "Solve 2×2 linear equations and evaluate xy; same concept as G7/G8 derived-value families.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [
+        "IDENTICAL_SYSTEM_REUSED_ACROSS_SOURCE_IDS"
+      ],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 170,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-010",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-SIMULTANEOUS-3",
+      "originalSourceStudentPdfPage": 64,
+      "originalSourceAnswersPdfPage": 33,
+      "originalRegisteredCorrectOption": "C",
+      "originalPrintedCorrectOption": "C",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q170. Simultaneous Equations                           Target: G7 (provisional)\n      \n       3x + 4y = 17\nSolve      3       3 and give the value of xy.\n      4x − 3y = 6\n\nA. 5\n\nB. 7\n\nC. 6\n\nD. 1\n\nE. −6\n\nF. 13",
+      "extractedWorkedAnswerText": "Q170. Simultaneous Equations                                                       Target: G7 (provisional)\n      \n       3x + 4y = 17\nSolve      3       3 and give the value of xy.\n      4x − 3y = 6\n\nCorrect answer: C          6\n1. Multiply the first equation by 3, then eliminate a variable from 3x + 4y = 17 and 4x − 3y = 6.\n2. This gives x = 3, y = 2; therefore xy = 3 × 2 = 6.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "5"
+        },
+        {
+          "letter": "B",
+          "inlineText": "7"
+        },
+        {
+          "letter": "C",
+          "inlineText": "6"
+        },
+        {
+          "letter": "D",
+          "inlineText": "1"
+        },
+        {
+          "letter": "E",
+          "inlineText": "−6"
+        },
+        {
+          "letter": "F",
+          "inlineText": "13"
+        }
+      ],
+      "triageAction": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "sourceFamilyObservation": "Solve 2×2 linear equations and evaluate xy; same concept as G7/G8 derived-value families.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [
+        "IDENTICAL_SYSTEM_REUSED_ACROSS_SOURCE_IDS"
+      ],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 171,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-011",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-SIMULTANEOUS-3",
+      "originalSourceStudentPdfPage": 64,
+      "originalSourceAnswersPdfPage": 33,
+      "originalRegisteredCorrectOption": "D",
+      "originalPrintedCorrectOption": "D",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q171. Simultaneous Equations                           Target: G7 (provisional)\n      \n       4x + 5y = 31\nSolve      4       4 and give the value of xy.\n      5x − 4y = 8\n\nA. 13\n\nB. 11\n\nC. 7\n\nD. 12\n\nE. 1\n\nF. −12",
+      "extractedWorkedAnswerText": "Q171. Simultaneous Equations                                                       Target: G7 (provisional)\n      \n       4x + 5y = 31\nSolve      4       4 and give the value of xy.\n      5x − 4y = 8\n\nCorrect answer: D          12\n1. Multiply the first equation by 4, then eliminate a variable from 4x + 5y = 31 and 5x − 4y = 8.\n2. This gives x = 4, y = 3; therefore xy = 4 × 3 = 12.\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                           Page 33 of 39\n<PARSED TEXT FOR PAGE: 34 / 39>\nLux et Labor — Mathematics V3.1                                                               REVIEW COPY",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "13"
+        },
+        {
+          "letter": "B",
+          "inlineText": "11"
+        },
+        {
+          "letter": "C",
+          "inlineText": "7"
+        },
+        {
+          "letter": "D",
+          "inlineText": "12"
+        },
+        {
+          "letter": "E",
+          "inlineText": "1"
+        },
+        {
+          "letter": "F",
+          "inlineText": "−12"
+        }
+      ],
+      "triageAction": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "sourceFamilyObservation": "Solve 2×2 linear equations and evaluate xy; same concept as G7/G8 derived-value families.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [
+        "IDENTICAL_SYSTEM_REUSED_ACROSS_SOURCE_IDS"
+      ],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 172,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-012",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-SIMULTANEOUS-3",
+      "originalSourceStudentPdfPage": 64,
+      "originalSourceAnswersPdfPage": 34,
+      "originalRegisteredCorrectOption": "C",
+      "originalPrintedCorrectOption": "C",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q172. Simultaneous Equations                           Target: G7 (provisional)\n      \n       5x + 6y = 49\nSolve      5       5 and give the value of xy.\n      6x − 5y = 10\n\nA. 1\n\nB. 19\n\nC. 20\n\nD. −20\n\nE. 9\n\nF. 21\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending               Page 64 of 74\n<PARSED TEXT FOR PAGE: 65 / 74>\nLux et Labor — Mathematics V3.1                                                               REVIEW COPY",
+      "extractedWorkedAnswerText": "Q172. Simultaneous Equations                                                           Target: G7 (provisional)\n      \n       5x + 6y = 49\nSolve      5       5 and give the value of xy.\n      6x − 5y = 10\n\nCorrect answer: C          20\n1. Multiply the first equation by 5, then eliminate a variable from 5x + 6y = 49 and 6x − 5y = 10.\n2. This gives x = 5, y = 4; therefore xy = 5 × 4 = 20.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "1"
+        },
+        {
+          "letter": "B",
+          "inlineText": "19"
+        },
+        {
+          "letter": "C",
+          "inlineText": "20"
+        },
+        {
+          "letter": "D",
+          "inlineText": "−20"
+        },
+        {
+          "letter": "E",
+          "inlineText": "9"
+        },
+        {
+          "letter": "F",
+          "inlineText": "21"
+        }
+      ],
+      "triageAction": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "sourceFamilyObservation": "Solve 2×2 linear equations and evaluate xy; same concept as G7/G8 derived-value families.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [
+        "IDENTICAL_SYSTEM_REUSED_ACROSS_SOURCE_IDS"
+      ],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 173,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-013",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-SIMULTANEOUS-4",
+      "originalSourceStudentPdfPage": 65,
+      "originalSourceAnswersPdfPage": 34,
+      "originalRegisteredCorrectOption": "C",
+      "originalPrintedCorrectOption": "C",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q173. Simultaneous Equations                                                           Target: G7 (provisional)\n                                              {\n                                                  2x + 3y = 7\nFor what value of k do the equations                              have no solution?\n                                                  kx + 6y = 15\nA. 6\n\nB. 5\n\nC. 4\n\nD. −4\n\nE. 2\n\nF. 3",
+      "extractedWorkedAnswerText": "Q173. Simultaneous Equations                                                           Target: G7 (provisional)\n                                              {\n                                                  2x + 3y = 7\nFor what value of k do the equations                              have no solution?\n                                                  kx + 6y = 15\nCorrect answer: C          4\n1. To have no solution, the two lines must be parallel: the coefficient of y doubles, so k = 2(2) = 4.\n2. The constants do not double: 2(7) = 14 ̸= 15, so the lines are distinct and never intersect.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "6"
+        },
+        {
+          "letter": "B",
+          "inlineText": "5"
+        },
+        {
+          "letter": "C",
+          "inlineText": "4"
+        },
+        {
+          "letter": "D",
+          "inlineText": "−4"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "3"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "No-solution case from parallel coefficient ratios; assess whether one coefficient recognition is really G7.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [
+        "ONE_STEP_RATIO_G7_NOT_EVIDENCED"
+      ],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 174,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-014",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-SIMULTANEOUS-4",
+      "originalSourceStudentPdfPage": 65,
+      "originalSourceAnswersPdfPage": 34,
+      "originalRegisteredCorrectOption": "D",
+      "originalPrintedCorrectOption": "D",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q174. Simultaneous Equations                                                           Target: G7 (provisional)\n                                              {\n                                                  3x + 4y = 8\nFor what value of k do the equations                              have no solution?\n                                                  kx + 8y = 17\nA. −6\n\nB. 9\n\nC. 3\n\nD. 6\n\nE. 4\n\nF. 8",
+      "extractedWorkedAnswerText": "Q174. Simultaneous Equations                                                           Target: G7 (provisional)\n                                              {\n                                                  3x + 4y = 8\nFor what value of k do the equations                              have no solution?\n                                                  kx + 8y = 17\nCorrect answer: D          6\n1. To have no solution, the two lines must be parallel: the coefficient of y doubles, so k = 2(3) = 6.\n2. The constants do not double: 2(8) = 16 ̸= 17, so the lines are distinct and never intersect.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "−6"
+        },
+        {
+          "letter": "B",
+          "inlineText": "9"
+        },
+        {
+          "letter": "C",
+          "inlineText": "3"
+        },
+        {
+          "letter": "D",
+          "inlineText": "6"
+        },
+        {
+          "letter": "E",
+          "inlineText": "4"
+        },
+        {
+          "letter": "F",
+          "inlineText": "8"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "No-solution case from parallel coefficient ratios; assess whether one coefficient recognition is really G7.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 175,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-015",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-SIMULTANEOUS-4",
+      "originalSourceStudentPdfPage": 65,
+      "originalSourceAnswersPdfPage": 34,
+      "originalRegisteredCorrectOption": "B",
+      "originalPrintedCorrectOption": "B",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q175. Simultaneous Equations                                                           Target: G7 (provisional)\n                                              {\n                                                  4x + 5y = 9\nFor what value of k do the equations                               have no solution?\n                                                  kx + 10y = 19\nA. 5\n\nB. 8\n\nC. 4\n\nD. 12\n\nE. −8\n\nF. 10\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                               Page 65 of 74\n<PARSED TEXT FOR PAGE: 66 / 74>\nLux et Labor — Mathematics V3.1                                                              REVIEW COPY",
+      "extractedWorkedAnswerText": "Q175. Simultaneous Equations                                                           Target: G7 (provisional)\n                                              {\n                                                  4x + 5y = 9\nFor what value of k do the equations                               have no solution?\n                                                  kx + 10y = 19\nCorrect answer: B          8\n1. To have no solution, the two lines must be parallel: the coefficient of y doubles, so k = 2(4) = 8.\n2. The constants do not double: 2(9) = 18 ̸= 19, so the lines are distinct and never intersect.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "5"
+        },
+        {
+          "letter": "B",
+          "inlineText": "8"
+        },
+        {
+          "letter": "C",
+          "inlineText": "4"
+        },
+        {
+          "letter": "D",
+          "inlineText": "12"
+        },
+        {
+          "letter": "E",
+          "inlineText": "−8"
+        },
+        {
+          "letter": "F",
+          "inlineText": "10"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "No-solution case from parallel coefficient ratios; assess whether one coefficient recognition is really G7.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 176,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-016",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-SIMULTANEOUS-4",
+      "originalSourceStudentPdfPage": 66,
+      "originalSourceAnswersPdfPage": 34,
+      "originalRegisteredCorrectOption": "B",
+      "originalPrintedCorrectOption": "B",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q176. Simultaneous Equations                                                          Target: G7 (provisional)\n                                              {\n                                                  5x + 6y = 10\nFor what value of k do the equations                              have no solution?\n                                                  kx + 12y = 21\nA. −10\n\nB. 10\n\nC. 15\n\nD. 5\n\nE. 12\n\nF. 6",
+      "extractedWorkedAnswerText": "Q176. Simultaneous Equations                                                           Target: G7 (provisional)\n                                              {\n                                                  5x + 6y = 10\nFor what value of k do the equations                               have no solution?\n                                                  kx + 12y = 21\nCorrect answer: B          10\n1. To have no solution, the two lines must be parallel: the coefficient of y doubles, so k = 2(5) = 10.\n2. The constants do not double: 2(10) = 20 ̸= 21, so the lines are distinct and never intersect.\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                               Page 34 of 39\n<PARSED TEXT FOR PAGE: 35 / 39>\nLux et Labor — Mathematics V3.1                                                           REVIEW COPY",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "−10"
+        },
+        {
+          "letter": "B",
+          "inlineText": "10"
+        },
+        {
+          "letter": "C",
+          "inlineText": "15"
+        },
+        {
+          "letter": "D",
+          "inlineText": "5"
+        },
+        {
+          "letter": "E",
+          "inlineText": "12"
+        },
+        {
+          "letter": "F",
+          "inlineText": "6"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "No-solution case from parallel coefficient ratios; assess whether one coefficient recognition is really G7.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 177,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-017",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-SIM-G8-TICKET-NEW-COMBO",
+      "originalSourceStudentPdfPage": 66,
+      "originalSourceAnswersPdfPage": 35,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q177. Simultaneous Equations                                                          Target: G8 (provisional)\nAt a museum, 2 adult tickets and 3 child tickets cost £34. Another purchase of 3 adult tickets and 2 child\ntickets costs £41. What is the price of 1 adult and 4 child tickets?\nA. 24\n\nB. 13\n\nC. 26\n\nD. 17\n\nE. 37\n\nF. 27",
+      "extractedWorkedAnswerText": "Q177. Simultaneous Equations                                                       Target: G8 (provisional)\nAt a museum, 2 adult tickets and 3 child tickets cost £34. Another purchase of 3 adult tickets and 2 child\ntickets costs £41. What is the price of 1 adult and 4 child tickets?\nCorrect answer: F          27\n1. Let adult and child prices be a, c. Solve 2a + 3c = 34 and 3a + 2c = 41 to get a = 11, c = 4.\n2. The new combination costs 1(11) + 4(4) = £27.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "24"
+        },
+        {
+          "letter": "B",
+          "inlineText": "13"
+        },
+        {
+          "letter": "C",
+          "inlineText": "26"
+        },
+        {
+          "letter": "D",
+          "inlineText": "17"
+        },
+        {
+          "letter": "E",
+          "inlineText": "37"
+        },
+        {
+          "letter": "F",
+          "inlineText": "27"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Identical ticket-equation structure to G7 ticket family; grade inflation unless deeper modelling shown.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 178,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-018",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-SIM-G8-TICKET-NEW-COMBO",
+      "originalSourceStudentPdfPage": 66,
+      "originalSourceAnswersPdfPage": 35,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q178. Simultaneous Equations                                                          Target: G8 (provisional)\nAt a museum, 2 adult tickets and 3 child tickets cost £39. Another purchase of 3 adult tickets and 2 child\ntickets costs £46. What is the price of 2 adult and 5 child tickets?\nA. 98\n\nB. 24\n\nC. 48\n\nD. 59\n\nE. 52\n\nF. 49\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                              Page 66 of 74\n<PARSED TEXT FOR PAGE: 67 / 74>\nLux et Labor — Mathematics V3.1                                                           REVIEW COPY",
+      "extractedWorkedAnswerText": "Q178. Simultaneous Equations                                                       Target: G8 (provisional)\nAt a museum, 2 adult tickets and 3 child tickets cost £39. Another purchase of 3 adult tickets and 2 child\ntickets costs £46. What is the price of 2 adult and 5 child tickets?\nCorrect answer: F          49\n1. Let adult and child prices be a, c. Solve 2a + 3c = 39 and 3a + 2c = 46 to get a = 12, c = 5.\n2. The new combination costs 2(12) + 5(5) = £49.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "98"
+        },
+        {
+          "letter": "B",
+          "inlineText": "24"
+        },
+        {
+          "letter": "C",
+          "inlineText": "48"
+        },
+        {
+          "letter": "D",
+          "inlineText": "59"
+        },
+        {
+          "letter": "E",
+          "inlineText": "52"
+        },
+        {
+          "letter": "F",
+          "inlineText": "49"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Identical ticket-equation structure to G7 ticket family; grade inflation unless deeper modelling shown.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 179,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-019",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-SIM-G8-TICKET-NEW-COMBO",
+      "originalSourceStudentPdfPage": 67,
+      "originalSourceAnswersPdfPage": 35,
+      "originalRegisteredCorrectOption": "E",
+      "originalPrintedCorrectOption": "E",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q179. Simultaneous Equations                                                       Target: G8 (provisional)\nAt a museum, 2 adult tickets and 3 child tickets cost £44. Another purchase of 3 adult tickets and 2 child\ntickets costs £51. What is the price of 1 adult and 4 child tickets?\nA. 74\n\nB. 18\n\nC. 27\n\nD. 45\n\nE. 37\n\nF. 40",
+      "extractedWorkedAnswerText": "Q179. Simultaneous Equations                                                       Target: G8 (provisional)\nAt a museum, 2 adult tickets and 3 child tickets cost £44. Another purchase of 3 adult tickets and 2 child\ntickets costs £51. What is the price of 1 adult and 4 child tickets?\nCorrect answer: E          37\n1. Let adult and child prices be a, c. Solve 2a + 3c = 44 and 3a + 2c = 51 to get a = 13, c = 6.\n2. The new combination costs 1(13) + 4(6) = £37.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "74"
+        },
+        {
+          "letter": "B",
+          "inlineText": "18"
+        },
+        {
+          "letter": "C",
+          "inlineText": "27"
+        },
+        {
+          "letter": "D",
+          "inlineText": "45"
+        },
+        {
+          "letter": "E",
+          "inlineText": "37"
+        },
+        {
+          "letter": "F",
+          "inlineText": "40"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Identical ticket-equation structure to G7 ticket family; grade inflation unless deeper modelling shown.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 180,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-020",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-SIM-G8-TICKET-NEW-COMBO",
+      "originalSourceStudentPdfPage": 67,
+      "originalSourceAnswersPdfPage": 35,
+      "originalRegisteredCorrectOption": "A",
+      "originalPrintedCorrectOption": "A",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q180. Simultaneous Equations                                                       Target: G8 (provisional)\nAt a museum, 2 adult tickets and 3 child tickets cost £49. Another purchase of 3 adult tickets and 2 child\ntickets costs £56. What is the price of 2 adult and 5 child tickets?\nA. 63\n\nB. 60\n\nC. 31\n\nD. 53\n\nE. 68\n\nF. 61",
+      "extractedWorkedAnswerText": "Q180. Simultaneous Equations                                                       Target: G8 (provisional)\nAt a museum, 2 adult tickets and 3 child tickets cost £49. Another purchase of 3 adult tickets and 2 child\ntickets costs £56. What is the price of 2 adult and 5 child tickets?\nCorrect answer: A          63\n1. Let adult and child prices be a, c. Solve 2a + 3c = 49 and 3a + 2c = 56 to get a = 14, c = 7.\n2. The new combination costs 2(14) + 5(7) = £63.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "63"
+        },
+        {
+          "letter": "B",
+          "inlineText": "60"
+        },
+        {
+          "letter": "C",
+          "inlineText": "31"
+        },
+        {
+          "letter": "D",
+          "inlineText": "53"
+        },
+        {
+          "letter": "E",
+          "inlineText": "68"
+        },
+        {
+          "letter": "F",
+          "inlineText": "61"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Identical ticket-equation structure to G7 ticket family; grade inflation unless deeper modelling shown.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 181,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-021",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-SIM-G8-SOLVE-THEN-NONLINEAR",
+      "originalSourceStudentPdfPage": 67,
+      "originalSourceAnswersPdfPage": 35,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q181. Simultaneous Equations                                                       Target: G8 (provisional)\n      {\n        2x + 3y = 13\nGiven                , calculate 2x2 − y.\n        3x − 2y = 0\nA. 6\n\nB. 7\n\nC. 10\n      9\nD.\n      2\nE. −5\n\nF. 5\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                           Page 67 of 74\n<PARSED TEXT FOR PAGE: 68 / 74>\nLux et Labor — Mathematics V3.1                               REVIEW COPY",
+      "extractedWorkedAnswerText": "Q181. Simultaneous Equations                                                       Target: G8 (provisional)\n      {\n        2x + 3y = 13\nGiven                , calculate 2x2 − y.\n        3x − 2y = 0\nCorrect answer: F          5\n1. Eliminate a variable from the two equations to get x = 2 and y = 3.\n2. Then 2x2 − y = 2(2)2 − 3 = 5.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "6"
+        },
+        {
+          "letter": "B",
+          "inlineText": "7"
+        },
+        {
+          "letter": "C",
+          "inlineText": "10"
+        },
+        {
+          "letter": "D",
+          "inlineText": "2"
+        },
+        {
+          "letter": "E",
+          "inlineText": "−5"
+        },
+        {
+          "letter": "F",
+          "inlineText": "5"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Solve a system then calculate 2x²−y; structurally same as G7 system + x²+y.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 182,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-022",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-SIM-G8-SOLVE-THEN-NONLINEAR",
+      "originalSourceStudentPdfPage": 68,
+      "originalSourceAnswersPdfPage": 35,
+      "originalRegisteredCorrectOption": "A",
+      "originalPrintedCorrectOption": "A",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q182. Simultaneous Equations                           Target: G8 (provisional)\n      {\n        3x + 3y = 21\nGiven                , calculate 2x2 − y.\n        3x − 3y = −3\nA. 14\n\nB. 17\n\nC. 11\n\nD. 13\n     29\nE.\n      2\nF. 9",
+      "extractedWorkedAnswerText": "Q182. Simultaneous Equations                                                       Target: G8 (provisional)\n      {\n        3x + 3y = 21\nGiven                , calculate 2x2 − y.\n        3x − 3y = −3\nCorrect answer: A          14\n1. Eliminate a variable from the two equations to get x = 3 and y = 4.\n2. Then 2x2 − y = 2(3)2 − 4 = 14.\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                           Page 35 of 39\n<PARSED TEXT FOR PAGE: 36 / 39>\nLux et Labor — Mathematics V3.1                                                            REVIEW COPY",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "14"
+        },
+        {
+          "letter": "B",
+          "inlineText": "17"
+        },
+        {
+          "letter": "C",
+          "inlineText": "11"
+        },
+        {
+          "letter": "D",
+          "inlineText": "13"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "9"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Solve a system then calculate 2x²−y; structurally same as G7 system + x²+y.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 183,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-023",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-SIM-G8-SOLVE-THEN-NONLINEAR",
+      "originalSourceStudentPdfPage": 68,
+      "originalSourceAnswersPdfPage": 36,
+      "originalRegisteredCorrectOption": "D",
+      "originalPrintedCorrectOption": "D",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q183. Simultaneous Equations                           Target: G8 (provisional)\n      {\n        4x + 3y = 25\nGiven                , calculate 2x2 − y.\n        3x − 4y = 0\nA. 27\n\nB. 31\n      29\nC.\n       2\nD. 29\n\nE. 26\n\nF. 58",
+      "extractedWorkedAnswerText": "Q183. Simultaneous Equations                                                        Target: G8 (provisional)\n      {\n        4x + 3y = 25\nGiven                , calculate 2x2 − y.\n        3x − 4y = 0\nCorrect answer: D          29\n1. Eliminate a variable from the two equations to get x = 4 and y = 3.\n2. Then 2x2 − y = 2(4)2 − 3 = 29.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "27"
+        },
+        {
+          "letter": "B",
+          "inlineText": "31"
+        },
+        {
+          "letter": "C",
+          "inlineText": "2"
+        },
+        {
+          "letter": "D",
+          "inlineText": "29"
+        },
+        {
+          "letter": "E",
+          "inlineText": "26"
+        },
+        {
+          "letter": "F",
+          "inlineText": "58"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Solve a system then calculate 2x²−y; structurally same as G7 system + x²+y.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 184,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-024",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-SIM-G8-SOLVE-THEN-NONLINEAR",
+      "originalSourceStudentPdfPage": 68,
+      "originalSourceAnswersPdfPage": 36,
+      "originalRegisteredCorrectOption": "E",
+      "originalPrintedCorrectOption": "E",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q184. Simultaneous Equations                           Target: G8 (provisional)\n      {\n        5x + 3y = 37\nGiven                , calculate 2x2 − y.\n        3x − 5y = −5\nA. 43\n      91\nB.\n       2\nC. 44\n\nD. 92\n\nE. 46\n\nF. 48\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending               Page 68 of 74\n<PARSED TEXT FOR PAGE: 69 / 74>\nLux et Labor — Mathematics V3.1                                                     REVIEW COPY",
+      "extractedWorkedAnswerText": "Q184. Simultaneous Equations                                                        Target: G8 (provisional)\n      {\n        5x + 3y = 37\nGiven                , calculate 2x2 − y.\n        3x − 5y = −5\nCorrect answer: E          46\n1. Eliminate a variable from the two equations to get x = 5 and y = 4.\n2. Then 2x2 − y = 2(5)2 − 4 = 46.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "43"
+        },
+        {
+          "letter": "B",
+          "inlineText": "2"
+        },
+        {
+          "letter": "C",
+          "inlineText": "44"
+        },
+        {
+          "letter": "D",
+          "inlineText": "92"
+        },
+        {
+          "letter": "E",
+          "inlineText": "46"
+        },
+        {
+          "letter": "F",
+          "inlineText": "48"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Solve a system then calculate 2x²−y; structurally same as G7 system + x²+y.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 185,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-025",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-SIM-G8-MASS-DIFFERENCE",
+      "originalSourceStudentPdfPage": 69,
+      "originalSourceAnswersPdfPage": 36,
+      "originalRegisteredCorrectOption": "A",
+      "originalPrintedCorrectOption": "A",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q185. Simultaneous Equations                                                 Target: G8 (provisional)\nThree crates and two boxes have total mass 30 kg. Two crates and five boxes have total mass 31 kg.\nHow many kilograms heavier is one crate than one box?\nA. 5\n\nB. 3\n\nC. 10\n\nD. 8\n\nE. 15\n\nF. 2",
+      "extractedWorkedAnswerText": "Q185. Simultaneous Equations                                                        Target: G8 (provisional)\nThree crates and two boxes have total mass 30 kg. Two crates and five boxes have total mass 31 kg.\nHow many kilograms heavier is one crate than one box?\nCorrect answer: A          5\n1. Let c and b be their masses in kilograms. Solve 3c + 2b = 30 and 2c + 5b = 31.\n2. The masses are c = 8 kg and b = 3 kg, so the difference is 5 kg.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "5"
+        },
+        {
+          "letter": "B",
+          "inlineText": "3"
+        },
+        {
+          "letter": "C",
+          "inlineText": "10"
+        },
+        {
+          "letter": "D",
+          "inlineText": "8"
+        },
+        {
+          "letter": "E",
+          "inlineText": "15"
+        },
+        {
+          "letter": "F",
+          "inlineText": "2"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Two mass equations then subtract; not clearly harder than G7 two-ticket system.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 186,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-026",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-SIM-G8-MASS-DIFFERENCE",
+      "originalSourceStudentPdfPage": 69,
+      "originalSourceAnswersPdfPage": 36,
+      "originalRegisteredCorrectOption": "D",
+      "originalPrintedCorrectOption": "D",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q186. Simultaneous Equations                                                 Target: G8 (provisional)\nThree crates and two boxes have total mass 35 kg. Two crates and five boxes have total mass 38 kg.\nHow many kilograms heavier is one crate than one box?\nA. 10\n\nB. 8\n\nC. 2\n\nD. 5\n\nE. 6\n\nF. 3",
+      "extractedWorkedAnswerText": "Q186. Simultaneous Equations                                                        Target: G8 (provisional)\nThree crates and two boxes have total mass 35 kg. Two crates and five boxes have total mass 38 kg.\nHow many kilograms heavier is one crate than one box?\nCorrect answer: D          5\n1. Let c and b be their masses in kilograms. Solve 3c + 2b = 35 and 2c + 5b = 38.\n2. The masses are c = 9 kg and b = 4 kg, so the difference is 5 kg.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "10"
+        },
+        {
+          "letter": "B",
+          "inlineText": "8"
+        },
+        {
+          "letter": "C",
+          "inlineText": "2"
+        },
+        {
+          "letter": "D",
+          "inlineText": "5"
+        },
+        {
+          "letter": "E",
+          "inlineText": "6"
+        },
+        {
+          "letter": "F",
+          "inlineText": "3"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Two mass equations then subtract; not clearly harder than G7 two-ticket system.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 187,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-027",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-SIM-G8-MASS-DIFFERENCE",
+      "originalSourceStudentPdfPage": 69,
+      "originalSourceAnswersPdfPage": 36,
+      "originalRegisteredCorrectOption": "D",
+      "originalPrintedCorrectOption": "D",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q187. Simultaneous Equations                                                 Target: G8 (provisional)\nThree crates and two boxes have total mass 40 kg. Two crates and five boxes have total mass 45 kg.\nHow many kilograms heavier is one crate than one box?\nA. 13\n\nB. 6\n\nC. 8\n\nD. 5\n\nE. 2\n\nF. 10\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                     Page 69 of 74\n<PARSED TEXT FOR PAGE: 70 / 74>\nLux et Labor — Mathematics V3.1                                                     REVIEW COPY",
+      "extractedWorkedAnswerText": "Q187. Simultaneous Equations                                                        Target: G8 (provisional)\nThree crates and two boxes have total mass 40 kg. Two crates and five boxes have total mass 45 kg.\nHow many kilograms heavier is one crate than one box?\nCorrect answer: D          5\n1. Let c and b be their masses in kilograms. Solve 3c + 2b = 40 and 2c + 5b = 45.\n2. The masses are c = 10 kg and b = 5 kg, so the difference is 5 kg.\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                            Page 36 of 39\n<PARSED TEXT FOR PAGE: 37 / 39>\nLux et Labor — Mathematics V3.1                                                            REVIEW COPY",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "13"
+        },
+        {
+          "letter": "B",
+          "inlineText": "6"
+        },
+        {
+          "letter": "C",
+          "inlineText": "8"
+        },
+        {
+          "letter": "D",
+          "inlineText": "5"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "10"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Two mass equations then subtract; not clearly harder than G7 two-ticket system.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 188,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-028",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-SIM-G8-MASS-DIFFERENCE",
+      "originalSourceStudentPdfPage": 70,
+      "originalSourceAnswersPdfPage": 37,
+      "originalRegisteredCorrectOption": "A",
+      "originalPrintedCorrectOption": "A",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q188. Simultaneous Equations                                                 Target: G8 (provisional)\nThree crates and two boxes have total mass 45 kg. Two crates and five boxes have total mass 52 kg.\nHow many kilograms heavier is one crate than one box?\nA. 5\n\nB. 7\n\nC. 2\n\nD. 3\n\nE. 6\n\nF. 8",
+      "extractedWorkedAnswerText": "Q188. Simultaneous Equations                                                        Target: G8 (provisional)\nThree crates and two boxes have total mass 45 kg. Two crates and five boxes have total mass 52 kg.\nHow many kilograms heavier is one crate than one box?\nCorrect answer: A          5\n1. Let c and b be their masses in kilograms. Solve 3c + 2b = 45 and 2c + 5b = 52.\n2. The masses are c = 11 kg and b = 6 kg, so the difference is 5 kg.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "5"
+        },
+        {
+          "letter": "B",
+          "inlineText": "7"
+        },
+        {
+          "letter": "C",
+          "inlineText": "2"
+        },
+        {
+          "letter": "D",
+          "inlineText": "3"
+        },
+        {
+          "letter": "E",
+          "inlineText": "6"
+        },
+        {
+          "letter": "F",
+          "inlineText": "8"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Two mass equations then subtract; not clearly harder than G7 two-ticket system.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 189,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-029",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-SIM-G8-DERIVED-COMBINATION",
+      "originalSourceStudentPdfPage": 70,
+      "originalSourceAnswersPdfPage": 37,
+      "originalRegisteredCorrectOption": "A",
+      "originalPrintedCorrectOption": "A",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q189. Simultaneous Equations                                                 Target: G8 (provisional)\n                 {\n                   2x + 3y = 7\nSolve the system               , then find 4x + 5y.\n                   3x − 2y = 4\nA. 13\n\nB. 16\n\nC. 11\n\nD. 26\n\nE. 15\n     25\nF.\n     2",
+      "extractedWorkedAnswerText": "Q189. Simultaneous Equations                                                        Target: G8 (provisional)\n                 {\n                   2x + 3y = 7\nSolve the system               , then find 4x + 5y.\n                   3x − 2y = 4\nCorrect answer: A          13\n1. Eliminate or substitute in the simultaneous equations to obtain x = 2, y = 1.\n2. The required expression equals 4(2) + 5(1) = 13.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "13"
+        },
+        {
+          "letter": "B",
+          "inlineText": "16"
+        },
+        {
+          "letter": "C",
+          "inlineText": "11"
+        },
+        {
+          "letter": "D",
+          "inlineText": "26"
+        },
+        {
+          "letter": "E",
+          "inlineText": "15"
+        },
+        {
+          "letter": "F",
+          "inlineText": "2"
+        }
+      ],
+      "triageAction": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "sourceFamilyObservation": "Solve equations then evaluate 4x+5y; similar or simpler than G7 derived-value family.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [
+        "IDENTICAL_SYSTEM_REUSED_ACROSS_SOURCE_IDS"
+      ],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 190,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-030",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-SIM-G8-DERIVED-COMBINATION",
+      "originalSourceStudentPdfPage": 70,
+      "originalSourceAnswersPdfPage": 37,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q190. Simultaneous Equations                                                 Target: G8 (provisional)\n                 {\n                   2x + 3y = 12\nSolve the system                , then find 5x + 6y.\n                   3x − 2y = 5\nA. 28\n\nB. 29\n\nC. 54\n      53\nD.\n       2\nE. −27\n\nF. 27\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                     Page 70 of 74\n<PARSED TEXT FOR PAGE: 71 / 74>\nLux et Labor — Mathematics V3.1                                                          REVIEW COPY",
+      "extractedWorkedAnswerText": "Q190. Simultaneous Equations                                                        Target: G8 (provisional)\n                 {\n                   2x + 3y = 12\nSolve the system                , then find 5x + 6y.\n                   3x − 2y = 5\nCorrect answer: F          27\n1. Eliminate or substitute in the simultaneous equations to obtain x = 3, y = 2.\n2. The required expression equals 5(3) + 6(2) = 27.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "28"
+        },
+        {
+          "letter": "B",
+          "inlineText": "29"
+        },
+        {
+          "letter": "C",
+          "inlineText": "54"
+        },
+        {
+          "letter": "D",
+          "inlineText": "2"
+        },
+        {
+          "letter": "E",
+          "inlineText": "−27"
+        },
+        {
+          "letter": "F",
+          "inlineText": "27"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Solve equations then evaluate 4x+5y; similar or simpler than G7 derived-value family.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 191,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-031",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-SIM-G8-DERIVED-COMBINATION",
+      "originalSourceStudentPdfPage": 71,
+      "originalSourceAnswersPdfPage": 37,
+      "originalRegisteredCorrectOption": "A",
+      "originalPrintedCorrectOption": "A",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q191. Simultaneous Equations                                                      Target: G8 (provisional)\n                 {\n                   2x + 3y = 17\nSolve the system                , then find 6x + 7y.\n                   3x − 2y = 6\nA. 45\n\nB. 48\n\nC. 42\n\nD. 44\n     91\nE.\n      2\nF. 40",
+      "extractedWorkedAnswerText": "Q191. Simultaneous Equations                                                        Target: G8 (provisional)\n                 {\n                   2x + 3y = 17\nSolve the system                , then find 6x + 7y.\n                   3x − 2y = 6\nCorrect answer: A          45\n1. Eliminate or substitute in the simultaneous equations to obtain x = 4, y = 3.\n2. The required expression equals 6(4) + 7(3) = 45.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "45"
+        },
+        {
+          "letter": "B",
+          "inlineText": "48"
+        },
+        {
+          "letter": "C",
+          "inlineText": "42"
+        },
+        {
+          "letter": "D",
+          "inlineText": "44"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "40"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Solve equations then evaluate 4x+5y; similar or simpler than G7 derived-value family.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 192,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-032",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-SIM-G8-DERIVED-COMBINATION",
+      "originalSourceStudentPdfPage": 71,
+      "originalSourceAnswersPdfPage": 37,
+      "originalRegisteredCorrectOption": "D",
+      "originalPrintedCorrectOption": "D",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q192. Simultaneous Equations                                                      Target: G8 (provisional)\n                 {\n                   2x + 3y = 22\nSolve the system                , then find 7x + 8y.\n                   3x − 2y = 7\nA. 65\n\nB. 69\n      67\nC.\n       2\nD. 67\n\nE. 64\n\nF. 134",
+      "extractedWorkedAnswerText": "Q192. Simultaneous Equations                                                        Target: G8 (provisional)\n                 {\n                   2x + 3y = 22\nSolve the system                , then find 7x + 8y.\n                   3x − 2y = 7\nCorrect answer: D          67\n1. Eliminate or substitute in the simultaneous equations to obtain x = 5, y = 4.\n2. The required expression equals 7(5) + 8(4) = 67.\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                            Page 37 of 39\n<PARSED TEXT FOR PAGE: 38 / 39>\nLux et Labor — Mathematics V3.1                                                          REVIEW COPY",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "65"
+        },
+        {
+          "letter": "B",
+          "inlineText": "69"
+        },
+        {
+          "letter": "C",
+          "inlineText": "2"
+        },
+        {
+          "letter": "D",
+          "inlineText": "67"
+        },
+        {
+          "letter": "E",
+          "inlineText": "64"
+        },
+        {
+          "letter": "F",
+          "inlineText": "134"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Solve equations then evaluate 4x+5y; similar or simpler than G7 derived-value family.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 193,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-033",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-SIM-G89-UNKNOWN-COEFFICIENT",
+      "originalSourceStudentPdfPage": 71,
+      "originalSourceAnswersPdfPage": 38,
+      "originalRegisteredCorrectOption": "E",
+      "originalPrintedCorrectOption": "E",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q193. Simultaneous Equations                                                  Target: G8-9 (provisional)\n                 {\n                   3x + 2y = 19\nFor some real k,                has a solution satisfying x = 2y + 1. Find k.\n                   kx − 3y = 14\nA. 1\n      7\nB.\n      2\nC. 2\n\nD. 8\n\nE. 4\n\nF. 6\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                          Page 71 of 74\n<PARSED TEXT FOR PAGE: 72 / 74>\nLux et Labor — Mathematics V3.1                                                          REVIEW COPY",
+      "extractedWorkedAnswerText": "Q193. Simultaneous Equations                                                  Target: G8-9 (provisional)\n                 {\n                   3x + 2y = 19\nFor some real k,                has a solution satisfying x = 2y + 1. Find k.\n                   kx − 3y = 14\nCorrect answer: E          4\n1. Using x = 2y + 1 in 3x + 2y = 19 gives 8y + 3 = 19, so y = 2 and x = 5.\n2. Substitute into kx − 3y = 14 to obtain k = 4.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "1"
+        },
+        {
+          "letter": "B",
+          "inlineText": "2"
+        },
+        {
+          "letter": "C",
+          "inlineText": "2"
+        },
+        {
+          "letter": "D",
+          "inlineText": "8"
+        },
+        {
+          "letter": "E",
+          "inlineText": "4"
+        },
+        {
+          "letter": "F",
+          "inlineText": "6"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Given x=2y+1, solve one equation then substitute for k; G8-9 seems unsubstantiated.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 194,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-034",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-SIM-G89-UNKNOWN-COEFFICIENT",
+      "originalSourceStudentPdfPage": 72,
+      "originalSourceAnswersPdfPage": 38,
+      "originalRegisteredCorrectOption": "D",
+      "originalPrintedCorrectOption": "D",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q194. Simultaneous Equations                                                  Target: G8-9 (provisional)\n                 {\n                   3x + 2y = 27\nFor some real k,                has a solution satisfying x = 2y + 1. Find k.\n                   kx − 3y = 26\nA. 7\n\nB. 8\n\nC. 2\n\nD. 5\n     11\nE.\n      2\nF. 10",
+      "extractedWorkedAnswerText": "Q194. Simultaneous Equations                                                  Target: G8-9 (provisional)\n                 {\n                   3x + 2y = 27\nFor some real k,                has a solution satisfying x = 2y + 1. Find k.\n                   kx − 3y = 26\nCorrect answer: D          5\n1. Using x = 2y + 1 in 3x + 2y = 27 gives 8y + 3 = 27, so y = 3 and x = 7.\n2. Substitute into kx − 3y = 26 to obtain k = 5.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "7"
+        },
+        {
+          "letter": "B",
+          "inlineText": "8"
+        },
+        {
+          "letter": "C",
+          "inlineText": "2"
+        },
+        {
+          "letter": "D",
+          "inlineText": "5"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "10"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Given x=2y+1, solve one equation then substitute for k; G8-9 seems unsubstantiated.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 195,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-035",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-SIM-G89-UNKNOWN-COEFFICIENT",
+      "originalSourceStudentPdfPage": 72,
+      "originalSourceAnswersPdfPage": 38,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q195. Simultaneous Equations                                                  Target: G8-9 (provisional)\n                 {\n                   3x + 2y = 35\nFor some real k,                has a solution satisfying x = 2y + 1. Find k.\n                   kx − 3y = 42\n     13\nA.\n     2\n      1\nB.\n      6\nC. 5\n\nD. 9\n\nE. 4\n\nF. 6",
+      "extractedWorkedAnswerText": "Q195. Simultaneous Equations                                                  Target: G8-9 (provisional)\n                 {\n                   3x + 2y = 35\nFor some real k,                has a solution satisfying x = 2y + 1. Find k.\n                   kx − 3y = 42\nCorrect answer: F          6\n1. Using x = 2y + 1 in 3x + 2y = 35 gives 8y + 3 = 35, so y = 4 and x = 9.\n2. Substitute into kx − 3y = 42 to obtain k = 6.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "2"
+        },
+        {
+          "letter": "B",
+          "inlineText": "6"
+        },
+        {
+          "letter": "C",
+          "inlineText": "5"
+        },
+        {
+          "letter": "D",
+          "inlineText": "9"
+        },
+        {
+          "letter": "E",
+          "inlineText": "4"
+        },
+        {
+          "letter": "F",
+          "inlineText": "6"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Given x=2y+1, solve one equation then substitute for k; G8-9 seems unsubstantiated.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 196,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-036",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-SIM-G89-UNKNOWN-COEFFICIENT",
+      "originalSourceStudentPdfPage": 72,
+      "originalSourceAnswersPdfPage": 38,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q196. Simultaneous Equations                                                  Target: G8-9 (provisional)\n                 {\n                   3x + 2y = 43\nFor some real k,                has a solution satisfying x = 2y + 1. Find k.\n                   kx − 3y = 62\nA. 2\n      1\nB.\n      7\nC. 6\n\nD. 5\n\nE. 4\n\nF. 7\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                         Page 72 of 74\n<PARSED TEXT FOR PAGE: 73 / 74>\nLux et Labor — Mathematics V3.1                                                      REVIEW COPY",
+      "extractedWorkedAnswerText": "Q196. Simultaneous Equations                                                  Target: G8-9 (provisional)\n                 {\n                   3x + 2y = 43\nFor some real k,                has a solution satisfying x = 2y + 1. Find k.\n                   kx − 3y = 62\nCorrect answer: F          7\n1. Using x = 2y + 1 in 3x + 2y = 43 gives 8y + 3 = 43, so y = 5 and x = 11.\n2. Substitute into kx − 3y = 62 to obtain k = 7.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "2"
+        },
+        {
+          "letter": "B",
+          "inlineText": "7"
+        },
+        {
+          "letter": "C",
+          "inlineText": "6"
+        },
+        {
+          "letter": "D",
+          "inlineText": "5"
+        },
+        {
+          "letter": "E",
+          "inlineText": "4"
+        },
+        {
+          "letter": "F",
+          "inlineText": "7"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Given x=2y+1, solve one equation then substitute for k; G8-9 seems unsubstantiated.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 197,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-037",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-SIM-G89-COEFFICIENTS-BOTH-DEPEND-ON-K",
+      "originalSourceStudentPdfPage": 73,
+      "originalSourceAnswersPdfPage": 38,
+      "originalRegisteredCorrectOption": "E",
+      "originalPrintedCorrectOption": "E",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q197. Simultaneous Equations                                                Target: G8-9 (provisional)\n                       {\n                         2x + 3y = 10\nFor what value of k do                                 have no solution?\n                         (k + 3)x + (2k + 2)y = 41\nA. 0\n      1\nB.\n      5\nC. 8\n      9\nD.\n      2\nE. 5\n\nF. 2",
+      "extractedWorkedAnswerText": "Q197. Simultaneous Equations                                                    Target: G8-9 (provisional)\n                       {\n                         2x + 3y = 10\nFor what value of k do                                  have no solution?\n                         (k + 3)x + (2k + 2)y = 41\nCorrect answer: E          5\n1. Parallel coefficient ratios require 2(2k + 2) = 3(k + 3).\n2. This gives k = 5. At this value the second equation’s constant is not the same multiple of 10, so the\nlines are distinct and parallel.\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                          Page 38 of 39\n<PARSED TEXT FOR PAGE: 39 / 39>\nLux et Labor — Mathematics V3.1                                                           REVIEW COPY",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "0"
+        },
+        {
+          "letter": "B",
+          "inlineText": "5"
+        },
+        {
+          "letter": "C",
+          "inlineText": "8"
+        },
+        {
+          "letter": "D",
+          "inlineText": "2"
+        },
+        {
+          "letter": "E",
+          "inlineText": "5"
+        },
+        {
+          "letter": "F",
+          "inlineText": "2"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Both line coefficients depend on k; no-solution requires parallel-but-distinct check. Potential higher-demand but unsignable without benchmark.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 198,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-038",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-SIM-G89-COEFFICIENTS-BOTH-DEPEND-ON-K",
+      "originalSourceStudentPdfPage": 73,
+      "originalSourceAnswersPdfPage": 39,
+      "originalRegisteredCorrectOption": "A",
+      "originalPrintedCorrectOption": "A",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q198. Simultaneous Equations                                                Target: G8-9 (provisional)\n                       {\n                         2x + 3y = 12\nFor what value of k do                                 have no solution?\n                         (k + 4)x + (2k + 3)y = 61\nA. 6\n\nB. 9\n\nC. 4\n\nD. 12\n\nE. 8\n     11\nF.\n     2",
+      "extractedWorkedAnswerText": "Q198. Simultaneous Equations                                                     Target: G8-9 (provisional)\n                       {\n                         2x + 3y = 12\nFor what value of k do                                  have no solution?\n                         (k + 4)x + (2k + 3)y = 61\nCorrect answer: A          6\n1. Parallel coefficient ratios require 2(2k + 3) = 3(k + 4).\n2. This gives k = 6. At this value the second equation’s constant is not the same multiple of 12, so the\nlines are distinct and parallel.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "6"
+        },
+        {
+          "letter": "B",
+          "inlineText": "9"
+        },
+        {
+          "letter": "C",
+          "inlineText": "4"
+        },
+        {
+          "letter": "D",
+          "inlineText": "12"
+        },
+        {
+          "letter": "E",
+          "inlineText": "8"
+        },
+        {
+          "letter": "F",
+          "inlineText": "2"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Both line coefficients depend on k; no-solution requires parallel-but-distinct check. Potential higher-demand but unsignable without benchmark.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 199,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-039",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-SIM-G89-COEFFICIENTS-BOTH-DEPEND-ON-K",
+      "originalSourceStudentPdfPage": 73,
+      "originalSourceAnswersPdfPage": 39,
+      "originalRegisteredCorrectOption": "C",
+      "originalPrintedCorrectOption": "C",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q199. Simultaneous Equations                                                Target: G8-9 (provisional)\n                       {\n                         2x + 3y = 14\nFor what value of k do                                  have no solution?\n                         (k + 5)x + (2k + 2)y = 113\n     1\nA.\n     11\nB. 8\n\nC. 11\n\nD. 13\n     21\nE.\n      2\nF. 12\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                      Page 73 of 74\n<PARSED TEXT FOR PAGE: 74 / 74>\nLux et Labor — Mathematics V3.1                                                     REVIEW COPY",
+      "extractedWorkedAnswerText": "Q199. Simultaneous Equations                                                     Target: G8-9 (provisional)\n                       {\n                         2x + 3y = 14\nFor what value of k do                                    have no solution?\n                         (k + 5)x + (2k + 2)y = 113\nCorrect answer: C          11\n1. Parallel coefficient ratios require 2(2k + 2) = 3(k + 5).\n2. This gives k = 11. At this value the second equation’s constant is not the same multiple of 14, so the\nlines are distinct and parallel.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "11"
+        },
+        {
+          "letter": "B",
+          "inlineText": "8"
+        },
+        {
+          "letter": "C",
+          "inlineText": "11"
+        },
+        {
+          "letter": "D",
+          "inlineText": "13"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "12"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Both line coefficients depend on k; no-solution requires parallel-but-distinct check. Potential higher-demand but unsignable without benchmark.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 200,
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-040",
+      "sourceTopic": "math-y9-simultaneous-equations",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-SIM-G89-COEFFICIENTS-BOTH-DEPEND-ON-K",
+      "originalSourceStudentPdfPage": 74,
+      "originalSourceAnswersPdfPage": 39,
+      "originalRegisteredCorrectOption": "A",
+      "originalPrintedCorrectOption": "A",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q200. Simultaneous Equations                                               Target: G8-9 (provisional)\n                       {\n                         2x + 3y = 16\nFor what value of k do                                 have no solution?\n                         (k + 6)x + (2k + 3)y = 145\nA. 12\n\nB. 15\n\nC. 9\n\nD. 11\n     25\nE.\n      2\nF. 7\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                     Page 74 of 74",
+      "extractedWorkedAnswerText": "Q200. Simultaneous Equations                                                     Target: G8-9 (provisional)\n                       {\n                         2x + 3y = 16\nFor what value of k do                                    have no solution?\n                         (k + 6)x + (2k + 3)y = 145\nCorrect answer: A          12\n1. Parallel coefficient ratios require 2(2k + 3) = 3(k + 6).\n2. This gives k = 12. At this value the second equation’s constant is not the same multiple of 16, so the\nlines are distinct and parallel.\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                           Page 39 of 39",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "12"
+        },
+        {
+          "letter": "B",
+          "inlineText": "15"
+        },
+        {
+          "letter": "C",
+          "inlineText": "9"
+        },
+        {
+          "letter": "D",
+          "inlineText": "11"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "7"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Both line coefficients depend on k; no-solution requires parallel-but-distinct check. Potential higher-demand but unsignable without benchmark.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    }
+  ]
+}
