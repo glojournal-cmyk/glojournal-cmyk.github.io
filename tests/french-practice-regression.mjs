@@ -150,7 +150,8 @@ test('a Food Tests answer stays unmarked while iPad draft save is pending, then 
  assert.equal(flatten(tree).some(n=>n?.props?.unmarked===true),false,
    'must not show completed result while a save is pending');
  const submitted=calls.find(x=>x[0]==='completed-draft')?.[1];
- assert.equal(submitted?.ce,true);
+ assert.equal(submitted?.ce,false,'completed practice must NOT use the draft store delete mode');
+ assert.equal(submitted?.unmarkedCompleted,true,'completion flag must be stored durably');
  assert.equal(submitted?.sessionLog?.[0]?.formal,false);
  confirm(true);
  await new Promise(resolve=>setImmediate(resolve));
