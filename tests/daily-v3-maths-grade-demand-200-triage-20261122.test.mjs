@@ -5,7 +5,7 @@ import {mathsOriginalGradeDemandDecision,ORIGINAL_MATHS_G7PLUS_REVIEW_CANDIDATES
 import {selectMathsV31Daily} from '../assets/math-study/daily-v31-selector.js';
 import {verifyMathDailyAssignment} from '../assets/math-study/daily-v31-formal-submission.js';
 import {stageMathsV31Question} from '../assets/daily-maths-v31-intake-gate-20261122.js';
-import {validateMathQuestion} from '../assets/daily-tasks-v3-20261122.js';
+import {validateMathQuestion,mathsEvidence} from '../assets/daily-tasks-v3-20261122.js';
 
 const register=JSON.parse(readFileSync(new URL('../qa-staging/math-v311-200-item-grade-demand-triage-20261122.json',import.meta.url),'utf8'));
 const gradeEvidence={gradeDemandQA:'VERIFIED_G7_PLUS',independentGradeCalibrated:true,
@@ -87,6 +87,19 @@ test('real selector and formal grader fail closed when a forbidden original look
  assert.equal(formal.valid,false);
  assert.ok(formal.issues.some(x=>x.startsWith('original-grade-triage-rewrite-or-taught-hold:')),
  formal.issues.join(','));
+});
+
+test('restored task with forged original source cannot mint completion despite ten perfect A-F receipts',()=>{
+ const bad=baseline.map((q,i)=>i===0?{...q,id:'LUX-MATH-Y9-INDICES-001'}:q);
+ const tasks=task(bad);
+ const attempts=bad.map(q=>({day:'2026-11-23',questionId:q.id,dailyTaskId:'maths-daily',
+  subject:'maths',year:9,formal:true,correct:true,selectedOptionId:'A',
+  submittedAt:'2026-11-23T12:00:00.000Z'}));
+ const outcome=mathsEvidence(attempts,'2026-11-23',tasks);
+ assert.deepEqual(outcome,{submitted:0,correct:0,attemptFinished:false,completed:false,targetMet:false});
+ const safe=mathsEvidence(attempts.map(a=>({...a,questionId:baseline.find(q=>q.topicId===bad.find(b=>b.id===a.questionId)?.topicId)?.id||a.questionId})),
+  '2026-11-23',task(baseline));
+ assert.equal(safe.completed,false,'altered or incomplete receipts cannot create original credit');
 });
 
 test('signed-looking graph candidate with no independent grade evidence still cannot enter Daily',()=>{
