@@ -110,7 +110,9 @@ test('six Year 9 Latin vocabulary image PDFs have dedicated chapter buttons and 
  assert.match(reader,/isSiteNote/);
  assert.match(reader,/isSiteNote\(note\)\?note\.url/);
  assert.match(reader,/workerReady&&available\.has\(n\.key\)/);
- assert.match(read('notes/index.html'),/20261023-latinvocab1/);
+ // Both script and the latest Latin HTML entry must remain linked; an old
+ // fixed cache stamp is not proof of chapter links working.
+ assert.match(read('notes/index.html'),/<script src="\/notes\/library\.js\?v=[a-zA-Z0-9-]+" defer><\/script>/);
 });
 
 test('R2 screenshot confirms Latin Topic 1–6 object names, not necessarily public reader success',()=>{
@@ -192,5 +194,7 @@ test('all 96 PDF Notes retain meaningful topic labels and original R2 keys',()=>
  assert.match(js,/note\.displayTitle\|\|note\.title/);
  assert.match(js,/topic-section/);
  assert.match(js,/topicGroup/);
- assert.match(read('notes/index.html'),/20261023-latinvocab1-generatede2-r2topics1-topicnames1/);
+ // Keep an explicit versioned CSS asset so PWA/WebKit does not silently
+ // reuse a stale Notes screen; avoid asserting an obsolete revision string.
+ assert.match(read('notes/index.html'),/\/notes\/library\.css\?v=[a-zA-Z0-9-]+/);
 });
