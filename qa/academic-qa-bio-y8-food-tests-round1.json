@@ -1,0 +1,77 @@
+{
+  "commit": "2e556ffcb48f6c7346b3b663f8058f57271b643d",
+  "sourceFile": "content/topics/bio-y8-food-tests.json",
+  "round": 1,
+  "decision": "needs-revision",
+  "approved": 0,
+  "questions": 143,
+  "status": {
+    "enabled": 143
+  },
+  "formats": {
+    "mc_single": 73,
+    "mark_points": 52,
+    "typed_exact": 9,
+    "typed_short": 6,
+    "matching": 3
+  },
+  "not": [
+    "approval-register",
+    "second-round-academic-signoff",
+    "permission-to-edit-main"
+  ],
+  "verifiedAgainstFile": [
+    "143 questions, all status enabled",
+    "64 case MCQs have 16 distinct accepted answers, each repeated 4 times",
+    "52 mark_points items have no markPointAlternatives",
+    "the four ethanol-heating items and brick-red-name accepted list match the findings below"
+  ],
+  "findings": [
+    {
+      "severity": "P1",
+      "ids": [
+        "bio-y8-food-tests-water-bath-mc",
+        "bio-y8-food-tests-water-bath-name",
+        "bio-y8-food-tests-water-bath-explain",
+        "bio-y8-app-ethanol-safety"
+      ],
+      "issue": "These items treat heating ethanol as required. Benedict's test is heated in a water bath. The standard ethanol emulsion test mixes ethanol with the sample and then adds water; it does not heat the ethanol. bio-y8-app-food-test-match already states lipid as ethanol then water."
+    },
+    {
+      "severity": "P1",
+      "ids": [
+        "bio-y8-food-tests-brick-red-name"
+      ],
+      "issue": "The prompt asks for a strong positive Benedict's result, but accepted answers include 'orange or brick-red' and 'green yellow orange or brick-red'."
+    },
+    {
+      "severity": "P2",
+      "ids": [
+        "bio-y8-food-tests-case-*"
+      ],
+      "issue": "64 scenario MCQs cover 16 result combinations, four question IDs each. Correct options match the stated observations, but they are not 64 distinct concepts."
+    },
+    {
+      "severity": "P2",
+      "ids": [
+        "bio-y8-food-tests-iodine-solution-mc",
+        "bio-y8-food-tests-benedict-s-solution-mc",
+        "bio-y8-food-tests-biuret-solution-mc",
+        "bio-y8-food-tests-ethanol-emulsion-test-mc",
+        "bio-y8-food-tests-blue-black-mc",
+        "bio-y8-food-tests-brick-red-mc",
+        "bio-y8-food-tests-lilac-or-purple-mc",
+        "bio-y8-food-tests-cloudy-white-emulsion-mc",
+        "bio-y8-food-tests-water-bath-mc"
+      ],
+      "issue": "All 9 non-case MCQs contain at least one out-of-topic distractor. Two also contain one nearer distractor: Benedict's solution on the Biuret item, and lilac or purple on the brick-red item."
+    },
+    {
+      "severity": "open",
+      "ids": [
+        "format:mark_points"
+      ],
+      "issue": "52 mark_points items have no markPointAlternatives. Marking fairness for equivalent scientific wording is not yet tested, so this is not recorded as a proven mis-mark."
+    }
+  ]
+}
