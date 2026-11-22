@@ -1,0 +1,250 @@
+{
+  "status": "DRAFT_ACADEMIC_REPAIR_ONLY_BLOCKED",
+  "source": "Original 200-item student/answer PDF Q73..Q76; raw 200-question JSON not obtained",
+  "currentOriginalBankVersion": "3.1.1 source remains unchanged",
+  "sourceHashApproval": "REQUIRED_BEFORE_ANY_IMPORT",
+  "academicQA": "pending",
+  "teacherTaughtConfirmed": false,
+  "independentGradeCalibrated": false,
+  "independentDistractorApproved": false,
+  "applyToCanonicalBank": false,
+  "mathDailyEnabled": false,
+  "studentCredit": false,
+  "objective": "Replace four source variants with identical 1.116×10^5-g answer by four differentiated, physically plausible reasoning paths and explicit independently computed distractors.",
+  "originalAllFourResultsGrams": [
+    111600,
+    111600,
+    111600,
+    111600
+  ],
+  "patches": [
+    {
+      "questionId": "LUX-MATH-Y9-STANDARD_FORM-033",
+      "kind": "SUBSTANTIVE_REPLACEMENT_CANDIDATE",
+      "originalCorrectOptionId": "B",
+      "originalDifficultyTarget": "G8-9",
+      "concept": "combine masses; one percentage loss; divide by a known number of packets",
+      "scenario": "one-stage loss after total mass addition",
+      "replacement": {
+        "stem": "A factory starts with $6\\times10^{9}$ g of material and receives another $2\\times10^{8}$ g. After $10\\%$ of the combined mass is lost, the rest is packed equally into $5\\times10^{7}$ packets. Find the mass in grams of one packet, in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "1.24\\times10^{2}",
+            "misconception": "Ignore the 10% loss: 6.2×10^9 / 5×10^7 =124 g."
+          },
+          {
+            "id": "B",
+            "latex": "1.116\\times10^{2}",
+            "misconception": null
+          },
+          {
+            "id": "C",
+            "latex": "1.364\\times10^{2}",
+            "misconception": "Add 10% rather than remove it: 1.1×6.2×10^9 / 5×10^7 =136.4 g."
+          },
+          {
+            "id": "D",
+            "latex": "1.08\\times10^{2}",
+            "misconception": "Forget the received material, then remove 10%: 0.9×6×10^9 / 5×10^7 =108 g."
+          },
+          {
+            "id": "E",
+            "latex": "1.24\\times10^{1}",
+            "misconception": "Keep the removed 10% instead of the remaining 90%: 0.1×6.2×10^9 / 5×10^7 =12.4 g."
+          },
+          {
+            "id": "F",
+            "latex": "1.116\\times10^{3}",
+            "misconception": "Use 5×10^6 rather than 5×10^7 packets: 5.58×10^9 / 5×10^6 =1116 g."
+          }
+        ],
+        "correctOptionId": "B",
+        "workedSolutionSteps": [
+          "Combined mass $=6.2\\times10^9$ g.",
+          "Retain 90%: $0.9(6.2\\times10^9)=5.58\\times10^9$ g.",
+          "Each of $5\\times10^7$ packets contains $5.58\\times10^9/(5\\times10^7)=1.116\\times10^2$ g."
+        ]
+      },
+      "calculatedCorrectGrams": 111.6,
+      "independentFinalQaRequired": [
+        "Original raw source SHA/version binding",
+        "Teacher taught subskill evidence",
+        "Grade7+ independent calibration",
+        "All A-F error paths independently reviewed for plausibility",
+        "Actual rendered iPad display and first-attempt durability"
+      ]
+    },
+    {
+      "questionId": "LUX-MATH-Y9-STANDARD_FORM-034",
+      "kind": "SUBSTANTIVE_REPLACEMENT_CANDIDATE",
+      "originalCorrectOptionId": "F",
+      "originalDifficultyTarget": "G8-9",
+      "concept": "percentage loss followed by fixed absolute reserve; order of operations",
+      "scenario": "percentage then absolute subtraction",
+      "replacement": {
+        "stem": "A factory begins with $7\\times10^{9}$ g of powder. It loses $15\\%$ during processing, then sets aside $2\\times10^{8}$ g of the remaining powder for testing. The rest is divided equally between $4\\times10^{7}$ bags. Calculate the mass of powder in one bag in grams, in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "1.4875\\times10^{2}",
+            "misconception": "Ignore the separately reserved 2×10^8 g: (0.85×7×10^9)/(4×10^7)=148.75 g."
+          },
+          {
+            "id": "B",
+            "latex": "1.214375\\times10^{2}",
+            "misconception": "Apply the 15% processing loss twice before reserving: (0.85²×7×10^9−2×10^8)/(4×10^7)=121.4375 g."
+          },
+          {
+            "id": "C",
+            "latex": "1.5375\\times10^{2}",
+            "misconception": "Add the testing reserve rather than subtract: (0.85×7×10^9+2×10^8)/(4×10^7)=153.75 g."
+          },
+          {
+            "id": "D",
+            "latex": "1.445\\times10^{2}",
+            "misconception": "Reserve the 2×10^8 g first, then apply loss to everything left: 0.85×(7×10^9−2×10^8)/(4×10^7)=144.5 g."
+          },
+          {
+            "id": "E",
+            "latex": "2.125\\times10^{1}",
+            "misconception": "Retain 15% instead of 85%, then reserve the fixed amount: (0.15×7×10^9−2×10^8)/(4×10^7)=21.25 g."
+          },
+          {
+            "id": "F",
+            "latex": "1.4375\\times10^{2}",
+            "misconception": null
+          }
+        ],
+        "correctOptionId": "F",
+        "workedSolutionSteps": [
+          "After 15% loss, $0.85(7\\times10^9)=5.95\\times10^9$ g remains.",
+          "Set aside $2\\times10^8$ g: packable mass $=5.75\\times10^9$ g.",
+          "Divide by $4\\times10^7$: one bag contains $1.4375\\times10^2$ g."
+        ]
+      },
+      "calculatedCorrectGrams": 143.75,
+      "independentFinalQaRequired": [
+        "Original raw source SHA/version binding",
+        "Teacher taught subskill evidence",
+        "Grade7+ independent calibration",
+        "All A-F error paths independently reviewed for plausibility",
+        "Actual rendered iPad display and first-attempt durability"
+      ]
+    },
+    {
+      "questionId": "LUX-MATH-Y9-STANDARD_FORM-035",
+      "kind": "SUBSTANTIVE_REPLACEMENT_CANDIDATE",
+      "originalCorrectOptionId": "C",
+      "originalDifficultyTarget": "G8-9",
+      "concept": "reverse percentage to recover original quantity from final number and mass per packet",
+      "scenario": "inverse-loss reasoning",
+      "replacement": {
+        "stem": "A factory loses $20\\%$ of its starting mass in processing, then adds $1.2\\times10^{8}$ g of a second material. It fills $4\\times10^{6}$ packets, each containing $2.1\\times10^{2}$ g. Find the starting mass before the loss, in grams, in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "7.2\\times10^{8}",
+            "misconception": "Subtract added mass but forget to reverse the loss: 4×10^6×210−1.2×10^8=7.2×10^8 g."
+          },
+          {
+            "id": "B",
+            "latex": "3.6\\times10^{9}",
+            "misconception": "Treat retained 7.2×10^8 g as 20% (lost portion) rather than 80%: 7.2×10^8/0.2=3.6×10^9 g."
+          },
+          {
+            "id": "C",
+            "latex": "9\\times10^{8}",
+            "misconception": null
+          },
+          {
+            "id": "D",
+            "latex": "1.2\\times10^{9}",
+            "misconception": "Add the second material again when reversing the loss instead of subtracting: (8.4×10^8+1.2×10^8)/0.8=1.2×10^9 g."
+          },
+          {
+            "id": "E",
+            "latex": "5.76\\times10^{8}",
+            "misconception": "Apply a further 20% loss rather than reverse it: 7.2×10^8×0.8=5.76×10^8 g."
+          },
+          {
+            "id": "F",
+            "latex": "1.05\\times10^{9}",
+            "misconception": "Forget to subtract the added material before reversing: 8.4×10^8/0.8=1.05×10^9 g."
+          }
+        ],
+        "correctOptionId": "C",
+        "workedSolutionSteps": [
+          "Final mass in packets $=(4\\times10^6)(2.1\\times10^2)=8.4\\times10^8$ g.",
+          "Mass after the 20% loss but before addition $=8.4\\times10^8-1.2\\times10^8=7.2\\times10^8$ g.",
+          "This is 80% of starting mass: $7.2\\times10^8/0.8=9\\times10^8$ g."
+        ]
+      },
+      "calculatedCorrectGrams": 900000000,
+      "independentFinalQaRequired": [
+        "Original raw source SHA/version binding",
+        "Teacher taught subskill evidence",
+        "Grade7+ independent calibration",
+        "All A-F error paths independently reviewed for plausibility",
+        "Actual rendered iPad display and first-attempt durability"
+      ]
+    },
+    {
+      "questionId": "LUX-MATH-Y9-STANDARD_FORM-036",
+      "kind": "SUBSTANTIVE_REPLACEMENT_CANDIDATE",
+      "originalCorrectOptionId": "B",
+      "originalDifficultyTarget": "G8-9",
+      "concept": "successive percentage losses on successive remaining quantities",
+      "scenario": "two successive percentage changes",
+      "replacement": {
+        "stem": "A factory processes $4.5\\times10^{9}$ g of a product. First it loses $20\\%$ of the mass. During inspection, a further $25\\%$ of the mass then remaining is rejected. The accepted mass is divided equally into $3\\times10^{7}$ packets. Find the mass in grams of one packet, in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "8.25\\times10^{1}",
+            "misconception": "Add 20% and 25% as a single 45% loss: 4.5×10^9×0.55/(3×10^7)=82.5 g."
+          },
+          {
+            "id": "B",
+            "latex": "9\\times10^{1}",
+            "misconception": null
+          },
+          {
+            "id": "C",
+            "latex": "1.125\\times10^{2}",
+            "misconception": "Ignore the first 20% loss: 4.5×10^9×0.75/(3×10^7)=112.5 g."
+          },
+          {
+            "id": "D",
+            "latex": "1.2\\times10^{2}",
+            "misconception": "Ignore the second 25% loss: 4.5×10^9×0.8/(3×10^7)=120 g."
+          },
+          {
+            "id": "E",
+            "latex": "2.25\\times10^{1}",
+            "misconception": "Keep only 20% in the first stage instead of 80%: 4.5×10^9×0.2×0.75/(3×10^7)=22.5 g."
+          },
+          {
+            "id": "F",
+            "latex": "1.5\\times10^{2}",
+            "misconception": "Add 25% instead of losing 25% at inspection: 4.5×10^9×0.8×1.25/(3×10^7)=150 g."
+          }
+        ],
+        "correctOptionId": "B",
+        "workedSolutionSteps": [
+          "After the first loss, $0.8(4.5\\times10^9)=3.6\\times10^9$ g remains.",
+          "After the second loss, retain 75% of this: $0.75(3.6\\times10^9)=2.7\\times10^9$ g.",
+          "Dividing by $3\\times10^7$ packets gives $9\\times10^1$ g each."
+        ]
+      },
+      "calculatedCorrectGrams": 90,
+      "independentFinalQaRequired": [
+        "Original raw source SHA/version binding",
+        "Teacher taught subskill evidence",
+        "Grade7+ independent calibration",
+        "All A-F error paths independently reviewed for plausibility",
+        "Actual rendered iPad display and first-attempt durability"
+      ]
+    }
+  ]
+}
