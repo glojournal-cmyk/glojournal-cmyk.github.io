@@ -78,7 +78,7 @@ export function latexMathML(latex){
   return row(parts);
  }
  const math=sequence();spaces();if(i!==latex.length)err('trailing input');
- return '<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline" aria-label="'+escapeText(latex)+'">'+math+'</math>';
+ return '<math xmlns="http://www.w3.org/1998/Math/MathML" display="inline">'+math+'</math>';
 }
 export function mathsRichTextHTML(source){
  if(typeof source!=='string'||source.length>9000)throw Error('Maths text too long');
