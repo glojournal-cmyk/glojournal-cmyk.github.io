@@ -8,8 +8,10 @@ on:
       - 'assets/index-BLVOhKhN.js'
       - 'tests/daily-v3-contract-20261122.test.mjs'
       - 'assets/daily-v3-approved-content-20261122.js'
+      - 'assets/daily-maths-v31-intake-gate-20261122.js'
       - 'tests/daily-v3-academic-approved-20261122.test.mjs'
       - 'tests/daily-v3-scoring-integrity-20261122.test.mjs'
+      - 'tests/daily-v3-maths-v31-intake-20261122.test.mjs'
       - 'tests/daily-v3-vocab-20261122.test.mjs'
       - 'tests/daily-20261103-inflight-and-window.test.mjs'
       - 'scripts/daily-v3-bank-audit-20261122.mjs'
@@ -21,8 +23,10 @@ on:
       - 'assets/index-BLVOhKhN.js'
       - 'tests/daily-v3-contract-20261122.test.mjs'
       - 'assets/daily-v3-approved-content-20261122.js'
+      - 'assets/daily-maths-v31-intake-gate-20261122.js'
       - 'tests/daily-v3-academic-approved-20261122.test.mjs'
       - 'tests/daily-v3-scoring-integrity-20261122.test.mjs'
+      - 'tests/daily-v3-maths-v31-intake-20261122.test.mjs'
       - 'tests/daily-v3-vocab-20261122.test.mjs'
       - 'tests/daily-20261103-inflight-and-window.test.mjs'
   workflow_dispatch:
@@ -43,12 +47,14 @@ jobs:
           node --check assets/daily-vocab-20261003.js
           node --check assets/index-BLVOhKhN.js
           node --check assets/daily-v3-approved-content-20261122.js
+          node --check assets/daily-maths-v31-intake-gate-20261122.js
+          node --check tests/daily-v3-maths-v31-intake-20261122.test.mjs
           node --check tests/daily-v3-academic-approved-20261122.test.mjs
           node --check tests/daily-v3-scoring-integrity-20261122.test.mjs
           node --check tests/daily-v3-contract-20261122.test.mjs
           node --check tests/daily-v3-vocab-20261122.test.mjs
       - name: Unit tests - Daily V3 contract
-        run: node --test tests/daily-v3-contract-20261122.test.mjs tests/daily-v3-vocab-20261122.test.mjs tests/daily-v3-academic-approved-20261122.test.mjs tests/daily-v3-scoring-integrity-20261122.test.mjs
+        run: node --test tests/daily-v3-contract-20261122.test.mjs tests/daily-v3-vocab-20261122.test.mjs tests/daily-v3-academic-approved-20261122.test.mjs tests/daily-v3-scoring-integrity-20261122.test.mjs tests/daily-v3-maths-v31-intake-20261122.test.mjs
       - name: Existing Daily V2, vocabulary, Recovery and concept supply regression
         run: |
           node --test tests/daily-vocab-year9-three-20261021.test.mjs tests/daily-20261103-inflight-and-window.test.mjs tests/question-supply-preflight-20261111.test.mjs tests/recovery-all-tasks-ledger.test.mjs
