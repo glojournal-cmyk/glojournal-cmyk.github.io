@@ -39,8 +39,8 @@ async function inspect(name,browserType){
   const q=page.locator('#qa-question');
   assert.equal(await q.getAttribute('data-question-id'),source.questions[0].id);
   assert.equal(await page.locator('#qa-choices button.choice').count(),6);
-  assert.ok(await page.locator('.mjx-container,mjx-container').count()>0,
-    'MathJax must actually typeset formulas on WebKit/Chromium');
+  assert.ok(await page.locator('math[xmlns="http://www.w3.org/1998/Math/MathML"]').count()>0,
+    'Offline native MathML must actually render formulas on WebKit/Chromium');
   const option=source.questions[0].correctOptionId;
   await page.locator('#qa-choices button[data-option-id="'+option+'"]').click();
   await page.locator('#qa-worked').waitFor({state:'visible'});
@@ -60,7 +60,7 @@ async function inspect(name,browserType){
   assert.equal(final.reviewer.sourceStatus,'QA_ONLY_NOT_APPROVED');
   await page.screenshot({path:out+'/'+name+'-passed.png',fullPage:true});
   results.push({browser:name,pass:true,firstQuestion:source.questions[0].id,
-    secondQuestion:source.questions[1].id,mathRenderer:true,storageUnchanged:true});
+    secondQuestion:source.questions[1].id,nativeOfflineMathML:true,storageUnchanged:true});
  }catch(e){
   await page.screenshot({path:out+'/'+name+'-failed.png',fullPage:true}).catch(()=>{});
   const detail={browser:name,pass:false,message:String(e),pageErrors:errors,
