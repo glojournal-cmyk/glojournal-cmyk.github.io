@@ -40,8 +40,14 @@ async function inspect(name,browserType){
   const q=page.locator('#qa-question');
   assert.equal(await q.getAttribute('data-question-id'),source.questions[0].id);
   assert.equal(await page.locator('#qa-choices button.choice').count(),6);
-  assert.ok(await page.locator('math[xmlns="http://www.w3.org/1998/Math/MathML"]').count()>0,
-    'Offline native MathML must actually render formulas on WebKit/Chromium');
+  const renderedChoices=await page.locator('#qa-choices .choice').evaluateAll(buttons=>
+   buttons.map(button=>{
+    const maths=button.getElementsByTagNameNS('http://www.w3.org/1998/Math/MathML','math');
+    if(maths.length!==1)return false;
+    const bounds=maths[0].getBoundingClientRect();
+    return maths[0].childElementCount>0&&bounds.width>0&&bounds.height>0;
+   }));
+  assert.deepEqual(renderedChoices,Array(6).fill(true),'Every choice must contain visible native MathML');
   // The renderer must keep working after the browser loses network.
   await context.setOffline(true);
   const option=source.questions[0].correctOptionId;
