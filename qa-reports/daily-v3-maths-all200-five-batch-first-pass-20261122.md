@@ -2,9 +2,17 @@
 
 **22 November 2026 | Draft PR #306 only | Academic approvals 0/200 | Live app and student credit unchanged**
 
+## Critical follow-up correction — option extraction safety
+
+**Do not read '200/200 six A–F source choices checked' as 1,200 mathematically faithful option expressions.** On a subsequent source-format audit, the PDF plain-text extraction was found to bleed vertically stacked fraction numerators and denominators across answer-letter boundaries (e.g. original Indices Q5: `A. 16\n 1`, `B.\n 16` corresponds to nearby stacked 1/16 formatting, not two reliable integer values). The original Q1–200 key letters remain unchanged, but the exact printed numerical/symbolic contents of several A–F choices cannot be inferred safely from the line extraction.
+
+**New [1,200-option extraction safety register](../qa-staging/math-v311-original-1200-option-layout-safety-20261122.json): 477 straightforward one-line integer snippets; 723 formatted or multiline items explicitly awaiting original-page visual QA.** This is not 477 signed distractors and not 723 wrong calculations. **[Full Indices Q1–40 / 200 wrong-choice screening](../qa-staging/math-v311-indices40-all200-wrong-options-math-triage-20261122.json)**: 4 mathematically reconstructable negative-index-sign wrong outcomes, 112 readable integers numerically unequal to correct results but without an independently demonstrated misconception, and 84 unresolved original PDF layouts. External teaching/Grade 7+ QA still **0/200**.
+
+[See full evidence and independent test](daily-v3-maths-1200-option-layout-and-indices40-review-20261122.md).
+
 ## 1. Batch processing — all five subjects completed in this pass
 
-The original user-uploaded 74-page **Lux_Maths_Y9_V3_All_200_Student.pdf**, 39-page **Lux_Maths_Y9_V3_All_200_Answers.pdf**, and **Lux_Maths_V3_1_Formal_Academic_QA_Register_20261122.csv** were reopened and all 200 numbered original questions, six source options and source answer letters rechecked. Five source-preserving packs were created, each including exact PDF-extracted question content, original worked solution, source page, original answer letter, topic, template, preliminary curriculum and grade risk and all release HOLD flags.
+The original user-uploaded 74-page **Lux_Maths_Y9_V3_All_200_Student.pdf**, 39-page **Lux_Maths_Y9_V3_All_200_Answers.pdf**, and **Lux_Maths_V3_1_Formal_Academic_QA_Register_20261122.csv** were reopened and all 200 numbered original questions, six original A–F option *labels* per question, and source answer letters rechecked. Reconstructing the actual formatted option expressions requires the separate follow-up visual QA noted above. Five source-preserving packs were created, each including exact PDF-extracted question content, original worked solution, source page, original answer letter, topic, template, preliminary curriculum and grade risk and all release HOLD flags.
 
 | Topic | Numbered source and six A–F verified | Independent mathematical verification in this run | Remaining evidence |
 |---|---:|---|---|
