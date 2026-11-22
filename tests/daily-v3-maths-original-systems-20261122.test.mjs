@@ -2,6 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {selectMathsV31Daily} from '../assets/math-study/daily-v31-selector.js';
+import {verifyMathDailyAssignment} from '../assets/math-study/daily-v31-formal-submission.js';
+import {VERIFIED_MATHS_SYSTEM_COLLISIONS,verifiedSourceSystemKeyForMathsId} from '../assets/math-study/math-v311-original-system-collisions.js';
 
 const source = JSON.parse(readFileSync(new URL(
   '../qa-staging/math-v311-simultaneous-original-system-collisions-20261122.json',
@@ -11,6 +13,8 @@ const groups = source.questionPairGroups;
 test('Source-grounded exact equations manifest: original system solutions and unique source IDs', () => {
   assert.equal(source.status, 'REVIEW_ONLY_NOT_APPROVED');
   assert.equal(groups.length, 4);
+  assert.deepEqual(VERIFIED_MATHS_SYSTEM_COLLISIONS,groups.map(g=>({sameSystemKey:g.sameSystemKey,ids:g.ids})));
+  assert.equal(verifiedSourceSystemKeyForMathsId('LUX-MATH-Y9-INDICES-005'),null);
   const allIDs = [];
   for (const group of groups) {
     assert.ok(group.ids.length >= 2);
@@ -36,28 +40,56 @@ const fixture=topics.flatMap((topicId,t)=>topicBands[t].map((difficultyTarget,j)
   options:['A','B','C','D','E','F'].map(id=>({id,text:id}))
 })));
 
-test('Original Q161 and Q169 are different source IDs but identical equation givens: fail closed same day',()=>{
+test('Exact duplicate givens block same-day even when forged concept labels differ',()=>{
   const [a,b]=groups[0].ids;
-  const two=fixture.map(q=>{
-    if(q.topicId!=='math-y9-simultaneous-equations')return q;
-    return {...q,id:q.id.endsWith('-0')?a:b,
-      templateId:q.id.endsWith('-0')?'V3-SIM-G7-SOLVE-DERIVED':'V2-SIMULTANEOUS-3',
-      conceptFamilyId:groups[0].sameSystemKey};
-  });
-  assert.equal(two.filter(q=>q.topicId==='math-y9-simultaneous-equations').length,2);
+  const two=fixture.map(q=>q.topicId==='math-y9-simultaneous-equations'?{
+    ...q,id:q.id.endsWith('-0')?a:b,
+    templateId:q.id.endsWith('-0')?'V3-SIM-G7-SOLVE-DERIVED':'V2-SIMULTANEOUS-3',
+    // Deliberately *different* labels: the original-equations guard is independent.
+    conceptFamilyId:'reviewer-mislabel-'+q.id
+  }:q);
   assert.equal(new Set(two.map(q=>q.templateId)).size,10);
+  assert.equal(new Set(two.map(q=>q.conceptFamilyId)).size,10);
   const denied=selectMathsV31Daily({approvedQuestions:two,day:'2026-11-23'});
-  assert.equal(denied.ready,false,'must not count the reused source equations as two unique new concepts');
-  assert.equal(denied.questions.length,0);
-  // A truly separate, independently reviewed concept label restores enough supply in
-  // the synthetic fixture. This is NOT teacher approval for either original source question.
-  const separatelyReviewed=two.map(q=>q.id===b?{...q,conceptFamilyId:'independent-different-system-fixture'}:q);
-  const allowed=selectMathsV31Daily({approvedQuestions:separatelyReviewed,day:'2026-11-23'});
+  assert.equal(denied.ready,false,'must block the original repeated system despite divergent concept metadata');
+  assert.deepEqual(denied.questions,[]);
+  const repairedFixture=two.map(q=>q.id===b?{...q,id:'synthetic-different-question'}:q);
+  const allowed=selectMathsV31Daily({approvedQuestions:repairedFixture,day:'2026-11-23'});
   assert.equal(allowed.ready,true,allowed.issues.join(','));
   assert.equal(allowed.questions.length,10);
-  assert.equal(allowed.diagnostics.previousDayConceptFamilyRepeats,0);
   assert.deepEqual(allowed.diagnostics.bandCounts,{'G7':4,'G8':4,'G8-9':2});
-  assert.ok(Object.values(allowed.diagnostics.topics).every(n=>n===2));
+});
+
+test('Previously used original equation system blocks another source ID on later days',()=>{
+  const [a,b]=groups[1].ids;
+  const two=fixture.map(q=>q.topicId==='math-y9-simultaneous-equations'&&q.id.endsWith('-0')?{
+    ...q,id:b
+  }:q);
+  const history=[{date:'2026-11-22',questionIds:[a],templateIds:['old-different-template']}];
+  const denied=selectMathsV31Daily({approvedQuestions:two,day:'2026-11-23',history});
+  assert.equal(denied.ready,false,'the equivalent equation has already been tested');
+  const fresh=two.map(q=>q.id===b?{...q,id:'synthetic-nonduplicated-system'}:q);
+  const allowed=selectMathsV31Daily({approvedQuestions:fresh,day:'2026-11-23',history});
+  assert.equal(allowed.ready,true,allowed.issues.join(','));
+});
+
+test('Formal grading boundary also rejects exact original equations even with different labels',()=>{
+  const [a,b]=groups[0].ids;
+  const approved=fixture.map(q=>{
+    const sourceId=q.topicId==='math-y9-simultaneous-equations'?(q.id.endsWith('-0')?a:b):q.id;
+    return {...q,id:sourceId,correctOptionId:'A',sourceRef:'synthetic',qaReviewer:'synthetic',
+      mathsChecker:'synthetic',conceptFamilyEvidence:'synthetic',conceptFamilyReviewer:'synthetic',
+      options:q.options.map(o=>({...o,latex:o.id,misconception:o.id==='A'?'':'synthetic mistake rationale'}))};
+  });
+  const task={id:'maths-daily',dailyV3:true,supplyBlocked:false,
+    planDate:'2026-11-23',assignedYear:9,assignedSubject:'maths',
+    approvedQuestionIds:approved.map(q=>q.id),
+    approvedCorrectOptionByQuestion:Object.fromEntries(approved.map(q=>[q.id,q.correctOptionId])),
+    approvedConceptByQuestion:Object.fromEntries(approved.map(q=>[q.id,q.conceptFamilyId]))};
+  const check=verifyMathDailyAssignment(task,approved,'2026-11-23');
+  assert.equal(check.valid,false);
+  assert.ok(check.issues.some(issue=>issue.startsWith('repeated-original-equation-system:')),
+    check.issues.join(','));
 });
 
 test('Original source remains fail-closed with missing reviewer approval despite correct semantic metadata',()=>{
