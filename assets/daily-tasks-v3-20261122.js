@@ -173,14 +173,35 @@ export function validateMathQuestion(q){
   if(!String(q?.sourceRef||'').trim()||!String(q?.qaReviewer||'').trim())issues.push('qa-provenance-required');
   return {valid:issues.length===0,issues};
 }
+// Use the same explicit London-date contract as the verified Maths submission
+// boundary. A stored "day" label alone never proves when an answer happened.
+const mathsAnswerOnSchoolDay=(stamp,day)=>{
+  if(typeof stamp!=='string'||
+     !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,3})?(?:Z|[+-]\d{2}:\d{2})$/.test(stamp))
+    return false;
+  const time=Date.parse(stamp);
+  if(!Number.isFinite(time))return false;
+  const parts=Object.fromEntries(new Intl.DateTimeFormat('en-GB',{
+    timeZone:'Europe/London',year:'numeric',month:'2-digit',day:'2-digit'
+  }).formatToParts(new Date(time)).map(x=>[x.type,x.value]));
+  return [parts.year,parts.month,parts.day].join('-')===day;
+};
 export function mathsEvidence(attempts=[],day,task=null){
-  // Production V3 always supplies the immutable 10-question assignment.
-  // Two-argument mode is retained only for legacy isolated validator tests.
-  const accepted=task?new Set(task.approvedQuestionIds||[]):null;
+  // The two-argument mode is a legacy isolated test helper only. Production
+  // must always provide the full, pinned, QA-gated Maths assignment.
+  const ids=Array.isArray(task?.approvedQuestionIds)?task.approvedQuestionIds:[];
+  const accepted=task?new Set(ids):null;
   const correctIds=task?.approvedCorrectOptionByQuestion||{};
-  if(task&&(!validDate(day)||task.supplyBlocked===true||task.planDate!==day||
-     accepted.size!==10||Object.keys(correctIds).length!==10||
-     Number(task.assignedYear)!==9))
+  const families=task?.approvedConceptByQuestion||{};
+  if(task&&(!validDate(day)||task.id!=='maths-daily'||
+     task.dailyV3!==true||task.supplyBlocked===true||task.planDate!==day||
+     task.assignedSubject!=='maths'||Number(task.assignedYear)!==9||
+     ids.length!==10||accepted.size!==10||
+     Object.keys(correctIds).length!==10||Object.keys(families).length!==10||
+     new Set(ids.map(id=>families[id])).size!==10||
+     ids.some(id=>typeof id!=='string'||!id||
+       !['A','B','C','D','E','F'].includes(correctIds[id])||
+       typeof families[id]!=='string'||!families[id])))
     return {submitted:0,correct:0,attemptFinished:false,completed:false,targetMet:false};
   const seen=new Map();
   for(const a of attempts){
@@ -195,7 +216,7 @@ export function mathsEvidence(attempts=[],day,task=null){
       // malformed or assisted. It can never be replaced by a later correct
       // submission, hint reset or an untrusted bare correct:true assertion.
       const firstValid=typeof a.correct==='boolean'&&
-        Boolean(a.submittedAt||a.at)&&
+        mathsAnswerOnSchoolDay(a.submittedAt||a.at,day)&&
         ['A','B','C','D','E','F'].includes(a.selectedOptionId)&&
         a.correct===(a.selectedOptionId===correctIds[id])&&
         a.repair!==true&&a.hintUsed!==true&&
