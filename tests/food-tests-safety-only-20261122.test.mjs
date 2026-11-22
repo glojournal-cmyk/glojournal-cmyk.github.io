@@ -72,7 +72,7 @@ test('both live quiz bundles bypass untrusted marking and suppress answer leaks 
   assert.ok(src.includes('!qaHeld&&_&&(n.ok?ee:h)()'),path);
   assert.ok(src.includes('...(G.practiceOnly?[]:G.ok?'),path);
   assert.ok(src.includes('!G.practiceOnly&&correction?.missingWords.length'),path);
-  assert.ok(src.includes('!G.practiceOnly&&correction?.reason'),path);
+  assert.ok(src.includes('!G.practiceOnly&&!G.ok&&correction?.reason'),path);
   assert.ok(src.includes('!G.practiceOnly&&!G.ok&&correction?.rule'),path);
   assert.ok(src.includes('G.practiceOnly?`Practice saved. Not a formal mark.`'),path);
   assert.ok(src.includes('G&&!isFoodTestsQaHeld(Y)&&B(Y,e,a).ok'),path);
