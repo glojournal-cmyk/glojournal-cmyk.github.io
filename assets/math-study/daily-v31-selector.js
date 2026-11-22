@@ -1,11 +1,12 @@
 // Maths V3.1: deterministic, academic-QA-gated, read-only daily selector.
 import {verifiedSourceSystemKeyForMathsId} from './math-v311-original-system-collisions.js';
+import {mathsOriginalGradeDemandDecision} from './math-v311-grade-demand-gate.js';
 const TOPICS=['math-y9-indices','math-y9-standard-form','math-y9-changing-subject','math-y9-straight-line-graphs','math-y9-simultaneous-equations'];
 const BANDS={G7:4,G8:4,'G8-9':2};
 const PAIRS=[['G7','G7'],['G7','G8'],['G7','G8-9'],['G8','G8'],['G8','G8-9'],['G8-9','G8-9']];
 const dateOf=x=>String(x||'').slice(0,10);
 function hash(s){let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}return h>>>0;}
-const valid=q=>typeof q?.conceptFamilyId==='string'&&q.conceptFamilyId.trim()&&q?.subject==='maths'&&Number(q.year)===9&&TOPICS.includes(q.topicId)&&Object.hasOwn(BANDS,q.difficultyTarget)&&q.academicQA==='approved'&&q.taughtVerified===true&&q.mathDailyEnabled===true&&q.renderRequired===true&&q.qaSourceStatus!=='BLOCKED_FOR_LIVE_IMPORT'&&Array.isArray(q.options)&&q.options.length===6&&q.templateId&&q.id;
+const valid=q=>typeof q?.conceptFamilyId==='string'&&q.conceptFamilyId.trim()&&q?.subject==='maths'&&Number(q.year)===9&&TOPICS.includes(q.topicId)&&Object.hasOwn(BANDS,q.difficultyTarget)&&q.academicQA==='approved'&&q.taughtVerified===true&&q.mathDailyEnabled===true&&q.renderRequired===true&&q.qaSourceStatus!=='BLOCKED_FOR_LIVE_IMPORT'&&mathsOriginalGradeDemandDecision(q).ok&&Array.isArray(q.options)&&q.options.length===6&&q.templateId&&q.id;
 
 /* Pure assignment selection; NEVER writes XP, MP, Recovery, saved data.
    history=[{date,questionIds,templateIds}], earliest to latest.
