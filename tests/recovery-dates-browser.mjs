@@ -99,7 +99,24 @@ try{for(const launcher of [chromium,webkit]){const browser=await launcher.launch
   return store.getState().dailyLog[date];
  },unopened);
  assert.equal(persisted.tasks.find(t=>t.id==='french-vocab').recovered,true);
- const dates=await page.evaluate(async()=>{const {C:store,Ut:day}=await import([...document.scripts].find(script=>script.src.includes('/assets/index-BLVOhKhN.js')).src);const today=day(),date=n=>new Date(Date.parse(today+'T12:00:00Z')-n*86400000).toISOString().slice(0,10),a=date(1),b=date(2);const logs={...store.getState().dailyLog};for(const d of [a,b])logs[d]={date:d,tasks:[{id:'french-vocab',target:30,progress:20},{id:'latin-vocab',target:30,progress:30}]};store.setState({dailyLog:logs,recoveryVocabByDay:{},recoveryAwarded:{}});return [a,b]});
+ const dates=await page.evaluate(async()=>{const {C:store,Ut:day}=await import([...document.scripts].find(script=>script.src.includes('/assets/index-BLVOhKhN.js')).src);const today=day(),date=n=>new Date(Date.parse(today+'T12:00:00Z')-n*86400000).toISOString().slice(0,10),a=date(1),b=date(2);const prev=store.getState();
+ const logs={...prev.dailyLog};
+ // Isolate synthetic unfinished days from the earlier part of THIS test,
+ // where French Recovery was deliberately completed for day a. A 20/30
+ // fixture must not coexist with 30 verified same-date answers, since the
+ // production UI correctly suppresses a link once 30/30 is proven.
+ const dailyVocabByDay={...(prev.dailyVocabByDay||{})};
+ for(const d of [a,b]){
+   logs[d]={date:d,tasks:[
+     {id:'french-vocab',target:30,progress:20},
+     {id:'latin-vocab',target:30,progress:30}
+   ]};
+   delete dailyVocabByDay[d];
+ }
+ const formalAttemptLog=(prev.formalAttemptLog||[]).filter(x=>![a,b].includes(x?.day));
+ store.setState({dailyLog:logs,dailyVocabByDay,formalAttemptLog,
+   recoveryVocabByDay:{},recoveryAwarded:{}});
+ return [a,b]});
  // Open the current 30-day modal and exercise each historical date.
  await page.evaluate(()=>window.__luxOpenDailyRecord());
  await page.locator('.lux-record-sheet').waitFor({state:'visible'});
