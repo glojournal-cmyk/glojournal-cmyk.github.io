@@ -48,6 +48,42 @@ test('rational rearrangement: correct option unchanged and domain-safe inverse',
   }
 });
 
+test('rearranging: candidate A-F algebraic error paths are distinct and preserve correct D',()=>{
+ const patch=byId('REARRANGING-023');
+ const choices=patch.replacement.options;
+ assert.deepEqual(choices.map(c=>c.id),['A','B','C','D','E','F']);
+ assert.equal(choices.length,6);
+ assert.equal(patch.originalCorrectOptionId,'D');
+ const expected={
+  A:'\\frac{5-6y}{y-4}',
+  B:'\\frac{6y-1}{y-5}',
+  C:'\\frac{6-6y}{y-5}',
+  D:'\\frac{11-6y}{y-5}',
+  E:'\\frac{11-6y}{y+3}',
+  F:'\\frac{-6y-1}{y-3}'
+ };
+ for(const choice of choices){
+  assert.equal(choice.latex,expected[choice.id]);
+  if(choice.id!=='D')assert.ok(choice.misconception?.length>45,
+   'individually derived algebraic mistake required');
+ }
+ const at=y=>({
+   A:(5-6*y)/(y-4),B:(6*y-1)/(y-5),C:(6-6*y)/(y-5),
+   D:(11-6*y)/(y-5),E:(11-6*y)/(y+3),F:(-6*y-1)/(y-3)
+ });
+ for(const y of [2,7,9]){
+   const values=at(y);
+   assert.equal(new Set(Object.values(values)).size,6,'unique candidate outcomes at '+y);
+   const x=(11-6*y)/(y-5);
+   same(y,1+(4*x+5)/(x+6));
+   same(values.D,x);
+ }
+ for(const [id,value] of Object.entries(at(2)))
+   same(patch.verification.computedAtSampleY[id],value);
+ assert.equal(patch.verification.distinctOptions,6);
+ assert.equal(patch.verification.correctOptionId,'D');
+});
+
 test('indices: source answer F stays n²−n=2 and candidate D=6 follows an explicit mistake',()=>{
  const patch=byId('INDICES-037');
  assert.equal(patch.originalCorrectOptionId,'F');
