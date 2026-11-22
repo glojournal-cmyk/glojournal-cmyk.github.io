@@ -9,6 +9,7 @@ on:
       - 'tests/daily-v3-contract-20261122.test.mjs'
       - 'assets/daily-v3-approved-content-20261122.js'
       - 'assets/daily-maths-v31-intake-gate-20261122.js'
+      - 'assets/durable-study-evidence-20261018.js'
       - 'assets/math-study/daily-v31-selector.js'
       - 'assets/math-study/daily-v31-formal-submission.js'
       - 'assets/math-study/math-v31-native-mathml.js'
@@ -20,6 +21,7 @@ on:
       - 'tests/daily-v3-maths-v31-intake-20261122.test.mjs'
       - 'tests/daily-v3-maths-selector-20261122.test.mjs'
       - 'tests/daily-v3-maths-formal-submission-20261122.test.mjs'
+      - 'tests/daily-v3-maths-idb-fallback-20261122.test.mjs'
       - 'tests/daily-v3-maths-qa-preview-20261122.test.mjs'
       - 'tests/daily-v3-maths-planner-integration-20261122.test.mjs'
       - 'tests/daily-v3-mathml-offline-20261122.test.mjs'
@@ -35,6 +37,7 @@ on:
       - 'tests/daily-v3-contract-20261122.test.mjs'
       - 'assets/daily-v3-approved-content-20261122.js'
       - 'assets/daily-maths-v31-intake-gate-20261122.js'
+      - 'assets/durable-study-evidence-20261018.js'
       - 'assets/math-study/daily-v31-selector.js'
       - 'assets/math-study/daily-v31-formal-submission.js'
       - 'assets/math-study/math-v31-native-mathml.js'
@@ -46,6 +49,7 @@ on:
       - 'tests/daily-v3-maths-v31-intake-20261122.test.mjs'
       - 'tests/daily-v3-maths-selector-20261122.test.mjs'
       - 'tests/daily-v3-maths-formal-submission-20261122.test.mjs'
+      - 'tests/daily-v3-maths-idb-fallback-20261122.test.mjs'
       - 'tests/daily-v3-maths-qa-preview-20261122.test.mjs'
       - 'tests/daily-v3-maths-planner-integration-20261122.test.mjs'
       - 'tests/daily-v3-mathml-offline-20261122.test.mjs'
@@ -76,6 +80,7 @@ jobs:
           node --check assets/math-study/daily-v31-qa-preview.js
           node --check assets/math-study/daily-v31-formal-submission.js
           node --check tests/daily-v3-maths-formal-submission-20261122.test.mjs
+          node --check tests/daily-v3-maths-idb-fallback-20261122.test.mjs
           node --check assets/math-study/math-v31-native-mathml.js
           node --check tests/daily-v3-mathml-offline-20261122.test.mjs
           node --check tests/daily-v3-maths-qa-preview-20261122.test.mjs
@@ -85,7 +90,7 @@ jobs:
           node --check tests/daily-v3-contract-20261122.test.mjs
           node --check tests/daily-v3-vocab-20261122.test.mjs
       - name: Unit tests - Daily V3 contract
-        run: node --test tests/daily-v3-contract-20261122.test.mjs tests/daily-v3-vocab-20261122.test.mjs tests/daily-v3-academic-approved-20261122.test.mjs tests/daily-v3-scoring-integrity-20261122.test.mjs tests/daily-v3-maths-v31-intake-20261122.test.mjs tests/daily-v3-maths-selector-20261122.test.mjs tests/daily-v3-maths-qa-preview-20261122.test.mjs tests/daily-v3-maths-planner-integration-20261122.test.mjs tests/daily-v3-mathml-offline-20261122.test.mjs tests/daily-v3-maths-formal-submission-20261122.test.mjs
+        run: node --test tests/daily-v3-contract-20261122.test.mjs tests/daily-v3-vocab-20261122.test.mjs tests/daily-v3-academic-approved-20261122.test.mjs tests/daily-v3-scoring-integrity-20261122.test.mjs tests/daily-v3-maths-v31-intake-20261122.test.mjs tests/daily-v3-maths-selector-20261122.test.mjs tests/daily-v3-maths-qa-preview-20261122.test.mjs tests/daily-v3-maths-planner-integration-20261122.test.mjs tests/daily-v3-mathml-offline-20261122.test.mjs tests/daily-v3-maths-formal-submission-20261122.test.mjs tests/daily-v3-maths-idb-fallback-20261122.test.mjs
       - name: Existing Daily V2, vocabulary, Recovery and concept supply regression
         run: |
           node --test tests/daily-vocab-year9-three-20261021.test.mjs tests/daily-20261103-inflight-and-window.test.mjs tests/question-supply-preflight-20261111.test.mjs tests/recovery-all-tasks-ledger.test.mjs
