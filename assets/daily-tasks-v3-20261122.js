@@ -58,7 +58,8 @@ export function v3ScopedQuestionEvidence(state,task,day){
     if(e?.day!==day||e?.dailyTaskId!==task?.id||
        e?.subject!==task.assignedSubject||Number(e?.year)!==Number(task.assignedYear)||
        e?.topicId!==task.assignedTopic||e.formal===false||e.repair===true||
-       e.recoveryFor||typeof e.correct!=='boolean'||!e.questionId)continue;
+       e.recoveryFor||e.assisted===true||e.hintUsed===true||e.scaffolded===true||
+       typeof e.correct!=='boolean'||!e.questionId)continue;
     const id=String(e.questionId).split('@')[0];
     if(!allowed.has(id)||!Object.hasOwn(concepts,id))continue;
     const key=concepts[id];
@@ -74,8 +75,10 @@ export function languageEvidence(state,day,taskId='languages-standard'){
   const result={latin:{attempts:0,correct:0},french:{attempts:0,correct:0}};
   for(const subject of ['latin','french']){
     const journal=(state.formalAttemptLog||[]).filter(e=>
-      e?.day===day&&e.dailyTaskId===taskId&&e.subject===subject&&
-      e.formal!==false&&e.repair!==true&&e.recoveryFor==null&&e.questionId&&typeof e.correct==='boolean');
+      e?.day===day&&e.dailyTaskId===taskId&&e.subject===subject&&Number(e.year)===8&&
+      e.formal!==false&&e.repair!==true&&e.recoveryFor==null&&
+      e.assisted!==true&&e.hintUsed!==true&&e.scaffolded!==true&&
+      e.questionId&&typeof e.correct==='boolean');
     const unique=new Map();
     const split=(state.daily||[]).find(t=>t.id===taskId&&t.planDate===day)?.languageSplit?.[subject];
     const concepts=split?.approvedConceptByQuestion||{};
@@ -83,7 +86,7 @@ export function languageEvidence(state,day,taskId='languages-standard'){
       const id=String(e.questionId).split('@')[0];
       // An opposite translation or alternate form is the SAME concept.
       const concept=concepts[id]||id;
-      if(split&&!Object.hasOwn(concepts,id))continue; // not assigned/approved
+      if(split&&(!Object.hasOwn(concepts,id)||e.topicId!==split.topicId))continue; // not assigned/approved
       unique.set(concept,Boolean(e.correct)||unique.get(concept)===true);
     }
     result[subject]={attempts:unique.size,correct:Math.min(5,[...unique.values()].filter(Boolean).length)};
