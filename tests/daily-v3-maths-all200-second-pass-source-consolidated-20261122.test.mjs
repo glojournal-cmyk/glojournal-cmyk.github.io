@@ -46,9 +46,9 @@ test('200 source original IDs unique, six original slots per item, 0 visual and 
   assert.equal(q.independentFiveDistractorPedagogyApproved,false);
   assert.equal(q.studentCreditAllowed,false);
   assert.equal(mathsOriginalGradeDemandDecision({id:q.originalId}).ok,false,q.originalId);
-  assert.ok(q.possibleSourceWrongOperationHypothesisLetters.every(x=>x!==q.sourcePrintedCorrectLetter));
+  assert.ok(q.mathematicalWrongOperationCandidateChoices.every(x=>x!==q.sourcePrintedCorrectLetter));
   assert.ok(q.wrongOperationCandidateButUnreliableOriginalMathLayout.every(x=>
-    q.possibleSourceWrongOperationHypothesisLetters.includes(x)&&q.rawPdfChoiceMathStillNeedsVisual.includes(x)));
+    q.mathematicalWrongOperationCandidateChoices.includes(x)&&q.rawPdfChoiceMathStillNeedsVisual.includes(x)));
  }
 });
 test('original Indices Q6 and Q8 giant wrong value sources remain visually blocked even though an error operation can be constructed',()=>{
