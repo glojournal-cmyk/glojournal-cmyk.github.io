@@ -333,6 +333,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
         }
       ],
       "testEvidence": [
@@ -350,11 +355,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "bounded full-paraphrase alternative",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-blue-black-mc",
@@ -408,6 +433,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
         }
       ],
       "testEvidence": [
@@ -425,11 +455,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "bounded full-paraphrase alternative",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-brick-red-mc",
@@ -579,6 +629,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
         }
       ],
       "testEvidence": [
@@ -596,11 +651,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "bounded full-paraphrase alternative",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-cloudy-white-emulsion-mc",
@@ -654,6 +729,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
         }
       ],
       "testEvidence": [
@@ -671,11 +751,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "bounded full-paraphrase alternative",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-water-bath-mc",
@@ -830,6 +930,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
         }
       ],
       "testEvidence": [
@@ -847,11 +952,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "bounded full-paraphrase alternative",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-app-food-test-match",
@@ -2660,6 +2785,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
         }
       ],
       "testEvidence": [
@@ -2677,11 +2807,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "bounded full-paraphrase alternative",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-iodine-repeat",
@@ -2699,6 +2849,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
         }
       ],
       "testEvidence": [
@@ -2716,11 +2871,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "bounded full-paraphrase alternative",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-benedict-no-heat",
@@ -2738,6 +2913,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "Structured item-specific marking added; broader Academic QA required before approval."
         }
       ],
       "testEvidence": [
@@ -2755,11 +2935,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "finite structured concept/polarity rubric",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-negative-sugar",
@@ -2777,6 +2977,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "Structured item-specific marking added; broader Academic QA required before approval."
         }
       ],
       "testEvidence": [
@@ -2794,11 +2999,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "finite structured concept/polarity rubric",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-positive-sugar",
@@ -2816,6 +3041,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "Structured item-specific marking added; broader Academic QA required before approval."
         }
       ],
       "testEvidence": [
@@ -2833,11 +3063,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "finite structured concept/polarity rubric",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-biuret-control",
@@ -2924,6 +3174,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
         }
       ],
       "testEvidence": [
@@ -2941,11 +3196,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "bounded full-paraphrase alternative",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-repeatability",
@@ -2997,6 +3272,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
         }
       ],
       "testEvidence": [
@@ -3014,11 +3294,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "bounded full-paraphrase alternative",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages",
@@ -3036,6 +3336,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "Structured item-specific marking added; broader Academic QA required before approval."
         }
       ],
       "testEvidence": [
@@ -3053,11 +3358,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "finite structured concept/polarity rubric",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-ethanol-ventilation",
@@ -3109,6 +3434,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
         }
       ],
       "testEvidence": [
@@ -3126,11 +3456,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "bounded full-paraphrase alternative",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-protein-extraction",
@@ -3148,6 +3498,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
         }
       ],
       "testEvidence": [
@@ -3165,11 +3520,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "bounded full-paraphrase alternative",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-starch-extraction",
@@ -3187,6 +3562,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
         }
       ],
       "testEvidence": [
@@ -3204,11 +3584,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "bounded full-paraphrase alternative",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-fair-amount",
@@ -3295,6 +3695,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
         }
       ],
       "testEvidence": [
@@ -3312,11 +3717,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "bounded full-paraphrase alternative",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-sugar-strength",
@@ -3398,6 +3823,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "Structured item-specific marking added; broader Academic QA required before approval."
         }
       ],
       "testEvidence": [
@@ -3415,11 +3845,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "finite structured concept/polarity rubric",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-starch-vs-glucose",
@@ -3437,6 +3887,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "Structured item-specific marking added; broader Academic QA required before approval."
         }
       ],
       "testEvidence": [
@@ -3454,11 +3909,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "finite structured concept/polarity rubric",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-sugar-vs-starch",
@@ -3476,6 +3951,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "Structured item-specific marking added; broader Academic QA required before approval."
         }
       ],
       "testEvidence": [
@@ -3493,11 +3973,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "finite structured concept/polarity rubric",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-biuret-vs-sugar",
@@ -3515,6 +4015,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "Structured item-specific marking added; broader Academic QA required before approval."
         }
       ],
       "testEvidence": [
@@ -3532,11 +4037,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "finite structured concept/polarity rubric",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-lipid-vs-starch",
@@ -3554,6 +4079,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "Structured item-specific marking added; broader Academic QA required before approval."
         }
       ],
       "testEvidence": [
@@ -3571,11 +4101,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "finite structured concept/polarity rubric",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-all-negative",
@@ -3593,6 +4143,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "Structured item-specific marking added; broader Academic QA required before approval."
         }
       ],
       "testEvidence": [
@@ -3610,11 +4165,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "finite structured concept/polarity rubric",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-retest-ethanol",
@@ -3632,6 +4207,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "Structured item-specific marking added; broader Academic QA required before approval."
         }
       ],
       "testEvidence": [
@@ -3649,11 +4229,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "finite structured concept/polarity rubric",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-glassware",
@@ -3671,6 +4271,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
         }
       ],
       "testEvidence": [
@@ -3688,11 +4293,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "bounded full-paraphrase alternative",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-eyes",
@@ -3710,6 +4335,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
         }
       ],
       "testEvidence": [
@@ -3727,11 +4357,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "bounded full-paraphrase alternative",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-heat-variable",
@@ -3749,6 +4399,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
         }
       ],
       "testEvidence": [
@@ -3766,11 +4421,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "bounded full-paraphrase alternative",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-no-taste",
@@ -3788,6 +4463,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
         }
       ],
       "testEvidence": [
@@ -3805,11 +4485,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "bounded full-paraphrase alternative",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-recording",
@@ -3827,6 +4527,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
         }
       ],
       "testEvidence": [
@@ -3844,11 +4549,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "bounded full-paraphrase alternative",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-inference",
@@ -3866,6 +4591,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
         }
       ],
       "testEvidence": [
@@ -3883,11 +4613,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "bounded full-paraphrase alternative",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-weak-blueblack",
@@ -3905,6 +4655,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "A safe, exact full-answer paraphrase accepted, but wider paraphrase fairness remains unverified."
         }
       ],
       "testEvidence": [
@@ -3922,11 +4677,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "bounded full-paraphrase alternative",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Adds only one bounded known-correct full paraphrase. Other legitimate answers may still fail."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-temperature-safety",
@@ -4116,6 +4891,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "Structured item-specific marking added; broader Academic QA required before approval."
         }
       ],
       "testEvidence": [
@@ -4133,11 +4913,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "finite structured concept/polarity rubric",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-wrong-reagent",
@@ -4155,6 +4955,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "Structured item-specific marking added; broader Academic QA required before approval."
         }
       ],
       "testEvidence": [
@@ -4172,11 +4977,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "finite structured concept/polarity rubric",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-uncertain-emulsion",
@@ -4228,6 +5053,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "Structured item-specific marking added; broader Academic QA required before approval."
         }
       ],
       "testEvidence": [
@@ -4245,11 +5075,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "finite structured concept/polarity rubric",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-safe-bunsen",
@@ -4267,6 +5117,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "Structured item-specific marking added; broader Academic QA required before approval."
         }
       ],
       "testEvidence": [
@@ -4284,11 +5139,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "finite structured concept/polarity rubric",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-unknown-analysis",
@@ -4306,6 +5181,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "Structured item-specific marking added; broader Academic QA required before approval."
         }
       ],
       "testEvidence": [
@@ -4323,11 +5203,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "finite structured concept/polarity rubric",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-sugar-analysis",
@@ -4345,6 +5245,11 @@
           "severity": "P1",
           "status": "candidate-marking-defect",
           "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-revision-awaiting-independent-review",
+          "issue": "Structured item-specific marking added; broader Academic QA required before approval."
         }
       ],
       "testEvidence": [
@@ -4362,11 +5267,31 @@
           },
           "status": "V8 preflight; Node + independent QA pending",
           "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        },
+        {
+          "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+          "kind": "finite structured concept/polarity rubric",
+          "scope": "question-specific Biology Y8 food tests, no global matcher change",
+          "preflight": {
+            "kind": "V8 direct B entrypoint",
+            "originalCases": 196,
+            "originalPassed": 196,
+            "guardedCases": 49,
+            "guardedPassed": 49,
+            "ethanolCases": 62,
+            "ethanolPassed": 62,
+            "adversarialCases": 148,
+            "adversarialPassed": 148,
+            "perBundle": 455
+          },
+          "status": "QA branch candidate only; new Node and independent academic QA pending",
+          "limitation": "Finite phrase/negation patterns may miss valid unseen wording."
         }
       ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
-      "approved": false
+      "approved": false,
+      "scorerChanged": true
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-negative-biuret",
@@ -4430,7 +5355,7 @@
     }
   ],
   "markingCounterexamples": "tests/food-tests-marking-counterexamples.mjs",
-  "testStatus": "Six high-risk Food Tests items have guarded scoring on QA branch: 49/49 per bundle preflight, 159/196 overall, 37 remaining paraphrase mismatches; Node and independent Academic QA still pending.",
+  "testStatus": "37 Food Tests under-credit candidate repairs (20 bounded, 17 structured) tested in both B-entrypoint preflights: 455/455 each. Independent Node/Academic QA and iPad PWA still pending. 0 approvals.",
   "markingDiagnostic": {
     "fixture": "qa/food-tests-51-markpoints-probes.json",
     "report": "qa/food-tests-51-markpoints-preflight.json",
@@ -4456,6 +5381,22 @@
       "other45Changed": 0,
       "nodeExecuted": false,
       "approved": 0
+    },
+    "remaining37": {
+      "baseCommit": "aafdea300dc8026f64020675af4670439720d9e7",
+      "module": "assets/food-tests-remaining-37-rubric-20261122.js",
+      "runner": "tests/food-tests-remaining-37-acceptance.mjs",
+      "bounded": 20,
+      "structured": 17,
+      "perBundle": {
+        "original": "196/196",
+        "sixGuarded": "49/49",
+        "ethanol": "62/62",
+        "adversarial": "148/148",
+        "total": "455/455"
+      },
+      "nodeExecuted": false,
+      "academicApproved": 0
     }
   }
 }

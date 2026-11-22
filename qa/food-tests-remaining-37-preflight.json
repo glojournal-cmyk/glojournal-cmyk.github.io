@@ -1,0 +1,22 @@
+{
+  "kind": "Food Tests 37 targeted QA preflight",
+  "branchBase": "aafdea300dc8026f64020675af4670439720d9e7",
+  "subjects": "Biology Year 8 food tests",
+  "items": 37,
+  "structured": 17,
+  "bounded": 20,
+  "perBundle": {
+    "total": 455,
+    "passed": 455,
+    "components": {
+      "original196": 196,
+      "sixGuards": 49,
+      "ethanol": 62,
+      "adversarial": 148
+    }
+  },
+  "newQuestionContentChanged": false,
+  "nodeRun": false,
+  "approved": 0,
+  "warning": "Finite test coverage. New Node runner and independent Academic QA required before approval. Bounded full paraphrases do not prove all paraphrases will be marked fairly."
+}
