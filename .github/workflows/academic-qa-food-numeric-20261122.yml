@@ -10,6 +10,8 @@ on:
       - 'assets/quiz-session-rWAnuDVj.js'
       - 'tests/academic-qa-food-numeric-20261122.test.mjs'
       - 'tests/academic-qa-food-52-markpoints-20261122.test.mjs'
+      - 'tests/academic-qa-food-46-adversarial-20261122.test.mjs'
+      - 'qa-staging/food-tests-46-markpoint-evidence-draft-20261122.json'
       - '.github/workflows/academic-qa-food-numeric-20261122.yml'
   pull_request:
     paths:
@@ -20,6 +22,8 @@ on:
       - 'assets/quiz-session-rWAnuDVj.js'
       - 'tests/academic-qa-food-numeric-20261122.test.mjs'
       - 'tests/academic-qa-food-52-markpoints-20261122.test.mjs'
+      - 'tests/academic-qa-food-46-adversarial-20261122.test.mjs'
+      - 'qa-staging/food-tests-46-markpoint-evidence-draft-20261122.json'
       - '.github/workflows/academic-qa-food-numeric-20261122.yml'
   workflow_dispatch:
 
@@ -36,3 +40,5 @@ jobs:
         run: node tests/academic-qa-food-numeric-20261122.test.mjs
       - name: Food Tests 52-markpoint fairness and adversarial QA
         run: node --test tests/academic-qa-food-52-markpoints-20261122.test.mjs
+      - name: Food Tests 46 remaining answers - 86 equivalent and denial checks + 598 science-trap cases
+        run: node --test tests/academic-qa-food-46-adversarial-20261122.test.mjs
