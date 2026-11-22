@@ -4853,10 +4853,10 @@
         "mode": "mark_points",
         "markPoints": [
           "keep the mass of each bread sample the same",
-          "unequal bread sample masses could cause a difference in the iodine result unrelated to whether starch was present"
+          "unequal sample masses can affect the iodine result"
         ],
         "totalMarks": 2,
-        "modelAnswer": "keep the mass of each bread sample the same; unequal bread sample masses could cause a difference in the iodine result unrelated to whether starch was present",
+        "modelAnswer": "keep the mass of each bread sample the same; unequal sample masses can affect the iodine result",
         "markPointEvidence": [
           {
             "all": [
@@ -4878,21 +4878,23 @@
             "keep the mass of bread equal for both samples"
           ],
           [
-            "this makes the comparison fair because a larger sample might give a different result"
+            "this makes the comparison fair because a larger sample might give a different result",
+            "Masses unequal might change the iodine result so we cannot compare starch fairly",
+            "If the sample masses differ the iodine result may be misleading"
           ]
         ],
         "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
-        "short": "keep the mass of each bread sample the same; unequal bread sample masses could cause a difference in the iodine result unrelated to whether starch was present",
+        "short": "keep the mass of each bread sample the same; unequal sample masses can affect the iodine result",
         "steps": [
           "keep the mass of each bread sample the same",
-          "unequal bread sample masses could cause a difference in the iodine result unrelated to whether starch was present",
-          "Award one mark for identifying the controlled sample mass and one for explaining the risk of a misleading comparison."
+          "unequal sample masses can affect the iodine result",
+          "Award one mark for identifying sample mass as a controlled variable, and a separate mark for explaining how different masses could change the observed iodine result."
         ],
         "commonError": "Giving only 'make it fair' without explaining which sample variable is controlled or why unequal sample masses might affect interpretation.",
-        "remember": "Control the amount of bread tested, so any observed difference is not simply caused by unequal sample size."
+        "remember": "Equal bread sample masses make the iodine-test comparison fairer; otherwise different sample amounts can influence the observed result."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
