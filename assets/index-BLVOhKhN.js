@@ -1494,6 +1494,15 @@ function compactDailyTasks(daily) {
       target,
       done: progress >= target,
       ...(task.correctOnlyEvidence===true?{correctOnlyEvidence:true}:{}),
+      ...(task.dailyV3===true?{dailyV3:true,planVersion:3,supplyBlocked:task.supplyBlocked===true}:{}),
+      // Preserve the exact two-subject V3 assignment identity in dated logs.
+      // Only the ten selected question IDs are retained; no whole-bank copy.
+      ...(task.dailyV3===true&&task.languageSplit?{languageSplit:Object.fromEntries(
+        ['latin','french'].filter(s=>task.languageSplit[s]?.topicId).map(s=>[s,{
+          subject:s,year:8,target:5,topicId:String(task.languageSplit[s].topicId).slice(0,120),
+          approvedQuestionIds:(task.languageSplit[s].approvedQuestionIds||[]).slice(0,5),
+          approvedConceptByQuestion:task.languageSplit[s].approvedConceptByQuestion||{}
+        }]))}:{}),
       // Keep minimal original assignment identity for accurate recovery.
       // The old compact log discarded the assigned subject and topic.
       ...(typeof task.href==="string" && task.href.startsWith("/") ? {href:task.href.slice(0,280)} : {}),
@@ -1517,7 +1526,7 @@ function writeDailyLog(existing, date, daily) {
   // write those placeholders back into a canonical ten-task dated record.
   const canonicalIds=new Set(['latin-vocab','french-vocab','latin-standard',
     'y8-standard-a','y8-standard-b','y8-mastery-a','y8-mastery-b',
-    'weakness-review','due-review','year9-light']);
+    'weakness-review','due-review','year9-light','languages-standard','maths-daily']);
   const ten=rawTasks.filter(t=>canonicalIds.has(t.id));
   const extras=rawTasks.filter(t=>!canonicalIds.has(t.id));
   const oldIds=new Set(['study-session','year8-long-review','tend-garden','play-game']);
