@@ -1,0 +1,26 @@
+name: Food Tests safety hold only (no deploy)
+on:
+  pull_request:
+    paths:
+      - 'assets/food-tests-qa-credit-gate-20261122.js'
+      - 'assets/daily-session-credit-20261021.js'
+      - 'assets/daily-completed-session-receipts-20261024.js'
+      - 'assets/mastery-v2-20261018.js'
+      - 'assets/quiz-session-y8fix-20260920.js'
+      - 'assets/quiz-session-rWAnuDVj.js'
+      - 'tests/food-tests-safety-hold-only-20261122.test.mjs'
+      - '.github/workflows/food-tests-safety-hold-only-20261122.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  hold:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: No formal Food Tests verdict or credit
+        run: node --test tests/food-tests-safety-hold-only-20261122.test.mjs

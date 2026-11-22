@@ -1,3 +1,4 @@
+import {isFoodTestsQaHeld} from './food-tests-qa-credit-gate-20261122.js';
 // Durable receipts for fully answered, locked Daily practice sessions.
 // This does not award XP or claim wrong answers were correct. The source quiz
 // supplies individual marked outcomes; only the exact saved assignment can use them.
@@ -164,7 +165,7 @@ export function saveVerifiedBiologyAnswerSync(state,source){
      !Array.isArray(source.answers)||source.answers.length!==1)return false;
   const answer=source.answers[0],question=source.questions[0];
   if(answer.correct!==true||answer.formal===false||answer.repair||
-     !question?.id||question.formal===false||question._repair||
+     !question?.id||question.formal===false||question._repair||isFoodTestsQaHeld(question)||
      String(answer.questionId)!==String(question.id))return false;
   const candidate=[...(state.daily||[]),...(state.dailyLog?.[source.day]?.tasks||[])]
     .find(t=>t?.id===source.taskId&&t.assignedSubject===source.subject&&
