@@ -111,6 +111,8 @@ test('unmarked Food Tests remain neutral at quiz completion and review-history s
  for(const path of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-rWAnuDVj.js']){
   const src=read(path);
   assert.ok(src.includes('unmarked:A.length>0&&A.every(isFoodTestsQaHeld)'),path);
+  assert.ok(src.includes('saved?.unmarkedCompleted&&A.length&&A.every(isFoodTestsQaHeld)'),path);
+  assert.ok(src.includes('if(ce&&A.length&&A.every(isFoodTestsQaHeld))return;let resumeURL'),path);
   assert.ok(src.includes('if(A.length&&A.every(isFoodTestsQaHeld)){'),path);
   assert.ok(src.includes("u('Practice saved',{description:'Not a formal mark. No Daily / MP / Mastery credit.'})"),path);
   assert.ok(src.includes('A.filter(e=>e.formal!==!1&&!isFoodTestsQaHeld(e))'),path);
@@ -203,7 +205,7 @@ test('real catalog still provides two independent unheld 20-question Year 8 Mast
 });
 
 test('iPad unmarked completion reports saved only after durable draft-save acknowledgment',async()=>{
- const data={base:[{id:'bio-y8-food-tests-test'}],sessionLog:[],ce:true};
+ const data={base:[{id:'bio-y8-food-tests-test'}],sessionLog:[],ce:false,unmarkedCompleted:true};
  const calls=[];
  assert.equal(await saveHeldPracticeCompletion({save:async(k,v)=>{calls.push([k,v]);return true;}},'held-practice',data),true);
  assert.equal(calls.length,1);
@@ -233,7 +235,7 @@ test('both quiz routes must await persisted practice before showing a saved resu
   const branch=src.slice(start,end);
   assert.ok(src.includes('async function pe()'),path);
   assert.ok(branch.includes('const savedPractice=await saveHeldPracticeCompletion'),path);
-  assert.ok(branch.includes('ce:!0,sessionLog,J'),path);
+  assert.ok(branch.includes('ce:!1,unmarkedCompleted:!0,sessionLog,J'),path);
   assert.ok(branch.includes('setFinishFailure(\'Practice could not be saved. Keep this page open and retry Finish.\')'),path);
   assert.ok(branch.includes('if(!savedPractice){'),path);
   const save=branch.indexOf('const savedPractice=await saveHeldPracticeCompletion');
