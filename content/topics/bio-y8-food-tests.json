@@ -360,7 +360,7 @@
         "markPointEvidence": [
           {
             "all": [
-              "\\bprotein\\b",
+              "\\bproteins?\\b",
               "\\b(?:test\\w*|detect\\w*|reagent|positive)\\b"
             ],
             "notAnywhere": [
@@ -5311,7 +5311,7 @@
           {
             "all": [
               "\\bstarch\\b",
-              "\\b(?:present|detect\\w*|contain\\w*|positive)\\b"
+              "\\b(?:present|detect\\w*|contain\\w*|positive|found)\\b"
             ]
           },
           {
