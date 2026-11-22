@@ -142,6 +142,25 @@ test('actual legacy recordAttempt must block Maths Daily BEFORE core XP or any p
  assert.deepEqual(normal('free-maths',true,'maths',{}),{passedThrough:true});
 });
 
+test('generic bumpDaily and legacy QuizSession cannot increase evidence-owned Maths progress',()=>{
+ const wrapper=readFileSync('assets/index-BLVOhKhN.js','utf8');
+ const quiz=readFileSync('assets/quiz-session-rWAnuDVj.js','utf8');
+ const start=wrapper.indexOf('function patchedBumpDaily(taskId, increment=1) {');
+ const end=wrapper.indexOf('\nstore.setState({',start);
+ assert.ok(start>=0&&end>start,'explicit Maths bumpDaily safeguard installed');
+ const calls=[];
+ const code=wrapper.slice(start,end)+'\nreturn patchedBumpDaily;';
+ const bump=new Function('originalBumpDaily',code)((id,n)=>{calls.push([id,n]);return 'legacy';});
+ assert.equal(bump('maths-daily',1),null);
+ assert.deepEqual(calls,[],'Maths Daily must never enter generic counter');
+ assert.equal(bump('y8-standard-a',1),'legacy');
+ assert.deepEqual(calls,[['y8-standard-a',1]],'other genuine Study counters remain active');
+ assert.ok(quiz.includes('c!==\`maths-daily\`')||quiz.includes('c!=='+String.fromCharCode(96)+'maths-daily'+String.fromCharCode(96)),
+   'legacy QuizSession must not direct-credit Maths');
+ assert.ok(wrapper.includes('(task.id!=="maths-daily"||task.done===true)'),
+   'Daily Complete award reconciliation requires explicit Maths 9/10 pass');
+});
+
 test('actual Scholar recordAttempt wrapper persists the A-F selected answer and assistance/recovery flags',()=>{
  const wrapper=readFileSync('assets/index-BLVOhKhN.js','utf8');
  const idx=wrapper.indexOf('  const evidenceEntry={');
