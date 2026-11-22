@@ -9,6 +9,7 @@ on:
       - 'assets/math-study/math-y9-indices.json'
       - 'assets/quiz-session-rWAnuDVj.js'
       - 'tests/academic-qa-food-numeric-20261122.test.mjs'
+      - 'tests/academic-qa-food-52-markpoints-20261122.test.mjs'
       - '.github/workflows/academic-qa-food-numeric-20261122.yml'
   pull_request:
     paths:
@@ -18,6 +19,7 @@ on:
       - 'assets/math-study/math-y9-indices.json'
       - 'assets/quiz-session-rWAnuDVj.js'
       - 'tests/academic-qa-food-numeric-20261122.test.mjs'
+      - 'tests/academic-qa-food-52-markpoints-20261122.test.mjs'
       - '.github/workflows/academic-qa-food-numeric-20261122.yml'
   workflow_dispatch:
 
@@ -32,3 +34,5 @@ jobs:
           node-version: '22'
       - name: Academic content and marking regression
         run: node tests/academic-qa-food-numeric-20261122.test.mjs
+      - name: Food Tests 52-markpoint fairness and adversarial QA
+        run: node --test tests/academic-qa-food-52-markpoints-20261122.test.mjs
