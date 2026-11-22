@@ -6,7 +6,7 @@
 - Source is the branch's **exact original** `qa-staging/math-v31-original-sample10.json`, with original `correctOptionId`, six `latex` choices and worked steps, plus the independent mathematical correctness audit already completed on 200/200.
 - For ten sampled IDs, each of the **five incorrect** A–F options is compared against the actual mathematical result and original question. A `TRACEABLE` error is arithmetically/algebraically reproducible from an identifiable mistaken operation. `POSSIBLE` remains a hypothesis. `UNEXPLAINED` means no distinct actual student misconception demonstrated. `RED_FLAG` has a concrete plausibility/problem-design issue.
 - **No rationales invented for unknown options.** This is not a formal independent external GCSE grade calibration, confirmation that TGS taught the subskill, or a review of all 1,000 wrong options. A question with apparently traceable wrong options can still be grade-inappropriate.
-- Categories from this source-based screening: UNEXPLAINED=20; POSSIBLE=19; TRACEABLE=8; RED_FLAG=3. This counts options, not approved questions.
+- Categories from this source-based screening: UNEXPLAINED=19; POSSIBLE=19; TRACEABLE=10; RED_FLAG=2. This counts options, not approved questions.
 
 | Original ID | Wrong choice | Exact option | QA assessment | Source-related explanation |
 |---|---|---|---|---|
@@ -27,9 +27,9 @@
 | `STANDARD_FORM-011` | F | `1.875×10^6` | **TRACEABLE** | Correct mantissa with exponent reduced one power of 10 |
 | `INDICES-005` | B | `1/16` | **POSSIBLE** | Reciprocal of correct 16; a negative-exponent sign reversal is possible |
 | `INDICES-005` | C | `8` | **POSSIBLE** | One power of two too few, 2^3 instead of 2^4 |
-| `INDICES-005` | D | `65536` | **RED_FLAG** | 2^16, a very large outlier without an obvious misconception trace; replace only after deriving a genuine wrong solution |
+| `INDICES-005` | D | `65536` | **TRACEABLE** | Ignore the negative sign in 8^-1, treating it as 8^1: (4²×8)^2 ÷ 2^-2 = 128²×4 = 65536. This is an explicit two-sign error pathway; teaching plausibility still needs independent review |
 | `INDICES-005` | E | `32` | **POSSIBLE** | One power of two too many, 2^5 instead of 2^4 |
-| `INDICES-005` | F | `1` | **UNEXPLAINED** | Would require exponent 0; derivation from original product/square/division is unsubstantiated |
+| `INDICES-005` | F | `1` | **TRACEABLE** | Multiply by 2^-2 instead of dividing by 2^-2: (4²×8^-1)^2 × 2^-2 = 4×1/4 = 1 |
 | `REARRANGING-020` | A | `-3/4+3/[4(2+1/y)]` | **POSSIBLE** | Use +2 instead of -2 when isolating 3/(4x+3) |
 | `REARRANGING-020` | C | `-12+12/(1/y-2)` | **RED_FLAG** | Exactly 16 times the intended x expression; a plausible one-step division error is not established |
 | `REARRANGING-020` | D | `-3/4+3/[4(y-2)]` | **POSSIBLE** | Replace reciprocal 1/y with y when clearing the equation |
@@ -63,8 +63,8 @@
 
 ## Actual corrective actions
 1. **Strong candidate**: `STANDARD_FORM-011` has **five different, traceable** wrong-answer calculations (no sharing; exponent ×10; add instead of subtract; ignore waste; exponent ÷10). Retain original choices pending individual grade-7 demand and taught confirmation.
-2. **Critical option**: `INDICES-037` choice D `−3` cannot equal `n²−n` for real `n` (minimum `−1/4`); that **does not alone make it a defective MC distractor**, since wrong choices are supposed to be wrong. Its pedagogical issue is that no specific student error producing `−3` has been reconstructed. Candidate `6` follows the explicit mistake `n²+n` with n=2 and needs independent review. **Do not modify the canonical 200-bank JSON** until the proposed distractor is independently marked, raw SHA updated and all six options reverified.
-3. **Unclear/weak options**: `GRAPHS-028` has three unmotivated near-miss choices; `REARRANGING-023` includes several shifts of numerator constants without traceable working; `STANDARD_FORM-017` has 500 and 900 without a demonstrated one-step error; `SIMULTANEOUS-023` 27 and 29/2 are untraceable.
+2. **Critical option**: `INDICES-037` choice D `−3` cannot equal `n²−n` for real `n` (minimum `−1/4`); that **does not alone make it a defective MC distractor**, since wrong choices are supposed to be wrong. Its pedagogical issue is that no specific student error producing `−3` has been reconstructed. Candidate `6` follows the explicit mistake `n²+n` with n=2 and is now stored in the separate staging-only three-question repair pack, pending independent review. **Do not modify the canonical 200-bank JSON** until the proposed distractor is independently marked, raw SHA updated and all six options reverified.
+3. **New traced derivations**: Original `INDICES-005` D=65536 and F=1 now each have a fully reproducible mistaken operation. This is a *screening* improvement, not automatic academic signoff. **Unclear/weak options**: `GRAPHS-028` has three unmotivated near-miss choices; `REARRANGING-023` includes several shifts of numerator constants without traceable working; `STANDARD_FORM-017` has 500 and 900 without a demonstrated one-step error; `SIMULTANEOUS-023` 27 and 29/2 are untraceable.
 4. **Poor context**: `STANDARD_FORM-017` still requires correction to unrealistic physical density 300 g/cm³, independent of distractor quality.
 5. **Curriculum quarantine**: `GRAPHS-039` is Spring perpendicular bisector and must not qualify for Autumn Daily credit absent proof it was already taught.
 
