@@ -1,0 +1,2105 @@
+{
+  "status": "40_ITEM_SOURCE_QA_PACKET_NOT_FORMAL_ACADEMIC_APPROVAL",
+  "createdDate": "2026-11-22",
+  "topicId": "math-y9-indices",
+  "sourceDocuments": [
+    "Lux_Maths_Y9_V3_All_200_Student.pdf",
+    "Lux_Maths_Y9_V3_All_200_Answers.pdf",
+    "Lux_Maths_V3_1_Formal_Academic_QA_Register_20261122.csv"
+  ],
+  "sourcePreservationWarning": "Text was extracted from the original uploaded PDF; superscripts/fractions may be flattened and must be checked visually against the original typeset pages before mathematical signing. The PDF text is NOT treated as complete symbolic machine-readable data.",
+  "educationalEvidence": "Existing family-level 200-item triage copied by original ID. No individual GCSE grade certified, no five-pedagogy signer, no observed student misconceptions.",
+  "counts": {
+    "questions": 40,
+    "sourceFamilies": 10,
+    "variantsPerFamily": 4,
+    "sourceAnswerOptionMatch": 40,
+    "allSixALetters": 40,
+    "extractionFlagged": 0,
+    "triageActions": {
+      "UPGRADE_STEM_FOR_G7PLUS": 28,
+      "QUARANTINE_TAUGHT_SCOPE": 12
+    },
+    "formalQAApproved": 0,
+    "mathsDailyEligible": 0
+  },
+  "familyToOriginalQuestionIds": {
+    "V2-INDICES-1": [
+      "LUX-MATH-Y9-INDICES-001",
+      "LUX-MATH-Y9-INDICES-002",
+      "LUX-MATH-Y9-INDICES-003",
+      "LUX-MATH-Y9-INDICES-004"
+    ],
+    "V2-INDICES-2": [
+      "LUX-MATH-Y9-INDICES-005",
+      "LUX-MATH-Y9-INDICES-006",
+      "LUX-MATH-Y9-INDICES-007",
+      "LUX-MATH-Y9-INDICES-008"
+    ],
+    "V2-INDICES-3": [
+      "LUX-MATH-Y9-INDICES-009",
+      "LUX-MATH-Y9-INDICES-010",
+      "LUX-MATH-Y9-INDICES-011",
+      "LUX-MATH-Y9-INDICES-012"
+    ],
+    "V2-INDICES-4": [
+      "LUX-MATH-Y9-INDICES-013",
+      "LUX-MATH-Y9-INDICES-014",
+      "LUX-MATH-Y9-INDICES-015",
+      "LUX-MATH-Y9-INDICES-016"
+    ],
+    "V3-IND-G8-FACTOR-EXP": [
+      "LUX-MATH-Y9-INDICES-017",
+      "LUX-MATH-Y9-INDICES-018",
+      "LUX-MATH-Y9-INDICES-019",
+      "LUX-MATH-Y9-INDICES-020"
+    ],
+    "V3-IND-G8-TWO-BASE-IDENTITY": [
+      "LUX-MATH-Y9-INDICES-021",
+      "LUX-MATH-Y9-INDICES-022",
+      "LUX-MATH-Y9-INDICES-023",
+      "LUX-MATH-Y9-INDICES-024"
+    ],
+    "V3-IND-G8-QUOTIENT-PARAMETER": [
+      "LUX-MATH-Y9-INDICES-025",
+      "LUX-MATH-Y9-INDICES-026",
+      "LUX-MATH-Y9-INDICES-027",
+      "LUX-MATH-Y9-INDICES-028"
+    ],
+    "V3-IND-G8-SQRT-QUOTIENT": [
+      "LUX-MATH-Y9-INDICES-029",
+      "LUX-MATH-Y9-INDICES-030",
+      "LUX-MATH-Y9-INDICES-031",
+      "LUX-MATH-Y9-INDICES-032"
+    ],
+    "V3-IND-G89-FRACTIONAL-IDENTITY": [
+      "LUX-MATH-Y9-INDICES-033",
+      "LUX-MATH-Y9-INDICES-034",
+      "LUX-MATH-Y9-INDICES-035",
+      "LUX-MATH-Y9-INDICES-036"
+    ],
+    "V3-IND-G89-EXPONENT-THEN-EXPRESSION": [
+      "LUX-MATH-Y9-INDICES-037",
+      "LUX-MATH-Y9-INDICES-038",
+      "LUX-MATH-Y9-INDICES-039",
+      "LUX-MATH-Y9-INDICES-040"
+    ]
+  },
+  "studentCreditGuard": {
+    "XP": false,
+    "MP": false,
+    "Mastery": false,
+    "Recovery": false,
+    "Daily": false
+  },
+  "sourceQuestionRows": [
+    {
+      "sourceIndex": 1,
+      "id": "LUX-MATH-Y9-INDICES-001",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-INDICES-1",
+      "originalSourceStudentPdfPage": 1,
+      "originalSourceAnswersPdfPage": 1,
+      "originalRegisteredCorrectOption": "B",
+      "originalPrintedCorrectOption": "B",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q1. Laws of Indices                                                            Target: G7 (provisional)\n             4n+2 × 83−n\nSolve for n:             = 29 .\n                  22\nA. 0\n\nB. 2\n\nC. 3\n\nD. 6\n\nE. −4\n\nF. −2",
+      "extractedWorkedAnswerText": "Q1. Laws of Indices                                                            Target: G7 (provisional)\n             4n+2 × 83−n\nSolve for n:             = 29 .\n                  22\nCorrect answer: B 2\n1. Rewrite 4 = 22 and 8 = 23 : 22(n+2)+3(3−n)−2 = 29 .\n2. Equate exponents and simplify: −n + 11 = 9, hence n = 2.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "0"
+        },
+        {
+          "letter": "B",
+          "inlineText": "2"
+        },
+        {
+          "letter": "C",
+          "inlineText": "3"
+        },
+        {
+          "letter": "D",
+          "inlineText": "6"
+        },
+        {
+          "letter": "E",
+          "inlineText": "−4"
+        },
+        {
+          "letter": "F",
+          "inlineText": "−2"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Negative-power conversions and a linear exponent equation; G7 is provisional, not benchmarked.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 2,
+      "id": "LUX-MATH-Y9-INDICES-002",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-INDICES-1",
+      "originalSourceStudentPdfPage": 1,
+      "originalSourceAnswersPdfPage": 1,
+      "originalRegisteredCorrectOption": "C",
+      "originalPrintedCorrectOption": "C",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q2. Laws of Indices                                                            Target: G7 (provisional)\n             4n+3 × 84−n\nSolve for n:             = 212 .\n                  23\nA. 9\n\nB. 4\n\nC. 3\n\nD. −5\n\nE. −3\n\nF. 0",
+      "extractedWorkedAnswerText": "Q2. Laws of Indices                                                            Target: G7 (provisional)\n             4n+3 × 84−n\nSolve for n:             = 212 .\n                  23\nCorrect answer: C 3\n1. Rewrite 4 = 22 and 8 = 23 : 22(n+3)+3(4−n)−3 = 212 .\n2. Equate exponents and simplify: −n + 15 = 12, hence n = 3.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "9"
+        },
+        {
+          "letter": "B",
+          "inlineText": "4"
+        },
+        {
+          "letter": "C",
+          "inlineText": "3"
+        },
+        {
+          "letter": "D",
+          "inlineText": "−5"
+        },
+        {
+          "letter": "E",
+          "inlineText": "−3"
+        },
+        {
+          "letter": "F",
+          "inlineText": "0"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Negative-power conversions and a linear exponent equation; G7 is provisional, not benchmarked.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 3,
+      "id": "LUX-MATH-Y9-INDICES-003",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-INDICES-1",
+      "originalSourceStudentPdfPage": 1,
+      "originalSourceAnswersPdfPage": 1,
+      "originalRegisteredCorrectOption": "E",
+      "originalPrintedCorrectOption": "E",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q3. Laws of Indices                                                            Target: G7 (provisional)\n             4n+4 × 85−n\nSolve for n:             = 215 .\n                  24\nA. 0\n\nB. −4\n\nC. 12\n\nD. 5\n\nE. 4\n\nF. −6\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                        Page 1 of 74\n<PARSED TEXT FOR PAGE: 2 / 74>\nLux et Labor — Mathematics V3.1                               REVIEW COPY",
+      "extractedWorkedAnswerText": "Q3. Laws of Indices                                                            Target: G7 (provisional)\n             4n+4 × 85−n\nSolve for n:             = 215 .\n                  24\nCorrect answer: E 4\n1. Rewrite 4 = 22 and 8 = 23 : 22(n+4)+3(5−n)−4 = 215 .\n2. Equate exponents and simplify: −n + 19 = 15, hence n = 4.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "0"
+        },
+        {
+          "letter": "B",
+          "inlineText": "−4"
+        },
+        {
+          "letter": "C",
+          "inlineText": "12"
+        },
+        {
+          "letter": "D",
+          "inlineText": "5"
+        },
+        {
+          "letter": "E",
+          "inlineText": "4"
+        },
+        {
+          "letter": "F",
+          "inlineText": "−6"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Negative-power conversions and a linear exponent equation; G7 is provisional, not benchmarked.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 4,
+      "id": "LUX-MATH-Y9-INDICES-004",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-INDICES-1",
+      "originalSourceStudentPdfPage": 2,
+      "originalSourceAnswersPdfPage": 1,
+      "originalRegisteredCorrectOption": "D",
+      "originalPrintedCorrectOption": "D",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q4. Laws of Indices                                    Target: G7 (provisional)\n             4n+5 × 86−n\nSolve for n:             = 218 .\n                  25\nA. 0\n\nB. −7\n\nC. 15\n\nD. 5\n\nE. −5\n\nF. 6",
+      "extractedWorkedAnswerText": "Q4. Laws of Indices                                                            Target: G7 (provisional)\n             4n+5 × 86−n\nSolve for n:             = 218 .\n                  25\nCorrect answer: D 5\n1. Rewrite 4 = 22 and 8 = 23 : 22(n+5)+3(6−n)−5 = 218 .\n2. Equate exponents and simplify: −n + 23 = 18, hence n = 5.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "0"
+        },
+        {
+          "letter": "B",
+          "inlineText": "−7"
+        },
+        {
+          "letter": "C",
+          "inlineText": "15"
+        },
+        {
+          "letter": "D",
+          "inlineText": "5"
+        },
+        {
+          "letter": "E",
+          "inlineText": "−5"
+        },
+        {
+          "letter": "F",
+          "inlineText": "6"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Negative-power conversions and a linear exponent equation; G7 is provisional, not benchmarked.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 5,
+      "id": "LUX-MATH-Y9-INDICES-005",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-INDICES-2",
+      "originalSourceStudentPdfPage": 2,
+      "originalSourceAnswersPdfPage": 1,
+      "originalRegisteredCorrectOption": "A",
+      "originalPrintedCorrectOption": "A",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q5. Laws of Indices                                    Target: G7 (provisional)\n         ( 2      )2\n          4 × 8−1\nEvaluate             as an exact number.\n             2−2\nA. 16\n       1\nB.\n      16\nC. 8\n\nD. 65536\n\nE. 32\n\nF. 1",
+      "extractedWorkedAnswerText": "Q5. Laws of Indices                                                            Target: G7 (provisional)\n         ( 2      )2\n          4 × 8−1\nEvaluate             as an exact number.\n             2−2\nCorrect answer: A 16\n1. Convert everything to base 2, then square: (22(2)−3(1) )2 = 22 .\n2. Dividing by 2−2 adds 2 to the exponent: 2 + 2 = 4, giving 16.\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                        Page 1 of 39\n<PARSED TEXT FOR PAGE: 2 / 39>\nLux et Labor — Mathematics V3.1                                                REVIEW COPY",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "16"
+        },
+        {
+          "letter": "B",
+          "inlineText": "16"
+        },
+        {
+          "letter": "C",
+          "inlineText": "8"
+        },
+        {
+          "letter": "D",
+          "inlineText": "65536"
+        },
+        {
+          "letter": "E",
+          "inlineText": "32"
+        },
+        {
+          "letter": "F",
+          "inlineText": "1"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Huge wrong numeric choice (e.g. 65536 for a 16 answer in -005) may be implausible without a real mistake path; review each variant.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 6,
+      "id": "LUX-MATH-Y9-INDICES-006",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-INDICES-2",
+      "originalSourceStudentPdfPage": 2,
+      "originalSourceAnswersPdfPage": 2,
+      "originalRegisteredCorrectOption": "B",
+      "originalPrintedCorrectOption": "B",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q6. Laws of Indices                                    Target: G7 (provisional)\n         ( 3      )2\n          4 × 8−2\nEvaluate             as an exact number.\n             2−3\nA. 16\n\nB. 8\n\nC. 512\n\nD. 134217728\n     1\nE.\n     8\nF. 9\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                Page 2 of 74\n<PARSED TEXT FOR PAGE: 3 / 74>\nLux et Labor — Mathematics V3.1                                                REVIEW COPY",
+      "extractedWorkedAnswerText": "Q6. Laws of Indices                                                     Target: G7 (provisional)\n         ( 3      )2\n          4 × 8−2\nEvaluate             as an exact number.\n             2−3\nCorrect answer: B 8\n1. Convert everything to base 2, then square: (22(3)−3(2) )2 = 20 .\n2. Dividing by 2−3 adds 3 to the exponent: 0 + 3 = 3, giving 8.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "16"
+        },
+        {
+          "letter": "B",
+          "inlineText": "8"
+        },
+        {
+          "letter": "C",
+          "inlineText": "512"
+        },
+        {
+          "letter": "D",
+          "inlineText": "134217728"
+        },
+        {
+          "letter": "E",
+          "inlineText": "8"
+        },
+        {
+          "letter": "F",
+          "inlineText": "9"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Huge wrong numeric choice (e.g. 65536 for a 16 answer in -005) may be implausible without a real mistake path; review each variant.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 7,
+      "id": "LUX-MATH-Y9-INDICES-007",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-INDICES-2",
+      "originalSourceStudentPdfPage": 3,
+      "originalSourceAnswersPdfPage": 2,
+      "originalRegisteredCorrectOption": "D",
+      "originalPrintedCorrectOption": "D",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q7. Laws of Indices                                                     Target: G7 (provisional)\n         ( 4      )2\n          4 × 8−3\nEvaluate             as an exact number.\n             2−4\n     1\nA.\n    64\nB. 274877906944\n\nC. 8\n\nD. 4\n\nE. 2048\n     1\nF.\n     4",
+      "extractedWorkedAnswerText": "Q7. Laws of Indices                                                     Target: G7 (provisional)\n         ( 4      )2\n          4 × 8−3\nEvaluate             as an exact number.\n             2−4\nCorrect answer: D 4\n1. Convert everything to base 2, then square: (22(4)−3(3) )2 = 2−2 .\n2. Dividing by 2−4 adds 4 to the exponent: −2 + 4 = 2, giving 4.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "64"
+        },
+        {
+          "letter": "B",
+          "inlineText": "274877906944"
+        },
+        {
+          "letter": "C",
+          "inlineText": "8"
+        },
+        {
+          "letter": "D",
+          "inlineText": "4"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2048"
+        },
+        {
+          "letter": "F",
+          "inlineText": "4"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Huge wrong numeric choice (e.g. 65536 for a 16 answer in -005) may be implausible without a real mistake path; review each variant.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 8,
+      "id": "LUX-MATH-Y9-INDICES-008",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-INDICES-2",
+      "originalSourceStudentPdfPage": 3,
+      "originalSourceAnswersPdfPage": 2,
+      "originalRegisteredCorrectOption": "C",
+      "originalPrintedCorrectOption": "C",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q8. Laws of Indices                                                     Target: G7 (provisional)\n         ( 5      )2\n          4 × 8−4\nEvaluate             as an exact number.\n             2−5\n    1\nA.\n    2\nB. 4\n\nC. 2\n\nD. 8\n\nE. 562949953421312\n      1\nF.\n     512",
+      "extractedWorkedAnswerText": "Q8. Laws of Indices                                                     Target: G7 (provisional)\n         ( 5      )2\n          4 × 8−4\nEvaluate             as an exact number.\n             2−5\nCorrect answer: C 2\n1. Convert everything to base 2, then square: (22(5)−3(4) )2 = 2−4 .\n2. Dividing by 2−5 adds 5 to the exponent: −4 + 5 = 1, giving 2.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "2"
+        },
+        {
+          "letter": "B",
+          "inlineText": "4"
+        },
+        {
+          "letter": "C",
+          "inlineText": "2"
+        },
+        {
+          "letter": "D",
+          "inlineText": "8"
+        },
+        {
+          "letter": "E",
+          "inlineText": "562949953421312"
+        },
+        {
+          "letter": "F",
+          "inlineText": "512"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Huge wrong numeric choice (e.g. 65536 for a 16 answer in -005) may be implausible without a real mistake path; review each variant.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 9,
+      "id": "LUX-MATH-Y9-INDICES-009",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-INDICES-3",
+      "originalSourceStudentPdfPage": 3,
+      "originalSourceAnswersPdfPage": 2,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q9. Laws of Indices                                                     Target: G7 (provisional)\n        (x1 y −2 )2\nLet E =             . Find the exact value of E when x = 2 and y = 4.\n         x−1 y 1\n      1\nA.\n     512\n       1\nB.\n      64\n       1\nC.\n      16\nD. 128\n     1\nE.\n     8\n      1\nF.\n     128\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                 Page 3 of 74\n<PARSED TEXT FOR PAGE: 4 / 74>\nLux et Labor — Mathematics V3.1                                                REVIEW COPY",
+      "extractedWorkedAnswerText": "Q9. Laws of Indices                                                     Target: G7 (provisional)\n        (x1 y −2 )2\nLet E =             . Find the exact value of E when x = 2 and y = 4.\n         x−1 y 1\n                      1\nCorrect answer: F\n                     128\n1. Apply the power and quotient rules: E = x3 y −5 .\n                                                         1\n2. Using x = 2 and y = 4 = 22 , E = 23+2(−5) = 2−7 =        .\n                                                        128",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "512"
+        },
+        {
+          "letter": "B",
+          "inlineText": "64"
+        },
+        {
+          "letter": "C",
+          "inlineText": "16"
+        },
+        {
+          "letter": "D",
+          "inlineText": "128"
+        },
+        {
+          "letter": "E",
+          "inlineText": "8"
+        },
+        {
+          "letter": "F",
+          "inlineText": "128"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Two-variable negative powers and substitution; ensure the four variants differ in reasoning, not only numbers.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 10,
+      "id": "LUX-MATH-Y9-INDICES-010",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-INDICES-3",
+      "originalSourceStudentPdfPage": 4,
+      "originalSourceAnswersPdfPage": 2,
+      "originalRegisteredCorrectOption": "D",
+      "originalPrintedCorrectOption": "D",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q10. Laws of Indices                                                    Target: G7 (provisional)\n        (x2 y −3 )2\nLet E =             . Find the exact value of E when x = 2 and y = 4.\n         x−2 y 2\n      1\nA.\n     512\n        1\nB.\n      16384\n       1\nC.\n      64\n        1\nD.\n      1024\nE. 1024\n     1\nF.\n     4",
+      "extractedWorkedAnswerText": "Q10. Laws of Indices                                                    Target: G7 (provisional)\n        (x2 y −3 )2\nLet E =             . Find the exact value of E when x = 2 and y = 4.\n         x−2 y 2\n                       1\nCorrect answer: D\n                     1024\n1. Apply the power and quotient rules: E = x6 y −8 .\n                                                           1\n2. Using x = 2 and y = 4 = 22 , E = 26+2(−8) = 2−10 =         .\n                                                         1024\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                 Page 2 of 39\n<PARSED TEXT FOR PAGE: 3 / 39>\nLux et Labor — Mathematics V3.1                                                         REVIEW COPY",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "512"
+        },
+        {
+          "letter": "B",
+          "inlineText": "16384"
+        },
+        {
+          "letter": "C",
+          "inlineText": "64"
+        },
+        {
+          "letter": "D",
+          "inlineText": "1024"
+        },
+        {
+          "letter": "E",
+          "inlineText": "1024"
+        },
+        {
+          "letter": "F",
+          "inlineText": "4"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Two-variable negative powers and substitution; ensure the four variants differ in reasoning, not only numbers.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 11,
+      "id": "LUX-MATH-Y9-INDICES-011",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-INDICES-3",
+      "originalSourceStudentPdfPage": 4,
+      "originalSourceAnswersPdfPage": 3,
+      "originalRegisteredCorrectOption": "D",
+      "originalPrintedCorrectOption": "D",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q11. Laws of Indices                                                    Target: G7 (provisional)\n        (x3 y −4 )2\nLet E =             . Find the exact value of E when x = 2 and y = 4.\n         x−3 y 3\n      1\nA.\n     256\n         1\nB.\n      524288\n        1\nC.\n      4096\n        1\nD.\n      8192\nE. 8192\n     1\nF.\n     2",
+      "extractedWorkedAnswerText": "Q11. Laws of Indices                                                             Target: G7 (provisional)\n        (x3 y −4 )2\nLet E =             . Find the exact value of E when x = 2 and y = 4.\n         x−3 y 3\n                       1\nCorrect answer: D\n                     8192\n1. Apply the power and quotient rules: E = x9 y −11 .\n                                                                   1\n2. Using x = 2 and y = 4 = 22 , E = 29+2(−11) = 2−13 =                .\n                                                                 8192",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "256"
+        },
+        {
+          "letter": "B",
+          "inlineText": "524288"
+        },
+        {
+          "letter": "C",
+          "inlineText": "4096"
+        },
+        {
+          "letter": "D",
+          "inlineText": "8192"
+        },
+        {
+          "letter": "E",
+          "inlineText": "8192"
+        },
+        {
+          "letter": "F",
+          "inlineText": "2"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Two-variable negative powers and substitution; ensure the four variants differ in reasoning, not only numbers.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 12,
+      "id": "LUX-MATH-Y9-INDICES-012",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-INDICES-3",
+      "originalSourceStudentPdfPage": 4,
+      "originalSourceAnswersPdfPage": 3,
+      "originalRegisteredCorrectOption": "A",
+      "originalPrintedCorrectOption": "A",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q12. Laws of Indices                                                    Target: G7 (provisional)\n        (x4 y −5 )2\nLet E =             . Find the exact value of E when x = 2 and y = 4.\n         x−4 y 4\n       1\nA.\n     65536\nB. 1\n\nC. 65536\n        1\nD.\n      32768\n       1\nE.\n     1024\n         1\nF.\n     16777216\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                 Page 4 of 74\n<PARSED TEXT FOR PAGE: 5 / 74>\nLux et Labor — Mathematics V3.1                                         REVIEW COPY",
+      "extractedWorkedAnswerText": "Q12. Laws of Indices                                                             Target: G7 (provisional)\n        (x4 y −5 )2\nLet E =             . Find the exact value of E when x = 2 and y = 4.\n         x−4 y 4\n                       1\nCorrect answer: A\n                     65536\n1. Apply the power and quotient rules: E = x12 y −14 .\n                                                                   1\n2. Using x = 2 and y = 4 = 22 , E = 212+2(−14) = 2−16 =                .\n                                                                 65536",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "65536"
+        },
+        {
+          "letter": "B",
+          "inlineText": "1"
+        },
+        {
+          "letter": "C",
+          "inlineText": "65536"
+        },
+        {
+          "letter": "D",
+          "inlineText": "32768"
+        },
+        {
+          "letter": "E",
+          "inlineText": "1024"
+        },
+        {
+          "letter": "F",
+          "inlineText": "16777216"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Two-variable negative powers and substitution; ensure the four variants differ in reasoning, not only numbers.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 13,
+      "id": "LUX-MATH-Y9-INDICES-013",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-INDICES-4",
+      "originalSourceStudentPdfPage": 5,
+      "originalSourceAnswersPdfPage": 3,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q13. Laws of Indices                                             Target: G7 (provisional)\n                   (x2 y 3 )n\nFor non-zero x, y,            = x3 y 5 for all x, y. Find n.\n                    x1 y 1\nA. −2\n      4\nB.\n      3\nC. 3\n\nD. 1\n     3\nE.\n     2\nF. 2",
+      "extractedWorkedAnswerText": "Q13. Laws of Indices                                                             Target: G7 (provisional)\n                   (x2 y 3 )n\nFor non-zero x, y,            = x3 y 5 for all x, y. Find n.\n                    x1 y 1\nCorrect answer: F          2\n1. Expand the powers: x2n−1 y 3n−1 = x3 y 5 .\n2. Match both exponents: 2n − 1 = 3 and 3n − 1 = 5, so n = 2 satisfies both.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "−2"
+        },
+        {
+          "letter": "B",
+          "inlineText": "3"
+        },
+        {
+          "letter": "C",
+          "inlineText": "3"
+        },
+        {
+          "letter": "D",
+          "inlineText": "1"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "2"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Match independent exponents in an identity; very similar reasoning to G8 family V3-IND-G8-TWO-BASE-IDENTITY.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 14,
+      "id": "LUX-MATH-Y9-INDICES-014",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-INDICES-4",
+      "originalSourceStudentPdfPage": 5,
+      "originalSourceAnswersPdfPage": 3,
+      "originalRegisteredCorrectOption": "B",
+      "originalPrintedCorrectOption": "B",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q14. Laws of Indices                                             Target: G7 (provisional)\n                   (x3 y 4 )n\nFor non-zero x, y,            = x7 y 9 for all x, y. Find n.\n                    x2 y 3\nA. −3\n\nB. 3\n      12\nC.\n       5\n      3\nD.\n      2\n     9\nE.\n     4\n     5\nF.\n     3",
+      "extractedWorkedAnswerText": "Q14. Laws of Indices                                                             Target: G7 (provisional)\n                   (x3 y 4 )n\nFor non-zero x, y,            = x7 y 9 for all x, y. Find n.\n                    x2 y 3\nCorrect answer: B          3\n1. Expand the powers: x3n−2 y 4n−3 = x7 y 9 .\n2. Match both exponents: 3n − 2 = 7 and 4n − 3 = 9, so n = 3 satisfies both.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "−3"
+        },
+        {
+          "letter": "B",
+          "inlineText": "3"
+        },
+        {
+          "letter": "C",
+          "inlineText": "5"
+        },
+        {
+          "letter": "D",
+          "inlineText": "2"
+        },
+        {
+          "letter": "E",
+          "inlineText": "4"
+        },
+        {
+          "letter": "F",
+          "inlineText": "3"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Match independent exponents in an identity; very similar reasoning to G8 family V3-IND-G8-TWO-BASE-IDENTITY.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 15,
+      "id": "LUX-MATH-Y9-INDICES-015",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-INDICES-4",
+      "originalSourceStudentPdfPage": 5,
+      "originalSourceAnswersPdfPage": 3,
+      "originalRegisteredCorrectOption": "A",
+      "originalPrintedCorrectOption": "A",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q15. Laws of Indices                                             Target: G7 (provisional)\n                   (x4 y 5 )n\nFor non-zero x, y,            = x13 y 15 for all x, y. Find n.\n                    x3 y 5\nA. 4\n\nB. 2\n      10\nC.\n       3\n      5\nD.\n      2\n     16\nE.\n      5\nF. −4\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                          Page 5 of 74\n<PARSED TEXT FOR PAGE: 6 / 74>\nLux et Labor — Mathematics V3.1                                         REVIEW COPY",
+      "extractedWorkedAnswerText": "Q15. Laws of Indices                                                             Target: G7 (provisional)\n                   (x4 y 5 )n\nFor non-zero x, y,            = x13 y 15 for all x, y. Find n.\n                    x3 y 5\nCorrect answer: A          4\n1. Expand the powers: x4n−3 y 5n−5 = x13 y 15 .\n2. Match both exponents: 4n − 3 = 13 and 5n − 5 = 15, so n = 4 satisfies both.\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                          Page 3 of 39\n<PARSED TEXT FOR PAGE: 4 / 39>\nLux et Labor — Mathematics V3.1                                                         REVIEW COPY",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "4"
+        },
+        {
+          "letter": "B",
+          "inlineText": "2"
+        },
+        {
+          "letter": "C",
+          "inlineText": "3"
+        },
+        {
+          "letter": "D",
+          "inlineText": "2"
+        },
+        {
+          "letter": "E",
+          "inlineText": "5"
+        },
+        {
+          "letter": "F",
+          "inlineText": "−4"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Match independent exponents in an identity; very similar reasoning to G8 family V3-IND-G8-TWO-BASE-IDENTITY.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 16,
+      "id": "LUX-MATH-Y9-INDICES-016",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-INDICES-4",
+      "originalSourceStudentPdfPage": 6,
+      "originalSourceAnswersPdfPage": 4,
+      "originalRegisteredCorrectOption": "B",
+      "originalPrintedCorrectOption": "B",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q16. Laws of Indices                                             Target: G7 (provisional)\n                   (x5 y 6 )n\nFor non-zero x, y,            = x21 y 23 for all x, y. Find n.\n                    x4 y 7\nA. −5\n\nB. 5\n      17\nC.\n       5\n      30\nD.\n       7\n     25\nE.\n      6\n     8\nF.\n     3",
+      "extractedWorkedAnswerText": "Q16. Laws of Indices                                                             Target: G7 (provisional)\n                   (x5 y 6 )n\nFor non-zero x, y,            = x21 y 23 for all x, y. Find n.\n                    x4 y 7\nCorrect answer: B             5\n1. Expand the powers: x5n−4 y 6n−7 = x21 y 23 .\n2. Match both exponents: 5n − 4 = 21 and 6n − 7 = 23, so n = 5 satisfies both.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "−5"
+        },
+        {
+          "letter": "B",
+          "inlineText": "5"
+        },
+        {
+          "letter": "C",
+          "inlineText": "5"
+        },
+        {
+          "letter": "D",
+          "inlineText": "7"
+        },
+        {
+          "letter": "E",
+          "inlineText": "6"
+        },
+        {
+          "letter": "F",
+          "inlineText": "3"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Match independent exponents in an identity; very similar reasoning to G8 family V3-IND-G8-TWO-BASE-IDENTITY.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 17,
+      "id": "LUX-MATH-Y9-INDICES-017",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-IND-G8-FACTOR-EXP",
+      "originalSourceStudentPdfPage": 6,
+      "originalSourceAnswersPdfPage": 4,
+      "originalRegisteredCorrectOption": "C",
+      "originalPrintedCorrectOption": "C",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q17. Laws of Indices                                             Target: G8 (provisional)\nSolve 22n + 22n+2 = 80 for the integer n.\n     1\nA.\n     2\n      3\nB.\n      2\nC. 2\n\nD. 7\n\nE. 1\n\nF. −3",
+      "extractedWorkedAnswerText": "Q17. Laws of Indices                                                             Target: G8 (provisional)\n          2n        2n+2\nSolve 2        +2          = 80 for the integer n.\nCorrect answer: C             2\n1. Factor the common term: 22n (1 + 4) = 80, so 22n = 16.\n2. As 16 = 42 = 24 , it follows that n = 2.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "2"
+        },
+        {
+          "letter": "B",
+          "inlineText": "2"
+        },
+        {
+          "letter": "C",
+          "inlineText": "2"
+        },
+        {
+          "letter": "D",
+          "inlineText": "7"
+        },
+        {
+          "letter": "E",
+          "inlineText": "1"
+        },
+        {
+          "letter": "F",
+          "inlineText": "−3"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Factor a common power to solve n; G8 cannot be inferred from using an index equation alone.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 18,
+      "id": "LUX-MATH-Y9-INDICES-018",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-IND-G8-FACTOR-EXP",
+      "originalSourceStudentPdfPage": 6,
+      "originalSourceAnswersPdfPage": 4,
+      "originalRegisteredCorrectOption": "A",
+      "originalPrintedCorrectOption": "A",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q18. Laws of Indices                                             Target: G8 (provisional)\nSolve 22n + 22n+2 = 320 for the integer n.\nA. 3\n\nB. 8\n\nC. −2\n      1\nD.\n      3\n     3\nE.\n     2\nF. 5\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                          Page 6 of 74\n<PARSED TEXT FOR PAGE: 7 / 74>\nLux et Labor — Mathematics V3.1                                 REVIEW COPY",
+      "extractedWorkedAnswerText": "Q18. Laws of Indices                                                             Target: G8 (provisional)\n          2n        2n+2\nSolve 2        +2          = 320 for the integer n.\nCorrect answer: A             3\n1. Factor the common term: 22n (1 + 4) = 320, so 22n = 64.\n2. As 64 = 43 = 26 , it follows that n = 3.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "3"
+        },
+        {
+          "letter": "B",
+          "inlineText": "8"
+        },
+        {
+          "letter": "C",
+          "inlineText": "−2"
+        },
+        {
+          "letter": "D",
+          "inlineText": "3"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "5"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Factor a common power to solve n; G8 cannot be inferred from using an index equation alone.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 19,
+      "id": "LUX-MATH-Y9-INDICES-019",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-IND-G8-FACTOR-EXP",
+      "originalSourceStudentPdfPage": 7,
+      "originalSourceAnswersPdfPage": 4,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q19. Laws of Indices                                     Target: G8 (provisional)\n          2n        2n+2\nSolve 2        +2          = 1280 for the integer n.\nA. 6\n      9\nB.\n      2\nC. −1\n\nD. 2\n\nE. 3\n\nF. 4",
+      "extractedWorkedAnswerText": "Q19. Laws of Indices                                                             Target: G8 (provisional)\n          2n        2n+2\nSolve 2        +2          = 1280 for the integer n.\nCorrect answer: F             4\n1. Factor the common term: 22n (1 + 4) = 1280, so 22n = 256.\n2. As 256 = 44 = 28 , it follows that n = 4.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "6"
+        },
+        {
+          "letter": "B",
+          "inlineText": "2"
+        },
+        {
+          "letter": "C",
+          "inlineText": "−1"
+        },
+        {
+          "letter": "D",
+          "inlineText": "2"
+        },
+        {
+          "letter": "E",
+          "inlineText": "3"
+        },
+        {
+          "letter": "F",
+          "inlineText": "4"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Factor a common power to solve n; G8 cannot be inferred from using an index equation alone.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 20,
+      "id": "LUX-MATH-Y9-INDICES-020",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-IND-G8-FACTOR-EXP",
+      "originalSourceStudentPdfPage": 7,
+      "originalSourceAnswersPdfPage": 4,
+      "originalRegisteredCorrectOption": "C",
+      "originalPrintedCorrectOption": "C",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q20. Laws of Indices                                     Target: G8 (provisional)\nSolve 22n + 22n+2 = 5120 for the integer n.\n     5\nA.\n     2\nB. 3\n\nC. 5\n      1\nD.\n      5\nE. 6\n\nF. 10",
+      "extractedWorkedAnswerText": "Q20. Laws of Indices                                                             Target: G8 (provisional)\n          2n        2n+2\nSolve 2        +2          = 5120 for the integer n.\nCorrect answer: C             5\n1. Factor the common term: 22n (1 + 4) = 5120, so 22n = 1024.\n2. As 1024 = 45 = 210 , it follows that n = 5.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "2"
+        },
+        {
+          "letter": "B",
+          "inlineText": "3"
+        },
+        {
+          "letter": "C",
+          "inlineText": "5"
+        },
+        {
+          "letter": "D",
+          "inlineText": "5"
+        },
+        {
+          "letter": "E",
+          "inlineText": "6"
+        },
+        {
+          "letter": "F",
+          "inlineText": "10"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Factor a common power to solve n; G8 cannot be inferred from using an index equation alone.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 21,
+      "id": "LUX-MATH-Y9-INDICES-021",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-IND-G8-TWO-BASE-IDENTITY",
+      "originalSourceStudentPdfPage": 7,
+      "originalSourceAnswersPdfPage": 4,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q21. Laws of Indices                                     Target: G8 (provisional)\n                       (x2 y −3 )n\nFor all positive x, y,             = x3 y −8 . Find n.\n                         x1 y 2\nA. 5\n\nB. 1\n\nC. 0\n\nD. 3\n     5\nE.\n     2\nF. 2\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                  Page 7 of 74\n<PARSED TEXT FOR PAGE: 8 / 74>\nLux et Labor — Mathematics V3.1                                  REVIEW COPY",
+      "extractedWorkedAnswerText": "Q21. Laws of Indices                                                             Target: G8 (provisional)\n                       (x2 y −3 )n\nFor all positive x, y,             = x3 y −8 . Find n.\n                         x1 y 2\nCorrect answer: F             2\n1. The left-hand side is x2n−1 y −3n−2 .\n2. Equate independent powers: 2n − 1 = 3 and −3n − 2 = −8, both give n = 2.\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                          Page 4 of 39\n<PARSED TEXT FOR PAGE: 5 / 39>\nLux et Labor — Mathematics V3.1                                                       REVIEW COPY",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "5"
+        },
+        {
+          "letter": "B",
+          "inlineText": "1"
+        },
+        {
+          "letter": "C",
+          "inlineText": "0"
+        },
+        {
+          "letter": "D",
+          "inlineText": "3"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "2"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Same independent-exponent comparison as G7 V2-INDICES-4; demand-level distinction requires evidence.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 22,
+      "id": "LUX-MATH-Y9-INDICES-022",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-IND-G8-TWO-BASE-IDENTITY",
+      "originalSourceStudentPdfPage": 8,
+      "originalSourceAnswersPdfPage": 5,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q22. Laws of Indices                                      Target: G8 (provisional)\n                       (x2 y −3 )n\nFor all positive x, y,             = x4 y −12 . Find n.\n                         x2 y 3\nA. 6\n\nB. 8\n\nC. −2\n\nD. 1\n\nE. −3\n\nF. 3",
+      "extractedWorkedAnswerText": "Q22. Laws of Indices                                                           Target: G8 (provisional)\n                       (x2 y −3 )n\nFor all positive x, y,             = x4 y −12 . Find n.\n                         x2 y 3\nCorrect answer: F          3\n1. The left-hand side is x2n−2 y −3n−3 .\n2. Equate independent powers: 2n − 2 = 4 and −3n − 3 = −12, both give n = 3.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "6"
+        },
+        {
+          "letter": "B",
+          "inlineText": "8"
+        },
+        {
+          "letter": "C",
+          "inlineText": "−2"
+        },
+        {
+          "letter": "D",
+          "inlineText": "1"
+        },
+        {
+          "letter": "E",
+          "inlineText": "−3"
+        },
+        {
+          "letter": "F",
+          "inlineText": "3"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Same independent-exponent comparison as G7 V2-INDICES-4; demand-level distinction requires evidence.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 23,
+      "id": "LUX-MATH-Y9-INDICES-023",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-IND-G8-TWO-BASE-IDENTITY",
+      "originalSourceStudentPdfPage": 8,
+      "originalSourceAnswersPdfPage": 5,
+      "originalRegisteredCorrectOption": "E",
+      "originalPrintedCorrectOption": "E",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q23. Laws of Indices                                      Target: G8 (provisional)\n                       (x2 y −3 )n\nFor all positive x, y,             = x7 y −16 . Find n.\n                         x1 y 4\n     7\nA.\n     2\nB. 9\n\nC. 8\n\nD. −1\n\nE. 4\n\nF. 3",
+      "extractedWorkedAnswerText": "Q23. Laws of Indices                                                           Target: G8 (provisional)\n                       (x2 y −3 )n\nFor all positive x, y,             = x7 y −16 . Find n.\n                         x1 y 4\nCorrect answer: E          4\n1. The left-hand side is x2n−1 y −3n−4 .\n2. Equate independent powers: 2n − 1 = 7 and −3n − 4 = −16, both give n = 4.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "2"
+        },
+        {
+          "letter": "B",
+          "inlineText": "9"
+        },
+        {
+          "letter": "C",
+          "inlineText": "8"
+        },
+        {
+          "letter": "D",
+          "inlineText": "−1"
+        },
+        {
+          "letter": "E",
+          "inlineText": "4"
+        },
+        {
+          "letter": "F",
+          "inlineText": "3"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Same independent-exponent comparison as G7 V2-INDICES-4; demand-level distinction requires evidence.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 24,
+      "id": "LUX-MATH-Y9-INDICES-024",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-IND-G8-TWO-BASE-IDENTITY",
+      "originalSourceStudentPdfPage": 8,
+      "originalSourceAnswersPdfPage": 5,
+      "originalRegisteredCorrectOption": "E",
+      "originalPrintedCorrectOption": "E",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q24. Laws of Indices                                      Target: G8 (provisional)\n                       (x2 y −3 )n\nFor all positive x, y,             = x8 y −17 . Find n.\n                         x2 y 2\nA. −5\n      5\nB.\n      2\n      1\nC.\n      5\nD. 6\n\nE. 5\n\nF. 8\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                   Page 8 of 74\n<PARSED TEXT FOR PAGE: 9 / 74>\nLux et Labor — Mathematics V3.1                                                REVIEW COPY",
+      "extractedWorkedAnswerText": "Q24. Laws of Indices                                                           Target: G8 (provisional)\n                       (x2 y −3 )n\nFor all positive x, y,             = x8 y −17 . Find n.\n                         x2 y 2\nCorrect answer: E          5\n1. The left-hand side is x2n−2 y −3n−2 .\n2. Equate independent powers: 2n − 2 = 8 and −3n − 2 = −17, both give n = 5.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "−5"
+        },
+        {
+          "letter": "B",
+          "inlineText": "2"
+        },
+        {
+          "letter": "C",
+          "inlineText": "5"
+        },
+        {
+          "letter": "D",
+          "inlineText": "6"
+        },
+        {
+          "letter": "E",
+          "inlineText": "5"
+        },
+        {
+          "letter": "F",
+          "inlineText": "8"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Same independent-exponent comparison as G7 V2-INDICES-4; demand-level distinction requires evidence.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 25,
+      "id": "LUX-MATH-Y9-INDICES-025",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-IND-G8-QUOTIENT-PARAMETER",
+      "originalSourceStudentPdfPage": 9,
+      "originalSourceAnswersPdfPage": 5,
+      "originalRegisteredCorrectOption": "A",
+      "originalPrintedCorrectOption": "A",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q25. Laws of Indices                                                    Target: G8 (provisional)\n                                              A\nLet A = 23n−1 and B = 4n+1 . Given              = 2−1 , find n2 − 2n.\n                                              B\nA. 0\n\nB. −2\n\nC. 3\n\nD. 2\n\nE. −5\n\nF. −3",
+      "extractedWorkedAnswerText": "Q25. Laws of Indices                                                           Target: G8 (provisional)\n                                              A\nLet A = 23n−1 and B = 4n+1 . Given              = 2−1 , find n2 − 2n.\n                                              B\nCorrect answer: A          0\n1. Convert B = 4n+1 = 22n+2 and write the quotient in base 2.\n2. It follows that 23n−1−(2n+2) = 2n−3 = 2−1 ; hence n = 2 and n2 − 2n = 0.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "0"
+        },
+        {
+          "letter": "B",
+          "inlineText": "−2"
+        },
+        {
+          "letter": "C",
+          "inlineText": "3"
+        },
+        {
+          "letter": "D",
+          "inlineText": "2"
+        },
+        {
+          "letter": "E",
+          "inlineText": "−5"
+        },
+        {
+          "letter": "F",
+          "inlineText": "−3"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Convert bases and evaluate a follow-up polynomial; grade depends on genuinely non-routine reasoning.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 26,
+      "id": "LUX-MATH-Y9-INDICES-026",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-IND-G8-QUOTIENT-PARAMETER",
+      "originalSourceStudentPdfPage": 9,
+      "originalSourceAnswersPdfPage": 5,
+      "originalRegisteredCorrectOption": "C",
+      "originalPrintedCorrectOption": "C",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q26. Laws of Indices                                                    Target: G8 (provisional)\n                                              A\nLet A = 23n−1 and B = 4n+1 . Given              = 20 , find n2 − 2n.\n                                              B\n     1\nA.\n     3\n      5\nB.\n      2\nC. 3\n\nD. 8\n     3\nE.\n     2\nF. −2",
+      "extractedWorkedAnswerText": "Q26. Laws of Indices                                                           Target: G8 (provisional)\n                                              A\nLet A = 23n−1 and B = 4n+1 . Given              = 20 , find n2 − 2n.\n                                              B\nCorrect answer: C          3\n1. Convert B = 4n+1 = 22n+2 and write the quotient in base 2.\n2. It follows that 23n−1−(2n+2) = 2n−3 = 20 ; hence n = 3 and n2 − 2n = 3.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "3"
+        },
+        {
+          "letter": "B",
+          "inlineText": "2"
+        },
+        {
+          "letter": "C",
+          "inlineText": "3"
+        },
+        {
+          "letter": "D",
+          "inlineText": "8"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "−2"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Convert bases and evaluate a follow-up polynomial; grade depends on genuinely non-routine reasoning.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 27,
+      "id": "LUX-MATH-Y9-INDICES-027",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-IND-G8-QUOTIENT-PARAMETER",
+      "originalSourceStudentPdfPage": 9,
+      "originalSourceAnswersPdfPage": 5,
+      "originalRegisteredCorrectOption": "A",
+      "originalPrintedCorrectOption": "A",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q27. Laws of Indices                                                    Target: G8 (provisional)\n                                   A\nLet A = 23n−1 and B = 4n+1 . Given   = 21 , find n2 − 2n.\n                                   B\nA. 8\n\nB. 13\n\nC. 3\n      1\nD.\n      8\nE. 4\n\nF. 10\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                 Page 9 of 74\n<PARSED TEXT FOR PAGE: 10 / 74>\nLux et Labor — Mathematics V3.1                                               REVIEW COPY",
+      "extractedWorkedAnswerText": "Q27. Laws of Indices                                                           Target: G8 (provisional)\n                                   A\nLet A = 23n−1 and B = 4n+1 . Given   = 21 , find n2 − 2n.\n                                   B\nCorrect answer: A 8\n1. Convert B = 4n+1 = 22n+2 and write the quotient in base 2.\n2. It follows that 23n−1−(2n+2) = 2n−3 = 21 ; hence n = 4 and n2 − 2n = 8.\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                        Page 5 of 39\n<PARSED TEXT FOR PAGE: 6 / 39>\nLux et Labor — Mathematics V3.1                                                           REVIEW COPY",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "8"
+        },
+        {
+          "letter": "B",
+          "inlineText": "13"
+        },
+        {
+          "letter": "C",
+          "inlineText": "3"
+        },
+        {
+          "letter": "D",
+          "inlineText": "8"
+        },
+        {
+          "letter": "E",
+          "inlineText": "4"
+        },
+        {
+          "letter": "F",
+          "inlineText": "10"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Convert bases and evaluate a follow-up polynomial; grade depends on genuinely non-routine reasoning.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 28,
+      "id": "LUX-MATH-Y9-INDICES-028",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-IND-G8-QUOTIENT-PARAMETER",
+      "originalSourceStudentPdfPage": 10,
+      "originalSourceAnswersPdfPage": 6,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q28. Laws of Indices                                                   Target: G8 (provisional)\n                                              A\nLet A = 23n−1 and B = 4n+1 . Given              = 22 , find n2 − 2n.\n                                              B\nA. 17\n      31\nB.\n       2\nC. 10\n      15\nD.\n       2\nE. 14\n\nF. 15",
+      "extractedWorkedAnswerText": "Q28. Laws of Indices                                                               Target: G8 (provisional)\n                                              A\nLet A = 23n−1 and B = 4n+1 . Given              = 22 , find n2 − 2n.\n                                              B\nCorrect answer: F          15\n1. Convert B = 4n+1 = 22n+2 and write the quotient in base 2.\n2. It follows that 23n−1−(2n+2) = 2n−3 = 22 ; hence n = 5 and n2 − 2n = 15.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "17"
+        },
+        {
+          "letter": "B",
+          "inlineText": "2"
+        },
+        {
+          "letter": "C",
+          "inlineText": "10"
+        },
+        {
+          "letter": "D",
+          "inlineText": "2"
+        },
+        {
+          "letter": "E",
+          "inlineText": "14"
+        },
+        {
+          "letter": "F",
+          "inlineText": "15"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Convert bases and evaluate a follow-up polynomial; grade depends on genuinely non-routine reasoning.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 29,
+      "id": "LUX-MATH-Y9-INDICES-029",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-IND-G8-SQRT-QUOTIENT",
+      "originalSourceStudentPdfPage": 10,
+      "originalSourceAnswersPdfPage": 6,
+      "originalRegisteredCorrectOption": "E",
+      "originalPrintedCorrectOption": "E",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q29. Laws of Indices                                                   Target: G8 (provisional)\n                                   √\n                                       22n+6 × 16n−1\nFind the integer n for which                         = 211 .\n                                          8n−2\n     3\nA.\n     2\nB. 8\n\nC. 6\n\nD. 5\n\nE. 3\n     1\nF.\n     3",
+      "extractedWorkedAnswerText": "Q29. Laws of Indices                                                               Target: G8 (provisional)\n                                    √\n                                        22n+6 × 16n−1\nFind the integer n for which                            = 211 .\n                                           8n−2\nCorrect answer: E          3\n1. Write the square root, 16 and 8 as powers of 2. The exponent is (n + 3) + 4(n − 1) − 3(n − 2) = 2n + 5.\n2. Equating powers gives 2n + 5 = 11, so n = 3.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "2"
+        },
+        {
+          "letter": "B",
+          "inlineText": "8"
+        },
+        {
+          "letter": "C",
+          "inlineText": "6"
+        },
+        {
+          "letter": "D",
+          "inlineText": "5"
+        },
+        {
+          "letter": "E",
+          "inlineText": "3"
+        },
+        {
+          "letter": "F",
+          "inlineText": "3"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Roots treated as fractional powers; verify exactly taught beyond Autumn outline's generic all laws.",
+      "scopeGate": "FRACTIONAL_ROOT_INDEX_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 30,
+      "id": "LUX-MATH-Y9-INDICES-030",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-IND-G8-SQRT-QUOTIENT",
+      "originalSourceStudentPdfPage": 10,
+      "originalSourceAnswersPdfPage": 6,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q30. Laws of Indices                                                   Target: G8 (provisional)\n                                   √\n                                       22n+6 × 16n−1\nFind the integer n for which                           = 213 .\n                                          8n−2\nA. 7\n\nB. 3\n\nC. 2\n\nD. 5\n     9\nE.\n     2\nF. 4\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                               Page 10 of 74\n<PARSED TEXT FOR PAGE: 11 / 74>\nLux et Labor — Mathematics V3.1                                                          REVIEW COPY",
+      "extractedWorkedAnswerText": "Q30. Laws of Indices                                                               Target: G8 (provisional)\n                                    √\n                                        22n+6 × 16n−1\nFind the integer n for which                          = 213 .\n                                           8n−2\nCorrect answer: F          4\n1. Write the square root, 16 and 8 as powers of 2. The exponent is (n + 3) + 4(n − 1) − 3(n − 2) = 2n + 5.\n2. Equating powers gives 2n + 5 = 13, so n = 4.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "7"
+        },
+        {
+          "letter": "B",
+          "inlineText": "3"
+        },
+        {
+          "letter": "C",
+          "inlineText": "2"
+        },
+        {
+          "letter": "D",
+          "inlineText": "5"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "4"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Roots treated as fractional powers; verify exactly taught beyond Autumn outline's generic all laws.",
+      "scopeGate": "FRACTIONAL_ROOT_INDEX_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 31,
+      "id": "LUX-MATH-Y9-INDICES-031",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-IND-G8-SQRT-QUOTIENT",
+      "originalSourceStudentPdfPage": 11,
+      "originalSourceAnswersPdfPage": 6,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q31. Laws of Indices                                                              Target: G8 (provisional)\n                                    √\n                                        22n+6 × 16n−1\nFind the integer n for which                            = 215 .\n                                           8n−2\nA. 8\n\nB. 10\n\nC. 0\n\nD. 3\n\nE. −5\n\nF. 5",
+      "extractedWorkedAnswerText": "Q31. Laws of Indices                                                               Target: G8 (provisional)\n                                    √\n                                        22n+6 × 16n−1\nFind the integer n for which                            = 215 .\n                                           8n−2\nCorrect answer: F          5\n1. Write the square root, 16 and 8 as powers of 2. The exponent is (n + 3) + 4(n − 1) − 3(n − 2) = 2n + 5.\n2. Equating powers gives 2n + 5 = 15, so n = 5.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "8"
+        },
+        {
+          "letter": "B",
+          "inlineText": "10"
+        },
+        {
+          "letter": "C",
+          "inlineText": "0"
+        },
+        {
+          "letter": "D",
+          "inlineText": "3"
+        },
+        {
+          "letter": "E",
+          "inlineText": "−5"
+        },
+        {
+          "letter": "F",
+          "inlineText": "5"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Roots treated as fractional powers; verify exactly taught beyond Autumn outline's generic all laws.",
+      "scopeGate": "FRACTIONAL_ROOT_INDEX_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 32,
+      "id": "LUX-MATH-Y9-INDICES-032",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-IND-G8-SQRT-QUOTIENT",
+      "originalSourceStudentPdfPage": 11,
+      "originalSourceAnswersPdfPage": 6,
+      "originalRegisteredCorrectOption": "E",
+      "originalPrintedCorrectOption": "E",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q32. Laws of Indices                                                              Target: G8 (provisional)\n                                    √\n                                        22n+6 × 16n−1\nFind the integer n for which                            = 217 .\n                                           8n−2\n     11\nA.\n     2\nB. 11\n\nC. 12\n\nD. 1\n\nE. 6\n\nF. 5",
+      "extractedWorkedAnswerText": "Q32. Laws of Indices                                                               Target: G8 (provisional)\n                                    √\n                                        22n+6 × 16n−1\nFind the integer n for which                          = 217 .\n                                           8n−2\nCorrect answer: E          6\n1. Write the square root, 16 and 8 as powers of 2. The exponent is (n + 3) + 4(n − 1) − 3(n − 2) = 2n + 5.\n2. Equating powers gives 2n + 5 = 17, so n = 6.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "2"
+        },
+        {
+          "letter": "B",
+          "inlineText": "11"
+        },
+        {
+          "letter": "C",
+          "inlineText": "12"
+        },
+        {
+          "letter": "D",
+          "inlineText": "1"
+        },
+        {
+          "letter": "E",
+          "inlineText": "6"
+        },
+        {
+          "letter": "F",
+          "inlineText": "5"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Roots treated as fractional powers; verify exactly taught beyond Autumn outline's generic all laws.",
+      "scopeGate": "FRACTIONAL_ROOT_INDEX_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 33,
+      "id": "LUX-MATH-Y9-INDICES-033",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-IND-G89-FRACTIONAL-IDENTITY",
+      "originalSourceStudentPdfPage": 11,
+      "originalSourceAnswersPdfPage": 6,
+      "originalRegisteredCorrectOption": "E",
+      "originalPrintedCorrectOption": "E",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q33. Laws of Indices                                                            Target: G8-9 (provisional)\n                     (x1/2 y −1/3 )6n\nFor positive x, y,                       = x5 y −6 for all x, y. Determine n.\n                           x1 y 2\nA. −2\n\nB. 1\n      1\nC.\n      2\nD. 3\n\nE. 2\n\nF. 5\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                          Page 11 of 74\n<PARSED TEXT FOR PAGE: 12 / 74>\nLux et Labor — Mathematics V3.1                                                           REVIEW COPY",
+      "extractedWorkedAnswerText": "Q33. Laws of Indices                                                             Target: G8-9 (provisional)\n                     (x1/2 y −1/3 )6n\nFor positive x, y,                       = x5 y −6 for all x, y. Determine n.\n                           x1 y 2\nCorrect answer: E          2\n1. The numerator becomes x3n y −2n , giving x3n−1 y −2n−2 .\n2. Equate both powers independently: 3n − 1 = 5 and −2n − 2 = −6, giving n = 2 in each case.\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                            Page 6 of 39\n<PARSED TEXT FOR PAGE: 7 / 39>\nLux et Labor — Mathematics V3.1                                                           REVIEW COPY",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "−2"
+        },
+        {
+          "letter": "B",
+          "inlineText": "1"
+        },
+        {
+          "letter": "C",
+          "inlineText": "2"
+        },
+        {
+          "letter": "D",
+          "inlineText": "3"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "5"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Fractional-power two-variable identities; four IDs -033 to -036 need explicit teacher confirmation.",
+      "scopeGate": "FRACTIONAL_ROOT_INDEX_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 34,
+      "id": "LUX-MATH-Y9-INDICES-034",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-IND-G89-FRACTIONAL-IDENTITY",
+      "originalSourceStudentPdfPage": 12,
+      "originalSourceAnswersPdfPage": 7,
+      "originalRegisteredCorrectOption": "A",
+      "originalPrintedCorrectOption": "A",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q34. Laws of Indices                                                             Target: G8-9 (provisional)\n                     (x1/2 y −1/3 )6n\nFor positive x, y,                      = x7 y −9 for all x, y. Determine n.\n                           x2 y 3\nA. 3\n      3\nB.\n      2\nC. 5\n\nD. −2\n\nE. 1\n\nF. 0",
+      "extractedWorkedAnswerText": "Q34. Laws of Indices                                                             Target: G8-9 (provisional)\n                     (x1/2 y −1/3 )6n\nFor positive x, y,                      = x7 y −9 for all x, y. Determine n.\n                           x2 y 3\nCorrect answer: A          3\n1. The numerator becomes x3n y −2n , giving x3n−2 y −2n−3 .\n2. Equate both powers independently: 3n − 2 = 7 and −2n − 3 = −9, giving n = 3 in each case.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "3"
+        },
+        {
+          "letter": "B",
+          "inlineText": "2"
+        },
+        {
+          "letter": "C",
+          "inlineText": "5"
+        },
+        {
+          "letter": "D",
+          "inlineText": "−2"
+        },
+        {
+          "letter": "E",
+          "inlineText": "1"
+        },
+        {
+          "letter": "F",
+          "inlineText": "0"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Fractional-power two-variable identities; four IDs -033 to -036 need explicit teacher confirmation.",
+      "scopeGate": "FRACTIONAL_ROOT_INDEX_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 35,
+      "id": "LUX-MATH-Y9-INDICES-035",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-IND-G89-FRACTIONAL-IDENTITY",
+      "originalSourceStudentPdfPage": 12,
+      "originalSourceAnswersPdfPage": 7,
+      "originalRegisteredCorrectOption": "C",
+      "originalPrintedCorrectOption": "C",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q35. Laws of Indices                                                             Target: G8-9 (provisional)\n                     (x1/2 y −1/3 )6n\nFor positive x, y,                      = x9 y −10 for all x, y. Determine n.\n                           x3 y 2\n     1\nA.\n     4\n      7\nB.\n      2\nC. 4\n\nD. 9\n\nE. 2\n\nF. −1",
+      "extractedWorkedAnswerText": "Q35. Laws of Indices                                                             Target: G8-9 (provisional)\n                     (x1/2 y −1/3 )6n\nFor positive x, y,                      = x9 y −10 for all x, y. Determine n.\n                           x3 y 2\nCorrect answer: C          4\n1. The numerator becomes x3n y −2n , giving x3n−3 y −2n−2 .\n2. Equate both powers independently: 3n − 3 = 9 and −2n − 2 = −10, giving n = 4 in each case.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "4"
+        },
+        {
+          "letter": "B",
+          "inlineText": "2"
+        },
+        {
+          "letter": "C",
+          "inlineText": "4"
+        },
+        {
+          "letter": "D",
+          "inlineText": "9"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "−1"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Fractional-power two-variable identities; four IDs -033 to -036 need explicit teacher confirmation.",
+      "scopeGate": "FRACTIONAL_ROOT_INDEX_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 36,
+      "id": "LUX-MATH-Y9-INDICES-036",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-IND-G89-FRACTIONAL-IDENTITY",
+      "originalSourceStudentPdfPage": 12,
+      "originalSourceAnswersPdfPage": 7,
+      "originalRegisteredCorrectOption": "A",
+      "originalPrintedCorrectOption": "A",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q36. Laws of Indices                                                             Target: G8-9 (provisional)\n                     (x1/2 y −1/3 )6n\nFor positive x, y,                      = x11 y −13 for all x, y. Determine n.\n                           x4 y 3\nA. 5\n\nB. 10\n\nC. 0\n      1\nD.\n      5\n     5\nE.\n     2\nF. 7\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                           Page 12 of 74\n<PARSED TEXT FOR PAGE: 13 / 74>\nLux et Labor — Mathematics V3.1                                           REVIEW COPY",
+      "extractedWorkedAnswerText": "Q36. Laws of Indices                                                             Target: G8-9 (provisional)\n                     (x1/2 y −1/3 )6n\nFor positive x, y,                      = x11 y −13 for all x, y. Determine n.\n                           x4 y 3\nCorrect answer: A          5\n1. The numerator becomes x3n y −2n , giving x3n−4 y −2n−3 .\n2. Equate both powers independently: 3n − 4 = 11 and −2n − 3 = −13, giving n = 5 in each case.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "5"
+        },
+        {
+          "letter": "B",
+          "inlineText": "10"
+        },
+        {
+          "letter": "C",
+          "inlineText": "0"
+        },
+        {
+          "letter": "D",
+          "inlineText": "5"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "7"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Fractional-power two-variable identities; four IDs -033 to -036 need explicit teacher confirmation.",
+      "scopeGate": "FRACTIONAL_ROOT_INDEX_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 37,
+      "id": "LUX-MATH-Y9-INDICES-037",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-IND-G89-EXPONENT-THEN-EXPRESSION",
+      "originalSourceStudentPdfPage": 13,
+      "originalSourceAnswersPdfPage": 7,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q37. Laws of Indices                                             Target: G8-9 (provisional)\n                 √\n                   22n+6 × 16n−1\nFind n such that                 = 29 , and then give n2 − n.\n                      8n−2\nA. 0\n      5\nB.\n      2\nC. 4\n\nD. −3\n\nE. 1\n\nF. 2",
+      "extractedWorkedAnswerText": "Q37. Laws of Indices                                                             Target: G8-9 (provisional)\n                 √\n                   22n+6 × 16n−1\nFind n such that                 = 29 , and then give n2 − n.\n                      8n−2\nCorrect answer: F 2\n1. Express all terms as base 2: the left-hand exponent is (n + 3) + 4(n − 1) − 3(n − 2) = 2n + 5.\n2. So 2n + 5 = 9 and n = 2. Finally n2 − n = 2.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "0"
+        },
+        {
+          "letter": "B",
+          "inlineText": "2"
+        },
+        {
+          "letter": "C",
+          "inlineText": "4"
+        },
+        {
+          "letter": "D",
+          "inlineText": "−3"
+        },
+        {
+          "letter": "E",
+          "inlineText": "1"
+        },
+        {
+          "letter": "F",
+          "inlineText": "2"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Very similar exponent reduction to G8 SQRT-QUOTIENT plus an easy final substitution; G8-9 not established.",
+      "scopeGate": "FRACTIONAL_ROOT_INDEX_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [
+        "G8_9_OVERBAND_REVIEW_REQUIRED"
+      ],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 38,
+      "id": "LUX-MATH-Y9-INDICES-038",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-IND-G89-EXPONENT-THEN-EXPRESSION",
+      "originalSourceStudentPdfPage": 13,
+      "originalSourceAnswersPdfPage": 7,
+      "originalRegisteredCorrectOption": "E",
+      "originalPrintedCorrectOption": "E",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q38. Laws of Indices                                             Target: G8-9 (provisional)\n                 √\n                   22n+6 × 16n−1\nFind n such that                 = 211 , and then give n2 − n.\n                      8n−2\nA. 3\n\nB. 11\n\nC. 9\n\nD. 8\n\nE. 6\n     1\nF.\n     6",
+      "extractedWorkedAnswerText": "Q38. Laws of Indices                                                             Target: G8-9 (provisional)\n                 √\n                   22n+6 × 16n−1\nFind n such that                 = 211 , and then give n2 − n.\n                      8n−2\nCorrect answer: E 6\n1. Express all terms as base 2: the left-hand exponent is (n + 3) + 4(n − 1) − 3(n − 2) = 2n + 5.\n2. So 2n + 5 = 11 and n = 3. Finally n2 − n = 6.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "3"
+        },
+        {
+          "letter": "B",
+          "inlineText": "11"
+        },
+        {
+          "letter": "C",
+          "inlineText": "9"
+        },
+        {
+          "letter": "D",
+          "inlineText": "8"
+        },
+        {
+          "letter": "E",
+          "inlineText": "6"
+        },
+        {
+          "letter": "F",
+          "inlineText": "6"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Very similar exponent reduction to G8 SQRT-QUOTIENT plus an easy final substitution; G8-9 not established.",
+      "scopeGate": "FRACTIONAL_ROOT_INDEX_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [
+        "G8_9_OVERBAND_REVIEW_REQUIRED"
+      ],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 39,
+      "id": "LUX-MATH-Y9-INDICES-039",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-IND-G89-EXPONENT-THEN-EXPRESSION",
+      "originalSourceStudentPdfPage": 13,
+      "originalSourceAnswersPdfPage": 7,
+      "originalRegisteredCorrectOption": "E",
+      "originalPrintedCorrectOption": "E",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q39. Laws of Indices                                             Target: G8-9 (provisional)\n                 √\n                   22n+6 × 16n−1\nFind n such that                 = 213 , and then give n2 − n.\n                      8n−2\nA. 9\n\nB. 6\n\nC. 14\n\nD. 13\n\nE. 12\n     1\nF.\n     12\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                           Page 13 of 74\n<PARSED TEXT FOR PAGE: 14 / 74>\nLux et Labor — Mathematics V3.1                                                          REVIEW COPY",
+      "extractedWorkedAnswerText": "Q39. Laws of Indices                                                             Target: G8-9 (provisional)\n                 √\n                   22n+6 × 16n−1\nFind n such that                 = 213 , and then give n2 − n.\n                      8n−2\nCorrect answer: E 12\n1. Express all terms as base 2: the left-hand exponent is (n + 3) + 4(n − 1) − 3(n − 2) = 2n + 5.\n2. So 2n + 5 = 13 and n = 4. Finally n2 − n = 12.\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                            Page 7 of 39\n<PARSED TEXT FOR PAGE: 8 / 39>\nLux et Labor — Mathematics V3.1                                                             REVIEW COPY",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "9"
+        },
+        {
+          "letter": "B",
+          "inlineText": "6"
+        },
+        {
+          "letter": "C",
+          "inlineText": "14"
+        },
+        {
+          "letter": "D",
+          "inlineText": "13"
+        },
+        {
+          "letter": "E",
+          "inlineText": "12"
+        },
+        {
+          "letter": "F",
+          "inlineText": "12"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Very similar exponent reduction to G8 SQRT-QUOTIENT plus an easy final substitution; G8-9 not established.",
+      "scopeGate": "FRACTIONAL_ROOT_INDEX_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [
+        "G8_9_OVERBAND_REVIEW_REQUIRED"
+      ],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 40,
+      "id": "LUX-MATH-Y9-INDICES-040",
+      "sourceTopic": "math-y9-indices",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-IND-G89-EXPONENT-THEN-EXPRESSION",
+      "originalSourceStudentPdfPage": 14,
+      "originalSourceAnswersPdfPage": 8,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q40. Laws of Indices                                                            Target: G8-9 (provisional)\n                 √\n                   22n+6 × 16n−1\nFind n such that                 = 215 , and then give n2 − n.\n                      8n−2\nA. 23\n\nB. 25\n\nC. 15\n\nD. 18\n\nE. −20\n\nF. 20",
+      "extractedWorkedAnswerText": "Q40. Laws of Indices                                                               Target: G8-9 (provisional)\n                 √\n                   22n+6 × 16n−1\nFind n such that                 = 215 , and then give n2 − n.\n                      8n−2\nCorrect answer: F 20\n1. Express all terms as base 2: the left-hand exponent is (n + 3) + 4(n − 1) − 3(n − 2) = 2n + 5.\n2. So 2n + 5 = 15 and n = 5. Finally n2 − n = 20.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "23"
+        },
+        {
+          "letter": "B",
+          "inlineText": "25"
+        },
+        {
+          "letter": "C",
+          "inlineText": "15"
+        },
+        {
+          "letter": "D",
+          "inlineText": "18"
+        },
+        {
+          "letter": "E",
+          "inlineText": "−20"
+        },
+        {
+          "letter": "F",
+          "inlineText": "20"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Very similar exponent reduction to G8 SQRT-QUOTIENT plus an easy final substitution; G8-9 not established.",
+      "scopeGate": "FRACTIONAL_ROOT_INDEX_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [
+        "G8_9_OVERBAND_REVIEW_REQUIRED"
+      ],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    }
+  ]
+}
