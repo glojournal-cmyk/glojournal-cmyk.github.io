@@ -47,6 +47,29 @@ export function chooseApprovedTopic(entries,state,year,subject,count,reserved=ne
     .filter(e=>e.available>=count)
     .sort((a,b)=>b.available-a.available||a.entry.topicId.localeCompare(b.entry.topicId))[0]?.entry||null;
 }
+// A composite or Y9 Daily cannot earn credit from generic button presses.
+// All counted answers must be dated, assigned, formal, unassisted and match
+// the EXACT approved question-to-concept mapping.
+export function v3ScopedQuestionEvidence(state,task,day){
+  const allowed=new Set(task?.approvedQuestionIds||[]);
+  const concepts=task?.approvedConceptByQuestion||{};
+  const attempts=new Map();
+  for(const e of state.formalAttemptLog||[]){
+    if(e?.day!==day||e?.dailyTaskId!==task?.id||
+       e?.subject!==task.assignedSubject||Number(e?.year)!==Number(task.assignedYear)||
+       e?.topicId!==task.assignedTopic||e.formal===false||e.repair===true||
+       e.recoveryFor||typeof e.correct!=='boolean'||!e.questionId)continue;
+    const id=String(e.questionId).split('@')[0];
+    if(!allowed.has(id)||!Object.hasOwn(concepts,id))continue;
+    const key=concepts[id];
+    const previous=attempts.get(key);
+    attempts.set(key,previous===true||e.correct===true);
+  }
+  const correct=[...attempts.values()].filter(Boolean).length;
+  return {attempts:attempts.size,correct:Math.min(Number(task.target)||10,correct),
+    completed:correct>=Number(task.target)};
+}
+
 export function languageEvidence(state,day,taskId='languages-standard'){
   const result={latin:{attempts:0,correct:0},french:{attempts:0,correct:0}};
   for(const subject of ['latin','french']){
@@ -115,7 +138,12 @@ export function buildDailyV3(state,legacy=[],manifest=V3_APPROVED,{mathAttempts=
     return dated.map(t=>t.id==='languages-standard'?
       {...t,progress:languages.progress,done:languages.completed,
         languageEvidence:languages}:t.id==='maths-daily'?
-      {...t,progress:maths.submitted,done:maths.completed,mathsEvidence:maths}:t);
+      {...t,progress:maths.submitted,done:maths.completed,mathsEvidence:maths}:
+      (t.id==='y8-standard-b'&&Number(t.assignedYear)===9)||
+      (t.id==='due-review'&&Number(t.assignedYear)===9)
+      ? {...t,progress:v3ScopedQuestionEvidence(state,t,day).correct,
+          done:v3ScopedQuestionEvidence(state,t,day).completed}
+      :t);
   }
   const old=new Map(legacy.map(t=>[t.id,t]));
   const passthrough=id=>old.get(id)?tagged(old.get(id),day):
