@@ -83,9 +83,35 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted false or contradictory statement scored > 0. Verify and repair overcredit."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 3,
+            "passed": 1,
+            "failed": 2,
+            "paraphraseExpected": 1,
+            "paraphraseObserved": 0,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 1
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -139,7 +165,23 @@
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 3,
+            "passed": 3,
+            "failed": 0,
+            "paraphraseExpected": 1,
+            "paraphraseObserved": 1,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -193,7 +235,23 @@
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 3,
+            "passed": 3,
+            "failed": 0,
+            "paraphraseExpected": 1,
+            "paraphraseObserved": 1,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -245,9 +303,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 3,
+            "passed": 2,
+            "failed": 1,
+            "paraphraseExpected": 1,
+            "paraphraseObserved": 0,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -299,9 +378,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 3,
+            "passed": 2,
+            "failed": 1,
+            "paraphraseExpected": 1,
+            "paraphraseObserved": 0,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -381,7 +481,23 @@
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 3,
+            "passed": 3,
+            "failed": 0,
+            "paraphraseExpected": 1,
+            "paraphraseObserved": 1,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -433,9 +549,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 3,
+            "passed": 2,
+            "failed": 1,
+            "paraphraseExpected": 1,
+            "paraphraseObserved": 0,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -487,9 +624,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 3,
+            "passed": 2,
+            "failed": 1,
+            "paraphraseExpected": 1,
+            "paraphraseObserved": 0,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -586,6 +744,21 @@
             }
           ],
           "note": "Academic scores 2/2 and 1/2 both occurred. A score of 1 does not pass because two points require both."
+        },
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 4,
+            "failed": 0,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 2,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
         }
       ],
       "independentReviewerDecision": "pending",
@@ -627,9 +800,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 3,
+            "paraphraseObserved": 2,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2436,9 +2630,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 0,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2454,9 +2669,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 1,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2472,9 +2708,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 0,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2490,9 +2747,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 1,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2508,9 +2786,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 1,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2526,9 +2825,35 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted false or contradictory statement scored > 0. Verify and repair overcredit."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 2,
+            "failed": 2,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 1,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 1
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2544,9 +2869,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 1,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2564,7 +2910,23 @@
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 4,
+            "failed": 0,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 2,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2580,9 +2942,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 0,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2598,9 +2981,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 0,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2618,7 +3022,23 @@
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 4,
+            "failed": 0,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 2,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2634,9 +3054,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 1,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2652,9 +3093,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 0,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2670,9 +3132,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 1,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2688,9 +3171,35 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted false or contradictory statement scored > 0. Verify and repair overcredit."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 2,
+            "failed": 2,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 0,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 1
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2706,9 +3215,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 0,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2724,9 +3254,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted false or contradictory statement scored > 0. Verify and repair overcredit."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 2,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 1
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2742,9 +3293,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 1,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2760,9 +3332,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 0,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2778,9 +3371,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 1,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2796,9 +3410,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 0,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2814,9 +3449,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 1,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2832,9 +3488,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 0,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2850,9 +3527,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 0,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2868,9 +3566,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 1,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2886,9 +3605,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 1,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2904,9 +3644,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 0,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2922,9 +3683,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 0,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2940,9 +3722,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 1,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2958,9 +3761,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 0,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2976,9 +3800,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 1,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -2994,9 +3839,35 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted false or contradictory statement scored > 0. Verify and repair overcredit."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 2,
+            "failed": 2,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 1,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 1
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -3014,7 +3885,23 @@
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 4,
+            "failed": 0,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 2,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -3030,9 +3917,35 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted false or contradictory statement scored > 0. Verify and repair overcredit."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 2,
+            "failed": 2,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 1,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 1
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -3048,9 +3961,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 0,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -3066,9 +4000,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 1,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -3086,7 +4041,23 @@
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 4,
+            "failed": 0,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 2,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -3102,9 +4073,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 0,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -3120,9 +4112,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 2,
+            "paraphraseObserved": 1,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -3138,9 +4151,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 3,
+            "paraphraseObserved": 1,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -3156,9 +4190,30 @@
           "severity": "open",
           "status": "not-tested",
           "issue": "No markPointAlternatives. Equivalent wording has not been tested."
+        },
+        {
+          "severity": "P1",
+          "status": "candidate-marking-defect",
+          "issue": "A drafted scientifically correct paraphrase failed to receive full marks. Independently verify answer and marking."
         }
       ],
-      "testEvidence": [],
+      "testEvidence": [
+        {
+          "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+          "fixture": "qa/food-tests-51-markpoints-probes.json",
+          "preflight": {
+            "cases": 4,
+            "passed": 3,
+            "failed": 1,
+            "paraphraseExpected": 3,
+            "paraphraseObserved": 1,
+            "counterexampleExpected": 0,
+            "counterexampleObserved": 0
+          },
+          "status": "V8 preflight; Node + independent QA pending",
+          "detailFile": "qa/food-tests-51-markpoints-preflight.json"
+        }
+      ],
       "independentReviewerDecision": "pending",
       "academicStatus": "needs-revision",
       "approved": false
@@ -3225,5 +4280,21 @@
     }
   ],
   "markingCounterexamples": "tests/food-tests-marking-counterexamples.mjs",
-  "testStatus": "62/62 per bundle in V8 function-level preflight; await Node run; 0 academic approvals."
+  "testStatus": "51 other mark_points items assessed with 196 V8 probes; Node and independent QA pending.",
+  "markingDiagnostic": {
+    "fixture": "qa/food-tests-51-markpoints-probes.json",
+    "report": "qa/food-tests-51-markpoints-preflight.json",
+    "runner": "tests/food-tests-51-markpoints-diagnostics.mjs",
+    "summary": {
+      "questions": 51,
+      "cases": 196,
+      "pass": 148,
+      "fail": 48,
+      "paraphraseUndercredit": 42,
+      "contradictionOvercredit": 6,
+      "affectedQuestions": 43
+    },
+    "nodeExecuted": false,
+    "approved": 0
+  }
 }
