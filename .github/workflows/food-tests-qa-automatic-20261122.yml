@@ -46,7 +46,9 @@ jobs:
           node --check assets/daily-completed-session-receipts-20261024.js
           node --check assets/mastery-v2-20261018.js
       - name: No unapproved Food Tests Daily, MP or Mastery credit
-        run: node --test tests/food-tests-qa-credit-hold-20261122.test.mjs
+        run: |
+          node --test tests/food-tests-qa-credit-hold-20261122.test.mjs
+          node --test tests/food-tests-99-point-candidate-qa-20261122.test.mjs
       - name: Existing practice scoring regression
         run: |
           node tests/food-tests-round1-batch-acceptance.mjs
