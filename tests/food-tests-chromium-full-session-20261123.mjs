@@ -88,7 +88,7 @@ async function answer(page){
  if(format==='mc_single'){
   await q.locator('div.mt-5.grid.gap-2 > button').first().click();
  }else if(format==='matching'){
-  const box=q.locator('div.mt-5.space-y-3').filter({has:q.getByRole('button',{name:'Submit matches'})}).last();
+  const box=q.locator('div.mt-5.space-y-3').first();
   const cols=box.locator('div.grid > div');
   const left=cols.nth(0).locator('button'),right=cols.nth(1).locator('button');
   const n=await left.count();
@@ -118,7 +118,11 @@ async function answer(page){
 async function finishSitting(page,total,{forceFail=false}={}){
  for(let i=1;i<=total;i++){
   const q=page.locator('[data-question-id]').last();
-  await q.getByText(new RegExp('Question\\s+'+i+'\\s*/\\s*'+total)).waitFor({timeout:15000});
+  await q.waitFor({state:'visible',timeout:15000});
+  const beforeId=await q.getAttribute('data-question-id');
+  const label=await q.locator('p.tabular-nums').first().textContent();
+  assert.match(label||'',new RegExp('Question\\s+'+i+'\\s*/\\s*'+total),
+    'the real question index must match even if optional progress text is visually hidden');
   const result=await answer(page);
   report.questions.push(result);
   if(forceFail&&i===total){
@@ -129,8 +133,11 @@ async function finishSitting(page,total,{forceFail=false}={}){
    });
   }
   await q.getByRole('button',{name:i===total?/finish/i:/next question/i}).last().click();
-  if(i<total)await q.getByText(new RegExp('Question\\s+'+(i+1)+'\\s*/\\s*'+total))
-   .waitFor({timeout:15000});
+  if(i<total)await page.waitForFunction(previous=>{
+   const next=document.querySelector('[data-question-id]');
+   return next&&next.getAttribute('data-question-id')!==previous&&
+     next.getBoundingClientRect().width>0&&next.getBoundingClientRect().height>0;
+  },beforeId,{timeout:15000});
  }
 }
 try{
