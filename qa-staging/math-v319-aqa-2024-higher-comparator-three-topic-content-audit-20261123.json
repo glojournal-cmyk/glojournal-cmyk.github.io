@@ -1,0 +1,219 @@
+{
+  "kind": "V319_REAL_AQA_HIGHER_2H_2024_QUESTION_COMPARATOR_AND_THREE_TOPIC_ALIGNMENT_REVIEW",
+  "date": "2026-11-23",
+  "pr": 306,
+  "branch": "feature/daily-tasks-v3-20261122",
+  "canonicalSourcePath": "qa-staging/math-v311-reviewed-200.json",
+  "canonicalBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "canonicalBankUnchanged": true,
+  "v318CandidatePath": "qa-staging/math-v318-three-lower-demand-indices-standard-replacements-20261123.json",
+  "v318BlobSha": "8cc0e489be650f8445619d8e7f0b55b0cc996bef",
+  "priorGradeScreenPath": "qa-staging/math-v317-eight-candidate-grade-demand-and-six-concept-overlap-evidence-20261123.json",
+  "priorGradeScreenBlobSha": "bd1030d2493d69eaa9ec50f5c80bc362c805ce81",
+  "officialSources": {
+    "aqaN7N9": "https://www.aqa.org.uk/subjects/mathematics/gcse/mathematics-8300/specification/subject-content/3.1-number",
+    "aqaA21A22": "https://www.aqa.org.uk/subjects/mathematics/gcse/mathematics-8300/specification/subject-content/3.2-algebra",
+    "aqaAssessment": "https://www.aqa.org.uk/subjects/mathematics/gcse/mathematics-8300/specification/scheme-of-assessment",
+    "aqaJune2024HigherPaper2QuestionPaper": "https://www.aqa.org.uk/files/sample-papers-and-mark-schemes.2024.June.AQA-83002H-QP-JUN24_PDF/8e8aa692e965f0ef83fc92b68d04e9d106e1b9e0.pdf",
+    "aqaJune2024HigherPaper2MarkScheme": "https://www.aqa.org.uk/files/sample-papers-and-mark-schemes.2024.June.AQA-83002H-MS-JUN24_PDF/58748640acbbc7d5de2e25fd8a300555474f7b01.pdf",
+    "examComparatorSummary": "2024 June Higher 2H Question 2: reverse a 12 percent reduction of 2,200,000 kg and express original mass in standard form; 3 marks: M1 original 88 percent, M1 dependent reverse percentage calculation, A1 correct 2.5×10^6 kg in standard form.",
+    "otherExamObservation": "2024 Higher 2H Question 24(b) uses a tick-box result only if working is shown, reinforcing that selected option alone cannot evidence multi-stage AO2 method.",
+    "importantLimit": "The exemplar is on a Higher paper but has NO official isolated Grade7 rating; one exam question and mark scheme do not certify our new candidates' GCSE grade. Internal written schemes are NOT AQA authored."
+  },
+  "stats": {
+    "reviewed": 3,
+    "verifiedNumericKeysFromPriorV318": 3,
+    "standardFormTopicAlignmentRiskHigh": 2,
+    "indicesTopicAlignmentRiskLow": 1,
+    "officialIndividualGrade7Certification": 0,
+    "actualTaughtSubskillSignoffs": 0,
+    "empiricalWrongOptionSignoffs": 0,
+    "methodPointsDefinedForOptionalWrittenAssessment": 16,
+    "originalStudentCreditsApproved": 0
+  },
+  "rows": [
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-025",
+      "originalRevisionId": "LUX-MATH-Y9-INDICES-025-REVIEW-2",
+      "sourceTopicId": "math-y9-indices",
+      "candidateRevisionId": "LUX-MATH-Y9-INDICES-025-V318-CONSTRAINT-TRANSFER-DRAFT-20261123",
+      "candidateStem": "For each integer $t\\ge3$, let $Q(t)=\\frac{2^{3t-1}}{4^{t+1}}$. Two different integers $n<m$ are chosen so that **both $Q(n)$ and $Q(m)$ are integer perfect squares**. They also satisfy $Q(n)Q(m)=2^{14}$ and $\\frac{Q(m)}{Q(n)}\\le2^6$. Find the sum of **all possible values of $m$**.",
+      "candidateCorrectOptionId": "D",
+      "candidateCorrectAnswerLatex": "24",
+      "reasoningDemand": "Exponent ratio laws with linked integer-square, product and ratio constraints",
+      "officialSyllabusRefs": "N7 (integer indices); N4/N5 (factors/listing), A22 (inequality)",
+      "provisionalAOAssessment": "AO2_REASONING_NOT_INDEPENDENTLY_GRADE_CALIBRATED",
+      "topicSpecificity": "STRONG_INDICES_WITH_MIXED_INEQUALITY",
+      "topicAlignmentRisk": "LOW",
+      "gradeBenchmark": "PARTIAL_TOPIC_COMPARISON_NO_PER_ITEM_GRADE",
+      "assessedSkillsUnverified": [
+        "integer indices and conversion of powers to common base",
+        "square powers of 2 and nonnegative even exponents",
+        "joint linear constraints on two integer variables",
+        "exhaustive case check and inclusive inequality"
+      ],
+      "answerRequiresStandardForm": false,
+      "proposedWrittenExamOnlyMarkScheme": {
+        "author": "INTERNAL_QA_DRAFT_NOT_AQA_MARK_SCHEME",
+        "totalMarks": 5,
+        "criteria": [
+          {
+            "mark": "M1",
+            "criterion": "Rewrite 4^(t+1) as 2^(2t+2) and show Q(t)=2^(t-3)"
+          },
+          {
+            "mark": "M1",
+            "criterion": "Deduce both indices t-3 are nonnegative even numbers and form n+m=20"
+          },
+          {
+            "mark": "M1",
+            "criterion": "Form 2^(m-n)≤2^6 and conclude m−n≤6"
+          },
+          {
+            "mark": "M1",
+            "criterion": "Find precisely (n,m)=(7,13) and (9,11), or prove equivalent exhaustive alternatives"
+          },
+          {
+            "mark": "A1",
+            "criterion": "Sum admissible m values 13+11=24"
+          }
+        ],
+        "allowEquivalentValidMethods": true,
+        "partialCreditOnlyInSeparateWrittenAssessment": true
+      },
+      "criticalHold": "Teaching of linked integer-index constraints not independently checked; official Grade7+ comparator lacking. A one-click answer cannot certify chains of reasoning.",
+      "mathematicallyVerifiedInPriorTechnicalQA": true,
+      "realPupilMisconceptionsVerified": false,
+      "grade7PlusCertified": false,
+      "taughtAtTGSConfirmed": false,
+      "academicQA": "HOLD",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "scoringWritesAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-009",
+      "originalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-009-REVIEW-2",
+      "sourceTopicId": "math-y9-standard-form",
+      "candidateRevisionId": "LUX-MATH-Y9-STANDARD_FORM-009-V318-CONSTRAINT-TRANSFER-DRAFT-20261123",
+      "candidateStem": "A factory makes $6\\times10^5$ g of material and discards $3\\times10^4$ g. It can use at most **5 containers**. A type A container costs £40, holds at most $1.2\\times10^5$ g, and must remain **15% empty**; a type B costs £65, holds at most $1.5\\times10^5$ g, and must remain **10% empty**. Empty percentages are minimums, and all remaining material must be packed, but its distribution among containers may vary. Find the **lowest total cost**. Give the triple $(a,b,C)$ where $a$ and $b$ are the number of type A and B containers, and $C$ is the total cost in pounds.",
+      "candidateCorrectOptionId": "C",
+      "candidateCorrectAnswerLatex": "(3,2,250)",
+      "reasoningDemand": "Two-container integer feasibility and minimum cost under safe-capacity constraints",
+      "officialSyllabusRefs": "N9 (standard form; input quantities only), N12/R9 (percentages), A21/A22 (modelling/inequalities)",
+      "provisionalAOAssessment": "AO3_FEASIBILITY_AND_OPTIMISATION_WITH_N9_SECONDARY",
+      "topicSpecificity": "PARTIAL_APPLICATION_STANDARD_FORM_NOT_FINAL_ANSWER",
+      "topicAlignmentRisk": "HIGH",
+      "gradeBenchmark": "AQA_JUN2024_2H_Q2_M1_M1DEP_A1_WRITTEN_STANDARD_FORM_COMPARATOR",
+      "assessedSkillsUnverified": [
+        "scientific notation calculation with quantities 6×10^5,3×10^4,1.2×10^5,1.5×10^5",
+        "percent headroom two container types",
+        "integer count with a+b≤5 and total safe capacity≥570000",
+        "minimum cost of viable choice and proof no cheaper feasible mix"
+      ],
+      "answerRequiresStandardForm": false,
+      "proposedWrittenExamOnlyMarkScheme": {
+        "author": "INTERNAL_QA_DRAFT_NOT_AQA_MARK_SCHEME",
+        "totalMarks": 6,
+        "criteria": [
+          {
+            "mark": "M1",
+            "criterion": "Calculate retained mass exactly 570000 g"
+          },
+          {
+            "mark": "M1",
+            "criterion": "Calculate safe usable capacities 102000 and 135000 g"
+          },
+          {
+            "mark": "M1",
+            "criterion": "Form safe packing and maximum-five-container constraints"
+          },
+          {
+            "mark": "M1",
+            "criterion": "Show fewer than five containers impossible (four type B hold 540000 g)"
+          },
+          {
+            "mark": "M1",
+            "criterion": "Compare all feasible five-container combinations or otherwise prove minimality"
+          },
+          {
+            "mark": "A1",
+            "criterion": "Identify 3 A plus 2 B, cost £250, with check of safe 576000 g capacity"
+          }
+        ],
+        "allowEquivalentValidMethods": true,
+        "partialCreditOnlyInSeparateWrittenAssessment": true
+      },
+      "criticalHold": "Multiple constraints may be beyond Year9 taught subskills; answer C=£250 in plain pounds and focus on integer optimisation, not demonstrable N9 standard-form fluency. Strong topical alignment check required.",
+      "mathematicallyVerifiedInPriorTechnicalQA": true,
+      "realPupilMisconceptionsVerified": false,
+      "grade7PlusCertified": false,
+      "taughtAtTGSConfirmed": false,
+      "academicQA": "HOLD",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "scoringWritesAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-025",
+      "originalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-025-REVIEW-2",
+      "sourceTopicId": "math-y9-standard-form",
+      "candidateRevisionId": "LUX-MATH-Y9-STANDARD_FORM-025-V318-CONSTRAINT-TRANSFER-DRAFT-20261123",
+      "candidateStem": "A chamber initially has volume $2.5\\times10^{-3}$ m$^3$ and $4\\times10^3$ particles per cm$^3$. A filter removes **25%** of the particles. The chamber is then compressed to one of the volumes $1.5$, $1.75$, $2$, or $2.25$, each multiplied by $10^{-3}$ m$^3$. A technician may add at most **3 sealed packs**, each containing $1.5\\times10^6$ particles; a pack must be added whole. There is no further loss. The final concentration must be **exactly** $6\\times10^3$ particles per cm$^3$. Which available volume is **greatest** while meeting all these conditions? Give $(v,p)$, where the volume is $v\\times10^{-3}$ m$^3$ and $p$ is the number of whole packs. ($1$ m$^3=10^6$ cm$^3$.)",
+      "candidateCorrectOptionId": "C",
+      "candidateCorrectAnswerLatex": "(2,3)",
+      "reasoningDemand": "Concentration conservation, unit-volume conversion and discrete pack/volume feasibility",
+      "officialSyllabusRefs": "N9 (standard form numerical inputs), N13 (cubic units), N12/R9 (percentages), A21 (inverse model)",
+      "provisionalAOAssessment": "AO3_INVERSE_MODEL_WITH_N9_SECONDARY",
+      "topicSpecificity": "PARTIAL_APPLICATION_STANDARD_FORM_NOT_FINAL_ANSWER",
+      "topicAlignmentRisk": "HIGH",
+      "gradeBenchmark": "AQA_JUN2024_2H_Q2_M1_M1DEP_A1_WRITTEN_STANDARD_FORM_COMPARATOR",
+      "assessedSkillsUnverified": [
+        "scientific notation multiplications to count initial particles",
+        "m³ to cm³ conversion and dimensional analysis",
+        "particulate conservation after 25 percent removal",
+        "integer sealed-pack count 0≤p≤3 and exact target equality",
+        "maximum allowed chamber volume from finite set"
+      ],
+      "answerRequiresStandardForm": false,
+      "proposedWrittenExamOnlyMarkScheme": {
+        "author": "INTERNAL_QA_DRAFT_NOT_AQA_MARK_SCHEME",
+        "totalMarks": 5,
+        "criteria": [
+          {
+            "mark": "M1",
+            "criterion": "Compute initial particle number 10^7 and retained 7.5×10^6"
+          },
+          {
+            "mark": "M1",
+            "criterion": "Express final particles as 7.5×10^6+1.5×10^6p and final volume as 1000v cm³"
+          },
+          {
+            "mark": "M1",
+            "criterion": "Equate final particle count to 6×10^6 v to derive v=1.25+0.25p"
+          },
+          {
+            "mark": "M1",
+            "criterion": "Enumerate allowable volumes/whole packs with correct exclusion of 2.25×10^-3 m³ needing 4 packs"
+          },
+          {
+            "mark": "A1",
+            "criterion": "Choose maximum allowable v=2 with p=3, checking exact 6000 particles/cm³"
+          }
+        ],
+        "allowEquivalentValidMethods": true,
+        "partialCreditOnlyInSeparateWrittenAssessment": true
+      },
+      "criticalHold": "Answer only (v,p), no explicit standard-form expression is requested, and unit concentration modelling dominates the target topic. Student error frequency and taught scope unknown.",
+      "mathematicallyVerifiedInPriorTechnicalQA": true,
+      "realPupilMisconceptionsVerified": false,
+      "grade7PlusCertified": false,
+      "taughtAtTGSConfirmed": false,
+      "academicQA": "HOLD",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "scoringWritesAllowed": false
+    }
+  ],
+  "releaseGate": "HOLD_ALL_NO_IMPORT_NO_MERGE_NO_DEPLOY_NO_STUDENT_CREDIT"
+}
