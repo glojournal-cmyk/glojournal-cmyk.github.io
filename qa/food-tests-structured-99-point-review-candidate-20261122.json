@@ -1964,27 +1964,27 @@
           "options": [
             {
               "id": "bio-y8-food-tests-application-20261025-all-negative::p2::A",
-              "text": "A negative iodine test is positive evidence for vitamin C"
+              "text": "The working controls prove that all nutrients, including vitamins, were tested."
             },
             {
               "id": "bio-y8-food-tests-application-20261025-all-negative::p2::B",
-              "text": "Other nutrients such as vitamins were outside the scope of these tests"
+              "text": "The tests do not target every nutrient, and small amounts of tested nutrients may be below detection limits."
             },
             {
               "id": "bio-y8-food-tests-application-20261025-all-negative::p2::C",
-              "text": "Negative tests establish that the sample contains minerals"
+              "text": "A negative result proves that each targeted nutrient is absent at every possible concentration."
             },
             {
               "id": "bio-y8-food-tests-application-20261025-all-negative::p2::D",
-              "text": "A negative emulsion test measures the sample’s vitamin content"
+              "text": "Small amounts of reducing sugar must always give a brick-red Benedict's precipitate."
             }
           ],
           "correctOptionId": "bio-y8-food-tests-application-20261025-all-negative::p2::B",
           "approved": false,
-          "stem": "Why could the same sample still contain nutrients after four negative food tests?",
+          "stem": "Why do four negative food tests with working controls still not prove that the sample contains no nutrients?",
           "academicReview": "pending",
           "distractorReview": "pending",
-          "keyedAnswer": "Other nutrients such as vitamins were outside the scope of these tests"
+          "keyedAnswer": "The tests do not target every nutrient, and small amounts of tested nutrients may be below detection limits."
         }
       ]
     },
@@ -2992,20 +2992,20 @@
             },
             {
               "id": "bio-y8-food-tests-application-20261025-safe-bunsen::p2::B",
-              "text": "The burner is safe because the liquid stays in the bottle"
+              "text": "A yellow safety flame cannot ignite ethanol vapour"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-safe-bunsen::p2::C",
-              "text": "Ignition must wait until the liquid boils"
+              "text": "Ethanol can ignite only if it is heated to boiling first"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-safe-bunsen::p2::D",
-              "text": "Only liquid touching the burner can catch fire"
+              "text": "Only liquid ethanol touching a flame can ignite"
             }
           ],
           "correctOptionId": "bio-y8-food-tests-application-20261025-safe-bunsen::p2::A",
           "approved": false,
-          "stem": "What could happen if vapour from an open ethanol bottle reaches a lit burner?",
+          "stem": "A pupil leaves a Bunsen burner on its yellow safety flame while opening ethanol for a lipid test. Why is this still unsafe?",
           "academicReview": "pending",
           "distractorReview": "pending",
           "keyedAnswer": "The vapour can catch fire"
@@ -3212,7 +3212,7 @@
       63
     ],
     "academicApproved": 0,
-    "reason": "Ten previously weak or implausible distractor sets were rewritten as misconception-based foils; all require independently checked sole-correctness and taught scope. Three further near-repetitious factual stems (points 87, 94, 97) were redrafted as evidence-limit and incorrect-inference challenges without changing their source points or answer keys. Three additional obviously implausible foil sets (#38, #40, #42) were replaced with controlled-condition, extraction, and surface-area misconceptions.",
+    "reason": "Ten previously weak or implausible distractor sets were rewritten as misconception-based foils; all require independently checked sole-correctness and taught scope. Three further near-repetitious factual stems (points 87, 94, 97) were redrafted as evidence-limit and incorrect-inference challenges without changing their source points or answer keys. Three additional obviously implausible foil sets (#38, #40, #42) were replaced with controlled-condition, extraction, and surface-area misconceptions. Two source-alignment/safety judgement adjustments (#61 and #93) were applied to preserve detection-limit understanding and distinguish yellow safety flame hazards.",
     "evidenceLimitStemRedesignIndices": [
       87,
       94,
@@ -3222,6 +3222,10 @@
       38,
       40,
       42
+    ],
+    "sourcePointAlignmentFixes": [
+      61,
+      93
     ]
   }
 }
