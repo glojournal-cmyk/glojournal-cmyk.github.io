@@ -1216,13 +1216,13 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "matching",
-      "prompt": "Match each food substance to its reagent and positive result.",
+      "prompt": "Match each nutrient to its food-test reagent and positive result. Award one mark for each complete pairing (4 marks).",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "pair_map",
-        "totalMarks": 8,
+        "totalMarks": 4,
         "pairs": [
           {
             "left": "starch",
@@ -1256,7 +1256,7 @@
       },
       "task": {
         "label": "MATCH THE PAIRS",
-        "instruction": "Match every item to its correct partner."
+        "instruction": "Match all four nutrients to the correct combined reagent and positive observation; one mark per complete pair."
       },
       "preview": false,
       "ordinary": true
@@ -4418,25 +4418,25 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mark_points",
-      "prompt": "A pupil obtains green with one heated Benedict's sample and brick-red with another. Explain what this suggests and one limitation.",
+      "prompt": "Two equal volumes of food extract are mixed with equal volumes of fresh Benedict's solution and heated for the same time in the same hot-water bath. One gives a green precipitate and the other a brick-red precipitate. Explain what this suggests about the relative reducing-sugar concentrations and one limitation of the comparison.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "brick-red suggests a greater amount of reducing sugar than green",
-          "the colour test gives an approximate result rather than an exact concentration"
+          "With these controlled conditions, brick-red suggests a greater reducing-sugar concentration than green.",
+          "The colour result gives only a rough comparison, not an exact concentration."
         ],
         "totalMarks": 2,
-        "modelAnswer": "brick-red suggests a greater amount of reducing sugar than green; the colour test gives an approximate result rather than an exact concentration"
+        "modelAnswer": "With these controlled conditions, brick-red suggests a greater reducing-sugar concentration than green. The colour result gives only a rough comparison, not an exact concentration."
       },
       "stimulus": {},
       "feedback": {
-        "short": "brick-red suggests a greater amount of reducing sugar than green; the colour test gives an approximate result rather than an exact concentration",
+        "short": "With these controlled conditions, brick-red suggests a greater reducing-sugar concentration than green. The colour result gives only a rough comparison, not an exact concentration.",
         "steps": [
-          "brick-red suggests a greater amount of reducing sugar than green",
-          "the colour test gives an approximate result rather than an exact concentration"
+          "With these controlled conditions, brick-red suggests a greater reducing-sugar concentration than green.",
+          "The colour result gives only a rough comparison, not an exact concentration."
         ],
         "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
         "remember": "Use the observations, not guesses, to identify food groups."
@@ -4634,25 +4634,25 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mark_points",
-      "prompt": "An unknown sample gives four negative food tests. Explain what can and cannot be concluded.",
+      "prompt": "Positive and negative controls work correctly. An unknown sample gives negative results in the iodine, heated Benedict's, Biuret and ethanol emulsion tests. Explain what these results show and one limitation.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "none of starch reducing sugar protein or lipid were detected by these tests",
-          "a negative test does not prove the food contains no nutrients of any kind"
+          "None of starch, reducing sugar, protein or lipid was detected under the test conditions.",
+          "The results do not prove that there are no nutrients: other nutrients or amounts below the detection limit may still be present."
         ],
         "totalMarks": 2,
-        "modelAnswer": "none of starch reducing sugar protein or lipid were detected by these tests; a negative test does not prove the food contains no nutrients of any kind"
+        "modelAnswer": "None of starch, reducing sugar, protein or lipid was detected under the test conditions. The results do not prove that there are no nutrients: other nutrients or amounts below the detection limit may still be present."
       },
       "stimulus": {},
       "feedback": {
-        "short": "none of starch reducing sugar protein or lipid were detected by these tests; a negative test does not prove the food contains no nutrients of any kind",
+        "short": "None of starch, reducing sugar, protein or lipid was detected under the test conditions. The results do not prove that there are no nutrients: other nutrients or amounts below the detection limit may still be present.",
         "steps": [
-          "none of starch reducing sugar protein or lipid were detected by these tests",
-          "a negative test does not prove the food contains no nutrients of any kind"
+          "None of starch, reducing sugar, protein or lipid was detected under the test conditions.",
+          "The results do not prove that there are no nutrients: other nutrients or amounts below the detection limit may still be present."
         ],
         "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
         "remember": "Use the observations, not guesses, to identify food groups."
