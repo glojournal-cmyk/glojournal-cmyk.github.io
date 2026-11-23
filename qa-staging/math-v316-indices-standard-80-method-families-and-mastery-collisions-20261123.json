@@ -1,0 +1,1323 @@
+{
+  "kind": "V316_80_SOURCE_MANUAL_METHOD_FAMILY_PROVISIONAL_MASTERY_COLLISION_REGISTER_NO_CREDIT",
+  "date": "2026-11-23",
+  "pr": 306,
+  "branch": "feature/daily-tasks-v3-20261122",
+  "sourceBankPath": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "sourceBankUntouched": true,
+  "source80HoldPath": "qa-staging/math-v315-indices40-standardform40-source-exact-pedagogical-hold-and-12-risk-corrections-20261123.json",
+  "source80HoldBlobSha": "a58c214078b0089fbf292ae64b01f1078c2dec5a",
+  "priorDraftPackPath": "qa-staging/math-v315-indices017-025-standard009-025-distinct-reasoning-candidates-20261123.json",
+  "priorDraftPackBlobSha": "2c061a93256cf685ce5d45c4e21e78b636224e6c",
+  "method": "Human-readable classification from the literal revised V311 question stems and requested outputs, not an empirical psychometric grouping, not a formal taught curriculum mapping, and not evidence of Grade 7+ by itself.",
+  "totals": {
+    "reviewedQuestions": 80,
+    "indices": 40,
+    "standardForm": 40,
+    "provisionalTechniqueFamilies": 32,
+    "indicesMethodFamilies": 13,
+    "standardMethodFamilies": 19,
+    "highlightedPotentialCrossTemplateCollisions": 6,
+    "candidateRedesignsAlreadyStaged": 4,
+    "independentlyCertifiedMasteryConcepts": 0,
+    "grade7PlusApprovals": 0,
+    "dailyEnabled": 0,
+    "masteryEnabled": 0
+  },
+  "families": [
+    {
+      "provisionalTechniqueId": "I-CUBE-INTERVAL",
+      "topicId": "math-y9-indices",
+      "sourceIds": [
+        "LUX-MATH-Y9-INDICES-001"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-001",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-001-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_01",
+          "correctOptionId": "B"
+        }
+      ],
+      "sourceCount": 1,
+      "derivedFromExactSourceStem": true,
+      "description": "Cube-power exponent with strict interval and admissible n",
+      "techniqueCluster": "BOUND_PLUS_DIVISIBILITY",
+      "additionalRisk": "possible distinct AO2",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "I-EXPONENTIAL-COMPARE",
+      "topicId": "math-y9-indices",
+      "sourceIds": [
+        "LUX-MATH-Y9-INDICES-002"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-002",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-002-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_02",
+          "correctOptionId": "C"
+        }
+      ],
+      "sourceCount": 1,
+      "derivedFromExactSourceStem": true,
+      "description": "Compare two powers-of-two expressions by integer inequality",
+      "techniqueCluster": "INTEGER_INEQUALITY",
+      "additionalRisk": "possible distinct AO2",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "I-HCF-LCM",
+      "topicId": "math-y9-indices",
+      "sourceIds": [
+        "LUX-MATH-Y9-INDICES-003"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-003",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-003-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_03",
+          "correctOptionId": "E"
+        }
+      ],
+      "sourceCount": 1,
+      "derivedFromExactSourceStem": true,
+      "description": "Power-of-two HCF/LCM imposes two simultaneous exponent constraints",
+      "techniqueCluster": "EXPONENT_MIN_MAX",
+      "additionalRisk": "possible distinct AO2",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "I-STEP-RATIO",
+      "topicId": "math-y9-indices",
+      "sourceIds": [
+        "LUX-MATH-Y9-INDICES-004"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-004",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-004-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_04",
+          "correctOptionId": "D"
+        }
+      ],
+      "sourceCount": 1,
+      "derivedFromExactSourceStem": true,
+      "description": "Analyse the factor between adjacent parameterized exponential values",
+      "techniqueCluster": "FACTOR_SLOPE",
+      "additionalRisk": "likely routine AO1",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "I-NEGATIVE-NUMERICAL",
+      "topicId": "math-y9-indices",
+      "sourceIds": [
+        "LUX-MATH-Y9-INDICES-005",
+        "LUX-MATH-Y9-INDICES-006",
+        "LUX-MATH-Y9-INDICES-007",
+        "LUX-MATH-Y9-INDICES-008"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-005",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-005-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_05",
+          "correctOptionId": "A"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-006",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-006-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_05",
+          "correctOptionId": "B"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-007",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-007-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_05",
+          "correctOptionId": "D"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-008",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-008-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_05",
+          "correctOptionId": "C"
+        }
+      ],
+      "sourceCount": 4,
+      "derivedFromExactSourceStem": true,
+      "description": "Evaluate numerically nested negative-index expressions",
+      "techniqueCluster": "REPEATED_ROUTINE",
+      "additionalRisk": "coefficient rotation",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "I-SUBSTITUTE-POWERS",
+      "topicId": "math-y9-indices",
+      "sourceIds": [
+        "LUX-MATH-Y9-INDICES-009",
+        "LUX-MATH-Y9-INDICES-010",
+        "LUX-MATH-Y9-INDICES-011",
+        "LUX-MATH-Y9-INDICES-012"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-009",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-009-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_06",
+          "correctOptionId": "F"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-010",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-010-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_06",
+          "correctOptionId": "D"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-011",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-011-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_06",
+          "correctOptionId": "D"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-012",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-012-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_06",
+          "correctOptionId": "A"
+        }
+      ],
+      "sourceCount": 4,
+      "derivedFromExactSourceStem": true,
+      "description": "Substitute into products with negative indices and a powered numerator",
+      "techniqueCluster": "REPEATED_ROUTINE",
+      "additionalRisk": "coefficient rotation",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "I-MATCH-EXPONENTS",
+      "topicId": "math-y9-indices",
+      "sourceIds": [
+        "LUX-MATH-Y9-INDICES-013",
+        "LUX-MATH-Y9-INDICES-014",
+        "LUX-MATH-Y9-INDICES-015",
+        "LUX-MATH-Y9-INDICES-016"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-013",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-013-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_07",
+          "correctOptionId": "F"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-014",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-014-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_07",
+          "correctOptionId": "B"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-015",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-015-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_07",
+          "correctOptionId": "A"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-016",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-016-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_07",
+          "correctOptionId": "B"
+        }
+      ],
+      "sourceCount": 4,
+      "derivedFromExactSourceStem": true,
+      "description": "Match independent x/y exponents to solve one shared n",
+      "techniqueCluster": "COEFFICIENT_MATCHING",
+      "additionalRisk": "overlap candidate with I-MATCH-NEGATIVE",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "I-EXPONENTIAL-FACTOR",
+      "topicId": "math-y9-indices",
+      "sourceIds": [
+        "LUX-MATH-Y9-INDICES-017",
+        "LUX-MATH-Y9-INDICES-018",
+        "LUX-MATH-Y9-INDICES-019",
+        "LUX-MATH-Y9-INDICES-020"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-017",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-017-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_08",
+          "correctOptionId": "C"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-018",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-018-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_08",
+          "correctOptionId": "A"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-019",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-019-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_08",
+          "correctOptionId": "F"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-020",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-020-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_08",
+          "correctOptionId": "C"
+        }
+      ],
+      "sourceCount": 4,
+      "derivedFromExactSourceStem": true,
+      "description": "Factor a sum of exponentials and solve integer n",
+      "techniqueCluster": "REPEATED_ROUTINE",
+      "additionalRisk": "coefficient rotation",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "I-MATCH-NEGATIVE",
+      "topicId": "math-y9-indices",
+      "sourceIds": [
+        "LUX-MATH-Y9-INDICES-021",
+        "LUX-MATH-Y9-INDICES-022",
+        "LUX-MATH-Y9-INDICES-023",
+        "LUX-MATH-Y9-INDICES-024"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-021",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-021-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_09",
+          "correctOptionId": "F"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-022",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-022-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_09",
+          "correctOptionId": "F"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-023",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-023-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_09",
+          "correctOptionId": "E"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-024",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-024-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_09",
+          "correctOptionId": "E"
+        }
+      ],
+      "sourceCount": 4,
+      "derivedFromExactSourceStem": true,
+      "description": "Match independent negative-exponent identities to solve n",
+      "techniqueCluster": "COEFFICIENT_MATCHING",
+      "additionalRisk": "overlap candidate with I-MATCH-EXPONENTS",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "I-RATIO-SECONDARY",
+      "topicId": "math-y9-indices",
+      "sourceIds": [
+        "LUX-MATH-Y9-INDICES-025",
+        "LUX-MATH-Y9-INDICES-026",
+        "LUX-MATH-Y9-INDICES-027",
+        "LUX-MATH-Y9-INDICES-028"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-025",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-025-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_10",
+          "correctOptionId": "A"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-026",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-026-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_11",
+          "correctOptionId": "C"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-027",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-027-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_11",
+          "correctOptionId": "A"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-028",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-028-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_11",
+          "correctOptionId": "F"
+        }
+      ],
+      "sourceCount": 4,
+      "derivedFromExactSourceStem": true,
+      "description": "Simplify a power ratio to determine n, then calculate a quadratic target",
+      "techniqueCluster": "REPEATED_ROUTINE",
+      "additionalRisk": "same ratio and quadratic target with varied exponent",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "I-ROOT-POWER",
+      "topicId": "math-y9-indices",
+      "sourceIds": [
+        "LUX-MATH-Y9-INDICES-029",
+        "LUX-MATH-Y9-INDICES-030",
+        "LUX-MATH-Y9-INDICES-031",
+        "LUX-MATH-Y9-INDICES-032"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-029",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-029-REVIEW-2",
+          "originalQARisk": "QUARANTINE_TAUGHT_SCOPE",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_12",
+          "correctOptionId": "E"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-030",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-030-REVIEW-2",
+          "originalQARisk": "QUARANTINE_TAUGHT_SCOPE",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_12",
+          "correctOptionId": "F"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-031",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-031-REVIEW-2",
+          "originalQARisk": "QUARANTINE_TAUGHT_SCOPE",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_12",
+          "correctOptionId": "F"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-032",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-032-REVIEW-2",
+          "originalQARisk": "QUARANTINE_TAUGHT_SCOPE",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_12",
+          "correctOptionId": "E"
+        }
+      ],
+      "sourceCount": 4,
+      "derivedFromExactSourceStem": true,
+      "description": "Reduce root and 16/8 powers to single power of two, solve n",
+      "techniqueCluster": "ROOT_POWER_COMPOSITE",
+      "additionalRisk": "overlap candidate with I-ROOT-QUADRATIC",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "I-FRACTIONAL-MATCH",
+      "topicId": "math-y9-indices",
+      "sourceIds": [
+        "LUX-MATH-Y9-INDICES-033",
+        "LUX-MATH-Y9-INDICES-034",
+        "LUX-MATH-Y9-INDICES-035",
+        "LUX-MATH-Y9-INDICES-036"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-033",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-033-REVIEW-2",
+          "originalQARisk": "QUARANTINE_TAUGHT_SCOPE",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_13",
+          "correctOptionId": "E"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-034",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-034-REVIEW-2",
+          "originalQARisk": "QUARANTINE_TAUGHT_SCOPE",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_13",
+          "correctOptionId": "A"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-035",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-035-REVIEW-2",
+          "originalQARisk": "QUARANTINE_TAUGHT_SCOPE",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_13",
+          "correctOptionId": "C"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-036",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-036-REVIEW-2",
+          "originalQARisk": "QUARANTINE_TAUGHT_SCOPE",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_13",
+          "correctOptionId": "A"
+        }
+      ],
+      "sourceCount": 4,
+      "derivedFromExactSourceStem": true,
+      "description": "Match x/y exponents after fractional powers",
+      "techniqueCluster": "FRACTIONAL_EXPONENTS",
+      "additionalRisk": "needs exact taught subskill",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "I-ROOT-QUADRATIC",
+      "topicId": "math-y9-indices",
+      "sourceIds": [
+        "LUX-MATH-Y9-INDICES-037",
+        "LUX-MATH-Y9-INDICES-038",
+        "LUX-MATH-Y9-INDICES-039",
+        "LUX-MATH-Y9-INDICES-040"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-037",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-037-REVIEW-2",
+          "originalQARisk": "QUARANTINE_TAUGHT_SCOPE",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_14",
+          "correctOptionId": "F"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-038",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-038-REVIEW-2",
+          "originalQARisk": "QUARANTINE_TAUGHT_SCOPE",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_14",
+          "correctOptionId": "E"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-039",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-039-REVIEW-2",
+          "originalQARisk": "QUARANTINE_TAUGHT_SCOPE",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_14",
+          "correctOptionId": "E"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-INDICES-040",
+          "sourceRevisionId": "LUX-MATH-Y9-INDICES-040-REVIEW-2",
+          "originalQARisk": "QUARANTINE_TAUGHT_SCOPE",
+          "numericNeutralTemplateGroup": "MATH_Y9_INDICES_14",
+          "correctOptionId": "F"
+        }
+      ],
+      "sourceCount": 4,
+      "derivedFromExactSourceStem": true,
+      "description": "Same root/16/8 core followed by quadratic expression in n",
+      "techniqueCluster": "ROOT_POWER_COMPOSITE",
+      "additionalRisk": "overlap candidate with I-ROOT-POWER",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "S-DENSITY-DIRECT",
+      "topicId": "math-y9-standard-form",
+      "sourceIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-001"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-001",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-001-REVIEW-2",
+          "originalQARisk": "REWRITE_CONTEXT_OR_DUPLICATE",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_01",
+          "correctOptionId": "F"
+        }
+      ],
+      "sourceCount": 1,
+      "derivedFromExactSourceStem": true,
+      "description": "Infer bulk density from count, mass per particle and bulk volume",
+      "techniqueCluster": "PHYSICAL_DENSITY",
+      "additionalRisk": "pedagogical review needed",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "S-DENSITY-MIX",
+      "topicId": "math-y9-standard-form",
+      "sourceIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-002"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-002",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-002-REVIEW-2",
+          "originalQARisk": "REWRITE_CONTEXT_OR_DUPLICATE",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_02",
+          "correctOptionId": "E"
+        }
+      ],
+      "sourceCount": 1,
+      "derivedFromExactSourceStem": true,
+      "description": "Combine two particle batches with additive mass and volume",
+      "techniqueCluster": "PHYSICAL_DENSITY",
+      "additionalRisk": "pedagogical review needed",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "S-DENSITY-REMOVAL",
+      "topicId": "math-y9-standard-form",
+      "sourceIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-003"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-003",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-003-REVIEW-2",
+          "originalQARisk": "REWRITE_CONTEXT_OR_DUPLICATE",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_03",
+          "correctOptionId": "C"
+        }
+      ],
+      "sourceCount": 1,
+      "derivedFromExactSourceStem": true,
+      "description": "Subtract mass fraction before density calculation",
+      "techniqueCluster": "PHYSICAL_DENSITY",
+      "additionalRisk": "pedagogical review needed",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "S-REVERSE-PARTICLE",
+      "topicId": "math-y9-standard-form",
+      "sourceIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-004"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-004",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-004-REVIEW-2",
+          "originalQARisk": "REWRITE_CONTEXT_OR_DUPLICATE",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_04",
+          "correctOptionId": "A"
+        }
+      ],
+      "sourceCount": 1,
+      "derivedFromExactSourceStem": true,
+      "description": "Derive particle count from density, volume and mass per particle",
+      "techniqueCluster": "PHYSICAL_DENSITY",
+      "additionalRisk": "pedagogical review needed",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "S-MULTI-LEG-SPEED",
+      "topicId": "math-y9-standard-form",
+      "sourceIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-005",
+        "LUX-MATH-Y9-STANDARD_FORM-006",
+        "LUX-MATH-Y9-STANDARD_FORM-007",
+        "LUX-MATH-Y9-STANDARD_FORM-008"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-005",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-005-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_05",
+          "correctOptionId": "D"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-006",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-006-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_05",
+          "correctOptionId": "A"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-007",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-007-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_05",
+          "correctOptionId": "E"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-008",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-008-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_05",
+          "correctOptionId": "B"
+        }
+      ],
+      "sourceCount": 4,
+      "derivedFromExactSourceStem": true,
+      "description": "Average speed from sum of distances and total journey time",
+      "techniqueCluster": "REPEATED_ROUTINE",
+      "additionalRisk": "pedagogical review needed",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "S-WASTE-CONTAINERS",
+      "topicId": "math-y9-standard-form",
+      "sourceIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-009",
+        "LUX-MATH-Y9-STANDARD_FORM-010",
+        "LUX-MATH-Y9-STANDARD_FORM-011",
+        "LUX-MATH-Y9-STANDARD_FORM-012"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-009",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-009-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_06",
+          "correctOptionId": "C"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-010",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-010-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_06",
+          "correctOptionId": "D"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-011",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-011-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_06",
+          "correctOptionId": "A"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-012",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-012-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_06",
+          "correctOptionId": "B"
+        }
+      ],
+      "sourceCount": 4,
+      "derivedFromExactSourceStem": true,
+      "description": "Subtract waste then equally allocate the remainder",
+      "techniqueCluster": "SUBTRACT_DIVIDE",
+      "additionalRisk": "pedagogical review needed",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "S-ARITHMETIC-FRACTION",
+      "topicId": "math-y9-standard-form",
+      "sourceIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-013",
+        "LUX-MATH-Y9-STANDARD_FORM-014",
+        "LUX-MATH-Y9-STANDARD_FORM-015",
+        "LUX-MATH-Y9-STANDARD_FORM-016"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-013",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-013-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_07",
+          "correctOptionId": "B"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-014-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_07",
+          "correctOptionId": "D"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-015",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-015-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_07",
+          "correctOptionId": "C"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-016",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-016-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_07",
+          "correctOptionId": "C"
+        }
+      ],
+      "sourceCount": 4,
+      "derivedFromExactSourceStem": true,
+      "description": "Numerical standard-form (first minus second) divided by third",
+      "techniqueCluster": "SUBTRACT_DIVIDE",
+      "additionalRisk": "pedagogical review needed",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "S-FILTERED-DENSITY",
+      "topicId": "math-y9-standard-form",
+      "sourceIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-017"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-017",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-017-REVIEW-2",
+          "originalQARisk": "REWRITE_CONTEXT_OR_DUPLICATE",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_08",
+          "correctOptionId": "C"
+        }
+      ],
+      "sourceCount": 1,
+      "derivedFromExactSourceStem": true,
+      "description": "Filter particle mass and calculate remaining bulk density",
+      "techniqueCluster": "PHYSICAL_DENSITY",
+      "additionalRisk": "pedagogical review needed",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "S-MIX-FILTER-DENSITY",
+      "topicId": "math-y9-standard-form",
+      "sourceIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-018"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-018",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-018-REVIEW-2",
+          "originalQARisk": "REWRITE_CONTEXT_OR_DUPLICATE",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_09",
+          "correctOptionId": "B"
+        }
+      ],
+      "sourceCount": 1,
+      "derivedFromExactSourceStem": true,
+      "description": "Blend masses, filter fraction, then calculate bulk density",
+      "techniqueCluster": "PHYSICAL_DENSITY",
+      "additionalRisk": "pedagogical review needed",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "S-COMPACTION-DENSITY",
+      "topicId": "math-y9-standard-form",
+      "sourceIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-019"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-019",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-019-REVIEW-2",
+          "originalQARisk": "REWRITE_CONTEXT_OR_DUPLICATE",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_10",
+          "correctOptionId": "C"
+        }
+      ],
+      "sourceCount": 1,
+      "derivedFromExactSourceStem": true,
+      "description": "Filter a porous material then compact without further mass loss",
+      "techniqueCluster": "PHYSICAL_DENSITY",
+      "additionalRisk": "pedagogical review needed",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "S-DENSITY-TARGET",
+      "topicId": "math-y9-standard-form",
+      "sourceIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-020"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-020",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-020-REVIEW-2",
+          "originalQARisk": "REWRITE_CONTEXT_OR_DUPLICATE",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_11",
+          "correctOptionId": "A"
+        }
+      ],
+      "sourceCount": 1,
+      "derivedFromExactSourceStem": true,
+      "description": "Calculate the additional mass to achieve target bulk density",
+      "techniqueCluster": "PHYSICAL_DENSITY",
+      "additionalRisk": "pedagogical review needed",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "S-CALIBRATED-PERCENT",
+      "topicId": "math-y9-standard-form",
+      "sourceIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-021",
+        "LUX-MATH-Y9-STANDARD_FORM-022",
+        "LUX-MATH-Y9-STANDARD_FORM-023",
+        "LUX-MATH-Y9-STANDARD_FORM-024"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-021",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-021-REVIEW-2",
+          "originalQARisk": "QUARANTINE_TAUGHT_SCOPE",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_12",
+          "correctOptionId": "F"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-022",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-022-REVIEW-2",
+          "originalQARisk": "QUARANTINE_TAUGHT_SCOPE",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_12",
+          "correctOptionId": "B"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-023",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-023-REVIEW-2",
+          "originalQARisk": "QUARANTINE_TAUGHT_SCOPE",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_12",
+          "correctOptionId": "C"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-024",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-024-REVIEW-2",
+          "originalQARisk": "QUARANTINE_TAUGHT_SCOPE",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_12",
+          "correctOptionId": "A"
+        }
+      ],
+      "sourceCount": 4,
+      "derivedFromExactSourceStem": true,
+      "description": "Adjust recent reading and calculate relative percentage increase",
+      "techniqueCluster": "PERCENT_CHANGE",
+      "additionalRisk": "pedagogical review needed",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "S-VOLUME-CONCENTRATION",
+      "topicId": "math-y9-standard-form",
+      "sourceIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-025",
+        "LUX-MATH-Y9-STANDARD_FORM-026",
+        "LUX-MATH-Y9-STANDARD_FORM-027",
+        "LUX-MATH-Y9-STANDARD_FORM-028"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-025",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-025-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_13",
+          "correctOptionId": "F"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-026-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_13",
+          "correctOptionId": "C"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-027",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-027-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_13",
+          "correctOptionId": "B"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-028",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-028-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_13",
+          "correctOptionId": "C"
+        }
+      ],
+      "sourceCount": 4,
+      "derivedFromExactSourceStem": true,
+      "description": "Convert m³ to cm³ and multiply by density per unit volume",
+      "techniqueCluster": "UNIT_CONVERSION",
+      "additionalRisk": "pedagogical review needed",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "S-THREE-TERM-ARITHMETIC",
+      "topicId": "math-y9-standard-form",
+      "sourceIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-029",
+        "LUX-MATH-Y9-STANDARD_FORM-030",
+        "LUX-MATH-Y9-STANDARD_FORM-031",
+        "LUX-MATH-Y9-STANDARD_FORM-032"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-029",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-029-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_14",
+          "correctOptionId": "F"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-030",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-030-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_14",
+          "correctOptionId": "D"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-031",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-031-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_14",
+          "correctOptionId": "F"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-032",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-032-REVIEW-2",
+          "originalQARisk": "UPGRADE_STEM_FOR_G7PLUS",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_14",
+          "correctOptionId": "D"
+        }
+      ],
+      "sourceCount": 4,
+      "derivedFromExactSourceStem": true,
+      "description": "Numerical standard-form (first plus second minus third)/fourth",
+      "techniqueCluster": "THREE_TERM_ARITHMETIC",
+      "additionalRisk": "pedagogical review needed",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "S-PACK-FORWARD",
+      "topicId": "math-y9-standard-form",
+      "sourceIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-033"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-033",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-033-REVIEW-2",
+          "originalQARisk": "REWRITE_CONTEXT_OR_DUPLICATE",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_15",
+          "correctOptionId": "B"
+        }
+      ],
+      "sourceCount": 1,
+      "derivedFromExactSourceStem": true,
+      "description": "Add material, reduce by percent then divide into packets",
+      "techniqueCluster": "FACTORY_FLOW",
+      "additionalRisk": "pedagogical review needed",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "S-PACK-RESERVE",
+      "topicId": "math-y9-standard-form",
+      "sourceIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-034"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-034",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-034-REVIEW-2",
+          "originalQARisk": "REWRITE_CONTEXT_OR_DUPLICATE",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_16",
+          "correctOptionId": "F"
+        }
+      ],
+      "sourceCount": 1,
+      "derivedFromExactSourceStem": true,
+      "description": "Reduce material, reserve quantity then divide into packets",
+      "techniqueCluster": "FACTORY_FLOW",
+      "additionalRisk": "pedagogical review needed",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "S-PACK-REVERSE",
+      "topicId": "math-y9-standard-form",
+      "sourceIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-035"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-035",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-035-REVIEW-2",
+          "originalQARisk": "REWRITE_CONTEXT_OR_DUPLICATE",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_17",
+          "correctOptionId": "C"
+        }
+      ],
+      "sourceCount": 1,
+      "derivedFromExactSourceStem": true,
+      "description": "Reverse the production loss and added material to infer initial mass",
+      "techniqueCluster": "FACTORY_FLOW",
+      "additionalRisk": "pedagogical review needed",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "S-PACK-SEQUENTIAL",
+      "topicId": "math-y9-standard-form",
+      "sourceIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-036"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-036",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-036-REVIEW-2",
+          "originalQARisk": "REWRITE_CONTEXT_OR_DUPLICATE",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_18",
+          "correctOptionId": "B"
+        }
+      ],
+      "sourceCount": 1,
+      "derivedFromExactSourceStem": true,
+      "description": "Apply two consecutive mass losses before packet allocation",
+      "techniqueCluster": "FACTORY_FLOW",
+      "additionalRisk": "pedagogical review needed",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "provisionalTechniqueId": "S-REVERSE-BATCH",
+      "topicId": "math-y9-standard-form",
+      "sourceIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-037",
+        "LUX-MATH-Y9-STANDARD_FORM-038",
+        "LUX-MATH-Y9-STANDARD_FORM-039",
+        "LUX-MATH-Y9-STANDARD_FORM-040"
+      ],
+      "sourceRevisions": [
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-037",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-037-REVIEW-2",
+          "originalQARisk": "QUARANTINE_TAUGHT_SCOPE",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_19",
+          "correctOptionId": "C"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-038",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-038-REVIEW-2",
+          "originalQARisk": "QUARANTINE_TAUGHT_SCOPE",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_19",
+          "correctOptionId": "F"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-039",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-039-REVIEW-2",
+          "originalQARisk": "QUARANTINE_TAUGHT_SCOPE",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_19",
+          "correctOptionId": "A"
+        },
+        {
+          "sourceId": "LUX-MATH-Y9-STANDARD_FORM-040",
+          "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-040-REVIEW-2",
+          "originalQARisk": "QUARANTINE_TAUGHT_SCOPE",
+          "numericNeutralTemplateGroup": "MATH_Y9_STANDARD_FORM_19",
+          "correctOptionId": "F"
+        }
+      ],
+      "sourceCount": 4,
+      "derivedFromExactSourceStem": true,
+      "description": "Solve original batch count after loss and later addition",
+      "techniqueCluster": "REVERSE_PERCENT_BATCH",
+      "additionalRisk": "pedagogical review needed",
+      "numericVariantsMustNotCreateIndependentMasteryPoints": true,
+      "finalPedagogicalConceptEquivalence": "UNVERIFIED",
+      "individualGrade7PlusCertified": false,
+      "taughtSubskillVerified": false,
+      "studentDailyEligible": false,
+      "masteryEligible": false
+    }
+  ],
+  "potentialTechniqueCollisions": [
+    {
+      "techniqueA": "I-MATCH-EXPONENTS",
+      "techniqueB": "I-MATCH-NEGATIVE",
+      "reviewQuestion": "Both coefficient-matching exponents; negative signs may vary representation without independently new mastery",
+      "independentlyVerifiedEquivalent": false,
+      "allowedToMintSeparateMasteryCredit": false
+    },
+    {
+      "techniqueA": "I-ROOT-POWER",
+      "techniqueB": "I-ROOT-QUADRATIC",
+      "reviewQuestion": "Same exact radical-power kernel; target n^2−n only adds final arithmetic",
+      "independentlyVerifiedEquivalent": false,
+      "allowedToMintSeparateMasteryCredit": false
+    },
+    {
+      "techniqueA": "S-WASTE-CONTAINERS",
+      "techniqueB": "S-ARITHMETIC-FRACTION",
+      "reviewQuestion": "Same subtract-then-divide numerical operation in factory and abstract forms",
+      "independentlyVerifiedEquivalent": false,
+      "allowedToMintSeparateMasteryCredit": false
+    },
+    {
+      "techniqueA": "S-DENSITY-REMOVAL",
+      "techniqueB": "S-FILTERED-DENSITY",
+      "reviewQuestion": "Both density after filtering; different context and input magnitudes may not test distinct skills",
+      "independentlyVerifiedEquivalent": false,
+      "allowedToMintSeparateMasteryCredit": false
+    },
+    {
+      "techniqueA": "S-DENSITY-MIX",
+      "techniqueB": "S-MIX-FILTER-DENSITY",
+      "reviewQuestion": "Both mass aggregation; filtration adds an operation, not automatically separate Mastery",
+      "independentlyVerifiedEquivalent": false,
+      "allowedToMintSeparateMasteryCredit": false
+    },
+    {
+      "techniqueA": "S-PACK-FORWARD",
+      "techniqueB": "S-PACK-RESERVE",
+      "reviewQuestion": "Both subtract then allocate with a different loss/reserve order",
+      "independentlyVerifiedEquivalent": false,
+      "allowedToMintSeparateMasteryCredit": false
+    }
+  ],
+  "sourceOriginalsAllHold": true
+}
