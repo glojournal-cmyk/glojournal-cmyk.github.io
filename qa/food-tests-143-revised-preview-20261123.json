@@ -3,7 +3,7 @@
   "topicId": "bio-y8-food-tests",
   "sourceBranch": "qa/p0-eligibility-2e556ff",
   "sourcePath": "content/topics/bio-y8-food-tests.json",
-  "sourceBlobSHA": "938b1430b058c49f7a53d391ee3a52198f52662c",
+  "sourceBlobSHA": "0479bc889b16656694a9f8567659a4dcb8df6cc9",
   "duplicateReplacementDraft": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
   "exactSourceIdCount": 143,
   "sourceIdsPreserved": true,
@@ -82,7 +82,9 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "iodine solution",
-          "iodine"
+          "iodine",
+          "iodine in potassium iodide solution",
+          "iodine-potassium iodide solution"
         ]
       },
       "stimulus": {
@@ -210,7 +212,9 @@
         "accepted": [
           "Benedict's solution",
           "Benedict solution",
-          "Benedict's"
+          "Benedict's",
+          "Benedict's reagent",
+          "Benedicts reagent"
         ]
       },
       "stimulus": {
@@ -338,7 +342,8 @@
         "accepted": [
           "Biuret solution",
           "Biuret reagent",
-          "Biuret"
+          "Biuret",
+          "Biuret test reagent"
         ]
       },
       "stimulus": {
@@ -465,7 +470,9 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "ethanol emulsion test",
-          "emulsion test"
+          "emulsion test",
+          "ethanol-based emulsion test",
+          "lipid emulsion test"
         ]
       },
       "stimulus": {
@@ -591,7 +598,8 @@
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "blue-black"
+          "blue-black",
+          "dark blue-black"
         ]
       },
       "stimulus": {
@@ -719,7 +727,8 @@
         "accepted": [
           "brick-red",
           "brick red",
-          "brickred"
+          "brickred",
+          "brick-red precipitate"
         ]
       },
       "stimulus": {
@@ -847,7 +856,8 @@
         "accepted": [
           "lilac or purple",
           "purple",
-          "lilac"
+          "lilac",
+          "violet"
         ]
       },
       "stimulus": {
@@ -975,7 +985,9 @@
         "accepted": [
           "cloudy white emulsion",
           "white emulsion",
-          "cloudy emulsion"
+          "cloudy emulsion",
+          "milky white emulsion",
+          "milky emulsion"
         ]
       },
       "stimulus": {
@@ -1101,7 +1113,9 @@
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "water bath"
+          "water bath",
+          "beaker of hot water",
+          "hot-water bath"
         ]
       },
       "stimulus": {
@@ -1391,7 +1405,9 @@
           "starch is not present",
           "starch is absent",
           "no starch present",
-          "no starch detected"
+          "no starch detected",
+          "starch was not found in the iodine test",
+          "the iodine test did not detect starch"
         ],
         "totalMarks": 1
       },
@@ -6291,7 +6307,8 @@
         "accepted": [
           "blue",
           "remains blue",
-          "stays blue"
+          "stays blue",
+          "blue colour"
         ],
         "totalMarks": 1
       },
@@ -6332,7 +6349,9 @@
           "no fat detected",
           "fat not detected",
           "no lipid was detected",
-          "no fat was detected"
+          "no fat was detected",
+          "no lipids were found",
+          "no fats detected"
         ],
         "totalMarks": 1
       },
@@ -6372,7 +6391,9 @@
           "yellow",
           "orange",
           "brick red",
-          "brick-red"
+          "brick-red",
+          "orange precipitate",
+          "red precipitate"
         ],
         "totalMarks": 1
       },
@@ -6412,7 +6433,8 @@
           "orange-brown",
           "brown",
           "yellow brown",
-          "yellow-brown"
+          "yellow-brown",
+          "yellowish brown"
         ],
         "totalMarks": 1
       },
@@ -6450,7 +6472,8 @@
         "accepted": [
           "water bath",
           "a water bath",
-          "hot water bath"
+          "hot water bath",
+          "a beaker containing hot water"
         ],
         "totalMarks": 1
       },
@@ -6473,5 +6496,6 @@
       "formalCreditEligible": false,
       "academicApproved": false
     }
-  ]
+  ],
+  "revision": "2026-11-23-typed15-equivalence-expansion"
 }
