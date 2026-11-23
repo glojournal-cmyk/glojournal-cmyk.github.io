@@ -264,6 +264,10 @@ function scienceConclusionEquivalent(accepted, given){
  const polarity=ws=>ws.some(w=>negWords.has(w))?"neg":"pos";
  const keys=ws=>ws.filter(w=>!stop.has(w)&&!negWords.has(w)&&!["present","absent","detected","detect","found","missing","negative","positive"].includes(w));
  const gWords=words(given);
+ // "not no starch" reverses the intended negative assertion. Treat explicit
+ // double negatives as contradictory, never as an accepted single negation.
+ const polarityWords=norm(given);
+ if(/\b(?:not|never)\s+(?:no|none|not|never|without)\b|\b(?:no|none)\s+(?:not|never)\b/.test(polarityWords))return false;
  if(!gWords.length)return false;
  const gKeys=keys(gWords);
  if(!gKeys.length)return false;
