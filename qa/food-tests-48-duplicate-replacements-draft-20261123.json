@@ -495,7 +495,7 @@
       "originalSourceAnswer": "starch, reducing sugar, protein, lipid",
       "format": "mc_single",
       "topicId": "bio-y8-food-tests",
-      "prompt": "When comparing iodine tests on equal portions of two different bread types, which control makes the comparison fairer?",
+      "prompt": "When comparing iodine tests on samples taken from two different bread types, which control makes the comparison fairer?",
       "options": [
         "Use more iodine on the bread expected to contain more starch.",
         "Measure the same mass of each bread sample.",
@@ -510,13 +510,14 @@
         "totalMarks": 1
       },
       "correctIndex": 1,
-      "scienceRationale": "Different sample masses can confound comparison of starch observations.",
+      "scienceRationale": "Original draft already said 'equal portions', making the keyed 'measure the same mass' action redundant. Different sample masses can confound comparison of starch observations.",
       "academicReview": "pending",
       "distractorReview": "pending",
       "approved": false,
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
-      "sourceStatus": "proposed replacement; not imported"
+      "sourceStatus": "proposed replacement; not imported",
+      "reviewIssueResolvedInDraft": "Original draft already said 'equal portions', making the keyed 'measure the same mass' action redundant."
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-3-2",
@@ -1307,28 +1308,29 @@
       "originalSourceAnswer": "starch, reducing sugar",
       "format": "mc_single",
       "topicId": "bio-y8-food-tests",
-      "prompt": "A snack is positive for protein and reducing sugar. Why can a pupil not call it a balanced diet on that evidence?",
+      "prompt": "A snack tests positive for protein and reducing sugar. Why is this insufficient to conclude that including it automatically makes someone's diet balanced?",
       "options": [
         "A positive test confirms the snack contains enough protein for a balanced meal.",
-        "The tests do not measure nutrient amounts or the person's overall diet.",
+        "Food tests do not reveal nutrient quantities or the rest of a person's diet.",
         "Two positive reactions establish its total energy content per serving.",
         "Presence of reducing sugar and protein rules out excessive fat or salt."
       ],
       "answer": {
         "mode": "choice",
         "accepted": [
-          "The tests do not measure nutrient amounts or the person's overall diet."
+          "Food tests do not reveal nutrient quantities or the rest of a person's diet."
         ],
         "totalMarks": 1
       },
       "correctIndex": 1,
-      "scienceRationale": "Food test presence is not a complete assessment of diet quality.",
+      "scienceRationale": "The original conflated an individual snack with an entire balanced diet. Food test presence is not a complete assessment of diet quality.",
       "academicReview": "pending",
       "distractorReview": "pending",
       "approved": false,
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
-      "sourceStatus": "proposed replacement; not imported"
+      "sourceStatus": "proposed replacement; not imported",
+      "reviewIssueResolvedInDraft": "The original conflated an individual snack with an entire balanced diet."
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-4-14",
@@ -1365,7 +1367,7 @@
       "originalSourceAnswer": "starch",
       "format": "mc_single",
       "topicId": "bio-y8-food-tests",
-      "prompt": "Iodine stays orange-brown in a drink that tastes sweet. Which statement is justified?",
+      "prompt": "A packaged drink is advertised as sweet, but the iodine test stays orange-brown. Which statement is justified?",
       "options": [
         "A sweet taste proves starch is present despite the iodine result.",
         "The iodine result proves glucose is absent.",
@@ -1380,13 +1382,14 @@
         "totalMarks": 1
       },
       "correctIndex": 3,
-      "scienceRationale": "Iodine targets starch, not soluble glucose or taste.",
+      "scienceRationale": "The original referred to someone tasting the practical sample, risking unsafe practice interpretation. Iodine targets starch, not soluble glucose or taste.",
       "academicReview": "pending",
       "distractorReview": "pending",
       "approved": false,
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
-      "sourceStatus": "proposed replacement; not imported"
+      "sourceStatus": "proposed replacement; not imported",
+      "reviewIssueResolvedInDraft": "The original referred to someone tasting the practical sample, risking unsafe practice interpretation."
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-4-16",
@@ -1394,31 +1397,32 @@
       "originalSourceAnswer": "none of these four nutrients",
       "format": "mc_single",
       "topicId": "bio-y8-food-tests",
-      "prompt": "A food turns Biuret reagent lilac. What additional conclusion cannot be made using that test alone?",
+      "prompt": "Biuret reagent turns lilac when added to a food extract. Which claim goes beyond what this one test can establish?",
       "options": [
-        "A protein-positive reaction was observed.",
-        "A separate iodine test is needed to assess starch.",
-        "The exact amount and identity of each protein in the food.",
-        "The original Biuret reagent would have been blue before a positive reaction."
+        "The Biuret test gave a positive result for protein.",
+        "A change from blue to lilac is consistent with protein being present.",
+        "The exact amount and identity of every protein in the food.",
+        "The observation is qualitative evidence of protein in the tested sample."
       ],
       "answer": {
         "mode": "choice",
         "accepted": [
-          "The exact amount and identity of each protein in the food."
+          "The exact amount and identity of every protein in the food."
         ],
         "totalMarks": 1
       },
       "correctIndex": 2,
-      "scienceRationale": "The purple colour signals protein but does not identify or quantify each protein.",
+      "scienceRationale": "The old 'what conclusion cannot be made' could also be read as excluding an unrelated methodological statement about needing an iodine test. The purple colour signals protein but does not identify or quantify each protein.",
       "academicReview": "pending",
       "distractorReview": "pending",
       "approved": false,
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
-      "sourceStatus": "proposed replacement; not imported"
+      "sourceStatus": "proposed replacement; not imported",
+      "reviewIssueResolvedInDraft": "The old 'what conclusion cannot be made' could also be read as excluding an unrelated methodological statement about needing an iodine test."
     }
   ],
-  "revision": "2026-11-23-r2-plausibility-rewrite",
+  "revision": "2026-11-23-r3-ambiguity-remediation",
   "rewrittenDistractorSets": [
     5,
     6,
@@ -1447,5 +1451,11 @@
     41,
     45
   ],
-  "reviewWarning": "26 sets rewritten to remove nonsensical distractors; all 48 four-option records still require independent scientific and classroom-level sole-answer adjudication."
+  "reviewWarning": "26 sets rewritten to remove nonsensical distractors; all 48 four-option records still require independent scientific and classroom-level sole-answer adjudication.",
+  "qaOnlyAmbiguityRemediations": [
+    "bio-y8-food-tests-case-20261025-3-1",
+    "bio-y8-food-tests-case-20261025-4-13",
+    "bio-y8-food-tests-case-20261025-4-15",
+    "bio-y8-food-tests-case-20261025-4-16"
+  ]
 }
