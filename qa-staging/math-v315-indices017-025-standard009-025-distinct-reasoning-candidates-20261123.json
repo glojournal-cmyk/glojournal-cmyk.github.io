@@ -66,7 +66,7 @@
       "correctAnswerLatex": "120",
       "workedSolutionSteps": [
         "Factor $S(n)=2^{2n}(1+2^2)=5\\cdot 2^{2n}$. Hence $S(2)=80$ and $S(5)=5120$, so a positive integer $k$ must satisfy $9\\le k\\le71$.",
-        "Multiples of 8 which are not multiples of 16 are $8,24,40,56,72,\\ldots$; apply both strict-square bounds to retain exactly $24,40,56$.",
+        "Multiples of 8 which are not multiples of 16 are $8,24,40,56,72$ and so on; apply both strict-square bounds to retain exactly $24,40,56$.",
         "The requested sum is $24+40+56=120$. The excluded neighbours give $8^2=64<80$ and $72^2=5184>5120$."
       ],
       "intendedAssessmentObjective": "AO2/AO3 candidate: connect an exponential expression to strict square bounds and enumerate a congruence class.",
