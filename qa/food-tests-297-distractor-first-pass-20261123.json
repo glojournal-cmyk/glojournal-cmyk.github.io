@@ -21,8 +21,8 @@
     "options": 396,
     "proposedKeys": 99,
     "distractors": 297,
-    "individualSpecificDistractorReasons": 123,
-    "distractorNotesAtFamilyLevel": 174,
+    "individualSpecificDistractorReasons": 210,
+    "distractorNotesAtFamilyLevel": 87,
     "qualifiedApprovals": 0
   },
   "limits": [
@@ -62,8 +62,8 @@
           "text": "Lipid",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Iodine blue-black is a starch indicator, not evidence of lipid.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -75,8 +75,8 @@
           "text": "Protein",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Iodine solution is not the specific school chemical test for protein; Biuret reagent is.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -101,8 +101,8 @@
           "text": "Reducing sugar",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Iodine is not the reducing-sugar reagent; heated Benedict's reagent is used instead.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -132,8 +132,8 @@
           "text": "Starch",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Heated Benedict's detects reducing sugars, not starch; iodine is the starch test.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -145,8 +145,8 @@
           "text": "Protein",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The reagent for identifying protein is Biuret, not Benedict's.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -158,8 +158,8 @@
           "text": "Lipid",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The standard lipid emulsion test uses ethanol then water, not Benedict's heating.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -202,8 +202,8 @@
           "text": "Reducing sugar",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Biuret does not detect reducing sugar; heated Benedict's solution does.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -215,8 +215,8 @@
           "text": "Starch",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Biuret is not the iodine test for starch.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -241,8 +241,8 @@
           "text": "Lipid",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Biuret is not the ethanol emulsion test for lipid.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -285,8 +285,8 @@
           "text": "Add iodine solution to the food",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The alternative conflicts with preparing an appropriate food extract, exposing the sample or establishing the emulsion endpoint only after water has been added.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Iodine detects starch and is not the ethanol-water lipid procedure.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -298,8 +298,8 @@
           "text": "Heat with Benedict’s solution in a water bath",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The alternative conflicts with preparing an appropriate food extract, exposing the sample or establishing the emulsion endpoint only after water has been added.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Benedict's water-bath method tests reducing sugar, not lipid.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -311,8 +311,8 @@
           "text": "Mix the extract with Biuret reagent",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The alternative conflicts with preparing an appropriate food extract, exposing the sample or establishing the emulsion endpoint only after water has been added.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Biuret reagent detects protein, not the emulsified lipid endpoint.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -342,8 +342,8 @@
           "text": "Lipid is present",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "An iodine blue-black colour supports starch, not detection of fat without a lipid test.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -355,8 +355,8 @@
           "text": "Protein is present",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A starch-positive iodine result does not establish protein content without Biuret.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -368,8 +368,8 @@
           "text": "Reducing sugar is present",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A starch-positive iodine tube does not establish reducing sugar without Benedict's testing.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -425,8 +425,8 @@
           "text": "A lilac solution",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A lilac colour is associated with a positive Biuret protein test, not strong heated Benedict's.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -438,8 +438,8 @@
           "text": "A milky white emulsion",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Milky white emulsion is the ethanol-water lipid result, not a Benedict's precipitate.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -451,8 +451,8 @@
           "text": "A blue solution",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Blue after adequate heating is the negative Benedict's endpoint, not a strong positive.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -482,8 +482,8 @@
           "text": "Blue-black",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Blue-black is the starch-positive iodine result, not the positive Biuret colour.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -495,8 +495,8 @@
           "text": "Brick-red",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Brick-red precipitate is a strongly positive Benedict's reducing-sugar endpoint.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -508,8 +508,8 @@
           "text": "Orange-brown",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Orange-brown is the unchanged negative iodine colour, not the positive Biuret colour.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -552,8 +552,8 @@
           "text": "A blue-black solution",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Blue-black comes from iodine reacting with starch, not ethanol-water lipid emulsion.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -565,8 +565,8 @@
           "text": "A purple solution",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Purple is a positive Biuret protein outcome, not a lipid emulsion.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -578,8 +578,8 @@
           "text": "An orange precipitate",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Orange precipitate is a positive heated Benedict's outcome, not an ethanol-water emulsion.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -635,8 +635,8 @@
           "text": "Biuret test",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Biuret protein testing is normally read without heating the mixture in a bath.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -648,8 +648,8 @@
           "text": "Iodine test",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The standard iodine starch test is done without a heated water bath.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -661,8 +661,8 @@
           "text": "Ethanol emulsion test",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The ethanol emulsion lipid test should not heat ethanol because of the flammability hazard.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -692,8 +692,8 @@
           "text": "When mixing the food with ethanol",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The initial ethanol extraction is done without heating volatile flammable ethanol.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -718,8 +718,8 @@
           "text": "When adding the extract to water",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Adding extract to water is a room-temperature observation step, not a heating step.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -731,8 +731,8 @@
           "text": "After the extract and water have been mixed",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "No later heating is required once ethanol extract has been mixed with water to judge milkiness.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -762,8 +762,8 @@
           "text": "Iodine solution",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Iodine reacts with starch, not specifically reducing sugars.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -775,8 +775,8 @@
           "text": "Biuret reagent",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Biuret identifies protein, not reducing sugars.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -801,8 +801,8 @@
           "text": "Ethanol",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Ethanol is the solvent for lipid extraction rather than the heated reducing-sugar reagent.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -832,8 +832,8 @@
           "text": "Warm the food and let it cool before adding reagent",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Heating the food alone before adding Benedict's does not perform the required heated reagent reaction.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -845,8 +845,8 @@
           "text": "Warm the empty tube before adding the cold mixture",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Heating an empty tube before adding cold sample and reagent is not the controlled hot-water-bath method.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -871,8 +871,8 @@
           "text": "Stand the tube in water at room temperature",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Room-temperature water does not provide the heating required for the standard Benedict reaction.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -902,8 +902,8 @@
           "text": "Blue to lilac in a clear solution",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Blue to lilac is a Biuret-type protein indication, not a Benedict positive endpoint.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -928,8 +928,8 @@
           "text": "Brown to blue-black in the sample",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Brown to blue-black is an iodine starch reaction, not a heated Benedict reaction.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -941,8 +941,8 @@
           "text": "Clear to milky white on dilution",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Clear to milky after dilution is the ethanol emulsion lipid endpoint.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -1055,8 +1055,8 @@
           "text": "Shake seed with ethanol and look for sediment before adding water",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not address the stated ignition, ingestion or eye hazard with the correct cause, procedure or precaution.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Sediment before water addition is not a lipid-positive emulsion observation.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1068,8 +1068,8 @@
           "text": "Add iodine to crushed seed and look for a darkened surface",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not address the stated ignition, ingestion or eye hazard with the correct cause, procedure or precaution.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A darkened iodine-treated seed would investigate starch, not the ethanol emulsion lipid test.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1081,8 +1081,8 @@
           "text": "Shake seed with water, strain it and heat the water extract",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not address the stated ignition, ingestion or eye hazard with the correct cause, procedure or precaution.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Heating a water-only extract is not the ethanol then water lipid emulsion procedure.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -1392,8 +1392,8 @@
           "text": "Cooling the mixture in ice",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Cooling in ice cannot replace the warming that enables the reducing-sugar Benedict reaction.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1405,8 +1405,8 @@
           "text": "Filtering the glucose solution",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Filtering glucose does not substitute for heating the glucose with Benedict's reagent.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1431,8 +1431,8 @@
           "text": "Diluting the reagent until colourless",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Diluting the blue reagent until colourless does not produce the correct heated positive test.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -1532,8 +1532,8 @@
           "text": "The mixture became green",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Green is an early positive Benedict's colour, not a negative unchanged-blue result.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1545,8 +1545,8 @@
           "text": "A yellow precipitate formed",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Yellow precipitate indicates a positive heated Benedict's response.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1558,8 +1558,8 @@
           "text": "An orange precipitate formed",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Orange precipitate indicates a positive heated Benedict's reducing-sugar response.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1602,8 +1602,8 @@
           "text": "Starch was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Benedict's unchanged blue does not show starch; a separate iodine test is required.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1628,8 +1628,8 @@
           "text": "Lipid was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Benedict's unchanged blue is not lipid evidence; the ethanol-water test is separate.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1641,8 +1641,8 @@
           "text": "Protein was not detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A negative reducing-sugar result does not prove protein absent without Biuret.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -1672,8 +1672,8 @@
           "text": "Both tubes warm to the bath temperature",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Both tubes reaching bath temperature does not itself distinguish a positive chemical reaction.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1685,8 +1685,8 @@
           "text": "The sample tube remains the same blue as the control",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A sample remaining blue like its negative control is not the positive heated Benedict's observation.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1698,8 +1698,8 @@
           "text": "The liquid level falls slightly in both tubes",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A common slight liquid-level fall from heating is not specific evidence of reducing sugar.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1742,8 +1742,8 @@
           "text": "Protein was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A heated Benedict's orange precipitate is not a specific protein indication.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1768,8 +1768,8 @@
           "text": "Lipid was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A heated Benedict's orange precipitate does not identify lipid.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1781,8 +1781,8 @@
           "text": "Starch was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A heated Benedict's orange precipitate does not identify starch; iodine is needed.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -1882,8 +1882,8 @@
           "text": "It becomes lilac",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Lilac is the positive Biuret reaction for protein; clean distilled water should remain blue.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1908,8 +1908,8 @@
           "text": "It becomes blue-black",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Blue-black is the iodine starch endpoint, not the negative Biuret water blank.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1921,8 +1921,8 @@
           "text": "It forms a white emulsion",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A white emulsion is the ethanol-water lipid endpoint, not a negative Biuret control.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -1952,8 +1952,8 @@
           "text": "Glucose solution",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Glucose is appropriate for a reducing-sugar control but not a starch-positive iodine control.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1978,8 +1978,8 @@
           "text": "Vegetable oil",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Vegetable oil contains lipid, not a known iodine-positive starch control.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1991,8 +1991,8 @@
           "text": "Dilute egg white",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Egg white is protein-rich and is not a starch-positive iodine control.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -2022,8 +2022,8 @@
           "text": "Milky white",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Milky white is the lipid emulsion result, not the blue-black iodine-starch complex.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -2035,8 +2035,8 @@
           "text": "Brick-red",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Brick-red belongs to heated Benedict's rather than an iodine-starch control.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -2048,8 +2048,8 @@
           "text": "Lilac",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Lilac belongs to a positive Biuret protein result rather than iodine-starch.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -2372,8 +2372,8 @@
           "text": "Heat the seed with Benedict’s reagent",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Heated Benedict's is a reducing-sugar test and does not extract lipid with ethanol.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -2398,8 +2398,8 @@
           "text": "Crush the seed into iodine solution",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Crushing into iodine prepares a starch test, not a solvent lipid extract.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -2411,8 +2411,8 @@
           "text": "Stir the seed into Biuret reagent",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Biuret reagent detects proteins rather than extracting lipids for an emulsion.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -2442,8 +2442,8 @@
           "text": "Add it to water and look for purple",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Purple indicates a Biuret protein reaction, not the positive ethanol-water emulsion appearance.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -2455,8 +2455,8 @@
           "text": "Add more ethanol and look for blue-black",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Adding only more ethanol before water cannot create an iodine-type blue-black result.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -2481,8 +2481,8 @@
           "text": "Add iodine and look for a red precipitate",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Iodine does not yield a red Benedict's precipitate when used on an ethanol lipid extract.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -2582,8 +2582,8 @@
           "text": "Test-tube holder",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not address the stated ignition, ingestion or eye hazard with the correct cause, procedure or precaution.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A test-tube holder protects hands handling hot glass, not eyes from splashes.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -2595,8 +2595,8 @@
           "text": "Heatproof mat",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not address the stated ignition, ingestion or eye hazard with the correct cause, procedure or precaution.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A heatproof mat protects the bench, not the pupil's eyes.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -2621,8 +2621,8 @@
           "text": "Lab coat",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not address the stated ignition, ingestion or eye hazard with the correct cause, procedure or precaution.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A laboratory coat protects skin/clothing but does not replace splash goggles for eye protection.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -3492,8 +3492,8 @@
           "text": "Reducing sugar",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A white ethanol-water emulsion indicates lipid, not a reducing-sugar result.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3505,8 +3505,8 @@
           "text": "Protein",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "White cloudiness in this procedure does not independently establish protein.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3518,8 +3518,8 @@
           "text": "Starch",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The lipid emulsion does not test for starch; iodine would be needed.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3562,8 +3562,8 @@
           "text": "Benedict’s reagent",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Benedict's would test reducing sugar instead of protein.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3575,8 +3575,8 @@
           "text": "Ethanol",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Ethanol supports a lipid emulsion test rather than protein detection.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3588,8 +3588,8 @@
           "text": "Iodine solution",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Iodine is the starch reagent and does not independently identify protein.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3632,8 +3632,8 @@
           "text": "Reducing sugar was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Benedict's stayed blue, so it does not demonstrate reducing sugar; the iodine tube shows starch.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3645,8 +3645,8 @@
           "text": "Protein was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Blue-black iodine alone does not demonstrate protein without Biuret.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3658,8 +3658,8 @@
           "text": "Lipid was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Blue-black iodine alone does not demonstrate lipid without the emulsion test.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3702,8 +3702,8 @@
           "text": "Starch was not detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Iodine turned blue-black, contradicting an interpretation that starch was not detected.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3728,8 +3728,8 @@
           "text": "Reducing sugar was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Blue after correctly heated Benedict's does not demonstrate detected reducing sugar.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3741,8 +3741,8 @@
           "text": "Protein was not detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Protein was not tested by this Benedict/iodine observation, so its absence is unsupported.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -6969,6 +6969,6 @@
       ]
     }
   ],
-  "revision": "2026-11-23 second-pass: individual science rationale expansion",
-  "additionalReviewNote": "A second batch of 78 individually explained distractors was added without any qualification signoff; the remaining generic-context entries still need individually reasoned review."
+  "revision": "2026-11-23 third pass: science rationales for food-test reagent/result items",
+  "additionalReviewNote": "210 distractors now have individual source-contextual scientific justifications; 87 remaining family-level exclusions need tailored reasoning and independent sole-key adjudication."
 }
