@@ -115,7 +115,7 @@ function prove(q){
  if(n===8){
   assert.match(s,/greatest possible/);
   const [power]=matchNumbers(/4\^\{(\d+)\}/,s);
-  assert.match(s,/positive integers/);
+  assert.match(s,/positive integers/i);
   assert.match(s,/p\\ge q/);
   const target=2*power;
   const feasible=integers(1,target).map(q=>({q,p:target-3*q}))
