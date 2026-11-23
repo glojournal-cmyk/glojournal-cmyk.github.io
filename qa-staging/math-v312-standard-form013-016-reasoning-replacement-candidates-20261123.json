@@ -61,7 +61,7 @@
       "workedSolutionSteps": [
         "The raw data size is $(2.4\\times10^7)(1.5\\times10^2)=3.6\\times10^9$ bytes. After 70% retention, $2.52\\times10^9$ bytes must be stored.",
         "If $a$ A-drives and $b$ B-drives are purchased, capacity requires $a(5.0\\times10^8)+b(8.0\\times10^8)\\ge2.52\\times10^9$ and the cost is $32a+55b$ pounds.",
-        "Check non-negative integer possibilities: with $b=0,1,2,3,4$, the cheapest feasible costs are respectively £192, £183, £174, £197, £220. The minimum is £174, achieved by two drives of each type."
+        "For $b=0,1,2,3,4$, the cheapest feasible costs are respectively £192, £183, £174, £197, £220. For $b\\ge5$, the B drives alone cost at least £275. Hence £174 is the global minimum, achieved by $a=b=2$."
       ],
       "provisionalAOFocus": "AO3 candidate: optimise two integer resource choices under a capacity constraint after scientific-notation and percentage modelling; comparison requires proof of minimality.",
       "unverifiedTaughtSubskill": "Actual Year 9 teaching of two-variable integer resource-optimisation and capacity inequality not verified; independent Grade7+ benchmarking required.",
@@ -79,7 +79,7 @@
       "replacesRevisionId": "LUX-MATH-Y9-STANDARD_FORM-014-REVIEW-2",
       "topicId": "math-y9-standard-form",
       "sourceDisposition": "PROPOSED_REPLACEMENT_OF_ROUTINE_ARITHMETIC_NUMERIC_ROTATION",
-      "stem": "A sample's mass is recorded as $3.7\\times10^{5}$ g to 2 significant figures and its volume as $8.0\\times10^{2}$ cm³ to 2 significant figures. Calculate the upper bound for its density in g/cm³, rounded to 3 significant figures and written in standard form.",
+      "stem": "A sample's mass is recorded as $3.7\\times10^{5}$ g to 2 significant figures and its volume as $8.0\\times10^{2}$ cm³ to 2 significant figures. Find the limiting upper bound for its density in g/cm³, expressing the limiting value to 3 significant figures in standard form.",
       "options": [
         {
           "id": "A",
@@ -115,8 +115,8 @@
       "correctAnswerLatex": "4.72\\times10^{2}",
       "workedSolutionSteps": [
         "Rounding mass $3.7\\times10^5$ g to two significant figures gives the interval $3.65\\times10^5\\le m<3.75\\times10^5$ g.",
-        "Rounding volume $8.0\\times10^2$ cm³ to two significant figures gives $795\\le V<805$ cm³. Density is greatest at the limiting upper mass and lower volume.",
-        "The limiting quotient is $\\dfrac{3.75\\times10^{5}}{795}$ g/cm³, approximately 471.698 g/cm³, which is $4.72\\times10^2$ g/cm³ to three significant figures."
+        "For the density supremum, use the limiting upper mass and the lower volume; the mass upper endpoint is not itself attainable.",
+        "The limiting (unattained) quotient is $\\dfrac{3.75\\times10^{5}}{795}$ g/cm³, approximately 471.698 g/cm³, which is $4.72\\times10^2$ g/cm³ to three significant figures."
       ],
       "provisionalAOFocus": "AO2 candidate: distinguish bounds from central values and use monotonicity of a positive quotient.",
       "unverifiedTaughtSubskill": "Upper/lower bounds, inequalities and measured quantities to 2sf must be established as taught at the student's current stage.",
