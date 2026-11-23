@@ -165,3 +165,54 @@ test('fail-closed adversarial conceptual changes detect bad I037 upper bound and
  assert.deepEqual(pValues,[12,13,14,15,16]);
  assert.notEqual(pValues.length,7);
 });
+
+
+test('20 incorrect V316 choices reproduced from actual erroneous source operations, without pupil validation or score credit',()=>{
+ const evidence=read('math-v316-four-reasoning-20-distractor-causal-audit-20261123.json');
+ assert.equal(evidence.kind,'V316_20_DISTRACTORS_SOURCE_DERIVED_CAUSAL_AUDIT_ALL_HOLD');
+ assert.equal(evidence.totals.questions,4);
+ assert.equal(evidence.totals.wrongOptions,20);
+ assert.equal(evidence.totals.reproducedValues,20);
+ assert.equal(evidence.totals.gradedForEmpiricalPupilPlausibility,0);
+ assert.equal(evidence.totals.approvedForUse,0);
+ assert.equal(evidence.totals.dailyEnabled,0);
+ assert.equal(evidence.totals.masteryEnabled,0);
+ const i9=candidate('INDICES-009'),i37=candidate('INDICES-037'),sf29=candidate('STANDARD_FORM-029'),sf21=candidate('STANDARD_FORM-021');
+ const x=2**3,y=2**2;
+ const i9Wrong={A:x*x*y/2,C:2*x*x*y,D:x*y,E:(x*y)**2,F:x*x};
+ const cube=(upper)=>Array.from({length:upper+1},(_,n)=>n).filter(n=>(2*n+5)%3===0).length;
+ const square=(upper)=>Array.from({length:upper+1},(_,n)=>n).filter(n=>(2*n+5)%2===0).length;
+ const C=cube(8),S=square(8);
+ const i37Wrong={A:[S,C],B:[C,C],D:[cube(7),S],E:[C+1,S],F:[0,S]};
+ const [start,gain,loss,min,max]=units(sf29.stem),net=start+gain-loss;
+ const sf29Wrong={A:Math.floor(net/min),B:Math.ceil(net/max),D:(start+gain)/min,E:Math.ceil(net/min),F:start/max};
+ const accepted=[];for(let p=0;p<=20;p++){
+  const rise=((6e5*(1-p/100))/4e5-1)*100;
+  if(rise>=25-1e-9&&rise<=35+1e-9)accepted.push(p);
+ }
+ assert.deepEqual(accepted,[10,11,12,13,14,15,16]);
+ const sf21Wrong={A:accepted.length-1,C:accepted.length+1,D:accepted[0],E:accepted.at(-1),F:accepted.at(-1)+1};
+ const models=new Map([[i9.sourceId,i9Wrong],[i37.sourceId,i37Wrong],[sf29.sourceId,sf29Wrong],[sf21.sourceId,sf21Wrong]]);
+ assert.equal(evidence.rows.length,20);
+ const seen=new Set();
+ for(const row of evidence.rows){
+  const q=drafts.questions.find(q=>q.sourceId===row.sourceId);
+  assert.ok(q);
+  const o=q.options.find(o=>o.id===row.optionId),expected=models.get(row.sourceId)?.[row.optionId];
+  assert.ok(o&&expected!==undefined&&row.optionId!==q.correctOptionId);
+  assert.equal(o.latex,row.displayedLatex);
+  assert.equal(o.errorPath,row.candidateErrorPath);
+  assert.equal(row.revisionId,q.revisionId);
+  assert.equal(row.numericRouteMatchesDisplayed,true);
+  assert.equal(row.empiricallyObservedStudentError,false);
+  assert.equal(row.academicDecision,'HOLD');
+  assert.equal(row.dailyEligible,false);
+  assert.equal(row.masteryEligible,false);
+  const actual=/^\(/.test(o.latex)?o.latex.match(/^\((\d+),(\d+)\)$/).slice(1).map(Number):sci(o.latex);
+  assert.deepEqual(actual,expected,'Mathematical wrong-route mismatch '+row.sourceId+'/'+row.optionId);
+  assert.deepEqual(row.independentlyRecomputedWrongValue,expected);
+  assert.deepEqual(row.displayedValue,expected);
+  const pair=row.sourceId+'/'+row.optionId;assert.ok(!seen.has(pair));seen.add(pair);
+ }
+ assert.equal(seen.size,20);
+});
