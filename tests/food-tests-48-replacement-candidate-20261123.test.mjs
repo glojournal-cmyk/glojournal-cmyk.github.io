@@ -92,3 +92,15 @@ test('lipid emulsion dilution item is distinct from the pre-water-cloudiness ite
  assert.equal(dilution.approved,false);
  assert.equal(dilution.formalCreditEligible,false);
 });
+
+
+test('equal-glucose extracts fair-temperature comparison contains no hidden concentration contradiction',()=>{
+ const q=replacements.find(x=>x.sourceId==='bio-y8-food-tests-case-20261025-3-3');
+ assert.match(q.prompt,/same glucose solution/i);
+ assert.match(q.prompt,/equal Benedict's reagent/i);
+ assert.ok(q.options.every(x=>!/lower-concentration extract/.test(x)));
+ assert.equal(q.correctIndex,3);
+ assert.match(q.answer.accepted[0],/same controlled bath temperature/i);
+ assert.equal(q.approved,false);
+ assert.equal(q.formalCreditEligible,false);
+});
