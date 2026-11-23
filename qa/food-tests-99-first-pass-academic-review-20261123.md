@@ -43,3 +43,23 @@ The [AQA GCSE Biology practical guide](https://filestore.aqa.org.uk/resources/bi
 Before sign-off: an independent educator must assess each stem, verify **all three incorrect options per MCQ**, adjudicate skill collisions, assess Year 8 taught scope, and verify student/player scoring and Daily-group allocation on a **physical iPad PWA**. Programmatic CI PASS is not a substitute.
 
 **0/143 source approvals; 0/99 candidate approvals; PR #308 Draft; PR #310 separate Draft; main remains at `2e556ffcb48f`. No release, merge, deployment or learner history changes.**
+
+
+## All 297 distractors individually explained — additional AI screening pass, 23 November 2026
+
+The earlier register preserved all 396 choice strings but did not provide individual reasons for every wrong option. `qa/food-tests-297-distractor-first-pass-20261123.json` now contains **396 individually indexed answer-choice entries**, including exactly **99 proposed keyed answers and 297 proposed distractors**. Every one of the 297 distractors has its **own** source-contextual scientific rationale (297/297). Examples of distinctions documented:
+
+- Point **#14**: ethanol mixing with water and dissolving lipid are *real properties* but not the reason vapour presents a **fire** hazard. A contextual incorrect choice is not necessarily a scientifically false sentence.
+- Point **#31**: removing tubes at first colour change could be useful in an *alternative* timed-endpoint experiment, but does not meet this MCQ's requirement to compare **final colours after equal heating time and bath temperature**.
+- Point **#40**: mechanical grinding exposes material; it does not create protein or require chemical cleavage of protein peptide bonds to permit a Biuret test.
+- Point **#41**: water extracts soluble substances, not all proteins unconditionally; it is not protein-selective and alone does not give a Biuret positive.
+- Point **#45**: equal masses are a control variable, not proof of identical starch fraction or a calibrated quantitative iodine assay.
+- Point **#48/#49**: Benedict colours are not a substitute for precisely calibrated reducing-sugar concentration measurements.
+- Point **#75**: qualitative nutrient-presence tests do not reveal per-portion nutritional quantities or total dietary balance.
+- **#92/#93**: point #92 asks about ignitable ethanol vapour, whereas #93 now asks which practical action removes the **lit yellow Bunsen burner ignition source**. These use two different question types to address the original safety explanation; whether the two source marks represent sufficiently distinct evidence still requires independent adjudication.
+
+The point-specific triage and reason wording are **AI-authored provisional science judgements**, not the signature of an independent qualified educator. No independent sole-correctness or pupil-distractor-performance study has been carried out. A rigorous release must still confirm every stem and all three incorrect options; the national AQA practical source does not prove local TGS taught coverage, particularly ethanol emulsion method/safety.
+
+`tests/food-tests-297-distractor-first-pass-20261123.test.mjs` is wired into the Food Tests independent QA workflow. It checks that all 297 individually explained foils still match the current candidate option texts and IDs, that the risk explanations exist, and that **every academic approval and formal-credit eligibility remains false**. This is **a content-register integrity PASS only**, not a source-independent science validation.
+
+**Gate unchanged: 0/99 candidate-point approvals, 0/143 original-source approvals, PR #308 Draft, release BLOCKED, no merge, deployment or student-credit changes.**
