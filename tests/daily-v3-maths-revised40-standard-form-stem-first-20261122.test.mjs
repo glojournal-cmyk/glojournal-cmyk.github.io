@@ -57,7 +57,7 @@ test('40 revised Standard Form stems: independent dimensional arithmetic, exact 
   assert.ok(near(expected,key),q.sourceId+' source/key mismatch: '+expected+' vs '+key);
   assert.equal(q.options.length,6);
   const vals=q.options.map(o=>({id:o.id,value:numeric(o.latex)}));
-  assert.ok(vals.every((a,i)=>vals.every((b,j)=>i===j||!near(a.value,b.value)),
+  assert.ok(vals.every((a,i)=>vals.every((b,j)=>i===j||!near(a.value,b.value))),
    q.sourceId+' equivalent numerical choices');
   assert.deepEqual(vals.filter(o=>near(o.value,expected)).map(o=>o.id),[q.correctOptionId],
    q.sourceId+' wrong candidate correctOptionId');
