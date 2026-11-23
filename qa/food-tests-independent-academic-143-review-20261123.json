@@ -1,6 +1,6 @@
 {
   "type": "Food Tests independent academic content QA register (AI-assisted, NOT qualified teacher approval)",
-  "revision": "2026-11-23-r6-distractor-improvement-typed-contradiction",
+  "revision": "2026-11-23-r7-99-point-second-pass-distractor-review",
   "basis": "Draft PR #308, source academic repairs 0e5d1a6 and 21c437f (QA-only)",
   "topic": "bio-y8-food-tests",
   "sourcePath": "content/topics/bio-y8-food-tests.json",
@@ -81,9 +81,19 @@
       "bio-y8-food-tests-application-20261025-all-negative"
     ],
     "structuredPointsRevisedAwaitingIndependentAssessment": [
+      18,
+      21,
       32,
+      33,
       39,
+      40,
+      41,
+      42,
+      43,
       45,
+      47,
+      62,
+      63,
       72,
       75,
       92
@@ -139,7 +149,8 @@
     },
     "multiplePlausibleSafetyOptionsCorrectedInQADraft": [
       92
-    ]
+    ],
+    "structuredCandidateFormallyApproved": 0
   },
   "unresolvedFormalScoringEvidence": [
     {
@@ -5587,16 +5598,16 @@
       "ordinal": 18,
       "pointId": "bio-y8-food-tests-application-20261025-iodine-repeat::p1",
       "sourceId": "bio-y8-food-tests-application-20261025-iodine-repeat",
-      "stem": "Two iodine results disagree. Which action provides a new observation of the same food?",
+      "stem": "Two iodine tests on different portions of the same food disagree. Which action gives an independent repeat using that same food?",
       "keyedChoice": "Test another freshly prepared portion",
       "distractors": [
-        "Test a different food with the same reagent",
-        "Read the first tube again after copying its result",
-        "Average the names of the two observed colours"
+        "Re-read the colour of the same already reacted tube and record it as a new trial",
+        "Test a different food that is known to contain starch",
+        "Change how much iodine is added to the old tube until the colours agree"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "NOT_INDEPENDENTLY_SIGNED_OFF",
-      "concern": null,
+      "distractorQuality": "REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW",
+      "concern": "Distractors were revised to represent practical misconceptions; correct-key uniqueness is currently structural only. Verify each alternative's scientific falsehood, relevance and Year 8/9 taught scope independently.",
       "approved": false
     },
     {
@@ -5638,13 +5649,13 @@
       "stem": "Why is a blue result from an unheated Benedict’s test inconclusive?",
       "keyedChoice": "A sample containing reducing sugar may still appear blue without heating",
       "distractors": [
-        "Blue shows that the glucose has changed into starch",
-        "The blue colour measures the temperature of the room",
-        "A glucose solution gives a white emulsion before heating"
+        "The unheated blue colour already proves that reducing sugar is absent",
+        "The mixture needs ethanol rather than heat to detect reducing sugar",
+        "A blue result can be interpreted only after adding iodine to the same tube"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "NOT_INDEPENDENTLY_SIGNED_OFF",
-      "concern": null,
+      "distractorQuality": "REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW",
+      "concern": "Distractors were revised to represent practical misconceptions; correct-key uniqueness is currently structural only. Verify each alternative's scientific falsehood, relevance and Year 8/9 taught scope independently.",
       "approved": false
     },
     {
@@ -5819,8 +5830,8 @@
         "The reagent volume is held constant while clean pipettes are used between samples"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "REWRITTEN_QA_DRAFT_NEEDS_RETEST",
-      "concern": "Original implausible distractors replaced with proposed misconception options. Must test all three distractors and sole scientific key independently. NOT APPROVED.",
+      "distractorQuality": "REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW",
+      "concern": "Distractors were revised to represent practical misconceptions; correct-key uniqueness is currently structural only. Verify each alternative's scientific falsehood, relevance and Year 8/9 taught scope independently.",
       "approved": false
     },
     {
@@ -5830,13 +5841,13 @@
       "stem": "A pipette carries glucose into a sugar-free sample. What error could follow in a heated Benedict’s test?",
       "keyedChoice": "A false positive for reducing sugar",
       "distractors": [
-        "A protein result because glucose binds Biuret reagent in this tube",
-        "A false negative because glucose keeps the reagent blue",
-        "A lipid result because glucose forms an emulsion in this tube"
+        "A false negative because extra glucose prevents Benedict's reagent changing colour",
+        "A positive Biuret protein result caused by glucose residue",
+        "A positive iodine starch result caused by glucose residue"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "NOT_INDEPENDENTLY_SIGNED_OFF",
-      "concern": null,
+      "distractorQuality": "REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW",
+      "concern": "Distractors were revised to represent practical misconceptions; correct-key uniqueness is currently structural only. Verify each alternative's scientific falsehood, relevance and Year 8/9 taught scope independently.",
       "approved": false
     },
     {
@@ -5931,8 +5942,8 @@
         "It makes a positive colour change happen more quickly"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "REWRITTEN_QA_DRAFT_NEEDS_RETEST",
-      "concern": "Original implausible distractors replaced with proposed misconception options. Must test all three distractors and sole scientific key independently. NOT APPROVED.",
+      "distractorQuality": "REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW",
+      "concern": "Distractors were revised to represent practical misconceptions; correct-key uniqueness is currently structural only. Verify each alternative's scientific falsehood, relevance and Year 8/9 taught scope independently.",
       "approved": false
     },
     {
@@ -5942,13 +5953,13 @@
       "stem": "Why crush a solid food before making an extract for a protein test?",
       "keyedChoice": "More of the inside of the food is exposed",
       "distractors": [
-        "Crushing changes starch into protein",
-        "Crushing supplies the purple Biuret colour",
-        "More water is produced inside the food"
+        "Crushing creates new protein rather than simply exposing the original protein",
+        "Crushing increases the concentration of Biuret reagent before it is added",
+        "Crushing changes the protein in food into a different nutrient"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "NOT_INDEPENDENTLY_SIGNED_OFF",
-      "concern": null,
+      "distractorQuality": "REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW",
+      "concern": "Distractors were revised to represent practical misconceptions; correct-key uniqueness is currently structural only. Verify each alternative's scientific falsehood, relevance and Year 8/9 taught scope independently.",
       "approved": false
     },
     {
@@ -5958,13 +5969,13 @@
       "stem": "Why mix the crushed food with water before testing a liquid portion with Biuret reagent?",
       "keyedChoice": "Soluble material can pass into the liquid for testing",
       "distractors": [
-        "Water separates each nutrient into a different coloured layer",
-        "Water turns dissolved protein purple before reagent is added",
-        "Water converts insoluble starch into soluble protein"
+        "Water guarantees that every protein in the crushed food dissolves completely",
+        "Water ensures that no other dissolved nutrients enter the extract",
+        "Water itself makes blue Biuret reagent turn lilac without protein"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "NOT_INDEPENDENTLY_SIGNED_OFF",
-      "concern": null,
+      "distractorQuality": "REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW",
+      "concern": "Distractors were revised to represent practical misconceptions; correct-key uniqueness is currently structural only. Verify each alternative's scientific falsehood, relevance and Year 8/9 taught scope independently.",
       "approved": false
     },
     {
@@ -5974,13 +5985,13 @@
       "stem": "What physical change occurs when a potato cube is broken into small fragments?",
       "keyedChoice": "More surface is exposed for the same mass",
       "distractors": [
-        "The starch dissolves in the air",
-        "The fragments gain starch per gram",
-        "The mass of starch doubles"
+        "The total amount of starch increases as the potato is broken up",
+        "The smaller fragments necessarily have a higher starch concentration than the original potato",
+        "Breaking a potato into pieces changes its starch into reducing sugars"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "NOT_INDEPENDENTLY_SIGNED_OFF",
-      "concern": null,
+      "distractorQuality": "REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW",
+      "concern": "Distractors were revised to represent practical misconceptions; correct-key uniqueness is currently structural only. Verify each alternative's scientific falsehood, relevance and Year 8/9 taught scope independently.",
       "approved": false
     },
     {
@@ -5990,13 +6001,13 @@
       "stem": "Why may iodine reveal starch more readily on a crushed potato than on its intact skin?",
       "keyedChoice": "Iodine can reach starch in exposed tissue",
       "distractors": [
-        "Crushing produces iodine inside the cells",
-        "Air converts the exposed starch into iodine",
-        "Crushing makes the brown iodine colour darker before contact"
+        "Breaking the potato creates starch that the intact potato did not contain",
+        "The iodine reagent only reacts with starch in pieces below a fixed size",
+        "Crushing a potato can turn iodine blue-black even if no starch is present"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "NOT_INDEPENDENTLY_SIGNED_OFF",
-      "concern": null,
+      "distractorQuality": "REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW",
+      "concern": "Distractors were revised to represent practical misconceptions; correct-key uniqueness is currently structural only. Verify each alternative's scientific falsehood, relevance and Year 8/9 taught scope independently.",
       "approved": false
     },
     {
@@ -6027,8 +6038,8 @@
         "Only the larger sample can give a positive iodine result even if both contain starch"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "REWRITTEN_QA_DRAFT_NEEDS_RETEST",
-      "concern": "Original implausible distractors replaced with proposed misconception options. Must test all three distractors and sole scientific key independently. NOT APPROVED.",
+      "distractorQuality": "REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW",
+      "concern": "Distractors were revised to represent practical misconceptions; correct-key uniqueness is currently structural only. Verify each alternative's scientific falsehood, relevance and Year 8/9 taught scope independently.",
       "approved": false
     },
     {
@@ -6054,13 +6065,13 @@
       "stem": "Why is a colour comparison difficult when different volumes of Benedict’s reagent were added?",
       "keyedChoice": "The reagent-to-sample ratio could affect the observed result",
       "distractors": [
-        "The different colours measure the volumes of the empty tubes",
-        "The smaller reagent volume identifies which sample contained starch",
-        "The larger reagent volume shows the food contained more sugar"
+        "A larger reagent volume means the original food contained more reducing sugar",
+        "Different reagent volumes ensure a fair comparison when total tube volumes are the same",
+        "The size of the colour change is independent of the ratio of reagent to sample"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "NOT_INDEPENDENTLY_SIGNED_OFF",
-      "concern": null,
+      "distractorQuality": "REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW",
+      "concern": "Distractors were revised to represent practical misconceptions; correct-key uniqueness is currently structural only. Verify each alternative's scientific falsehood, relevance and Year 8/9 taught scope independently.",
       "approved": false
     },
     {
@@ -6294,13 +6305,13 @@
       "stem": "An ethanol extract is cloudy before water is added. Which possibility warrants checking the tube and extract?",
       "keyedChoice": "Residue or suspended particles may have caused the initial cloudiness",
       "distractors": [
-        "The early cloudiness confirms a positive emulsion endpoint",
-        "Cloudiness before dilution confirms the presence of protein",
-        "The extract has already given a positive Benedict’s result"
+        "The cloudiness alone confirms a positive lipid emulsion test before any water is added",
+        "An initially cloudy extract proves there are no suspended food particles",
+        "Cloudiness before water addition proves that the subsequent test must be negative"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "NOT_INDEPENDENTLY_SIGNED_OFF",
-      "concern": null,
+      "distractorQuality": "REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW",
+      "concern": "Distractors were revised to represent practical misconceptions; correct-key uniqueness is currently structural only. Verify each alternative's scientific falsehood, relevance and Year 8/9 taught scope independently.",
       "approved": false
     },
     {
@@ -6310,13 +6321,13 @@
       "stem": "How should an initially cloudy ethanol extract be retested to judge the emulsion endpoint?",
       "keyedChoice": "Prepare a clear ethanol extract, then add it to water and observe",
       "distractors": [
-        "Compare the undiluted cloudy liquid with a Biuret colour chart",
-        "Add the cloudy mixture to more solid food and inspect the sediment",
-        "Count the original cloudiness as the result before adding water"
+        "Score the initial undiluted cloudiness as the lipid-test endpoint",
+        "Add water to the cloudy extract and count all remaining cloudiness as positive without a blank",
+        "Compare the initial cloudy extract with the colours in a Benedict's sugar test"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "NOT_INDEPENDENTLY_SIGNED_OFF",
-      "concern": null,
+      "distractorQuality": "REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW",
+      "concern": "Distractors were revised to represent practical misconceptions; correct-key uniqueness is currently structural only. Verify each alternative's scientific falsehood, relevance and Year 8/9 taught scope independently.",
       "approved": false
     },
     {
@@ -6459,8 +6470,8 @@
         "Name of the unknown food sample"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "REWRITTEN_QA_DRAFT_NEEDS_RETEST",
-      "concern": "Original implausible distractors replaced with proposed misconception options. Must test all three distractors and sole scientific key independently. NOT APPROVED.",
+      "distractorQuality": "REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW",
+      "concern": "Distractors were revised to represent practical misconceptions; correct-key uniqueness is currently structural only. Verify each alternative's scientific falsehood, relevance and Year 8/9 taught scope independently.",
       "approved": false
     },
     {
@@ -6507,8 +6518,8 @@
         "Whether the same test tube was used for the whole investigation"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "REWRITTEN_QA_DRAFT_NEEDS_RETEST",
-      "concern": "Original implausible distractors replaced with proposed misconception options. Must test all three distractors and sole scientific key independently. NOT APPROVED.",
+      "distractorQuality": "REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW",
+      "concern": "Distractors were revised to represent practical misconceptions; correct-key uniqueness is currently structural only. Verify each alternative's scientific falsehood, relevance and Year 8/9 taught scope independently.",
       "approved": false
     },
     {
@@ -6779,8 +6790,8 @@
         "It can become more dilute when mixed with surrounding air"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "REWRITTEN_AFTER_MULTIPLE_PLAUSIBLE_SAFETY_ANSWERS",
-      "concern": "Original 'which property matters' stem allowed more than one safety-relevant correct-sounding response (flammability or mixing into air). New direct-ignition wording narrows intended evidence; independently re-adjudicate all four choices.",
+      "distractorQuality": "REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW",
+      "concern": "Distractors were revised to represent practical misconceptions; correct-key uniqueness is currently structural only. Verify each alternative's scientific falsehood, relevance and Year 8/9 taught scope independently.",
       "approved": false
     },
     {
