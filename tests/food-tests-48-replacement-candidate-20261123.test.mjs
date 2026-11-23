@@ -59,3 +59,22 @@ test('replacement draft does not silently change original source/old scores or c
  const questionScope=source.questions.filter(x=>x.topicId==='bio-y8-food-tests');
  assert.equal(questionScope.length,143);
 });
+
+test('45 revised distractor sets and four ambiguous stems are documented; no scientific approval implied',()=>{
+ assert.equal(draft.rewrittenDistractorSets.length,45);
+ assert.equal(new Set(draft.rewrittenDistractorSets).size,45);
+ assert.deepEqual(draft.qaOnlyAmbiguityRemediations,[
+  'bio-y8-food-tests-case-20261025-3-1',
+  'bio-y8-food-tests-case-20261025-4-13',
+  'bio-y8-food-tests-case-20261025-4-15',
+  'bio-y8-food-tests-case-20261025-4-16'
+ ]);
+ const map=new Map(replacements.map(q=>[q.sourceId,q]));
+ assert.match(map.get('bio-y8-food-tests-case-20261025-3-1').prompt,/samples taken from two different bread types/i);
+ assert.doesNotMatch(map.get('bio-y8-food-tests-case-20261025-4-15').prompt,/tastes sweet/i);
+ assert.match(map.get('bio-y8-food-tests-case-20261025-4-16').prompt,/which claim goes beyond/i);
+ for(const q of replacements){
+  assert.equal(q.approved,false);
+  assert.equal(q.formalCreditEligible,false);
+ }
+});
