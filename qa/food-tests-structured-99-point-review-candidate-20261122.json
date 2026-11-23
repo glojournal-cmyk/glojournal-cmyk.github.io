@@ -1236,15 +1236,15 @@
             },
             {
               "id": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p1::B",
-              "text": "Fingerprints can turn Benedict’s solution green"
+              "text": "Hot glass stops being a burn hazard immediately when removed from the water bath"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p1::C",
-              "text": "The holder prevents sugar reacting with the glass"
+              "text": "The tube is safe to hold when the blue colour of Benedict's reagent has not changed"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p1::D",
-              "text": "The holder keeps the reagent at a fixed concentration"
+              "text": "A test tube is safe to touch as soon as the hot liquid stops bubbling"
             }
           ],
           "correctOptionId": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p1::A",
@@ -1296,7 +1296,7 @@
           "options": [
             {
               "id": "bio-y8-food-tests-application-20261025-protein-extraction::p1::A",
-              "text": "Crushing creates new protein rather than simply exposing the original protein"
+              "text": "Crushing guarantees every protein in the food will dissolve completely in water"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-protein-extraction::p1::B",
@@ -1304,11 +1304,11 @@
             },
             {
               "id": "bio-y8-food-tests-application-20261025-protein-extraction::p1::C",
-              "text": "Crushing increases the concentration of Biuret reagent before it is added"
+              "text": "Crushing removes the need to mix the solid food with water before testing the liquid"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-protein-extraction::p1::D",
-              "text": "Crushing changes the protein in food into a different nutrient"
+              "text": "Crushing guarantees that no insoluble material can remain in the mixture"
             }
           ],
           "correctOptionId": "bio-y8-food-tests-application-20261025-protein-extraction::p1::B",
@@ -1360,15 +1360,15 @@
           "options": [
             {
               "id": "bio-y8-food-tests-application-20261025-starch-extraction::p1::A",
-              "text": "The total amount of starch increases as the potato is broken up"
+              "text": "The total surface area stays the same because the total mass has not changed"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-starch-extraction::p1::B",
-              "text": "The smaller fragments necessarily have a higher starch concentration than the original potato"
+              "text": "Each smaller fragment necessarily has a higher starch concentration than the original cube"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-starch-extraction::p1::C",
-              "text": "Breaking a potato into pieces changes its starch into reducing sugars"
+              "text": "Iodine must travel farther through each smaller fragment to reach the starch"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-starch-extraction::p1::D",
@@ -3212,11 +3212,16 @@
       63
     ],
     "academicApproved": 0,
-    "reason": "Ten previously weak or implausible distractor sets were rewritten as misconception-based foils; all require independently checked sole-correctness and taught scope. Three further near-repetitious factual stems (points 87, 94, 97) were redrafted as evidence-limit and incorrect-inference challenges without changing their source points or answer keys.",
+    "reason": "Ten previously weak or implausible distractor sets were rewritten as misconception-based foils; all require independently checked sole-correctness and taught scope. Three further near-repetitious factual stems (points 87, 94, 97) were redrafted as evidence-limit and incorrect-inference challenges without changing their source points or answer keys. Three additional obviously implausible foil sets (#38, #40, #42) were replaced with controlled-condition, extraction, and surface-area misconceptions.",
     "evidenceLimitStemRedesignIndices": [
       87,
       94,
       97
+    ],
+    "additionalMisconceptionDistractorFixes": [
+      38,
+      40,
+      42
     ]
   }
 }
