@@ -1,0 +1,225 @@
+{
+  "kind": "STANDALONE_QA_REPLACEMENT_CANDIDATES_NOT_APPROVED",
+  "date": "2026-11-23",
+  "version": "3.1.2-rearranging001-004-inverse-model-reasoning",
+  "pr": 306,
+  "sourceBank": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "sourceBankQuestionCount": 200,
+  "sourceBankUnchanged": true,
+  "tgsSchoolPdf": "SKIPPED_PER_PARENT_INSTRUCTION",
+  "externalGrade7PlusBenchmark": "NOT_COMPLETED",
+  "studentErrorRealism": "NOT_INDEPENDENTLY_VERIFIED",
+  "formalApproval": 0,
+  "releaseDisposition": "HOLD_ALL_NO_DAILY_NO_MASTERY",
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-001",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-001-V312-DISTINCT-INVERSE-MODELLING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-001-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "STANDALONE_AO2_AO3_REDESIGN_NOT_IMPORTED",
+      "stem": "For real $x\\ge0$, $y=\\frac{4x+7}{x+3}$. Which option correctly makes $x$ the subject and gives the exact range of $y$?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "x=\\frac{3y-7}{4-y},\\frac{7}{3}\\le y<4"
+        },
+        {
+          "id": "B",
+          "latex": "x=\\frac{3y+7}{4-y},\\frac{7}{3}\\le y<4",
+          "errorPath": "Change the minus sign of 7 when moving 7 across the equality."
+        },
+        {
+          "id": "C",
+          "latex": "x=\\frac{3y-7}{y-4},\\frac{7}{3}\\le y<4",
+          "errorPath": "Reverse the sign of the x coefficient when isolating x."
+        },
+        {
+          "id": "D",
+          "latex": "x=\\frac{3y-7}{4-y},\\frac{7}{3}<y<4",
+          "errorPath": "Exclude the allowed x=0 endpoint, which gives y=7/3."
+        },
+        {
+          "id": "E",
+          "latex": "x=\\frac{3y-7}{4-y},\\frac{7}{3}\\le y\\le4",
+          "errorPath": "Include y=4 even though no finite nonnegative x gives it."
+        },
+        {
+          "id": "F",
+          "latex": "x=\\frac{4-y}{3y-7},\\frac{7}{3}\\le y<4",
+          "errorPath": "Invert the final inverse formula; it then has a pole at the allowed lower endpoint y=7/3."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "x=\\frac{3y-7}{4-y},\\frac{7}{3}\\le y<4",
+      "workedSolutionSteps": [
+        "Multiplying the original equation by $x+3$ gives $xy+3y=4x+7$, so $(4-y)x=3y-7$.",
+        "Therefore $x=\\frac{3y-7}{4-y}$, provided $y\\ne4$. Also write $y=4-\\frac{5}{x+3}$.",
+        "For $x\\ge0$, the fraction $\\frac{5}{x+3}$ decreases from $\\frac{5}{3}$ towards zero without reaching it. Thus $\\frac{7}{3}\\le y<4$."
+      ],
+      "provisionalAOFocus": "Inverse plus actual fractional lower endpoint and excluded limiting upper output.",
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-002",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-002-V312-DISTINCT-INVERSE-MODELLING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-002-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "STANDALONE_AO2_AO3_REDESIGN_NOT_IMPORTED",
+      "stem": "A calibration rule is $y=\\frac{px+q}{x+2}$ with unknown constants $p,q$. It reads $y=3$ when $x=0$ and $y=4$ when $x=2$. Which option makes $x$ the subject and states the excluded value of $y$?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "x=\\frac{2y+6}{5-y},y\\ne5",
+          "errorPath": "Move the inferred numerator constant +6 across the equality with the wrong sign."
+        },
+        {
+          "id": "B",
+          "latex": "x=\\frac{2y-6}{5-y},y\\ne5"
+        },
+        {
+          "id": "C",
+          "latex": "x=\\frac{2y-6}{y-5},y\\ne5",
+          "errorPath": "Reverse the sign of the collected coefficient 5-y when dividing."
+        },
+        {
+          "id": "D",
+          "latex": "x=\\frac{2y-6}{5-y},y\\ne3",
+          "errorPath": "Mistake the first observed output y=3 for the unattainable output of the inverse."
+        },
+        {
+          "id": "E",
+          "latex": "x=\\frac{2y-6}{5-y},y\\ne4",
+          "errorPath": "Mistake the second observed output y=4 for the unattainable output of the inverse."
+        },
+        {
+          "id": "F",
+          "latex": "x=\\frac{2y-6}{5-y},y>3",
+          "errorPath": "Infer an incorrect lower bound y>3 from the two readings, even though the original x domain was not restricted to x≥0."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "x=\\frac{2y-6}{5-y},y\\ne5",
+      "workedSolutionSteps": [
+        "From $x=0,y=3$, obtain $q/2=3$, so $q=6$. From $x=2,y=4$, obtain $(2p+6)/4=4$, hence $p=5$.",
+        "The full rule is $y=\\frac{5x+6}{x+2}$, and rearranging $y(x+2)=5x+6$ gives $(5-y)x=2y-6$.",
+        "Therefore $x=\\frac{2y-6}{5-y}$. The denominator cannot be zero, so $y\\ne5$. Both recorded outputs remain possible."
+      ],
+      "provisionalAOFocus": "Infer two unknown model coefficients from observations before deriving the inverse and exact output exclusion.",
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-003",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-003-V312-DISTINCT-INVERSE-MODELLING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-003-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "STANDALONE_AO2_AO3_REDESIGN_NOT_IMPORTED",
+      "stem": "For real $x>-3$, let $y=\\frac{\\sqrt{x+3}}{x+3}$. Which option makes $x$ the subject and gives the exact range of $y$?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "x=\\frac{1}{y}-3,y>0",
+          "errorPath": "Undo the square root but omit the necessary squaring when isolating x."
+        },
+        {
+          "id": "B",
+          "latex": "x=\\frac{1}{y^2}+3,y>0",
+          "errorPath": "Move the original +3 from x+3 with the wrong sign."
+        },
+        {
+          "id": "C",
+          "latex": "x=\\frac{1}{y^2}-3,y>0"
+        },
+        {
+          "id": "D",
+          "latex": "x=\\frac{1}{y^2}-3,y\\ge0",
+          "errorPath": "Allow y=0 even though the original fraction is strictly positive for every x>-3."
+        },
+        {
+          "id": "E",
+          "latex": "x=y^2-3,y>0",
+          "errorPath": "Square the original y in the wrong direction, using y squared instead of its reciprocal squared."
+        },
+        {
+          "id": "F",
+          "latex": "x=\\frac{1}{y^2}-3,0<y\\le\\frac{1}{\\sqrt{3}}",
+          "errorPath": "Silently impose x≥0, excluding admissible negative x with −3<x<0 that give y above 1/sqrt(3)."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "x=\\frac{1}{y^2}-3,y>0",
+      "workedSolutionSteps": [
+        "Since $x>-3$, the factor $x+3$ is positive and $y=\\frac{1}{\\sqrt{x+3}}$.",
+        "Invert and square: $\\sqrt{x+3}=\\frac{1}{y}$, so $x+3=\\frac{1}{y^2}$ and $x=\\frac{1}{y^2}-3$.",
+        "The original expression is strictly positive and tends to zero only as x grows without bound. As x approaches -3 from above, y grows without bound. Hence the exact range is $y>0$."
+      ],
+      "provisionalAOFocus": "Simplify a radical-over-itself ratio, reverse an inverse-square relation and correctly retain a strict positive range.",
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-004",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-004-V312-DISTINCT-INVERSE-MODELLING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-004-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "STANDALONE_AO2_AO3_REDESIGN_NOT_IMPORTED",
+      "stem": "An outer circle has radius $r+d$ and an inner circle has radius $r$, where $r\\ge0$ and $d>0$. The area between them is $A=\\pi((r+d)^2-r^2)$. Which option makes $r$ the subject and states the exact possible values of $A$?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "r=\\frac{A-\\pi d^2}{\\pi d},A\\ge\\pi d^2",
+          "errorPath": "Forget the factor of 2 from expanding the cross-term 2rd."
+        },
+        {
+          "id": "B",
+          "latex": "r=\\frac{A+\\pi d^2}{2\\pi d},A\\ge\\pi d^2",
+          "errorPath": "Move the constant +πd squared with the wrong sign when isolating r."
+        },
+        {
+          "id": "C",
+          "latex": "r=\\frac{A-\\pi d^2}{2\\pi d},A>\\pi d^2",
+          "errorPath": "Exclude r=0 even though it is allowed and gives A=πd squared."
+        },
+        {
+          "id": "D",
+          "latex": "r=\\frac{A-\\pi d^2}{2\\pi d},A\\ge\\pi d^2"
+        },
+        {
+          "id": "E",
+          "latex": "r=\\frac{A-\\pi d^2}{2\\pi d^2},A\\ge\\pi d^2",
+          "errorPath": "Divide by 2πd squared instead of the actual coefficient 2πd of r."
+        },
+        {
+          "id": "F",
+          "latex": "r=\\frac{A-\\pi d^2}{2\\pi d},A\\ge0",
+          "errorPath": "Use only the general non-negative area condition and omit the stronger minimum A≥πd squared."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "r=\\frac{A-\\pi d^2}{2\\pi d},A\\ge\\pi d^2",
+      "workedSolutionSteps": [
+        "Expand the square and subtract the inner area: $A=\\pi(r^2+2rd+d^2-r^2)=\\pi(2rd+d^2)$.",
+        "Rearrange to $2\\pi dr=A-\\pi d^2$. Since $d>0$, divide by $2\\pi d$ to get $r=\\frac{A-\\pi d^2}{2\\pi d}$.",
+        "Because $r\\ge0$ and $d>0$, the exact output condition is $A\\ge\\pi d^2$. Equality holds when the inner radius is zero."
+      ],
+      "provisionalAOFocus": "Use geometric modelling, cancellation of square terms and domain constraints when changing the subject.",
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    }
+  ]
+}
