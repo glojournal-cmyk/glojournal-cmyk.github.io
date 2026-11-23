@@ -105,3 +105,21 @@ test('The review register accounts for all remaining bank IDs and the 16 outcome
   }
  }
 });
+
+test('three repeated recall stems now challenge unsupported inferences without changing source answer keys',()=>{
+ const byPoint=new Map(candidateParts.map(x=>[x.pointId,x]));
+ const expectations=[
+  ['bio-y8-food-tests-application-20261025-wrong-reagent::p2',/orange-brown result means it contains no protein/i,'Biuret reagent'],
+  ['bio-y8-food-tests-application-20261025-unknown-analysis::p1',/unperformed tests/i,'Starch was detected'],
+  ['bio-y8-food-tests-application-20261025-sugar-analysis::p1',/wrongly claims it proves starch/i,'Reducing sugar was detected']
+ ];
+ assert.deepEqual(candidate.qaDraftSecondPass.evidenceLimitStemRedesignIndices,[87,94,97]);
+ for(const [id,stemPattern,key] of expectations){
+  const point=byPoint.get(id);
+  assert.match(point.stem,stemPattern,id);
+  assert.equal(point.options.find(o=>o.id===point.correctOptionId)?.text,key,id);
+  assert.equal(point.keyedAnswer,key,id);
+  assert.equal(point.approved,false,id);
+  assert.equal(point.distractorReview,'pending',id);
+ }
+});
