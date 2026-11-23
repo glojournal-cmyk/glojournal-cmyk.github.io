@@ -150,7 +150,11 @@
     "multiplePlausibleSafetyOptionsCorrectedInQADraft": [
       92
     ],
-    "structuredCandidateFormallyApproved": 0
+    "structuredCandidateFormallyApproved": 0,
+    "additionalSourceAlignmentAndSafetyCorrectionsUnapproved": [
+      61,
+      93
+    ]
   },
   "unresolvedFormalScoringEvidence": [
     {
@@ -6286,16 +6290,16 @@
       "ordinal": 61,
       "pointId": "bio-y8-food-tests-application-20261025-all-negative::p2",
       "sourceId": "bio-y8-food-tests-application-20261025-all-negative",
-      "stem": "Why could the same sample still contain nutrients after four negative food tests?",
-      "keyedChoice": "Other nutrients such as vitamins were outside the scope of these tests",
+      "stem": "Why do four negative food tests with working controls still not prove that the sample contains no nutrients?",
+      "keyedChoice": "The tests do not target every nutrient, and small amounts of tested nutrients may be below detection limits.",
       "distractors": [
-        "A negative iodine test is positive evidence for vitamin C",
-        "Negative tests establish that the sample contains minerals",
-        "A negative emulsion test measures the sample’s vitamin content"
+        "The working controls prove that all nutrients, including vitamins, were tested.",
+        "A negative result proves that each targeted nutrient is absent at every possible concentration.",
+        "Small amounts of reducing sugar must always give a brick-red Benedict's precipitate."
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "NOT_INDEPENDENTLY_SIGNED_OFF",
-      "concern": null,
+      "distractorQuality": "REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW",
+      "concern": "Original source p2 requires both untested nutrient types and levels below detection limits; the former choice only captured untested vitamins. Unapproved: independent scientific/age scope verification remains required.",
       "approved": false
     },
     {
@@ -6798,16 +6802,16 @@
       "ordinal": 93,
       "pointId": "bio-y8-food-tests-application-20261025-safe-bunsen::p2",
       "sourceId": "bio-y8-food-tests-application-20261025-safe-bunsen",
-      "stem": "What could happen if vapour from an open ethanol bottle reaches a lit burner?",
+      "stem": "A pupil leaves a Bunsen burner on its yellow safety flame while opening ethanol for a lipid test. Why is this still unsafe?",
       "keyedChoice": "The vapour can catch fire",
       "distractors": [
-        "The burner is safe because the liquid stays in the bottle",
-        "Ignition must wait until the liquid boils",
-        "Only liquid touching the burner can catch fire"
+        "A yellow safety flame cannot ignite ethanol vapour",
+        "Ethanol can ignite only if it is heated to boiling first",
+        "Only liquid ethanol touching a flame can ignite"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "NOT_INDEPENDENTLY_SIGNED_OFF",
-      "concern": null,
+      "distractorQuality": "REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW",
+      "concern": "Turns a duplicate combustion recall into a safer practical decision: the yellow safety flame is still an ignition source. Unapproved: independent scientific/age scope verification remains required.",
       "approved": false
     },
     {
