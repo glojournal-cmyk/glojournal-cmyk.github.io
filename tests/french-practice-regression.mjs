@@ -129,7 +129,9 @@ test('a Food Tests answer stays unmarked while iPad draft save is pending, then 
  let confirm;
  const environment=env(state,runner);
  environment.LuxPracticeDrafts={
-  save:(_key,data)=>data.ce?new Promise(resolve=>{confirm=resolve;calls.push(['completed-draft',data]);}):true,
+  save:(_key,data)=>data?.unmarkedCompleted===true&&data?.ce===false
+    ?new Promise(resolve=>{confirm=resolve;calls.push(['completed-draft',data]);})
+    :true,
   clear:()=>true,key:()=>'draft',read:()=>null
  };
  const ctx=vm.createContext({...context,...environment});
@@ -168,7 +170,9 @@ test('a failed Food Tests iPad save leaves answers visible and never shows a suc
  const state=newState(),runner=hooks();let confirm;
  const environment=env(state,runner);
  environment.LuxPracticeDrafts={
-  save:(_key,data)=>data.ce?new Promise(resolve=>{confirm=resolve;}):false,
+  save:(_key,data)=>data?.unmarkedCompleted===true&&data?.ce===false
+    ?new Promise(resolve=>{confirm=resolve;})
+    :false,
   clear:()=>true,key:()=>'draft',read:()=>null
  };
  const ctx=vm.createContext({...context,...environment});
