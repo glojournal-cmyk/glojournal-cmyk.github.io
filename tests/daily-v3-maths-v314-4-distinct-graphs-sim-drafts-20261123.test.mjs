@@ -121,3 +121,50 @@ test('G029/SIM005 source tampering and A-F key mutation must be caught by source
  assert.equal(Math.floor((180-25*6)/(11-6)),6);
  assert.notEqual(6,allAnswers().sim005.maximum);
 });
+
+test('20 distractors: ten geometric numerical misroutes, five ticket constraints, five logically false solution-classification claims',()=>{
+ const a=allAnswers(),[g29,g30,s5,s13]=pack.questions;
+ const wrong29={
+  A:a.graph029.xIntercept,
+  B:2*a.graph029.area,
+  C:a.graph029.yIntercept,
+  E:0.5*a.graph029.xIntercept*a.graph029.pY,
+  F:0.5*a.graph029.pX*a.graph029.pY
+ };
+ for(const [key,expected] of Object.entries(wrong29)){
+  const actual=graphNumber(g29.options.find(x=>x.id===key).latex);
+  assert.ok(near(actual,expected),'Graph029 causal wrong value '+key);
+  assert.ok(!near(actual,a.graph029.area));
+ }
+ const parseK=tex=>{const rhs=tex.slice(tex.indexOf('=')+1),i=rhs.indexOf('\\pm');
+  if(i<0)return [graphNumber(rhs)];
+  const lo=graphNumber(rhs.slice(0,i)),hi=graphNumber(rhs.slice(i+3));
+  return [lo-hi,lo+hi].sort((a,b)=>a-b);
+ };
+ const plus=Math.sqrt(5),sqrt6=Math.sqrt(6);
+ const wrong30={A:[1-plus,1+plus],C:[3-plus,3+plus],D:[-1-sqrt6,-1+sqrt6],E:[-1+plus],F:[2-plus,2+plus]};
+ for(const [key,values]of Object.entries(wrong30)){
+  const actual=parseK(g30.options.find(x=>x.id===key).latex),expected=values.slice().sort((a,b)=>a-b);
+  assert.equal(actual.length,expected.length);
+  actual.forEach((v,i)=>assert.ok(near(v,expected[i]),'Graph030 faulty root path '+key));
+  assert.ok(actual.length!==2||!actual.every((v,i)=>near(v,a.graph030.slice().sort((a,b)=>a-b)[i])));
+ }
+ const wrongTickets={A:16,B:9,C:14,D:10,F:25};
+ for(const [key,expected]of Object.entries(wrongTickets)){
+  assert.ok(near(graphNumber(s5.options.find(o=>o.id===key).latex),expected),'Ticket distractor '+key);
+  assert.notEqual(expected,a.sim005.maximum);
+ }
+ const condition=(parts,k,t)=>parts.split(',').every(str=>{
+  const m=str.match(/^([kt])(=|\\ne|>)(-?\d+)$/);assert.ok(m);
+  const v=m[1]==='k'?k:t,n=Number(m[3]);
+  return m[2]==='='?v===n:m[2]==='\\ne'?v!==n:v>n;
+ });
+ for(const op of s13.options.filter(x=>x.id!==s13.correctOptionId)){
+  const [left,right]=op.latex.split(';');
+  const mismatch=a.sim013.grid.some(({k,t,type})=>
+   ((type==='I')!==condition(left.slice(2),k,t))||((type==='N')!==condition(right.slice(2),k,t))
+  );
+  assert.ok(mismatch,'False solver classification not rejected: '+op.id);
+ }
+ assert.equal(Object.keys(wrong29).length+Object.keys(wrong30).length+Object.keys(wrongTickets).length+5,20);
+});
