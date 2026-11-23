@@ -1,0 +1,117 @@
+{
+  "revision": "2026-11-23-r1",
+  "status": "PROPOSED_QA_ONLY_NOT_IMPORTED",
+  "approval": "0/143",
+  "source": "PR #308 c923a2f; all live 143 IDs held",
+  "scope": "Exact repairs discovered during independent academic review",
+  "sourceQuestionCorrections": [
+    {
+      "questionId": "bio-y8-app-food-test-match",
+      "issue": "The UI collects four pairing decisions while answer.totalMarks is 8.",
+      "proposedAnswerTotalMarks": 4,
+      "method": "One independently correct complete nutrient→reagent+positive-result pairing earns one mark. Or create eight separately scored choices (reagent and observation) and re-QA each new stem.",
+      "critical": true,
+      "doNotAutoCreditUntilPlayerVerified": true
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-sugar-strength",
+      "issue": "Colour comparison has no matched amounts, reagent volume or heating time; higher brick-red intensity need not indicate higher concentration without controlled conditions.",
+      "proposedPrompt": "Two food extracts have the same sample volume and are tested with the same volume of fresh Benedict’s solution at the same hot-water-bath temperature for the same time. One tube turns green and the other forms a brick-red precipitate. Explain what this suggests about their reducing-sugar concentrations and one limitation of this test.",
+      "markPoints": [
+        "The brick-red tube probably has a higher reducing-sugar concentration than the green tube under comparable conditions.",
+        "The colour scale gives only a rough comparison, not an exact concentration."
+      ],
+      "critical": true
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-all-negative",
+      "issue": "No evidence is provided that positive/negative controls worked; do not interpret an unreliable negative experiment as proof of absence.",
+      "proposedPrompt": "All four food tests on an unknown sample are negative. The positive and negative controls behaved correctly. Explain what can and cannot be concluded.",
+      "markPoints": [
+        "None of starch, reducing sugar, protein or lipid were detected by these four tests under the conditions used.",
+        "This does not prove the sample contains no nutrients: the tests do not detect every nutrient and have detection limits."
+      ]
+    },
+    {
+      "questionId": "bio-y8-app-iodine-negative",
+      "issue": "The source accepts 'starch is absent' as equally definite as 'not detected'. Prefer scientifically cautious interpretation.",
+      "proposedPreferredAnswer": "No starch was detected by the iodine test.",
+      "reviewUnsafeOverclaim": [
+        "The sample contains absolutely no starch under any conditions",
+        "A negative iodine test proves the sample is nutrient-free"
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-sugar-vs-starch",
+      "issue": "Starch negative should mean not detected, not proof of literal absence.",
+      "proposedScoringRule": "Credit 'starch not detected' and correct equivalents; do not require absolute absence."
+    }
+  ],
+  "structuredCandidatePointRevisions": [
+    {
+      "pointIndex": 32,
+      "sourceId": "bio-y8-food-tests-application-20261025-cross-contamination",
+      "oldIssue": "Three distractors use impossible changes of starch/air/graduation marks into glucose, so the answer is obvious.",
+      "stem": "Which procedure could cause a false positive when a sugar-free food extract is tested with Benedict’s reagent?",
+      "correct": "The same pipette transfers a drop of glucose solution left from an earlier sample",
+      "wrong": [
+        "The sugar-free extract is measured into a clean test tube with a clean pipette",
+        "The food extract and Benedict’s reagent are heated for the same time as a negative control",
+        "The reagent volume is held constant while clean pipettes are used between samples"
+      ]
+    },
+    {
+      "pointIndex": 39,
+      "sourceId": "bio-y8-food-tests-application-20261025-benedict-hot-tube",
+      "oldIssue": "Closed-end colour visibility is a nonsensical distractor.",
+      "stem": "Why must the open end of a hot Benedict’s test tube point away from people?",
+      "correct": "Hot liquid can spit or splash out towards whoever the tube faces",
+      "wrong": [
+        "It ensures the mixture stays at exactly the bath temperature",
+        "It prevents evaporation and therefore fixes the reagent concentration",
+        "It makes a positive colour change happen more quickly"
+      ]
+    },
+    {
+      "pointIndex": 45,
+      "sourceId": "bio-y8-food-tests-application-20261025-fair-amount",
+      "oldIssue": "Several distractors invent conversion between nutrients or claim larger means higher percentage.",
+      "stem": "When comparing the iodine reactions of two types of bread, why use equal masses of bread?",
+      "correct": "Unequal sample sizes could affect the amount of starch tested, making colour comparisons less fair",
+      "wrong": [
+        "Equal mass guarantees both breads contain the same percentage of starch",
+        "Equal mass removes any need to control the volume of iodine reagent",
+        "Only the larger sample can give a positive iodine result even if both contain starch"
+      ]
+    },
+    {
+      "pointIndex": 72,
+      "sourceId": "bio-y8-food-tests-application-20261025-recording",
+      "oldIssue": "Position of the notebook is unrelated and trivially eliminated.",
+      "stem": "A results table reports that a sample turned blue-black. Which other heading helps identify what test produced that colour?",
+      "correct": "Reagent or type of food test used",
+      "wrong": [
+        "Nutrient the pupil expected to find",
+        "Colour of the food before any reagent was added",
+        "Name of the unknown food sample"
+      ]
+    },
+    {
+      "pointIndex": 75,
+      "sourceId": "bio-y8-food-tests-application-20261025-inference",
+      "oldIssue": "Number of pupils seeing a colour change is not a credible diet-quality inference.",
+      "stem": "Food tests reveal protein and reducing sugar in a snack. Which extra evidence is most helpful when assessing its role in a balanced diet?",
+      "correct": "Quantities of nutrients per serving and the rest of the person’s diet",
+      "wrong": [
+        "How many food tests gave a positive result, without nutrient quantities",
+        "Whether the food-test colour was lilac rather than orange",
+        "Whether the same test tube was used for the whole investigation"
+      ]
+    }
+  ],
+  "notAppliedReason": "Preserve source fingerprints and scoring gate until revised questions and partial-credit rules are independently validated. Do not enable formal scoring, and do not import these proposals to PR #310/main.",
+  "approvals": {
+    "questions": 0,
+    "structuredCandidateParts": 0
+  }
+}
