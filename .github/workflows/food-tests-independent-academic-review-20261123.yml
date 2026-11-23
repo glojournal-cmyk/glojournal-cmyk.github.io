@@ -18,6 +18,8 @@ on:
       - 'qa/food-tests-academic-correction-proposals-20261123.json'
       - 'qa/food-tests-independent-academic-143-review-20261123.md'
       - 'qa/food-tests-structured-99-point-review-candidate-20261122.json'
+      - 'qa/food-tests-99-concept-collision-review-20261123.json'
+      - 'tests/food-tests-99-concept-collision-20261123.test.mjs'
       - 'tests/food-tests-academic-143-review-20261123.test.mjs'
       - '.github/workflows/food-tests-independent-academic-review-20261123.yml'
   pull_request:
@@ -36,6 +38,8 @@ on:
       - 'qa/food-tests-academic-correction-proposals-20261123.json'
       - 'qa/food-tests-independent-academic-143-review-20261123.md'
       - 'qa/food-tests-structured-99-point-review-candidate-20261122.json'
+      - 'qa/food-tests-99-concept-collision-review-20261123.json'
+      - 'tests/food-tests-99-concept-collision-20261123.test.mjs'
       - 'tests/food-tests-academic-143-review-20261123.test.mjs'
       - '.github/workflows/food-tests-independent-academic-review-20261123.yml'
   workflow_dispatch:
@@ -54,6 +58,8 @@ jobs:
         run: node --check tests/food-tests-academic-143-review-20261123.test.mjs
       - name: Validate exact 143-item review and 99 candidate point references; never approve by test alone
         run: node --test tests/food-tests-academic-143-review-20261123.test.mjs
+      - name: Audit all 99 MCQ mark points against 52 source concepts and 9 repeated-answer clusters, still 0 approved
+        run: node --test tests/food-tests-99-concept-collision-20261123.test.mjs
       - name: Verify 48 QA-only duplicate replacements are unique and never formally credited
         run: node --test tests/food-tests-48-replacement-candidate-20261123.test.mjs
       - name: Verify 143-row candidate preview retains 95 originals and blocks all scoring
