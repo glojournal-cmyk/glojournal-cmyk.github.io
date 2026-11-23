@@ -39,7 +39,7 @@ test('source-exact Q025-040: 16 unapproved records, no altered or releasable Mat
 test('four parameter-copy families are not four independent Mastery concepts each',()=>{
  const families=new Map();
  for(const row of register.rows){
-  const stem=row.sourceStem.toLowerCase().replace(/\\d+(?:\\.\\d+)?/g,'#').replace(/\\s+/g,' ').trim();
+  const stem=row.sourceStem.toLowerCase().replace(/\d+(?:\.\d+)?/g,'#').replace(/\s+/g,' ').trim();
   const set=families.get(row.family)||new Set();
   set.add(stem); families.set(row.family,set);
  }
