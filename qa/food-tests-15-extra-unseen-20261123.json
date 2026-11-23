@@ -1,0 +1,367 @@
+{
+  "kind": "Food Tests 15 extra unseen long-answer QA probes",
+  "status": "QA_DIAGNOSTIC_ONLY",
+  "source": "content/topics/bio-y8-food-tests.json",
+  "academicApproved": 0,
+  "questions": 15,
+  "markPoints": 26,
+  "review": "AI draft science expectations; independent teacher adjudication pending",
+  "rows": [
+    {
+      "questionId": "bio-y8-food-tests-iodine-solution-explain",
+      "rubricType": "additional-15",
+      "prompt": "In Food tests and laboratory safety, state the precise Year 8 meaning, role or function of iodine solution.",
+      "sourceMarkPoints": [
+        "the reagent used to test for starch"
+      ],
+      "expectedMarks": 1,
+      "holdout": [
+        {
+          "kind": "full-paraphrase-unseen",
+          "answer": "Iodine is used to identify starch in a food sample.",
+          "expected": 1,
+          "academicAdjudication": "pending"
+        },
+        {
+          "kind": "false-conclusion-unseen",
+          "answer": "Iodine is the protein test reagent, not the starch test reagent.",
+          "expected": 0,
+          "academicAdjudication": "pending"
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-benedict-s-solution-explain",
+      "rubricType": "additional-15",
+      "prompt": "In Food tests and laboratory safety, state the precise Year 8 meaning, role or function of Benedict's solution.",
+      "sourceMarkPoints": [
+        "the reagent heated in a water bath to test for reducing sugar"
+      ],
+      "expectedMarks": 1,
+      "holdout": [
+        {
+          "kind": "full-paraphrase-unseen",
+          "answer": "Benedict's reagent is used with a warm water bath to check for reducing sugars.",
+          "expected": 1,
+          "academicAdjudication": "pending"
+        },
+        {
+          "kind": "false-conclusion-unseen",
+          "answer": "Benedict's reagent is used cold to test for fat.",
+          "expected": 0,
+          "academicAdjudication": "pending"
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-biuret-solution-explain",
+      "rubricType": "additional-15",
+      "prompt": "In Food tests and laboratory safety, state the precise Year 8 meaning, role or function of Biuret solution.",
+      "sourceMarkPoints": [
+        "the reagent used to test for protein"
+      ],
+      "expectedMarks": 1,
+      "holdout": [
+        {
+          "kind": "full-paraphrase-unseen",
+          "answer": "Biuret reagent identifies protein in food extracts.",
+          "expected": 1,
+          "academicAdjudication": "pending"
+        },
+        {
+          "kind": "false-conclusion-unseen",
+          "answer": "Biuret reagent identifies starch rather than protein.",
+          "expected": 0,
+          "academicAdjudication": "pending"
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-brick-red-explain",
+      "rubricType": "additional-15",
+      "prompt": "In Food tests and laboratory safety, state the precise Year 8 meaning, role or function of brick-red.",
+      "sourceMarkPoints": [
+        "a strong positive Benedict's result for reducing sugar after heating"
+      ],
+      "expectedMarks": 1,
+      "holdout": [
+        {
+          "kind": "full-paraphrase-unseen",
+          "answer": "A red-orange precipitate is a strong positive heated Benedict's result for reducing sugar.",
+          "expected": 1,
+          "academicAdjudication": "pending"
+        },
+        {
+          "kind": "false-conclusion-unseen",
+          "answer": "Brick-red is the positive iodine result for protein.",
+          "expected": 0,
+          "academicAdjudication": "pending"
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-water-bath-explain",
+      "rubricType": "additional-15",
+      "prompt": "State two points about a water bath in food tests: what it is used for, and whether the ethanol emulsion test heats ethanol.",
+      "sourceMarkPoints": [
+        "heats Benedict's test evenly in hot water",
+        "the ethanol emulsion test does not heat the ethanol"
+      ],
+      "expectedMarks": 2,
+      "holdout": [
+        {
+          "kind": "full-paraphrase-unseen",
+          "answer": "A hot-water bath heats the Benedict's mixture evenly, whereas the ethanol emulsion procedure does not heat ethanol.",
+          "expected": 2,
+          "academicAdjudication": "pending"
+        },
+        {
+          "kind": "false-conclusion-unseen",
+          "answer": "The ethanol emulsion test needs ethanol heated, while the Benedict's test is done without warming.",
+          "expected": 0,
+          "academicAdjudication": "pending"
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-app-ethanol-safety",
+      "rubricType": "additional-15",
+      "prompt": "Explain why ethanol must not be heated over a naked flame, and state how the ethanol emulsion test is carried out.",
+      "sourceMarkPoints": [
+        "ethanol is highly flammable",
+        "shake the sample with ethanol, then add water, without heating the ethanol"
+      ],
+      "expectedMarks": 2,
+      "holdout": [
+        {
+          "kind": "full-paraphrase-unseen",
+          "answer": "Ethanol is flammable so keep sources of ignition away; to test for lipid mix with ethanol and add the extract to water without heating it.",
+          "expected": 2,
+          "academicAdjudication": "pending"
+        },
+        {
+          "kind": "false-conclusion-unseen",
+          "answer": "Ethanol is not flammable, so there is no need for precautions when using it.",
+          "expected": 0,
+          "academicAdjudication": "pending"
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-biuret-control",
+      "rubricType": "additional-15",
+      "prompt": "A pupil tests an unknown food extract with Biuret reagent. What control sample could they use and why?",
+      "sourceMarkPoints": [
+        "use water as a negative control",
+        "it should stay blue to check for contamination"
+      ],
+      "expectedMarks": 2,
+      "holdout": [
+        {
+          "kind": "full-paraphrase-unseen",
+          "answer": "Use distilled water as the Biuret negative control; it should stay blue if uncontaminated.",
+          "expected": 2,
+          "academicAdjudication": "pending"
+        },
+        {
+          "kind": "false-conclusion-unseen",
+          "answer": "Egg white is a negative Biuret control, because it contains no protein.",
+          "expected": 0,
+          "academicAdjudication": "pending"
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-repeatability",
+      "rubricType": "additional-15",
+      "prompt": "The same food sample is tested three times for reducing sugar. Give two conditions that must remain the same.",
+      "sourceMarkPoints": [
+        "use the same volume or mass of food extract",
+        "keep the heating time or water bath temperature the same"
+      ],
+      "expectedMarks": 2,
+      "holdout": [
+        {
+          "kind": "full-paraphrase-unseen",
+          "answer": "Keep the extract volume, water-bath temperature, and heating time identical in each reducing-sugar test.",
+          "expected": 2,
+          "academicAdjudication": "pending"
+        },
+        {
+          "kind": "false-conclusion-unseen",
+          "answer": "Changing the sample quantity and the heating duration makes a fair comparison.",
+          "expected": 0,
+          "academicAdjudication": "pending"
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-ethanol-ventilation",
+      "rubricType": "additional-15",
+      "prompt": "State two safety precautions when carrying out an ethanol emulsion test.",
+      "sourceMarkPoints": [
+        "keep ethanol away from naked flames because it is flammable",
+        "wear safety goggles to protect eyes"
+      ],
+      "expectedMarks": 2,
+      "holdout": [
+        {
+          "kind": "full-paraphrase-unseen",
+          "answer": "Keep ethanol away from ignition sources, and use safety goggles for the procedure.",
+          "expected": 2,
+          "academicAdjudication": "pending"
+        },
+        {
+          "kind": "false-conclusion-unseen",
+          "answer": "Eye protection is unnecessary and keeping ignition sources nearby makes no difference.",
+          "expected": 0,
+          "academicAdjudication": "pending"
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-fair-amount",
+      "rubricType": "additional-15",
+      "prompt": "Two bread samples are compared using iodine. Explain why equal masses of each sample should be tested.",
+      "sourceMarkPoints": [
+        "the amount of sample is a control variable",
+        "different masses could make the comparison unfair"
+      ],
+      "expectedMarks": 2,
+      "holdout": [
+        {
+          "kind": "full-paraphrase-unseen",
+          "answer": "Equal masses control the amount of bread sampled, making the starch-test comparison fairer.",
+          "expected": 2,
+          "academicAdjudication": "pending"
+        },
+        {
+          "kind": "false-conclusion-unseen",
+          "answer": "One large bread sample and one tiny sample form an equally fair comparison.",
+          "expected": 0,
+          "academicAdjudication": "pending"
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-sugar-strength",
+      "rubricType": "additional-15",
+      "prompt": "Two equal volumes of food extract are mixed with equal volumes of fresh Benedict's solution and heated for the same time in the same hot-water bath. One gives a green precipitate and the other a brick-red precipitate. Explain what this suggests about the relative reducing-sugar concentrations and one limitation of the comparison.",
+      "sourceMarkPoints": [
+        "With these controlled conditions, brick-red suggests a greater reducing-sugar concentration than green.",
+        "The colour result gives only a rough comparison, not an exact concentration."
+      ],
+      "expectedMarks": 2,
+      "holdout": [
+        {
+          "kind": "full-paraphrase-unseen",
+          "answer": "With identical preparation and heating, a brick-red result suggests more reducing sugar than a green result, but does not give an exact concentration.",
+          "expected": 2,
+          "academicAdjudication": "pending"
+        },
+        {
+          "kind": "false-conclusion-unseen",
+          "answer": "Green proves more reducing sugar than brick-red, and the colour reveals the exact concentration.",
+          "expected": 0,
+          "academicAdjudication": "pending"
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-temperature-safety",
+      "rubricType": "additional-15",
+      "prompt": "Give two reasons for heating Benedict's mixture in a water bath instead of holding a test tube in a direct flame.",
+      "sourceMarkPoints": [
+        "a water bath provides more even or controlled heating",
+        "indirect heating lowers the risk of splashing or overheating"
+      ],
+      "expectedMarks": 2,
+      "holdout": [
+        {
+          "kind": "full-paraphrase-unseen",
+          "answer": "A hot-water bath heats more evenly and lowers the chance of local overheating or splashing compared with direct heating.",
+          "expected": 2,
+          "academicAdjudication": "pending"
+        },
+        {
+          "kind": "false-conclusion-unseen",
+          "answer": "Direct heating gives perfectly even temperature and removes splash risk.",
+          "expected": 0,
+          "academicAdjudication": "pending"
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-test-plan",
+      "rubricType": "additional-15",
+      "prompt": "A food manufacturer wants to check whether a biscuit contains starch and fat. Name the two tests and a positive observation for each.",
+      "sourceMarkPoints": [
+        "iodine test for starch gives blue-black",
+        "ethanol emulsion test for fat gives cloudy white"
+      ],
+      "expectedMarks": 2,
+      "holdout": [
+        {
+          "kind": "full-paraphrase-unseen",
+          "answer": "For starch use iodine and look for blue-black; for lipid use the ethanol emulsion method and look for cloudy white.",
+          "expected": 2,
+          "academicAdjudication": "pending"
+        },
+        {
+          "kind": "false-conclusion-unseen",
+          "answer": "Biuret gives the blue-black starch result and iodine gives the white lipid emulsion.",
+          "expected": 0,
+          "academicAdjudication": "pending"
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat",
+      "rubricType": "additional-15",
+      "prompt": "A sample turns Biuret reagent purple but produces no white emulsion. Explain both observations.",
+      "sourceMarkPoints": [
+        "purple Biuret is a positive test for protein",
+        "no cloudy emulsion means lipid was not detected"
+      ],
+      "expectedMarks": 2,
+      "holdout": [
+        {
+          "kind": "full-paraphrase-unseen",
+          "answer": "Biuret turning purple indicates protein, while an emulsion that stays clear means lipid was not detected.",
+          "expected": 2,
+          "academicAdjudication": "pending"
+        },
+        {
+          "kind": "false-conclusion-unseen",
+          "answer": "Purple Biuret proves the presence of lipid, while a clear emulsion proves that protein is absent.",
+          "expected": 0,
+          "academicAdjudication": "pending"
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-uncertain-emulsion",
+      "rubricType": "additional-15",
+      "prompt": "A tube goes cloudy after ethanol and water, but the clean water control also goes cloudy. Explain the concern and a remedy.",
+      "sourceMarkPoints": [
+        "the control suggests contamination or a problem with reagents",
+        "repeat using fresh clean equipment and reagents"
+      ],
+      "expectedMarks": 2,
+      "holdout": [
+        {
+          "kind": "full-paraphrase-unseen",
+          "answer": "A cloudy water blank suggests contamination or a problem with the materials; repeat the blank and sample using clean equipment and fresh reagents.",
+          "expected": 2,
+          "academicAdjudication": "pending"
+        },
+        {
+          "kind": "false-conclusion-unseen",
+          "answer": "A cloudy negative control proves the food has lipid, so no repeat is necessary.",
+          "expected": 0,
+          "academicAdjudication": "pending"
+        }
+      ]
+    }
+  ]
+}
