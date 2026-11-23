@@ -1,10 +1,10 @@
 {
   "type": "Food Tests independent academic content QA register (AI-assisted, NOT qualified teacher approval)",
-  "revision": "2026-11-23-r1",
-  "basis": "PR #308, head c923a2f145f4d77b6875ecffbd34a96464947d33",
+  "revision": "2026-11-23-r2-source-fixes-qa-only",
+  "basis": "Draft PR #308, source academic repairs 0e5d1a6 and 21c437f (QA-only)",
   "topic": "bio-y8-food-tests",
   "sourcePath": "content/topics/bio-y8-food-tests.json",
-  "sourceSHA": "f86ce073d8805cb8a56a0048ba290c0c8a90cadb",
+  "sourceSHA": "938b1430b058c49f7a53d391ee3a52198f52662c",
   "reviewType": "scientific source alignment, answer reliability, degree of duplicate patterning, formative-vs-formal marking, safety, scope and structured-candidate question quality",
   "not": [
     "release approval",
@@ -12,7 +12,8 @@
     "qualified external science teacher verification",
     "permission to merge or deploy",
     "approval of any source question",
-    "approval of any 99-point candidate"
+    "approval of any 99-point candidate",
+    "any academic approval merely because source or distractor was revised"
   ],
   "academicApproved": 0,
   "formalCreditEligible": 0,
@@ -73,7 +74,20 @@
       "REPEATED_RESULT_PATTERN": 48,
       "UNCONTROLLED_BENEDICT_COLOUR_COMPARISON": 1,
       "NEGATIVE_CONTROL_NOT_STATED": 1
-    }
+    },
+    "sourceQuestionCorrectionsAppliedInQAOnly": [
+      "bio-y8-app-food-test-match",
+      "bio-y8-food-tests-application-20261025-sugar-strength",
+      "bio-y8-food-tests-application-20261025-all-negative"
+    ],
+    "structuredPointsRevisedAwaitingIndependentAssessment": [
+      32,
+      39,
+      45,
+      72,
+      75
+    ],
+    "issuesAreHistoricalFindings": true
   },
   "unresolvedFormalScoringEvidence": [
     {
@@ -1089,7 +1103,7 @@
       "ordinal": 31,
       "questionId": "bio-y8-app-food-test-match",
       "format": "matching",
-      "sourcePrompt": "Match each food substance to its reagent and positive result.",
+      "sourcePrompt": "Match each nutrient to its food-test reagent and positive result. Award one mark for each complete pairing (4 marks).",
       "sourceAcceptedAnswer": null,
       "sourceMarkPoints": null,
       "scienceKnowledgeStatus": "concept-consistent-on-first-review",
@@ -1105,7 +1119,8 @@
         {
           "severity": "critical",
           "code": "EIGHT_MARKS_FOUR_PAIRS",
-          "detail": "Source advertises 8 total marks for four compound pairs. UI currently requests only four choices; change to four marks or split each compound choice into independently marked reagent and result."
+          "detail": "Source advertises 8 total marks for four compound pairs. UI currently requests only four choices; change to four marks or split each compound choice into independently marked reagent and result.",
+          "fixStatus": "source-definition-corrected-not-academically-approved"
         }
       ],
       "recommendations": [
@@ -1115,10 +1130,19 @@
         {
           "check": "verified four food test pairings against reagent-to-substance and observation mapping",
           "pairCount": 4,
-          "totalMarks": 8
+          "totalMarks": 4
+        },
+        {
+          "check": "exact QA-only source repair",
+          "prompt": "Match each nutrient to its food-test reagent and positive result. Award one mark for each complete pairing (4 marks).",
+          "markPoints": null,
+          "totalMarks": 4,
+          "releaseApproval": 0
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "currentQAStatus": "REVISED_IN_DRAFT_BRANCH_AWAITING_INDEPENDENT_SCORER_AND_CURRICULUM_REVIEW",
+      "fixAppliedInQAOnly": true
     },
     {
       "ordinal": 32,
@@ -3738,11 +3762,11 @@
       "ordinal": 114,
       "questionId": "bio-y8-food-tests-application-20261025-sugar-strength",
       "format": "mark_points",
-      "sourcePrompt": "A pupil obtains green with one heated Benedict's sample and brick-red with another. Explain what this suggests and one limitation.",
+      "sourcePrompt": "Two equal volumes of food extract are mixed with equal volumes of fresh Benedict's solution and heated for the same time in the same hot-water bath. One gives a green precipitate and the other a brick-red precipitate. Explain what this suggests about the relative reducing-sugar concentrations and one limitation of the comparison.",
       "sourceAcceptedAnswer": null,
       "sourceMarkPoints": [
-        "brick-red suggests a greater amount of reducing sugar than green",
-        "the colour test gives an approximate result rather than an exact concentration"
+        "With these controlled conditions, brick-red suggests a greater reducing-sugar concentration than green.",
+        "The colour result gives only a rough comparison, not an exact concentration."
       ],
       "scienceKnowledgeStatus": "conditional-science-inference-needs-controlled-variables",
       "reviewDisposition": "REVISE_FREE_TEXT_AND_SCORER",
@@ -3757,7 +3781,8 @@
         {
           "severity": "major",
           "code": "UNCONTROLLED_BENEDICT_COLOUR_COMPARISON",
-          "detail": "Original stem does not state equal sample amount, reagent ratio and heating; a stronger colour alone is not a reliable quantity comparison."
+          "detail": "Original stem does not state equal sample amount, reagent ratio and heating; a stronger colour alone is not a reliable quantity comparison.",
+          "fixStatus": "source-definition-corrected-not-academically-approved"
         }
       ],
       "recommendations": [
@@ -3768,13 +3793,25 @@
         {
           "check": "human-readable original mark points checked against standard food-test method/safety/result knowledge",
           "points": [
-            "brick-red suggests a greater amount of reducing sugar than green",
-            "the colour test gives an approximate result rather than an exact concentration"
+            "With these controlled conditions, brick-red suggests a greater reducing-sugar concentration than green.",
+            "The colour result gives only a rough comparison, not an exact concentration."
           ],
           "pointCount": 2
+        },
+        {
+          "check": "exact QA-only source repair",
+          "prompt": "Two equal volumes of food extract are mixed with equal volumes of fresh Benedict's solution and heated for the same time in the same hot-water bath. One gives a green precipitate and the other a brick-red precipitate. Explain what this suggests about the relative reducing-sugar concentrations and one limitation of the comparison.",
+          "markPoints": [
+            "With these controlled conditions, brick-red suggests a greater reducing-sugar concentration than green.",
+            "The colour result gives only a rough comparison, not an exact concentration."
+          ],
+          "totalMarks": 2,
+          "releaseApproval": 0
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "currentQAStatus": "REVISED_IN_DRAFT_BRANCH_AWAITING_INDEPENDENT_SCORER_AND_CURRICULUM_REVIEW",
+      "fixAppliedInQAOnly": true
     },
     {
       "ordinal": 115,
@@ -3960,11 +3997,11 @@
       "ordinal": 120,
       "questionId": "bio-y8-food-tests-application-20261025-all-negative",
       "format": "mark_points",
-      "sourcePrompt": "An unknown sample gives four negative food tests. Explain what can and cannot be concluded.",
+      "sourcePrompt": "Positive and negative controls work correctly. An unknown sample gives negative results in the iodine, heated Benedict's, Biuret and ethanol emulsion tests. Explain what these results show and one limitation.",
       "sourceAcceptedAnswer": null,
       "sourceMarkPoints": [
-        "none of starch reducing sugar protein or lipid were detected by these tests",
-        "a negative test does not prove the food contains no nutrients of any kind"
+        "None of starch, reducing sugar, protein or lipid was detected under the test conditions.",
+        "The results do not prove that there are no nutrients: other nutrients or amounts below the detection limit may still be present."
       ],
       "scienceKnowledgeStatus": "concept-consistent-on-first-review",
       "reviewDisposition": "REVISE_FREE_TEXT_AND_SCORER",
@@ -3979,7 +4016,8 @@
         {
           "severity": "moderate",
           "code": "NEGATIVE_CONTROL_NOT_STATED",
-          "detail": "Clarify that controls worked, then conclude no target analytes detected, not absence of all nutrients."
+          "detail": "Clarify that controls worked, then conclude no target analytes detected, not absence of all nutrients.",
+          "fixStatus": "source-definition-corrected-not-academically-approved"
         }
       ],
       "recommendations": [
@@ -3990,13 +4028,25 @@
         {
           "check": "human-readable original mark points checked against standard food-test method/safety/result knowledge",
           "points": [
-            "none of starch reducing sugar protein or lipid were detected by these tests",
-            "a negative test does not prove the food contains no nutrients of any kind"
+            "None of starch, reducing sugar, protein or lipid was detected under the test conditions.",
+            "The results do not prove that there are no nutrients: other nutrients or amounts below the detection limit may still be present."
           ],
           "pointCount": 2
+        },
+        {
+          "check": "exact QA-only source repair",
+          "prompt": "Positive and negative controls work correctly. An unknown sample gives negative results in the iodine, heated Benedict's, Biuret and ethanol emulsion tests. Explain what these results show and one limitation.",
+          "markPoints": [
+            "None of starch, reducing sugar, protein or lipid was detected under the test conditions.",
+            "The results do not prove that there are no nutrients: other nutrients or amounts below the detection limit may still be present."
+          ],
+          "totalMarks": 2,
+          "releaseApproval": 0
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "currentQAStatus": "REVISED_IN_DRAFT_BRANCH_AWAITING_INDEPENDENT_SCORER_AND_CURRICULUM_REVIEW",
+      "fixAppliedInQAOnly": true
     },
     {
       "ordinal": 121,
@@ -5371,15 +5421,15 @@
       "pointId": "bio-y8-food-tests-application-20261025-cross-contamination::p1",
       "sourceId": "bio-y8-food-tests-application-20261025-cross-contamination",
       "stem": "How could glucose enter a sugar-free sample when a pipette is reused?",
-      "keyedChoice": "A drop from the previous glucose sample remains in the tip",
+      "keyedChoice": "The same pipette transfers a drop of glucose solution left from an earlier sample",
       "distractors": [
-        "The glass tip converts starch into glucose",
-        "Air in the pipette reacts with water to make glucose",
-        "The graduation marks release glucose into the liquid"
+        "The sugar-free extract is measured into a clean test tube with a clean pipette",
+        "The food extract and Benedict’s reagent are heated for the same time as a negative control",
+        "The reagent volume is held constant while clean pipettes are used between samples"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "REVISE_LOW_PLAUSIBILITY",
-      "concern": "At least one implausible/nonsensical wrong option can reward elimination rather than scientific understanding; rewrite all distractors and retest uniqueness.",
+      "distractorQuality": "REWRITTEN_QA_DRAFT_NEEDS_RETEST",
+      "concern": "Original implausible distractors replaced with proposed misconception options. Must test all three distractors and sole scientific key independently. NOT APPROVED.",
       "approved": false
     },
     {
@@ -5483,15 +5533,15 @@
       "pointId": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p2",
       "sourceId": "bio-y8-food-tests-application-20261025-benedict-hot-tube",
       "stem": "Why point the mouth of a heated test tube away from people?",
-      "keyedChoice": "Hot liquid may splash out in that direction",
+      "keyedChoice": "Hot liquid can spit or splash out towards whoever the tube faces",
       "distractors": [
-        "The reagent reacts faster when angled away",
-        "The angle prevents loss of water by evaporation",
-        "The colour is visible only from the closed end"
+        "It ensures the mixture stays at exactly the bath temperature",
+        "It prevents evaporation and therefore fixes the reagent concentration",
+        "It makes a positive colour change happen more quickly"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "REVISE_LOW_PLAUSIBILITY",
-      "concern": "At least one implausible/nonsensical wrong option can reward elimination rather than scientific understanding; rewrite all distractors and retest uniqueness.",
+      "distractorQuality": "REWRITTEN_QA_DRAFT_NEEDS_RETEST",
+      "concern": "Original implausible distractors replaced with proposed misconception options. Must test all three distractors and sole scientific key independently. NOT APPROVED.",
       "approved": false
     },
     {
@@ -5579,15 +5629,15 @@
       "pointId": "bio-y8-food-tests-application-20261025-fair-amount::p2",
       "sourceId": "bio-y8-food-tests-application-20261025-fair-amount",
       "stem": "Why would comparing a large piece of one bread with a crumb of another weaken the result?",
-      "keyedChoice": "The amounts of starch tested can differ because of portion size",
+      "keyedChoice": "Unequal sample sizes could affect the amount of starch tested, making colour comparisons less fair",
       "distractors": [
-        "The larger piece must contain a higher percentage of starch",
-        "The crumb will convert starch into reducing sugar",
-        "The larger piece supplies more iodine to the reaction"
+        "Equal mass guarantees both breads contain the same percentage of starch",
+        "Equal mass removes any need to control the volume of iodine reagent",
+        "Only the larger sample can give a positive iodine result even if both contain starch"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "REVISE_LOW_PLAUSIBILITY",
-      "concern": "At least one implausible/nonsensical wrong option can reward elimination rather than scientific understanding; rewrite all distractors and retest uniqueness.",
+      "distractorQuality": "REWRITTEN_QA_DRAFT_NEEDS_RETEST",
+      "concern": "Original implausible distractors replaced with proposed misconception options. Must test all three distractors and sole scientific key independently. NOT APPROVED.",
       "approved": false
     },
     {
@@ -6011,15 +6061,15 @@
       "pointId": "bio-y8-food-tests-application-20261025-recording::p1",
       "sourceId": "bio-y8-food-tests-application-20261025-recording",
       "stem": "Which table heading tells a reader how a recorded colour was produced?",
-      "keyedChoice": "Test or reagent used",
+      "keyedChoice": "Reagent or type of food test used",
       "distractors": [
-        "Pupil’s predicted nutrient",
-        "Time the table was copied",
-        "Position of the notebook"
+        "Nutrient the pupil expected to find",
+        "Colour of the food before any reagent was added",
+        "Name of the unknown food sample"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "REVISE_LOW_PLAUSIBILITY",
-      "concern": "At least one implausible/nonsensical wrong option can reward elimination rather than scientific understanding; rewrite all distractors and retest uniqueness.",
+      "distractorQuality": "REWRITTEN_QA_DRAFT_NEEDS_RETEST",
+      "concern": "Original implausible distractors replaced with proposed misconception options. Must test all three distractors and sole scientific key independently. NOT APPROVED.",
       "approved": false
     },
     {
@@ -6059,15 +6109,15 @@
       "pointId": "bio-y8-food-tests-application-20261025-inference::p2",
       "sourceId": "bio-y8-food-tests-application-20261025-inference",
       "stem": "What further information would help assess how a snack fits into a diet?",
-      "keyedChoice": "Nutrient amounts per serving and what else the person eats",
+      "keyedChoice": "Quantities of nutrients per serving and the rest of the person’s diet",
       "distractors": [
-        "Which brand of test tube held the extract",
-        "The order in which the two tests were written down",
-        "The number of pupils who saw the colour change"
+        "How many food tests gave a positive result, without nutrient quantities",
+        "Whether the food-test colour was lilac rather than orange",
+        "Whether the same test tube was used for the whole investigation"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "REVISE_LOW_PLAUSIBILITY",
-      "concern": "At least one implausible/nonsensical wrong option can reward elimination rather than scientific understanding; rewrite all distractors and retest uniqueness.",
+      "distractorQuality": "REWRITTEN_QA_DRAFT_NEEDS_RETEST",
+      "concern": "Original implausible distractors replaced with proposed misconception options. Must test all three distractors and sole scientific key independently. NOT APPROVED.",
       "approved": false
     },
     {
