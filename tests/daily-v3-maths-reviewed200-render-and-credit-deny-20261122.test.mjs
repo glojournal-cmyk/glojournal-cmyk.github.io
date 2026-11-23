@@ -27,7 +27,7 @@ test('all 200 reviewed redraft stems, all 1200 candidate options and all worked 
   assert.ok(typeof q.stem==='string'&&q.stem.trim().length>=10,q.sourceId);
   const rendered=mathsRichTextHTML(q.stem);
   assert.ok(rendered.length>0,q.sourceId+' blank stem');
-  assert.doesNotMatch(rendered,/<script\b|<iframe\b|https?:\/\//i,q.sourceId+' unsafe HTML');
+  assert.doesNotMatch(rendered,/<script\b|<iframe\b|<object\b|<embed\b|<img\b|<link\b|on\w+\s*=/i,q.sourceId+' unsafe HTML');
   stems++;
   assert.deepEqual(q.options.map(o=>o.id),letters,q.sourceId+' missing A–F');
   assert.equal(new Set(q.options.map(o=>o.latex.replace(/\s+/g,''))).size,6,
@@ -40,7 +40,7 @@ test('all 200 reviewed redraft stems, all 1200 candidate options and all worked 
    assert.ok(typeof choice.latex==='string'&&choice.latex.trim(),q.sourceId+' empty option '+choice.id);
    const html=mathsOptionHTML(choice);
    assert.match(html,/^<math xmlns=/,q.sourceId+' '+choice.id+' MathML');
-   assert.doesNotMatch(html,/<script\b|<iframe\b|https?:\/\//i,q.sourceId+' '+choice.id);
+   assert.doesNotMatch(html,/<script\b|<iframe\b|<object\b|<embed\b|<img\b|<link\b|on\w+\s*=/i,q.sourceId+' '+choice.id);
    if(choice.id!==q.correctOptionId)
     assert.ok(typeof choice.errorPath==='string'&&choice.errorPath.trim().length>=10,
       q.sourceId+' '+choice.id+' lacks provisional wrong-path explanation');
@@ -52,7 +52,7 @@ test('all 200 reviewed redraft stems, all 1200 candidate options and all worked 
    assert.ok(typeof step==='string'&&step.trim().length>=10,q.sourceId+' blank worked line');
    const html=mathsRichTextHTML(step);
    assert.ok(html.length>0,q.sourceId+' blank rendered line');
-   assert.doesNotMatch(html,/<script\b|<iframe\b|https?:\/\//i,q.sourceId+' unsafe worked step');
+   assert.doesNotMatch(html,/<script\b|<iframe\b|<object\b|<embed\b|<img\b|<link\b|on\w+\s*=/i,q.sourceId+' unsafe worked step');
    worked++;
   }
   assert.match(latexMathML(q.correctAnswerLatex),/^<math xmlns=/);
