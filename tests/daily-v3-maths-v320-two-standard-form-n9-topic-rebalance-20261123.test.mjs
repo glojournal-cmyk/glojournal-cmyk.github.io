@@ -124,3 +124,63 @@ test('mutating N9 final coefficient or physical constraints changes or invalidat
  assert.deepEqual(factory(changed).winners.map(x=>x.cost),[275]);
  assert.notEqual(factory(changed).winners[0].cost,250);
 });
+
+
+test('V321 single latest-review candidate per original Maths ID; five obsolete candidate versions cannot become extra Daily/Mastery rows',()=>{
+ const x=load('math-v321-v315-v318-v320-three-question-candidate-supersession-manifest-20261123.json');
+ const before315=load('math-v315-indices017-025-standard009-025-distinct-reasoning-candidates-20261123.json');
+ const previous318=load('math-v318-three-lower-demand-indices-standard-replacements-20261123.json');
+ assert.equal(x.kind,'V321_THREE_ORIGINAL_IDS_EIGHT_QA_CANDIDATE_VERSIONS_EXPLICIT_SUPERSESSION_NOT_IMPORT');
+ assert.equal(x.canonicalUnmodified,true);
+ assert.equal(x.counts.originalQuestions,3);
+ assert.equal(x.counts.candidateRevisions,8);
+ assert.equal(x.counts.latestCandidateRevisions,3);
+ assert.equal(x.counts.supersededCandidateRevisions,5);
+ assert.equal(x.counts.academicApprovals,0);
+ assert.equal(x.counts.dailyEligible,0);
+ assert.equal(x.counts.masteryEligible,0);
+ assert.equal(x.counts.distinctMasteryConceptsApproved,0);
+ assert.equal(x.releaseDecision,'BLOCKED_ZERO_IMPORT_ZERO_STUDENT_CREDIT');
+ const current=new Map(pack.questions.map(q=>[q.sourceId,q]));
+ const original=new Map(bank.questions.map(q=>[q.sourceId,q]));
+ const seen=new Set();let obsolete=0,active=0;
+ for(const row of x.rows){
+  assert.ok(!seen.has(row.sourceId));seen.add(row.sourceId);
+  const orig=original.get(row.sourceId);
+  assert.ok(orig);
+  assert.equal(orig.revisionId,row.originalRevisionId);
+  assert.equal(orig.correctOptionId,row.originalOptionKey);
+  assert.equal(orig.topicId,row.topicId);
+  assert.equal(orig.dailyEligible,false);
+  const history=[
+   before315.questions.find(q=>q.sourceId===row.sourceId),
+   previous318.questions.find(q=>q.sourceId===row.sourceId),
+   ...(current.has(row.sourceId)?[current.get(row.sourceId)]:[])
+  ];
+  assert.equal(history.length,row.candidateHistory.length);
+  for(const [i,q] of history.entries()){
+   assert.ok(q);
+   const version=row.candidateHistory[i];
+   assert.equal(q.revisionId,version.revisionId);
+   assert.equal(q.correctOptionId,version.correctOptionId);
+   assert.equal(q.correctAnswerLatex,version.correctAnswerLatex);
+   assert.equal(q.dailyEligible,false);
+   assert.equal(q.masteryEligible,false);
+   assert.equal(version.academicApproval,false);
+   assert.equal(version.dailyEligible,false);
+   assert.equal(version.masteryEligible,false);
+   if(i===history.length-1){
+    assert.equal(version.status,'LATEST_FOR_FURTHER_ACADEMIC_REVIEW_ONLY');active++;
+    assert.equal(row.latestReviewCandidateRevisionId,q.revisionId);
+   }else{
+    assert.equal(version.status,'SUPERSEDED_DO_NOT_IMPORT');obsolete++;
+   }
+  }
+  assert.equal(row.academicDecision,'HOLD');
+  assert.equal(row.maxCandidateVersionsForPossibleFutureImport,1);
+  assert.equal(row.studentMasteryCreditApproved,false);
+  assert.equal(row.dailyEligible,false);
+  assert.equal(row.masteryEligible,false);
+ }
+ assert.equal(seen.size,3);assert.equal(active,3);assert.equal(obsolete,5);
+});
