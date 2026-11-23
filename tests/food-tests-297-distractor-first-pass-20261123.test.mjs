@@ -13,7 +13,7 @@ test('all 99 source points and all 396 MCQ answer alternatives have exact held Q
  assert.equal(matrix.status,'QA_FIRST_PASS_NOT_INDEPENDENT_ACADEMIC_APPROVAL');
  assert.equal(matrix.questions.length,99);
  assert.equal(flat.length,99);
- assert.deepEqual(matrix.counts,{groups:99,sourceMarkPoints:99,options:396,proposedKeys:99,distractors:297,individualSpecificDistractorReasons:45,distractorNotesAtFamilyLevel:252,qualifiedApprovals:0});
+ assert.deepEqual(matrix.counts,{groups:99,sourceMarkPoints:99,options:396,proposedKeys:99,distractors:297,individualSpecificDistractorReasons:297,distractorNotesAtFamilyLevel:0,qualifiedApprovals:0});
  const ids=[];
  let wrong=0,individual=0;
  for(let n=0;n<99;n++){
@@ -44,13 +44,14 @@ test('all 99 source points and all 396 MCQ answer alternatives have exact held Q
    assert.ok(choice.reason.length>30);
    if(choice.choiceRole==='DISTRACTOR'){
     wrong++;
+    assert.equal(choice.reasonSpecificity,'INDIVIDUAL_SCIENCE_JUSTIFICATION','each wrong option must have its own rationale: '+choice.choiceId);
     if(choice.reasonSpecificity==='INDIVIDUAL_SCIENCE_JUSTIFICATION')individual++;
    }
   }
  }
  assert.equal(new Set(ids).size,396);
  assert.equal(wrong,297);
- assert.equal(individual,45);
+ assert.equal(individual,297);
  assert.equal(review.academicApproved,0);
  assert.equal(c.approved,0);
  assert.equal(matrix.approval.candidate99,0);
@@ -70,4 +71,15 @@ test('high-risk real-world true properties and laboratory safety are never misla
  assert.match(get(40,'C').reason,/peptide bonds/i);
  assert.match(get(75,'D').reason,/energy/i);
  for(const n of [14,40,41,75,92,93])assert.equal(matrix.questions[n-1].approved,false);
+});
+
+test('completed AI first-pass includes 297 reasoned distractors, not 297 teacher approvals',()=>{
+ const foils=matrix.questions.flatMap(x=>x.choices).filter(c=>c.choiceRole==='DISTRACTOR');
+ assert.equal(foils.length,297);
+ assert.ok(foils.every(c=>c.reasonSpecificity==='INDIVIDUAL_SCIENCE_JUSTIFICATION'));
+ assert.ok(foils.every(c=>c.reason.length>35));
+ assert.ok(foils.every(c=>c.independentQualifiedApproval===false));
+ assert.equal(matrix.counts.qualifiedApprovals,0);
+ assert.equal(matrix.counts.distractorNotesAtFamilyLevel,0);
+ assert.equal(matrix.approval.release,'BLOCKED');
 });
