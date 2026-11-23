@@ -156,6 +156,10 @@
     "additionalSourceAlignmentAndSafetyCorrectionsUnapproved": [
       61,
       93
+    ],
+    "additionalSourceClarityRevisionsPending": [
+      31,
+      45
     ]
   },
   "unresolvedFormalScoringEvidence": [
@@ -5842,7 +5846,7 @@
       "ordinal": 31,
       "pointId": "bio-y8-food-tests-application-20261025-repeatability::p2",
       "sourceId": "bio-y8-food-tests-application-20261025-repeatability",
-      "stem": "Equal portions of extract and Benedict’s reagent are ready. Which heating conditions support a fair comparison?",
+      "stem": "A pupil compares the final Benedict's colours from equal samples after heating. Which conditions must be the same for those endpoint colours to be compared fairly?",
       "keyedChoice": "Same bath temperature and same heating time",
       "distractors": [
         "Same bath temperature, removing each tube at its first colour change",
@@ -5850,8 +5854,8 @@
         "Same final colour, adjusting the bath for each tube"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "NOT_INDEPENDENTLY_SIGNED_OFF",
-      "concern": null,
+      "distractorQuality": "QA_DRAFT_SOURCE_CLARITY_REVISED_INDEPENDENT_REVIEW_PENDING",
+      "concern": "Previous open-ended 'fair comparison' could also mean fair time-to-first-colour comparison. Explicitly frame the endpoint as final colours after a matched heating interval. Await independent sole-correctness, distractor quality and scope review.",
       "approved": false
     },
     {
@@ -6066,16 +6070,16 @@
       "ordinal": 45,
       "pointId": "bio-y8-food-tests-application-20261025-fair-amount::p2",
       "sourceId": "bio-y8-food-tests-application-20261025-fair-amount",
-      "stem": "Why would comparing a large piece of one bread with a crumb of another weaken the result?",
-      "keyedChoice": "Unequal sample sizes could affect the amount of starch tested, making colour comparisons less fair",
+      "stem": "Two breads are tested with iodine using a large piece of one and a tiny crumb of the other. Why does this make the test conditions less comparable?",
+      "keyedChoice": "Different sample masses could affect the observed iodine result, so the samples should be prepared with equal measured masses.",
       "distractors": [
         "Equal mass guarantees both breads contain the same percentage of starch",
         "Equal mass removes any need to control the volume of iodine reagent",
         "Only the larger sample can give a positive iodine result even if both contain starch"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW",
-      "concern": "Distractors were revised to represent practical misconceptions; correct-key uniqueness is currently structural only. Verify each alternative's scientific falsehood, relevance and Year 8/9 taught scope independently.",
+      "distractorQuality": "QA_DRAFT_SOURCE_CLARITY_REVISED_INDEPENDENT_REVIEW_PENDING",
+      "concern": "Avoid implying iodine colour darkness gives a calibrated quantitative comparison of starch concentration; mass is a fair-test control, not a direct concentration readout. Await independent sole-correctness, distractor quality and scope review.",
       "approved": false
     },
     {
