@@ -562,11 +562,11 @@
       "originalSourceAnswer": "starch, protein, lipid",
       "format": "mc_single",
       "topicId": "bio-y8-food-tests",
-      "prompt": "Two equal glucose extracts are heated in water baths at different temperatures. Which adjustment would best improve fair comparison?",
+      "prompt": "Two equal-volume portions of the same glucose solution are heated with equal Benedict's reagent in water baths at different temperatures. Which adjustment gives the fairest comparison of reducing-sugar results?",
       "options": [
-        "Heat the lower-concentration extract longer to compensate for its lower bath temperature.",
-        "Change the volume of Benedict's solution in the cooler tube to obtain a similar colour.",
-        "Keep sample volume constant but allow the water-bath temperatures to vary.",
+        "Keep the different bath temperatures but record them, then compare the colours as if conditions were identical.",
+        "Use more Benedict's reagent in the cooler tube until its colour matches the warmer tube.",
+        "Heat both tubes for the same time but leave them in baths at different temperatures.",
         "Heat both tubes at the same controlled bath temperature."
       ],
       "answer": {
@@ -577,13 +577,14 @@
         "totalMarks": 1
       },
       "correctIndex": 3,
-      "scienceRationale": "Temperature is a controlled variable when comparing Benedict's reactions.",
+      "scienceRationale": "The glucose solution, sample volume, Benedict's volume and heating duration should be comparable; the bath temperatures must also match because temperature affects the colour reaction.",
       "academicReview": "pending",
       "distractorReview": "pending",
       "approved": false,
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
-      "sourceStatus": "proposed replacement; not imported"
+      "sourceStatus": "proposed replacement; not imported",
+      "reviewIssueResolvedInDraft": "Original stem described equal glucose extracts but a wrong option assumed a lower-concentration extract; all choices now respect the scenario."
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-3-4",
