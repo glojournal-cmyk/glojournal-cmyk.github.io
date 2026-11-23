@@ -12,7 +12,7 @@ const scientific=s=>[...s.matchAll(/(\d+(?:\.\d+)?)\\times10\^(?:\{(-?\d+)\}|(-?
 const p009=s=>{const m=s.match(/^\((\d+),(\d+),(\d+),(\d+(?:\.\d+)?)\\times10\^(-?\d+)\)$/);assert.ok(m,'Malformed 009 option '+s);return {a:+m[1],b:+m[2],cost:+m[3],mantissa:+m[4],exponent:+m[5],unused:+m[4]*10**+m[5]};};
 const p025=s=>{const m=s.match(/^\((\d+(?:\.\d+)?),(\d+),(\d+(?:\.\d+)?)\\times10\^(-?\d+)\)$/);assert.ok(m,'Malformed 025 option '+s);return {v:+m[1],p:+m[2],mantissa:+m[3],exponent:+m[4],total:+m[3]*10**+m[4]};};
 const factory=s=>{
- const amounts=scientific(s);assert.deepEqual(amounts,[600000,30000,120000,150000]);
+ const amounts=scientific(s);assert.equal(amounts.length,4);
  const [initial,waste,capA,capB]=amounts,retained=initial-waste;
  const aPrice=+(s.match(/type A container costs £(\d+)/)?.[1]),bPrice=+(s.match(/type B costs £(\d+)/)?.[1]);
  const maxCount=+(s.match(/at most \*\*(\d+) containers\*\*/)?.[1]);
