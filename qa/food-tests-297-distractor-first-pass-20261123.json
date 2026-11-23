@@ -21,8 +21,8 @@
     "options": 396,
     "proposedKeys": 99,
     "distractors": 297,
-    "individualSpecificDistractorReasons": 210,
-    "distractorNotesAtFamilyLevel": 87,
+    "individualSpecificDistractorReasons": 297,
+    "distractorNotesAtFamilyLevel": 0,
     "qualifiedApprovals": 0
   },
   "limits": [
@@ -3772,8 +3772,8 @@
           "text": "Starch was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The iodine tube stayed brown, so the scenario does not show starch detected.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3785,8 +3785,8 @@
           "text": "Protein was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "An orange heated Benedict precipitate does not identify protein; Biuret would be required.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3811,8 +3811,8 @@
           "text": "Lipid was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "An orange heated Benedict precipitate does not identify lipid; the emulsion test is separate.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -3842,8 +3842,8 @@
           "text": "Reducing sugar was not detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Iodine remaining orange-brown does not report a Benedict reducing-sugar result.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3855,8 +3855,8 @@
           "text": "Starch was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Unchanged orange-brown iodine is not evidence of starch being detected.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3868,8 +3868,8 @@
           "text": "Protein was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Iodine does not test protein, so detection of protein does not follow from this result.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3912,8 +3912,8 @@
           "text": "Reducing sugar was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Heated Benedict's stayed blue, so reducing sugar was not detected; the lilac colour belongs to protein.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3938,8 +3938,8 @@
           "text": "Starch was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Biuret lilac does not identify starch; iodine is the starch test.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3951,8 +3951,8 @@
           "text": "Lipid was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Biuret lilac does not identify lipid; an ethanol-water emulsion is used for lipid.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -3982,8 +3982,8 @@
           "text": "Reducing sugar was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A correctly heated Benedict's solution remaining blue is a negative reducing-sugar observation.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4008,8 +4008,8 @@
           "text": "Protein was not detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The separate positive protein test contradicts the claim that protein was not detected.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4021,8 +4021,8 @@
           "text": "Starch was not detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Benedict's blue does not establish whether starch was detected; iodine testing is needed.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -4052,8 +4052,8 @@
           "text": "Protein was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A milky ethanol-water emulsion gives evidence for lipid, not protein.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4078,8 +4078,8 @@
           "text": "Starch was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The separate iodine test stayed brown, so starch was not detected, not positively detected.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4091,8 +4091,8 @@
           "text": "Reducing sugar was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The emulsion observation cannot establish reducing sugar; heated Benedict's would test that.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -4122,8 +4122,8 @@
           "text": "Lipid was not detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A positive lipid test directly contradicts a claim that lipid was not detected.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4135,8 +4135,8 @@
           "text": "Starch was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Iodine remaining orange-brown is the negative starch endpoint.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4148,8 +4148,8 @@
           "text": "Reducing sugar was not detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Iodine does not test for reducing sugar, so that absence cannot be inferred from it.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4472,8 +4472,8 @@
           "text": "To show that the pipette is free from residue",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A label associates the tube with its sample but cannot show whether a pipette is uncontaminated.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4485,8 +4485,8 @@
           "text": "To standardise the temperature of each mixture",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Labelling is an identification control, not a temperature-standardising method.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4498,8 +4498,8 @@
           "text": "To ensure equal volumes in the tubes",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Writing a label on a tube cannot dispense or guarantee equal sample volumes.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4555,8 +4555,8 @@
           "text": "To dispense the same reagent volume",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Clean glassware avoids carry-over but does not itself dispense a measured reagent volume.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4568,8 +4568,8 @@
           "text": "To keep the mass of each sample constant",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Tube cleanliness does not guarantee equal sample masses.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4581,8 +4581,8 @@
           "text": "To bring each extract to the same temperature",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Using a clean tube does not itself set the sample temperature.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -4612,8 +4612,8 @@
           "text": "They neutralise liquid in the test tube",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Splash goggles form a physical eye barrier; they do not chemically neutralise substances in the test tube.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4625,8 +4625,8 @@
           "text": "They prevent droplets forming at the pipette tip",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Goggles do not prevent drops forming on a pipette or at its tip.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4651,8 +4651,8 @@
           "text": "They reduce the pressure inside the pipette",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Eye protection does not change air or liquid pressure inside a pipette.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -4682,8 +4682,8 @@
           "text": "Expel it rapidly onto the liquid surface",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Rapidly expelling liquid onto a surface increases the risk of spitting or splashing.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4708,8 +4708,8 @@
           "text": "Hold the tip high above the mouth of the tube",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Dispensing from high above the tube increases rather than reduces drop impact and splashing.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4721,8 +4721,8 @@
           "text": "Blow air through the pipette into the liquid",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Blowing air through a pipette into liquid is not controlled splash-reducing practice.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -4765,8 +4765,8 @@
           "text": "Bath temperature setting",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Both samples used the same bath, so its temperature setting was not the variable deliberately changed.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4778,8 +4778,8 @@
           "text": "Identity of the reagent",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Heating duration does not change the identity of the reagent used in each sample.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4791,8 +4791,8 @@
           "text": "Starting reagent concentration",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Changing heating time does not by itself change the starting stock reagent concentration.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -4822,8 +4822,8 @@
           "text": "The paler result measures the original sample volume",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The depth or paleness of a Benedict colour is not a direct measure of originally dispensed sample volume.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4835,8 +4835,8 @@
           "text": "A longer heating time identifies the particular sugar present",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Heating for longer does not identify which reducing sugar is present.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4861,8 +4861,8 @@
           "text": "The heating time converts the colour scale into exact concentrations",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Heating time variation is a confounding factor, not a calibrated exact concentration scale.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -4892,8 +4892,8 @@
           "text": "Its label confirms it is safe to eat",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not address the stated ignition, ingestion or eye hazard with the correct cause, procedure or precaution.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A familiar original food label cannot guarantee safety after exposure to lab reagents and equipment.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4905,8 +4905,8 @@
           "text": "Its colour indicates a safe tasting dose",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not address the stated ignition, ingestion or eye hazard with the correct cause, procedure or precaution.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The colour of a practical sample cannot establish a safe tasting dose.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4931,8 +4931,8 @@
           "text": "A negative starch test demonstrates chemical purity",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not address the stated ignition, ingestion or eye hazard with the correct cause, procedure or precaution.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A negative iodine test only addresses starch detection, not chemical purity or ingestibility.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -4962,8 +4962,8 @@
           "text": "Taste a drop before adding any reagent",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not address the stated ignition, ingestion or eye hazard with the correct cause, procedure or precaution.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A laboratory sample must not be tasted, even before adding reagent to that portion.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4988,8 +4988,8 @@
           "text": "Compare its flavour with a known sugar solution",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not address the stated ignition, ingestion or eye hazard with the correct cause, procedure or precaution.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Flavour comparison requires tasting lab materials and is not an acceptable food-test procedure.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -5001,8 +5001,8 @@
           "text": "Taste a diluted portion after a negative result",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not address the stated ignition, ingestion or eye hazard with the correct cause, procedure or precaution.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A negative food-test observation cannot make chemically handled liquid safe to drink or taste.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -5032,8 +5032,8 @@
           "text": "Nutrient the pupil expected to find",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "An expected nutrient is a hypothesis, not a heading identifying the actual reagent or test used.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -5045,8 +5045,8 @@
           "text": "Colour of the food before any reagent was added",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The original food colour does not tell the reader which chemical produced the later test colour.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -5071,8 +5071,8 @@
           "text": "Name of the unknown food sample",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The unknown-sample name identifies the specimen rather than the reagent and test method.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -5115,8 +5115,8 @@
           "text": "Biuret used; test completed",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Recording that Biuret was used gives the method but omits the observed colour and nutrient conclusion.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -5128,8 +5128,8 @@
           "text": "Protein expected; snack looked nutritious",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "An expectation of protein and a general appearance are neither the recorded Biuret result nor supported nutrient inference.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -5141,8 +5141,8 @@
           "text": "Positive; prediction confirmed",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Calling an outcome positive without the observed colour and its interpreted nutrient is incomplete evidence.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -5732,8 +5732,8 @@
           "text": "Lipid",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Purple Biuret is evidence of protein and not a specific lipid observation.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -5758,8 +5758,8 @@
           "text": "Starch",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Purple Biuret does not test starch, which uses iodine.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -5771,8 +5771,8 @@
           "text": "Reducing sugar",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Purple Biuret does not test reducing sugar, which requires heated Benedict's.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -5815,8 +5815,8 @@
           "text": "Protein was not detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The separate protein-positive test contradicts a claim that protein was not detected.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -5828,8 +5828,8 @@
           "text": "Lipid was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A clear ethanol-water emulsion with working controls does not show lipid detected.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -5841,8 +5841,8 @@
           "text": "Starch was not detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The lipid emulsion result alone does not show starch absent; iodine would be needed.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -5885,8 +5885,8 @@
           "text": "The drink must contain starch",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The observation does not justify an exact nutrient quantity, unrelated nutrient claim, or whole-diet assessment without additional controlled evidence.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A negative reducing-sugar result does not establish the presence of starch.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -5898,8 +5898,8 @@
           "text": "The drink contains no sweet-tasting substances",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The observation does not justify an exact nutrient quantity, unrelated nutrient claim, or whole-diet assessment without additional controlled evidence.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The scenario expressly says the drink tastes sweet; negative Benedict's cannot refute that observation.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -5911,8 +5911,8 @@
           "text": "The drink contains no dissolved sugars of any type",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The observation does not justify an exact nutrient quantity, unrelated nutrient claim, or whole-diet assessment without additional controlled evidence.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The reducing-sugar test does not rule out non-reducing or other dissolved sugars.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -5942,8 +5942,8 @@
           "text": "Sweetness shows that the drink contains protein",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The observation does not justify an exact nutrient quantity, unrelated nutrient claim, or whole-diet assessment without additional controlled evidence.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Sweet taste is not chemical evidence of protein detected by Biuret.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -5955,8 +5955,8 @@
           "text": "All sweet substances are reducing sugars at room temperature",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The observation does not justify an exact nutrient quantity, unrelated nutrient claim, or whole-diet assessment without additional controlled evidence.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Not every sweet substance is a reducing sugar; sucrose can be sweet without a positive direct Benedict's response.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -5981,8 +5981,8 @@
           "text": "Sweetness measures the concentration of reducing sugar directly",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The observation does not justify an exact nutrient quantity, unrelated nutrient claim, or whole-diet assessment without additional controlled evidence.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Taste alone does not give a quantitative concentration of reducing sugar.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -6025,8 +6025,8 @@
           "text": "Reducing sugar",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Iodine tests starch rather than the reducing sugar identified by heated Benedict's.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6038,8 +6038,8 @@
           "text": "Protein",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Iodine's orange-brown outcome cannot determine protein; use Biuret.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6051,8 +6051,8 @@
           "text": "Lipid",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Iodine is not the ethanol-water lipid emulsion test.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -6095,8 +6095,8 @@
           "text": "Benedict’s solution",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Benedict's is used for reducing sugar, not the separate untested protein claim.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6108,8 +6108,8 @@
           "text": "Ethanol",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Ethanol can extract lipid but is not the standard reagent for confirming protein in a new portion.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6121,8 +6121,8 @@
           "text": "Iodine solution",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Repeating iodine would investigate starch again, not resolve the untested protein claim.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -6292,8 +6292,8 @@
           "text": "After cooling the mixture to freezing",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Iodine testing does not require freezing the food sample before colour observation.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6305,8 +6305,8 @@
           "text": "Just below boiling in a hot-water bath",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A heated water bath is standard for Benedict's sugar test, not iodine starch testing.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6331,8 +6331,8 @@
           "text": "While warming the sample over a burner",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Direct burner heating is unnecessary for an iodine starch test and adds a safety risk.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -6362,8 +6362,8 @@
           "text": "Add iodine solution and look for lilac",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Iodine positive starch produces blue-black rather than lilac.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6388,8 +6388,8 @@
           "text": "Heat with Benedict’s and look for green",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Green after heated Benedict's is evidence for reducing sugar, not a starch-specific result.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6401,8 +6401,8 @@
           "text": "Mix with Biuret reagent and look for blue",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Biuret remaining blue indicates a negative protein test, not positive starch detection.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -6642,8 +6642,8 @@
           "text": "Starch was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A positive purple Biuret reaction supports protein, not starch.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6655,8 +6655,8 @@
           "text": "Lipid was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Purple Biuret is not evidence of lipid; the emulsion test is separate.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6668,8 +6668,8 @@
           "text": "Reducing sugar was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Purple Biuret cannot establish reducing sugar; heated Benedict's is needed.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6712,8 +6712,8 @@
           "text": "Lipid was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A clear, correctly controlled ethanol-water mixture is a negative rather than positive lipid endpoint.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6725,8 +6725,8 @@
           "text": "Protein was not detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "An emulsion test does not establish protein absence; Biuret is a separate assay.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6751,8 +6751,8 @@
           "text": "Starch was not detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A lipid emulsion test cannot establish starch absence; iodine is needed.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -6782,8 +6782,8 @@
           "text": "Starch was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Heated Benedict's orange precipitate is evidence for reducing sugar, not starch.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6808,8 +6808,8 @@
           "text": "Protein was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "An orange heated Benedict precipitate is not a positive protein Biuret result.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6821,8 +6821,8 @@
           "text": "Lipid was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "An orange heated Benedict precipitate is not the ethanol-water lipid emulsion endpoint.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -6852,8 +6852,8 @@
           "text": "Reducing sugar was not detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Orange-brown iodine does not establish that reducing sugar is absent; heated Benedict testing is needed.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6865,8 +6865,8 @@
           "text": "Starch was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Unchanged orange-brown iodine is a negative rather than positive starch observation.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6891,8 +6891,8 @@
           "text": "Lipid was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Iodine remaining brown does not provide evidence for lipid detection.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -6922,8 +6922,8 @@
           "text": "Reducing sugar was not detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "An unchanged blue Biuret result does not report the result of a separate Benedict reducing-sugar test.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6935,8 +6935,8 @@
           "text": "Protein was detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Biuret reagent staying blue does not support protein detected; purple/lilac is the positive endpoint.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6948,8 +6948,8 @@
           "text": "Lipid was not detected",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Biuret reagent staying blue does not report an ethanol-water lipid test result.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6969,6 +6969,6 @@
       ]
     }
   ],
-  "revision": "2026-11-23 third pass: science rationales for food-test reagent/result items",
-  "additionalReviewNote": "210 distractors now have individual source-contextual scientific justifications; 87 remaining family-level exclusions need tailored reasoning and independent sole-key adjudication."
+  "revision": "2026-11-23 fourth pass: every proposed distractor has a source-linked specific AI science reason",
+  "additionalReviewNote": "All 297 distractors now carry individually worded preliminary scientific exclusion explanations. These are AI-only first-pass judgments, NOT independently qualified academic signoff, not learner testing, and not evidence of TGS taught scope."
 }
