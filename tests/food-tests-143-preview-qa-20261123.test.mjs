@@ -83,3 +83,16 @@ test('48 replacement previews cannot inherit unrelated legacy indicator Daily gr
  const ethanolSafety=replacementsInPreview.find(q=>q.id==='bio-y8-food-tests-case-20261025-4-1');
  assert.equal(ethanolSafety.reviewDraft.proposedDiagnosticSkill,'lab-safety');
 });
+
+
+test('cross-bank duplicate replacement preview skill tags stay pending and truthful',()=>{
+ for(const [suffix,skill] of [['3-7','observation-quality'],['4-11','repeatability']]){
+  const q=revised.find(x=>x.id==='bio-y8-food-tests-case-20261025-'+suffix);
+  assert.equal(q.reviewDraft.proposedDiagnosticSkill,skill);
+  assert.equal(q.reviewDraft.dailyConceptMappingStatus,'PENDING_NEW_SKILL_GROUP_REVIEW');
+  assert.equal(q.dailyConceptGroup,null);
+  assert.equal(q.academicApproved,false);
+  assert.equal(q.formalCreditEligible,false);
+ }
+ assert.deepEqual(preview.replacementDiagnosticClassification.crossPoolDuplicateCorrectionsDraftOnly,['3-7','4-11']);
+});
