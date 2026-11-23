@@ -116,6 +116,12 @@ function q18(q){
   for(const x of xSamples){
    const y=(S.a*x+S.b)/(x+S.d);
    const value=valueOf(inverse,{y});
+   if(option.id==='C'&&!Number.isFinite(value)){
+    // Incorrect reciprocal introduces a pole at valid x=0 (y=5/2).
+    assert.ok(near(S.d*y-S.b,0),'Unexpected wrong reciprocal pole');
+    values.push({x,y,value});
+    continue;
+   }
    assert.ok(Number.isFinite(value));
    values.push({x,y,value});
   }
@@ -126,8 +132,15 @@ function q18(q){
     :option.id==='C'
     ?y=>(S.a-y)/(S.d*y-S.b)
     :expectedInverse;
-  for(const probe of values)assert.ok(near(probe.value,expectedFormula(probe.y)),
+  for(const probe of values){
+   const modelValue=expectedFormula(probe.y);
+   if(option.id==='C'&&!Number.isFinite(probe.value)){
+    assert.ok(!Number.isFinite(modelValue),'Reciprocal wrong path must share source-derived pole');
+    continue;
+   }
+   assert.ok(near(probe.value,modelValue),
     q.sourceId+' '+option.id+' formula does not reflect its alleged error');
+  }
   const wrongFixed={
    A:S.negative,
    B:S.positive,
