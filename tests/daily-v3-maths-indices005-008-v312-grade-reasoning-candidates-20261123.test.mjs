@@ -24,7 +24,7 @@ function prove(q){
  if(n===5){
   assert.match(s,/sum/);
   assert.match(s,/not\*\* divisible by \$64\$/i);
-  const [lo,hi]=matchNumbers(/integers \$(\d+)\\le n\\le(\d+)\$/,/,s);
+  const [lo,hi]=matchNumbers(/integers \$(\d+)\\le n\\le(\d+)\$/,s);
   const [a,b,c]=[
     matchNumbers(/4\^\{n\+(\d+)\}/,s)[0],
     matchNumbers(/8\^\{(\d+)-n\}/,s)[0],
@@ -55,7 +55,7 @@ function prove(q){
  }
  if(n===6){
   assert.match(s,/product/);
-  const [lo,hi]=matchNumbers(/integers \$(\d+)\\le n\\le(\d+)\$/,/,s);
+  const [lo,hi]=matchNumbers(/integers \$(\d+)\\le n\\le(\d+)\$/,s);
   const [a,b]=[
     matchNumbers(/8\^\{n-(\d+)\}/,s)[0],
     matchNumbers(/4\^\{n-(\d+)\}/,s)[0]
@@ -88,7 +88,7 @@ function prove(q){
  if(n===7){
   assert.match(s,/perfect cube/);
   assert.match(s,/perfect sixth power/);
-  const [lo,hi]=matchNumbers(/integers \$(\d+)\\le n\\le(\d+)\$/,/,s);
+  const [lo,hi]=matchNumbers(/integers \$(\d+)\\le n\\le(\d+)\$/,s);
   const [a,b]=[
     matchNumbers(/2\^\{n\+(\d+)\}/,s)[0],
     matchNumbers(/3\^\{2n\+(\d+)\}/,s)[0]
