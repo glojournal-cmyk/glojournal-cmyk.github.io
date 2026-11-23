@@ -89,7 +89,7 @@
         {
           "id": "A",
           "latex": "k=1\\pm\\sqrt{5}",
-          "errorPath": "Recover the correct square-root discriminant but add 2 to the root-transformation result rather than subtract t from 2."
+          "errorPath": "Solve the auxiliary quadratic correctly as t=3±sqrt(5), but transform back using k=t−2 rather than k=2−t, producing k=1±sqrt(5)."
         },
         {
           "id": "B",
