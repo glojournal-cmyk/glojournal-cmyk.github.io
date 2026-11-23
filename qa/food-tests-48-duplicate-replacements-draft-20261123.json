@@ -1354,29 +1354,30 @@
       "originalSourceAnswer": "reducing sugar",
       "format": "mc_single",
       "topicId": "bio-y8-food-tests",
-      "prompt": "An ethanol extract is cloudy before water is added. Which evidence is still needed to judge a lipid emulsion test?",
+      "prompt": "A pupil compares lipid-test cloudiness from two seed extracts prepared in the same way. One clear ethanol extract is added to 2 mL of water and the other to 10 mL. Which criticism is most valid?",
       "options": [
-        "A clean, clear extract that becomes cloudy on addition to water, with a clear blank.",
-        "The initial cloudiness is already the positive endpoint, so adding water is unnecessary.",
-        "The original cloudiness proves that no lipid was dissolved in ethanol.",
-        "Initial cloudiness is sufficient to estimate how much fat the sample contains."
+        "Different dilution volumes can affect cloudiness; use equal measured volumes of extract and water before comparing.",
+        "The cloudier emulsion proves twice as much lipid in the original seed, regardless of dilution.",
+        "The amount of water added cannot affect the emulsion appearance, so the comparison is fair.",
+        "The paler emulsion proves there was no lipid in that seed, even without a working control."
       ],
       "answer": {
         "mode": "choice",
         "accepted": [
-          "A clean, clear extract that becomes cloudy on addition to water, with a clear blank."
+          "Different dilution volumes can affect cloudiness; use equal measured volumes of extract and water before comparing."
         ],
         "totalMarks": 1
       },
       "correctIndex": 0,
-      "scienceRationale": "The positive emulsion endpoint occurs on adding the ethanolic extract to water.",
+      "scienceRationale": "Emulsion cloudiness depends on dilution conditions. Equal measured extract and water volumes, along with matched extraction conditions, make a qualitative comparison fairer; cloudiness alone does not give an exact lipid concentration.",
       "academicReview": "pending",
       "distractorReview": "pending",
       "approved": false,
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
       "sourceStatus": "proposed replacement; not imported",
-      "distractorRevisionNote": "Replaced implausible foil with a misconception or evidence-limits foil; independently check all wrong options before approval."
+      "distractorRevisionNote": "Replaced implausible foil with a misconception or evidence-limits foil; independently check all wrong options before approval.",
+      "reviewIssueResolvedInDraft": "Avoided repeating the same pre-water cloudy ethanol extract scenario as proposed item F2-07; now tests dilution control and limits of lipid emulsion comparisons."
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-4-15",
