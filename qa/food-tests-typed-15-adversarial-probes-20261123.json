@@ -1,0 +1,160 @@
+{
+  "kind": "15 typed source questions: scientific acceptable alternatives vs disallowed incorrect outcomes",
+  "status": "qa-only",
+  "approval": 0,
+  "sourceCount": 15,
+  "sourceTopic": "bio-y8-food-tests",
+  "boundaryCases": [
+    {
+      "questionId": "bio-y8-app-iodine-negative",
+      "answer": "not no starch was detected",
+      "expectedScore": 0,
+      "issue": "Double negation reverses an 'absence detected' inference"
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-negative-emulsion",
+      "answer": "not no lipid detected",
+      "expectedScore": 0,
+      "issue": "Double negation must not receive a negative-lipid conclusion mark"
+    }
+  ],
+  "released": false,
+  "preparedBy": "AI-assisted QA, pending independent science adjudication",
+  "questions": [
+    {
+      "questionId": "bio-y8-food-tests-iodine-solution-name",
+      "validAlternative": "iodine-potassium iodide solution",
+      "invalidAlternative": "Benedict's solution",
+      "scienceRationale": "The reagent for starch is iodine in potassium iodide, not Benedict's reagent",
+      "review": "author-prepared QA fixture; not independent TGS approval",
+      "expectedValidScore": 1,
+      "expectedInvalidScore": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-benedict-s-solution-name",
+      "validAlternative": "Benedict's reagent",
+      "invalidAlternative": "iodine solution",
+      "scienceRationale": "Reducing sugar reagent, with heating",
+      "review": "author-prepared QA fixture; not independent TGS approval",
+      "expectedValidScore": 1,
+      "expectedInvalidScore": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-biuret-solution-name",
+      "validAlternative": "Biuret test reagent",
+      "invalidAlternative": "Benedict's solution",
+      "scienceRationale": "Biuret reagent tests protein",
+      "review": "author-prepared QA fixture; not independent TGS approval",
+      "expectedValidScore": 1,
+      "expectedInvalidScore": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-ethanol-emulsion-test-name",
+      "validAlternative": "ethanol-based emulsion test",
+      "invalidAlternative": "iodine test",
+      "scienceRationale": "Lipid emulsion procedure uses ethanol followed by water",
+      "review": "author-prepared QA fixture; not independent TGS approval",
+      "expectedValidScore": 1,
+      "expectedInvalidScore": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-blue-black-name",
+      "validAlternative": "dark blue-black",
+      "invalidAlternative": "orange-brown",
+      "scienceRationale": "Blue-black is starch positive; brown is negative",
+      "review": "author-prepared QA fixture; not independent TGS approval",
+      "expectedValidScore": 1,
+      "expectedInvalidScore": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-brick-red-name",
+      "validAlternative": "brick-red precipitate",
+      "invalidAlternative": "blue solution",
+      "scienceRationale": "Brick-red precipitate is strong positive Benedict's outcome",
+      "review": "author-prepared QA fixture; not independent TGS approval",
+      "expectedValidScore": 1,
+      "expectedInvalidScore": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-lilac-or-purple-name",
+      "validAlternative": "violet",
+      "invalidAlternative": "blue",
+      "scienceRationale": "Violet/lilac is the positive Biuret observation",
+      "review": "author-prepared QA fixture; not independent TGS approval",
+      "expectedValidScore": 1,
+      "expectedInvalidScore": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-cloudy-white-emulsion-name",
+      "validAlternative": "milky white emulsion",
+      "invalidAlternative": "clear liquid",
+      "scienceRationale": "Milky emulsion is lipid positive",
+      "review": "author-prepared QA fixture; not independent TGS approval",
+      "expectedValidScore": 1,
+      "expectedInvalidScore": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-water-bath-name",
+      "validAlternative": "beaker of hot water",
+      "invalidAlternative": "Bunsen burner",
+      "scienceRationale": "Beaker of hot water used as an indirect water bath",
+      "review": "author-prepared QA fixture; not independent TGS approval",
+      "expectedValidScore": 1,
+      "expectedInvalidScore": 0
+    },
+    {
+      "questionId": "bio-y8-app-iodine-negative",
+      "validAlternative": "starch was not found in the iodine test",
+      "invalidAlternative": "starch detected",
+      "scienceRationale": "Negative iodine test supports only not detected, not a positive inference",
+      "review": "author-prepared QA fixture; not independent TGS approval",
+      "expectedValidScore": 1,
+      "expectedInvalidScore": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-negative-biuret",
+      "validAlternative": "blue colour",
+      "invalidAlternative": "lilac colour",
+      "scienceRationale": "Biuret reagent remains blue if no protein detected",
+      "review": "author-prepared QA fixture; not independent TGS approval",
+      "expectedValidScore": 1,
+      "expectedInvalidScore": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-negative-emulsion",
+      "validAlternative": "no lipids were found",
+      "invalidAlternative": "lipids detected",
+      "scienceRationale": "A clear emulsion endpoint is negative",
+      "review": "author-prepared QA fixture; not independent TGS approval",
+      "expectedValidScore": 1,
+      "expectedInvalidScore": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-positive-benedict",
+      "validAlternative": "orange precipitate",
+      "invalidAlternative": "blue solution",
+      "scienceRationale": "Orange precipitate after heating is positive for reducing sugar",
+      "review": "author-prepared QA fixture; not independent TGS approval",
+      "expectedValidScore": 1,
+      "expectedInvalidScore": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-starch-negative-colour",
+      "validAlternative": "yellowish brown",
+      "invalidAlternative": "blue-black",
+      "scienceRationale": "Orange/yellowish brown is iodine negative, blue-black positive",
+      "review": "author-prepared QA fixture; not independent TGS approval",
+      "expectedValidScore": 1,
+      "expectedInvalidScore": 0
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-heating-method",
+      "validAlternative": "a beaker containing hot water",
+      "invalidAlternative": "Bunsen burner",
+      "scienceRationale": "The hot-water bath provides indirect heating for Benedict's test",
+      "review": "author-prepared QA fixture; not independent TGS approval",
+      "expectedValidScore": 1,
+      "expectedInvalidScore": 0
+    }
+  ]
+}
