@@ -107,3 +107,12 @@ Official AQA GCSE Biology [practical assessment guidance](https://www.aqa.org.uk
 Node regressions verify source/candidate alignment, stable answer IDs, and formal-credit holds; they do not prove unseen learner-answer fairness, independent marking rubric acceptance, or real iPad PWA behaviour. The original 52 free-English source tasks are still held out of Daily, XP, MP and Mastery. This is **not a release approval**.
 
 **Status: 143 source IDs held; structured 99 marks held; all academic approvals 0; release BLOCKED, PR #308 Draft; no merge, deployment or historic score changes.**
+
+
+## QA-only typed-answer fairness expansion — 23 November 2026
+
+The stricter Food Tests typed-response scorer closed a genuine over-credit problem, but the independent 15-item AI-authored **learner-style** diagnostic then recorded **0/15** acceptable candidate phrasings graded correct in **each** legacy and modern QuizSession scorer (GitHub Actions #45254855104). This is strong evidence of under-credit for the *specific probes*, not a statistical estimate of actual student performance.
+
+A bounded QA-branch-only correction now adds those **15 scientifically plausible phrasings** to the original 15 held typed answer lists, moving the explicit accepted-answer string count **73 → 88**. The linked 143-source review register and 143-question QA preview are synchronised to source Git blob `5638c927319c4ea7f73b636006bdee70220533cd`. These remain **candidate accepted strings pending an independent qualified reviewer**; none receives Academic Approval and none authorises student grading. The test suite now demands acceptance of all 88 listed strings in **both** QuizSession scoring paths and rejection of new negated/contradictory alternatives. This is still an exact-string bounded fix: it cannot guarantee fair automatic scoring for every unseen reasonable wording. Other 52 free-English source items remain held without formal credit.
+
+**PR #308 Draft; formal Academic Approval 0/143, structured candidate 0/99; no merge, deployment, learner-history changes, Daily/MP/Mastery credit, or real iPad signoff.**

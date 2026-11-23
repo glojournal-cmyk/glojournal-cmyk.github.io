@@ -4,7 +4,7 @@
   "basis": "Draft PR #308, source academic repairs 0e5d1a6 and 21c437f (QA-only)",
   "topic": "bio-y8-food-tests",
   "sourcePath": "content/topics/bio-y8-food-tests.json",
-  "sourceSHA": "0479bc889b16656694a9f8567659a4dcb8df6cc9",
+  "sourceSHA": "5638c927319c4ea7f73b636006bdee70220533cd",
   "reviewType": "scientific source alignment, answer reliability, degree of duplicate patterning, formative-vs-formal marking, safety, scope and structured-candidate question quality",
   "not": [
     "release approval",
@@ -139,13 +139,15 @@
     },
     "typedCandidateImprovements": {
       "sourceTypedItems": 15,
-      "addedAcceptedVariants": 23,
+      "addedAcceptedVariants": 38,
       "testPositiveAnswers": 15,
       "testIncorrectAnswers": 15,
       "testExplicitDoubleNegations": 2,
       "twoQuizBundleExpectations": "all must pass",
-      "reviewStatus": "AI-authored probes; independent teacher, unseen answers, iPad pending",
-      "formalApprovals": 0
+      "reviewStatus": "15 additional QA-only variants require independent academic approval and physical iPad player fairness review",
+      "formalApprovals": 0,
+      "lastAdditionalBatch": 15,
+      "currentAcceptedAnswerStrings": 88
     },
     "multiplePlausibleSafetyOptionsCorrectedInQADraft": [
       92
@@ -209,7 +211,8 @@
         "iodine solution",
         "iodine",
         "iodine in potassium iodide solution",
-        "iodine-potassium iodide solution"
+        "iodine-potassium iodide solution",
+        "Lugol's iodine solution"
       ],
       "sourceMarkPoints": null,
       "scienceKnowledgeStatus": "concept-consistent-on-first-review",
@@ -221,7 +224,7 @@
           "severity": "major",
           "code": "UNTOLERANT_TYPED_ANSWER_FAIRNESS",
           "detail": "Accepted strings are not an independently validated equivalence set; correct paraphrases and spelling/word-order variants may be missed.",
-          "fixStatus": "Source alternatives expanded; positive/negative + adversarial scorer acceptance still subject to independent and real app signoff"
+          "fixStatus": "QA branch now includes 15 additional test-backed paraphrases; unseen learner response fairness and independent review remain unverified"
         }
       ],
       "recommendations": [
@@ -238,13 +241,14 @@
         },
         {
           "check": "QA-only expanded source answer alternatives",
-          "acceptedCount": 4,
+          "acceptedCount": 5,
           "positiveAndNegativeProbes": "qa/food-tests-typed-15-adversarial-probes-20261123.json",
-          "formallyApproved": false
+          "formallyApproved": false,
+          "additionalSourceAcceptedFromParaphraseDiagnostic": 1
         }
       ],
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
-      "currentQAStatus": "23 scientifically valid variant strings added across 15 source questions; internal positive/negative scorer probes only; independent review pending"
+      "currentQAStatus": "38 bounded source answer variants added across all 15 held typed questions on the QA branch; teacher/real-player review pending"
     },
     {
       "ordinal": 3,
@@ -316,7 +320,8 @@
         "Benedict solution",
         "Benedict's",
         "Benedict's reagent",
-        "Benedicts reagent"
+        "Benedicts reagent",
+        "Benedict reagent"
       ],
       "sourceMarkPoints": null,
       "scienceKnowledgeStatus": "concept-consistent-on-first-review",
@@ -328,7 +333,7 @@
           "severity": "major",
           "code": "UNTOLERANT_TYPED_ANSWER_FAIRNESS",
           "detail": "Accepted strings are not an independently validated equivalence set; correct paraphrases and spelling/word-order variants may be missed.",
-          "fixStatus": "Source alternatives expanded; positive/negative + adversarial scorer acceptance still subject to independent and real app signoff"
+          "fixStatus": "QA branch now includes 15 additional test-backed paraphrases; unseen learner response fairness and independent review remain unverified"
         }
       ],
       "recommendations": [
@@ -350,13 +355,14 @@
         },
         {
           "check": "QA-only expanded source answer alternatives",
-          "acceptedCount": 5,
+          "acceptedCount": 6,
           "positiveAndNegativeProbes": "qa/food-tests-typed-15-adversarial-probes-20261123.json",
-          "formallyApproved": false
+          "formallyApproved": false,
+          "additionalSourceAcceptedFromParaphraseDiagnostic": 1
         }
       ],
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
-      "currentQAStatus": "23 scientifically valid variant strings added across 15 source questions; internal positive/negative scorer probes only; independent review pending"
+      "currentQAStatus": "38 bounded source answer variants added across all 15 held typed questions on the QA branch; teacher/real-player review pending"
     },
     {
       "ordinal": 6,
@@ -427,7 +433,8 @@
         "Biuret solution",
         "Biuret reagent",
         "Biuret",
-        "Biuret test reagent"
+        "Biuret test reagent",
+        "Biuret test solution"
       ],
       "sourceMarkPoints": null,
       "scienceKnowledgeStatus": "concept-consistent-on-first-review",
@@ -439,7 +446,7 @@
           "severity": "major",
           "code": "UNTOLERANT_TYPED_ANSWER_FAIRNESS",
           "detail": "Accepted strings are not an independently validated equivalence set; correct paraphrases and spelling/word-order variants may be missed.",
-          "fixStatus": "Source alternatives expanded; positive/negative + adversarial scorer acceptance still subject to independent and real app signoff"
+          "fixStatus": "QA branch now includes 15 additional test-backed paraphrases; unseen learner response fairness and independent review remain unverified"
         }
       ],
       "recommendations": [
@@ -460,13 +467,14 @@
         },
         {
           "check": "QA-only expanded source answer alternatives",
-          "acceptedCount": 4,
+          "acceptedCount": 5,
           "positiveAndNegativeProbes": "qa/food-tests-typed-15-adversarial-probes-20261123.json",
-          "formallyApproved": false
+          "formallyApproved": false,
+          "additionalSourceAcceptedFromParaphraseDiagnostic": 1
         }
       ],
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
-      "currentQAStatus": "23 scientifically valid variant strings added across 15 source questions; internal positive/negative scorer probes only; independent review pending"
+      "currentQAStatus": "38 bounded source answer variants added across all 15 held typed questions on the QA branch; teacher/real-player review pending"
     },
     {
       "ordinal": 9,
@@ -537,7 +545,8 @@
         "ethanol emulsion test",
         "emulsion test",
         "ethanol-based emulsion test",
-        "lipid emulsion test"
+        "lipid emulsion test",
+        "the emulsion test for lipids"
       ],
       "sourceMarkPoints": null,
       "scienceKnowledgeStatus": "concept-consistent-on-first-review",
@@ -549,7 +558,7 @@
           "severity": "major",
           "code": "UNTOLERANT_TYPED_ANSWER_FAIRNESS",
           "detail": "Accepted strings are not an independently validated equivalence set; correct paraphrases and spelling/word-order variants may be missed.",
-          "fixStatus": "Source alternatives expanded; positive/negative + adversarial scorer acceptance still subject to independent and real app signoff"
+          "fixStatus": "QA branch now includes 15 additional test-backed paraphrases; unseen learner response fairness and independent review remain unverified"
         }
       ],
       "recommendations": [
@@ -569,13 +578,14 @@
         },
         {
           "check": "QA-only expanded source answer alternatives",
-          "acceptedCount": 4,
+          "acceptedCount": 5,
           "positiveAndNegativeProbes": "qa/food-tests-typed-15-adversarial-probes-20261123.json",
-          "formallyApproved": false
+          "formallyApproved": false,
+          "additionalSourceAcceptedFromParaphraseDiagnostic": 1
         }
       ],
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
-      "currentQAStatus": "23 scientifically valid variant strings added across 15 source questions; internal positive/negative scorer probes only; independent review pending"
+      "currentQAStatus": "38 bounded source answer variants added across all 15 held typed questions on the QA branch; teacher/real-player review pending"
     },
     {
       "ordinal": 12,
@@ -644,7 +654,8 @@
       "sourcePrompt": "Name the scientific term: the positive colour for starch after iodine is added.",
       "sourceAcceptedAnswer": [
         "blue-black",
-        "dark blue-black"
+        "dark blue-black",
+        "dark blue black colour"
       ],
       "sourceMarkPoints": null,
       "scienceKnowledgeStatus": "concept-consistent-on-first-review",
@@ -656,7 +667,7 @@
           "severity": "major",
           "code": "UNTOLERANT_TYPED_ANSWER_FAIRNESS",
           "detail": "Accepted strings are not an independently validated equivalence set; correct paraphrases and spelling/word-order variants may be missed.",
-          "fixStatus": "Source alternatives expanded; positive/negative + adversarial scorer acceptance still subject to independent and real app signoff"
+          "fixStatus": "QA branch now includes 15 additional test-backed paraphrases; unseen learner response fairness and independent review remain unverified"
         }
       ],
       "recommendations": [
@@ -672,13 +683,14 @@
         },
         {
           "check": "QA-only expanded source answer alternatives",
-          "acceptedCount": 2,
+          "acceptedCount": 3,
           "positiveAndNegativeProbes": "qa/food-tests-typed-15-adversarial-probes-20261123.json",
-          "formallyApproved": false
+          "formallyApproved": false,
+          "additionalSourceAcceptedFromParaphraseDiagnostic": 1
         }
       ],
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
-      "currentQAStatus": "23 scientifically valid variant strings added across 15 source questions; internal positive/negative scorer probes only; independent review pending"
+      "currentQAStatus": "38 bounded source answer variants added across all 15 held typed questions on the QA branch; teacher/real-player review pending"
     },
     {
       "ordinal": 15,
@@ -749,7 +761,8 @@
         "brick-red",
         "brick red",
         "brickred",
-        "brick-red precipitate"
+        "brick-red precipitate",
+        "a brick red solid"
       ],
       "sourceMarkPoints": null,
       "scienceKnowledgeStatus": "concept-consistent-on-first-review",
@@ -761,7 +774,7 @@
           "severity": "major",
           "code": "UNTOLERANT_TYPED_ANSWER_FAIRNESS",
           "detail": "Accepted strings are not an independently validated equivalence set; correct paraphrases and spelling/word-order variants may be missed.",
-          "fixStatus": "Source alternatives expanded; positive/negative + adversarial scorer acceptance still subject to independent and real app signoff"
+          "fixStatus": "QA branch now includes 15 additional test-backed paraphrases; unseen learner response fairness and independent review remain unverified"
         }
       ],
       "recommendations": [
@@ -779,13 +792,14 @@
         },
         {
           "check": "QA-only expanded source answer alternatives",
-          "acceptedCount": 4,
+          "acceptedCount": 5,
           "positiveAndNegativeProbes": "qa/food-tests-typed-15-adversarial-probes-20261123.json",
-          "formallyApproved": false
+          "formallyApproved": false,
+          "additionalSourceAcceptedFromParaphraseDiagnostic": 1
         }
       ],
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
-      "currentQAStatus": "23 scientifically valid variant strings added across 15 source questions; internal positive/negative scorer probes only; independent review pending"
+      "currentQAStatus": "38 bounded source answer variants added across all 15 held typed questions on the QA branch; teacher/real-player review pending"
     },
     {
       "ordinal": 18,
@@ -856,7 +870,8 @@
         "lilac or purple",
         "purple",
         "lilac",
-        "violet"
+        "violet",
+        "violet colour"
       ],
       "sourceMarkPoints": null,
       "scienceKnowledgeStatus": "concept-consistent-on-first-review",
@@ -868,7 +883,7 @@
           "severity": "major",
           "code": "UNTOLERANT_TYPED_ANSWER_FAIRNESS",
           "detail": "Accepted strings are not an independently validated equivalence set; correct paraphrases and spelling/word-order variants may be missed.",
-          "fixStatus": "Source alternatives expanded; positive/negative + adversarial scorer acceptance still subject to independent and real app signoff"
+          "fixStatus": "QA branch now includes 15 additional test-backed paraphrases; unseen learner response fairness and independent review remain unverified"
         }
       ],
       "recommendations": [
@@ -889,13 +904,14 @@
         },
         {
           "check": "QA-only expanded source answer alternatives",
-          "acceptedCount": 4,
+          "acceptedCount": 5,
           "positiveAndNegativeProbes": "qa/food-tests-typed-15-adversarial-probes-20261123.json",
-          "formallyApproved": false
+          "formallyApproved": false,
+          "additionalSourceAcceptedFromParaphraseDiagnostic": 1
         }
       ],
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
-      "currentQAStatus": "23 scientifically valid variant strings added across 15 source questions; internal positive/negative scorer probes only; independent review pending"
+      "currentQAStatus": "38 bounded source answer variants added across all 15 held typed questions on the QA branch; teacher/real-player review pending"
     },
     {
       "ordinal": 21,
@@ -967,7 +983,8 @@
         "white emulsion",
         "cloudy emulsion",
         "milky white emulsion",
-        "milky emulsion"
+        "milky emulsion",
+        "a white cloudy emulsion"
       ],
       "sourceMarkPoints": null,
       "scienceKnowledgeStatus": "concept-consistent-on-first-review",
@@ -979,7 +996,7 @@
           "severity": "major",
           "code": "UNTOLERANT_TYPED_ANSWER_FAIRNESS",
           "detail": "Accepted strings are not an independently validated equivalence set; correct paraphrases and spelling/word-order variants may be missed.",
-          "fixStatus": "Source alternatives expanded; positive/negative + adversarial scorer acceptance still subject to independent and real app signoff"
+          "fixStatus": "QA branch now includes 15 additional test-backed paraphrases; unseen learner response fairness and independent review remain unverified"
         }
       ],
       "recommendations": [
@@ -1001,13 +1018,14 @@
         },
         {
           "check": "QA-only expanded source answer alternatives",
-          "acceptedCount": 5,
+          "acceptedCount": 6,
           "positiveAndNegativeProbes": "qa/food-tests-typed-15-adversarial-probes-20261123.json",
-          "formallyApproved": false
+          "formallyApproved": false,
+          "additionalSourceAcceptedFromParaphraseDiagnostic": 1
         }
       ],
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
-      "currentQAStatus": "23 scientifically valid variant strings added across 15 source questions; internal positive/negative scorer probes only; independent review pending"
+      "currentQAStatus": "38 bounded source answer variants added across all 15 held typed questions on the QA branch; teacher/real-player review pending"
     },
     {
       "ordinal": 24,
@@ -1077,7 +1095,8 @@
       "sourceAcceptedAnswer": [
         "water bath",
         "beaker of hot water",
-        "hot-water bath"
+        "hot-water bath",
+        "beaker of heated water"
       ],
       "sourceMarkPoints": null,
       "scienceKnowledgeStatus": "concept-consistent-on-first-review",
@@ -1089,7 +1108,7 @@
           "severity": "major",
           "code": "UNTOLERANT_TYPED_ANSWER_FAIRNESS",
           "detail": "Accepted strings are not an independently validated equivalence set; correct paraphrases and spelling/word-order variants may be missed.",
-          "fixStatus": "Source alternatives expanded; positive/negative + adversarial scorer acceptance still subject to independent and real app signoff"
+          "fixStatus": "QA branch now includes 15 additional test-backed paraphrases; unseen learner response fairness and independent review remain unverified"
         }
       ],
       "recommendations": [
@@ -1109,13 +1128,14 @@
         },
         {
           "check": "QA-only expanded source answer alternatives",
-          "acceptedCount": 3,
+          "acceptedCount": 4,
           "positiveAndNegativeProbes": "qa/food-tests-typed-15-adversarial-probes-20261123.json",
-          "formallyApproved": false
+          "formallyApproved": false,
+          "additionalSourceAcceptedFromParaphraseDiagnostic": 1
         }
       ],
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
-      "currentQAStatus": "23 scientifically valid variant strings added across 15 source questions; internal positive/negative scorer probes only; independent review pending"
+      "currentQAStatus": "38 bounded source answer variants added across all 15 held typed questions on the QA branch; teacher/real-player review pending"
     },
     {
       "ordinal": 27,
@@ -1311,7 +1331,8 @@
         "no starch present",
         "no starch detected",
         "starch was not found in the iodine test",
-        "the iodine test did not detect starch"
+        "the iodine test did not detect starch",
+        "the iodine test did not show starch"
       ],
       "sourceMarkPoints": null,
       "scienceKnowledgeStatus": "concept-consistent-on-first-review",
@@ -1323,7 +1344,7 @@
           "severity": "major",
           "code": "UNTOLERANT_TYPED_ANSWER_FAIRNESS",
           "detail": "Accepted strings are not an independently validated equivalence set; correct paraphrases and spelling/word-order variants may be missed.",
-          "fixStatus": "Source alternatives expanded; positive/negative + adversarial scorer acceptance still subject to independent and real app signoff"
+          "fixStatus": "QA branch now includes 15 additional test-backed paraphrases; unseen learner response fairness and independent review remain unverified"
         }
       ],
       "recommendations": [
@@ -1348,13 +1369,14 @@
         },
         {
           "check": "QA-only expanded source answer alternatives",
-          "acceptedCount": 9,
+          "acceptedCount": 10,
           "positiveAndNegativeProbes": "qa/food-tests-typed-15-adversarial-probes-20261123.json",
-          "formallyApproved": false
+          "formallyApproved": false,
+          "additionalSourceAcceptedFromParaphraseDiagnostic": 1
         }
       ],
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
-      "currentQAStatus": "23 scientifically valid variant strings added across 15 source questions; internal positive/negative scorer probes only; independent review pending"
+      "currentQAStatus": "38 bounded source answer variants added across all 15 held typed questions on the QA branch; teacher/real-player review pending"
     },
     {
       "ordinal": 33,
@@ -5068,7 +5090,8 @@
         "blue",
         "remains blue",
         "stays blue",
-        "blue colour"
+        "blue colour",
+        "the solution stays blue"
       ],
       "sourceMarkPoints": null,
       "scienceKnowledgeStatus": "concept-consistent-on-first-review",
@@ -5080,7 +5103,7 @@
           "severity": "major",
           "code": "UNTOLERANT_TYPED_ANSWER_FAIRNESS",
           "detail": "Accepted strings are not an independently validated equivalence set; correct paraphrases and spelling/word-order variants may be missed.",
-          "fixStatus": "Source alternatives expanded; positive/negative + adversarial scorer acceptance still subject to independent and real app signoff"
+          "fixStatus": "QA branch now includes 15 additional test-backed paraphrases; unseen learner response fairness and independent review remain unverified"
         }
       ],
       "recommendations": [
@@ -5100,13 +5123,14 @@
         },
         {
           "check": "QA-only expanded source answer alternatives",
-          "acceptedCount": 4,
+          "acceptedCount": 5,
           "positiveAndNegativeProbes": "qa/food-tests-typed-15-adversarial-probes-20261123.json",
-          "formallyApproved": false
+          "formallyApproved": false,
+          "additionalSourceAcceptedFromParaphraseDiagnostic": 1
         }
       ],
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
-      "currentQAStatus": "23 scientifically valid variant strings added across 15 source questions; internal positive/negative scorer probes only; independent review pending"
+      "currentQAStatus": "38 bounded source answer variants added across all 15 held typed questions on the QA branch; teacher/real-player review pending"
     },
     {
       "ordinal": 140,
@@ -5121,7 +5145,8 @@
         "no lipid was detected",
         "no fat was detected",
         "no lipids were found",
-        "no fats detected"
+        "no fats detected",
+        "lipids were not detected"
       ],
       "sourceMarkPoints": null,
       "scienceKnowledgeStatus": "concept-consistent-on-first-review",
@@ -5133,7 +5158,7 @@
           "severity": "major",
           "code": "UNTOLERANT_TYPED_ANSWER_FAIRNESS",
           "detail": "Accepted strings are not an independently validated equivalence set; correct paraphrases and spelling/word-order variants may be missed.",
-          "fixStatus": "Source alternatives expanded; positive/negative + adversarial scorer acceptance still subject to independent and real app signoff"
+          "fixStatus": "QA branch now includes 15 additional test-backed paraphrases; unseen learner response fairness and independent review remain unverified"
         }
       ],
       "recommendations": [
@@ -5157,13 +5182,14 @@
         },
         {
           "check": "QA-only expanded source answer alternatives",
-          "acceptedCount": 8,
+          "acceptedCount": 9,
           "positiveAndNegativeProbes": "qa/food-tests-typed-15-adversarial-probes-20261123.json",
-          "formallyApproved": false
+          "formallyApproved": false,
+          "additionalSourceAcceptedFromParaphraseDiagnostic": 1
         }
       ],
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
-      "currentQAStatus": "23 scientifically valid variant strings added across 15 source questions; internal positive/negative scorer probes only; independent review pending"
+      "currentQAStatus": "38 bounded source answer variants added across all 15 held typed questions on the QA branch; teacher/real-player review pending"
     },
     {
       "ordinal": 141,
@@ -5177,7 +5203,8 @@
         "brick red",
         "brick-red",
         "orange precipitate",
-        "red precipitate"
+        "red precipitate",
+        "yellow precipitate"
       ],
       "sourceMarkPoints": null,
       "scienceKnowledgeStatus": "concept-consistent-on-first-review",
@@ -5189,7 +5216,7 @@
           "severity": "major",
           "code": "UNTOLERANT_TYPED_ANSWER_FAIRNESS",
           "detail": "Accepted strings are not an independently validated equivalence set; correct paraphrases and spelling/word-order variants may be missed.",
-          "fixStatus": "Source alternatives expanded; positive/negative + adversarial scorer acceptance still subject to independent and real app signoff"
+          "fixStatus": "QA branch now includes 15 additional test-backed paraphrases; unseen learner response fairness and independent review remain unverified"
         }
       ],
       "recommendations": [
@@ -5212,13 +5239,14 @@
         },
         {
           "check": "QA-only expanded source answer alternatives",
-          "acceptedCount": 7,
+          "acceptedCount": 8,
           "positiveAndNegativeProbes": "qa/food-tests-typed-15-adversarial-probes-20261123.json",
-          "formallyApproved": false
+          "formallyApproved": false,
+          "additionalSourceAcceptedFromParaphraseDiagnostic": 1
         }
       ],
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
-      "currentQAStatus": "23 scientifically valid variant strings added across 15 source questions; internal positive/negative scorer probes only; independent review pending"
+      "currentQAStatus": "38 bounded source answer variants added across all 15 held typed questions on the QA branch; teacher/real-player review pending"
     },
     {
       "ordinal": 142,
@@ -5231,7 +5259,8 @@
         "brown",
         "yellow brown",
         "yellow-brown",
-        "yellowish brown"
+        "yellowish brown",
+        "iodine remains yellow-brown"
       ],
       "sourceMarkPoints": null,
       "scienceKnowledgeStatus": "concept-consistent-on-first-review",
@@ -5243,7 +5272,7 @@
           "severity": "major",
           "code": "UNTOLERANT_TYPED_ANSWER_FAIRNESS",
           "detail": "Accepted strings are not an independently validated equivalence set; correct paraphrases and spelling/word-order variants may be missed.",
-          "fixStatus": "Source alternatives expanded; positive/negative + adversarial scorer acceptance still subject to independent and real app signoff"
+          "fixStatus": "QA branch now includes 15 additional test-backed paraphrases; unseen learner response fairness and independent review remain unverified"
         }
       ],
       "recommendations": [
@@ -5266,13 +5295,14 @@
         },
         {
           "check": "QA-only expanded source answer alternatives",
-          "acceptedCount": 6,
+          "acceptedCount": 7,
           "positiveAndNegativeProbes": "qa/food-tests-typed-15-adversarial-probes-20261123.json",
-          "formallyApproved": false
+          "formallyApproved": false,
+          "additionalSourceAcceptedFromParaphraseDiagnostic": 1
         }
       ],
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
-      "currentQAStatus": "23 scientifically valid variant strings added across 15 source questions; internal positive/negative scorer probes only; independent review pending"
+      "currentQAStatus": "38 bounded source answer variants added across all 15 held typed questions on the QA branch; teacher/real-player review pending"
     },
     {
       "ordinal": 143,
@@ -5283,7 +5313,8 @@
         "water bath",
         "a water bath",
         "hot water bath",
-        "a beaker containing hot water"
+        "a beaker containing hot water",
+        "a heated water bath"
       ],
       "sourceMarkPoints": null,
       "scienceKnowledgeStatus": "concept-consistent-on-first-review",
@@ -5295,7 +5326,7 @@
           "severity": "major",
           "code": "UNTOLERANT_TYPED_ANSWER_FAIRNESS",
           "detail": "Accepted strings are not an independently validated equivalence set; correct paraphrases and spelling/word-order variants may be missed.",
-          "fixStatus": "Source alternatives expanded; positive/negative + adversarial scorer acceptance still subject to independent and real app signoff"
+          "fixStatus": "QA branch now includes 15 additional test-backed paraphrases; unseen learner response fairness and independent review remain unverified"
         }
       ],
       "recommendations": [
@@ -5316,13 +5347,14 @@
         },
         {
           "check": "QA-only expanded source answer alternatives",
-          "acceptedCount": 4,
+          "acceptedCount": 5,
           "positiveAndNegativeProbes": "qa/food-tests-typed-15-adversarial-probes-20261123.json",
-          "formallyApproved": false
+          "formallyApproved": false,
+          "additionalSourceAcceptedFromParaphraseDiagnostic": 1
         }
       ],
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
-      "currentQAStatus": "23 scientifically valid variant strings added across 15 source questions; internal positive/negative scorer probes only; independent review pending"
+      "currentQAStatus": "38 bounded source answer variants added across all 15 held typed questions on the QA branch; teacher/real-player review pending"
     }
   ],
   "structured99PointCandidateReview": [

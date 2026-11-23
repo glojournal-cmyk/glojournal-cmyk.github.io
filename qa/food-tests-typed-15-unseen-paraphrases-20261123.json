@@ -1,17 +1,17 @@
 {
-  "kind": "QA-only learner-style answer paraphrase diagnostic, not independently adjudicated pupil samples",
+  "kind": "QA-branch expansion of bounded science-credible typed answer alternatives, originally diagnosed as 0/15 in both scorer bundles",
   "date": "2026-11-23",
-  "status": "DIAGNOSTIC_ONLY_DO_NOT_IMPORT",
+  "status": "QA_BRANCH_ACCEPTED_VARIANTS_PENDING_INDEPENDENT_SIGNOFF",
   "topicId": "bio-y8-food-tests",
   "count": 15,
   "academicApproved": 0,
   "sourceQuestionIdCount": 143,
-  "sourceEdited": false,
+  "sourceEdited": true,
   "not": [
-    "teacher sign-off",
-    "official accepted-answer expansion",
-    "release authorisation",
-    "formal grade eligibility"
+    "qualified science-teacher sign-off",
+    "independent TGS taught-scope approval",
+    "release or formal-score permission",
+    "proof of all unseen learner paraphrase fairness"
   ],
   "probes": [
     {
@@ -19,120 +19,135 @@
       "pupilStyleAnswer": "Lugol's iodine solution",
       "scienceBasis": "Iodine dissolved with potassium iodide is used to test for starch.",
       "rubricStatus": "AI_SCIENCE_PLAUSIBLE_TEACHER_ADJUDICATION_PENDING",
-      "sourceAcceptedStringAlreadyPresent": false,
-      "formalCreditEligible": false
+      "sourceAcceptedStringAlreadyPresent": true,
+      "formalCreditEligible": false,
+      "sourceAdditionStatus": "QA_BRANCH_ONLY_UNAPPROVED"
     },
     {
       "questionId": "bio-y8-food-tests-benedict-s-solution-name",
       "pupilStyleAnswer": "Benedict reagent",
       "scienceBasis": "A normal alternative term for Benedict's reducing-sugar reagent.",
       "rubricStatus": "AI_SCIENCE_PLAUSIBLE_TEACHER_ADJUDICATION_PENDING",
-      "sourceAcceptedStringAlreadyPresent": false,
-      "formalCreditEligible": false
+      "sourceAcceptedStringAlreadyPresent": true,
+      "formalCreditEligible": false,
+      "sourceAdditionStatus": "QA_BRANCH_ONLY_UNAPPROVED"
     },
     {
       "questionId": "bio-y8-food-tests-biuret-solution-name",
       "pupilStyleAnswer": "Biuret test solution",
       "scienceBasis": "The Biuret solution is the protein-test reagent.",
       "rubricStatus": "AI_SCIENCE_PLAUSIBLE_TEACHER_ADJUDICATION_PENDING",
-      "sourceAcceptedStringAlreadyPresent": false,
-      "formalCreditEligible": false
+      "sourceAcceptedStringAlreadyPresent": true,
+      "formalCreditEligible": false,
+      "sourceAdditionStatus": "QA_BRANCH_ONLY_UNAPPROVED"
     },
     {
       "questionId": "bio-y8-food-tests-ethanol-emulsion-test-name",
       "pupilStyleAnswer": "the emulsion test for lipids",
       "scienceBasis": "The ethanol/water emulsion method indicates lipids.",
       "rubricStatus": "AI_SCIENCE_PLAUSIBLE_TEACHER_ADJUDICATION_PENDING",
-      "sourceAcceptedStringAlreadyPresent": false,
-      "formalCreditEligible": false
+      "sourceAcceptedStringAlreadyPresent": true,
+      "formalCreditEligible": false,
+      "sourceAdditionStatus": "QA_BRANCH_ONLY_UNAPPROVED"
     },
     {
       "questionId": "bio-y8-food-tests-blue-black-name",
       "pupilStyleAnswer": "dark blue black colour",
       "scienceBasis": "A description of the blue-black iodine-starch complex.",
       "rubricStatus": "AI_SCIENCE_PLAUSIBLE_TEACHER_ADJUDICATION_PENDING",
-      "sourceAcceptedStringAlreadyPresent": false,
-      "formalCreditEligible": false
+      "sourceAcceptedStringAlreadyPresent": true,
+      "formalCreditEligible": false,
+      "sourceAdditionStatus": "QA_BRANCH_ONLY_UNAPPROVED"
     },
     {
       "questionId": "bio-y8-food-tests-brick-red-name",
       "pupilStyleAnswer": "a brick red solid",
       "scienceBasis": "A description of the brick-red precipitate from a strong heated Benedict's reaction.",
       "rubricStatus": "AI_SCIENCE_PLAUSIBLE_TEACHER_ADJUDICATION_PENDING",
-      "sourceAcceptedStringAlreadyPresent": false,
-      "formalCreditEligible": false
+      "sourceAcceptedStringAlreadyPresent": true,
+      "formalCreditEligible": false,
+      "sourceAdditionStatus": "QA_BRANCH_ONLY_UNAPPROVED"
     },
     {
       "questionId": "bio-y8-food-tests-lilac-or-purple-name",
       "pupilStyleAnswer": "violet colour",
       "scienceBasis": "Violet/lilac is a positive Biuret result.",
       "rubricStatus": "AI_SCIENCE_PLAUSIBLE_TEACHER_ADJUDICATION_PENDING",
-      "sourceAcceptedStringAlreadyPresent": false,
-      "formalCreditEligible": false
+      "sourceAcceptedStringAlreadyPresent": true,
+      "formalCreditEligible": false,
+      "sourceAdditionStatus": "QA_BRANCH_ONLY_UNAPPROVED"
     },
     {
       "questionId": "bio-y8-food-tests-cloudy-white-emulsion-name",
       "pupilStyleAnswer": "a white cloudy emulsion",
       "scienceBasis": "White cloudiness is the positive lipid emulsion endpoint.",
       "rubricStatus": "AI_SCIENCE_PLAUSIBLE_TEACHER_ADJUDICATION_PENDING",
-      "sourceAcceptedStringAlreadyPresent": false,
-      "formalCreditEligible": false
+      "sourceAcceptedStringAlreadyPresent": true,
+      "formalCreditEligible": false,
+      "sourceAdditionStatus": "QA_BRANCH_ONLY_UNAPPROVED"
     },
     {
       "questionId": "bio-y8-food-tests-water-bath-name",
       "pupilStyleAnswer": "beaker of heated water",
       "scienceBasis": "A beaker of heated water provides indirect heating as a water bath.",
       "rubricStatus": "AI_SCIENCE_PLAUSIBLE_TEACHER_ADJUDICATION_PENDING",
-      "sourceAcceptedStringAlreadyPresent": false,
-      "formalCreditEligible": false
+      "sourceAcceptedStringAlreadyPresent": true,
+      "formalCreditEligible": false,
+      "sourceAdditionStatus": "QA_BRANCH_ONLY_UNAPPROVED"
     },
     {
       "questionId": "bio-y8-app-iodine-negative",
       "pupilStyleAnswer": "the iodine test did not show starch",
       "scienceBasis": "The negative iodine outcome indicates that starch was not detected, not proven absent.",
       "rubricStatus": "AI_SCIENCE_PLAUSIBLE_TEACHER_ADJUDICATION_PENDING",
-      "sourceAcceptedStringAlreadyPresent": false,
-      "formalCreditEligible": false
+      "sourceAcceptedStringAlreadyPresent": true,
+      "formalCreditEligible": false,
+      "sourceAdditionStatus": "QA_BRANCH_ONLY_UNAPPROVED"
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-negative-biuret",
       "pupilStyleAnswer": "the solution stays blue",
       "scienceBasis": "Negative Biuret reagent remains blue.",
       "rubricStatus": "AI_SCIENCE_PLAUSIBLE_TEACHER_ADJUDICATION_PENDING",
-      "sourceAcceptedStringAlreadyPresent": false,
-      "formalCreditEligible": false
+      "sourceAcceptedStringAlreadyPresent": true,
+      "formalCreditEligible": false,
+      "sourceAdditionStatus": "QA_BRANCH_ONLY_UNAPPROVED"
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-negative-emulsion",
       "pupilStyleAnswer": "lipids were not detected",
       "scienceBasis": "A clear, properly performed ethanol emulsion test detects no lipids.",
       "rubricStatus": "AI_SCIENCE_PLAUSIBLE_TEACHER_ADJUDICATION_PENDING",
-      "sourceAcceptedStringAlreadyPresent": false,
-      "formalCreditEligible": false
+      "sourceAcceptedStringAlreadyPresent": true,
+      "formalCreditEligible": false,
+      "sourceAdditionStatus": "QA_BRANCH_ONLY_UNAPPROVED"
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-positive-benedict",
       "pupilStyleAnswer": "yellow precipitate",
       "scienceBasis": "Yellow precipitate after heating Benedict's is a positive reducing-sugar outcome.",
       "rubricStatus": "AI_SCIENCE_PLAUSIBLE_TEACHER_ADJUDICATION_PENDING",
-      "sourceAcceptedStringAlreadyPresent": false,
-      "formalCreditEligible": false
+      "sourceAcceptedStringAlreadyPresent": true,
+      "formalCreditEligible": false,
+      "sourceAdditionStatus": "QA_BRANCH_ONLY_UNAPPROVED"
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-starch-negative-colour",
       "pupilStyleAnswer": "iodine remains yellow-brown",
       "scienceBasis": "Yellowish/orange-brown iodine is the negative starch-test colour.",
       "rubricStatus": "AI_SCIENCE_PLAUSIBLE_TEACHER_ADJUDICATION_PENDING",
-      "sourceAcceptedStringAlreadyPresent": false,
-      "formalCreditEligible": false
+      "sourceAcceptedStringAlreadyPresent": true,
+      "formalCreditEligible": false,
+      "sourceAdditionStatus": "QA_BRANCH_ONLY_UNAPPROVED"
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-heating-method",
       "pupilStyleAnswer": "a heated water bath",
       "scienceBasis": "A heated water bath provides indirect heat for Benedict's solution.",
       "rubricStatus": "AI_SCIENCE_PLAUSIBLE_TEACHER_ADJUDICATION_PENDING",
-      "sourceAcceptedStringAlreadyPresent": false,
-      "formalCreditEligible": false
+      "sourceAcceptedStringAlreadyPresent": true,
+      "formalCreditEligible": false,
+      "sourceAdditionStatus": "QA_BRANCH_ONLY_UNAPPROVED"
     }
   ]
 }

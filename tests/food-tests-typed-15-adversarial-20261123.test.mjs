@@ -120,14 +120,14 @@ test('15 previously unlisted learner-style scientific paraphrases have inspectab
  assert.equal(extraProbes.count,15);
  assert.equal(extraProbes.probes.length,15);
  assert.equal(extraProbes.academicApproved,0);
- assert.equal(extraProbes.sourceEdited,false);
- assert.equal(extraProbes.status,'DIAGNOSTIC_ONLY_DO_NOT_IMPORT');
+ assert.equal(extraProbes.sourceEdited,true);
+ assert.equal(extraProbes.status,'QA_BRANCH_ACCEPTED_VARIANTS_PENDING_INDEPENDENT_SIGNOFF');
  assert.deepEqual(extraProbes.probes.map(row=>row.questionId),
   source.questions.filter(q=>['typed_exact','typed_short'].includes(q.format)).map(q=>q.id));
  for(const row of extraProbes.probes){
   const q=byId.get(row.questionId);
   assert.ok(row.scienceBasis.length>25);
-  assert.equal(q.answer.accepted.includes(row.pupilStyleAnswer),false,'not actually unseen: '+row.questionId);
+  assert.equal(q.answer.accepted.includes(row.pupilStyleAnswer),true,'uncredited after candidate addition: '+row.questionId);
   assert.equal(row.formalCreditEligible,false);
   assert.equal(canEarnFormalCredit(q),false);
  }
@@ -139,9 +139,25 @@ for(const path of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-
    const result=score(byId.get(row.questionId),row.pupilStyleAnswer,'biology',{});
    assert.ok([0,1].includes(result.score),'unexpected numeric outcome '+row.questionId);
    if(result.score!==1)notAccepted.push({id:row.questionId,answer:row.pupilStyleAnswer,score:result.score});
+   assert.equal(result.score,1,'bounded source-listed QA alternative must now be accepted: '+row.questionId);
   }
   console.log('DIAGNOSTIC '+path+': accepted '+(15-notAccepted.length)+'/15; undercredit_candidates='+JSON.stringify(notAccepted));
   assert.equal(extraProbes.academicApproved,0);
-  assert.equal(extraProbes.sourceEdited,false);
+  assert.equal(extraProbes.sourceEdited,true);
+ });
+}
+
+for(const path of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-rWAnuDVj.js']){
+ test(path+': expanded typed QA alternates do not accept adversarial negation or contradiction',()=>{
+  const score=scorer(path);
+  for(const row of extraProbes.probes){
+   const q=byId.get(row.questionId);
+   const knownBad=probes.questions.find(x=>x.questionId===row.questionId)?.invalidAlternative;
+   assert.ok(knownBad,row.questionId);
+   for(const wrong of ['not '+row.pupilStyleAnswer,row.pupilStyleAnswer+' but the correct answer is '+knownBad]){
+    assert.equal(score(q,wrong,'biology',{}).score,0,path+' must reject '+row.questionId+' / '+wrong);
+   }
+   assert.equal(canEarnFormalCredit(q),false);
+  }
  });
 }
