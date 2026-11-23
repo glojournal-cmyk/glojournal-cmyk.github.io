@@ -14,8 +14,8 @@ function linear(source,variable,value){
  const s=source.replace(/\s/g,'');
  let m=s.match(/^([+-]?\d+)([a-z])([+-]\d+)$/);
  if(m){assert.equal(m[2],variable);return Number(m[1])*value+Number(m[3]);}
- m=s.match(/^([+-]?\d+)-(\d+)([a-z])$/);
- if(m){assert.equal(m[3],variable);return Number(m[1])-Number(m[2])*value;}
+ m=s.match(/^([+-]?\d+)-(\d*)([a-z])$/);
+ if(m){assert.equal(m[3],variable);return Number(m[1])-Number(m[2]||'1')*value;}
  m=s.match(/^([a-z])([+-]\d+)$/);
  if(m){assert.equal(m[1],variable);return value+Number(m[2]);}
  m=s.match(/^([+-]?\d+)$/);
