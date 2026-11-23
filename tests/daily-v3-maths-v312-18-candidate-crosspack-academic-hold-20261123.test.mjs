@@ -37,8 +37,16 @@ test('18 standalone revised replacements: no source collisions, correct revision
  assert.equal(previous.sourceBankBlobSha,ledger.sourceBankBlobSha,
   'Both versions must refer to the same exact unchanged 200-question source');
  assert.equal(ledger.previousSnapshotPath,'qa-staging/math-v312-16-candidate-academic-review-ledger-20261123.json');
- assert.equal(ledger.previousSnapshotBlobSha,ledger.manifest[0].blobSha===undefined
-  ?ledger.previousSnapshotBlobSha:ledger.previousSnapshotBlobSha);
+ assert.equal(ledger.previousSnapshotBlobSha,'977cf5a161c1749ca9203fe68bc22b86b79907c9',
+  '18-item review must retain the exact earlier 16-item ledger revision');
+ for(const oldItem of previous.items){
+  const current=ledger.items.find(item=>item.sourceId===oldItem.sourceId);
+  assert.ok(current,'Old candidate vanished: '+oldItem.sourceId);
+  assert.equal(current.revisionId,oldItem.revisionId);
+  assert.equal(current.replacesRevisionId,oldItem.replacesRevisionId);
+  assert.equal(current.packPath,oldItem.packPath);
+  assert.equal(current.academicDecision,'HOLD');
+ }
  const sourceMap=new Map(bank.questions.map(q=>[q.sourceId,q]));
  const reviewedMap=new Map(ledger.items.map(q=>[q.sourceId,q]));
  assert.equal(sourceMap.size,200);
