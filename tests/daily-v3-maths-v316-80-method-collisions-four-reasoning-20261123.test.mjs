@@ -160,7 +160,7 @@ test('fail-closed adversarial conceptual changes detect bad I037 upper bound and
  assert.notEqual(Math.max(...allowed),50);
  const pValues=[];for(let p=0;p<=20;p++){
   const increase=((6e5*(1-p/100))/4e5-1)*100;
-  if(increase>=25&&increase<=32)pValues.push(p);
+  if(increase>=25-1e-9&&increase<=32+1e-9)pValues.push(p);
  }
  assert.deepEqual(pValues,[12,13,14,15,16]);
  assert.notEqual(pValues.length,7);
