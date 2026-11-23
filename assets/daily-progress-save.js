@@ -274,7 +274,15 @@ async function refreshCopies(){
 async function restore(data, name, externalSafetyConfirmed=false) {
   const live=store.getState();
   let plan;
-  try {plan=mergeImportProgress(JSON.parse(data),live,mergeDailyHistory);}
+  try {
+    const incoming=JSON.parse(data);
+    // The Home legacy importer cannot safely atomically restore a modern
+    // Pet MP wallet. Never report Scholar-only restore as a complete backup.
+    // Use the standalone route which independently verifies both stores.
+    if(incoming?.petWalletBackup!==undefined)
+      return status("This Scholar + Pet backup must be imported via /import-progress.html (Scholar Settings → Import progress). No data was changed here.", "error");
+    plan=mergeImportProgress(incoming,live,mergeDailyHistory);
+  }
   catch(error) {return status("Import failed: "+(error?.message||"Unreadable JSON"),"error");}
   const {backup,report}=plan;
   const text=report.legacy ? " This is a legacy PARTIAL backup: it cannot bring back missing dated study evidence." : "";
