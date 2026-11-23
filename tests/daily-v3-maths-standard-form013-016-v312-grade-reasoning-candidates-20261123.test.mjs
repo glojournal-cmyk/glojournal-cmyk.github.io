@@ -43,6 +43,9 @@ function calculateIndependentSource(q){
    if(capacity>=compressed)feasible.push({a,b,cost});
   }
   correct=Math.min(...feasible.map(x=>x.cost));
+  assert.ok(q.workedSolutionSteps[2].includes('b\\ge5') && q.workedSolutionSteps[2].includes('£275'),
+   'Must prove optimality against arbitrarily many B drives, not only b=0..4');
+
   assert.deepEqual(feasible.filter(x=>x.cost===correct).map(x=>[x.a,x.b]),[[2,2]]);
   assert.ok(5*capA<compressed,'Five A drives must be insufficient');
   assert.ok(4*capA+capB>=compressed);
@@ -72,6 +75,10 @@ function calculateIndependentSource(q){
   const loVolume=volume-increment(1)/2,upVolume=volume+increment(1)/2;
   assert.ok(loMass>0&&loVolume>0);
   correct=significant(upMass/loVolume,3);
+  assert.match(stem,/limiting upper bound/,'Density estimate must identify an unattained limiting supremum');
+  assert.match(q.workedSolutionSteps[2],/unattained/);
+  assert.ok(correct>=upMass/loVolume,'Rounded upper-limit approximation must not fall below the true supremum');
+
   wrong={
    A:significant(mass/volume,3),
    B:significant(loMass/loVolume,3),
