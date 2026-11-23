@@ -1,7 +1,7 @@
 {
   "kind": "Food Tests 52-item/99-point independent concept MCQ QA candidate",
   "sourceTopic": "bio-y8-food-tests",
-  "sourceSha": "a2503fcf252e0f8f432dd83ebdf258025d7a2d59",
+  "sourceSha": "779ce4e1f15262f89c95602f392c625baed8032f",
   "sourceStatus": "unapproved",
   "status": "academic-review-required",
   "approved": 0,
@@ -1040,19 +1040,19 @@
           "options": [
             {
               "id": "bio-y8-food-tests-application-20261025-cross-contamination::p1::A",
-              "text": "The glass tip converts starch into glucose"
+              "text": "The sugar-free extract is measured into a clean test tube with a clean pipette"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-cross-contamination::p1::B",
-              "text": "A drop from the previous glucose sample remains in the tip"
+              "text": "The same pipette transfers a drop of glucose solution left from an earlier sample"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-cross-contamination::p1::C",
-              "text": "Air in the pipette reacts with water to make glucose"
+              "text": "The food extract and Benedict’s reagent are heated for the same time as a negative control"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-cross-contamination::p1::D",
-              "text": "The graduation marks release glucose into the liquid"
+              "text": "The reagent volume is held constant while clean pipettes are used between samples"
             }
           ],
           "correctOptionId": "bio-y8-food-tests-application-20261025-cross-contamination::p1::B",
@@ -1060,7 +1060,7 @@
           "stem": "How could glucose enter a sugar-free sample when a pipette is reused?",
           "academicReview": "pending",
           "distractorReview": "pending",
-          "keyedAnswer": "A drop from the previous glucose sample remains in the tip"
+          "keyedAnswer": "The same pipette transfers a drop of glucose solution left from an earlier sample"
         },
         {
           "pointId": "bio-y8-food-tests-application-20261025-cross-contamination::p2",
@@ -1260,19 +1260,19 @@
           "options": [
             {
               "id": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p2::A",
-              "text": "Hot liquid may splash out in that direction"
+              "text": "Hot liquid can spit or splash out towards whoever the tube faces"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p2::B",
-              "text": "The reagent reacts faster when angled away"
+              "text": "It ensures the mixture stays at exactly the bath temperature"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p2::C",
-              "text": "The angle prevents loss of water by evaporation"
+              "text": "It prevents evaporation and therefore fixes the reagent concentration"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p2::D",
-              "text": "The colour is visible only from the closed end"
+              "text": "It makes a positive colour change happen more quickly"
             }
           ],
           "correctOptionId": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p2::A",
@@ -1280,7 +1280,7 @@
           "stem": "Why point the mouth of a heated test tube away from people?",
           "academicReview": "pending",
           "distractorReview": "pending",
-          "keyedAnswer": "Hot liquid may splash out in that direction"
+          "keyedAnswer": "Hot liquid can spit or splash out towards whoever the tube faces"
         }
       ]
     },
@@ -1452,19 +1452,19 @@
           "options": [
             {
               "id": "bio-y8-food-tests-application-20261025-fair-amount::p2::A",
-              "text": "The larger piece must contain a higher percentage of starch"
+              "text": "Equal mass guarantees both breads contain the same percentage of starch"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-fair-amount::p2::B",
-              "text": "The amounts of starch tested can differ because of portion size"
+              "text": "Unequal sample sizes could affect the amount of starch tested, making colour comparisons less fair"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-fair-amount::p2::C",
-              "text": "The crumb will convert starch into reducing sugar"
+              "text": "Equal mass removes any need to control the volume of iodine reagent"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-fair-amount::p2::D",
-              "text": "The larger piece supplies more iodine to the reaction"
+              "text": "Only the larger sample can give a positive iodine result even if both contain starch"
             }
           ],
           "correctOptionId": "bio-y8-food-tests-application-20261025-fair-amount::p2::B",
@@ -1472,7 +1472,7 @@
           "stem": "Why would comparing a large piece of one bread with a crumb of another weaken the result?",
           "academicReview": "pending",
           "distractorReview": "pending",
-          "keyedAnswer": "The amounts of starch tested can differ because of portion size"
+          "keyedAnswer": "Unequal sample sizes could affect the amount of starch tested, making colour comparisons less fair"
         }
       ]
     },
@@ -1542,13 +1542,13 @@
     },
     {
       "sourceId": "bio-y8-food-tests-application-20261025-sugar-strength",
-      "sourcePrompt": "A pupil obtains green with one heated Benedict's sample and brick-red with another. Explain what this suggests and one limitation.",
+      "sourcePrompt": "Two equal volumes of food extract are mixed with equal volumes of fresh Benedict's solution and heated for the same time in the same hot-water bath. One gives a green precipitate and the other a brick-red precipitate. Explain what this suggests about the relative reducing-sugar concentrations and one limitation of the comparison.",
       "totalMarks": 2,
       "academicReview": "pending",
       "parts": [
         {
           "pointId": "bio-y8-food-tests-application-20261025-sugar-strength::p1",
-          "concept": "brick-red suggests a greater amount of reducing sugar than green",
+          "concept": "With these controlled conditions, brick-red suggests a greater reducing-sugar concentration than green.",
           "options": [
             {
               "id": "bio-y8-food-tests-application-20261025-sugar-strength::p1::A",
@@ -1576,7 +1576,7 @@
         },
         {
           "pointId": "bio-y8-food-tests-application-20261025-sugar-strength::p2",
-          "concept": "the colour test gives an approximate result rather than an exact concentration",
+          "concept": "The colour result gives only a rough comparison, not an exact concentration.",
           "options": [
             {
               "id": "bio-y8-food-tests-application-20261025-sugar-strength::p2::A",
@@ -1926,13 +1926,13 @@
     },
     {
       "sourceId": "bio-y8-food-tests-application-20261025-all-negative",
-      "sourcePrompt": "An unknown sample gives four negative food tests. Explain what can and cannot be concluded.",
+      "sourcePrompt": "Positive and negative controls work correctly. An unknown sample gives negative results in the iodine, heated Benedict's, Biuret and ethanol emulsion tests. Explain what these results show and one limitation.",
       "totalMarks": 2,
       "academicReview": "pending",
       "parts": [
         {
           "pointId": "bio-y8-food-tests-application-20261025-all-negative::p1",
-          "concept": "none of starch reducing sugar protein or lipid were detected by these tests",
+          "concept": "None of starch, reducing sugar, protein or lipid was detected under the test conditions.",
           "options": [
             {
               "id": "bio-y8-food-tests-application-20261025-all-negative::p1::A",
@@ -1960,7 +1960,7 @@
         },
         {
           "pointId": "bio-y8-food-tests-application-20261025-all-negative::p2",
-          "concept": "a negative test does not prove the food contains no nutrients of any kind",
+          "concept": "The results do not prove that there are no nutrients: other nutrients or amounts below the detection limit may still be present.",
           "options": [
             {
               "id": "bio-y8-food-tests-application-20261025-all-negative::p2::A",
@@ -2320,19 +2320,19 @@
           "options": [
             {
               "id": "bio-y8-food-tests-application-20261025-recording::p1::A",
-              "text": "Pupil’s predicted nutrient"
+              "text": "Nutrient the pupil expected to find"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-recording::p1::B",
-              "text": "Time the table was copied"
+              "text": "Colour of the food before any reagent was added"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-recording::p1::C",
-              "text": "Test or reagent used"
+              "text": "Reagent or type of food test used"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-recording::p1::D",
-              "text": "Position of the notebook"
+              "text": "Name of the unknown food sample"
             }
           ],
           "correctOptionId": "bio-y8-food-tests-application-20261025-recording::p1::C",
@@ -2340,7 +2340,7 @@
           "stem": "Which table heading tells a reader how a recorded colour was produced?",
           "academicReview": "pending",
           "distractorReview": "pending",
-          "keyedAnswer": "Test or reagent used"
+          "keyedAnswer": "Reagent or type of food test used"
         },
         {
           "pointId": "bio-y8-food-tests-application-20261025-recording::p2",
@@ -2412,19 +2412,19 @@
           "options": [
             {
               "id": "bio-y8-food-tests-application-20261025-inference::p2::A",
-              "text": "Nutrient amounts per serving and what else the person eats"
+              "text": "Quantities of nutrients per serving and the rest of the person’s diet"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-inference::p2::B",
-              "text": "Which brand of test tube held the extract"
+              "text": "How many food tests gave a positive result, without nutrient quantities"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-inference::p2::C",
-              "text": "The order in which the two tests were written down"
+              "text": "Whether the food-test colour was lilac rather than orange"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-inference::p2::D",
-              "text": "The number of pupils who saw the colour change"
+              "text": "Whether the same test tube was used for the whole investigation"
             }
           ],
           "correctOptionId": "bio-y8-food-tests-application-20261025-inference::p2::A",
@@ -2432,7 +2432,7 @@
           "stem": "What further information would help assess how a snack fits into a diet?",
           "academicReview": "pending",
           "distractorReview": "pending",
-          "keyedAnswer": "Nutrient amounts per serving and what else the person eats"
+          "keyedAnswer": "Quantities of nutrients per serving and the rest of the person’s diet"
         }
       ]
     },
