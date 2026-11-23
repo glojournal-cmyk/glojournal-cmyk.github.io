@@ -1,6 +1,6 @@
 {
-  "revision": "2026-11-23-r1",
-  "status": "PROPOSED_QA_ONLY_NOT_IMPORTED",
+  "revision": "2026-11-23-r2-applied-to-draft-not-formally-approved",
+  "status": "QA_BRANCH_PATCH_APPLIED_RELEASE_STILL_BLOCKED",
   "approval": "0/143",
   "source": "PR #308 c923a2f; all live 143 IDs held",
   "scope": "Exact repairs discovered during independent academic review",
@@ -11,7 +11,11 @@
       "proposedAnswerTotalMarks": 4,
       "method": "One independently correct complete nutrient→reagent+positive-result pairing earns one mark. Or create eight separately scored choices (reagent and observation) and re-QA each new stem.",
       "critical": true,
-      "doNotAutoCreditUntilPlayerVerified": true
+      "doNotAutoCreditUntilPlayerVerified": true,
+      "qaBranchSourceApplied": true,
+      "finalAcademicApproval": false,
+      "status": "FIXED_IN_QA_BRANCH_RETEST_PENDING",
+      "commitReference": "0e5d1a6642216e7b335eb45c5f4eed4df8eb570f"
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-sugar-strength",
@@ -21,7 +25,11 @@
         "The brick-red tube probably has a higher reducing-sugar concentration than the green tube under comparable conditions.",
         "The colour scale gives only a rough comparison, not an exact concentration."
       ],
-      "critical": true
+      "critical": true,
+      "qaBranchSourceApplied": true,
+      "finalAcademicApproval": false,
+      "status": "FIXED_IN_QA_BRANCH_RETEST_PENDING",
+      "commitReference": "0e5d1a6642216e7b335eb45c5f4eed4df8eb570f"
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-all-negative",
@@ -30,7 +38,11 @@
       "markPoints": [
         "None of starch, reducing sugar, protein or lipid were detected by these four tests under the conditions used.",
         "This does not prove the sample contains no nutrients: the tests do not detect every nutrient and have detection limits."
-      ]
+      ],
+      "qaBranchSourceApplied": true,
+      "finalAcademicApproval": false,
+      "status": "FIXED_IN_QA_BRANCH_RETEST_PENDING",
+      "commitReference": "0e5d1a6642216e7b335eb45c5f4eed4df8eb570f"
     },
     {
       "questionId": "bio-y8-app-iodine-negative",
@@ -39,12 +51,18 @@
       "reviewUnsafeOverclaim": [
         "The sample contains absolutely no starch under any conditions",
         "A negative iodine test proves the sample is nutrient-free"
-      ]
+      ],
+      "qaBranchSourceApplied": false,
+      "finalAcademicApproval": false,
+      "status": "PROPOSED_NOT_APPLIED"
     },
     {
       "questionId": "bio-y8-food-tests-application-20261025-sugar-vs-starch",
       "issue": "Starch negative should mean not detected, not proof of literal absence.",
-      "proposedScoringRule": "Credit 'starch not detected' and correct equivalents; do not require absolute absence."
+      "proposedScoringRule": "Credit 'starch not detected' and correct equivalents; do not require absolute absence.",
+      "qaBranchSourceApplied": false,
+      "finalAcademicApproval": false,
+      "status": "PROPOSED_NOT_APPLIED"
     }
   ],
   "structuredCandidatePointRevisions": [
@@ -58,7 +76,11 @@
         "The sugar-free extract is measured into a clean test tube with a clean pipette",
         "The food extract and Benedict’s reagent are heated for the same time as a negative control",
         "The reagent volume is held constant while clean pipettes are used between samples"
-      ]
+      ],
+      "qaBranchCandidateApplied": true,
+      "finalAcademicApproval": false,
+      "status": "DISTRACTORS_REWRITTEN_RETEST_PENDING",
+      "commitReference": "21c437fd40d8186583d0b753ea495dc02f9d1686"
     },
     {
       "pointIndex": 39,
@@ -70,7 +92,11 @@
         "It ensures the mixture stays at exactly the bath temperature",
         "It prevents evaporation and therefore fixes the reagent concentration",
         "It makes a positive colour change happen more quickly"
-      ]
+      ],
+      "qaBranchCandidateApplied": true,
+      "finalAcademicApproval": false,
+      "status": "DISTRACTORS_REWRITTEN_RETEST_PENDING",
+      "commitReference": "21c437fd40d8186583d0b753ea495dc02f9d1686"
     },
     {
       "pointIndex": 45,
@@ -82,7 +108,11 @@
         "Equal mass guarantees both breads contain the same percentage of starch",
         "Equal mass removes any need to control the volume of iodine reagent",
         "Only the larger sample can give a positive iodine result even if both contain starch"
-      ]
+      ],
+      "qaBranchCandidateApplied": true,
+      "finalAcademicApproval": false,
+      "status": "DISTRACTORS_REWRITTEN_RETEST_PENDING",
+      "commitReference": "21c437fd40d8186583d0b753ea495dc02f9d1686"
     },
     {
       "pointIndex": 72,
@@ -94,7 +124,11 @@
         "Nutrient the pupil expected to find",
         "Colour of the food before any reagent was added",
         "Name of the unknown food sample"
-      ]
+      ],
+      "qaBranchCandidateApplied": true,
+      "finalAcademicApproval": false,
+      "status": "DISTRACTORS_REWRITTEN_RETEST_PENDING",
+      "commitReference": "21c437fd40d8186583d0b753ea495dc02f9d1686"
     },
     {
       "pointIndex": 75,
@@ -106,12 +140,28 @@
         "How many food tests gave a positive result, without nutrient quantities",
         "Whether the food-test colour was lilac rather than orange",
         "Whether the same test tube was used for the whole investigation"
-      ]
+      ],
+      "qaBranchCandidateApplied": true,
+      "finalAcademicApproval": false,
+      "status": "DISTRACTORS_REWRITTEN_RETEST_PENDING",
+      "commitReference": "21c437fd40d8186583d0b753ea495dc02f9d1686"
     }
   ],
-  "notAppliedReason": "Preserve source fingerprints and scoring gate until revised questions and partial-credit rules are independently validated. Do not enable formal scoring, and do not import these proposals to PR #310/main.",
+  "notAppliedReason": "Three source fixes and five candidate distractor rewrites are applied ONLY to draft PR #308. The remaining two source-note proposals are not applied. No change entered main/PR #310, no scoring eligibility, no teacher or actual iPad sign-off.",
   "approvals": {
     "questions": 0,
     "structuredCandidateParts": 0
-  }
+  },
+  "appliedSourceIds": [
+    "bio-y8-app-food-test-match",
+    "bio-y8-food-tests-application-20261025-sugar-strength",
+    "bio-y8-food-tests-application-20261025-all-negative"
+  ],
+  "appliedStructuredPointIndices": [
+    32,
+    39,
+    45,
+    72,
+    75
+  ]
 }
