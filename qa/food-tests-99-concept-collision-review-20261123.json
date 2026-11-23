@@ -19,7 +19,13 @@
     },
     "exactAnswerCollisionClusters": 9,
     "affectedCandidatePoints": 21,
-    "standaloneSoleCorrectScienceApprovals": 0
+    "standaloneSoleCorrectScienceApprovals": 0,
+    "lastSubstantiveDistractorRevision": [
+      40,
+      41,
+      75,
+      93
+    ]
   },
   "sourceFacts": {
     "aqaCorePractical": "Benedict's, iodine and Biuret methods explicitly included in AQA food-tests required practical",
@@ -1019,22 +1025,23 @@
       "pointId": "bio-y8-food-tests-application-20261025-protein-extraction::p1",
       "sourceId": "bio-y8-food-tests-application-20261025-protein-extraction",
       "sourceConcept": "crushing breaks up the sample to expose substances",
-      "stem": "Why crush a solid food before making an extract for a protein test?",
+      "stem": "A pupil crushes a solid food sample before adding water to make an extract for a protein test. What does crushing mainly achieve?",
       "answerKey": "More of the inside of the food is exposed",
       "correctOptionId": "bio-y8-food-tests-application-20261025-protein-extraction::p1::B",
       "keyedChoiceIndex": 1,
       "candidateChoices": [
-        "Crushing guarantees every protein in the food will dissolve completely in water",
+        "It increases the mass of protein in the same quantity of food.",
         "More of the inside of the food is exposed",
-        "Crushing removes the need to mix the solid food with water before testing the liquid",
-        "Crushing guarantees that no insoluble material can remain in the mixture"
+        "It breaks protein peptide bonds, which must happen before Biuret reagent can detect protein.",
+        "It removes dissolved nutrients other than protein before extraction."
       ],
       "duplicateExactAnswerCluster": null,
       "repeatAcrossItems": [],
       "reviewFlags": [
-        "PROTEIN_EXTRACTION_SOLUBILITY_CAVEAT"
+        "PROTEIN_EXTRACTION_SOLUBILITY_CAVEAT",
+        "SUBSTANTIVE_DISTRACTOR_REVISION_40_PENDING_INDEPENDENT_QA"
       ],
-      "preliminaryScienceScreen": "SOURCE_CONCEPT_KEY_APPEARS_CONSISTENT__NOT_INDEPENDENT_SOLE_KEY_SIGNOFF",
+      "preliminaryScienceScreen": "KEY_AND_DISTRACTORS_AI_SCREENED__NOT_INDEPENDENT_SOLE_KEY_SIGNOFF",
       "independentDistractorJudgment": "PENDING",
       "tgsTaughtScope": "PENDING",
       "academicApproved": false,
@@ -1045,7 +1052,7 @@
       "pointId": "bio-y8-food-tests-application-20261025-protein-extraction::p2",
       "sourceId": "bio-y8-food-tests-application-20261025-protein-extraction",
       "sourceConcept": "mixing with water allows a testable extract to be produced",
-      "stem": "Why mix the crushed food with water before testing a liquid portion with Biuret reagent?",
+      "stem": "A pupil has crushed a food sample and now needs a liquid portion for a Biuret protein test. What is the purpose of mixing it with water?",
       "answerKey": "Soluble material can pass into the liquid for testing",
       "correctOptionId": "bio-y8-food-tests-application-20261025-protein-extraction::p2::A",
       "keyedChoiceIndex": 0,
@@ -1053,14 +1060,15 @@
         "Soluble material can pass into the liquid for testing",
         "Water guarantees that every protein in the crushed food dissolves completely",
         "Water ensures that no other dissolved nutrients enter the extract",
-        "Water itself makes blue Biuret reagent turn lilac without protein"
+        "Water alone would turn Biuret reagent lilac even if no protein moved into the liquid."
       ],
       "duplicateExactAnswerCluster": null,
       "repeatAcrossItems": [],
       "reviewFlags": [
-        "PROTEIN_EXTRACTION_SOLUBILITY_CAVEAT"
+        "PROTEIN_EXTRACTION_SOLUBILITY_CAVEAT",
+        "SUBSTANTIVE_DISTRACTOR_REVISION_41_PENDING_INDEPENDENT_QA"
       ],
-      "preliminaryScienceScreen": "SOURCE_CONCEPT_KEY_APPEARS_CONSISTENT__NOT_INDEPENDENT_SOLE_KEY_SIGNOFF",
+      "preliminaryScienceScreen": "KEY_AND_DISTRACTORS_AI_SCREENED__NOT_INDEPENDENT_SOLE_KEY_SIGNOFF",
       "independentDistractorJudgment": "PENDING",
       "tgsTaughtScope": "PENDING",
       "academicApproved": false,
@@ -1922,22 +1930,23 @@
       "pointId": "bio-y8-food-tests-application-20261025-inference::p2",
       "sourceId": "bio-y8-food-tests-application-20261025-inference",
       "sourceConcept": "healthiness depends on amounts and other dietary factors",
-      "stem": "What further information would help assess how a snack fits into a diet?",
+      "stem": "A pupil knows only that a snack tests positive for protein and reducing sugar. What additional information is most useful for judging how it fits into a balanced diet?",
       "answerKey": "Quantities of nutrients per serving and the rest of the person’s diet",
       "correctOptionId": "bio-y8-food-tests-application-20261025-inference::p2::A",
       "keyedChoiceIndex": 0,
       "candidateChoices": [
         "Quantities of nutrients per serving and the rest of the person’s diet",
-        "How many food tests gave a positive result, without nutrient quantities",
-        "Whether the food-test colour was lilac rather than orange",
-        "Whether the same test tube was used for the whole investigation"
+        "Only which food tests showed any colour change, without quantities or serving sizes",
+        "A deeper Biuret purple colour treated as an exact measurement of protein mass per serving",
+        "A brick-red Benedict's result treated as the total energy content of the snack"
       ],
       "duplicateExactAnswerCluster": null,
       "repeatAcrossItems": [],
       "reviewFlags": [
-        "NUTRIENTS_NOT_COMPLETE_DIETARY_BALANCE"
+        "NUTRIENTS_NOT_COMPLETE_DIETARY_BALANCE",
+        "SUBSTANTIVE_DISTRACTOR_REVISION_75_PENDING_INDEPENDENT_QA"
       ],
-      "preliminaryScienceScreen": "SOURCE_CONCEPT_KEY_APPEARS_CONSISTENT__NOT_INDEPENDENT_SOLE_KEY_SIGNOFF",
+      "preliminaryScienceScreen": "KEY_AND_DISTRACTORS_AI_SCREENED__NOT_INDEPENDENT_SOLE_KEY_SIGNOFF",
       "independentDistractorJudgment": "PENDING",
       "tgsTaughtScope": "PENDING",
       "academicApproved": false,
@@ -2389,23 +2398,24 @@
       "pointId": "bio-y8-food-tests-application-20261025-safe-bunsen::p2",
       "sourceId": "bio-y8-food-tests-application-20261025-safe-bunsen",
       "sourceConcept": "an open flame can ignite the ethanol causing fire",
-      "stem": "A pupil leaves a Bunsen burner on its yellow safety flame while opening ethanol for a lipid test. Why is this still unsafe?",
-      "answerKey": "The vapour can catch fire",
+      "stem": "A pupil sees a lit Bunsen burner on its yellow safety flame before opening ethanol for the lipid emulsion test. Which action most directly removes the ignition risk?",
+      "answerKey": "Extinguish the Bunsen burner before opening ethanol so its flame cannot ignite ethanol vapour",
       "correctOptionId": "bio-y8-food-tests-application-20261025-safe-bunsen::p2::A",
       "keyedChoiceIndex": 0,
       "candidateChoices": [
-        "The vapour can catch fire",
-        "A yellow safety flame cannot ignite ethanol vapour",
-        "Ethanol can ignite only if it is heated to boiling first",
-        "Only liquid ethanol touching a flame can ignite"
+        "Extinguish the Bunsen burner before opening ethanol so its flame cannot ignite ethanol vapour",
+        "Leave the burner on its yellow safety flame because yellow flames cannot ignite vapour",
+        "Change the Bunsen flame to blue so it cannot ignite vapour from ethanol",
+        "Move the ethanol bottle a few centimetres away while keeping the burner lit on the same bench"
       ],
       "duplicateExactAnswerCluster": null,
       "repeatAcrossItems": [],
       "reviewFlags": [
         "ETHANOL_FIRE_SOURCE",
-        "ETHANOL_EMULSION_TGS_SCOPE_UNVERIFIED"
+        "ETHANOL_EMULSION_TGS_SCOPE_UNVERIFIED",
+        "SUBSTANTIVE_DISTRACTOR_REVISION_93_PENDING_INDEPENDENT_QA"
       ],
-      "preliminaryScienceScreen": "SOURCE_CONCEPT_KEY_APPEARS_CONSISTENT__NOT_INDEPENDENT_SOLE_KEY_SIGNOFF",
+      "preliminaryScienceScreen": "KEY_AND_DISTRACTORS_AI_SCREENED__NOT_INDEPENDENT_SOLE_KEY_SIGNOFF",
       "independentDistractorJudgment": "PENDING",
       "tgsTaughtScope": "PENDING",
       "academicApproved": false,
