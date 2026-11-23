@@ -123,3 +123,23 @@ test('three repeated recall stems now challenge unsupported inferences without c
   assert.equal(point.distractorReview,'pending',id);
  }
 });
+
+
+test('adversarial option quality round 5 preserves exact science key and rejects nonsensical foils',()=>{
+ const fixes=[
+  [38,'Hot glass can burn the hand',/stops being a burn hazard/],
+  [40,'More of the inside of the food is exposed',/guarantees every protein/],
+  [42,'More surface is exposed for the same mass',/total surface area stays the same/]
+ ];
+ for(const [index,key,foil] of fixes){
+  const part=candidateParts[index-1];
+  assert.equal(part.keyedAnswer,key);
+  assert.equal(part.options.find(o=>o.id===part.correctOptionId)?.text,key);
+  assert.ok(part.options.some(o=>foil.test(o.text)),part.pointId);
+  assert.equal(new Set(part.options.map(o=>o.text)).size,4);
+  assert.equal(part.approved,false);
+  assert.equal(part.distractorReview,'pending');
+ }
+ assert.deepEqual(candidate.qaDraftSecondPass.additionalMisconceptionDistractorFixes,[38,40,42]);
+ assert.equal(candidate.approved,0);
+});
