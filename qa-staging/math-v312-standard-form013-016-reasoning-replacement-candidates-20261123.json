@@ -24,47 +24,47 @@
       "replacesRevisionId": "LUX-MATH-Y9-STANDARD_FORM-013-REVIEW-2",
       "topicId": "math-y9-standard-form",
       "sourceDisposition": "PROPOSED_REPLACEMENT_OF_ROUTINE_ARITHMETIC_NUMERIC_ROTATION",
-      "stem": "A monitoring station records $2.4\\times10^{7}$ bytes per minute for $1.5\\times10^{2}$ minutes. Compression reduces the data to 70% of their original size. Each storage drive has a usable capacity of $5.0\\times10^{8}$ bytes. What is the minimum whole number of drives needed?",
+      "stem": "A monitoring station records $2.4\\times10^{7}$ bytes per minute for $1.5\\times10^{2}$ minutes. Compression reduces the data to 70% of their original size. Drive A stores $5.0\\times10^{8}$ bytes and costs £32; Drive B stores $8.0\\times10^{8}$ bytes and costs £55. Drives may be mixed. What is the minimum total cost in pounds to store all the compressed data?",
       "options": [
         {
           "id": "A",
-          "latex": "5",
-          "errorPath": "Round the required 5.04 drives down rather than up."
+          "latex": "160",
+          "errorPath": "Buy five type-A drives for £160 but overlook that they hold only 2.5×10^9 bytes, less than the compressed data."
         },
         {
           "id": "B",
-          "latex": "6"
+          "latex": "174"
         },
         {
           "id": "C",
-          "latex": "8",
-          "errorPath": "Ignore compression and store all 3.6×10^9 original bytes."
+          "latex": "183",
+          "errorPath": "Buy four A drives and one B drive, a feasible but more expensive combination."
         },
         {
           "id": "D",
-          "latex": "3",
-          "errorPath": "Mistake 'reduced to 70%' for 'reduced by 70%', keeping only 30%."
+          "latex": "192",
+          "errorPath": "Use only six type-A drives, missing a cheaper mixed-drive combination."
         },
         {
           "id": "E",
-          "latex": "4",
-          "errorPath": "Apply the 70% retention twice instead of once."
+          "latex": "197",
+          "errorPath": "Buy one A drive and three B drives, a feasible but more expensive combination."
         },
         {
           "id": "F",
-          "latex": "51",
-          "errorPath": "Read each drive's 5.0×10^8 capacity as 5.0×10^7, a factor of ten too small."
+          "latex": "220",
+          "errorPath": "Use only four type-B drives, missing the lower-cost mixed-drive option."
         }
       ],
       "correctOptionId": "B",
-      "correctAnswerLatex": "6",
+      "correctAnswerLatex": "174",
       "workedSolutionSteps": [
-        "The uncompressed data use $(2.4\\times10^7)(1.5\\times10^2)=3.6\\times10^9$ bytes.",
-        "After compression the total is $0.70(3.6\\times10^9)=2.52\\times10^9$ bytes.",
-        "Dividing by $5.0\\times10^8$ gives $5.04$ drives. Five drives cannot hold all the data, so the minimum whole number is $6$."
+        "The raw data size is $(2.4\\times10^7)(1.5\\times10^2)=3.6\\times10^9$ bytes. After 70% retention, $2.52\\times10^9$ bytes must be stored.",
+        "If $a$ A-drives and $b$ B-drives are purchased, capacity requires $a(5.0\\times10^8)+b(8.0\\times10^8)\\ge2.52\\times10^9$ and the cost is $32a+55b$ pounds.",
+        "Check non-negative integer possibilities: with $b=0,1,2,3,4$, the cheapest feasible costs are respectively £192, £183, £174, £197, £220. The minimum is £174, achieved by two drives of each type."
       ],
-      "provisionalAOFocus": "AO3 candidate: translate a real capacity constraint, interpret rounding and compression semantics.",
-      "unverifiedTaughtSubskill": "Mixed standard-form multiplication, interpretation of retained percentage and integer upper rounding; school scope needs verification.",
+      "provisionalAOFocus": "AO3 candidate: optimise two integer resource choices under a capacity constraint after scientific-notation and percentage modelling; comparison requires proof of minimality.",
+      "unverifiedTaughtSubskill": "Actual Year 9 teaching of two-variable integer resource-optimisation and capacity inequality not verified; independent Grade7+ benchmarking required.",
       "academicQA": "pending",
       "gradeStatus": "PROVISIONAL_REASONING_NOT_G7PLUS_CERTIFIED",
       "independentGradeCalibrated": false,
@@ -134,47 +134,47 @@
       "replacesRevisionId": "LUX-MATH-Y9-STANDARD_FORM-015-REVIEW-2",
       "topicId": "math-y9-standard-form",
       "sourceDisposition": "PROPOSED_REPLACEMENT_OF_ROUTINE_ARITHMETIC_NUMERIC_ROTATION",
-      "stem": "Before processing, a mixture contains $3.2\\times10^{8}$ g of material A and an unknown mass of material B. Processing removes 15% of the total original mass, leaving $6.8\\times10^{8}$ g. What mass of B was added initially? Give your answer in standard form in grams.",
+      "stem": "Before processing, a mixture contains $3.2\\times10^{8}$ g of material A and an unknown mass of material B. Processing removes 20% of material A and 10% of material B, leaving $6.61\\times10^{8}$ g in total. What initial mass of B was added? Give your answer in standard form in grams.",
       "options": [
         {
           "id": "A",
-          "latex": "4.8\\times10^{8}"
+          "latex": "4.5\\times10^{8}"
         },
         {
           "id": "B",
-          "latex": "3.6\\times10^{8}",
-          "errorPath": "Ignore the 15% processing loss and subtract the known mass directly from the final mass."
+          "latex": "3.41\\times10^{8}",
+          "errorPath": "Ignore both percentage losses and subtract the original mass of A directly from the final mass."
         },
         {
           "id": "C",
-          "latex": "2.58\\times10^{8}",
-          "errorPath": "Multiply the final mass by 85%, applying the loss again instead of reversing it."
+          "latex": "4.05\\times10^{8}",
+          "errorPath": "Correctly reduce A by 20% but report the retained B mass without undoing B's 10% loss."
         },
         {
           "id": "D",
-          "latex": "4.62\\times10^{8}",
-          "errorPath": "Add 15% of the final mass to the final mass instead of dividing by 85%."
+          "latex": "5.0625\\times10^{8}",
+          "errorPath": "Use A's 20% loss rate for B as well, dividing B's retained mass by 80% instead of 90%."
         },
         {
           "id": "E",
-          "latex": "4.08\\times10^{8}",
-          "errorPath": "Apply the 15% loss only to material A, then subtract that reduced A mass from the final total."
+          "latex": "3.645\\times10^{8}",
+          "errorPath": "After finding the retained B mass, apply B's 10% loss again instead of reversing it."
         },
         {
           "id": "F",
-          "latex": "5.3\\times10^{8}",
-          "errorPath": "Mistake the stated loss as 20% and divide the final mass by 80%."
+          "latex": "2.9\\times10^{8}",
+          "errorPath": "Reverse A's 20% loss instead of applying it, then correctly reverse B's 10% loss."
         }
       ],
       "correctOptionId": "A",
-      "correctAnswerLatex": "4.8\\times10^{8}",
+      "correctAnswerLatex": "4.5\\times10^{8}",
       "workedSolutionSteps": [
-        "If 15% of the original total mass was removed, the recorded final mass is 85% of the original.",
-        "Therefore the original total is $\\dfrac{6.8\\times10^8}{0.85}=8.0\\times10^8$ g.",
-        "Subtract material A: $8.0\\times10^8-3.2\\times10^8=4.8\\times10^8$ g of material B."
+        "Material A retains 80% of its original mass, so A contributes $0.80(3.2\\times10^8)=2.56\\times10^8$ g after processing.",
+        "The amount of B remaining is $6.61\\times10^8-2.56\\times10^8=4.05\\times10^8$ g.",
+        "Material B retains 90% of its initial mass, so the original B mass is $\\dfrac{4.05\\times10^8}{0.90}=4.5\\times10^8$ g."
       ],
-      "provisionalAOFocus": "AO3 candidate: set up and invert a conservation relationship; compare incorrect forward versus inverse percentage steps.",
-      "unverifiedTaughtSubskill": "Reverse percentage in a conservation-of-mass model, mixed with Standard Form; confirm exact timing of taught reverse-percent methods.",
+      "provisionalAOFocus": "AO3 modelling candidate: apply distinct percentage retention rates and reverse only one unknown contribution in a mass-balance relationship.",
+      "unverifiedTaughtSubskill": "Two different retention rates, conservation of mass and inverse percentage calculation require individual school-taught confirmation; Grade7+ not externally certified.",
       "academicQA": "pending",
       "gradeStatus": "PROVISIONAL_REASONING_NOT_G7PLUS_CERTIFIED",
       "independentGradeCalibrated": false,
