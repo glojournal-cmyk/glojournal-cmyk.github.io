@@ -88,7 +88,9 @@ test('a full ten-question session survives parent/store rerenders and finishes 1
   tree=hr.render(()=>qc.H(qp));assert.equal(questionBody(tree),expectedBody(current),'Active Quiz keeps the submitted question body after parent/store rerender');assert.equal(attemptedIds.at(-1),current.id,'Mark the original question ID');assert.ok(textOf(tree).includes(`Question ${i+1} / 10`));
   const detail=flatten(tree).find(n=>n?.type==='details'&&textOf(n).includes('Answer & explanation'));
   assert.ok(detail,'Correct answers keep full explanation available');assert.notEqual(detail.props.open,true,'Full explanation starts collapsed');
-  button(tree,i===9?'Finish':'Next question').props.onClick();tree=hr.render(()=>qc.H(qp));
+  button(tree,i===9?'Finish':'Next question').props.onClick();
+  await new Promise(resolve=>setImmediate(resolve)); // Quiz next/finish dispatches asynchronously
+  tree=hr.render(()=>qc.H(qp));
   if(i<9)assert.equal(questionBody(tree),expectedBody(frozenItems[i+1]),'Active Quiz keeps the original session order');
  }
  assert.deepEqual(attemptedIds,frozenItems.map(q=>q.id),'Exactly the original ten questions were marked once');
@@ -255,7 +257,7 @@ test('ten independent Food Tests quiz answers complete unmarked, remain saved on
   assert.ok(!textOf(tree).includes(pool[i].feedback?.short||'SHOULD_NEVER_APPEAR'),
     'do not leak the model answer while Academic QA is held');
   button(tree,i===9?'Finish':'Next question').props.onClick();
-  if(i===9)await new Promise(resolve=>setImmediate(resolve));
+  await new Promise(resolve=>setImmediate(resolve)); // Wait for asynchronous next/finish completion
   tree=first.runner.render(()=>first.ctx.H(props));
  }
  assert.equal(stored?.unmarkedCompleted,true,'completed sitting must be persistently recorded');
