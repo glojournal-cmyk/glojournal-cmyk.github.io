@@ -134,7 +134,7 @@
       "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-003-REVIEW-2",
       "topicId": "math-y9-changing-subject",
       "sourceDisposition": "QA_ONLY_REDRAFT_NOT_RELEASED",
-      "stem": "For $x\\ge0$, define $y=\\sqrt{x+1}-\\sqrt{x}$. Which option makes $x$ the subject, gives the **full possible range** of $y$, and calculates $x$ when $y=\\frac13$?",
+      "stem": "For $x\\ge0$, define $y=\\sqrt{x+1}-\\sqrt{x}$. Which option makes $x$ the subject, gives the **full possible range** of $y$, and calculates $x$ when $y=\\frac{1}{3}$?",
       "options": [
         {
           "id": "A",
@@ -162,16 +162,16 @@
         },
         {
           "id": "F",
-          "latex": "x=\\frac{(1-y^2)^2}{4y^2},0<y\\le1,x(1/3)=\\frac19",
+          "latex": "x=\\frac{(1-y^2)^2}{4y^2},0<y\\le1,x(1/3)=\\frac{1}{9}",
           "errorPath": "Mistake the measured output y for sqrt(x), so x=y^2=1/9 instead of substituting into the derived inverse."
         }
       ],
       "correctOptionId": "A",
       "correctAnswerLatex": "x=\\frac{(1-y^2)^2}{4y^2},0<y\\le1,x(1/3)=\\frac{16}{9}",
       "workedSolutionSteps": [
-        "Rationalise: $y(\\sqrt{x+1}+\\sqrt{x})=1$. Subtract the original difference to get $2\\sqrt{x}=\\frac1y-y$, where $y>0$.",
+        "Rationalise: $y(\\sqrt{x+1}+\\sqrt{x})=1$. Subtract the original difference to get $2\\sqrt{x}=\\frac{1}{y}-y$, where $y>0$.",
         "Hence $x=\\frac{(1-y^2)^2}{4y^2}$. The difference decreases from 1 at x=0 towards 0 without reaching 0, so $0<y\\le1$.",
-        "At $y=\\frac13$, $\\sqrt{x}=\\frac{3-1/3}{2}=\\frac43$, giving $x=\\frac{16}{9}$."
+        "At $y=\\frac{1}{3}$, $\\sqrt{x}=\\frac{3-1/3}{2}=\\frac{4}{3}$, giving $x=\\frac{16}{9}$."
       ],
       "provisionalAOFocus": "AO2 candidate: conjugate-root identity, inverse-square derivation, endpoint analysis and exact substitution.",
       "unverifiedTaughtSubskill": "Surd rationalisation and inverse/domain work need exact classroom confirmation; check conceptual distinctness from two-radical Q005.",
@@ -197,40 +197,40 @@
       "options": [
         {
           "id": "A",
-          "latex": "k=3,x=\\frac{5y-4}{3-2y},\\frac45\\le y\\le\\frac32",
+          "latex": "k=3,x=\\frac{5y-4}{3-2y},\\frac{4}{5}\\le y\\le\\frac{3}{2}",
           "errorPath": "Include the unattainable horizontal asymptote y=3/2 as an actual model output."
         },
         {
           "id": "B",
-          "latex": "k=3,x=\\frac{5y-4}{3-2y},\\frac45<y<\\frac32",
+          "latex": "k=3,x=\\frac{5y-4}{3-2y},\\frac{4}{5}<y<\\frac{3}{2}",
           "errorPath": "Exclude the lower endpoint y=4/5 even though x=0 is permitted."
         },
         {
           "id": "C",
-          "latex": "k=3,x=\\frac{5y-4}{3-2y},\\frac45\\le y<\\frac32"
+          "latex": "k=3,x=\\frac{5y-4}{3-2y},\\frac{4}{5}\\le y<\\frac{3}{2}"
         },
         {
           "id": "D",
-          "latex": "k=3,x=\\frac{5y-4}{2y-3},\\frac45\\le y<\\frac32",
+          "latex": "k=3,x=\\frac{5y-4}{2y-3},\\frac{4}{5}\\le y<\\frac{3}{2}",
           "errorPath": "Reverse the sign of the denominator while collecting x terms."
         },
         {
           "id": "E",
-          "latex": "k=3,x=\\frac{5y+4}{3-2y},\\frac45\\le y<\\frac32",
+          "latex": "k=3,x=\\frac{5y+4}{3-2y},\\frac{4}{5}\\le y<\\frac{3}{2}",
           "errorPath": "Carry the constant 4 across equality with the wrong sign."
         },
         {
           "id": "F",
-          "latex": "k=11,x=\\frac{5y-4}{11-2y},\\frac45\\le y<\\frac{11}{2}",
+          "latex": "k=11,x=\\frac{5y-4}{11-2y},\\frac{4}{5}\\le y<\\frac{11}{2}",
           "errorPath": "Add rather than subtract the numerator constant when calibrating k from the x=1 measurement."
         }
       ],
       "correctOptionId": "C",
-      "correctAnswerLatex": "k=3,x=\\frac{5y-4}{3-2y},\\frac45\\le y<\\frac32",
+      "correctAnswerLatex": "k=3,x=\\frac{5y-4}{3-2y},\\frac{4}{5}\\le y<\\frac{3}{2}",
       "workedSolutionSteps": [
         "The observation gives $1=\\frac{k+4}{7}$, so $k=3$. Therefore $y=\\frac{3x+4}{2x+5}$.",
         "Cross-multiplication yields $(3-2y)x=5y-4$, hence $x=\\frac{5y-4}{3-2y}$. The model increases because for larger x the fraction $\\frac{3x+4}{2x+5}$ approaches its higher limiting ratio.",
-        "At x=0, $y=\\frac45$ is attained; as x increases without bound, y approaches but never equals $\\frac32$. Hence $\\frac45\\le y<\\frac32$."
+        "At x=0, $y=\\frac{4}{5}$ is attained; as x increases without bound, y approaches but never equals $\\frac{3}{2}$. Hence $\\frac{4}{5}\\le y<\\frac{3}{2}$."
       ],
       "provisionalAOFocus": "AO2 candidate: infer a model parameter from an observation before inversion and derive the attainable output interval.",
       "unverifiedTaughtSubskill": "Parametric formulas, rational inverses and asymptotic bounds need individual taught-subskill evidence.",
@@ -257,40 +257,40 @@
       "options": [
         {
           "id": "A",
-          "latex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2-\\sqrt{34}}3,2<y\\le5",
+          "latex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2-\\sqrt{34}}{3},2<y\\le5",
           "errorPath": "Select the negative root from the fixed-point quadratic despite x being non-negative."
         },
         {
           "id": "B",
-          "latex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{34}}3,2\\le y\\le5",
+          "latex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{34}}{3},2\\le y\\le5",
           "errorPath": "Include the unattainable limiting output y=2 in the range."
         },
         {
           "id": "C",
-          "latex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{34}}3,2<y<5",
+          "latex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{34}}{3},2<y<5",
           "errorPath": "Exclude y=5 even though x=0 is an admissible input."
         },
         {
           "id": "D",
-          "latex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{34}}3,2<y\\le5"
+          "latex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{34}}{3},2<y\\le5"
         },
         {
           "id": "E",
-          "latex": "x=\\frac{10+2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{34}}3,2<y\\le5",
+          "latex": "x=\\frac{10+2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{34}}{3},2<y\\le5",
           "errorPath": "Move the 2y constant across the equality without changing its sign."
         },
         {
           "id": "F",
-          "latex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{30}}3,2<y\\le5",
+          "latex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{30}}{3},2<y\\le5",
           "errorPath": "Calculate the quadratic discriminant as 120 instead of 136."
         }
       ],
       "correctOptionId": "D",
-      "correctAnswerLatex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{34}}3,2<y\\le5",
+      "correctAnswerLatex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{34}}{3},2<y\\le5",
       "workedSolutionSteps": [
         "Multiply out $(y-2)(3x+2)=6$, giving $3x(y-2)=10-2y$ and $x=\\frac{10-2y}{3(y-2)}$. From x≥0, the image is $2<y\\le5$.",
-        "At a fixed point y=x, multiply $x=2+\\frac6{3x+2}$ to obtain $3x^2-4x-10=0$.",
-        "The roots are $x=\\frac{2\\pm\\sqrt{34}}3$. The negative branch is excluded by x≥0, so the unique fixed point is $x=\\frac{2+\\sqrt{34}}3$."
+        "At a fixed point y=x, multiply $x=2+\\frac{6}{3x+2}$ to obtain $3x^2-4x-10=0$.",
+        "The roots are $x=\\frac{2\\pm\\sqrt{34}}{3}$. The negative branch is excluded by x≥0, so the unique fixed point is $x=\\frac{2+\\sqrt{34}}{3}$."
       ],
       "provisionalAOFocus": "AO2 candidate: connect inverse rational formula to a quadratic fixed-point equation with branch and endpoint decisions.",
       "unverifiedTaughtSubskill": "Quadratic formula with surd discriminant, functional fixed-point concept and reciprocal inversion require taught-subskill confirmation.",
@@ -430,30 +430,30 @@
       "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-019-REVIEW-2",
       "topicId": "math-y9-changing-subject",
       "sourceDisposition": "QA_ONLY_REDRAFT_NOT_RELEASED",
-      "stem": "For integers $x\\ge0$, the output $y(x)$ satisfies $\\frac1{y(x)}=1+\\frac2{3x+2}$. Inputs are allowed only when $y(x)\\ge\\frac45$. What is the **greatest possible increase** $y(x+1)-y(x)$ between consecutive allowed integer inputs?",
+      "stem": "For integers $x\\ge0$, the output $y(x)$ satisfies $\\frac{1}{y(x)}=1+\\frac{2}{3x+2}$. Inputs are allowed only when $y(x)\\ge\\frac{4}{5}$. What is the **greatest possible increase** $y(x+1)-y(x)$ between consecutive allowed integer inputs?",
       "options": [
         {
           "id": "A",
-          "latex": "\\frac3{14}",
+          "latex": "\\frac{3}{14}",
           "errorPath": "Calculate the one-step increase at x=0 without enforcing the minimum output y≥4/5."
         },
         {
           "id": "B",
-          "latex": "\\frac3{35}",
+          "latex": "\\frac{3}{35}",
           "errorPath": "Start at x=1 because of an incorrectly relaxed lower-bound inequality."
         },
         {
           "id": "C",
-          "latex": "\\frac3{65}"
+          "latex": "\\frac{3}{65}"
         },
         {
           "id": "D",
-          "latex": "\\frac3{104}",
+          "latex": "\\frac{3}{104}",
           "errorPath": "Start at x=3 instead of the smallest permitted x=2, giving a smaller adjacent difference."
         },
         {
           "id": "E",
-          "latex": "\\frac15",
+          "latex": "\\frac{1}{5}",
           "errorPath": "Mistake the gap between y(2)=4/5 and the horizontal ceiling y=1 for a one-step increase."
         },
         {
@@ -463,11 +463,11 @@
         }
       ],
       "correctOptionId": "C",
-      "correctAnswerLatex": "\\frac3{65}",
+      "correctAnswerLatex": "\\frac{3}{65}",
       "workedSolutionSteps": [
-        "The source is $y(x)=\\frac{3x+2}{3x+4}=1-\\frac2{3x+4}$. Its bound $y(x)\\ge\\frac45$ is equivalent to $x\\ge2$.",
-        "Subtract consecutive outputs: $y(x+1)-y(x)=\\frac2{3x+4}-\\frac2{3x+7}=\\frac6{(3x+4)(3x+7)}$.",
-        "Both positive denominator factors increase with x, so the greatest admissible increment occurs at the smallest allowed integer x=2: $\\frac6{10\\times13}=\\frac3{65}$."
+        "The source is $y(x)=\\frac{3x+2}{3x+4}=1-\\frac{2}{3x+4}$. Its bound $y(x)\\ge\\frac{4}{5}$ is equivalent to $x\\ge2$.",
+        "Subtract consecutive outputs: $y(x+1)-y(x)=\\frac{2}{3x+4}-\\frac{2}{3x+7}=\\frac{6}{(3x+4)(3x+7)}$.",
+        "Both positive denominator factors increase with x, so the greatest admissible increment occurs at the smallest allowed integer x=2: $\\frac{6}{10\\times13}=\\frac{3}{65}$."
       ],
       "provisionalAOFocus": "AO2/AO3 candidate: inverse-based feasibility threshold plus a finite-difference optimisation across discrete inputs.",
       "unverifiedTaughtSubskill": "Rational-function differences and monotonic bounds are not confirmed within the student's taught Year9 content.",
