@@ -2155,10 +2155,10 @@
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
-        "Starch and reducing sugar were both detected.",
+        "Starch was detected; reducing sugar was not detected.",
         "Reducing sugar was detected; starch was not detected.",
-        "Only starch was detected, since iodine stayed brown.",
-        "Neither starch nor reducing sugar was detected."
+        "Neither starch nor reducing sugar was detected because iodine stayed brown.",
+        "Reducing sugar was detected, and the iodine result also confirms starch."
       ],
       "answer": {
         "mode": "choice",
@@ -2171,8 +2171,8 @@
       "feedback": {
         "short": "A positive heated Benedict's result is evidence for reducing sugar; orange-brown iodine is starch-negative.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "A positive heated Benedict's result is evidence for reducing sugar; orange-brown iodine is starch-negative."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -2209,9 +2209,9 @@
       "status": "qa-pending",
       "options": [
         "Protein was detected, but reducing sugar was not detected.",
-        "Reducing sugar and protein were both detected.",
-        "Starch was detected because Biuret became lilac.",
-        "The lipid concentration must be zero."
+        "Protein and reducing sugar were detected because both reagents were added.",
+        "Protein was not detected, but reducing sugar was detected.",
+        "The blue Benedict's result also indicates reducing sugar when Biuret is lilac."
       ],
       "answer": {
         "mode": "choice",
@@ -2224,8 +2224,8 @@
       "feedback": {
         "short": "The two reagents report separate nutrient groups and do not establish any lipid result.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "The two reagents report separate nutrient groups and do not establish any lipid result."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -2262,8 +2262,8 @@
       "status": "qa-pending",
       "options": [
         "All four nutrient groups were detected.",
-        "Only starch was detected.",
-        "Reducing sugar and lipid must both be absent.",
+        "Only starch was detected because lilac is a negative Biuret colour.",
+        "Starch and protein were detected, but the untested sugar and lipid must also be absent.",
         "Starch and protein were detected; reducing sugar and lipid remain untested."
       ],
       "answer": {
@@ -2277,8 +2277,8 @@
       "feedback": {
         "short": "Only tested positive reactions can support conclusions; unperformed tests cannot establish absence.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Only tested positive reactions can support conclusions; unperformed tests cannot establish absence."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -2314,10 +2314,10 @@
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
-        "A green result proves there is no reducing sugar.",
-        "The food must contain starch because Benedict's turned green.",
+        "A green result means no reducing sugar because only brick-red is positive.",
+        "Green and blue are both negative because the tube did not become brick-red.",
         "The food extract tested positive for reducing sugar.",
-        "The water blank tested positive for protein."
+        "The blue water blank makes a green sample result unreliable."
       ],
       "answer": {
         "mode": "choice",
@@ -2330,8 +2330,8 @@
       "feedback": {
         "short": "Green is a weak positive reducing-sugar result under appropriate heating.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Green is a weak positive reducing-sugar result under appropriate heating."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -2383,8 +2383,8 @@
       "feedback": {
         "short": "A failed positive control invalidates a conclusion based on negative sample results.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "A failed positive control invalidates a conclusion based on negative sample results."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -2436,8 +2436,8 @@
       "feedback": {
         "short": "A negative control ought to remain blue; a lilac blank suggests a problem.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "A negative control ought to remain blue; a lilac blank suggests a problem."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -2489,8 +2489,8 @@
       "feedback": {
         "short": "The emulsion endpoint is cloudiness developing on dilution of an ethanol extract with water.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "The emulsion endpoint is cloudiness developing on dilution of an ethanol extract with water."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -2526,10 +2526,10 @@
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
-        "Protein was detected because the extract went white.",
-        "Starch was detected because the blank stayed clear.",
+        "The emulsion was negative because the ethanol extract was initially clear.",
+        "The cloudy result identifies protein rather than lipid.",
         "Lipid was detected in the sample.",
-        "No lipid was detected because the ethanol extract had first been clear."
+        "A clear water blank confirms that the food contains reducing sugar."
       ],
       "answer": {
         "mode": "choice",
@@ -2542,8 +2542,8 @@
       "feedback": {
         "short": "A clear blank with a milky sample supports a positive lipid emulsion result.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "A clear blank with a milky sample supports a positive lipid emulsion result."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -2595,8 +2595,8 @@
       "feedback": {
         "short": "Protein evidence cannot prove absence of untested starch.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Protein evidence cannot prove absence of untested starch."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -2648,8 +2648,8 @@
       "feedback": {
         "short": "The water blank must not behave like a starch-positive sample.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "The water blank must not behave like a starch-positive sample."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -2701,8 +2701,8 @@
       "feedback": {
         "short": "A failed known positive control makes negative results uncertain.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "A failed known positive control makes negative results uncertain."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -2754,8 +2754,8 @@
       "feedback": {
         "short": "A valid negative supports 'not detected', not absolute absence.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "A valid negative supports 'not detected', not absolute absence."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -2807,8 +2807,8 @@
       "feedback": {
         "short": "Heated distilled water should remain blue in a working reducing-sugar test.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Heated distilled water should remain blue in a working reducing-sugar test."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -2860,8 +2860,8 @@
       "feedback": {
         "short": "Inadequate heating undermines a negative Benedict's result.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Inadequate heating undermines a negative Benedict's result."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -2897,9 +2897,9 @@
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
-        "Lipid was detected, but reducing sugar was not.",
-        "Both tests were negative.",
-        "The two tests together prove the food contains no protein.",
+        "Reducing sugar was absent because the Benedict's precipitate was yellow rather than brick-red.",
+        "Lipid was detected because the ethanol-water mixture remained clear.",
+        "A positive Benedict's colour means the lipid result must also be positive.",
         "Reducing sugar was detected; lipid was not detected."
       ],
       "answer": {
@@ -2913,8 +2913,8 @@
       "feedback": {
         "short": "A positive yellow Benedict's result and a negative emulsion test address different substances.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "A positive yellow Benedict's result and a negative emulsion test address different substances."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -2966,8 +2966,8 @@
       "feedback": {
         "short": "An unperformed lipid test cannot establish that lipids are absent.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "An unperformed lipid test cannot establish that lipids are absent."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -3003,10 +3003,10 @@
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
-        "Use more iodine on the bread expected to contain more starch.",
+        "Use the same number of crumbs without checking their masses.",
         "Measure the same mass of each bread sample.",
-        "Use a larger piece of the darker bread.",
-        "Compare one wet crumb with one dry whole loaf."
+        "Add more iodine to the bread expected to contain less starch.",
+        "Choose pieces that look equally dark even if their masses differ."
       ],
       "answer": {
         "mode": "choice",
@@ -3058,9 +3058,9 @@
       "status": "qa-pending",
       "options": [
         "Add the same measured volume of Benedict's solution to each equal sample volume.",
-        "Use twice as much Benedict's solution in the sample expected to be sweeter.",
-        "Dilute one tube until its colour matches the other.",
-        "Add reagent only to the sample that looks cloudy."
+        "Keep the total liquid volume similar by diluting only one food extract.",
+        "Add more Benedict's reagent to the food expected to contain more sugar.",
+        "Adjust reagent volume until the two tubes reach a similar colour."
       ],
       "answer": {
         "mode": "choice",
@@ -3073,8 +3073,8 @@
       "feedback": {
         "short": "Unequal reagent amounts make colour comparison less fair.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Unequal reagent amounts make colour comparison less fair."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -3126,8 +3126,8 @@
       "feedback": {
         "short": "Temperature is a controlled variable when comparing Benedict's reactions.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Temperature is a controlled variable when comparing Benedict's reactions."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -3179,8 +3179,8 @@
       "feedback": {
         "short": "Reaction duration affects the observed Benedict's colour.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Reaction duration affects the observed Benedict's colour."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -3232,8 +3232,8 @@
       "feedback": {
         "short": "Compare equal amounts of the tested material.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Compare equal amounts of the tested material."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -3270,9 +3270,9 @@
       "status": "qa-pending",
       "options": [
         "Repeat on fresh equal-sized portions using the same iodine volume and procedure.",
-        "Record the same tube three times as three independent trials.",
-        "Keep changing the iodine quantity until a dark colour appears.",
-        "Use a different food for each repeated observation."
+        "Look at the same tube several times and count these as independent repeat tests.",
+        "Use fresh portions but change the iodine volume until the results agree.",
+        "Repeat on different foods rather than on the food with the doubtful result."
       ],
       "answer": {
         "mode": "choice",
@@ -3285,8 +3285,8 @@
       "feedback": {
         "short": "Independent repeat trials must control the method rather than copy one result.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Independent repeat trials must control the method rather than copy one result."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -3322,9 +3322,9 @@
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
-        "A dissolved egg-white sample.",
-        "Milk diluted with a little water.",
-        "A known albumin protein standard.",
+        "A dilute egg-white solution prepared to make the purple colour faint.",
+        "A sugar solution made with milk, which contains some protein.",
+        "A known protein solution made from albumen.",
         "Distilled water with the usual amount of Biuret reagent."
       ],
       "answer": {
@@ -3338,8 +3338,8 @@
       "feedback": {
         "short": "Clean water contains no protein and should remain blue.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Clean water contains no protein and should remain blue."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -3391,8 +3391,8 @@
       "feedback": {
         "short": "A known protein sample should turn Biuret reagent lilac.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "A known protein sample should turn Biuret reagent lilac."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -3428,10 +3428,10 @@
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
-        "Distilled water without starch.",
+        "A glucose solution that gives a positive Benedict's test.",
         "A known starch suspension or solution.",
-        "Pure vegetable oil.",
-        "A glucose solution with no starch."
+        "Distilled water that is known to give a negative iodine result.",
+        "A vegetable-oil sample that gives a positive lipid test."
       ],
       "answer": {
         "mode": "choice",
@@ -3444,8 +3444,8 @@
       "feedback": {
         "short": "Known starch should turn iodine blue-black.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Known starch should turn iodine blue-black."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -3482,9 +3482,9 @@
       "status": "qa-pending",
       "options": [
         "Distilled water containing no starch.",
-        "A known starch suspension.",
-        "Mashed potato known to contain starch.",
-        "A bread extract already confirmed starch-positive."
+        "Potato extract known to turn iodine blue-black.",
+        "Glucose dissolved in a starch-containing suspension.",
+        "Bread flour that is known to contain starch."
       ],
       "answer": {
         "mode": "choice",
@@ -3497,8 +3497,8 @@
       "feedback": {
         "short": "Clean water should not give the positive blue-black iodine reaction.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Clean water should not give the positive blue-black iodine reaction."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -3550,8 +3550,8 @@
       "feedback": {
         "short": "Glucose is reducing sugar, so it should produce a positive heated Benedict's test.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Glucose is reducing sugar, so it should produce a positive heated Benedict's test."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -3587,10 +3587,10 @@
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
-        "A known glucose solution mixed with Benedict's solution.",
-        "A fruit juice already shown to contain glucose.",
+        "A dilute glucose standard prepared to produce a weaker positive colour.",
+        "A concentrated glucose solution used as a positive control.",
         "Distilled water mixed with Benedict's solution.",
-        "A reducing-sugar standard known to give an orange precipitate."
+        "Fruit juice known to contain reducing sugar."
       ],
       "answer": {
         "mode": "choice",
@@ -3603,8 +3603,8 @@
       "feedback": {
         "short": "The water blank should be negative for reducing sugars.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "The water blank should be negative for reducing sugars."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -3656,8 +3656,8 @@
       "feedback": {
         "short": "Vegetable oil is lipid and should produce a milky emulsion.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Vegetable oil is lipid and should produce a milky emulsion."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -3694,9 +3694,9 @@
       "status": "qa-pending",
       "options": [
         "Ethanol and water without food or added lipid.",
-        "Vegetable oil shaken with ethanol and diluted in water.",
-        "A milk-fat extract transferred to water.",
-        "A known lipid sample prepared beside the unknown."
+        "Ethanol and water deliberately mixed with a few drops of vegetable oil.",
+        "A milk-fat extract added to water after shaking with ethanol.",
+        "A positive lipid control used alongside the unknown extract."
       ],
       "answer": {
         "mode": "choice",
@@ -3709,8 +3709,8 @@
       "feedback": {
         "short": "A blank without lipid should stay clear when ethanol and water are combined.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "A blank without lipid should stay clear when ethanol and water are combined."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -3762,8 +3762,8 @@
       "feedback": {
         "short": "Sample identity must be preserved through the practical.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Sample identity must be preserved through the practical."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -3815,8 +3815,8 @@
       "feedback": {
         "short": "Residue carries sugar and compromises the result.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Residue carries sugar and compromises the result."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -3868,8 +3868,8 @@
       "feedback": {
         "short": "Ethanol and its vapour are flammable.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Ethanol and its vapour are flammable."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -3921,8 +3921,8 @@
       "feedback": {
         "short": "No heating of ethanol is required; avoid fire risk.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "No heating of ethanol is required; avoid fire risk."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -3974,8 +3974,8 @@
       "feedback": {
         "short": "A water bath provides controlled indirect heating.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "A water bath provides controlled indirect heating."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -4027,8 +4027,8 @@
       "feedback": {
         "short": "Heated glass and contents can cause burns.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Heated glass and contents can cause burns."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -4080,8 +4080,8 @@
       "feedback": {
         "short": "Hot liquid may spit during heating or handling.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Hot liquid may spit during heating or handling."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -4133,8 +4133,8 @@
       "feedback": {
         "short": "Wear protective goggles against accidental splashes.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Wear protective goggles against accidental splashes."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -4186,8 +4186,8 @@
       "feedback": {
         "short": "No tasting materials in a chemical practical.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "No tasting materials in a chemical practical."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -4239,8 +4239,8 @@
       "feedback": {
         "short": "Never mouth-pipette laboratory chemicals.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Never mouth-pipette laboratory chemicals."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -4292,8 +4292,8 @@
       "feedback": {
         "short": "A trained adult should manage a flammable-solvent spill.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "A trained adult should manage a flammable-solvent spill."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -4345,8 +4345,8 @@
       "feedback": {
         "short": "Benedict's does not detect every kind of sugar, and negative never proves absolute absence.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Benedict's does not detect every kind of sugar, and negative never proves absolute absence."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -4382,9 +4382,9 @@
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
-        "Green is a stronger positive than brick-red under the same conditions.",
-        "The colour proves the exact mass of glucose in each food.",
-        "The results show which food contains more protein.",
+        "Both extracts contain the same sugar concentration because they both changed colour.",
+        "The green sample has more sugar because green is a stronger positive Benedict's result.",
+        "The brick-red colour proves the exact concentration of glucose in the original sample.",
         "Brick-red suggests a higher reducing-sugar level, but not an exact concentration."
       ],
       "answer": {
@@ -4398,8 +4398,8 @@
       "feedback": {
         "short": "Benedict's colours are semi-quantitative only with controlled conditions.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "Benedict's colours are semi-quantitative only with controlled conditions."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -4435,10 +4435,10 @@
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
-        "The sample is proved to contain no nutrients of any kind.",
-        "The sample must be pure water.",
+        "Every nutrient, including vitamins and minerals, was absent.",
+        "The negative results establish that the sample was pure distilled water.",
         "None of the four targeted groups was detected; other nutrients might still be present.",
-        "The sample cannot contain any dissolved molecules."
+        "A negative Biuret result also establishes that glucose was not present."
       ],
       "answer": {
         "mode": "choice",
@@ -4451,8 +4451,8 @@
       "feedback": {
         "short": "The tests only target starch, reducing sugar, protein and lipid at detectable levels.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "The tests only target starch, reducing sugar, protein and lipid at detectable levels."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -4543,9 +4543,9 @@
       "status": "qa-pending",
       "options": [
         "A clean, clear extract that becomes cloudy on addition to water, with a clear blank.",
-        "A cloudy result before dilution is sufficient proof on its own.",
-        "A purple Biuret result can substitute for the lipid emulsion endpoint.",
-        "A heated Benedict's result tells whether lipid was extracted."
+        "The initial cloudiness is already the positive endpoint, so adding water is unnecessary.",
+        "The original cloudiness proves that no lipid was dissolved in ethanol.",
+        "Initial cloudiness is sufficient to estimate how much fat the sample contains."
       ],
       "answer": {
         "mode": "choice",
@@ -4558,8 +4558,8 @@
       "feedback": {
         "short": "The positive emulsion endpoint occurs on adding the ethanolic extract to water.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
           "The positive emulsion endpoint occurs on adding the ethanolic extract to water."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
@@ -4595,9 +4595,9 @@
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
-        "A sweet taste proves starch is present despite the iodine result.",
-        "The iodine result proves glucose is absent.",
-        "Orange-brown iodine is a positive test for reducing sugar.",
+        "The negative iodine reaction means no carbohydrate, including dissolved sugar, is present.",
+        "The sweet product label means that starch must be present despite the iodine result.",
+        "The negative iodine result proves that reducing sugar cannot be present.",
         "Starch was not detected; sweetness alone cannot determine which sugars are present."
       ],
       "answer": {
@@ -4649,10 +4649,10 @@
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
-        "The Biuret test gave a positive result for protein.",
-        "A change from blue to lilac is consistent with protein being present.",
+        "The Biuret result provides qualitative evidence that protein is present.",
+        "Lilac or purple is a positive colour in the Biuret test.",
         "The exact amount and identity of every protein in the food.",
-        "The observation is qualitative evidence of protein in the tested sample."
+        "The positive result does not itself provide a precise protein concentration."
       ],
       "answer": {
         "mode": "choice",
@@ -6501,5 +6501,5 @@
       "academicApproved": false
     }
   ],
-  "revision": "2026-11-23-r3-typed-and-case-ambiguity-review"
+  "revision": "2026-11-23-r4-48-replacement-misconception-distractors"
 }
