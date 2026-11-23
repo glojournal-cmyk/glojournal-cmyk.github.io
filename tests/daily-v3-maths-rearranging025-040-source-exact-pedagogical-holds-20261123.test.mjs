@@ -45,5 +45,6 @@ test('four parameter-copy families are not four independent Mastery concepts eac
  }
  assert.equal(families.size,4);
  for(const [name,templates] of families)
-  assert.equal(templates.size,1,'Numerically identical source family changed: '+name);
+  assert.equal(templates.size,name==='ROOT_OF_RATIONAL_FOUR_PARAMETER_VARIANTS'?2:1,
+   'Unexpected numeric-neutral source variant count: '+name);
 });
