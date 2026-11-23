@@ -84,3 +84,33 @@ for(const path of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-
   }
  });
 }
+
+for(const path of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-rWAnuDVj.js']){
+ test(path+': exhaustive held typed source accepted-string matrix',()=>{
+  const score=scorer(path);
+  const typed=source.questions.filter(q=>['typed_exact','typed_short'].includes(q.format));
+  assert.equal(typed.length,15);
+  let checked=0;
+  for(const q of typed){
+   for(const alternative of q.answer.accepted){
+    assert.equal(score(q,alternative,'biology',{}).score,1,
+     path+' should accept source-listed response '+q.id+' / '+JSON.stringify(alternative));
+    checked++;
+   }
+  }
+  assert.ok(checked>=60,'source answer coverage must remain broad');
+  for(const q of typed)assert.equal(canEarnFormalCredit(q),false);
+ });
+ test(path+': contradictory trailing and leading prose cannot earn a Food Tests typed mark',()=>{
+  const score=scorer(path);
+  for(const p of probes.questions){
+   const q=byId.get(p.questionId);
+   const misleading=p.validAlternative+' but the correct answer is '+p.invalidAlternative;
+   const reversed=p.invalidAlternative+'; it is not '+p.validAlternative;
+   assert.equal(score(q,misleading,'biology',{}).score,0,
+     path+' must reject contradictory suffix '+p.questionId);
+   assert.equal(score(q,reversed,'biology',{}).score,0,
+     path+' must reject contradictory prefix '+p.questionId);
+  }
+ });
+}
