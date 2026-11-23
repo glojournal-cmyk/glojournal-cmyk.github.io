@@ -1,0 +1,233 @@
+{
+  "kind": "STANDALONE_QA_REPLACEMENT_CANDIDATES_NOT_APPROVED",
+  "version": "3.1.2-rearranging-009-011-017-inverse-domain-reasoning",
+  "date": "2026-11-23",
+  "pr": 306,
+  "sourceBank": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "sourceBankQuestionCount": 200,
+  "sourceBankUnchanged": true,
+  "schoolPdfRetrieval": "SKIPPED_PER_PARENT_INSTRUCTION",
+  "teacherDocumentGate": "NOT_REQUIRED_FOR_THIS_CANDIDATE_QA",
+  "independentGradeCalibration": "NOT_COMPLETED",
+  "independentMisconceptionReview": "NOT_COMPLETED",
+  "releaseDisposition": "HOLD_NO_DAILY_NO_XP_MP_MASTERY",
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-009",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-009-V312-INVERSE-REASONING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-009-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "SEPARATE_REASONING_REDESIGN_CANDIDATE_ORIGINAL_NUMERIC_TEMPLATE_RETAINED",
+      "stem": "Given $y=\\frac{3x+4}{2x-5}$ with $x\\ne\\frac{5}{2}$, which option makes $x$ the subject and states the exact value of $y$ that must be excluded?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "x=\\frac{5y-4}{2y-3}, y\\ne\\frac{3}{2}",
+          "errorPath": "Move the +4 in the numerator with the wrong sign, making 5y-4 instead of 5y+4."
+        },
+        {
+          "id": "B",
+          "latex": "x=\\frac{5y+4}{3-2y}, y\\ne\\frac{3}{2}",
+          "errorPath": "Reverse the collected x coefficient 2y-3 without reversing the constant side."
+        },
+        {
+          "id": "C",
+          "latex": "x=\\frac{5y+4}{2y-3}, y\\ne\\frac{3}{2}"
+        },
+        {
+          "id": "D",
+          "latex": "x=\\frac{2y-3}{5y+4}, y\\ne-\\frac{4}{5}",
+          "errorPath": "Invert the final fraction and use its new denominator to invent an excluded y."
+        },
+        {
+          "id": "E",
+          "latex": "x=\\frac{5y+4}{2y-3}, y\\ne\\frac{5}{2}",
+          "errorPath": "Copy the original excluded x value 5/2 directly onto y, instead of finding the denominator-zero y."
+        },
+        {
+          "id": "F",
+          "latex": "x=\\frac{5y+4}{2y-3}, y\\ne-\\frac{4}{5}",
+          "errorPath": "Use the zero of the numerator, rather than the denominator, as the excluded y."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "x=\\frac{5y+4}{2y-3}, y\\ne\\frac{3}{2}",
+      "workedSolutionSteps": [
+        "Multiply both sides by the original denominator: $y(2x-5)=3x+4$.",
+        "Collect the x-terms: $(2y-3)x=5y+4$, so $x=\\frac{5y+4}{2y-3}$.",
+        "The new denominator cannot be zero, so $y\\ne\\frac{3}{2}$. This is the excluded value from the range of the original function."
+      ],
+      "provisionalAOFocus": "Solve a fractional-linear relation and establish the exact unattainable output; rule out a spurious inverse restriction.",
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "domainReasoningQA": "PENDING_INDEPENDENT_DOMAIN_AND_MISCONCEPTION_REVIEW",
+      "gradeStatus": "POTENTIAL_AO2_AO3_UNBENCHMARKED"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-010",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-010-V312-INVERSE-REASONING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-010-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "SEPARATE_REASONING_REDESIGN_CANDIDATE_ORIGINAL_NUMERIC_TEMPLATE_RETAINED",
+      "stem": "A model is defined by $t=\\frac{3p+12}{p+2}$ for $p>0$. Which option makes $p$ the subject and states the exact possible values of $t$?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "p=\\frac{12-2t}{t-3}, 3\\le t<6",
+          "errorPath": "Correctly rearrange but include t=3, which is only approached and never attained."
+        },
+        {
+          "id": "B",
+          "latex": "p=\\frac{12-2t}{3-t}, 3<t<6",
+          "errorPath": "Reverse the sign of the collected p coefficient, replacing t-3 with 3-t."
+        },
+        {
+          "id": "C",
+          "latex": "p=\\frac{12-2t}{t-3}, 3<t<6"
+        },
+        {
+          "id": "D",
+          "latex": "p=\\frac{12+2t}{t-3}, 3<t<6",
+          "errorPath": "Move +2t across the equation with the wrong sign."
+        },
+        {
+          "id": "E",
+          "latex": "p=\\frac{12-2t}{t-3}, t>3",
+          "errorPath": "Correctly find the lower bound but fail to impose p>0, which also requires t<6."
+        },
+        {
+          "id": "F",
+          "latex": "p=\\frac{t-3}{12-2t}, 3<t<6",
+          "errorPath": "Invert the final expression for p after collecting its coefficient."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "p=\\frac{12-2t}{t-3}, 3<t<6",
+      "workedSolutionSteps": [
+        "Multiply out: $t(p+2)=3p+12$, so $(t-3)p=12-2t$ and $p=\\frac{12-2t}{t-3}$.",
+        "Rearrange the source as $t=3+\\frac{6}{p+2}$. Since $p>0$, we have $p+2>2$ and thus $0<\\frac{6}{p+2}<3$.",
+        "Consequently $3<t<6$. Both endpoints are excluded: t=6 would require p=0, and t=3 cannot occur for any finite positive p."
+      ],
+      "provisionalAOFocus": "Combine exact inverse algebra with reasoning about strict inequalities and the image of positive real inputs.",
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "domainReasoningQA": "PENDING_INDEPENDENT_DOMAIN_AND_MISCONCEPTION_REVIEW",
+      "gradeStatus": "POTENTIAL_AO2_AO3_UNBENCHMARKED"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-011",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-011-V312-INVERSE-REASONING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-011-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "SEPARATE_REASONING_REDESIGN_CANDIDATE_ORIGINAL_NUMERIC_TEMPLATE_RETAINED",
+      "stem": "For which real values of $k$ is $y=\\frac{kx+6}{3x+k}$ independent of $x$ wherever the denominator is non-zero?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "k=\\pm\\sqrt{6}",
+          "errorPath": "Forget the x coefficient 3 in the denominator when comparing proportional coefficients, solving k squared =6."
+        },
+        {
+          "id": "B",
+          "latex": "k=\\pm\\sqrt{2}",
+          "errorPath": "Mistake the numerator constant 6 for 2 before checking proportionality, solving k squared =3 times 2 then wrongly dropping 3."
+        },
+        {
+          "id": "C",
+          "latex": "k=\\pm3",
+          "errorPath": "Correctly find k squared =18 but halve 18 before taking the square root."
+        },
+        {
+          "id": "D",
+          "latex": "k=\\pm3\\sqrt{2}"
+        },
+        {
+          "id": "E",
+          "latex": "k=\\pm6",
+          "errorPath": "Replace the denominator x coefficient 3 with the numerator constant 6, solving k squared =36."
+        },
+        {
+          "id": "F",
+          "latex": "k=\\pm3\\sqrt{6}",
+          "errorPath": "Square the denominator x coefficient 3 in the coefficient comparison, solving k squared =54."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "k=\\pm3\\sqrt{2}",
+      "workedSolutionSteps": [
+        "A fraction $\\frac{ax+b}{cx+d}$ is independent of x when its numerator is proportional to its denominator wherever defined. Thus $\\frac{k}{3}=\\frac{6}{k}$ for nonzero k.",
+        "Hence $k^2=18$, giving $k=\\pm\\sqrt{18}=\\pm3\\sqrt{2}$.",
+        "For each of these values, $kx+6=\\frac{k}{3}(3x+k)$, so $y=\\frac{k}{3}$ for all x with $3x+k\\ne0$. The ratio is therefore constant."
+      ],
+      "provisionalAOFocus": "Reason about degeneracy and uniqueness of an inverse using coefficient proportionality, including both parameter branches.",
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "domainReasoningQA": "PENDING_INDEPENDENT_DOMAIN_AND_MISCONCEPTION_REVIEW",
+      "gradeStatus": "POTENTIAL_AO2_AO3_UNBENCHMARKED"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-017",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-017-V312-INVERSE-REASONING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-017-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "SEPARATE_REASONING_REDESIGN_CANDIDATE_ORIGINAL_NUMERIC_TEMPLATE_RETAINED",
+      "stem": "Given $y=\\frac{x^2-25}{x-5}$ with $x\\ne5$, which option makes $x$ the subject and gives the exact excluded value of $y$?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "x=y-5, y\\ne5",
+          "errorPath": "Copy the excluded input x=5 into the output condition without applying the original function."
+        },
+        {
+          "id": "B",
+          "latex": "x=y+5, y\\ne10",
+          "errorPath": "Undo y=x+5 by adding 5 rather than subtracting 5."
+        },
+        {
+          "id": "C",
+          "latex": "x=y-5, y\\ne-10",
+          "errorPath": "Make a sign error when evaluating y=x+5 at the excluded input x=5."
+        },
+        {
+          "id": "D",
+          "latex": "x=y-5, y\\ne10"
+        },
+        {
+          "id": "E",
+          "latex": "x=y-5",
+          "errorPath": "Cancel the factor x-5 and forget that the original relation is undefined at x=5 and therefore cannot give y=10."
+        },
+        {
+          "id": "F",
+          "latex": "x=y-25, y\\ne10",
+          "errorPath": "After cancellation, treat the 25 from x squared minus 25 as a linear shift of 25 instead of 5."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "x=y-5, y\\ne10",
+      "workedSolutionSteps": [
+        "Factor the numerator: $x^2-25=(x-5)(x+5)$.",
+        "For $x\\ne5$, the original relation simplifies to $y=x+5$, so $x=y-5$.",
+        "Because the original fraction was undefined at x=5, the output y=10 is missing. The exact inverse statement is $x=y-5$ with $y\\ne10$."
+      ],
+      "provisionalAOFocus": "Distinguish algebraic simplification from loss of domain information; reason about an excluded point after cancellation.",
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "domainReasoningQA": "PENDING_INDEPENDENT_DOMAIN_AND_MISCONCEPTION_REVIEW",
+      "gradeStatus": "POTENTIAL_AO2_AO3_UNBENCHMARKED"
+    }
+  ]
+}
