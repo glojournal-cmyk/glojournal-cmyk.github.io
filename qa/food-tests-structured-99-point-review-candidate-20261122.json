@@ -1021,7 +1021,7 @@
           ],
           "correctOptionId": "bio-y8-food-tests-application-20261025-repeatability::p2::D",
           "approved": false,
-          "stem": "Equal portions of extract and Benedict’s reagent are ready. Which heating conditions support a fair comparison?",
+          "stem": "A pupil compares the final Benedict's colours from equal samples after heating. Which conditions must be the same for those endpoint colours to be compared fairly?",
           "academicReview": "pending",
           "distractorReview": "pending",
           "keyedAnswer": "Same bath temperature and same heating time"
@@ -1456,7 +1456,7 @@
             },
             {
               "id": "bio-y8-food-tests-application-20261025-fair-amount::p2::B",
-              "text": "Unequal sample sizes could affect the amount of starch tested, making colour comparisons less fair"
+              "text": "Different sample masses could affect the observed iodine result, so the samples should be prepared with equal measured masses."
             },
             {
               "id": "bio-y8-food-tests-application-20261025-fair-amount::p2::C",
@@ -1469,10 +1469,10 @@
           ],
           "correctOptionId": "bio-y8-food-tests-application-20261025-fair-amount::p2::B",
           "approved": false,
-          "stem": "Why would comparing a large piece of one bread with a crumb of another weaken the result?",
+          "stem": "Two breads are tested with iodine using a large piece of one and a tiny crumb of the other. Why does this make the test conditions less comparable?",
           "academicReview": "pending",
           "distractorReview": "pending",
-          "keyedAnswer": "Unequal sample sizes could affect the amount of starch tested, making colour comparisons less fair"
+          "keyedAnswer": "Different sample masses could affect the observed iodine result, so the samples should be prepared with equal measured masses."
         }
       ]
     },
@@ -3212,7 +3212,7 @@
       63
     ],
     "academicApproved": 0,
-    "reason": "Ten previously weak or implausible distractor sets were rewritten as misconception-based foils; all require independently checked sole-correctness and taught scope. Three further near-repetitious factual stems (points 87, 94, 97) were redrafted as evidence-limit and incorrect-inference challenges without changing their source points or answer keys. Three additional obviously implausible foil sets (#38, #40, #42) were replaced with controlled-condition, extraction, and surface-area misconceptions. Two source-alignment/safety judgement adjustments (#61 and #93) were applied to preserve detection-limit understanding and distinguish yellow safety flame hazards.",
+    "reason": "Ten previously weak or implausible distractor sets were rewritten as misconception-based foils; all require independently checked sole-correctness and taught scope. Three further near-repetitious factual stems (points 87, 94, 97) were redrafted as evidence-limit and incorrect-inference challenges without changing their source points or answer keys. Three additional obviously implausible foil sets (#38, #40, #42) were replaced with controlled-condition, extraction, and surface-area misconceptions. Two source-alignment/safety judgement adjustments (#61 and #93) were applied to preserve detection-limit understanding and distinguish yellow safety flame hazards. Two more source-alignment fixes (#31 final colours vs time-to-colour, #45 qualitative iodine vs exact starch comparison) preserve the underlying control-variable concept without granting academic credit.",
     "evidenceLimitStemRedesignIndices": [
       87,
       94,
@@ -3226,6 +3226,10 @@
     "sourcePointAlignmentFixes": [
       61,
       93
+    ],
+    "sourceClarityReviewIndices": [
+      31,
+      45
     ]
   }
 }
