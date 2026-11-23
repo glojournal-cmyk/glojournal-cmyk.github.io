@@ -205,3 +205,74 @@ test('adversarial key, eligibility and source-constraint edits fail the maths pr
  const changed=target-count*.8;assert.ok(near(changed,4e6));
  assert.ok(!near(changed,scientific(a[3].correctAnswerLatex)));
 });
+
+test('74 numerically reproduced wrong-option paths are applied to 32 complete QA-only MCQs with exact original keys, stems and 192 option statements',()=>{
+ const evidence=load('math-v315-indices-standard-74-source-recomputed-wrong-option-explanation-repairs-20261123.json');
+ const candidates=load('math-v315-indices-standard-32-causal-rationale-repaired-candidates-20261123.json');
+ assert.equal(evidence.kind,'V315_74_SOURCE_DERIVED_CAUSAL_MCQ_ERROR_PATH_REPAIR_PROPOSALS_QA_HOLD');
+ assert.equal(evidence.sourceUnchanged,true);
+ assert.equal(evidence.shortExplanationsInvestigated,74);
+ assert.equal(evidence.mathematicallyReproduced,74);
+ assert.equal(evidence.affectedQuestionCount,32);
+ assert.deepEqual(evidence.countByTopic,{indices:34,standardForm:40});
+ assert.equal(evidence.empiricalStudentWrongAnswerEvidence,false);
+ assert.equal(evidence.formalAcademicApproval,0);
+ assert.equal(candidates.kind,'V315_32_INDICES_STANDARD_FORM_FULL_REPAIRED_MCQS_CREDIT_DENIED');
+ assert.equal(candidates.sourceUnchanged,true);
+ assert.equal(candidates.totals.newCandidateVersions,32);
+ assert.equal(candidates.totals.optionStatements,192);
+ assert.equal(candidates.totals.wrongRationalesRevised,74);
+ assert.equal(candidates.totals.allSourceKeysPreserved,32);
+ assert.equal(candidates.totals.academicApproved,0);
+ assert.equal(candidates.totals.dailyEligible,0);
+ assert.equal(candidates.totals.masteryEligible,0);
+ const source=new Map(bank.questions.map(q=>[q.sourceId,q]));
+ const repair=new Map(),seen=new Set();
+ for(const row of evidence.rows){
+  const id=row.sourceId+'/'+row.optionId;
+  assert.ok(!repair.has(id));repair.set(id,row);
+  assert.equal(row.academicDecision,'HOLD');
+  assert.equal(row.dailyEligible,false);
+  assert.equal(row.masteryEligible,false);
+  assert.equal(row.realStudentMisconceptionEvidence,false);
+  assert.equal(row.verifiedMathematicalWrongRoute,true);
+  assert.ok(near(row.calculatedWrongValue,row.sourceOptionNumericValue));
+  assert.ok(row.proposedExplanation.length>55);
+ }
+ assert.equal(repair.size,74);
+ let edited=0;
+ for(const q of candidates.questions){
+  const src=source.get(q.sourceId);assert.ok(src&&!seen.has(q.sourceId));seen.add(q.sourceId);
+  assert.equal(q.replacesOriginalRevisionId,src.revisionId);
+  assert.notEqual(q.revisionId,src.revisionId);
+  assert.equal(q.stem,src.stem);
+  assert.equal(q.topicId,src.topicId);
+  assert.equal(q.correctOptionId,src.correctOptionId);
+  assert.equal(q.correctAnswerLatex,src.correctAnswerLatex);
+  assert.deepEqual(q.workedSolutionSteps,src.workedSolutionSteps);
+  assert.equal(q.academicQA,'pending');
+  assert.equal(q.dailyEligible,false);
+  assert.equal(q.masteryEligible,false);
+  assert.equal(q.independentGradeCalibrated,false);
+  assert.equal(q.teacherTaughtConfirmed,false);
+  assert.equal(q.studentMisconceptionsEmpiricallyVerified,false);
+  assert.equal(q.independentMasteryConceptApproved,false);
+  assert.equal(q.options.length,6);
+  assert.deepEqual(q.options.map(o=>o.id),['A','B','C','D','E','F']);
+  for(const o of q.options){
+   const old=src.options.find(x=>x.id===o.id),fix=repair.get(q.sourceId+'/'+o.id);
+   assert.ok(old);
+   assert.equal(o.latex,old.latex);
+   assert.equal(o.errorPath,fix?fix.proposedExplanation:old.errorPath);
+   if(fix){
+    assert.equal(fix.sourceOptionLatex,o.latex);
+    assert.equal(fix.oldExplanation,old.errorPath);
+    assert.ok(near(scientific(o.latex),fix.calculatedWrongValue));
+    edited++;
+   }
+  }
+ }
+ assert.equal(seen.size,32);
+ assert.equal(edited,74);
+ assert.equal(candidates.questions.reduce((s,q)=>s+q.repairedWrongAnswerExplanations,0),74);
+});
