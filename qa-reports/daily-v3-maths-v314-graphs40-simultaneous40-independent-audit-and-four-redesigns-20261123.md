@@ -80,3 +80,21 @@ The initial 61-row error-path register identified **actual candidate changes**, 
 A 20-route regression was also added for the four new Graphs and Simultaneous challenge drafts: each numerically incorrect geometric calculation, erroneous integer constraint or false two-parameter solution classification must be independently detectable. This is a proposed *causal* distractor check, not a claim that actual pupils commonly choose these mistakes. After the first CI revealed a text-only ticket stem missing a required rendered mathematics fragment, that stem was repaired using a defined adult-ticket count variable; a subsequent reviewer also corrected a mismatched quadratic-root distractor explanation in Graphs-030. Exact source and check status are versioned in Draft PR #306.
 
 **Current release gate remains 0/200 formal original Academic QA approvals, 0 newly approved replacements, no real iPad PWA signoff, no merge, no deployment and no student credits.**
+
+
+## 24 retained candidates: separate AQA AO challenge screen
+
+A second-pass educational demand screen explicitly reopened all **24** previously `RETAIN_FOR_EXTERNAL_BENCHMARK` Graphs and Simultaneous source stems, rather than treating all 24 as already Grade7+ ready. See the [source-exact 24-row Grade-demand register](../qa-staging/math-v314-prior24-retain-grade-demand-reclassification-20261123.json).
+
+The official [AQA 8300 scheme of assessment](https://www.aqa.org.uk/subjects/mathematics/gcse/mathematics-8300/specification/scheme-of-assessment) explicitly treats routine procedures involving multiple steps as **AO1**, while AO2 involves mathematical reasoning and AO3 involves problem-solving. The [Ofqual mathematics grade descriptions](https://www.gov.uk/government/publications/grade-descriptors-for-gcses-graded-9-to-1/grade-descriptors-for-gcses-graded-9-to-1-mathematics) consider sustained chains of reasoning and connected problem solving. These are **descriptive curriculum criteria**, not a certificate that an individual MCQ is objectively Grade7.
+
+| Formerly 'retain for benchmark' source ID family | Number | Additional provisional Academic QA finding |
+|---|---:|---|
+| GRAPHS-009–016, 025–028, 033–036 | **16** | Work is largely an explicitly specified sequence: find the intersection, slope/parallel/perpendicular direction and intercept. Multi-step arithmetic is not sufficient evidence of Grade7+ |
+| SIMULTANEOUS-005–008 | **4** | Real-world ticket translation adds context but still asks to solve a routine 2×2 system and plug into a directly named linear combination |
+| SIMULTANEOUS-037–040 | **4** | Both coefficients depend on k, requiring detection of a singular system **and** inconsistency. This is a better AO2 candidate, but all four share one basic technique and no independent Grade7+ judgement |
+| **Total** | **24** | **0/24 independently certified** |
+
+These 24 are **not officially downgraded to an assessed GCSE grade**: the first twenty are marked `G7_DEMAND_NOT_DEMONSTRATED` for more demanding redesign or independent reviewer evidence; the latter four remain `REVIEWABLE_BUT_UNCERTIFIED`. Both routes preserve source IDs, original published provisional labels, all scoring locks and the source file. Only a genuinely independent educational benchmark and teaching-scope confirmation could change approval.
+
+**Formal Academic QA approved remains 0/200**; neither these 24 source items nor any V314 replacement candidate is now eligible for Daily, XP, MP or Mastery.
