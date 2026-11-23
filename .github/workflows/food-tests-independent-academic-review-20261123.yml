@@ -1,0 +1,38 @@
+name: Food Tests 143-item Independent Content QA Evidence (0 approved)
+on:
+  push:
+    branches:
+      - qa/p0-eligibility-2e556ff
+    paths:
+      - 'content/topics/bio-y8-food-tests.json'
+      - 'qa/food-tests-independent-academic-143-review-20261123.json'
+      - 'qa/food-tests-academic-correction-proposals-20261123.json'
+      - 'qa/food-tests-independent-academic-143-review-20261123.md'
+      - 'qa/food-tests-structured-99-point-review-candidate-20261122.json'
+      - 'tests/food-tests-academic-143-review-20261123.test.mjs'
+      - '.github/workflows/food-tests-independent-academic-review-20261123.yml'
+  pull_request:
+    paths:
+      - 'content/topics/bio-y8-food-tests.json'
+      - 'qa/food-tests-independent-academic-143-review-20261123.json'
+      - 'qa/food-tests-academic-correction-proposals-20261123.json'
+      - 'qa/food-tests-independent-academic-143-review-20261123.md'
+      - 'qa/food-tests-structured-99-point-review-candidate-20261122.json'
+      - 'tests/food-tests-academic-143-review-20261123.test.mjs'
+      - '.github/workflows/food-tests-independent-academic-review-20261123.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  academic-review-register:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check independent academic consistency script syntax
+        run: node --check tests/food-tests-academic-143-review-20261123.test.mjs
+      - name: Validate exact 143-item review and 99 candidate point references; never approve by test alone
+        run: node --test tests/food-tests-academic-143-review-20261123.test.mjs
