@@ -1,0 +1,3531 @@
+{
+  "kind": "DRAFT_REVISED_200_NUMERIC_NEUTRAL_STEM_SIMILARITY_NOT_FORMAL_ALGEBRAIC_EQUIVALENCE",
+  "asOf": "2026-11-23",
+  "sourcePath": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "pr": 306,
+  "rules": "Lowercase stem, normalize \\dfrac→\\frac, replace every decimal/integer number with #, collapse whitespace; group only within topic. Detects text template reuse but does not prove identical mathematical concepts, equal GCSE demand, or distinct Mastery points.",
+  "status": "ALL_TEMPLATE_SIMILARITY_GROUPS_UNAPPROVED",
+  "totals": {
+    "questions": 200,
+    "templateGroups": 84,
+    "questionsWithSiblingVariants": 164,
+    "withoutSibling": 36,
+    "independentConceptApprovals": 0
+  },
+  "byTopic": {
+    "math-y9-indices": {
+      "candidateQuestions": 40,
+      "numericNeutralTemplateGroups": 14,
+      "questionsWithSiblingVariants": 35,
+      "singletons": 5,
+      "largestGroup": 4
+    },
+    "math-y9-standard-form": {
+      "candidateQuestions": 40,
+      "numericNeutralTemplateGroups": 19,
+      "questionsWithSiblingVariants": 28,
+      "singletons": 12,
+      "largestGroup": 4
+    },
+    "math-y9-changing-subject": {
+      "candidateQuestions": 40,
+      "numericNeutralTemplateGroups": 11,
+      "questionsWithSiblingVariants": 40,
+      "singletons": 0,
+      "largestGroup": 6
+    },
+    "math-y9-straight-line-graphs": {
+      "candidateQuestions": 40,
+      "numericNeutralTemplateGroups": 22,
+      "questionsWithSiblingVariants": 27,
+      "singletons": 13,
+      "largestGroup": 4
+    },
+    "math-y9-simultaneous-equations": {
+      "candidateQuestions": 40,
+      "numericNeutralTemplateGroups": 18,
+      "questionsWithSiblingVariants": 34,
+      "singletons": 6,
+      "largestGroup": 4
+    }
+  },
+  "groups": [
+    {
+      "templateId": "MATH_Y9_INDICES_01",
+      "topicId": "math-y9-indices",
+      "numericNeutralStem": "let $a(n)=\\frac{#^{n+#}\\times#^{#-n}}{#^#}$ for integer $n$. the value of $a(n)$ is a perfect cube and $#^#<a(n)<#^{#}$. find the sum of all possible values of $n$.",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-001"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_02",
+      "topicId": "math-y9-indices",
+      "numericNeutralStem": "for each non-negative integer $n$, let $a(n)=\\frac{#^{n+#}\\times#^{#-n}}{#^#}$ and $b(n)=#^{n-#}\\times#^#$. find the smallest $n$ for which $b(n)>a(n)$.",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-002"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_03",
+      "topicId": "math-y9-indices",
+      "numericNeutralStem": "for integers $#\\le n\\le#$, let $p(n)=\\frac{#^{n+#}\\times#^{#-n}}{#^#}$ and $q(n)=#^{n-#}$. their highest common factor is $#^#$ and their lowest common multiple is $#^{#}$. which value of $n$ satisfies both conditions?",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-003"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_04",
+      "topicId": "math-y9-indices",
+      "numericNeutralStem": "for every integer $n$, let $f(n)=\\frac{#^{n+#}\\times#^{#-n}}{#^#}$. which statement holds for every integer $n$?",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-004"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_05",
+      "topicId": "math-y9-indices",
+      "numericNeutralStem": "evaluate $\\frac{\\left(#^{#}\\times #^{-#}\\right)^#}{#^{-#}}$ as an exact number.",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-005",
+        "LUX-MATH-Y9-INDICES-006",
+        "LUX-MATH-Y9-INDICES-007",
+        "LUX-MATH-Y9-INDICES-008"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_06",
+      "topicId": "math-y9-indices",
+      "numericNeutralStem": "let $e=\\frac{(x^{#}y^{-#})^#}{x^{-#}y^{#}}$. find the exact value of $e$ when $x=#$ and $y=#$.",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-009",
+        "LUX-MATH-Y9-INDICES-010",
+        "LUX-MATH-Y9-INDICES-011",
+        "LUX-MATH-Y9-INDICES-012"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_07",
+      "topicId": "math-y9-indices",
+      "numericNeutralStem": "for non-zero $x,y$, $\\frac{(x^{#}y^{#})^n}{x^{#}y^{#}}=x^{#}y^{#}$ for all $x,y$. find $n$.",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-013",
+        "LUX-MATH-Y9-INDICES-014",
+        "LUX-MATH-Y9-INDICES-015",
+        "LUX-MATH-Y9-INDICES-016"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_08",
+      "topicId": "math-y9-indices",
+      "numericNeutralStem": "solve $#^{#n}+#^{#n+#}=#$ for the integer $n$.",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-017",
+        "LUX-MATH-Y9-INDICES-018",
+        "LUX-MATH-Y9-INDICES-019",
+        "LUX-MATH-Y9-INDICES-020"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_09",
+      "topicId": "math-y9-indices",
+      "numericNeutralStem": "for all positive $x,y$, $\\frac{(x^{#}y^{-#})^n}{x^{#}y^{#}}=x^{#}y^{-#}$. find $n$.",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-021",
+        "LUX-MATH-Y9-INDICES-022",
+        "LUX-MATH-Y9-INDICES-023",
+        "LUX-MATH-Y9-INDICES-024"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_10",
+      "topicId": "math-y9-indices",
+      "numericNeutralStem": "let $a=#^{#n-#}$ and $b=#^{n+#}$. given $\\frac{a}{b}=#^{-#}$, find $n^#-#n$.",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-025"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_11",
+      "topicId": "math-y9-indices",
+      "numericNeutralStem": "let $a=#^{#n-#}$ and $b=#^{n+#}$. given $\\frac{a}{b}=#^{#}$, find $n^#-#n$.",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-026",
+        "LUX-MATH-Y9-INDICES-027",
+        "LUX-MATH-Y9-INDICES-028"
+      ],
+      "variantCount": 3
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_12",
+      "topicId": "math-y9-indices",
+      "numericNeutralStem": "find the integer $n$ for which $\\frac{\\sqrt{#^{#n+#}}\\times#^{n-#}}{#^{n-#}}=#^{#}$.",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-029",
+        "LUX-MATH-Y9-INDICES-030",
+        "LUX-MATH-Y9-INDICES-031",
+        "LUX-MATH-Y9-INDICES-032"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_13",
+      "topicId": "math-y9-indices",
+      "numericNeutralStem": "for positive $x,y$, $\\frac{(x^{#/#}y^{-#/#})^{#n}}{x^{#}y^{#}}=x^{#}y^{-#}$ for all $x,y$. determine $n$.",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-033",
+        "LUX-MATH-Y9-INDICES-034",
+        "LUX-MATH-Y9-INDICES-035",
+        "LUX-MATH-Y9-INDICES-036"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_14",
+      "topicId": "math-y9-indices",
+      "numericNeutralStem": "find $n$ such that $\\frac{\\sqrt{#^{#n+#}}\\times#^{n-#}}{#^{n-#}}=#^{#}$, and then give $n^#-n$.",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-037",
+        "LUX-MATH-Y9-INDICES-038",
+        "LUX-MATH-Y9-INDICES-039",
+        "LUX-MATH-Y9-INDICES-040"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_01",
+      "topicId": "math-y9-standard-form",
+      "numericNeutralStem": "a container holds $#\\times#^{#}$ identical microscopic granules, each of mass $#\\times#^{-#}$ g. the granules occupy a total bulk volume of $#\\times#^#$ cm$^#$ (including spaces between granules). find their bulk density in g/cm$^#$, in standard form.",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-001"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_02",
+      "topicId": "math-y9-standard-form",
+      "numericNeutralStem": "batch a has $#\\times#^{#}$ microscopic granules and batch b has $#\\times#^{#}$ granules. every granule has mass $#\\times#^{-#}$ g. the two batches occupy $#\\times#^#$ cm$^#$ and $#\\times#^#$ cm$^#$ respectively. after mixing without changing total volume, calculate the combined bulk density in g/cm$^#$ in standard form.",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-002"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_03",
+      "topicId": "math-y9-standard-form",
+      "numericNeutralStem": "a porous granular sample contains $#\\times#^{#}$ granules, each of mass $#\\times#^{-#}$ g. during sorting, $#\\%$ of the total mass is removed. the retained granules occupy $#\\times#^#$ cm$^#$. find the bulk density of the retained granules in g/cm$^#$, in standard form.",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-003"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_04",
+      "topicId": "math-y9-standard-form",
+      "numericNeutralStem": "a bulk sample of identical microscopic granules has density $#\\times#^{-#}$ g/cm$^#$ and occupies $#\\times#^#$ cm$^#$. each granule has mass $#\\times#^{-#}$ g. how many granules are in the sample? give your answer in standard form.",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-004"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_05",
+      "topicId": "math-y9-standard-form",
+      "numericNeutralStem": "a probe travels $#\\times #^{#}$ km and then $#\\times #^{#}$ km. the total journey takes $#\\times #^{#}$ hours. find its average speed in km/h in standard form.",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-005",
+        "LUX-MATH-Y9-STANDARD_FORM-006",
+        "LUX-MATH-Y9-STANDARD_FORM-007",
+        "LUX-MATH-Y9-STANDARD_FORM-008"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_06",
+      "topicId": "math-y9-standard-form",
+      "numericNeutralStem": "a factory makes $#\\times #^{#}$ g of material. during processing $#\\times #^{#}$ g is discarded. the remainder is divided equally into # containers. what mass (g) is in each container? give your answer in standard form.",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-009",
+        "LUX-MATH-Y9-STANDARD_FORM-010",
+        "LUX-MATH-Y9-STANDARD_FORM-011",
+        "LUX-MATH-Y9-STANDARD_FORM-012"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_07",
+      "topicId": "math-y9-standard-form",
+      "numericNeutralStem": "evaluate $\\frac{(#\\times #^{#})-(#\\times #^{#})}{#\\times #^{#}}$, giving your answer in standard form.",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-013",
+        "LUX-MATH-Y9-STANDARD_FORM-014",
+        "LUX-MATH-Y9-STANDARD_FORM-015",
+        "LUX-MATH-Y9-STANDARD_FORM-016"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_08",
+      "topicId": "math-y9-standard-form",
+      "numericNeutralStem": "a hypothetical material contains $#\\times #^{#}$ particles, each of mass $#\\times #^{-#}$ g. a filter removes $#\\%$ of the total mass. the remainder occupies $#\\times #^{#}$ cm$^#$. find its density in g/cm$^#$ in standard form.",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-017"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_09",
+      "topicId": "math-y9-standard-form",
+      "numericNeutralStem": "powder a contains $#\\times#^{#}$ granules, each of mass $#\\times#^{-#}$ g. powder b contains $#\\times#^{#}$ granules, each of mass $#\\times#^{-#}$ g. after mixing, $#\\%$ of the total mass is removed. the retained powder occupies $#\\times#^{#}$ cm$^#$. find its bulk density in g/cm$^#$, in standard form.",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-018"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_10",
+      "topicId": "math-y9-standard-form",
+      "numericNeutralStem": "a porous sample initially contains $#\\times#^{#}$ granules, each of mass $#\\times#^{-#}$ g. sorting removes $#\\%$ of the mass. the retained sample is then compacted from $#\\times#^#$ cm$^#$ to $#\\times#^#$ cm$^#$ without further loss. find its final bulk density in g/cm$^#$, in standard form.",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-019"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_11",
+      "topicId": "math-y9-standard-form",
+      "numericNeutralStem": "a chamber of volume $#\\times#^#$ cm$^#$ initially contains $#\\times#^{#}$ granules, each of mass $#\\times#^{-#}$ g. a filter removes $#\\%$ of this mass. how many additional grams of identical granules must be added to reach bulk density $#\\times#^{-#}$ g/cm$^#$? give the mass to add in standard form.",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-020"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_12",
+      "topicId": "math-y9-standard-form",
+      "numericNeutralStem": "an instrument reads $#\\times #^{#}$ units, compared with an earlier reading of $#\\times #^{#}$ units. a calibration correction then reduces the newer reading by $#\\%$. by what percentage is the corrected reading greater than the earlier reading?",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-021",
+        "LUX-MATH-Y9-STANDARD_FORM-022",
+        "LUX-MATH-Y9-STANDARD_FORM-023",
+        "LUX-MATH-Y9-STANDARD_FORM-024"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_13",
+      "topicId": "math-y9-standard-form",
+      "numericNeutralStem": "a chamber has volume $#\\times #^{-#}$ m$^#$. it contains $#\\times #^{#}$ particles per cm$^#$. how many particles are in the chamber? give your answer in standard form. ($#$ m$^#=#^#$ cm$^#$.)",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-025",
+        "LUX-MATH-Y9-STANDARD_FORM-026",
+        "LUX-MATH-Y9-STANDARD_FORM-027",
+        "LUX-MATH-Y9-STANDARD_FORM-028"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_14",
+      "topicId": "math-y9-standard-form",
+      "numericNeutralStem": "evaluate $\\frac{(#\\times #^{#})+(#\\times #^{#})-(#\\times #^{#})}{#\\times #^{#}}$ and give the exact result in standard form.",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-029",
+        "LUX-MATH-Y9-STANDARD_FORM-030",
+        "LUX-MATH-Y9-STANDARD_FORM-031",
+        "LUX-MATH-Y9-STANDARD_FORM-032"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_15",
+      "topicId": "math-y9-standard-form",
+      "numericNeutralStem": "a factory starts with $#\\times#^{#}$ g of material and receives another $#\\times#^{#}$ g. after $#\\%$ of the combined mass is lost, the rest is packed equally into $#\\times#^{#}$ packets. find the mass in grams of one packet, in standard form.",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-033"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_16",
+      "topicId": "math-y9-standard-form",
+      "numericNeutralStem": "a factory begins with $#\\times#^{#}$ g of powder. it loses $#\\%$ during processing, then sets aside $#\\times#^{#}$ g of the remaining powder for testing. the rest is divided equally between $#\\times#^{#}$ bags. calculate the mass of powder in one bag in grams, in standard form.",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-034"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_17",
+      "topicId": "math-y9-standard-form",
+      "numericNeutralStem": "a factory loses $#\\%$ of its starting mass in processing, then adds $#\\times#^{#}$ g of a second material. it fills $#\\times#^{#}$ packets, each containing $#\\times#^{#}$ g. find the starting mass before the loss, in grams, in standard form.",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-035"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_18",
+      "topicId": "math-y9-standard-form",
+      "numericNeutralStem": "a factory processes $#\\times#^{#}$ g of a product. first it loses $#\\%$ of the mass. during inspection, a further $#\\%$ of the mass then remaining is rejected. the accepted mass is divided equally into $#\\times#^{#}$ packets. find the mass in grams of one packet, in standard form.",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-036"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_19",
+      "topicId": "math-y9-standard-form",
+      "numericNeutralStem": "a production line makes $n$ batches, each containing $#\\times #^{#}$ items. after $#\\%$ of the items are discarded, another $#\\times #^{#}$ items are added. the final total is $#\\times #^{#}$ items. find $n$ in standard form.",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-037",
+        "LUX-MATH-Y9-STANDARD_FORM-038",
+        "LUX-MATH-Y9-STANDARD_FORM-039",
+        "LUX-MATH-Y9-STANDARD_FORM-040"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_01",
+      "topicId": "math-y9-changing-subject",
+      "numericNeutralStem": "given $y=\\frac{#(x-#)}{#x+#}$, make $x$ the subject. assume all expressions are defined.",
+      "questionIds": [
+        "LUX-MATH-Y9-REARRANGING-001",
+        "LUX-MATH-Y9-REARRANGING-002",
+        "LUX-MATH-Y9-REARRANGING-003",
+        "LUX-MATH-Y9-REARRANGING-004"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_02",
+      "topicId": "math-y9-changing-subject",
+      "numericNeutralStem": "for $y\\ge -#$, make $x$ the subject of $y=#\\sqrt{#x+#}-#$.",
+      "questionIds": [
+        "LUX-MATH-Y9-REARRANGING-005",
+        "LUX-MATH-Y9-REARRANGING-006",
+        "LUX-MATH-Y9-REARRANGING-007",
+        "LUX-MATH-Y9-REARRANGING-008"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_03",
+      "topicId": "math-y9-changing-subject",
+      "numericNeutralStem": "make $x$ the subject of $y=#+\\frac{#x+#}{#x+#}$.",
+      "questionIds": [
+        "LUX-MATH-Y9-REARRANGING-009",
+        "LUX-MATH-Y9-REARRANGING-010",
+        "LUX-MATH-Y9-REARRANGING-011",
+        "LUX-MATH-Y9-REARRANGING-017",
+        "LUX-MATH-Y9-REARRANGING-018",
+        "LUX-MATH-Y9-REARRANGING-024"
+      ],
+      "variantCount": 6
+    },
+    {
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_04",
+      "topicId": "math-y9-changing-subject",
+      "numericNeutralStem": "make $x$ the subject of $y=#+\\frac{#}{#x+#}$.",
+      "questionIds": [
+        "LUX-MATH-Y9-REARRANGING-012",
+        "LUX-MATH-Y9-REARRANGING-013",
+        "LUX-MATH-Y9-REARRANGING-014",
+        "LUX-MATH-Y9-REARRANGING-015"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_05",
+      "topicId": "math-y9-changing-subject",
+      "numericNeutralStem": "make $x$ the subject of $y=#+\\frac{#x+#}{x+#}$.",
+      "questionIds": [
+        "LUX-MATH-Y9-REARRANGING-016",
+        "LUX-MATH-Y9-REARRANGING-023"
+      ],
+      "variantCount": 2
+    },
+    {
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_06",
+      "topicId": "math-y9-changing-subject",
+      "numericNeutralStem": "make $x$ the subject of $\\frac{#}{y}=\\frac{#}{#x+#}+#$. assume all denominators are non-zero.",
+      "questionIds": [
+        "LUX-MATH-Y9-REARRANGING-019",
+        "LUX-MATH-Y9-REARRANGING-020",
+        "LUX-MATH-Y9-REARRANGING-021",
+        "LUX-MATH-Y9-REARRANGING-022"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_07",
+      "topicId": "math-y9-changing-subject",
+      "numericNeutralStem": "make $x$ the subject of $y=#+\\frac{#}{\\sqrt{#x+#}}$. assume $y>#$.",
+      "questionIds": [
+        "LUX-MATH-Y9-REARRANGING-025",
+        "LUX-MATH-Y9-REARRANGING-026",
+        "LUX-MATH-Y9-REARRANGING-027",
+        "LUX-MATH-Y9-REARRANGING-028"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_08",
+      "topicId": "math-y9-changing-subject",
+      "numericNeutralStem": "make $x$ the subject of $y=#+\\frac{#(x+#)}{#x+#}$.",
+      "questionIds": [
+        "LUX-MATH-Y9-REARRANGING-029",
+        "LUX-MATH-Y9-REARRANGING-030",
+        "LUX-MATH-Y9-REARRANGING-031",
+        "LUX-MATH-Y9-REARRANGING-032"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_09",
+      "topicId": "math-y9-changing-subject",
+      "numericNeutralStem": "make $x$ the subject of $y=#+\\frac{#}{#+\\frac{#}{x+#}}$. assume all denominators are non-zero.",
+      "questionIds": [
+        "LUX-MATH-Y9-REARRANGING-033",
+        "LUX-MATH-Y9-REARRANGING-034",
+        "LUX-MATH-Y9-REARRANGING-035",
+        "LUX-MATH-Y9-REARRANGING-036"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_10",
+      "topicId": "math-y9-changing-subject",
+      "numericNeutralStem": "make $x$ the subject of $y=#+\\sqrt{\\frac{#x+#}{x+#}}$. assume $y\\ge #$ and all denominators are non-zero.",
+      "questionIds": [
+        "LUX-MATH-Y9-REARRANGING-037",
+        "LUX-MATH-Y9-REARRANGING-039"
+      ],
+      "variantCount": 2
+    },
+    {
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_11",
+      "topicId": "math-y9-changing-subject",
+      "numericNeutralStem": "make $x$ the subject of $y=#+\\sqrt{\\frac{#x+#}{#x+#}}$. assume $y\\ge #$ and all denominators are non-zero.",
+      "questionIds": [
+        "LUX-MATH-Y9-REARRANGING-038",
+        "LUX-MATH-Y9-REARRANGING-040"
+      ],
+      "variantCount": 2
+    },
+    {
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_01",
+      "topicId": "math-y9-straight-line-graphs",
+      "numericNeutralStem": "line $l$ passes through $(-#,#)$ and $(#,#)$. a line through $(#,#)$ is perpendicular to $l$. find the $x$-coordinate where this perpendicular line crosses the $x$-axis.",
+      "questionIds": [
+        "LUX-MATH-Y9-GRAPHS-001",
+        "LUX-MATH-Y9-GRAPHS-002",
+        "LUX-MATH-Y9-GRAPHS-003",
+        "LUX-MATH-Y9-GRAPHS-004"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_02",
+      "topicId": "math-y9-straight-line-graphs",
+      "numericNeutralStem": "$a(-#,#)$ and $b(#,#)$ are endpoints of a line segment. find the $y$-intercept of the perpendicular bisector of $ab$.",
+      "questionIds": [
+        "LUX-MATH-Y9-GRAPHS-005",
+        "LUX-MATH-Y9-GRAPHS-006",
+        "LUX-MATH-Y9-GRAPHS-007"
+      ],
+      "variantCount": 3
+    },
+    {
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_03",
+      "topicId": "math-y9-straight-line-graphs",
+      "numericNeutralStem": "$a(#,#)$ and $b(#,#)$ are endpoints of a line segment. find the $y$-intercept of the perpendicular bisector of $ab$.",
+      "questionIds": [
+        "LUX-MATH-Y9-GRAPHS-008"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_04",
+      "topicId": "math-y9-straight-line-graphs",
+      "numericNeutralStem": "lines $y=# x + #$ and $y=# - # x$ meet at $p$. a third line passes through $p$ and is parallel to $y=#x+#$. find the $y$-intercept of the third line.",
+      "questionIds": [
+        "LUX-MATH-Y9-GRAPHS-009"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_05",
+      "topicId": "math-y9-straight-line-graphs",
+      "numericNeutralStem": "lines $y=# x - #$ and $y=# - # x$ meet at $p$. a third line passes through $p$ and is parallel to $y=#x+#$. find the $y$-intercept of the third line.",
+      "questionIds": [
+        "LUX-MATH-Y9-GRAPHS-010",
+        "LUX-MATH-Y9-GRAPHS-011",
+        "LUX-MATH-Y9-GRAPHS-012"
+      ],
+      "variantCount": 3
+    },
+    {
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_06",
+      "topicId": "math-y9-straight-line-graphs",
+      "numericNeutralStem": "lines $y=# x + #$ and $y=# - # x$ meet at $p$. a line through $p$ is perpendicular to $y=#x-#$. find its $x$-intercept.",
+      "questionIds": [
+        "LUX-MATH-Y9-GRAPHS-013"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_07",
+      "topicId": "math-y9-straight-line-graphs",
+      "numericNeutralStem": "lines $y=# x - #$ and $y=# - # x$ meet at $p$. a line through $p$ is perpendicular to $y=#x-#$. find its $x$-intercept.",
+      "questionIds": [
+        "LUX-MATH-Y9-GRAPHS-014",
+        "LUX-MATH-Y9-GRAPHS-015",
+        "LUX-MATH-Y9-GRAPHS-016"
+      ],
+      "variantCount": 3
+    },
+    {
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_08",
+      "topicId": "math-y9-straight-line-graphs",
+      "numericNeutralStem": "points $a(#, #)$ and $b(#, #)$ form a segment. its perpendicular bisector meets $y=# x + #$ at $p$. find the $x$-coordinate of $p$.",
+      "questionIds": [
+        "LUX-MATH-Y9-GRAPHS-017",
+        "LUX-MATH-Y9-GRAPHS-018",
+        "LUX-MATH-Y9-GRAPHS-019"
+      ],
+      "variantCount": 3
+    },
+    {
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_09",
+      "topicId": "math-y9-straight-line-graphs",
+      "numericNeutralStem": "points $a(#, #)$ and $b(#, #)$ form a segment. its perpendicular bisector meets $y=# x$ at $p$. find the $x$-coordinate of $p$.",
+      "questionIds": [
+        "LUX-MATH-Y9-GRAPHS-020"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_10",
+      "topicId": "math-y9-straight-line-graphs",
+      "numericNeutralStem": "the line $y=- # \\left(x - #\\right)$ cuts the axes at $a$ and $b$. find the $y$-intercept of the line through the midpoint of $ab$ that is perpendicular to the original line.",
+      "questionIds": [
+        "LUX-MATH-Y9-GRAPHS-021",
+        "LUX-MATH-Y9-GRAPHS-023"
+      ],
+      "variantCount": 2
+    },
+    {
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_11",
+      "topicId": "math-y9-straight-line-graphs",
+      "numericNeutralStem": "the line $y=# - # x$ cuts the axes at $a$ and $b$. find the $y$-intercept of the line through the midpoint of $ab$ that is perpendicular to the original line.",
+      "questionIds": [
+        "LUX-MATH-Y9-GRAPHS-022",
+        "LUX-MATH-Y9-GRAPHS-024"
+      ],
+      "variantCount": 2
+    },
+    {
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_12",
+      "topicId": "math-y9-straight-line-graphs",
+      "numericNeutralStem": "lines $y=x + #$ and $y=# - x$ meet at $p$. a line through $p$ is parallel to the segment joining $a(#, #)$ to $b(#, #)$. find its $x$-intercept.",
+      "questionIds": [
+        "LUX-MATH-Y9-GRAPHS-025"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_13",
+      "topicId": "math-y9-straight-line-graphs",
+      "numericNeutralStem": "lines $y=# \\left(x + #\\right)$ and $y=- # \\left(x - #\\right)$ meet at $p$. a line through $p$ is parallel to the segment joining $a(#, #)$ to $b(#, #)$. find its $x$-intercept.",
+      "questionIds": [
+        "LUX-MATH-Y9-GRAPHS-026"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_14",
+      "topicId": "math-y9-straight-line-graphs",
+      "numericNeutralStem": "lines $y=# x - #$ and $y=# - # x$ meet at $p$. a line through $p$ is parallel to the segment joining $a(#, #)$ to $b(#, -#)$. find its $x$-intercept.",
+      "questionIds": [
+        "LUX-MATH-Y9-GRAPHS-027"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_15",
+      "topicId": "math-y9-straight-line-graphs",
+      "numericNeutralStem": "lines $y=# \\left(# x - #\\right)$ and $y=- # \\left(# x - #\\right)$ meet at $p$. a line through $p$ is parallel to the segment joining $a(#, #)$ to $b(#, -#)$. find its $x$-intercept.",
+      "questionIds": [
+        "LUX-MATH-Y9-GRAPHS-028"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_16",
+      "topicId": "math-y9-straight-line-graphs",
+      "numericNeutralStem": "the line through $a(k,#)$ and $b(#,#)$ is perpendicular to $y=# - # x$. find $k$.",
+      "questionIds": [
+        "LUX-MATH-Y9-GRAPHS-029",
+        "LUX-MATH-Y9-GRAPHS-030",
+        "LUX-MATH-Y9-GRAPHS-031",
+        "LUX-MATH-Y9-GRAPHS-032"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_17",
+      "topicId": "math-y9-straight-line-graphs",
+      "numericNeutralStem": "lines $y=# x - #$ and $y=# - # x$ meet at $p$. the line through $p$ is perpendicular to segment $ab$ where $a(#, #)$ and $b(#, #)$. find the $x$-intercept of this new line.",
+      "questionIds": [
+        "LUX-MATH-Y9-GRAPHS-033",
+        "LUX-MATH-Y9-GRAPHS-034",
+        "LUX-MATH-Y9-GRAPHS-035"
+      ],
+      "variantCount": 3
+    },
+    {
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_18",
+      "topicId": "math-y9-straight-line-graphs",
+      "numericNeutralStem": "lines $y=# \\left(x - #\\right)$ and $y=- # \\left(x - #\\right)$ meet at $p$. the line through $p$ is perpendicular to segment $ab$ where $a(#, #)$ and $b(#, #)$. find the $x$-intercept of this new line.",
+      "questionIds": [
+        "LUX-MATH-Y9-GRAPHS-036"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_19",
+      "topicId": "math-y9-straight-line-graphs",
+      "numericNeutralStem": "the perpendicular bisector of $a(#, #)$ and $b(#, #)$ meets $y=x + #$ at $p$. find the square of the distance from the origin to p.",
+      "questionIds": [
+        "LUX-MATH-Y9-GRAPHS-037"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_20",
+      "topicId": "math-y9-straight-line-graphs",
+      "numericNeutralStem": "the perpendicular bisector of $a(#, #)$ and $b(#, #)$ meets $y=# \\left(x - #\\right)$ at $p$. find the area of the triangle whose vertices are the origin, p, and the projection of p onto the x-axis.",
+      "questionIds": [
+        "LUX-MATH-Y9-GRAPHS-038"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_21",
+      "topicId": "math-y9-straight-line-graphs",
+      "numericNeutralStem": "the perpendicular bisector of $a(#, #)$ and $b(#, #)$ meets $y=# \\left(x - #\\right)$ at $p$. find the signed vertical displacement from the midpoint of ab to p (positive upwards).",
+      "questionIds": [
+        "LUX-MATH-Y9-GRAPHS-039"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_22",
+      "topicId": "math-y9-straight-line-graphs",
+      "numericNeutralStem": "the perpendicular bisector of $a(#, #)$ and $b(#, #)$ meets $y=# \\left(# x - #\\right)$ at $p$. find the gradient of the line from the origin to p.",
+      "questionIds": [
+        "LUX-MATH-Y9-GRAPHS-040"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_01",
+      "topicId": "math-y9-simultaneous-equations",
+      "numericNeutralStem": "given $\\begin{cases} #x+#y=#\\\\ #x-#y=#\\end{cases}$, calculate $x^#+y$.",
+      "questionIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-001",
+        "LUX-MATH-Y9-SIMULTANEOUS-002",
+        "LUX-MATH-Y9-SIMULTANEOUS-003",
+        "LUX-MATH-Y9-SIMULTANEOUS-004"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_02",
+      "topicId": "math-y9-simultaneous-equations",
+      "numericNeutralStem": "at a venue, # adult tickets and # child tickets cost £#. another purchase of # adult tickets and # child tickets costs £#. how much do # adult ticket and # child tickets cost?",
+      "questionIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-005",
+        "LUX-MATH-Y9-SIMULTANEOUS-006"
+      ],
+      "variantCount": 2
+    },
+    {
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_03",
+      "topicId": "math-y9-simultaneous-equations",
+      "numericNeutralStem": "at a venue, # adult tickets and # child tickets cost £#. another purchase of # adult tickets and # child tickets costs £#. how much do # adult tickets and # child ticket cost?",
+      "questionIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-007"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_04",
+      "topicId": "math-y9-simultaneous-equations",
+      "numericNeutralStem": "at a venue, # adult tickets and # child tickets cost £#. another purchase of # adult tickets and # child tickets costs £#. how much do # adult tickets and # child tickets cost?",
+      "questionIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-008"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_05",
+      "topicId": "math-y9-simultaneous-equations",
+      "numericNeutralStem": "solve $\\begin{cases}\\frac{#x+#y}{#}=\\frac{#}{#}\\\\#x-#y=#\\end{cases}$ and find $xy$.",
+      "questionIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-009",
+        "LUX-MATH-Y9-SIMULTANEOUS-011"
+      ],
+      "variantCount": 2
+    },
+    {
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_06",
+      "topicId": "math-y9-simultaneous-equations",
+      "numericNeutralStem": "solve $\\begin{cases}\\frac{#x+#y}{#}=\\frac{#}{#}\\\\#x-#y=-#\\end{cases}$ and find $xy$.",
+      "questionIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-010",
+        "LUX-MATH-Y9-SIMULTANEOUS-012"
+      ],
+      "variantCount": 2
+    },
+    {
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_07",
+      "topicId": "math-y9-simultaneous-equations",
+      "numericNeutralStem": "for what value of $k$ do the equations $\\begin{cases} #x+#y=#\\\\ kx+#y=#\\end{cases}$ have **no solution**?",
+      "questionIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-013",
+        "LUX-MATH-Y9-SIMULTANEOUS-014",
+        "LUX-MATH-Y9-SIMULTANEOUS-015",
+        "LUX-MATH-Y9-SIMULTANEOUS-016"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_08",
+      "topicId": "math-y9-simultaneous-equations",
+      "numericNeutralStem": "at a museum, # adult tickets and # child tickets cost £#. another purchase of # adult tickets and # child tickets costs £#. what is the price of # adult ticket and # child tickets?",
+      "questionIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-017",
+        "LUX-MATH-Y9-SIMULTANEOUS-019"
+      ],
+      "variantCount": 2
+    },
+    {
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_09",
+      "topicId": "math-y9-simultaneous-equations",
+      "numericNeutralStem": "at a museum, # adult tickets and # child tickets cost £#. another purchase of # adult tickets and # child tickets costs £#. what is the price of # adult tickets and # child tickets?",
+      "questionIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-018",
+        "LUX-MATH-Y9-SIMULTANEOUS-020"
+      ],
+      "variantCount": 2
+    },
+    {
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_10",
+      "topicId": "math-y9-simultaneous-equations",
+      "numericNeutralStem": "given $\\begin{cases} #x+#y=#\\\\ #x-#y=#\\end{cases}$, calculate $#x^#-y$.",
+      "questionIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-021",
+        "LUX-MATH-Y9-SIMULTANEOUS-023"
+      ],
+      "variantCount": 2
+    },
+    {
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_11",
+      "topicId": "math-y9-simultaneous-equations",
+      "numericNeutralStem": "given $\\begin{cases} #x+#y=#\\\\ #x-#y=-#\\end{cases}$, calculate $#x^#-y$.",
+      "questionIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-022",
+        "LUX-MATH-Y9-SIMULTANEOUS-024"
+      ],
+      "variantCount": 2
+    },
+    {
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_12",
+      "topicId": "math-y9-simultaneous-equations",
+      "numericNeutralStem": "three crates and two boxes have total mass # kg. two crates and five boxes have total mass # kg. how many kilograms heavier is one crate than one box?",
+      "questionIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-025"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_13",
+      "topicId": "math-y9-simultaneous-equations",
+      "numericNeutralStem": "three crates and two boxes have total mass # kg. two crates and five boxes have total mass # kg. by how many kilograms does the mass of two crates exceed the mass of one box?",
+      "questionIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-026"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_14",
+      "topicId": "math-y9-simultaneous-equations",
+      "numericNeutralStem": "three crates and two boxes have total mass # kg. two crates and five boxes have total mass # kg. what is the combined mass of one crate and two boxes, in kilograms?",
+      "questionIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-027"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_15",
+      "topicId": "math-y9-simultaneous-equations",
+      "numericNeutralStem": "three crates and two boxes have total mass # kg. two crates and five boxes have total mass # kg. by how many kilograms does the mass of three crates exceed the mass of one box?",
+      "questionIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-028"
+      ],
+      "variantCount": 1
+    },
+    {
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_16",
+      "topicId": "math-y9-simultaneous-equations",
+      "numericNeutralStem": "solve the system $\\begin{cases}#x+#y=#\\\\#x-#y=#\\end{cases}$, then find $#x+#y$.",
+      "questionIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-029",
+        "LUX-MATH-Y9-SIMULTANEOUS-030",
+        "LUX-MATH-Y9-SIMULTANEOUS-031",
+        "LUX-MATH-Y9-SIMULTANEOUS-032"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_17",
+      "topicId": "math-y9-simultaneous-equations",
+      "numericNeutralStem": "for some real $k$, $\\begin{cases} #x+#y=#\\\\ kx-#y=#\\end{cases}$ has a solution satisfying $x=#y+#$. find $k$.",
+      "questionIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-033",
+        "LUX-MATH-Y9-SIMULTANEOUS-034",
+        "LUX-MATH-Y9-SIMULTANEOUS-035",
+        "LUX-MATH-Y9-SIMULTANEOUS-036"
+      ],
+      "variantCount": 4
+    },
+    {
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_18",
+      "topicId": "math-y9-simultaneous-equations",
+      "numericNeutralStem": "for what value of $k$ do $\\begin{cases}#x+#y=#\\\\(k+#)x+(#k+#)y=#\\end{cases}$ have **no solution**?",
+      "questionIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-037",
+        "LUX-MATH-Y9-SIMULTANEOUS-038",
+        "LUX-MATH-Y9-SIMULTANEOUS-039",
+        "LUX-MATH-Y9-SIMULTANEOUS-040"
+      ],
+      "variantCount": 4
+    }
+  ],
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-001",
+      "revisionId": "LUX-MATH-Y9-INDICES-001-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_01",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-002",
+      "revisionId": "LUX-MATH-Y9-INDICES-002-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_02",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-003",
+      "revisionId": "LUX-MATH-Y9-INDICES-003-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_03",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-004",
+      "revisionId": "LUX-MATH-Y9-INDICES-004-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_04",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-005",
+      "revisionId": "LUX-MATH-Y9-INDICES-005-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_05",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-006",
+        "LUX-MATH-Y9-INDICES-007",
+        "LUX-MATH-Y9-INDICES-008"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-006",
+      "revisionId": "LUX-MATH-Y9-INDICES-006-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_05",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-005",
+        "LUX-MATH-Y9-INDICES-007",
+        "LUX-MATH-Y9-INDICES-008"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-007",
+      "revisionId": "LUX-MATH-Y9-INDICES-007-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_05",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-005",
+        "LUX-MATH-Y9-INDICES-006",
+        "LUX-MATH-Y9-INDICES-008"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-008",
+      "revisionId": "LUX-MATH-Y9-INDICES-008-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_05",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-005",
+        "LUX-MATH-Y9-INDICES-006",
+        "LUX-MATH-Y9-INDICES-007"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-009",
+      "revisionId": "LUX-MATH-Y9-INDICES-009-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_06",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-010",
+        "LUX-MATH-Y9-INDICES-011",
+        "LUX-MATH-Y9-INDICES-012"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-010",
+      "revisionId": "LUX-MATH-Y9-INDICES-010-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_06",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-009",
+        "LUX-MATH-Y9-INDICES-011",
+        "LUX-MATH-Y9-INDICES-012"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-011",
+      "revisionId": "LUX-MATH-Y9-INDICES-011-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_06",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-009",
+        "LUX-MATH-Y9-INDICES-010",
+        "LUX-MATH-Y9-INDICES-012"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-012",
+      "revisionId": "LUX-MATH-Y9-INDICES-012-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_06",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-009",
+        "LUX-MATH-Y9-INDICES-010",
+        "LUX-MATH-Y9-INDICES-011"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-013",
+      "revisionId": "LUX-MATH-Y9-INDICES-013-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_07",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-014",
+        "LUX-MATH-Y9-INDICES-015",
+        "LUX-MATH-Y9-INDICES-016"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-014",
+      "revisionId": "LUX-MATH-Y9-INDICES-014-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_07",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-013",
+        "LUX-MATH-Y9-INDICES-015",
+        "LUX-MATH-Y9-INDICES-016"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-015",
+      "revisionId": "LUX-MATH-Y9-INDICES-015-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_07",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-013",
+        "LUX-MATH-Y9-INDICES-014",
+        "LUX-MATH-Y9-INDICES-016"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-016",
+      "revisionId": "LUX-MATH-Y9-INDICES-016-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_07",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-013",
+        "LUX-MATH-Y9-INDICES-014",
+        "LUX-MATH-Y9-INDICES-015"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-017",
+      "revisionId": "LUX-MATH-Y9-INDICES-017-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_08",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-018",
+        "LUX-MATH-Y9-INDICES-019",
+        "LUX-MATH-Y9-INDICES-020"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-018",
+      "revisionId": "LUX-MATH-Y9-INDICES-018-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_08",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-017",
+        "LUX-MATH-Y9-INDICES-019",
+        "LUX-MATH-Y9-INDICES-020"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-019",
+      "revisionId": "LUX-MATH-Y9-INDICES-019-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_08",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-017",
+        "LUX-MATH-Y9-INDICES-018",
+        "LUX-MATH-Y9-INDICES-020"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-020",
+      "revisionId": "LUX-MATH-Y9-INDICES-020-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_08",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-017",
+        "LUX-MATH-Y9-INDICES-018",
+        "LUX-MATH-Y9-INDICES-019"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-021",
+      "revisionId": "LUX-MATH-Y9-INDICES-021-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_09",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-022",
+        "LUX-MATH-Y9-INDICES-023",
+        "LUX-MATH-Y9-INDICES-024"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-022",
+      "revisionId": "LUX-MATH-Y9-INDICES-022-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_09",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-021",
+        "LUX-MATH-Y9-INDICES-023",
+        "LUX-MATH-Y9-INDICES-024"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-023",
+      "revisionId": "LUX-MATH-Y9-INDICES-023-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_09",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-021",
+        "LUX-MATH-Y9-INDICES-022",
+        "LUX-MATH-Y9-INDICES-024"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-024",
+      "revisionId": "LUX-MATH-Y9-INDICES-024-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_09",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-021",
+        "LUX-MATH-Y9-INDICES-022",
+        "LUX-MATH-Y9-INDICES-023"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-025",
+      "revisionId": "LUX-MATH-Y9-INDICES-025-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_10",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-026",
+      "revisionId": "LUX-MATH-Y9-INDICES-026-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_11",
+      "variantCount": 3,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-027",
+        "LUX-MATH-Y9-INDICES-028"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-027",
+      "revisionId": "LUX-MATH-Y9-INDICES-027-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_11",
+      "variantCount": 3,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-026",
+        "LUX-MATH-Y9-INDICES-028"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-028",
+      "revisionId": "LUX-MATH-Y9-INDICES-028-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_11",
+      "variantCount": 3,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-026",
+        "LUX-MATH-Y9-INDICES-027"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-029",
+      "revisionId": "LUX-MATH-Y9-INDICES-029-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_12",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-030",
+        "LUX-MATH-Y9-INDICES-031",
+        "LUX-MATH-Y9-INDICES-032"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-030",
+      "revisionId": "LUX-MATH-Y9-INDICES-030-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_12",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-029",
+        "LUX-MATH-Y9-INDICES-031",
+        "LUX-MATH-Y9-INDICES-032"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-031",
+      "revisionId": "LUX-MATH-Y9-INDICES-031-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_12",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-029",
+        "LUX-MATH-Y9-INDICES-030",
+        "LUX-MATH-Y9-INDICES-032"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-032",
+      "revisionId": "LUX-MATH-Y9-INDICES-032-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_12",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-029",
+        "LUX-MATH-Y9-INDICES-030",
+        "LUX-MATH-Y9-INDICES-031"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-033",
+      "revisionId": "LUX-MATH-Y9-INDICES-033-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_13",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-034",
+        "LUX-MATH-Y9-INDICES-035",
+        "LUX-MATH-Y9-INDICES-036"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-034",
+      "revisionId": "LUX-MATH-Y9-INDICES-034-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_13",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-033",
+        "LUX-MATH-Y9-INDICES-035",
+        "LUX-MATH-Y9-INDICES-036"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-035",
+      "revisionId": "LUX-MATH-Y9-INDICES-035-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_13",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-033",
+        "LUX-MATH-Y9-INDICES-034",
+        "LUX-MATH-Y9-INDICES-036"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-036",
+      "revisionId": "LUX-MATH-Y9-INDICES-036-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_13",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-033",
+        "LUX-MATH-Y9-INDICES-034",
+        "LUX-MATH-Y9-INDICES-035"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-037",
+      "revisionId": "LUX-MATH-Y9-INDICES-037-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_14",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-038",
+        "LUX-MATH-Y9-INDICES-039",
+        "LUX-MATH-Y9-INDICES-040"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-038",
+      "revisionId": "LUX-MATH-Y9-INDICES-038-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_14",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-037",
+        "LUX-MATH-Y9-INDICES-039",
+        "LUX-MATH-Y9-INDICES-040"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-039",
+      "revisionId": "LUX-MATH-Y9-INDICES-039-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_14",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-037",
+        "LUX-MATH-Y9-INDICES-038",
+        "LUX-MATH-Y9-INDICES-040"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-040",
+      "revisionId": "LUX-MATH-Y9-INDICES-040-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "templateId": "MATH_Y9_INDICES_14",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-037",
+        "LUX-MATH-Y9-INDICES-038",
+        "LUX-MATH-Y9-INDICES-039"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-001",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-001-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_01",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-002",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-002-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_02",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-003",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-003-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_03",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-004",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-004-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_04",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-005",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-005-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_05",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-006",
+        "LUX-MATH-Y9-STANDARD_FORM-007",
+        "LUX-MATH-Y9-STANDARD_FORM-008"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-006",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-006-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_05",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-005",
+        "LUX-MATH-Y9-STANDARD_FORM-007",
+        "LUX-MATH-Y9-STANDARD_FORM-008"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-007",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-007-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_05",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-005",
+        "LUX-MATH-Y9-STANDARD_FORM-006",
+        "LUX-MATH-Y9-STANDARD_FORM-008"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-008",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-008-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_05",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-005",
+        "LUX-MATH-Y9-STANDARD_FORM-006",
+        "LUX-MATH-Y9-STANDARD_FORM-007"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-009",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-009-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_06",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-010",
+        "LUX-MATH-Y9-STANDARD_FORM-011",
+        "LUX-MATH-Y9-STANDARD_FORM-012"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-010",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-010-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_06",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-009",
+        "LUX-MATH-Y9-STANDARD_FORM-011",
+        "LUX-MATH-Y9-STANDARD_FORM-012"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-011",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-011-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_06",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-009",
+        "LUX-MATH-Y9-STANDARD_FORM-010",
+        "LUX-MATH-Y9-STANDARD_FORM-012"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-012",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-012-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_06",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-009",
+        "LUX-MATH-Y9-STANDARD_FORM-010",
+        "LUX-MATH-Y9-STANDARD_FORM-011"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-013",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-013-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_07",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-014",
+        "LUX-MATH-Y9-STANDARD_FORM-015",
+        "LUX-MATH-Y9-STANDARD_FORM-016"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-014-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_07",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-013",
+        "LUX-MATH-Y9-STANDARD_FORM-015",
+        "LUX-MATH-Y9-STANDARD_FORM-016"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-015",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-015-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_07",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-013",
+        "LUX-MATH-Y9-STANDARD_FORM-014",
+        "LUX-MATH-Y9-STANDARD_FORM-016"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-016",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-016-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_07",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-013",
+        "LUX-MATH-Y9-STANDARD_FORM-014",
+        "LUX-MATH-Y9-STANDARD_FORM-015"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-017",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-017-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_08",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-018",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-018-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_09",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-019",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-019-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_10",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-020",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-020-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_11",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-021",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-021-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_12",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-022",
+        "LUX-MATH-Y9-STANDARD_FORM-023",
+        "LUX-MATH-Y9-STANDARD_FORM-024"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-022",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-022-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_12",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-021",
+        "LUX-MATH-Y9-STANDARD_FORM-023",
+        "LUX-MATH-Y9-STANDARD_FORM-024"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-023",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-023-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_12",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-021",
+        "LUX-MATH-Y9-STANDARD_FORM-022",
+        "LUX-MATH-Y9-STANDARD_FORM-024"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-024",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-024-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_12",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-021",
+        "LUX-MATH-Y9-STANDARD_FORM-022",
+        "LUX-MATH-Y9-STANDARD_FORM-023"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-025",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-025-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_13",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-026",
+        "LUX-MATH-Y9-STANDARD_FORM-027",
+        "LUX-MATH-Y9-STANDARD_FORM-028"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-026-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_13",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-025",
+        "LUX-MATH-Y9-STANDARD_FORM-027",
+        "LUX-MATH-Y9-STANDARD_FORM-028"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-027",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-027-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_13",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-025",
+        "LUX-MATH-Y9-STANDARD_FORM-026",
+        "LUX-MATH-Y9-STANDARD_FORM-028"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-028",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-028-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_13",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-025",
+        "LUX-MATH-Y9-STANDARD_FORM-026",
+        "LUX-MATH-Y9-STANDARD_FORM-027"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-029",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-029-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_14",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-030",
+        "LUX-MATH-Y9-STANDARD_FORM-031",
+        "LUX-MATH-Y9-STANDARD_FORM-032"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-030",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-030-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_14",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-029",
+        "LUX-MATH-Y9-STANDARD_FORM-031",
+        "LUX-MATH-Y9-STANDARD_FORM-032"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-031",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-031-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_14",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-029",
+        "LUX-MATH-Y9-STANDARD_FORM-030",
+        "LUX-MATH-Y9-STANDARD_FORM-032"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-032",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-032-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_14",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-029",
+        "LUX-MATH-Y9-STANDARD_FORM-030",
+        "LUX-MATH-Y9-STANDARD_FORM-031"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-033",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-033-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_15",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-034",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-034-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_16",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-035",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-035-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_17",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-036",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-036-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_18",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-037",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-037-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_19",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-038",
+        "LUX-MATH-Y9-STANDARD_FORM-039",
+        "LUX-MATH-Y9-STANDARD_FORM-040"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-038",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-038-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_19",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-037",
+        "LUX-MATH-Y9-STANDARD_FORM-039",
+        "LUX-MATH-Y9-STANDARD_FORM-040"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-039",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-039-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_19",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-037",
+        "LUX-MATH-Y9-STANDARD_FORM-038",
+        "LUX-MATH-Y9-STANDARD_FORM-040"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-040",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-040-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "templateId": "MATH_Y9_STANDARD_FORM_19",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-037",
+        "LUX-MATH-Y9-STANDARD_FORM-038",
+        "LUX-MATH-Y9-STANDARD_FORM-039"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-001",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-001-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_01",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-002",
+        "LUX-MATH-Y9-REARRANGING-003",
+        "LUX-MATH-Y9-REARRANGING-004"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-002",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-002-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_01",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-001",
+        "LUX-MATH-Y9-REARRANGING-003",
+        "LUX-MATH-Y9-REARRANGING-004"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-003",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-003-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_01",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-001",
+        "LUX-MATH-Y9-REARRANGING-002",
+        "LUX-MATH-Y9-REARRANGING-004"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-004",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-004-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_01",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-001",
+        "LUX-MATH-Y9-REARRANGING-002",
+        "LUX-MATH-Y9-REARRANGING-003"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-005",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-005-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_02",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-006",
+        "LUX-MATH-Y9-REARRANGING-007",
+        "LUX-MATH-Y9-REARRANGING-008"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-006",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-006-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_02",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-005",
+        "LUX-MATH-Y9-REARRANGING-007",
+        "LUX-MATH-Y9-REARRANGING-008"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-007",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-007-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_02",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-005",
+        "LUX-MATH-Y9-REARRANGING-006",
+        "LUX-MATH-Y9-REARRANGING-008"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-008",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-008-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_02",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-005",
+        "LUX-MATH-Y9-REARRANGING-006",
+        "LUX-MATH-Y9-REARRANGING-007"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-009",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-009-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_03",
+      "variantCount": 6,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-010",
+        "LUX-MATH-Y9-REARRANGING-011",
+        "LUX-MATH-Y9-REARRANGING-017",
+        "LUX-MATH-Y9-REARRANGING-018",
+        "LUX-MATH-Y9-REARRANGING-024"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-010",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-010-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_03",
+      "variantCount": 6,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-009",
+        "LUX-MATH-Y9-REARRANGING-011",
+        "LUX-MATH-Y9-REARRANGING-017",
+        "LUX-MATH-Y9-REARRANGING-018",
+        "LUX-MATH-Y9-REARRANGING-024"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-011",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-011-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_03",
+      "variantCount": 6,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-009",
+        "LUX-MATH-Y9-REARRANGING-010",
+        "LUX-MATH-Y9-REARRANGING-017",
+        "LUX-MATH-Y9-REARRANGING-018",
+        "LUX-MATH-Y9-REARRANGING-024"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-017",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-017-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_03",
+      "variantCount": 6,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-009",
+        "LUX-MATH-Y9-REARRANGING-010",
+        "LUX-MATH-Y9-REARRANGING-011",
+        "LUX-MATH-Y9-REARRANGING-018",
+        "LUX-MATH-Y9-REARRANGING-024"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-018",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-018-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_03",
+      "variantCount": 6,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-009",
+        "LUX-MATH-Y9-REARRANGING-010",
+        "LUX-MATH-Y9-REARRANGING-011",
+        "LUX-MATH-Y9-REARRANGING-017",
+        "LUX-MATH-Y9-REARRANGING-024"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-024",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-024-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_03",
+      "variantCount": 6,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-009",
+        "LUX-MATH-Y9-REARRANGING-010",
+        "LUX-MATH-Y9-REARRANGING-011",
+        "LUX-MATH-Y9-REARRANGING-017",
+        "LUX-MATH-Y9-REARRANGING-018"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-012",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-012-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_04",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-013",
+        "LUX-MATH-Y9-REARRANGING-014",
+        "LUX-MATH-Y9-REARRANGING-015"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-013",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-013-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_04",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-012",
+        "LUX-MATH-Y9-REARRANGING-014",
+        "LUX-MATH-Y9-REARRANGING-015"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-014",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-014-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_04",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-012",
+        "LUX-MATH-Y9-REARRANGING-013",
+        "LUX-MATH-Y9-REARRANGING-015"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-015",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-015-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_04",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-012",
+        "LUX-MATH-Y9-REARRANGING-013",
+        "LUX-MATH-Y9-REARRANGING-014"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-016",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-016-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_05",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-023"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-023",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-023-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_05",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-016"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-019",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-019-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_06",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-020",
+        "LUX-MATH-Y9-REARRANGING-021",
+        "LUX-MATH-Y9-REARRANGING-022"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-020",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-020-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_06",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-019",
+        "LUX-MATH-Y9-REARRANGING-021",
+        "LUX-MATH-Y9-REARRANGING-022"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-021",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-021-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_06",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-019",
+        "LUX-MATH-Y9-REARRANGING-020",
+        "LUX-MATH-Y9-REARRANGING-022"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-022",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-022-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_06",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-019",
+        "LUX-MATH-Y9-REARRANGING-020",
+        "LUX-MATH-Y9-REARRANGING-021"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-025",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-025-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_07",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-026",
+        "LUX-MATH-Y9-REARRANGING-027",
+        "LUX-MATH-Y9-REARRANGING-028"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-026",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-026-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_07",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-025",
+        "LUX-MATH-Y9-REARRANGING-027",
+        "LUX-MATH-Y9-REARRANGING-028"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-027",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-027-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_07",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-025",
+        "LUX-MATH-Y9-REARRANGING-026",
+        "LUX-MATH-Y9-REARRANGING-028"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-028",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-028-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_07",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-025",
+        "LUX-MATH-Y9-REARRANGING-026",
+        "LUX-MATH-Y9-REARRANGING-027"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-029",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-029-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_08",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-030",
+        "LUX-MATH-Y9-REARRANGING-031",
+        "LUX-MATH-Y9-REARRANGING-032"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-030",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-030-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_08",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-029",
+        "LUX-MATH-Y9-REARRANGING-031",
+        "LUX-MATH-Y9-REARRANGING-032"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-031",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-031-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_08",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-029",
+        "LUX-MATH-Y9-REARRANGING-030",
+        "LUX-MATH-Y9-REARRANGING-032"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-032",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-032-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_08",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-029",
+        "LUX-MATH-Y9-REARRANGING-030",
+        "LUX-MATH-Y9-REARRANGING-031"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-033",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-033-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_09",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-034",
+        "LUX-MATH-Y9-REARRANGING-035",
+        "LUX-MATH-Y9-REARRANGING-036"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-034",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-034-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_09",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-033",
+        "LUX-MATH-Y9-REARRANGING-035",
+        "LUX-MATH-Y9-REARRANGING-036"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-035",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-035-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_09",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-033",
+        "LUX-MATH-Y9-REARRANGING-034",
+        "LUX-MATH-Y9-REARRANGING-036"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-036",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-036-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_09",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-033",
+        "LUX-MATH-Y9-REARRANGING-034",
+        "LUX-MATH-Y9-REARRANGING-035"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-037",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-037-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_10",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-039"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-039",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-039-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_10",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-037"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-038",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-038-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_11",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-040"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-040",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-040-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "templateId": "MATH_Y9_CHANGING_SUBJECT_11",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-REARRANGING-038"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-001",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-001-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_01",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-002",
+        "LUX-MATH-Y9-GRAPHS-003",
+        "LUX-MATH-Y9-GRAPHS-004"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-002",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-002-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_01",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-001",
+        "LUX-MATH-Y9-GRAPHS-003",
+        "LUX-MATH-Y9-GRAPHS-004"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-003",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-003-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_01",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-001",
+        "LUX-MATH-Y9-GRAPHS-002",
+        "LUX-MATH-Y9-GRAPHS-004"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-004",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-004-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_01",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-001",
+        "LUX-MATH-Y9-GRAPHS-002",
+        "LUX-MATH-Y9-GRAPHS-003"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-005",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-005-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_02",
+      "variantCount": 3,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-006",
+        "LUX-MATH-Y9-GRAPHS-007"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-006",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-006-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_02",
+      "variantCount": 3,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-005",
+        "LUX-MATH-Y9-GRAPHS-007"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-007",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-007-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_02",
+      "variantCount": 3,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-005",
+        "LUX-MATH-Y9-GRAPHS-006"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-008",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-008-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_03",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-009",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-009-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_04",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-010",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-010-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_05",
+      "variantCount": 3,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-011",
+        "LUX-MATH-Y9-GRAPHS-012"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-011",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-011-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_05",
+      "variantCount": 3,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-010",
+        "LUX-MATH-Y9-GRAPHS-012"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-012",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-012-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_05",
+      "variantCount": 3,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-010",
+        "LUX-MATH-Y9-GRAPHS-011"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-013",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-013-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_06",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-014",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-014-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_07",
+      "variantCount": 3,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-015",
+        "LUX-MATH-Y9-GRAPHS-016"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-015",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-015-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_07",
+      "variantCount": 3,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-014",
+        "LUX-MATH-Y9-GRAPHS-016"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-016",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-016-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_07",
+      "variantCount": 3,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-014",
+        "LUX-MATH-Y9-GRAPHS-015"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-017",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-017-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_08",
+      "variantCount": 3,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-018",
+        "LUX-MATH-Y9-GRAPHS-019"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-018",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-018-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_08",
+      "variantCount": 3,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-017",
+        "LUX-MATH-Y9-GRAPHS-019"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-019",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-019-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_08",
+      "variantCount": 3,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-017",
+        "LUX-MATH-Y9-GRAPHS-018"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-020",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-020-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_09",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-021",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-021-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_10",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-023"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-023",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-023-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_10",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-021"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-022",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-022-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_11",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-024"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-024",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-024-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_11",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-022"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-025",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-025-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_12",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-026",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-026-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_13",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-027",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-027-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_14",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-028",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-028-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_15",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-029",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-029-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_16",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-030",
+        "LUX-MATH-Y9-GRAPHS-031",
+        "LUX-MATH-Y9-GRAPHS-032"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-030",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-030-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_16",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-029",
+        "LUX-MATH-Y9-GRAPHS-031",
+        "LUX-MATH-Y9-GRAPHS-032"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-031",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-031-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_16",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-029",
+        "LUX-MATH-Y9-GRAPHS-030",
+        "LUX-MATH-Y9-GRAPHS-032"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-032",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-032-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_16",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-029",
+        "LUX-MATH-Y9-GRAPHS-030",
+        "LUX-MATH-Y9-GRAPHS-031"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-033",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-033-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_17",
+      "variantCount": 3,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-034",
+        "LUX-MATH-Y9-GRAPHS-035"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-034",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-034-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_17",
+      "variantCount": 3,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-033",
+        "LUX-MATH-Y9-GRAPHS-035"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-035",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-035-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_17",
+      "variantCount": 3,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-GRAPHS-033",
+        "LUX-MATH-Y9-GRAPHS-034"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-036",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-036-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_18",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-037",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-037-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_19",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-038",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-038-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_20",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-039",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-039-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_21",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-040",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-040-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "templateId": "MATH_Y9_STRAIGHT_LINE_GRAPHS_22",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-001",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-001-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_01",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-002",
+        "LUX-MATH-Y9-SIMULTANEOUS-003",
+        "LUX-MATH-Y9-SIMULTANEOUS-004"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-002",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-002-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_01",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-001",
+        "LUX-MATH-Y9-SIMULTANEOUS-003",
+        "LUX-MATH-Y9-SIMULTANEOUS-004"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-003",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-003-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_01",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-001",
+        "LUX-MATH-Y9-SIMULTANEOUS-002",
+        "LUX-MATH-Y9-SIMULTANEOUS-004"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-004",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-004-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_01",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-001",
+        "LUX-MATH-Y9-SIMULTANEOUS-002",
+        "LUX-MATH-Y9-SIMULTANEOUS-003"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-005",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-005-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_02",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-006"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-006",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-006-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_02",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-005"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-007",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-007-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_03",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-008",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-008-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_04",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-009",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_05",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-011"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-011",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-011-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_05",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-009"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-010",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_06",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-012"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-012",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-012-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_06",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-010"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-013",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-013-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_07",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-014",
+        "LUX-MATH-Y9-SIMULTANEOUS-015",
+        "LUX-MATH-Y9-SIMULTANEOUS-016"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-014",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-014-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_07",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-013",
+        "LUX-MATH-Y9-SIMULTANEOUS-015",
+        "LUX-MATH-Y9-SIMULTANEOUS-016"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-015",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-015-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_07",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-013",
+        "LUX-MATH-Y9-SIMULTANEOUS-014",
+        "LUX-MATH-Y9-SIMULTANEOUS-016"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-016",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-016-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_07",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-013",
+        "LUX-MATH-Y9-SIMULTANEOUS-014",
+        "LUX-MATH-Y9-SIMULTANEOUS-015"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-017",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-017-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_08",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-019"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-019",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-019-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_08",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-017"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-018",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-018-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_09",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-020"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-020",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-020-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_09",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-018"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-021",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-021-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_10",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-023"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-023",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_10",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-021"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-022",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-022-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_11",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-024"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-024",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_11",
+      "variantCount": 2,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-022"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-025",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-025-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_12",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-026",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-026-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_13",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-027",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-027-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_14",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-028",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_15",
+      "variantCount": 1,
+      "peerVariantIds": [],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-029",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-029-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_16",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-030",
+        "LUX-MATH-Y9-SIMULTANEOUS-031",
+        "LUX-MATH-Y9-SIMULTANEOUS-032"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-030",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_16",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-029",
+        "LUX-MATH-Y9-SIMULTANEOUS-031",
+        "LUX-MATH-Y9-SIMULTANEOUS-032"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-031",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-031-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_16",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-029",
+        "LUX-MATH-Y9-SIMULTANEOUS-030",
+        "LUX-MATH-Y9-SIMULTANEOUS-032"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-032",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-032-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_16",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-029",
+        "LUX-MATH-Y9-SIMULTANEOUS-030",
+        "LUX-MATH-Y9-SIMULTANEOUS-031"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-033",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-033-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_17",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-034",
+        "LUX-MATH-Y9-SIMULTANEOUS-035",
+        "LUX-MATH-Y9-SIMULTANEOUS-036"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-034",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-034-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_17",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-033",
+        "LUX-MATH-Y9-SIMULTANEOUS-035",
+        "LUX-MATH-Y9-SIMULTANEOUS-036"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-035",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-035-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_17",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-033",
+        "LUX-MATH-Y9-SIMULTANEOUS-034",
+        "LUX-MATH-Y9-SIMULTANEOUS-036"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-036",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_17",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-033",
+        "LUX-MATH-Y9-SIMULTANEOUS-034",
+        "LUX-MATH-Y9-SIMULTANEOUS-035"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-037",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-037-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_18",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-038",
+        "LUX-MATH-Y9-SIMULTANEOUS-039",
+        "LUX-MATH-Y9-SIMULTANEOUS-040"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-038",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-038-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_18",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-037",
+        "LUX-MATH-Y9-SIMULTANEOUS-039",
+        "LUX-MATH-Y9-SIMULTANEOUS-040"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-039",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-039-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_18",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-037",
+        "LUX-MATH-Y9-SIMULTANEOUS-038",
+        "LUX-MATH-Y9-SIMULTANEOUS-040"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-040",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-040-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "templateId": "MATH_Y9_SIMULTANEOUS_EQUATIONS_18",
+      "variantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-SIMULTANEOUS-037",
+        "LUX-MATH-Y9-SIMULTANEOUS-038",
+        "LUX-MATH-Y9-SIMULTANEOUS-039"
+      ],
+      "independentConceptApproved": false,
+      "academicDecision": "HOLD"
+    }
+  ]
+}
