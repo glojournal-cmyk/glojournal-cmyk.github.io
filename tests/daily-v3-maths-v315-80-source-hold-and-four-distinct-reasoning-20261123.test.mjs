@@ -9,12 +9,12 @@ const pack=load('math-v315-indices017-025-standard009-025-distinct-reasoning-can
 const near=(a,b)=>Number.isFinite(a)&&Number.isFinite(b)&&Math.abs(a-b)<1e-9*Math.max(1,Math.abs(a),Math.abs(b));
 const scientific=s=>{
  const clean=String(s).replace(/\s/g,'');
- const m=clean.match(/^(-?\d+(?:\.\d+)?)\\times10\^\{(-?\d+)\}$/);
- if(m)return Number(m[1])*10**Number(m[2]);
+ const m=clean.match(/^(-?\d+(?:\.\d+)?)\\times10\^(?:\{(-?\d+)\}|(-?\d+))$/);
+ if(m)return Number(m[1])*10**Number(m[2]??m[3]);
  if(/^-?\d+(?:\.\d+)?$/.test(clean))return Number(clean);
  throw Error('Non numeric canonical value '+s);
 };
-const quantities=s=>[...s.matchAll(/(\d+(?:\.\d+)?)\\times10\^\{(-?\d+)\}/g)].map(m=>Number(m[1])*10**Number(m[2]));
+const quantities=s=>[...s.matchAll(/(\d+(?:\.\d+)?)\\times10\^(?:\{(-?\d+)\}|(-?\d+))/g)].map(m=>Number(m[1])*10**Number(m[2]??m[3]));
 test('80 exact Indices/Standard Form QA statuses, 33 source templates, 74 concise wrong rationale flags and 12 corrected historical risk claims',()=>{
  const source=bank.questions.filter(q=>q.topicId==='math-y9-indices'||q.topicId==='math-y9-standard-form');
  assert.equal(bank.questions.length,200);assert.equal(source.length,80);
