@@ -1,0 +1,46 @@
+# Food Tests — independent content review of all 143 source questions (23 November 2026)
+
+**Decision: NO ACADEMIC RELEASE APPROVAL — 0/143. Draft PR #308 only. Do not merge or deploy.**
+
+This is an AI-assisted item-by-item scientific and assessment-quality review, **not a qualified independent science teacher's sign-off**, not a confirmation of what TGS has taught, not a successful free-text marking acceptance test, and not physical iPad PWA acceptance. The original 143 item IDs and each of the 99 structured draft points were read directly from `qa/p0-eligibility-2e556ff`.
+
+## Fully inspectable evidence
+
+- [143-row source item QA register](food-tests-independent-academic-143-review-20261123.json) — each source ID, exact source stem/key or mark points, independent science-key determination where applicable, issue codes and proposed action; all `academicApproved:false`.
+- [Proposed corrections with exact stems and four-option alternatives](food-tests-academic-correction-proposals-20261123.json) — QA draft only; none imported into the live bank.
+- [Source 52-item / 99-point / 396-option structured candidate](food-tests-structured-99-point-review-candidate-20261122.json) — not learner-facing, 0 approved parts.
+- Node regression: `node --test tests/food-tests-academic-143-review-20261123.test.mjs`. Node checks audit completeness and known scientific keys; it **cannot** sign off pedagogy, distractor quality or free-English semantic fairness.
+
+## Exact 143 source items: academic findings
+
+| Source group | Items | Evidence and disposition |
+|---|---:|---|
+| Reagent/result recall MC | 9 | All nine unique stored keys agree with independently checked iodine/starch, Benedict's/reducing sugar, Biuret/protein, ethanol/lipid, the four outcome terms and water bath. **Science key checked only; no release approval**. |
+| Four-test results MC | 64 | Independently translated each of four observed reactions into the expected subset; **64/64** keys and single matching options agree. Only **16 distinct binary patterns**, each repeated four times: **48 repetitious items require removal or genuine redesign** before a scored bank. |
+| Typed exact and typed short | 15 | Facts broadly agree with references, but the accepted-answer lists have **not** been proved complete or protected against contradictory responses. Proposal lists legitimate phrasings to test, including `hot water bath` and `Benedict's reagent`. **Hold formal credit**. |
+| Pair matching | 3 | All three contain four nutrient/reagent/result associations. Per-pair scoring not validated. `bio-y8-app-food-test-match` promises **8 marks for four compound pairing clicks**: either mark four whole pairings /4 or split into eight independent reagent-and-colour choices and QA all eight. **Critical scoring design defect**. |
+| Free-text `mark_points` | 52 | **99 original marks**. Scientific content largely consistent, but open-English marking is not reliable enough for formal use. Earlier QA documented 29 unseen correct paraphrases undercredited; the 51-item probe reported **42 undercredit and 6 contradiction-overcredit out of 196 trials**. These diagnostics are historical: do not misreport as current fully repaired. Convert to independently reviewed discrete decisions, or retain as uncredited human-rubric practice. |
+| **Total** | **143** | **0 formally approved**; 25 source MC items have individually checked science keys (9 recall + 16 non-repeating case exemplars), but remain subject to curriculum and release sign-off. |
+
+## Specific curriculum, fairness and scientific issues requiring correction
+
+1. **Marking inequity (P0):** 52 free-text prompts must not earn Daily, XP, MP, Mastery or formal scores while unseen paraphrases and contradictions are misclassified. Clear valid alternatives, wrong/negated answers, numeric tolerances and every mark point independently before any scoring proposal.
+2. **Matching overclaim (P0):** Four on-screen compound pairs cannot honestly be presented as eight separately earned marks. Retain four independently justified marks or create eight separately answerable parts.
+3. **Excessive duplication (P1):** Each of 16 patterns is recycled four times with lightly varied narratives; 48 near-duplicates should be replaced by real practical planning, controls, variables, observation quality or inference questions. Do not add unverified science questions to fill a number.
+4. **Benedict quantitative inference (P1):** `bio-y8-food-tests-application-20261025-sugar-strength` does not specify equal sample/reagent volumes or heating conditions. Brick-red versus green is a **rough concentration indication only under comparable conditions**, never an exact concentration proof. Correction stem and cautious mark points drafted.
+5. **All-negative inference (P1):** `bio-y8-food-tests-application-20261025-all-negative` should state controls functioned; conclude *not detected*, not absolute absence of all nutrients.
+6. **Distractor quality (P1):** The optional 99-part draft has clear scientific keys for each part, but independent sole-answer and distractor QA is **NOT complete**. Concrete weak/implausible wrong choices occur in points **32, 39, 45, 72 and 75** (examples include glass magically converting starch to glucose and a notebook's location). Better proposed options are in the correction file, still unapproved. Other short distractors are not automatically defective: a question asking for a reagent or colour may legitimately have one-word responses.
+7. **Safety:** Keep ethanol away from naked flames; use a water bath for heating Benedict's; eye protection and safe hot-tube handling. Do not award safety marks to hazardous instructions merely because another part of the response is true.
+8. **Teaching fit not independently confirmed:** AQA GCSE practical standards support these scientific statements, but do **not** establish exactly which Food Tests practical details this pupil has been taught at TGS (original topic identifier is Year 8). Passing subject-knowledge QA is not proof of lesson-sequence fit.
+
+## Scientific comparison references
+
+- AQA, [GCSE Biology Practical Handbook](https://filestore.aqa.org.uk/resources/biology/AQA-8461-PRACTICALS-HB.PDF), 'Food tests', pages 40–42: Benedict's reagent and heated water bath, iodine, ethanol flammability, Biuret solutions, safe handling and table of observations.
+- AQA, [GCSE Biology practical assessment specification](https://www.aqa.org.uk/subjects/biology/gcse/biology-8461/specification/practical-assessment).
+- CCEA, [GCSE Biology Unit 1.3 Food Tests factfile](https://ccea.org.uk/downloads/docs/Support/Factfile/2019/GCSE%20Biology%20Factfile%20Unit%201.3%20Food%20Tests.pdf) — standard positive colour/precipitate and emulsion reference.
+
+## Independent release gates remain explicit
+
+**PR #308** stays Draft and contains QA evidence / unapproved candidates. **PR #310** stays Draft and independently provides a practice-only formal-credit hold. **`main` is untouched.** Do not import the 99-option draft or the correction proposals, enable scoring, alter historic learner data, merge or deploy until all applicable Academic QA, Technical QA and real iPad PWA release evidence is explicitly accepted.
+
+**Status: ACADEMIC QA INSPECTION COMPLETE FOR 143 SOURCE IDs; ACADEMIC APPROVAL 0/143; RELEASE BLOCKED.**
