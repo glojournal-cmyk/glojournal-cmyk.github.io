@@ -1,0 +1,233 @@
+{
+  "kind": "STANDALONE_QA_REPLACEMENT_CANDIDATES_NOT_APPROVED",
+  "version": "3.1.2-indices-005-008-reasoning-draft",
+  "date": "2026-11-23",
+  "pr": 306,
+  "sourceBank": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankQuestionCount": 200,
+  "intendedReplacementIds": [
+    "LUX-MATH-Y9-INDICES-005",
+    "LUX-MATH-Y9-INDICES-006",
+    "LUX-MATH-Y9-INDICES-007",
+    "LUX-MATH-Y9-INDICES-008"
+  ],
+  "excludedFromLive": true,
+  "mathQA": "VERIFIABLE_ALGORITHMS_IN_SEPARATE_TEST_NOT_INDEPENDENT_EDUCATIONAL_G7PLUS_SIGNOFF",
+  "gradeFramework": "GCSE AQA 8300 AO1 routine vs AO2 justification and AO3 problem-solving; no claim of verified grade target",
+  "scopeHold": "Actual TGS Year 9 Set1 class teaching of prime-exponent powers and integer optimisation not confirmed",
+  "studentCredit": "0",
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-005",
+      "revisionId": "LUX-MATH-Y9-INDICES-005-V312-GRADE-DEMAND-DRAFT",
+      "replacesRevisionId": "LUX-MATH-Y9-INDICES-005-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "sourceDisposition": "REPLACE_ROUTINE_NUMBER_ROTATION_WITH_REASONING_CANDIDATE",
+      "stem": "For integers $0\\le n\\le12$, let $A(n)=\\dfrac{4^{n+2}\\times8^{3-n}}{2^5}$. Find the **sum** of all values of $n$ for which $A(n)$ is an integer divisible by $16$ but **not** divisible by $64$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "7"
+        },
+        {
+          "id": "B",
+          "latex": "3",
+          "errorPath": "Treat 'divisible by 16' as exponent strictly greater than 4; keep only n=3."
+        },
+        {
+          "id": "C",
+          "latex": "4",
+          "errorPath": "Mistake 'divisible by 16' for 'equal to 16', so only n=4 is selected."
+        },
+        {
+          "id": "D",
+          "latex": "9",
+          "errorPath": "Allow 64, which should be excluded, and add n=2 to the valid n=3 and n=4."
+        },
+        {
+          "id": "E",
+          "latex": "17",
+          "errorPath": "Ignore the divisor 2^5, obtaining exponent 13-n and selecting n=8 and n=9."
+        },
+        {
+          "id": "F",
+          "latex": "2",
+          "errorPath": "Count the two permissible n values instead of summing their values."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "7",
+      "workedSolutionSteps": [
+        "Rewrite each factor in base 2: $A(n)=2^{2(n+2)+3(3-n)-5}=2^{8-n}$.",
+        "Divisibility by $16=2^4$ but not by $64=2^6$ requires exponent $4$ or $5$.",
+        "Thus $8-n=4$ or $8-n=5$, giving $n=4$ or $n=3$; both lie in the stated interval, and their sum is $7$."
+      ],
+      "provisionalDemand": "AO2_OR_AO3_CANDIDATE_REQUIRES_EXTERNAL_G7PLUS_BENCHMARK",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "independentStudentMisconceptionCertified": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-006",
+      "revisionId": "LUX-MATH-Y9-INDICES-006-V312-GRADE-DEMAND-DRAFT",
+      "replacesRevisionId": "LUX-MATH-Y9-INDICES-006-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "sourceDisposition": "REPLACE_ROUTINE_NUMBER_ROTATION_WITH_REASONING_CANDIDATE",
+      "stem": "For integers $0\\le n\\le6$, define $X(n)=\\dfrac{8^{n-2}}{4^{n-4}}$. Find the **product** of all values of $n$ for which $2^2<X(n)\\le2^6$ and $X(n)$ is a perfect square integer.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "6",
+          "errorPath": "Correctly identify n=2,4 but add them instead of multiplying them."
+        },
+        {
+          "id": "B",
+          "latex": "24",
+          "errorPath": "Ignore the perfect-square condition and multiply all n=1,2,3,4."
+        },
+        {
+          "id": "C",
+          "latex": "8"
+        },
+        {
+          "id": "D",
+          "latex": "0",
+          "errorPath": "Ignore the strict lower bound and include n=0, then multiply n=0,2,4."
+        },
+        {
+          "id": "E",
+          "latex": "3",
+          "errorPath": "Mistake odd powers of 2 for perfect squares, so multiply n=1 and n=3."
+        },
+        {
+          "id": "F",
+          "latex": "12",
+          "errorPath": "Convert 4^(n-4) incorrectly into 2^(n-4); the wrong exponent inequality selects n=3,4."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "8",
+      "workedSolutionSteps": [
+        "Convert the fraction to base 2: $X(n)=2^{3(n-2)-2(n-4)}=2^{n+2}$.",
+        "The strict and weak bounds give $0<n\\le4$, hence $n=1,2,3,4$.",
+        "A power of 2 is an integer square precisely when its exponent is even; retain $n=2,4$ and calculate $2\\times4=8$."
+      ],
+      "provisionalDemand": "AO2_OR_AO3_CANDIDATE_REQUIRES_EXTERNAL_G7PLUS_BENCHMARK",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "independentStudentMisconceptionCertified": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-007",
+      "revisionId": "LUX-MATH-Y9-INDICES-007-V312-GRADE-DEMAND-DRAFT",
+      "replacesRevisionId": "LUX-MATH-Y9-INDICES-007-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "sourceDisposition": "REPLACE_ROUTINE_NUMBER_ROTATION_WITH_REASONING_CANDIDATE",
+      "stem": "For integers $1\\le n\\le18$, let $N(n)=2^{n+4}\\times3^{2n+2}$. Find the **sum** of all values of $n$ for which $N(n)$ is a perfect cube but **not** a perfect sixth power.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "57",
+          "errorPath": "Require a perfect cube but forget to exclude the sixth powers, adding n=2,5,8,11,14,17."
+        },
+        {
+          "id": "B",
+          "latex": "33"
+        },
+        {
+          "id": "C",
+          "latex": "24",
+          "errorPath": "Select the sixth powers n=2,8,14 rather than exclude them."
+        },
+        {
+          "id": "D",
+          "latex": "3",
+          "errorPath": "Correctly identify n=5,11,17 but give the count instead of the sum."
+        },
+        {
+          "id": "E",
+          "latex": "935",
+          "errorPath": "Correctly identify n=5,11,17 but multiply these values rather than adding them."
+        },
+        {
+          "id": "F",
+          "latex": "81",
+          "errorPath": "Assume every odd n from 1 to 17 qualifies and sum all nine odd integers."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "33",
+      "workedSolutionSteps": [
+        "For a positive integer $2^a3^b$ to be a cube, both prime exponents must be divisible by 3. Here that yields $n=2,5,8,11,14,17$.",
+        "A sixth power must also have both exponents divisible by 6. Among those candidates, $n=2,8,14$ give sixth powers and must be removed.",
+        "The remaining values are $n=5,11,17$; their sum is $5+11+17=33$."
+      ],
+      "provisionalDemand": "AO2_OR_AO3_CANDIDATE_REQUIRES_EXTERNAL_G7PLUS_BENCHMARK",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "independentStudentMisconceptionCertified": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-008",
+      "revisionId": "LUX-MATH-Y9-INDICES-008-V312-GRADE-DEMAND-DRAFT",
+      "replacesRevisionId": "LUX-MATH-Y9-INDICES-008-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "sourceDisposition": "REPLACE_ROUTINE_NUMBER_ROTATION_WITH_REASONING_CANDIDATE",
+      "stem": "Positive integers $p$ and $q$ satisfy $2^p\\times8^q=4^{12}$ and $p\\ge q$. What is the **greatest possible** value of $pq$?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "36",
+          "errorPath": "Assume p=q must maximise pq, giving p=q=6."
+        },
+        {
+          "id": "B",
+          "latex": "21",
+          "errorPath": "Maximise p alone, choosing q=1 and p=21, and report their product."
+        },
+        {
+          "id": "C",
+          "latex": "72",
+          "errorPath": "Treat 8 as 4, replacing p+3q=24 by p+2q=24, and obtain 12×6."
+        },
+        {
+          "id": "D",
+          "latex": "48"
+        },
+        {
+          "id": "E",
+          "latex": "144",
+          "errorPath": "Treat 8 as 2, replacing p+3q=24 by p+q=24, and select p=q=12."
+        },
+        {
+          "id": "F",
+          "latex": "16",
+          "errorPath": "Find the true maximising pair p=12,q=4 but report p+q instead of pq."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "48",
+      "workedSolutionSteps": [
+        "After changing to base 2, $p+3q=24$. Since p and q are positive integers with $p\\ge q$, it follows that $1\\le q\\le6$.",
+        "Use $p=24-3q$ to get $pq=q(24-3q)=48-3(q-4)^2$.",
+        "The square is at least zero, with equality when $q=4$. This gives $p=12$, which is admissible, and the greatest product is $48$."
+      ],
+      "provisionalDemand": "AO2_OR_AO3_CANDIDATE_REQUIRES_EXTERNAL_G7PLUS_BENCHMARK",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "independentStudentMisconceptionCertified": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    }
+  ]
+}
