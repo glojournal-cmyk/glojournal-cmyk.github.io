@@ -1,0 +1,166 @@
+{
+  "kind": "V321_THREE_ORIGINAL_IDS_EIGHT_QA_CANDIDATE_VERSIONS_EXPLICIT_SUPERSESSION_NOT_IMPORT",
+  "date": "2026-11-23",
+  "pr": 306,
+  "branch": "feature/daily-tasks-v3-20261122",
+  "canonicalPath": "qa-staging/math-v311-reviewed-200.json",
+  "canonicalBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "canonicalUnmodified": true,
+  "packProvenance": [
+    {
+      "path": "qa-staging/math-v315-indices017-025-standard009-025-distinct-reasoning-candidates-20261123.json",
+      "sha": "2c061a93256cf685ce5d45c4e21e78b636224e6c"
+    },
+    {
+      "path": "qa-staging/math-v318-three-lower-demand-indices-standard-replacements-20261123.json",
+      "sha": "8cc0e489be650f8445619d8e7f0b55b0cc996bef"
+    },
+    {
+      "path": "qa-staging/math-v320-two-standard-form-n9-final-output-rebalanced-candidates-20261123.json",
+      "sha": "eb1b4949b2ee8fd0013a35d1b01cb661d4cb5569"
+    }
+  ],
+  "meaning": "Latest review candidate is neither approved nor imported. This staging manifest disallows simultaneous import of obsolete variants sharing a sourceId; these are three original questions, not eight independent Mastery concepts.",
+  "counts": {
+    "originalQuestions": 3,
+    "candidateRevisions": 8,
+    "latestCandidateRevisions": 3,
+    "supersededCandidateRevisions": 5,
+    "distinctMasteryConceptsApproved": 0,
+    "academicApprovals": 0,
+    "dailyEligible": 0,
+    "masteryEligible": 0
+  },
+  "rows": [
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-025",
+      "originalRevisionId": "LUX-MATH-Y9-INDICES-025-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalOptionKey": "A",
+      "candidateHistory": [
+        {
+          "revisionId": "LUX-MATH-Y9-INDICES-025-V315-REASONING-REDESIGN-QA-ONLY",
+          "status": "SUPERSEDED_DO_NOT_IMPORT",
+          "correctOptionId": "E",
+          "correctAnswerLatex": "27",
+          "academicApproval": false,
+          "dailyEligible": false,
+          "masteryEligible": false
+        },
+        {
+          "revisionId": "LUX-MATH-Y9-INDICES-025-V318-CONSTRAINT-TRANSFER-DRAFT-20261123",
+          "status": "LATEST_FOR_FURTHER_ACADEMIC_REVIEW_ONLY",
+          "correctOptionId": "D",
+          "correctAnswerLatex": "24",
+          "academicApproval": false,
+          "dailyEligible": false,
+          "masteryEligible": false
+        }
+      ],
+      "latestReviewCandidateRevisionId": "LUX-MATH-Y9-INDICES-025-V318-CONSTRAINT-TRANSFER-DRAFT-20261123",
+      "latestReviewCorrectOptionId": "D",
+      "latestReviewAnswerLatex": "24",
+      "latestReviewQuestionBodyIsUnapproved": true,
+      "maxCandidateVersionsForPossibleFutureImport": 1,
+      "independentGrade7PlusApproval": false,
+      "realIpadReleaseApproval": false,
+      "studentMasteryCreditApproved": false,
+      "academicDecision": "HOLD",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-009",
+      "originalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-009-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalOptionKey": "C",
+      "candidateHistory": [
+        {
+          "revisionId": "LUX-MATH-Y9-STANDARD_FORM-009-V315-REASONING-REDESIGN-QA-ONLY",
+          "status": "SUPERSEDED_DO_NOT_IMPORT",
+          "correctOptionId": "B",
+          "correctAnswerLatex": "N=6,U=1.5\\times10^5",
+          "academicApproval": false,
+          "dailyEligible": false,
+          "masteryEligible": false
+        },
+        {
+          "revisionId": "LUX-MATH-Y9-STANDARD_FORM-009-V318-CONSTRAINT-TRANSFER-DRAFT-20261123",
+          "status": "SUPERSEDED_DO_NOT_IMPORT",
+          "correctOptionId": "C",
+          "correctAnswerLatex": "(3,2,250)",
+          "academicApproval": false,
+          "dailyEligible": false,
+          "masteryEligible": false
+        },
+        {
+          "revisionId": "LUX-MATH-Y9-STANDARD_FORM-009-V320-TOPIC-REBALANCE-QA-ONLY",
+          "status": "LATEST_FOR_FURTHER_ACADEMIC_REVIEW_ONLY",
+          "correctOptionId": "D",
+          "correctAnswerLatex": "(3,2,250,9\\times10^4)",
+          "academicApproval": false,
+          "dailyEligible": false,
+          "masteryEligible": false
+        }
+      ],
+      "latestReviewCandidateRevisionId": "LUX-MATH-Y9-STANDARD_FORM-009-V320-TOPIC-REBALANCE-QA-ONLY",
+      "latestReviewCorrectOptionId": "D",
+      "latestReviewAnswerLatex": "(3,2,250,9\\times10^4)",
+      "latestReviewQuestionBodyIsUnapproved": true,
+      "maxCandidateVersionsForPossibleFutureImport": 1,
+      "independentGrade7PlusApproval": false,
+      "realIpadReleaseApproval": false,
+      "studentMasteryCreditApproved": false,
+      "academicDecision": "HOLD",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-025",
+      "originalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-025-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalOptionKey": "F",
+      "candidateHistory": [
+        {
+          "revisionId": "LUX-MATH-Y9-STANDARD_FORM-025-V315-REASONING-REDESIGN-QA-ONLY",
+          "status": "SUPERSEDED_DO_NOT_IMPORT",
+          "correctOptionId": "B",
+          "correctAnswerLatex": "4.5\\times10^6",
+          "academicApproval": false,
+          "dailyEligible": false,
+          "masteryEligible": false
+        },
+        {
+          "revisionId": "LUX-MATH-Y9-STANDARD_FORM-025-V318-CONSTRAINT-TRANSFER-DRAFT-20261123",
+          "status": "SUPERSEDED_DO_NOT_IMPORT",
+          "correctOptionId": "C",
+          "correctAnswerLatex": "(2,3)",
+          "academicApproval": false,
+          "dailyEligible": false,
+          "masteryEligible": false
+        },
+        {
+          "revisionId": "LUX-MATH-Y9-STANDARD_FORM-025-V320-TOPIC-REBALANCE-QA-ONLY",
+          "status": "LATEST_FOR_FURTHER_ACADEMIC_REVIEW_ONLY",
+          "correctOptionId": "C",
+          "correctAnswerLatex": "(2,3,1.2\\times10^7)",
+          "academicApproval": false,
+          "dailyEligible": false,
+          "masteryEligible": false
+        }
+      ],
+      "latestReviewCandidateRevisionId": "LUX-MATH-Y9-STANDARD_FORM-025-V320-TOPIC-REBALANCE-QA-ONLY",
+      "latestReviewCorrectOptionId": "C",
+      "latestReviewAnswerLatex": "(2,3,1.2\\times10^7)",
+      "latestReviewQuestionBodyIsUnapproved": true,
+      "maxCandidateVersionsForPossibleFutureImport": 1,
+      "independentGrade7PlusApproval": false,
+      "realIpadReleaseApproval": false,
+      "studentMasteryCreditApproved": false,
+      "academicDecision": "HOLD",
+      "dailyEligible": false,
+      "masteryEligible": false
+    }
+  ],
+  "releaseDecision": "BLOCKED_ZERO_IMPORT_ZERO_STUDENT_CREDIT"
+}
