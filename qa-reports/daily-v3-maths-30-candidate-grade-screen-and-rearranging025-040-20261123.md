@@ -8,12 +8,12 @@ I reopened the branch's actual `math-v311-reviewed-200.json`, the full 30-row ca
 
 The source-independent mathematical validations previously committed are not an independent teacher's GCSE Grade 7+ benchmarking, nor proof of frequency of a wrong answer in real pupils. The official school outline PDF remains **SKIPPED per the parent's instruction**, not a prerequisite to continuing staging QA. Exact taught subskills remain unconfirmed; do not assert that they are untaught.
 
-## Two actual staging candidate corrections applied
+## Two staging candidate corrections, including a substantive physical-plausibility repair
 
 - **STANDARD_FORM-013** — Six possible costs were already mathematically consistent. The written solution's comparison stopped after 0–4 B-drives, leaving a formal proof gap. It now explicitly handles all B-drive counts **b≥5**: those alone cost at least £275, exceeding the feasible **£174** with two A and two B. This establishes a global minimum rather than a mere enumerated minimum.
-- **STANDARD_FORM-014** — The mass upper endpoint **3.75×10⁵ g** is excluded by rounding; the density has an **unattained supremum** at limiting mass 375000g and volume 795cm³. Original wording said “calculate the upper bound”, which risked implying an attained maximum. The repaired stem asks for the *limiting upper bound* and its three-significant-figure standard-form representation **4.72×10² g/cm³**. Correct A–F numerical options and key **E** are unchanged.
+- **STANDARD_FORM-014** — The original candidate mass **3.7×10⁵ g** and volume **8.0×10² cm³** imply an implausible solid-sample density of roughly **463 g/cm³**, far above even osmium (~22.6 g/cm³; [Royal Society of Chemistry](https://periodic-table.rsc.org/element/76/)). The **QA-only mineral candidate** has therefore been substantively corrected to mass **3.7×10³ g** (2 s.f.), volume **8.0×10² cm³** (2 s.f.), and all six A–F values were scaled, recalculated and rechecked. The mass upper endpoint **3750 g** is excluded, volume lower bound **795 cm³** is included, and the limiting upper density is **3750/795 ≈ 4.716981 g/cm³**, expressed as **4.72×10⁰ g/cm³ (option E)** to 3 s.f. The stem and worked explanation explicitly distinguish an *unattained supremum* from an attained maximum.
 
-Both edits were made to the independent QA-only source pack and the 30-row ledger was re-pinned to its new Git blob SHA `b4a0f7063baf806e5d1e87ef4856d276a18497f0`. Its historical 26-row snapshot stays anchored to the earlier blob. Nothing was changed in the 200-question student source, course progress, answer records, XP/MP/Mastery or release policy.
+These source/wording/physical-context corrections were made to the independent QA-only pack; the 30-row ledger now pins its Git blob SHA `740c7a7605bcf608851d7d9ebaaf0f4a70a55f50`. Its historical 26-row snapshot stays anchored to the earlier blob. Nothing was changed in the 200-question student source, course progress, answer records, XP/MP/Mastery or release policy.
 
 ## Provisional grade demand and misconception follow-up for all 30
 
