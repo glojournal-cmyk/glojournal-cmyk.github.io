@@ -114,3 +114,34 @@ for(const path of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-
   }
  });
 }
+
+const extraProbes=JSON.parse(read('qa/food-tests-typed-15-unseen-paraphrases-20261123.json'));
+test('15 previously unlisted learner-style scientific paraphrases have inspectable QA evidence only',()=>{
+ assert.equal(extraProbes.count,15);
+ assert.equal(extraProbes.probes.length,15);
+ assert.equal(extraProbes.academicApproved,0);
+ assert.equal(extraProbes.sourceEdited,false);
+ assert.equal(extraProbes.status,'DIAGNOSTIC_ONLY_DO_NOT_IMPORT');
+ assert.deepEqual(extraProbes.probes.map(row=>row.questionId),
+  source.questions.filter(q=>['typed_exact','typed_short'].includes(q.format)).map(q=>q.id));
+ for(const row of extraProbes.probes){
+  const q=byId.get(row.questionId);
+  assert.ok(row.scienceBasis.length>25);
+  assert.equal(q.answer.accepted.includes(row.pupilStyleAnswer),false,'not actually unseen: '+row.questionId);
+  assert.equal(row.formalCreditEligible,false);
+  assert.equal(canEarnFormalCredit(q),false);
+ }
+});
+for(const path of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-rWAnuDVj.js']){
+ test(path+': unseen-style paraphrase diagnostic, no credit',()=>{
+  const score=scorer(path),notAccepted=[];
+  for(const row of extraProbes.probes){
+   const result=score(byId.get(row.questionId),row.pupilStyleAnswer,'biology',{});
+   assert.ok([0,1].includes(result.score),'unexpected numeric outcome '+row.questionId);
+   if(result.score!==1)notAccepted.push({id:row.questionId,answer:row.pupilStyleAnswer,score:result.score});
+  }
+  console.log('DIAGNOSTIC '+path+': accepted '+(15-notAccepted.length)+'/15; undercredit_candidates='+JSON.stringify(notAccepted));
+  assert.equal(extraProbes.academicApproved,0);
+  assert.equal(extraProbes.sourceEdited,false);
+ });
+}
