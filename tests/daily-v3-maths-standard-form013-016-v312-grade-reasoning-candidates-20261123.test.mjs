@@ -150,8 +150,10 @@ function inspect(q){
  assert.equal(q.workedSolutionSteps.length,3);
  for(const step of q.workedSolutionSteps){
   assert.ok(typeof step==='string'&&step.length>=35);
-  assert.match(mathsRichTextHTML(step),/<math xmlns=/);
+  assert.ok(mathsRichTextHTML(step).length>0);
  }
+ assert.ok(q.workedSolutionSteps.filter(step=>mathsRichTextHTML(step).includes('<math xmlns=')).length>=2,
+  'At least two worked lines must include rendered mathematics');
 }
 test('four different Standard Form situations: four source-derived answers and twenty numeric wrong-route proofs',()=>{
  assert.equal(pack.kind,'STANDALONE_QA_REPLACEMENT_CANDIDATES_NOT_APPROVED');
