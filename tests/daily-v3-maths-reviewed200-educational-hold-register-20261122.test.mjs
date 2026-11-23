@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 
-const data=JSON.parse(readFileSync(new URL('../qa-staging/math-v311-reviewed200-educational-grade-and-taught-gates-20261122.json',import.meta.url),'utf8'));
+const data=JSON.parse(readFileSync(new URL('../qa-staging/math-v311-revised200-educational-grade-and-taught-gates-20261122.json',import.meta.url),'utf8'));
 const bank=JSON.parse(readFileSync(new URL('../qa-staging/math-v311-reviewed-200.json',import.meta.url),'utf8'));
 const graphBisectors=new Set([5,6,7,8,17,18,19,20,37,38,39,40]);
 
