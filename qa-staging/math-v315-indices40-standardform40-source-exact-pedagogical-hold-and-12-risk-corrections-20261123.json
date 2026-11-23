@@ -1,0 +1,3411 @@
+{
+  "kind": "V315_INDICES40_STANDARD_FORM40_SOURCE_EXACT_ACADEMIC_RISK_CORRECTION_REGISTER",
+  "date": "2026-11-23",
+  "pr": 306,
+  "sourceBank": {
+    "path": "qa-staging/math-v311-reviewed-200.json",
+    "blobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+    "unchanged": true
+  },
+  "triage": {
+    "path": "qa-staging/math-v311-200-item-grade-demand-triage-20261122.json",
+    "blobSha": "08cf0cd1d0c2db7d98e0e5baf89cfe8d7ebfb864",
+    "originalTriagePreserved": true
+  },
+  "numericTemplateReview": {
+    "path": "qa-staging/math-v311-revised200-template-reuse-review-20261123.json",
+    "blobSha": "1f325e082590d27eefb1a7dee56396300d0de9cc"
+  },
+  "schoolPDF": "SKIPPED_AS_INSTRUCTED",
+  "counts": {
+    "total": 80,
+    "indices": 40,
+    "standardForm": 40,
+    "choices": 480,
+    "wrongChoices": 400,
+    "shortWrongRationalesUnder30": 74,
+    "erroneousOrStaleHistoricalFlagCorrections": 12,
+    "numericNeutralTemplateGroups": 33,
+    "indicesWithSiblingVariants": 35,
+    "standardFormWithSiblingVariants": 28,
+    "academicApproved": 0,
+    "dailyEnabled": 0,
+    "masteryEnabled": 0,
+    "originalTriage": {
+      "UPGRADE_STEM_FOR_G7PLUS": 48,
+      "QUARANTINE_TAUGHT_SCOPE": 20,
+      "REWRITE_CONTEXT_OR_DUPLICATE": 12
+    }
+  },
+  "correctedHistoricalRisks": [
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-001",
+      "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-001-REVIEW-2",
+      "previousRisk": "UNREALISTIC_CONTEXT",
+      "previousStatement": "Density contexts can yield hundreds of g/cm³; use physically meaningful quantities or declare hypothetical.",
+      "correctedFlag": "PHYSICAL_DENSITY_PLAUSIBLE",
+      "formula": "(2×10^12)(3×10^-12)/(2×10^1)",
+      "independentlyConfirmedValue": 0.3,
+      "unit": "g/cm^3",
+      "sourceKey": "F",
+      "action": "RETRACT_PHYSICAL_IMPLAUSIBILITY_ASSERTION_KEEP_G7_PEDAGOGICAL_HOLD",
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-002",
+      "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-002-REVIEW-2",
+      "previousRisk": "UNREALISTIC_CONTEXT",
+      "previousStatement": "Density contexts can yield hundreds of g/cm³; use physically meaningful quantities or declare hypothetical.",
+      "correctedFlag": "PHYSICAL_DENSITY_PLAUSIBLE",
+      "formula": "[(3×10^13+1×10^13)(4×10^-12)]/(3×10^2+1×10^2)",
+      "independentlyConfirmedValue": 0.4,
+      "unit": "g/cm^3",
+      "sourceKey": "E",
+      "action": "RETRACT_PHYSICAL_IMPLAUSIBILITY_ASSERTION_KEEP_G7_PEDAGOGICAL_HOLD",
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-003",
+      "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-003-REVIEW-2",
+      "previousRisk": "UNREALISTIC_CONTEXT",
+      "previousStatement": "Density contexts can yield hundreds of g/cm³; use physically meaningful quantities or declare hypothetical.",
+      "correctedFlag": "PHYSICAL_DENSITY_PLAUSIBLE",
+      "formula": "(4×10^14)(5×10^-12)(0.80)/(2×10^3)",
+      "independentlyConfirmedValue": 0.8,
+      "unit": "g/cm^3",
+      "sourceKey": "C",
+      "action": "RETRACT_PHYSICAL_IMPLAUSIBILITY_ASSERTION_KEEP_G7_PEDAGOGICAL_HOLD",
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-004",
+      "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-004-REVIEW-2",
+      "previousRisk": "UNREALISTIC_CONTEXT",
+      "previousStatement": "Density contexts can yield hundreds of g/cm³; use physically meaningful quantities or declare hypothetical.",
+      "correctedFlag": "QUESTION_IS_COUNT_NOT_DENSITY",
+      "formula": "[(6×10^-1)(5×10^3)]/(6×10^-12)",
+      "independentlyConfirmedValue": 500000000000000,
+      "unit": "granules",
+      "sourceKey": "A",
+      "action": "RETRACT_PHYSICAL_IMPLAUSIBILITY_ASSERTION_KEEP_G7_PEDAGOGICAL_HOLD",
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-017",
+      "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-017-REVIEW-2",
+      "previousRisk": "UNREALISTIC_CONTEXT",
+      "previousStatement": "Sample -017 gives 300 g/cm³ after 25% filtering; pedagogically distracting physical quantity, despite correct arithmetic.",
+      "correctedFlag": "PHYSICAL_DENSITY_PLAUSIBLE",
+      "formula": "(2×10^11)(3×10^-10)(0.75)/(1.5×10^2)",
+      "independentlyConfirmedValue": 0.3,
+      "unit": "g/cm^3",
+      "sourceKey": "C",
+      "action": "RETRACT_PHYSICAL_IMPLAUSIBILITY_ASSERTION_KEEP_G7_PEDAGOGICAL_HOLD",
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-018",
+      "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-018-REVIEW-2",
+      "previousRisk": "UNREALISTIC_CONTEXT",
+      "previousStatement": "Sample -017 gives 300 g/cm³ after 25% filtering; pedagogically distracting physical quantity, despite correct arithmetic.",
+      "correctedFlag": "PHYSICAL_DENSITY_PLAUSIBLE",
+      "formula": "[(2×10^12)(3×10^-11)+(1×10^12)(2×10^-11)](0.80)/(2×10^2)",
+      "independentlyConfirmedValue": 0.32,
+      "unit": "g/cm^3",
+      "sourceKey": "B",
+      "action": "RETRACT_PHYSICAL_IMPLAUSIBILITY_ASSERTION_KEEP_G7_PEDAGOGICAL_HOLD",
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-019",
+      "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-019-REVIEW-2",
+      "previousRisk": "UNREALISTIC_CONTEXT",
+      "previousStatement": "Sample -017 gives 300 g/cm³ after 25% filtering; pedagogically distracting physical quantity, despite correct arithmetic.",
+      "correctedFlag": "PHYSICAL_DENSITY_PLAUSIBLE",
+      "formula": "(2×10^12)(3×10^-11)(0.75)/(1.2×10^2)",
+      "independentlyConfirmedValue": 0.375,
+      "unit": "g/cm^3",
+      "sourceKey": "C",
+      "action": "RETRACT_PHYSICAL_IMPLAUSIBILITY_ASSERTION_KEEP_G7_PEDAGOGICAL_HOLD",
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-020",
+      "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-020-REVIEW-2",
+      "previousRisk": "UNREALISTIC_CONTEXT",
+      "previousStatement": "Sample -017 gives 300 g/cm³ after 25% filtering; pedagogically distracting physical quantity, despite correct arithmetic.",
+      "correctedFlag": "QUESTION_IS_ADDITIONAL_MASS_NOT_DENSITY",
+      "formula": "(6×10^-2)(1.5×10^3)-(2×10^13)(3×10^-12)(0.75)",
+      "independentlyConfirmedValue": 45,
+      "unit": "g to add",
+      "sourceKey": "A",
+      "action": "RETRACT_PHYSICAL_IMPLAUSIBILITY_ASSERTION_KEEP_G7_PEDAGOGICAL_HOLD",
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-033",
+      "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-033-REVIEW-2",
+      "previousRisk": "DISTRACTOR_RED_FLAG",
+      "previousStatement": "Physical mass context with a negative answer option in sample -033; check impossible negative distractors and G8-9 demand.",
+      "correctedFlag": "CURRENT_REVISED_CHOICES_ALL_NONNEGATIVE_UNIQUE_AND_FOUR_KEYS_NOT_IDENTICAL",
+      "originalFlags": [
+        "FOUR_ORIGINAL_ANSWERS_IDENTICAL",
+        "NEGATIVE_ANSWER_OPTION_HISTORICAL"
+      ],
+      "revisedNumericChoices": [
+        124,
+        111.60000000000001,
+        136.4,
+        108,
+        12.4,
+        1116
+      ],
+      "sourceKey": "B",
+      "action": "MARK_HISTORICAL_ORIGINAL_RED_FLAGS_NOT_CURRENT_V311_DEFECT_KEEP_PEDAGOGICAL_HOLD",
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-034",
+      "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-034-REVIEW-2",
+      "previousRisk": "DISTRACTOR_RED_FLAG",
+      "previousStatement": "Physical mass context with a negative answer option in sample -033; check impossible negative distractors and G8-9 demand.",
+      "correctedFlag": "CURRENT_REVISED_CHOICES_ALL_NONNEGATIVE_UNIQUE_AND_FOUR_KEYS_NOT_IDENTICAL",
+      "originalFlags": [
+        "FOUR_ORIGINAL_ANSWERS_IDENTICAL",
+        "NEGATIVE_ANSWER_OPTION_HISTORICAL"
+      ],
+      "revisedNumericChoices": [
+        148.75,
+        121.4375,
+        153.75,
+        144.5,
+        21.25,
+        143.75
+      ],
+      "sourceKey": "F",
+      "action": "MARK_HISTORICAL_ORIGINAL_RED_FLAGS_NOT_CURRENT_V311_DEFECT_KEEP_PEDAGOGICAL_HOLD",
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-035",
+      "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-035-REVIEW-2",
+      "previousRisk": "DISTRACTOR_RED_FLAG",
+      "previousStatement": "Physical mass context with a negative answer option in sample -033; check impossible negative distractors and G8-9 demand.",
+      "correctedFlag": "CURRENT_REVISED_CHOICES_ALL_NONNEGATIVE_UNIQUE_AND_FOUR_KEYS_NOT_IDENTICAL",
+      "originalFlags": [
+        "FOUR_ORIGINAL_ANSWERS_IDENTICAL",
+        "NEGATIVE_ANSWER_OPTION_HISTORICAL"
+      ],
+      "revisedNumericChoices": [
+        720000000,
+        3600000000,
+        900000000,
+        1200000000,
+        576000000,
+        1050000000
+      ],
+      "sourceKey": "C",
+      "action": "MARK_HISTORICAL_ORIGINAL_RED_FLAGS_NOT_CURRENT_V311_DEFECT_KEEP_PEDAGOGICAL_HOLD",
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-036",
+      "sourceRevisionId": "LUX-MATH-Y9-STANDARD_FORM-036-REVIEW-2",
+      "previousRisk": "DISTRACTOR_RED_FLAG",
+      "previousStatement": "Physical mass context with a negative answer option in sample -033; check impossible negative distractors and G8-9 demand.",
+      "correctedFlag": "CURRENT_REVISED_CHOICES_ALL_NONNEGATIVE_UNIQUE_AND_FOUR_KEYS_NOT_IDENTICAL",
+      "originalFlags": [
+        "FOUR_ORIGINAL_ANSWERS_IDENTICAL",
+        "NEGATIVE_ANSWER_OPTION_HISTORICAL"
+      ],
+      "revisedNumericChoices": [
+        82.5,
+        90,
+        112.5,
+        120,
+        22.5,
+        150
+      ],
+      "sourceKey": "B",
+      "action": "MARK_HISTORICAL_ORIGINAL_RED_FLAGS_NOT_CURRENT_V311_DEFECT_KEEP_PEDAGOGICAL_HOLD",
+      "academicDecision": "HOLD"
+    }
+  ],
+  "groupManifest": [
+    {
+      "templateId": "MATH_Y9_INDICES_01",
+      "topicId": "math-y9-indices",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-001"
+      ],
+      "numericNeutralVariants": 1,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_02",
+      "topicId": "math-y9-indices",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-002"
+      ],
+      "numericNeutralVariants": 1,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_03",
+      "topicId": "math-y9-indices",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-003"
+      ],
+      "numericNeutralVariants": 1,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_04",
+      "topicId": "math-y9-indices",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-004"
+      ],
+      "numericNeutralVariants": 1,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_05",
+      "topicId": "math-y9-indices",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-005",
+        "LUX-MATH-Y9-INDICES-006",
+        "LUX-MATH-Y9-INDICES-007",
+        "LUX-MATH-Y9-INDICES-008"
+      ],
+      "numericNeutralVariants": 4,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_06",
+      "topicId": "math-y9-indices",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-009",
+        "LUX-MATH-Y9-INDICES-010",
+        "LUX-MATH-Y9-INDICES-011",
+        "LUX-MATH-Y9-INDICES-012"
+      ],
+      "numericNeutralVariants": 4,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_07",
+      "topicId": "math-y9-indices",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-013",
+        "LUX-MATH-Y9-INDICES-014",
+        "LUX-MATH-Y9-INDICES-015",
+        "LUX-MATH-Y9-INDICES-016"
+      ],
+      "numericNeutralVariants": 4,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_08",
+      "topicId": "math-y9-indices",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-017",
+        "LUX-MATH-Y9-INDICES-018",
+        "LUX-MATH-Y9-INDICES-019",
+        "LUX-MATH-Y9-INDICES-020"
+      ],
+      "numericNeutralVariants": 4,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_09",
+      "topicId": "math-y9-indices",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-021",
+        "LUX-MATH-Y9-INDICES-022",
+        "LUX-MATH-Y9-INDICES-023",
+        "LUX-MATH-Y9-INDICES-024"
+      ],
+      "numericNeutralVariants": 4,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_10",
+      "topicId": "math-y9-indices",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-025"
+      ],
+      "numericNeutralVariants": 1,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_11",
+      "topicId": "math-y9-indices",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-026",
+        "LUX-MATH-Y9-INDICES-027",
+        "LUX-MATH-Y9-INDICES-028"
+      ],
+      "numericNeutralVariants": 3,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_12",
+      "topicId": "math-y9-indices",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-029",
+        "LUX-MATH-Y9-INDICES-030",
+        "LUX-MATH-Y9-INDICES-031",
+        "LUX-MATH-Y9-INDICES-032"
+      ],
+      "numericNeutralVariants": 4,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_13",
+      "topicId": "math-y9-indices",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-033",
+        "LUX-MATH-Y9-INDICES-034",
+        "LUX-MATH-Y9-INDICES-035",
+        "LUX-MATH-Y9-INDICES-036"
+      ],
+      "numericNeutralVariants": 4,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_INDICES_14",
+      "topicId": "math-y9-indices",
+      "questionIds": [
+        "LUX-MATH-Y9-INDICES-037",
+        "LUX-MATH-Y9-INDICES-038",
+        "LUX-MATH-Y9-INDICES-039",
+        "LUX-MATH-Y9-INDICES-040"
+      ],
+      "numericNeutralVariants": 4,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_01",
+      "topicId": "math-y9-standard-form",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-001"
+      ],
+      "numericNeutralVariants": 1,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_02",
+      "topicId": "math-y9-standard-form",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-002"
+      ],
+      "numericNeutralVariants": 1,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_03",
+      "topicId": "math-y9-standard-form",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-003"
+      ],
+      "numericNeutralVariants": 1,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_04",
+      "topicId": "math-y9-standard-form",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-004"
+      ],
+      "numericNeutralVariants": 1,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_05",
+      "topicId": "math-y9-standard-form",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-005",
+        "LUX-MATH-Y9-STANDARD_FORM-006",
+        "LUX-MATH-Y9-STANDARD_FORM-007",
+        "LUX-MATH-Y9-STANDARD_FORM-008"
+      ],
+      "numericNeutralVariants": 4,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_06",
+      "topicId": "math-y9-standard-form",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-009",
+        "LUX-MATH-Y9-STANDARD_FORM-010",
+        "LUX-MATH-Y9-STANDARD_FORM-011",
+        "LUX-MATH-Y9-STANDARD_FORM-012"
+      ],
+      "numericNeutralVariants": 4,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_07",
+      "topicId": "math-y9-standard-form",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-013",
+        "LUX-MATH-Y9-STANDARD_FORM-014",
+        "LUX-MATH-Y9-STANDARD_FORM-015",
+        "LUX-MATH-Y9-STANDARD_FORM-016"
+      ],
+      "numericNeutralVariants": 4,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_08",
+      "topicId": "math-y9-standard-form",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-017"
+      ],
+      "numericNeutralVariants": 1,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_09",
+      "topicId": "math-y9-standard-form",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-018"
+      ],
+      "numericNeutralVariants": 1,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_10",
+      "topicId": "math-y9-standard-form",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-019"
+      ],
+      "numericNeutralVariants": 1,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_11",
+      "topicId": "math-y9-standard-form",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-020"
+      ],
+      "numericNeutralVariants": 1,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_12",
+      "topicId": "math-y9-standard-form",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-021",
+        "LUX-MATH-Y9-STANDARD_FORM-022",
+        "LUX-MATH-Y9-STANDARD_FORM-023",
+        "LUX-MATH-Y9-STANDARD_FORM-024"
+      ],
+      "numericNeutralVariants": 4,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_13",
+      "topicId": "math-y9-standard-form",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-025",
+        "LUX-MATH-Y9-STANDARD_FORM-026",
+        "LUX-MATH-Y9-STANDARD_FORM-027",
+        "LUX-MATH-Y9-STANDARD_FORM-028"
+      ],
+      "numericNeutralVariants": 4,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_14",
+      "topicId": "math-y9-standard-form",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-029",
+        "LUX-MATH-Y9-STANDARD_FORM-030",
+        "LUX-MATH-Y9-STANDARD_FORM-031",
+        "LUX-MATH-Y9-STANDARD_FORM-032"
+      ],
+      "numericNeutralVariants": 4,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_15",
+      "topicId": "math-y9-standard-form",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-033"
+      ],
+      "numericNeutralVariants": 1,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_16",
+      "topicId": "math-y9-standard-form",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-034"
+      ],
+      "numericNeutralVariants": 1,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_17",
+      "topicId": "math-y9-standard-form",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-035"
+      ],
+      "numericNeutralVariants": 1,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_18",
+      "topicId": "math-y9-standard-form",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-036"
+      ],
+      "numericNeutralVariants": 1,
+      "conceptCreditApproved": false
+    },
+    {
+      "templateId": "MATH_Y9_STANDARD_FORM_19",
+      "topicId": "math-y9-standard-form",
+      "questionIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-037",
+        "LUX-MATH-Y9-STANDARD_FORM-038",
+        "LUX-MATH-Y9-STANDARD_FORM-039",
+        "LUX-MATH-Y9-STANDARD_FORM-040"
+      ],
+      "numericNeutralVariants": 4,
+      "conceptCreditApproved": false
+    }
+  ],
+  "rows": [
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-001",
+      "revisionId": "LUX-MATH-Y9-INDICES-001-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_01",
+      "numericNeutralVariantCount": 1,
+      "peerVariantIds": [],
+      "sourceCorrectOptionId": "B",
+      "sourceCorrectAnswerLatex": "7",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-002",
+      "revisionId": "LUX-MATH-Y9-INDICES-002-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_02",
+      "numericNeutralVariantCount": 1,
+      "peerVariantIds": [],
+      "sourceCorrectOptionId": "C",
+      "sourceCorrectAnswerLatex": "5",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-003",
+      "revisionId": "LUX-MATH-Y9-INDICES-003-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_03",
+      "numericNeutralVariantCount": 1,
+      "peerVariantIds": [],
+      "sourceCorrectOptionId": "E",
+      "sourceCorrectAnswerLatex": "11",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-004",
+      "revisionId": "LUX-MATH-Y9-INDICES-004-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_04",
+      "numericNeutralVariantCount": 1,
+      "peerVariantIds": [],
+      "sourceCorrectOptionId": "D",
+      "sourceCorrectAnswerLatex": "F(n+3)=\\frac{1}{8}F(n)",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-005",
+      "revisionId": "LUX-MATH-Y9-INDICES-005-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "DISTRACTOR_RED_FLAG",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_05",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-006",
+        "LUX-MATH-Y9-INDICES-007",
+        "LUX-MATH-Y9-INDICES-008"
+      ],
+      "sourceCorrectOptionId": "A",
+      "sourceCorrectAnswerLatex": "16",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "B",
+          "latex": "8",
+          "originalExplanation": "Omit the outer square.",
+          "length": 22
+        },
+        {
+          "id": "F",
+          "latex": "4",
+          "originalExplanation": "Ignore the denominator.",
+          "length": 23
+        }
+      ],
+      "shortRationaleCount": 2,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-006",
+      "revisionId": "LUX-MATH-Y9-INDICES-006-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "DISTRACTOR_RED_FLAG",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_05",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-005",
+        "LUX-MATH-Y9-INDICES-007",
+        "LUX-MATH-Y9-INDICES-008"
+      ],
+      "sourceCorrectOptionId": "B",
+      "sourceCorrectAnswerLatex": "8",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "F",
+          "latex": "1",
+          "originalExplanation": "Ignore the denominator.",
+          "length": 23
+        }
+      ],
+      "shortRationaleCount": 1,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-007",
+      "revisionId": "LUX-MATH-Y9-INDICES-007-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "DISTRACTOR_RED_FLAG",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_05",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-005",
+        "LUX-MATH-Y9-INDICES-006",
+        "LUX-MATH-Y9-INDICES-008"
+      ],
+      "sourceCorrectOptionId": "D",
+      "sourceCorrectAnswerLatex": "4",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "A",
+          "latex": "8",
+          "originalExplanation": "Omit the outer square.",
+          "length": 22
+        }
+      ],
+      "shortRationaleCount": 1,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-008",
+      "revisionId": "LUX-MATH-Y9-INDICES-008-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "DISTRACTOR_RED_FLAG",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_05",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-005",
+        "LUX-MATH-Y9-INDICES-006",
+        "LUX-MATH-Y9-INDICES-007"
+      ],
+      "sourceCorrectOptionId": "C",
+      "sourceCorrectAnswerLatex": "2",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "A",
+          "latex": "8",
+          "originalExplanation": "Omit the outer square.",
+          "length": 22
+        }
+      ],
+      "shortRationaleCount": 1,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-009",
+      "revisionId": "LUX-MATH-Y9-INDICES-009-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_06",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-010",
+        "LUX-MATH-Y9-INDICES-011",
+        "LUX-MATH-Y9-INDICES-012"
+      ],
+      "sourceCorrectOptionId": "F",
+      "sourceCorrectAnswerLatex": "\\frac{1}{128}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "A",
+          "latex": "\\frac{1}{4}",
+          "originalExplanation": "Use y=2 rather than y=4.",
+          "length": 24
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{1}{16}",
+          "originalExplanation": "Omit the outer square.",
+          "length": 22
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{1}{8}",
+          "originalExplanation": "Square only the x factor.",
+          "length": 25
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{1}{64}",
+          "originalExplanation": "Ignore the denominator.",
+          "length": 23
+        }
+      ],
+      "shortRationaleCount": 4,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-010",
+      "revisionId": "LUX-MATH-Y9-INDICES-010-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_06",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-009",
+        "LUX-MATH-Y9-INDICES-011",
+        "LUX-MATH-Y9-INDICES-012"
+      ],
+      "sourceCorrectOptionId": "D",
+      "sourceCorrectAnswerLatex": "\\frac{1}{1024}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "A",
+          "latex": "\\frac{1}{4}",
+          "originalExplanation": "Use y=2 rather than y=4.",
+          "length": 24
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{1}{16}",
+          "originalExplanation": "Square only the x factor.",
+          "length": 25
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{1}{256}",
+          "originalExplanation": "Ignore the denominator.",
+          "length": 23
+        }
+      ],
+      "shortRationaleCount": 3,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-011",
+      "revisionId": "LUX-MATH-Y9-INDICES-011-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_06",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-009",
+        "LUX-MATH-Y9-INDICES-010",
+        "LUX-MATH-Y9-INDICES-012"
+      ],
+      "sourceCorrectOptionId": "D",
+      "sourceCorrectAnswerLatex": "\\frac{1}{8192}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "A",
+          "latex": "\\frac{1}{4}",
+          "originalExplanation": "Use y=2 rather than y=4.",
+          "length": 24
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{1}{256}",
+          "originalExplanation": "Omit the outer square.",
+          "length": 22
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{1}{32}",
+          "originalExplanation": "Square only the x factor.",
+          "length": 25
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{1}{1024}",
+          "originalExplanation": "Ignore the denominator.",
+          "length": 23
+        }
+      ],
+      "shortRationaleCount": 4,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-012",
+      "revisionId": "LUX-MATH-Y9-INDICES-012-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_06",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-009",
+        "LUX-MATH-Y9-INDICES-010",
+        "LUX-MATH-Y9-INDICES-011"
+      ],
+      "sourceCorrectOptionId": "A",
+      "sourceCorrectAnswerLatex": "\\frac{1}{65536}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "B",
+          "latex": "\\frac{1}{4}",
+          "originalExplanation": "Use y=2 rather than y=4.",
+          "length": 24
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{1}{1024}",
+          "originalExplanation": "Omit the outer square.",
+          "length": 22
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{1}{64}",
+          "originalExplanation": "Square only the x factor.",
+          "length": 25
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{1}{4096}",
+          "originalExplanation": "Ignore the denominator.",
+          "length": 23
+        }
+      ],
+      "shortRationaleCount": 4,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-013",
+      "revisionId": "LUX-MATH-Y9-INDICES-013-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "CROSS_BAND_CONFLICT",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_07",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-014",
+        "LUX-MATH-Y9-INDICES-015",
+        "LUX-MATH-Y9-INDICES-016"
+      ],
+      "sourceCorrectOptionId": "F",
+      "sourceCorrectAnswerLatex": "2",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-014",
+      "revisionId": "LUX-MATH-Y9-INDICES-014-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "CROSS_BAND_CONFLICT",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_07",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-013",
+        "LUX-MATH-Y9-INDICES-015",
+        "LUX-MATH-Y9-INDICES-016"
+      ],
+      "sourceCorrectOptionId": "B",
+      "sourceCorrectAnswerLatex": "3",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-015",
+      "revisionId": "LUX-MATH-Y9-INDICES-015-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "CROSS_BAND_CONFLICT",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_07",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-013",
+        "LUX-MATH-Y9-INDICES-014",
+        "LUX-MATH-Y9-INDICES-016"
+      ],
+      "sourceCorrectOptionId": "A",
+      "sourceCorrectAnswerLatex": "4",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-016",
+      "revisionId": "LUX-MATH-Y9-INDICES-016-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "CROSS_BAND_CONFLICT",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_07",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-013",
+        "LUX-MATH-Y9-INDICES-014",
+        "LUX-MATH-Y9-INDICES-015"
+      ],
+      "sourceCorrectOptionId": "B",
+      "sourceCorrectAnswerLatex": "5",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-017",
+      "revisionId": "LUX-MATH-Y9-INDICES-017-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_08",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-018",
+        "LUX-MATH-Y9-INDICES-019",
+        "LUX-MATH-Y9-INDICES-020"
+      ],
+      "sourceCorrectOptionId": "C",
+      "sourceCorrectAnswerLatex": "2",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-018",
+      "revisionId": "LUX-MATH-Y9-INDICES-018-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_08",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-017",
+        "LUX-MATH-Y9-INDICES-019",
+        "LUX-MATH-Y9-INDICES-020"
+      ],
+      "sourceCorrectOptionId": "A",
+      "sourceCorrectAnswerLatex": "3",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-019",
+      "revisionId": "LUX-MATH-Y9-INDICES-019-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_08",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-017",
+        "LUX-MATH-Y9-INDICES-018",
+        "LUX-MATH-Y9-INDICES-020"
+      ],
+      "sourceCorrectOptionId": "F",
+      "sourceCorrectAnswerLatex": "4",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-020",
+      "revisionId": "LUX-MATH-Y9-INDICES-020-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_08",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-017",
+        "LUX-MATH-Y9-INDICES-018",
+        "LUX-MATH-Y9-INDICES-019"
+      ],
+      "sourceCorrectOptionId": "C",
+      "sourceCorrectAnswerLatex": "5",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-021",
+      "revisionId": "LUX-MATH-Y9-INDICES-021-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "CROSS_BAND_CONFLICT",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_09",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-022",
+        "LUX-MATH-Y9-INDICES-023",
+        "LUX-MATH-Y9-INDICES-024"
+      ],
+      "sourceCorrectOptionId": "F",
+      "sourceCorrectAnswerLatex": "2",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-022",
+      "revisionId": "LUX-MATH-Y9-INDICES-022-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "CROSS_BAND_CONFLICT",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_09",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-021",
+        "LUX-MATH-Y9-INDICES-023",
+        "LUX-MATH-Y9-INDICES-024"
+      ],
+      "sourceCorrectOptionId": "F",
+      "sourceCorrectAnswerLatex": "3",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-023",
+      "revisionId": "LUX-MATH-Y9-INDICES-023-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "CROSS_BAND_CONFLICT",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_09",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-021",
+        "LUX-MATH-Y9-INDICES-022",
+        "LUX-MATH-Y9-INDICES-024"
+      ],
+      "sourceCorrectOptionId": "E",
+      "sourceCorrectAnswerLatex": "4",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-024",
+      "revisionId": "LUX-MATH-Y9-INDICES-024-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "CROSS_BAND_CONFLICT",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_09",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-021",
+        "LUX-MATH-Y9-INDICES-022",
+        "LUX-MATH-Y9-INDICES-023"
+      ],
+      "sourceCorrectOptionId": "E",
+      "sourceCorrectAnswerLatex": "5",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-025",
+      "revisionId": "LUX-MATH-Y9-INDICES-025-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_10",
+      "numericNeutralVariantCount": 1,
+      "peerVariantIds": [],
+      "sourceCorrectOptionId": "A",
+      "sourceCorrectAnswerLatex": "0",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "B",
+          "latex": "2",
+          "originalExplanation": "Stop after finding n.",
+          "length": 21
+        },
+        {
+          "id": "C",
+          "latex": "4",
+          "originalExplanation": "Forget to subtract 2n.",
+          "length": 22
+        },
+        {
+          "id": "D",
+          "latex": "8",
+          "originalExplanation": "Add the second term.",
+          "length": 20
+        }
+      ],
+      "shortRationaleCount": 3,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-026",
+      "revisionId": "LUX-MATH-Y9-INDICES-026-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_11",
+      "numericNeutralVariantCount": 3,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-027",
+        "LUX-MATH-Y9-INDICES-028"
+      ],
+      "sourceCorrectOptionId": "C",
+      "sourceCorrectAnswerLatex": "3",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "A",
+          "latex": "9",
+          "originalExplanation": "Forget to subtract 2n.",
+          "length": 22
+        },
+        {
+          "id": "B",
+          "latex": "7",
+          "originalExplanation": "Read 2n as 2.",
+          "length": 13
+        },
+        {
+          "id": "D",
+          "latex": "15",
+          "originalExplanation": "Add the second term.",
+          "length": 20
+        }
+      ],
+      "shortRationaleCount": 3,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-027",
+      "revisionId": "LUX-MATH-Y9-INDICES-027-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_11",
+      "numericNeutralVariantCount": 3,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-026",
+        "LUX-MATH-Y9-INDICES-028"
+      ],
+      "sourceCorrectOptionId": "A",
+      "sourceCorrectAnswerLatex": "8",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "B",
+          "latex": "4",
+          "originalExplanation": "Stop after finding n.",
+          "length": 21
+        },
+        {
+          "id": "C",
+          "latex": "16",
+          "originalExplanation": "Forget to subtract 2n.",
+          "length": 22
+        },
+        {
+          "id": "D",
+          "latex": "14",
+          "originalExplanation": "Read 2n as 2.",
+          "length": 13
+        },
+        {
+          "id": "E",
+          "latex": "24",
+          "originalExplanation": "Add the second term.",
+          "length": 20
+        }
+      ],
+      "shortRationaleCount": 4,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-028",
+      "revisionId": "LUX-MATH-Y9-INDICES-028-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_11",
+      "numericNeutralVariantCount": 3,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-026",
+        "LUX-MATH-Y9-INDICES-027"
+      ],
+      "sourceCorrectOptionId": "F",
+      "sourceCorrectAnswerLatex": "15",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "A",
+          "latex": "5",
+          "originalExplanation": "Stop after finding n.",
+          "length": 21
+        },
+        {
+          "id": "B",
+          "latex": "25",
+          "originalExplanation": "Forget to subtract 2n.",
+          "length": 22
+        },
+        {
+          "id": "C",
+          "latex": "23",
+          "originalExplanation": "Read 2n as 2.",
+          "length": 13
+        },
+        {
+          "id": "D",
+          "latex": "35",
+          "originalExplanation": "Add the second term.",
+          "length": 20
+        }
+      ],
+      "shortRationaleCount": 4,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-029",
+      "revisionId": "LUX-MATH-Y9-INDICES-029-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "originalRisk": "TEACHING_CHECK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_12",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-030",
+        "LUX-MATH-Y9-INDICES-031",
+        "LUX-MATH-Y9-INDICES-032"
+      ],
+      "sourceCorrectOptionId": "E",
+      "sourceCorrectAnswerLatex": "3",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-030",
+      "revisionId": "LUX-MATH-Y9-INDICES-030-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "originalRisk": "TEACHING_CHECK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_12",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-029",
+        "LUX-MATH-Y9-INDICES-031",
+        "LUX-MATH-Y9-INDICES-032"
+      ],
+      "sourceCorrectOptionId": "F",
+      "sourceCorrectAnswerLatex": "4",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-031",
+      "revisionId": "LUX-MATH-Y9-INDICES-031-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "originalRisk": "TEACHING_CHECK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_12",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-029",
+        "LUX-MATH-Y9-INDICES-030",
+        "LUX-MATH-Y9-INDICES-032"
+      ],
+      "sourceCorrectOptionId": "F",
+      "sourceCorrectAnswerLatex": "5",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-032",
+      "revisionId": "LUX-MATH-Y9-INDICES-032-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "originalRisk": "TEACHING_CHECK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_12",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-029",
+        "LUX-MATH-Y9-INDICES-030",
+        "LUX-MATH-Y9-INDICES-031"
+      ],
+      "sourceCorrectOptionId": "E",
+      "sourceCorrectAnswerLatex": "6",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-033",
+      "revisionId": "LUX-MATH-Y9-INDICES-033-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "originalRisk": "CURRICULUM_GAP",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_13",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-034",
+        "LUX-MATH-Y9-INDICES-035",
+        "LUX-MATH-Y9-INDICES-036"
+      ],
+      "sourceCorrectOptionId": "E",
+      "sourceCorrectAnswerLatex": "2",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-034",
+      "revisionId": "LUX-MATH-Y9-INDICES-034-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "originalRisk": "CURRICULUM_GAP",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_13",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-033",
+        "LUX-MATH-Y9-INDICES-035",
+        "LUX-MATH-Y9-INDICES-036"
+      ],
+      "sourceCorrectOptionId": "A",
+      "sourceCorrectAnswerLatex": "3",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-035",
+      "revisionId": "LUX-MATH-Y9-INDICES-035-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "originalRisk": "CURRICULUM_GAP",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_13",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-033",
+        "LUX-MATH-Y9-INDICES-034",
+        "LUX-MATH-Y9-INDICES-036"
+      ],
+      "sourceCorrectOptionId": "C",
+      "sourceCorrectAnswerLatex": "4",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-036",
+      "revisionId": "LUX-MATH-Y9-INDICES-036-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "originalRisk": "CURRICULUM_GAP",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_13",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-033",
+        "LUX-MATH-Y9-INDICES-034",
+        "LUX-MATH-Y9-INDICES-035"
+      ],
+      "sourceCorrectOptionId": "A",
+      "sourceCorrectAnswerLatex": "5",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-037",
+      "revisionId": "LUX-MATH-Y9-INDICES-037-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [
+        "G8_9_OVERBAND_REVIEW_REQUIRED"
+      ],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_14",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-038",
+        "LUX-MATH-Y9-INDICES-039",
+        "LUX-MATH-Y9-INDICES-040"
+      ],
+      "sourceCorrectOptionId": "F",
+      "sourceCorrectAnswerLatex": "2",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-038",
+      "revisionId": "LUX-MATH-Y9-INDICES-038-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [
+        "G8_9_OVERBAND_REVIEW_REQUIRED"
+      ],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_14",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-037",
+        "LUX-MATH-Y9-INDICES-039",
+        "LUX-MATH-Y9-INDICES-040"
+      ],
+      "sourceCorrectOptionId": "E",
+      "sourceCorrectAnswerLatex": "6",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-039",
+      "revisionId": "LUX-MATH-Y9-INDICES-039-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [
+        "G8_9_OVERBAND_REVIEW_REQUIRED"
+      ],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_14",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-037",
+        "LUX-MATH-Y9-INDICES-038",
+        "LUX-MATH-Y9-INDICES-040"
+      ],
+      "sourceCorrectOptionId": "E",
+      "sourceCorrectAnswerLatex": "12",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-040",
+      "revisionId": "LUX-MATH-Y9-INDICES-040-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "originalTriageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [
+        "G8_9_OVERBAND_REVIEW_REQUIRED"
+      ],
+      "sourceTemplateGroup": "MATH_Y9_INDICES_14",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-INDICES-037",
+        "LUX-MATH-Y9-INDICES-038",
+        "LUX-MATH-Y9-INDICES-039"
+      ],
+      "sourceCorrectOptionId": "F",
+      "sourceCorrectAnswerLatex": "20",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-001",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-001-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalRisk": "UNREALISTIC_CONTEXT",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_01",
+      "numericNeutralVariantCount": 1,
+      "peerVariantIds": [],
+      "sourceCorrectOptionId": "F",
+      "sourceCorrectAnswerLatex": "3\\times10^{-1}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": "PHYSICAL_DENSITY_PLAUSIBLE",
+      "sourceSpecificQAOverrideAction": "RETRACT_PHYSICAL_IMPLAUSIBILITY_ASSERTION_KEEP_G7_PEDAGOGICAL_HOLD",
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-002",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-002-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalRisk": "UNREALISTIC_CONTEXT",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_02",
+      "numericNeutralVariantCount": 1,
+      "peerVariantIds": [],
+      "sourceCorrectOptionId": "E",
+      "sourceCorrectAnswerLatex": "4\\times10^{-1}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": "PHYSICAL_DENSITY_PLAUSIBLE",
+      "sourceSpecificQAOverrideAction": "RETRACT_PHYSICAL_IMPLAUSIBILITY_ASSERTION_KEEP_G7_PEDAGOGICAL_HOLD",
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-003",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-003-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalRisk": "UNREALISTIC_CONTEXT",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_03",
+      "numericNeutralVariantCount": 1,
+      "peerVariantIds": [],
+      "sourceCorrectOptionId": "C",
+      "sourceCorrectAnswerLatex": "8\\times10^{-1}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": "PHYSICAL_DENSITY_PLAUSIBLE",
+      "sourceSpecificQAOverrideAction": "RETRACT_PHYSICAL_IMPLAUSIBILITY_ASSERTION_KEEP_G7_PEDAGOGICAL_HOLD",
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-004",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-004-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalRisk": "UNREALISTIC_CONTEXT",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_04",
+      "numericNeutralVariantCount": 1,
+      "peerVariantIds": [],
+      "sourceCorrectOptionId": "A",
+      "sourceCorrectAnswerLatex": "5\\times10^{14}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": "QUESTION_IS_COUNT_NOT_DENSITY",
+      "sourceSpecificQAOverrideAction": "RETRACT_PHYSICAL_IMPLAUSIBILITY_ASSERTION_KEEP_G7_PEDAGOGICAL_HOLD",
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-005",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-005-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_05",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-006",
+        "LUX-MATH-Y9-STANDARD_FORM-007",
+        "LUX-MATH-Y9-STANDARD_FORM-008"
+      ],
+      "sourceCorrectOptionId": "D",
+      "sourceCorrectAnswerLatex": "1.4\\times 10^{3}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-006",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-006-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_05",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-005",
+        "LUX-MATH-Y9-STANDARD_FORM-007",
+        "LUX-MATH-Y9-STANDARD_FORM-008"
+      ],
+      "sourceCorrectOptionId": "A",
+      "sourceCorrectAnswerLatex": "1.325\\times 10^{3}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "B",
+          "latex": "1.175\\times 10^{3}",
+          "originalExplanation": "Subtract the second leg.",
+          "length": 24
+        },
+        {
+          "id": "C",
+          "latex": "1.25\\times 10^{3}",
+          "originalExplanation": "Ignore the second leg.",
+          "length": 22
+        },
+        {
+          "id": "D",
+          "latex": "7.5\\times 10^{1}",
+          "originalExplanation": "Use only the second leg.",
+          "length": 24
+        }
+      ],
+      "shortRationaleCount": 3,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-007",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-007-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_05",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-005",
+        "LUX-MATH-Y9-STANDARD_FORM-006",
+        "LUX-MATH-Y9-STANDARD_FORM-008"
+      ],
+      "sourceCorrectOptionId": "E",
+      "sourceCorrectAnswerLatex": "1.28\\times 10^{3}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "A",
+          "latex": "1.12\\times 10^{3}",
+          "originalExplanation": "Subtract the second leg.",
+          "length": 24
+        },
+        {
+          "id": "B",
+          "latex": "1.2\\times 10^{3}",
+          "originalExplanation": "Ignore the second leg.",
+          "length": 22
+        },
+        {
+          "id": "C",
+          "latex": "8\\times 10^{1}",
+          "originalExplanation": "Use only the second leg.",
+          "length": 24
+        }
+      ],
+      "shortRationaleCount": 3,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-008",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-008-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_05",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-005",
+        "LUX-MATH-Y9-STANDARD_FORM-006",
+        "LUX-MATH-Y9-STANDARD_FORM-007"
+      ],
+      "sourceCorrectOptionId": "B",
+      "sourceCorrectAnswerLatex": "1.25\\times 10^{3}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-009",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-009-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_06",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-010",
+        "LUX-MATH-Y9-STANDARD_FORM-011",
+        "LUX-MATH-Y9-STANDARD_FORM-012"
+      ],
+      "sourceCorrectOptionId": "C",
+      "sourceCorrectAnswerLatex": "2.85\\times 10^{5}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "B",
+          "latex": "3\\times 10^{5}",
+          "originalExplanation": "Ignore the subtracted amount.",
+          "length": 29
+        }
+      ],
+      "shortRationaleCount": 1,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-010",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-010-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_06",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-009",
+        "LUX-MATH-Y9-STANDARD_FORM-011",
+        "LUX-MATH-Y9-STANDARD_FORM-012"
+      ],
+      "sourceCorrectOptionId": "D",
+      "sourceCorrectAnswerLatex": "2.2\\times 10^{6}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-011",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-011-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_06",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-009",
+        "LUX-MATH-Y9-STANDARD_FORM-010",
+        "LUX-MATH-Y9-STANDARD_FORM-012"
+      ],
+      "sourceCorrectOptionId": "A",
+      "sourceCorrectAnswerLatex": "1.875\\times 10^{7}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "C",
+          "latex": "2\\times 10^{7}",
+          "originalExplanation": "Ignore the subtracted amount.",
+          "length": 29
+        }
+      ],
+      "shortRationaleCount": 1,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-012",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-012-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_06",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-009",
+        "LUX-MATH-Y9-STANDARD_FORM-010",
+        "LUX-MATH-Y9-STANDARD_FORM-011"
+      ],
+      "sourceCorrectOptionId": "B",
+      "sourceCorrectAnswerLatex": "1.68\\times 10^{8}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "C",
+          "latex": "1.8\\times 10^{8}",
+          "originalExplanation": "Ignore the subtracted amount.",
+          "length": 29
+        }
+      ],
+      "shortRationaleCount": 1,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-013",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-013-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_07",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-014",
+        "LUX-MATH-Y9-STANDARD_FORM-015",
+        "LUX-MATH-Y9-STANDARD_FORM-016"
+      ],
+      "sourceCorrectOptionId": "B",
+      "sourceCorrectAnswerLatex": "2.85\\times 10^{2}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "C",
+          "latex": "3\\times 10^{2}",
+          "originalExplanation": "Ignore the subtracted amount.",
+          "length": 29
+        }
+      ],
+      "shortRationaleCount": 1,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-014-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_07",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-013",
+        "LUX-MATH-Y9-STANDARD_FORM-015",
+        "LUX-MATH-Y9-STANDARD_FORM-016"
+      ],
+      "sourceCorrectOptionId": "D",
+      "sourceCorrectAnswerLatex": "2.2\\times 10^{2}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-015",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-015-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_07",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-013",
+        "LUX-MATH-Y9-STANDARD_FORM-014",
+        "LUX-MATH-Y9-STANDARD_FORM-016"
+      ],
+      "sourceCorrectOptionId": "C",
+      "sourceCorrectAnswerLatex": "1.875\\times 10^{2}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "B",
+          "latex": "2\\times 10^{2}",
+          "originalExplanation": "Ignore the subtracted amount.",
+          "length": 29
+        }
+      ],
+      "shortRationaleCount": 1,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-016",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-016-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_07",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-013",
+        "LUX-MATH-Y9-STANDARD_FORM-014",
+        "LUX-MATH-Y9-STANDARD_FORM-015"
+      ],
+      "sourceCorrectOptionId": "C",
+      "sourceCorrectAnswerLatex": "1.68\\times 10^{2}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "B",
+          "latex": "1.8\\times 10^{2}",
+          "originalExplanation": "Ignore the subtracted amount.",
+          "length": 29
+        }
+      ],
+      "shortRationaleCount": 1,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-017",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-017-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalRisk": "UNREALISTIC_CONTEXT",
+      "sourceSpecificFlags": [
+        "REPEATED_DENSITY_AND_IMPLAUSIBLE_CONTEXT"
+      ],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_08",
+      "numericNeutralVariantCount": 1,
+      "peerVariantIds": [],
+      "sourceCorrectOptionId": "C",
+      "sourceCorrectAnswerLatex": "3\\times 10^{-1}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": "PHYSICAL_DENSITY_PLAUSIBLE",
+      "sourceSpecificQAOverrideAction": "RETRACT_PHYSICAL_IMPLAUSIBILITY_ASSERTION_KEEP_G7_PEDAGOGICAL_HOLD",
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-018",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-018-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalRisk": "UNREALISTIC_CONTEXT",
+      "sourceSpecificFlags": [
+        "REPEATED_DENSITY_AND_IMPLAUSIBLE_CONTEXT"
+      ],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_09",
+      "numericNeutralVariantCount": 1,
+      "peerVariantIds": [],
+      "sourceCorrectOptionId": "B",
+      "sourceCorrectAnswerLatex": "3.2\\times10^{-1}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": "PHYSICAL_DENSITY_PLAUSIBLE",
+      "sourceSpecificQAOverrideAction": "RETRACT_PHYSICAL_IMPLAUSIBILITY_ASSERTION_KEEP_G7_PEDAGOGICAL_HOLD",
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-019",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-019-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalRisk": "UNREALISTIC_CONTEXT",
+      "sourceSpecificFlags": [
+        "REPEATED_DENSITY_AND_IMPLAUSIBLE_CONTEXT"
+      ],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_10",
+      "numericNeutralVariantCount": 1,
+      "peerVariantIds": [],
+      "sourceCorrectOptionId": "C",
+      "sourceCorrectAnswerLatex": "3.75\\times10^{-1}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": "PHYSICAL_DENSITY_PLAUSIBLE",
+      "sourceSpecificQAOverrideAction": "RETRACT_PHYSICAL_IMPLAUSIBILITY_ASSERTION_KEEP_G7_PEDAGOGICAL_HOLD",
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-020",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-020-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalRisk": "UNREALISTIC_CONTEXT",
+      "sourceSpecificFlags": [
+        "REPEATED_DENSITY_AND_IMPLAUSIBLE_CONTEXT"
+      ],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_11",
+      "numericNeutralVariantCount": 1,
+      "peerVariantIds": [],
+      "sourceCorrectOptionId": "A",
+      "sourceCorrectAnswerLatex": "4.5\\times10^{1}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": "QUESTION_IS_ADDITIONAL_MASS_NOT_DENSITY",
+      "sourceSpecificQAOverrideAction": "RETRACT_PHYSICAL_IMPLAUSIBILITY_ASSERTION_KEEP_G7_PEDAGOGICAL_HOLD",
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-021",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-021-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_12",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-022",
+        "LUX-MATH-Y9-STANDARD_FORM-023",
+        "LUX-MATH-Y9-STANDARD_FORM-024"
+      ],
+      "sourceCorrectOptionId": "F",
+      "sourceCorrectAnswerLatex": "35",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "A",
+          "latex": "50",
+          "originalExplanation": "Ignore the calibration.",
+          "length": 23
+        }
+      ],
+      "shortRationaleCount": 1,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-022",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-022-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_12",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-021",
+        "LUX-MATH-Y9-STANDARD_FORM-023",
+        "LUX-MATH-Y9-STANDARD_FORM-024"
+      ],
+      "sourceCorrectOptionId": "B",
+      "sourceCorrectAnswerLatex": "26",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "A",
+          "latex": "40",
+          "originalExplanation": "Ignore the calibration.",
+          "length": 23
+        }
+      ],
+      "shortRationaleCount": 1,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-023",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-023-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_12",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-021",
+        "LUX-MATH-Y9-STANDARD_FORM-022",
+        "LUX-MATH-Y9-STANDARD_FORM-024"
+      ],
+      "sourceCorrectOptionId": "C",
+      "sourceCorrectAnswerLatex": "44",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "A",
+          "latex": "60",
+          "originalExplanation": "Ignore the calibration.",
+          "length": 23
+        }
+      ],
+      "shortRationaleCount": 1,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-024",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-024-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_12",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-021",
+        "LUX-MATH-Y9-STANDARD_FORM-022",
+        "LUX-MATH-Y9-STANDARD_FORM-023"
+      ],
+      "sourceCorrectOptionId": "A",
+      "sourceCorrectAnswerLatex": "8",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "B",
+          "latex": "20",
+          "originalExplanation": "Ignore the calibration.",
+          "length": 23
+        }
+      ],
+      "shortRationaleCount": 1,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-025",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-025-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_13",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-026",
+        "LUX-MATH-Y9-STANDARD_FORM-027",
+        "LUX-MATH-Y9-STANDARD_FORM-028"
+      ],
+      "sourceCorrectOptionId": "F",
+      "sourceCorrectAnswerLatex": "1\\times 10^{7}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-026-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_13",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-025",
+        "LUX-MATH-Y9-STANDARD_FORM-027",
+        "LUX-MATH-Y9-STANDARD_FORM-028"
+      ],
+      "sourceCorrectOptionId": "C",
+      "sourceCorrectAnswerLatex": "9\\times 10^{7}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-027",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-027-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_13",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-025",
+        "LUX-MATH-Y9-STANDARD_FORM-026",
+        "LUX-MATH-Y9-STANDARD_FORM-028"
+      ],
+      "sourceCorrectOptionId": "B",
+      "sourceCorrectAnswerLatex": "2\\times 10^{9}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-028",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-028-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_13",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-025",
+        "LUX-MATH-Y9-STANDARD_FORM-026",
+        "LUX-MATH-Y9-STANDARD_FORM-027"
+      ],
+      "sourceCorrectOptionId": "C",
+      "sourceCorrectAnswerLatex": "9\\times 10^{9}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-029",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-029-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_14",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-030",
+        "LUX-MATH-Y9-STANDARD_FORM-031",
+        "LUX-MATH-Y9-STANDARD_FORM-032"
+      ],
+      "sourceCorrectOptionId": "F",
+      "sourceCorrectAnswerLatex": "4.1\\times 10^{2}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "B",
+          "latex": "3.7\\times 10^{2}",
+          "originalExplanation": "Subtract both smaller terms.",
+          "length": 28
+        },
+        {
+          "id": "C",
+          "latex": "4.2\\times 10^{2}",
+          "originalExplanation": "Ignore the last subtraction.",
+          "length": 28
+        },
+        {
+          "id": "D",
+          "latex": "3.9\\times 10^{2}",
+          "originalExplanation": "Ignore the middle addition.",
+          "length": 27
+        }
+      ],
+      "shortRationaleCount": 3,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-030",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-030-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_14",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-029",
+        "LUX-MATH-Y9-STANDARD_FORM-031",
+        "LUX-MATH-Y9-STANDARD_FORM-032"
+      ],
+      "sourceCorrectOptionId": "D",
+      "sourceCorrectAnswerLatex": "4.1\\times 10^{3}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "B",
+          "latex": "3.7\\times 10^{3}",
+          "originalExplanation": "Subtract both smaller terms.",
+          "length": 28
+        },
+        {
+          "id": "C",
+          "latex": "4.2\\times 10^{3}",
+          "originalExplanation": "Ignore the last subtraction.",
+          "length": 28
+        },
+        {
+          "id": "E",
+          "latex": "3.9\\times 10^{3}",
+          "originalExplanation": "Ignore the middle addition.",
+          "length": 27
+        }
+      ],
+      "shortRationaleCount": 3,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-031",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-031-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_14",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-029",
+        "LUX-MATH-Y9-STANDARD_FORM-030",
+        "LUX-MATH-Y9-STANDARD_FORM-032"
+      ],
+      "sourceCorrectOptionId": "F",
+      "sourceCorrectAnswerLatex": "4.1\\times 10^{4}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "B",
+          "latex": "3.7\\times 10^{4}",
+          "originalExplanation": "Subtract both smaller terms.",
+          "length": 28
+        },
+        {
+          "id": "C",
+          "latex": "4.2\\times 10^{4}",
+          "originalExplanation": "Ignore the last subtraction.",
+          "length": 28
+        },
+        {
+          "id": "D",
+          "latex": "3.9\\times 10^{4}",
+          "originalExplanation": "Ignore the middle addition.",
+          "length": 27
+        }
+      ],
+      "shortRationaleCount": 3,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-032",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-032-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalRisk": "OVERBAND_RISK",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_14",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-029",
+        "LUX-MATH-Y9-STANDARD_FORM-030",
+        "LUX-MATH-Y9-STANDARD_FORM-031"
+      ],
+      "sourceCorrectOptionId": "D",
+      "sourceCorrectAnswerLatex": "4.1\\times 10^{5}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "B",
+          "latex": "3.7\\times 10^{5}",
+          "originalExplanation": "Subtract both smaller terms.",
+          "length": 28
+        },
+        {
+          "id": "C",
+          "latex": "4.2\\times 10^{5}",
+          "originalExplanation": "Ignore the last subtraction.",
+          "length": 28
+        },
+        {
+          "id": "E",
+          "latex": "3.9\\times 10^{5}",
+          "originalExplanation": "Ignore the middle addition.",
+          "length": 27
+        }
+      ],
+      "shortRationaleCount": 3,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-033",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-033-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalRisk": "DISTRACTOR_RED_FLAG",
+      "sourceSpecificFlags": [
+        "FOUR_ORIGINAL_ANSWERS_IDENTICAL"
+      ],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_15",
+      "numericNeutralVariantCount": 1,
+      "peerVariantIds": [],
+      "sourceCorrectOptionId": "B",
+      "sourceCorrectAnswerLatex": "1.116\\times10^{2}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": "CURRENT_REVISED_CHOICES_ALL_NONNEGATIVE_UNIQUE_AND_FOUR_KEYS_NOT_IDENTICAL",
+      "sourceSpecificQAOverrideAction": "MARK_HISTORICAL_ORIGINAL_RED_FLAGS_NOT_CURRENT_V311_DEFECT_KEEP_PEDAGOGICAL_HOLD",
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-034",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-034-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalRisk": "DISTRACTOR_RED_FLAG",
+      "sourceSpecificFlags": [
+        "FOUR_ORIGINAL_ANSWERS_IDENTICAL"
+      ],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_16",
+      "numericNeutralVariantCount": 1,
+      "peerVariantIds": [],
+      "sourceCorrectOptionId": "F",
+      "sourceCorrectAnswerLatex": "1.4375\\times10^{2}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": "CURRENT_REVISED_CHOICES_ALL_NONNEGATIVE_UNIQUE_AND_FOUR_KEYS_NOT_IDENTICAL",
+      "sourceSpecificQAOverrideAction": "MARK_HISTORICAL_ORIGINAL_RED_FLAGS_NOT_CURRENT_V311_DEFECT_KEEP_PEDAGOGICAL_HOLD",
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-035",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-035-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalRisk": "DISTRACTOR_RED_FLAG",
+      "sourceSpecificFlags": [
+        "FOUR_ORIGINAL_ANSWERS_IDENTICAL"
+      ],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_17",
+      "numericNeutralVariantCount": 1,
+      "peerVariantIds": [],
+      "sourceCorrectOptionId": "C",
+      "sourceCorrectAnswerLatex": "9\\times10^{8}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": "CURRENT_REVISED_CHOICES_ALL_NONNEGATIVE_UNIQUE_AND_FOUR_KEYS_NOT_IDENTICAL",
+      "sourceSpecificQAOverrideAction": "MARK_HISTORICAL_ORIGINAL_RED_FLAGS_NOT_CURRENT_V311_DEFECT_KEEP_PEDAGOGICAL_HOLD",
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-036",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-036-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalRisk": "DISTRACTOR_RED_FLAG",
+      "sourceSpecificFlags": [
+        "FOUR_ORIGINAL_ANSWERS_IDENTICAL"
+      ],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_18",
+      "numericNeutralVariantCount": 1,
+      "peerVariantIds": [],
+      "sourceCorrectOptionId": "B",
+      "sourceCorrectAnswerLatex": "9\\times10^{1}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [],
+      "shortRationaleCount": 0,
+      "sourceSpecificQAOverride": "CURRENT_REVISED_CHOICES_ALL_NONNEGATIVE_UNIQUE_AND_FOUR_KEYS_NOT_IDENTICAL",
+      "sourceSpecificQAOverrideAction": "MARK_HISTORICAL_ORIGINAL_RED_FLAGS_NOT_CURRENT_V311_DEFECT_KEEP_PEDAGOGICAL_HOLD",
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-037",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-037-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_19",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-038",
+        "LUX-MATH-Y9-STANDARD_FORM-039",
+        "LUX-MATH-Y9-STANDARD_FORM-040"
+      ],
+      "sourceCorrectOptionId": "C",
+      "sourceCorrectAnswerLatex": "3\\times 10^{4}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "D",
+          "latex": "2.4\\times 10^{4}",
+          "originalExplanation": "Ignore the loss.",
+          "length": 16
+        },
+        {
+          "id": "E",
+          "latex": "3.125\\times 10^{4}",
+          "originalExplanation": "Add the later addition again.",
+          "length": 29
+        },
+        {
+          "id": "F",
+          "latex": "1.2\\times 10^{5}",
+          "originalExplanation": "Assume only 20% was retained.",
+          "length": 29
+        }
+      ],
+      "shortRationaleCount": 3,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-038",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-038-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_19",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-037",
+        "LUX-MATH-Y9-STANDARD_FORM-039",
+        "LUX-MATH-Y9-STANDARD_FORM-040"
+      ],
+      "sourceCorrectOptionId": "F",
+      "sourceCorrectAnswerLatex": "4\\times 10^{5}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "C",
+          "latex": "3.2\\times 10^{5}",
+          "originalExplanation": "Ignore the loss.",
+          "length": 16
+        },
+        {
+          "id": "D",
+          "latex": "4.125\\times 10^{5}",
+          "originalExplanation": "Add the later addition again.",
+          "length": 29
+        },
+        {
+          "id": "E",
+          "latex": "1.6\\times 10^{6}",
+          "originalExplanation": "Assume only 20% was retained.",
+          "length": 29
+        }
+      ],
+      "shortRationaleCount": 3,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-039",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-039-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_19",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-037",
+        "LUX-MATH-Y9-STANDARD_FORM-038",
+        "LUX-MATH-Y9-STANDARD_FORM-040"
+      ],
+      "sourceCorrectOptionId": "A",
+      "sourceCorrectAnswerLatex": "5\\times 10^{6}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "D",
+          "latex": "4\\times 10^{6}",
+          "originalExplanation": "Ignore the loss.",
+          "length": 16
+        },
+        {
+          "id": "E",
+          "latex": "5.125\\times 10^{6}",
+          "originalExplanation": "Add the later addition again.",
+          "length": 29
+        },
+        {
+          "id": "F",
+          "latex": "2\\times 10^{7}",
+          "originalExplanation": "Assume only 20% was retained.",
+          "length": 29
+        }
+      ],
+      "shortRationaleCount": 3,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-040",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-040-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "originalTriageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "originalRisk": "GRADE_REVIEW",
+      "sourceSpecificFlags": [],
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_19",
+      "numericNeutralVariantCount": 4,
+      "peerVariantIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-037",
+        "LUX-MATH-Y9-STANDARD_FORM-038",
+        "LUX-MATH-Y9-STANDARD_FORM-039"
+      ],
+      "sourceCorrectOptionId": "F",
+      "sourceCorrectAnswerLatex": "6\\times 10^{7}",
+      "sixChoices": 6,
+      "shortRationaleOptions": [
+        {
+          "id": "C",
+          "latex": "4.8\\times 10^{7}",
+          "originalExplanation": "Ignore the loss.",
+          "length": 16
+        },
+        {
+          "id": "D",
+          "latex": "6.125\\times 10^{7}",
+          "originalExplanation": "Add the later addition again.",
+          "length": 29
+        },
+        {
+          "id": "E",
+          "latex": "2.4\\times 10^{8}",
+          "originalExplanation": "Assume only 20% was retained.",
+          "length": 29
+        }
+      ],
+      "shortRationaleCount": 3,
+      "sourceSpecificQAOverride": null,
+      "sourceSpecificQAOverrideAction": null,
+      "independentMathematicalKeyCheck": "EXISTING_STEM_FIRST_TEST_REFERENCES_NOT_REPLACED",
+      "independentGrade7PlusSignoff": false,
+      "taughtSubskillConfirmed": false,
+      "conceptEquivalenceSignedOff": false,
+      "empiricalDistractorValidation": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "academicDecision": "HOLD"
+    }
+  ]
+}
