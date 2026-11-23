@@ -141,7 +141,7 @@ test('all 40 revised simultaneous stems independently solved, 240 answers unique
   assert.ok(near(calculated,key),q.sourceId+' stem/key mismatch '+calculated+' vs '+key);
   assert.equal(q.options.length,6,q.sourceId+' missing MC answers');
   const vals=q.options.map(o=>[o.id,calculate(o.latex)]);
-  assert.ok(vals.every((a,i)=>vals.every((b,j)=>i===j||!near(a[1],b[1])),
+  assert.ok(vals.every((a,i)=>vals.every((b,j)=>i===j||!near(a[1],b[1]))),
    q.sourceId+' numerically equivalent wrong choices');
   assert.equal(vals.filter(([id,value])=>near(value,calculated)).length,1,
    q.sourceId+' multiple correct responses');
