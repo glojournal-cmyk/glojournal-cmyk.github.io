@@ -1,0 +1,61 @@
+// Source-based structural QA of 48 proposed replacements. Not teacher sign-off.
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const read=p=>JSON.parse(readFileSync(new URL('../'+p,import.meta.url),'utf8'));
+const draft=read('qa/food-tests-48-duplicate-replacements-draft-20261123.json');
+const source=read('content/topics/bio-y8-food-tests.json');
+const baseline=source.questions;
+const cases=baseline.filter(q=>/bio-y8-food-tests-case-20261025-[1-4]-\d+$/.test(q.id));
+const repeats=cases.filter(q=>/bio-y8-food-tests-case-20261025-[2-4]-\d+$/.test(q.id));
+const replacements=draft.questions;
+test('exactly 48 original duplicate IDs mapped one-for-one and original 143 IDs held',()=>{
+ assert.equal(baseline.length,143);
+ assert.equal(cases.length,64);
+ assert.equal(repeats.length,48);
+ assert.equal(replacements.length,48);
+ assert.deepEqual(replacements.map(x=>x.sourceId),repeats.map(x=>x.id));
+ assert.equal(new Set(replacements.map(x=>x.sourceId)).size,48);
+ for(let i=0;i<48;i++){
+  assert.equal(replacements[i].originalSourcePrompt,repeats[i].prompt);
+  assert.equal(replacements[i].originalSourceAnswer,repeats[i].answer.accepted[0]);
+  assert.equal(replacements[i].topicId,'bio-y8-food-tests');
+ }
+});
+test('each replacement has a unique real pupil-facing stem and a single unambiguous string answer slot',()=>{
+ assert.equal(new Set(replacements.map(x=>x.prompt.toLowerCase().replace(/\s+/g,' ').trim())).size,48);
+ const distribution=[0,0,0,0];
+ for(const row of replacements){
+  assert.equal(row.format,'mc_single');
+  assert.match(row.prompt,/\?/);
+  assert.ok(row.scienceRationale?.length>25,row.sourceId);
+  assert.equal(row.answer.mode,'choice');
+  assert.equal(row.answer.totalMarks,1);
+  assert.equal(row.options.length,4,row.sourceId);
+  assert.equal(row.answer.accepted.length,1);
+  assert.equal(row.options.filter(x=>x===row.answer.accepted[0]).length,1,row.sourceId);
+  assert.equal(new Set(row.options.map(x=>x.toLowerCase().replace(/\s+/g,' ').trim())).size,4,row.sourceId);
+  assert.equal(row.options[row.correctIndex],row.answer.accepted[0]);
+  assert.equal(row.academicReview,'pending');
+  assert.equal(row.distractorReview,'pending');
+  assert.equal(row.approved,false);
+  assert.equal(row.formalCreditEligible,false);
+  assert.equal(row.curriculumReview,'TGS taught scope pending');
+  distribution[row.correctIndex]++;
+ }
+ assert.deepEqual(distribution,[12,12,12,12]);
+ assert.deepEqual(draft.keyPositions,{A:12,B:12,C:12,D:12});
+});
+test('replacement draft does not silently change original source/old scores or claim a release approval',()=>{
+ assert.equal(draft.status,'academic-review-required');
+ assert.equal(draft.approved,0);
+ assert.equal(draft.formalCreditEligible,false);
+ assert.equal(draft.sourceOriginalsPreserved,true);
+ assert.ok(draft.not.includes('formal-credit approval'));
+ const first=cases.filter(q=>/bio-y8-food-tests-case-20261025-1-\d+$/.test(q.id));
+ assert.equal(first.length,16);
+ const expectations=first.map(q=>q.answer.accepted[0]);
+ assert.equal(new Set(expectations).size,16);
+ const questionScope=source.questions.filter(x=>x.topicId==='bio-y8-food-tests');
+ assert.equal(questionScope.length,143);
+});
