@@ -110,7 +110,7 @@ function domainSimple(cond){
  throw Error('Unrecognized exact output domain '+cond);
 }
 const reason={
-  1:{B:/wrong sign/i,C:/sign of the x coefficient/i,D:/Exclude the allowed x=0/i,E:/Include y=4/i,F:/Invert the final inverse formula/i},
+  1:{B:/minus sign of 7/i,C:/sign of the x coefficient/i,D:/Exclude the allowed x=0/i,E:/Include y=4/i,F:/Invert the final inverse formula/i},
   2:{A:/wrong sign/i,C:/Reverse the sign/i,D:/first observed output/i,E:/second observed output/i,F:/incorrect lower bound/i},
   3:{A:/omit the necessary squaring/i,B:/wrong sign/i,D:/Allow y=0/i,E:/reciprocal squared/i,F:/Silently impose x≥0/i},
   4:{A:/factor of 2/i,B:/wrong sign/i,C:/Exclude r=0/i,E:/Divide by 2πd squared/i,F:/omit the stronger minimum/i}
