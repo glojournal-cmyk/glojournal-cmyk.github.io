@@ -6,6 +6,8 @@ on:
     paths:
       - 'content/topics/bio-y8-food-tests.json'
       - 'qa/food-tests-independent-academic-143-review-20261123.json'
+      - 'qa/food-tests-48-duplicate-replacements-draft-20261123.json'
+      - 'tests/food-tests-48-replacement-candidate-20261123.test.mjs'
       - 'qa/food-tests-academic-correction-proposals-20261123.json'
       - 'qa/food-tests-independent-academic-143-review-20261123.md'
       - 'qa/food-tests-structured-99-point-review-candidate-20261122.json'
@@ -15,6 +17,8 @@ on:
     paths:
       - 'content/topics/bio-y8-food-tests.json'
       - 'qa/food-tests-independent-academic-143-review-20261123.json'
+      - 'qa/food-tests-48-duplicate-replacements-draft-20261123.json'
+      - 'tests/food-tests-48-replacement-candidate-20261123.test.mjs'
       - 'qa/food-tests-academic-correction-proposals-20261123.json'
       - 'qa/food-tests-independent-academic-143-review-20261123.md'
       - 'qa/food-tests-structured-99-point-review-candidate-20261122.json'
@@ -36,3 +40,5 @@ jobs:
         run: node --check tests/food-tests-academic-143-review-20261123.test.mjs
       - name: Validate exact 143-item review and 99 candidate point references; never approve by test alone
         run: node --test tests/food-tests-academic-143-review-20261123.test.mjs
+      - name: Verify 48 QA-only duplicate replacements are unique and never formally credited
+        run: node --test tests/food-tests-48-replacement-candidate-20261123.test.mjs
