@@ -4538,32 +4538,32 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mc_single",
-      "prompt": "An ethanol extract is cloudy before water is added. Which evidence is still needed to judge a lipid emulsion test?",
+      "prompt": "A pupil compares lipid-test cloudiness from two seed extracts prepared in the same way. One clear ethanol extract is added to 2 mL of water and the other to 10 mL. Which criticism is most valid?",
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
-        "A clean, clear extract that becomes cloudy on addition to water, with a clear blank.",
-        "The initial cloudiness is already the positive endpoint, so adding water is unnecessary.",
-        "The original cloudiness proves that no lipid was dissolved in ethanol.",
-        "Initial cloudiness is sufficient to estimate how much fat the sample contains."
+        "Different dilution volumes can affect cloudiness; use equal measured volumes of extract and water before comparing.",
+        "The cloudier emulsion proves twice as much lipid in the original seed, regardless of dilution.",
+        "The amount of water added cannot affect the emulsion appearance, so the comparison is fair.",
+        "The paler emulsion proves there was no lipid in that seed, even without a working control."
       ],
       "answer": {
         "mode": "choice",
         "accepted": [
-          "A clean, clear extract that becomes cloudy on addition to water, with a clear blank."
+          "Different dilution volumes can affect cloudiness; use equal measured volumes of extract and water before comparing."
         ],
         "totalMarks": 1
       },
       "stimulus": {},
       "feedback": {
-        "short": "The positive emulsion endpoint occurs on adding the ethanolic extract to water.",
+        "short": "Emulsion cloudiness depends on dilution conditions. Equal measured extract and water volumes, along with matched extraction conditions, make a qualitative comparison fairer; cloudiness alone does not give an exact lipid concentration.",
         "steps": [
-          "Check reagent and experimental controls.",
-          "Use observations rather than assumptions.",
-          "The positive emulsion endpoint occurs on adding the ethanolic extract to water."
+          "Compare the preparation and dilution conditions before drawing conclusions.",
+          "Identify whether water and ethanol extract volumes were matched.",
+          "Emulsion cloudiness depends on dilution conditions. Equal measured extract and water volumes, along with matched extraction conditions, make a qualitative comparison fairer; cloudiness alone does not give an exact lipid concentration."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
-        "remember": "The positive emulsion endpoint occurs on adding the ethanolic extract to water."
+        "remember": "Emulsion cloudiness is affected by dilution; keep measured volumes the same for fair comparisons."
       },
       "task": {
         "label": "ANALYSE THE EXPERIMENT",
@@ -4579,7 +4579,7 @@
         "sourceOriginalPrompt": "A laboratory technician checks an unknown food mixture. Sample F4-14 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
         "originalSourceKey": "reducing sugar",
         "candidateId": "bio-y8-food-tests-case-20261025-4-14",
-        "rationale": "The positive emulsion endpoint occurs on adding the ethanolic extract to water.",
+        "rationale": "Emulsion cloudiness depends on dilution conditions. Equal measured extract and water volumes, along with matched extraction conditions, make a qualitative comparison fairer; cloudiness alone does not give an exact lipid concentration.",
         "distractorReview": "pending",
         "teacherReview": "pending",
         "release": "not-authorised"
