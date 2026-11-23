@@ -27,23 +27,36 @@ function calculateIndependentSource(q){
   values=numbersFromActualStem(stem),v=i=>values[i].value;
  let correct,wrong,reason;
  if(num===13){
-  assert.equal(values.length,3);
-  assert.match(stem,/minimum whole number of drives/);
+  assert.equal(values.length,4);
+  assert.match(stem,/Drives may be mixed/);
   const m=stem.match(/to (\d+)% of their original size/);
   assert.ok(m,'Compression retained percentage is missing');
-  const remain=Number(m[1])/100,raw=v(0)*v(1),
-   compressed=raw*remain,capacity=v(2),needed=compressed/capacity;
-  assert.ok(raw>0&&capacity>0&&remain>0&&remain<1);
-  correct=Math.ceil(needed);
+  const remain=Number(m[1])/100,raw=v(0)*v(1),compressed=raw*remain,
+   capA=v(2),capB=v(3),costs=[...stem.matchAll(/costs £(\d+)/g)]
+    .map(m=>Number(m[1]));
+  assert.equal(costs.length,2,'Need two independently priced storage options');
+  assert.ok(capA>0&&capB>0&&compressed>0&&remain>0&&remain<1);
+  const feasible=[],maxA=Math.ceil(compressed/capA)+1,
+   maxB=Math.ceil(compressed/capB)+1;
+  for(let a=0;a<=maxA;a++)for(let b=0;b<=maxB;b++){
+   const capacity=a*capA+b*capB,cost=a*costs[0]+b*costs[1];
+   if(capacity>=compressed)feasible.push({a,b,cost});
+  }
+  correct=Math.min(...feasible.map(x=>x.cost));
+  assert.deepEqual(feasible.filter(x=>x.cost===correct).map(x=>[x.a,x.b]),[[2,2]]);
+  assert.ok(5*capA<compressed,'Five A drives must be insufficient');
+  assert.ok(4*capA+capB>=compressed);
+  assert.ok(6*capA>=compressed);
+  assert.ok(capA+3*capB>=compressed);
+  assert.ok(4*capB>=compressed);
   wrong={
-   A:Math.floor(needed),C:Math.ceil(raw/capacity),
-   D:Math.ceil(raw*(1-remain)/capacity),
-   E:Math.ceil(raw*remain**2/capacity),
-   F:Math.ceil(compressed/(capacity/10))
+   A:5*costs[0],C:4*costs[0]+costs[1],D:6*costs[0],
+   E:costs[0]+3*costs[1],F:4*costs[1]
   };
   reason={
-   A:/Round.*down/,C:/Ignore compression/,D:/reduced by 70%/,
-   E:/retention twice/,F:/factor of ten too small/
+   A:/overlook that they hold only/,C:/four A drives and one B/,
+   D:/six type-A drives/,E:/one A drive and three B/,
+   F:/four type-B drives/
   };
  }else if(num===14){
   assert.equal(values.length,2);
@@ -73,23 +86,27 @@ function calculateIndependentSource(q){
   };
  }else if(num===15){
   assert.equal(values.length,2);
-  assert.match(stem,/total original mass/);
-  const p=stem.match(/removes (\d+)%/);
-  assert.ok(p,'Retention fraction missing');
-  const loss=Number(p[1])/100,remain=1-loss,known=v(0),final=v(1);
-  assert.ok(loss>0&&loss<1);
-  correct=final/remain-known;
+  const p=stem.match(/removes (\d+)% of material A and (\d+)% of material B/);
+  assert.ok(p,'Two distinct percentage losses must be stated');
+  const lossA=Number(p[1])/100,lossB=Number(p[2])/100,
+   retainA=1-lossA,retainB=1-lossB,known=v(0),final=v(1);
+  assert.ok(lossA>0&&lossA<1&&lossB>0&&lossB<1&&lossA!==lossB);
+  const retainedB=final-retainA*known;
+  assert.ok(retainedB>0);
+  correct=retainedB/retainB;
   wrong={
    B:final-known,
-   C:final*remain-known,
-   D:final*(1+loss)-known,
-   E:final-known*remain,
-   F:final/(1-0.20)-known
+   C:retainedB,
+   D:retainedB/retainA,
+   E:retainedB*retainB,
+   F:(final-known/retainA)/retainB
   };
   reason={
-   B:/Ignore the 15%/,C:/applying the loss again/,
-   D:/Add 15% of the final mass/,E:/only to material A/,
-   F:/stated loss as 20%/
+   B:/Ignore both percentage losses/,
+   C:/retained B mass without undoing/,
+   D:/20% loss rate for B/,
+   E:/apply B's 10% loss again/,
+   F:/Reverse A's 20% loss instead/
   };
  }else if(num===16){
   assert.equal(values.length,2);
@@ -176,7 +193,7 @@ test('wrong key, wrong distractor, altered source arithmetic and forged Daily pe
   const replacements={
    '013':['to 70%','to 60%'],
    '014':['8.0\\times10^{2}','8.0\\times10^{3}'],
-   '015':['removes 15%','removes 10%'],
+   '015':['removes 20% of material A','removes 30% of material A'],
    '016':['3.6\\times10^{7}','4.0\\times10^{7}']
   };
   const [before,after]=replacements[candidate.sourceId.slice(-3)];
