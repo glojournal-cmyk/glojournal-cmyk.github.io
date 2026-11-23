@@ -148,7 +148,7 @@ test('publish gate remains blocked with no teacher or iPad release permission',(
   'bio-y8-food-tests-application-20261025-all-negative'
  ]);
  assert.deepEqual(qa.summary.structuredPointsRevisedAwaitingIndependentAssessment,
-  [32,39,45,72,75,92]);
+  [18,21,32,33,39,40,41,42,43,45,47,62,63,72,75,92]);
  const vapour=draft.items.flatMap(item=>item.parts)[91];
  assert.match(vapour.stem,/direct fire hazard/);
  assert.equal(vapour.options.find(o=>o.id===vapour.correctOptionId).text,'It can ignite');
