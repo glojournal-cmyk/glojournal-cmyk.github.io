@@ -2813,7 +2813,7 @@
           ],
           "correctOptionId": "bio-y8-food-tests-application-20261025-wrong-reagent::p2::A",
           "approved": false,
-          "stem": "Which reagent should the pupil add to a fresh portion to investigate protein?",
+          "stem": "A pupil uses iodine on a drink and says that an orange-brown result means it contains no protein. To investigate that separate claim with a fresh portion, which reagent is needed?",
           "academicReview": "pending",
           "distractorReview": "pending",
           "keyedAnswer": "Biuret reagent"
@@ -3041,7 +3041,7 @@
           ],
           "correctOptionId": "bio-y8-food-tests-application-20261025-unknown-analysis::p1::D",
           "approved": false,
-          "stem": "An unknown food gives blue-black with iodine. What does that test establish?",
+          "stem": "Iodine turns blue-black in an unknown food, but no other nutrient tests have been performed. Which conclusion follows without assuming results from unperformed tests?",
           "academicReview": "pending",
           "distractorReview": "pending",
           "keyedAnswer": "Starch was detected"
@@ -3133,7 +3133,7 @@
           ],
           "correctOptionId": "bio-y8-food-tests-application-20261025-sugar-analysis::p1::B",
           "approved": false,
-          "stem": "A heated Benedict’s test on an unknown drink gives orange. What does this show?",
+          "stem": "A pupil sees an orange precipitate after correctly heating a drink with Benedict's solution, then wrongly claims it proves starch. Which nutrient was actually detected?",
           "academicReview": "pending",
           "distractorReview": "pending",
           "keyedAnswer": "Reducing sugar was detected"
@@ -3212,6 +3212,11 @@
       63
     ],
     "academicApproved": 0,
-    "reason": "Ten previously weak or implausible distractor sets were rewritten as misconception-based foils; all require independently checked sole-correctness and taught scope."
+    "reason": "Ten previously weak or implausible distractor sets were rewritten as misconception-based foils; all require independently checked sole-correctness and taught scope. Three further near-repetitious factual stems (points 87, 94, 97) were redrafted as evidence-limit and incorrect-inference challenges without changing their source points or answer keys.",
+    "evidenceLimitStemRedesignIndices": [
+      87,
+      94,
+      97
+    ]
   }
 }
