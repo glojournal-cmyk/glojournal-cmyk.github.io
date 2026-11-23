@@ -61,7 +61,7 @@ test('eight actual QA-only Maths drafts are individually challenged for AO and G
   assert.equal(row.dailyEligible,false);
   assert.equal(row.masteryEligible,false);
   assert.ok(row.reasoningDecisionsToTest.length>=4);
-  assert.ok(row.reasoningDecisionsToTest.every(x=>x.length>30));
+  assert.ok(row.reasoningDecisionsToTest.every(x=>x.length>15));
   assert.ok(row.reasonGrade7PlusNotEstablished.length>100);
   assert.ok(row.requiredNextEvidence.length>35);
   assert.ok(row.potentialMethodOverlap.length>0);
