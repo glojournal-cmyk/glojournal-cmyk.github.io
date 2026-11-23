@@ -14,13 +14,23 @@ function walk(dir){
 }
 const html=walk(root).filter(p=>p.endsWith(path.sep+"index.html")||p.endsWith(path.sep+"404.html"));
 const failures=[],rows=[];
-const standaloneShells=new Set(["study/maths/index.html","study/maths/learn/index.html","study/maths/practise/index.html","study/maths/progress/index.html","assessment/latin-oct17/practice/index.html","progress/weekly/index.html","pet/index.html","assessment/index.html","preview/index.html","study/biology/school-notes/index.html","study/physics/mastery/index.html","notes/index.html","study/exam-practice/index.html","study/chemistry/exam-revision/index.html","study/chemistry/exam-revision/mock/index.html","assessment/french-nov26/index.html","study/latin/november-2026/index.html","study/latin/november-2026/nov23/index.html","rescue.html","scholar-marking-v8/index.html","assessment/biology-cell-structure/index.html","assessment/biology-nov2/practice/index.html"]);
+const standaloneShells=new Set(["study/maths/index.html","study/maths/learn/index.html","study/maths/practise/index.html","study/maths/progress/index.html","assessment/latin-oct17/practice/index.html","progress/weekly/index.html","pet/index.html","assessment/index.html","preview/index.html","study/biology/school-notes/index.html","study/physics/mastery/index.html","notes/index.html","study/exam-practice/index.html","study/chemistry/exam-revision/index.html","study/chemistry/exam-revision/mock/index.html","assessment/french-nov26/index.html","study/latin/november-2026/index.html","study/latin/november-2026/nov23/index.html","notes/year9-latin-key-revision-20261120/index.html","rescue.html","scholar-marking-v8/index.html","assessment/biology-cell-structure/index.html","assessment/biology-nov2/practice/index.html"]);
 const mainModule="/assets/index-BLVOhKhN.js";
 for(const file of html){
   const rel=path.relative(root,file).replaceAll(path.sep,"/");
   const src=fs.readFileSync(file,"utf8");
   const standalone=standaloneShells.has(rel);
   if(!standalone&&!src.includes(mainModule))failures.push({type:"missing-main-module",file:rel});
+  // The 20 Nov Latin notes are a standalone, self-contained ten-page reading edition.
+  // Do not inject the Scholar app bundle: it would initialise an unrelated learner store.
+  if(rel==="notes/year9-latin-key-revision-20261120/index.html"){
+    const pages=[...src.matchAll(/<article id="page-(\d+)"/g)].map(m=>Number(m[1]));
+    if(JSON.stringify(pages)!==JSON.stringify(Array.from({length:10},(_,i)=>i+1))||
+       !src.includes('<main>')||!src.includes('10-page Key Revision Notes'))
+      failures.push({type:"latin-reading-edition-incomplete",file:rel,pages});
+    if(src.includes(mainModule))
+      failures.push({type:"standalone-latin-notes-should-not-initialise-main-store",file:rel});
+  }
   // The November Latin exam has its own independent module and must not create a duplicate student-store instance.
   if(rel==="study/latin/november-2026/index.html" && !src.includes('type="module" src="./exam.js?v='))
     failures.push({type:"standalone-latin-exam-entrypoint-missing",file:rel});

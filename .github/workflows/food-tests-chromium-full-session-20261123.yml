@@ -1,0 +1,46 @@
+name: Food Tests Chromium full 10-question QA (no deployment)
+on:
+  push:
+    branches:
+      - fix/food-tests-safety-only-20261122
+    paths:
+      - 'tests/food-tests-chromium-full-session-20261123.mjs'
+      - 'assets/quiz-session-y8fix-20260920.js'
+      - 'assets/quiz-session-rWAnuDVj.js'
+      - 'assets/food-tests-qa-credit-gate-20261122.js'
+      - '.github/workflows/food-tests-chromium-full-session-20261123.yml'
+  pull_request:
+    paths:
+      - 'tests/food-tests-chromium-full-session-20261123.mjs'
+      - 'assets/quiz-session-y8fix-20260920.js'
+      - 'assets/quiz-session-rWAnuDVj.js'
+      - 'assets/food-tests-qa-credit-gate-20261122.js'
+      - '.github/workflows/food-tests-chromium-full-session-20261123.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  chromium-e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install isolated Chromium testing dependencies
+        run: |
+          npm install --no-save playwright
+          npx playwright install --with-deps chromium
+      - name: Syntax check
+        run: node --check tests/food-tests-chromium-full-session-20261123.mjs
+      - name: Run fresh-profile full ten-question and failed-save acceptance checks
+        run: node tests/food-tests-chromium-full-session-20261123.mjs
+      - name: Upload Chromium-only evidence (no pupil data)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: food-tests-chromium-ten-question-evidence
+          path: test-results/food-tests-chromium-full-session/
+          if-no-files-found: ignore
+          retention-days: 7

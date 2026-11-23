@@ -21,12 +21,18 @@ const catalog=subjects.flatMap(s=>Array.from({length:5},(_,i)=>({
 for(const id of [
  'la-y8-nouns-and-dictionary-entries','la-y8-nouns-with-genitives',
  'fr-y8-s02-weather-activities-and-opinions','fr-y8-s03-home-family-and-descriptions',
- 'bio-y8-food-tests']){
- const subject=id.startsWith('la-')?'latin':id.startsWith('fr-')?'french':'biology';
+ // Food Tests is explicitly held. Use other independently source-verified
+ // mastery banks to model a realistic non-held Year 8 curriculum supply.
+ 'la-y8-core-verbs','fr-y8-s07-passe-compose','fr-y8-s25-classroom-objects',
+ 'chem-y8-working-scientifically']){
+ const subject=id.startsWith('la-')?'latin':id.startsWith('fr-')?'french':
+   id.startsWith('chem-')?'chemistry':'biology';
  catalog.push({subject,year:8,topicId:id,title:id,status:'enabled',
    enabled:80,formats:{typed_short:30}});
 }
 const get=(subject,year)=>catalog.filter(t=>t.subject===subject&&t.year===year);
+// A QA-held topic must never be in the synthetic formal Mastery source list.
+assert.equal(catalog.some(t=>t.topicId==='bio-y8-food-tests'),false);
 function state(date=day){
   return {today:date,year:9,daily:[],dailyLog:{},topicStats:{},
     formalAttemptLog:[],dailyVocabByDay:{},reviews:{}};

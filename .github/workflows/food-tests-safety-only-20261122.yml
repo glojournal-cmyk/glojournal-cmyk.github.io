@@ -1,0 +1,86 @@
+name: Food Tests safety-only QA (no deployment)
+on:
+  push:
+    branches:
+      - fix/food-tests-safety-only-20261122
+    paths:
+      - 'assets/food-tests-qa-credit-gate-20261122.js'
+      - 'assets/quiz-session-y8fix-20260920.js'
+      - 'assets/quiz-session-rWAnuDVj.js'
+      - 'assets/daily-session-credit-20261021.js'
+      - 'assets/daily-completed-session-receipts-20261024.js'
+      - 'assets/mastery-v2-20261018.js'
+      - 'assets/session-reflection-20261004.js'
+      - 'assets/daily-curriculum-20261004.js'
+      - 'assets/year8-daily-v2-20261018.js'
+      - 'tests/food-tests-safety-only-20261122.test.mjs'
+      - 'tests/daily-mastered-loop-20261023.test.mjs'
+      - 'tests/daily-ten-to-six-ipad-regression-20261025.test.mjs'
+      - 'tests/mastery-v2-qa.mjs'
+      - 'tests/progress-repair-qa.mjs'
+      - 'tests/french-practice-regression.mjs'
+      - 'tests/daily-plan-rigor-qa.mjs'
+      - '.github/workflows/food-tests-safety-only-20261122.yml'
+  pull_request:
+    paths:
+      - 'assets/food-tests-qa-credit-gate-20261122.js'
+      - 'assets/quiz-session-y8fix-20260920.js'
+      - 'assets/quiz-session-rWAnuDVj.js'
+      - 'assets/daily-session-credit-20261021.js'
+      - 'assets/daily-completed-session-receipts-20261024.js'
+      - 'assets/mastery-v2-20261018.js'
+      - 'assets/session-reflection-20261004.js'
+      - 'assets/daily-curriculum-20261004.js'
+      - 'assets/year8-daily-v2-20261018.js'
+      - 'tests/food-tests-safety-only-20261122.test.mjs'
+      - 'tests/daily-mastered-loop-20261023.test.mjs'
+      - 'tests/daily-ten-to-six-ipad-regression-20261025.test.mjs'
+      - 'tests/mastery-v2-qa.mjs'
+      - 'tests/progress-repair-qa.mjs'
+      - 'tests/french-practice-regression.mjs'
+      - 'tests/daily-plan-rigor-qa.mjs'
+      - '.github/workflows/food-tests-safety-only-20261122.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  safe-practice:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check affected JavaScript syntax
+        run: |
+          node --check assets/food-tests-qa-credit-gate-20261122.js
+          node --check assets/quiz-session-y8fix-20260920.js
+          node --check assets/quiz-session-rWAnuDVj.js
+          node --check assets/daily-session-credit-20261021.js
+          node --check assets/daily-completed-session-receipts-20261024.js
+          node --check assets/mastery-v2-20261018.js
+          node --check assets/session-reflection-20261004.js
+          node --check assets/daily-curriculum-20261004.js
+          node --check assets/year8-daily-v2-20261018.js
+          node --check tests/food-tests-safety-only-20261122.test.mjs
+          node --check tests/daily-mastered-loop-20261023.test.mjs
+          node --check tests/daily-ten-to-six-ipad-regression-20261025.test.mjs
+          node --check tests/mastery-v2-qa.mjs
+          node --check tests/progress-repair-qa.mjs
+          node --check tests/french-practice-regression.mjs
+          node --check tests/daily-plan-rigor-qa.mjs
+      - name: Academic hold and unmarked practice-only regression
+        run: node --test tests/food-tests-safety-only-20261122.test.mjs
+      - name: Mastery two-slot 20-question regression without QA-held banks
+        run: node --test tests/daily-mastered-loop-20261023.test.mjs
+      - name: Keep historical credit while rejecting new Food Tests receipts
+        run: node --test tests/daily-ten-to-six-ipad-regression-20261025.test.mjs
+      - name: Verify independent Mastery supply without any held Food Tests bank
+        run: node --test tests/mastery-v2-qa.mjs
+      - name: Verify repair answers and QA-held practice cannot increase formal score
+        run: node tests/progress-repair-qa.mjs
+      - name: Ensure French unaffected by Food Tests hold (real quiz harness)
+        run: node --test tests/french-practice-regression.mjs
+      - name: Verify Daily exclusion and locked curriculum scope
+        run: node tests/daily-plan-rigor-qa.mjs

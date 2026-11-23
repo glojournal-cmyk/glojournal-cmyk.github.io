@@ -76,7 +76,7 @@ test('wrong-day subject or topic cannot borrow a different completed task proof'
  assert.notEqual(findTask(rebuilt).verifiedCorrectIds?.length,10);
 });
 
-test('Biology Food Tests: ten marked CORRECT slots with only six unique IDs still count 10/10',()=>{
+test('QA-held Biology Food Tests cannot gain a new 10/10 from repeated IDs',()=>{
  const topic='bio-y8-food-tests',id='y8-standard-a';
  const task={id,planDate:day,target:10,progress:0,
   assignedSubject:'biology',assignedTopic:topic,assignedYear:8,
@@ -89,12 +89,15 @@ test('Biology Food Tests: ten marked CORRECT slots with only six unique IDs stil
   tasks:[task],total:1,done:0}},formalAttemptLog:[]};
  const result=reconcileDailySession(source,{day,taskId:id,subject:'biology',
   year:8,mode:'standard',questions,answers});
- assert.equal(result.progress,10,'ten marked slots must not collapse to six distinct IDs');
- assert.equal(result.daily[0].verifiedCorrectIds.length,6);
- assert.equal(result.daily[0].verifiedCorrectSlots,10);
- assert.equal(result.daily[0].done,true);
+ assert.equal(result.changed,false,'held work must not grant fresh formal credit');
+ assert.equal(result.reason,'academic-qa-hold');
+ assert.equal(result.progress,0);
+ assert.strictEqual(result.daily,source.daily,'do not replace the dated task');
+ assert.equal(result.daily[0].verifiedCorrectIds,undefined);
+ assert.equal(result.daily[0].done,undefined);
 });
-test('Biology Food Tests ten repeated-ID slots survive reload of iPad completed-quiz receipt',async()=>{
+
+test('QA-held Biology Food Tests cannot manufacture a completed iPad quiz receipt',async()=>{
  const topic='bio-y8-food-tests',id='y8-standard-a';
  const task={id,planDate:day,target:10,progress:6,
   assignedSubject:'biology',assignedTopic:topic,assignedYear:8,
@@ -109,20 +112,45 @@ test('Biology Food Tests ten repeated-ID slots survive reload of iPad completed-
  try{
   const snapshot={today:day,daily:[task],dailyLog:{[day]:{date:day,tasks:[task],total:1,done:0}},
     formalAttemptLog:[]};
-  const {saveCompletedDailyReceipt,reconcileCompletedDailyReceipts}
+  const {saveCompletedDailyReceipt,reconcileCompletedDailyReceipts,
+    readDailyRetryReceiptSync,readDailyRetryReceipt}
     =await import('../assets/daily-completed-session-receipts-20261024.js');
-  assert.equal(await saveCompletedDailyReceipt(snapshot,source),true);
-  const stored=JSON.parse(saved.get('lux-daily-completed-sessions-safe-v1'));
-  assert.equal(stored[0].questions.length,10);
-  const refreshed=reconcileCompletedDailyReceipts(snapshot,stored);
-  assert.equal(refreshed.daily[0].progress,10);
-  assert.equal(refreshed.daily[0].verifiedCorrectSlots,10);
-  assert.equal(refreshed.dailyLog[day].tasks[0].done,true);
-  // Re-sending this exact receipt must not count it twice.
-  assert.equal(await saveCompletedDailyReceipt(snapshot,source),true);
-  const again=JSON.parse(saved.get('lux-daily-completed-sessions-safe-v1'));
-  assert.equal(again[0].questions.length,10);
+  assert.equal(await saveCompletedDailyReceipt(snapshot,source),false,
+   'new QA-held Food Tests receipt must be rejected even if all answers claim correct');
+  assert.equal(saved.has('lux-daily-completed-sessions-safe-v1'),false,
+   'no new credited receipt must be persisted');
+  const legacy={...source,key:[day,id,'biology',topic,'standard',10].join('|'),
+    topicId:topic,target:10,at:Date.now(),
+    questions:questions.map(q=>({id:q.id,topicId:topic,formal:true,_repair:false})),
+    answers:answers.map(a=>({questionId:a.questionId,correct:true,formal:true,repair:false}))};
+  assert.equal(reconcileCompletedDailyReceipts(snapshot,[legacy]),null,
+   'even an old validly structured receipt cannot retrospectively award new credit');
+  saved.set('lux-daily-completed-sessions-safe-v1',JSON.stringify([legacy]));
+  const originalJSON=saved.get('lux-daily-completed-sessions-safe-v1');
+  const receiptKey={day,taskId:id,subject:'biology',year:8,topicId:topic,mode:'standard'};
+  assert.equal(readDailyRetryReceiptSync(receiptKey),null,
+    'old QA-held receipt cannot be used as fresh retry proof');
+  assert.equal(await readDailyRetryReceipt(receiptKey),null,
+    'async retry must reject held receipts even if IndexedDB contains one');
+  assert.equal(saved.get('lux-daily-completed-sessions-safe-v1'),originalJSON,
+    'the old receipt bytes must not be deleted or changed');
+  assert.equal(snapshot.daily[0].progress,6,'previously saved progress must remain untouched');
  }finally{globalThis.localStorage=oldLocal;}
+});
+
+test('an already completed historical Food Tests Daily card is not erased by the QA hold',()=>{
+ const topic='bio-y8-food-tests',id='y8-standard-a';
+ const old={id,planDate:day,target:10,progress:10,done:true,
+  assignedSubject:'biology',assignedTopic:topic,assignedYear:8,assignedLabel:'Food Tests',
+  href:'/study/biology/practise?daily=1&locked=1&year=8&mode=standard&task='+id+'&topic='+topic};
+ const original={...state(),daily:[old],dailyLog:{[day]:{date:day,tasks:[old]}}};
+ const regenerated=buildYear8DailyV2(original,get);
+ const row=regenerated.find(t=>t.id===id);
+ assert.ok(row,'retain the historical Daily task');
+ assert.equal(row.assignedTopic,topic,'historical topic ID must not be silently reassigned');
+ assert.equal(row.progress,10,'already recorded progress must not be erased');
+ assert.equal(row.target,10,'historic target must not be rewritten');
+ assert.equal(original.daily[0].progress,10,'planner must not mutate historic state');
 });
 
 test('A verified 10/10 Daily with repeated IDs still reads 10/10 after its journal reloads with six unique IDs',()=>{

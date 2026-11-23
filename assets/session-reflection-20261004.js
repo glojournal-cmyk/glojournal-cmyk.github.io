@@ -36,7 +36,20 @@ export function sessionGains(items=[],log=[],history={}){
  return {recoveredIds:[...recovered],recovered:recovered.size,recognised:recognised.size,repaired:repairs.size,independentCorrect,priorAttempted:prior.size,lines:lines.slice(0,3)};
 }
 export function ProgressSummary({gains}){return gains?h('aside',{'aria-label':'Your progress this session','data-memory-recovered-ids':JSON.stringify(gains.recoveredIds||[]),className:'mt-4 rounded-xl bg-sage/60 p-4'},h('h2',{className:'font-display text-xl font-semibold'},'Your progress this session'),...gains.lines.map((line,i)=>h('p',{key:i,className:'mt-2 text-base'},line))):null;}
-export function SessionResult({score,formalCount,coach,errors,daily,backHref,nextHref,onAgain,marks=false,gains,xpEarned,vocabProgress=null}){
+export function SessionResult({score,formalCount,coach,errors,daily,backHref,nextHref,onAgain,marks=false,gains,xpEarned,vocabProgress=null,unmarked=false}){
+ // QA-held work is not a zero score. Keep it visibly separate from graded results.
+ // Never show a false 0/N, percentage, XP, missed-skill coaching or model answers.
+ if(unmarked)return h('section',{'aria-label':'Unmarked practice saved',
+    'className':'lux-session-result-v2'},
+   h('header',{'className':'lux-session-header-v2'},
+    h('p',{'className':'lux-session-kicker-v2'},'THE SCHOLAR’S GARDEN · PRACTICE'),
+    h('h1',null,'Practice saved. Not a formal mark.'),
+    h('p',null,'Your answers have not been marked. No right or wrong decision was made. This practice does not earn Daily, MP, Mastery or XP credit.')
+   ),
+   h('a',{href:'/',className:'mt-4 mr-3 inline-flex min-h-11 items-center rounded-full border border-line bg-card px-5 text-navy',
+    onClick:event=>{if(typeof window==='undefined')return;event.preventDefault();window.location.assign('/');}},'Return to Home'),
+   backHref?h('a',{href:backHref,className:'mt-4 inline-flex min-h-11 items-center underline'},'Return to subject'):null
+ );
  const points=improvementPoints(coach,errors);
  const first=Number(score?.firstPassCorrect)||0, total=Number(formalCount)||0;
  const percent=marks?Number(score?.percentage)||0:Math.round(100*first/Math.max(1,total));
