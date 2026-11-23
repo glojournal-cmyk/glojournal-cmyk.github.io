@@ -128,7 +128,7 @@ test('three repeated recall stems now challenge unsupported inferences without c
 test('adversarial option quality round 5 preserves exact science key and rejects nonsensical foils',()=>{
  const fixes=[
   [38,'Hot glass can burn the hand',/stops being a burn hazard/],
-  [40,'More of the inside of the food is exposed',/guarantees every protein/],
+  [40,'More of the inside of the food is exposed',/increases the mass of protein/],
   [42,'More surface is exposed for the same mass',/total surface area stays the same/]
  ];
  for(const [index,key,foil] of fixes){
@@ -153,7 +153,7 @@ test('two nuanced source concepts remain represented in unapproved MCQ choices',
  assert.match(p61.stem,/working controls/i);
  assert.match(p93.concept,/open flame can ignite/i);
  assert.match(p93.stem,/yellow safety flame/i);
- assert.equal(p93.keyedAnswer,'The vapour can catch fire');
+ assert.match(p93.keyedAnswer,/Extinguish the Bunsen burner/);
  for(const row of [p61,p93]){
   assert.equal(row.options.find(z=>z.id===row.correctOptionId)?.text,row.keyedAnswer);
   assert.equal(row.options.filter(z=>z.text===row.keyedAnswer).length,1);
@@ -181,6 +181,28 @@ test('99-point preliminary QA: fair-heating endpoint and qualitative iodine mass
   assert.equal(p.distractorReview,'pending');
  }
  assert.deepEqual(candidate.qaDraftSecondPass.sourceClarityReviewIndices,[31,45]);
+ assert.equal(candidate.approved,0);
+ assert.equal(candidate.formalCreditEligible,false);
+});
+
+test('4 hardening revisions examine procedural judgement rather than absurd foils or duplicate fire-risk recall',()=>{
+ const by=[40,41,75,93].map(n=>candidateParts[n-1]);
+ assert.deepEqual(candidate.qaDraftSecondPass.substantiveDistractorRevisions,[40,41,75,93]);
+ for(const point of by){
+  assert.equal(point.approved,false);
+  assert.equal(point.distractorReview,'pending');
+  assert.equal(point.options.length,4);
+  assert.equal(point.options.filter(o=>o.text===point.keyedAnswer).length,1);
+  assert.equal(point.options.find(o=>o.id===point.correctOptionId).text,point.keyedAnswer);
+ }
+ const fireVapour=candidateParts[91],fireProcedure=candidateParts[92];
+ assert.equal(fireVapour.keyedAnswer,'It can ignite');
+ assert.match(fireProcedure.stem,/Which action/);
+ assert.match(fireProcedure.keyedAnswer,/Extinguish the Bunsen burner/);
+ assert.notEqual(fireVapour.keyedAnswer,fireProcedure.keyedAnswer);
+ assert.match(candidateParts[39].options[2].text,/peptide bonds/);
+ assert.match(candidateParts[40].options[3].text,/Water alone/);
+ assert.match(candidateParts[74].options[2].text,/exact measurement/);
  assert.equal(candidate.approved,0);
  assert.equal(candidate.formalCreditEligible,false);
 });
