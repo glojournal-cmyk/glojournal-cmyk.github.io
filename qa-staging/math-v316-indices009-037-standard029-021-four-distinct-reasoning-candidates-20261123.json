@@ -119,7 +119,7 @@
       "correctAnswerLatex": "(3,0)",
       "workedSolutionSteps": [
         "Simplify the power: $\\sqrt{2^{2n+6}}=2^{n+3}$ and $\\frac{16^{n-1}}{8^{n-2}}=2^{n+2}$, giving $T(n)=2^{2n+5}$.",
-        "A perfect cube requires $2n+5$ divisible by $3$. For $n=0,1,\\ldots,8$ this happens at $n=2,5,8$, so $C=3$.",
+        "A perfect cube requires $2n+5$ divisible by $3$. For integers $n$ from $0$ through $8$ this happens at $n=2,5,8$, so $C=3$.",
         "A perfect square requires an even exponent, but $2n+5$ is odd for every integer $n$, so $S=0$ and $(C,S)=(3,0)$."
       ],
       "intendedAODemand": "AO2 reasoning: compare cube versus square exponent divisibility with constrained enumeration.",
