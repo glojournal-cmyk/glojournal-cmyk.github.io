@@ -165,5 +165,11 @@ test('publish gate remains blocked with no teacher or iPad release permission',(
  assert.equal(qa.summary.matchingItemsRequiringPairwiseScoringReview,3);
  assert.equal(qa.summary.duplicateCaseQuestionsRequiringReplacement,48);
  assert.ok(qa.not.includes('permission to merge or deploy'));
- assert.ok(proposal.notAppliedReason.includes('do not'));
+ assert.match(proposal.notAppliedReason,/No change entered main\/PR #310/);
+ assert.equal(proposal.approval,'0/143');
+ assert.deepEqual(proposal.appliedSourceIds,[
+  'bio-y8-app-food-test-match',
+  'bio-y8-food-tests-application-20261025-sugar-strength',
+  'bio-y8-food-tests-application-20261025-all-negative'
+ ]);
 });
