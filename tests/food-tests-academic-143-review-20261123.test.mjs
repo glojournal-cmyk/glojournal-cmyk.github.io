@@ -132,6 +132,8 @@ test('99 MCQ candidate mark-points have a single keyed option, but zero distract
   assert.equal(new Set(p.options.map(o=>o.id)).size,4);
   assert.equal(p.options.filter(o=>o.id===p.correctOptionId).length,1);
   assert.equal(p.options.find(o=>o.id===p.correctOptionId)?.text,review.keyedChoice);
+  assert.equal(review.stem,p.stem,'independent register stem must equal candidate: '+p.pointId);
+  assert.deepEqual(review.distractors,p.options.filter(o=>o.id!==p.correctOptionId).map(o=>o.text),'all 3 wrong options must be identical: '+p.pointId);
   assert.equal(p.distractorReview,'pending','passing tests never approves distractors');
  }
  assert.deepEqual(qa.summary.structuredPointsClearlyImplausibleOptionsNeedingRepair,[32,39,45,72,75]);
@@ -179,4 +181,18 @@ test('publish gate remains blocked with no teacher or iPad release permission',(
   'bio-y8-food-tests-application-20261025-sugar-strength',
   'bio-y8-food-tests-application-20261025-all-negative'
  ]);
+});
+
+test('5 historically stale candidate-review rows now exactly match latest stem and foil texts',()=>{
+ const ids=[38,42,87,94,97];
+ const all=draft.items.flatMap(g=>g.parts);
+ assert.deepEqual(qa.summary.reconciledStaleStructured99PointReviewRows,ids);
+ assert.equal(qa.summary.structured99PointReviewFullTextSynced,true);
+ for(const n of ids){
+  const p=all[n-1],row=qa.structured99PointCandidateReview[n-1];
+  assert.equal(row.stem,p.stem);
+  assert.deepEqual(row.distractors,p.options.filter(c=>c.id!==p.correctOptionId).map(c=>c.text));
+  assert.equal(row.approved,false);
+  assert.equal(p.approved,false);
+ }
 });
