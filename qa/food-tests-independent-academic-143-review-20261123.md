@@ -89,3 +89,21 @@ The 48-case-replacement draft has likewise been independently reread as a candid
 The 15 typed variants have explicit 15 correct / 15 incorrect example probes on **both real QuizSession scoring functions**, plus two adversarial double-negation cases. These are bounded AI-authored tests, not a pupil-grade marking-validation sample. A separate cross-topic technical regression is needed before deploying any shared science-scorer change.
 
 **Latest QA-only correction status: source science stems and some synonyms repaired; scoring/fairness sign-off pending, 0/143 Academic approvals, no live scoring or deployment.**
+
+## Additional source-fidelity and duplicate-skill QA — 23 November 2026, later pass
+
+This continuation does **not** change the 0/143 original question approvals or 0/99 candidate point approvals. All corrections stay in Draft PR #308 on the QA branch; `main`, formal student credit and learner histories remain unchanged.
+
+### Two meaningful candidate corrections
+- **Structured point 61** (`bio-y8-food-tests-application-20261025-all-negative::p2`): the original mark point explicitly warns about **both** nutrients outside the four test categories **and** concentrations beneath detection limits. Earlier MCQ wording only represented the first point (untested vitamins). Correct option now states both aspects under valid controls; wrong options target false universal claims. Updated the 99-point candidate, 143-row independent academic review's structured-point entry, and the dedicated test. This fixes an actual source-concept omission, not merely style.
+- **Structured point 93** (`bio-y8-food-tests-application-20261025-safe-bunsen::p2`): previously nearly identical to point 92 about flammable ethanol vapour. Revised stem asks why an **on** Bunsen yellow safety flame remains unsafe during ethanol handling, while point 92 checks the vapour property. Source key remains that ethanol vapour can ignite; this separation improves the practical decision tested but does **not** conclusively establish two independent mark opportunities. Independent academic reviewer must still adjudicate any redundant credit.
+
+### Inherited-group hazard (previous pass, retained)
+All 48 proposed replacement items carry skill prompts different from the original nutrient-positive/negative binary observation patterns. They are held only in a 143-row **preview**, where the 48 wrong inherited `dailyConceptGroup` fields have been explicitly nulled and proposed diagnostic skills recorded. Those proposals are **not** live mappings. Reintroducing the old labels or automatically crediting the proposed skill classification before review is prohibited.
+
+### Approval and evidence requirements
+Official AQA GCSE Biology [practical assessment guidance](https://www.aqa.org.uk/subjects/biology/gcse/biology-8461/specification/practical-assessment) explicitly includes Benedict's, iodine and Biuret required practical methods. This does not establish the complete TGS taught scope or specifically validate these 99 MCQ distractor sets. In particular, safe handling of flammable ethanol remains important in the QA pool and requires direct lab-safety review.
+
+Node regressions verify source/candidate alignment, stable answer IDs, and formal-credit holds; they do not prove unseen learner-answer fairness, independent marking rubric acceptance, or real iPad PWA behaviour. The original 52 free-English source tasks are still held out of Daily, XP, MP and Mastery. This is **not a release approval**.
+
+**Status: 143 source IDs held; structured 99 marks held; all academic approvals 0; release BLOCKED, PR #308 Draft; no merge, deployment or historic score changes.**
