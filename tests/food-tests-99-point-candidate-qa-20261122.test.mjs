@@ -158,7 +158,7 @@ test('two nuanced source concepts remain represented in unapproved MCQ choices',
   assert.equal(row.options.find(z=>z.id===row.correctOptionId)?.text,row.keyedAnswer);
   assert.equal(row.options.filter(z=>z.text===row.keyedAnswer).length,1);
   assert.equal(row.approved,false);
-  assert.equal(row.distractorReview,'REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW'==='foo'?'foo':'pending');
+  assert.equal(row.distractorReview,'pending');
  }
  assert.equal(candidate.formalCreditEligible,false);
  assert.equal(candidate.approved,0);
