@@ -63,3 +63,19 @@ The replacements examine evidence limitations, positive and negative controls, c
 - AQA specifies Benedict's, iodine and Biuret in the GCSE required practical; ethanol emulsion is scientifically established, but its inclusion in *this student's actual taught scope* still requires a separate TGS determination.
 
 **Still blocked:** 48 repetitive case MCQs, 15 typed-alternative fairness checks, 52 original free-English rubrics (99 points), and independent reviewer sign-off. No change to main or historical learner progress.
+
+## Round 4 — 15 typed answers and adversarial negative tests (QA branch only)
+
+The 15 source `typed_exact` and `typed_short` questions have **23 additional scientifically valid vocabulary/observation variants** added only to the Draft QA branch. Examples include `Benedict's reagent`, `violet` and `milky white emulsion`. The [15-row adversarial probe file](food-tests-typed-15-adversarial-probes-20261123.json) checks one valid alternative and one intentionally incorrect answer per item.
+
+Direct execution of the actual `B(e,t,n,r)` scoring logic from both QuizSession bundles (using a deterministic QA text normaliser) showed **15/15 correct alternatives accepted, 15/15 incorrect alternatives rejected on each bundle**. The main scorer exposed a **double-negation over-credit**: `not no starch was detected` and `not no lipid detected` were previously treated as equivalent to negative conclusions. The current QA branch adds an explicit disallowance; both current and legacy scorers now reject the specific adversarial double negations and `not <accepted canonical answer>` probes in this test harness. These are bounded model-prepared tests, **not an independent unseen answer-set or real-browser marking sign-off**. No Daily, XP, MP or Mastery credit may be enabled.
+
+## Round 5 — more substantive MCQ revisions (QA drafts only)
+
+- The [48-source-ID case replacement draft](food-tests-48-duplicate-replacements-draft-20261123.json) now has **45/48 distractor sets rewritten**, favouring plausible laboratory errors, control failures, untested assumptions and misconstrued results instead of obviously nonsensical wrong answers. Three retained sets are still unapproved; all 48 require independent science and sole-key evaluation.
+- Four candidate stems had ambiguity removed: equal-bread portions already assumed before asking to control sample mass; conflating one snack with a balanced diet; text implying that an unknown practical sample was tasted; and an unclear Biuret quantitative-inference question.
+- Structured [99-point review candidate](food-tests-structured-99-point-review-candidate-20261122.json) point **#92**, on ethanol vapour and a nearby flame, originally permitted more than one safety-relevant answer under its vague wording. The stem now asks about the **direct ignition hazard**, and all three distractors are replaced. This and the five earlier rewritten point sets remain unapproved.
+- [143-item QA preview](food-tests-143-revised-preview-20261123.json) retains all 143 original IDs, 48 candidate replacements and 95 non-replaced source items. Preview changes are isolated: **the 48 new MCQs remain absent from the live `content/topics` bank**.
+- Structural completeness, test-key placement and scorer demonstration **do not** establish pupil-facing fairness or evidence of actual TGS teaching sequence.
+
+**Current academic gate: 0/143 approved original questions, 0/48 approved replacement questions, 0/99 approved structured candidate points.** No merge, deployment or historical learner data modifications.
