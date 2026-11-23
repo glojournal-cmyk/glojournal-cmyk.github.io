@@ -82,7 +82,7 @@ function calculateIndependentSource(q){
   assert.match(stem,/mineral sample/);
   assert.ok(correct>1 && correct<23,'Mineral-context density is physically implausible');
   const upperMantissa=(upMass/10**values[0].exponent).toPrecision(3);
-  assert.ok(q.workedSolutionSteps[2].includes(upperMantissa+'\\\\times10^{'+values[0].exponent+'}'),
+  assert.ok(q.workedSolutionSteps[2].includes(upperMantissa+'\\times10^{'+values[0].exponent+'}'),
    'Worked numerator exponent must match the actual upper mass limit');
   assert.ok(q.workedSolutionSteps[2].includes('/{'+loVolume+'}') || q.workedSolutionSteps[2].includes('}{'+loVolume+'}'),
    'Worked denominator must use the actual limiting lower volume');
