@@ -61,3 +61,25 @@ test('preview replacements have exactly one syntactically keyed choice and 0 app
   assert.equal(q.academicApproved,false);
  }
 });
+
+
+test('48 replacement previews cannot inherit unrelated legacy indicator Daily groups',()=>{
+ const replacementsInPreview=revised.filter(q=>q.reviewDraft);
+ assert.equal(replacementsInPreview.length,48);
+ assert.equal(preview.replacementDiagnosticClassification.legacyIndicatorTagsRemoved,48);
+ assert.equal(preview.replacementDiagnosticClassification.requiresNewDailyConceptGroupMappingBeforeRelease,true);
+ const allowed=new Set(['observation-and-inference','evidence-limits','control-validity','observation-quality','detection-limits','fair-comparison','repeatability','sample-traceability','cross-contamination','lab-safety','nutritional-inference']);
+ for(const q of replacementsInPreview){
+  assert.equal(q.dailyConceptGroup,null,q.id);
+  assert.ok(q.reviewDraft.displacedLegacyDailyConceptGroup.startsWith('bio-y8-food-tests-indicators-'),q.id);
+  assert.equal(q.reviewDraft.dailyConceptMappingStatus,'PENDING_NEW_SKILL_GROUP_REVIEW',q.id);
+  assert.ok(allowed.has(q.reviewDraft.proposedDiagnosticSkill),q.id);
+  assert.equal(q.academicApproved,false,q.id);
+  assert.equal(q.formalCreditEligible,false,q.id);
+ }
+ const lipid=replacementsInPreview.find(q=>q.id==='bio-y8-food-tests-case-20261025-4-14');
+ assert.match(lipid.reviewDraft.displacedLegacyDailyConceptGroup,/reducing-sugar$/);
+ assert.equal(lipid.reviewDraft.proposedDiagnosticSkill,'fair-comparison');
+ const ethanolSafety=replacementsInPreview.find(q=>q.id==='bio-y8-food-tests-case-20261025-4-1');
+ assert.equal(ethanolSafety.reviewDraft.proposedDiagnosticSkill,'lab-safety');
+});
