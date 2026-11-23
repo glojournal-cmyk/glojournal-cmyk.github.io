@@ -1,0 +1,242 @@
+{
+  "kind": "STANDALONE_QA_REPLACEMENT_CANDIDATES_NOT_APPROVED",
+  "date": "2026-11-23",
+  "version": "3.1.2-standard-form-013-016-reasoning-draft",
+  "pr": 306,
+  "sourceBank": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "intendedReplacementIds": [
+    "LUX-MATH-Y9-STANDARD_FORM-013",
+    "LUX-MATH-Y9-STANDARD_FORM-014",
+    "LUX-MATH-Y9-STANDARD_FORM-015",
+    "LUX-MATH-Y9-STANDARD_FORM-016"
+  ],
+  "sourceBankQuestionCount": 200,
+  "sourceBankUnchanged": true,
+  "externalGradeEvidence": "NOT_YET_CALIBRATED",
+  "tgsClassTaughtEvidence": "NOT_VERIFIED",
+  "wrongOptionStudentRealism": "NOT_INDEPENDENTLY_REVIEWED",
+  "releaseDisposition": "HOLD_NO_DAILY_NO_XP_MP_MASTERY",
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-013",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-013-V312-REASONING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-STANDARD_FORM-013-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "sourceDisposition": "PROPOSED_REPLACEMENT_OF_ROUTINE_ARITHMETIC_NUMERIC_ROTATION",
+      "stem": "A monitoring station records $2.4\\times10^{7}$ bytes per minute for $1.5\\times10^{2}$ minutes. Compression reduces the data to 70% of their original size. Each storage drive has a usable capacity of $5.0\\times10^{8}$ bytes. What is the minimum whole number of drives needed?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "5",
+          "errorPath": "Round the required 5.04 drives down rather than up."
+        },
+        {
+          "id": "B",
+          "latex": "6"
+        },
+        {
+          "id": "C",
+          "latex": "8",
+          "errorPath": "Ignore compression and store all 3.6×10^9 original bytes."
+        },
+        {
+          "id": "D",
+          "latex": "3",
+          "errorPath": "Mistake 'reduced to 70%' for 'reduced by 70%', keeping only 30%."
+        },
+        {
+          "id": "E",
+          "latex": "4",
+          "errorPath": "Apply the 70% retention twice instead of once."
+        },
+        {
+          "id": "F",
+          "latex": "51",
+          "errorPath": "Read each drive's 5.0×10^8 capacity as 5.0×10^7, a factor of ten too small."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "6",
+      "workedSolutionSteps": [
+        "The uncompressed data use $(2.4\\times10^7)(1.5\\times10^2)=3.6\\times10^9$ bytes.",
+        "After compression the total is $0.70(3.6\\times10^9)=2.52\\times10^9$ bytes.",
+        "Dividing by $5.0\\times10^8$ gives $5.04$ drives. Five drives cannot hold all the data, so the minimum whole number is $6$."
+      ],
+      "provisionalAOFocus": "AO3 candidate: translate a real capacity constraint, interpret rounding and compression semantics.",
+      "unverifiedTaughtSubskill": "Mixed standard-form multiplication, interpretation of retained percentage and integer upper rounding; school scope needs verification.",
+      "academicQA": "pending",
+      "gradeStatus": "PROVISIONAL_REASONING_NOT_G7PLUS_CERTIFIED",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-014-V312-REASONING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-STANDARD_FORM-014-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "sourceDisposition": "PROPOSED_REPLACEMENT_OF_ROUTINE_ARITHMETIC_NUMERIC_ROTATION",
+      "stem": "A sample's mass is recorded as $3.7\\times10^{5}$ g to 2 significant figures and its volume as $8.0\\times10^{2}$ cm³ to 2 significant figures. Calculate the upper bound for its density in g/cm³, rounded to 3 significant figures and written in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "4.63\\times10^{2}",
+          "errorPath": "Use both reported central measurements, 370000÷800, instead of their bounding values."
+        },
+        {
+          "id": "B",
+          "latex": "4.59\\times10^{2}",
+          "errorPath": "Take the lower bound of mass rather than the upper bound, while still using the lower volume bound."
+        },
+        {
+          "id": "C",
+          "latex": "4.66\\times10^{2}",
+          "errorPath": "Use upper bounds for both mass and volume rather than the lower volume bound."
+        },
+        {
+          "id": "D",
+          "latex": "4.69\\times10^{2}",
+          "errorPath": "Use the upper mass bound but keep the volume at its central reported value."
+        },
+        {
+          "id": "E",
+          "latex": "4.72\\times10^{2}"
+        },
+        {
+          "id": "F",
+          "latex": "4.75\\times10^{2}",
+          "errorPath": "Mistake the lower volume bound as 790 cm³ instead of 795 cm³."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "4.72\\times10^{2}",
+      "workedSolutionSteps": [
+        "Rounding mass $3.7\\times10^5$ g to two significant figures gives the interval $3.65\\times10^5\\le m<3.75\\times10^5$ g.",
+        "Rounding volume $8.0\\times10^2$ cm³ to two significant figures gives $795\\le V<805$ cm³. Density is greatest at the limiting upper mass and lower volume.",
+        "The upper bound is $\\dfrac{3.75\\times10^{5}}{795}=471.698\\ldots$ g/cm³, or $4.72\\times10^2$ g/cm³ to three significant figures."
+      ],
+      "provisionalAOFocus": "AO2 candidate: distinguish bounds from central values and use monotonicity of a positive quotient.",
+      "unverifiedTaughtSubskill": "Upper/lower bounds, inequalities and measured quantities to 2sf must be established as taught at the student's current stage.",
+      "academicQA": "pending",
+      "gradeStatus": "PROVISIONAL_REASONING_NOT_G7PLUS_CERTIFIED",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-015",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-015-V312-REASONING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-STANDARD_FORM-015-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "sourceDisposition": "PROPOSED_REPLACEMENT_OF_ROUTINE_ARITHMETIC_NUMERIC_ROTATION",
+      "stem": "Before processing, a mixture contains $3.2\\times10^{8}$ g of material A and an unknown mass of material B. Processing removes 15% of the total original mass, leaving $6.8\\times10^{8}$ g. What mass of B was added initially? Give your answer in standard form in grams.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "4.8\\times10^{8}"
+        },
+        {
+          "id": "B",
+          "latex": "3.6\\times10^{8}",
+          "errorPath": "Ignore the 15% processing loss and subtract the known mass directly from the final mass."
+        },
+        {
+          "id": "C",
+          "latex": "2.58\\times10^{8}",
+          "errorPath": "Multiply the final mass by 85%, applying the loss again instead of reversing it."
+        },
+        {
+          "id": "D",
+          "latex": "4.62\\times10^{8}",
+          "errorPath": "Add 15% of the final mass to the final mass instead of dividing by 85%."
+        },
+        {
+          "id": "E",
+          "latex": "4.08\\times10^{8}",
+          "errorPath": "Apply the 15% loss only to material A, then subtract that reduced A mass from the final total."
+        },
+        {
+          "id": "F",
+          "latex": "5.3\\times10^{8}",
+          "errorPath": "Mistake the stated loss as 20% and divide the final mass by 80%."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "4.8\\times10^{8}",
+      "workedSolutionSteps": [
+        "If 15% of the original total mass was removed, the recorded final mass is 85% of the original.",
+        "Therefore the original total is $\\dfrac{6.8\\times10^8}{0.85}=8.0\\times10^8$ g.",
+        "Subtract material A: $8.0\\times10^8-3.2\\times10^8=4.8\\times10^8$ g of material B."
+      ],
+      "provisionalAOFocus": "AO3 candidate: set up and invert a conservation relationship; compare incorrect forward versus inverse percentage steps.",
+      "unverifiedTaughtSubskill": "Reverse percentage in a conservation-of-mass model, mixed with Standard Form; confirm exact timing of taught reverse-percent methods.",
+      "academicQA": "pending",
+      "gradeStatus": "PROVISIONAL_REASONING_NOT_G7PLUS_CERTIFIED",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-016",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-016-V312-REASONING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-STANDARD_FORM-016-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "sourceDisposition": "PROPOSED_REPLACEMENT_OF_ROUTINE_ARITHMETIC_NUMERIC_ROTATION",
+      "stem": "A square panel has side length $2.4\\times10^{3}$ mm. A similar larger square panel has a side length $k$ times as long. Its area is $3.6\\times10^{7}$ cm². What is the scale factor $k$? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "6.25\\times10^{2}",
+          "errorPath": "Calculate the ratio of the areas, 625, but forget to take the square root to get the length scale factor."
+        },
+        {
+          "id": "B",
+          "latex": "2.5\\times10^{0}",
+          "errorPath": "Treat 2.4×10^3 mm as if it were 2.4×10^3 cm, omitting the mm-to-cm conversion."
+        },
+        {
+          "id": "C",
+          "latex": "2.5\\times10^{2}",
+          "errorPath": "Convert mm to cm by dividing by 100 rather than by 10."
+        },
+        {
+          "id": "D",
+          "latex": "6\\times10^{3}",
+          "errorPath": "Find the larger panel's side length in centimetres but report that length instead of the scale factor."
+        },
+        {
+          "id": "E",
+          "latex": "2.5\\times10^{1}"
+        },
+        {
+          "id": "F",
+          "latex": "3.75\\times10^{4}",
+          "errorPath": "Treat the given area as a perimeter and divide it by four times the original side length."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "2.5\\times10^{1}",
+      "workedSolutionSteps": [
+        "The original side length is $2.4\\times10^2$ cm, so its area is $(2.4\\times10^2)^2=5.76\\times10^4$ cm².",
+        "The ratio of areas is $\\dfrac{3.6\\times10^7}{5.76\\times10^4}=625$. For similar squares the area ratio is $k^2$.",
+        "Take the positive square root: $k=\\sqrt{625}=25=2.5\\times10^1$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate: connect mixed linear units, square area scaling and inverse square roots.",
+      "unverifiedTaughtSubskill": "Similarity and squared scale factor must be verified as taught before integrating in a Standard Form Daily topic.",
+      "academicQA": "pending",
+      "gradeStatus": "PROVISIONAL_REASONING_NOT_G7PLUS_CERTIFIED",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    }
+  ]
+}
