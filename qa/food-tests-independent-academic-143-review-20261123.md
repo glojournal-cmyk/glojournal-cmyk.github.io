@@ -79,3 +79,13 @@ Direct execution of the actual `B(e,t,n,r)` scoring logic from both QuizSession 
 - Structural completeness, test-key placement and scorer demonstration **do not** establish pupil-facing fairness or evidence of actual TGS teaching sequence.
 
 **Current academic gate: 0/143 approved original questions, 0/48 approved replacement questions, 0/99 approved structured candidate points.** No merge, deployment or historical learner data modifications.
+
+## Round 6 — independent-quality second-pass MCQ revision (QA draft; not sign-off)
+
+A closer read of the [99 structured mark-point choices](food-tests-structured-99-point-review-candidate-20261122.json) found that **point 92** used a vague fire-safety stem in which two options could be relevant. It was tightened to explicitly ask about the ignition hazard of ethanol vapour. Ten further mark-point distractor sets **18, 21, 33, 40–43, 47, 62 and 63** were rewritten to target experiment contamination, independent repeats, extraction, Benedict's heating and emulsion endpoint reasoning. Together with the five earlier rewrites, **16/99 distinct structured candidate choice sets** have now undergone substantive corrections; all **99/99 points remain unapproved**.
+
+The 48-case-replacement draft has likewise been independently reread as a candidate, and four ambiguous stems (F3-01, F4-13, F4-15, F4-16) were improved. **45/48 distractor sets** have undergone a rewrite; the remaining three retained source drafts and all newly rewritten choices still require separate, genuinely independent science answer-key adjudication. Balanced correct-option positions and a scoring test are not substitute evidence of sole-correctness.
+
+The 15 typed variants have explicit 15 correct / 15 incorrect example probes on **both real QuizSession scoring functions**, plus two adversarial double-negation cases. These are bounded AI-authored tests, not a pupil-grade marking-validation sample. A separate cross-topic technical regression is needed before deploying any shared science-scorer change.
+
+**Latest QA-only correction status: source science stems and some synonyms repaired; scoring/fairness sign-off pending, 0/143 Academic approvals, no live scoring or deployment.**
