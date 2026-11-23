@@ -136,7 +136,7 @@ test('re-derive four correct answers from constraints, without trusting stored k
  const maxN=Math.max(...possible);
  assert.equal(maxN,50);
  assert.deepEqual(s029.options.filter(o=>sci(o.latex)===maxN).map(o=>o.id),['C']);
- assert.deepEqual(s029.options.map(o=>sci(o.latex)),[54,41,50,52,55,40]);
+ assert.deepEqual(s029.options.map(o=>sci(o.latex)),[54,41,50,56,55,40]);
  const readings=units(s021.stem);assert.deepEqual(readings,[6e5,4e5]);
  const bound=s021.stem.match(/with \$0\\le p\\le(\d+)\$/);assert.ok(bound);
  const pMax=Number(bound[1]);
