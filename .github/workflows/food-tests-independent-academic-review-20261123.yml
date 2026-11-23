@@ -20,6 +20,8 @@ on:
       - 'qa/food-tests-structured-99-point-review-candidate-20261122.json'
       - 'qa/food-tests-99-concept-collision-review-20261123.json'
       - 'qa/food-tests-297-distractor-first-pass-20261123.json'
+      - 'qa/food-tests-99-semantic-overlap-review-20261123.json'
+      - 'tests/food-tests-99-semantic-overlap-20261123.test.mjs'
       - 'tests/food-tests-297-distractor-first-pass-20261123.test.mjs'
       - 'tests/food-tests-99-concept-collision-20261123.test.mjs'
       - 'tests/food-tests-academic-143-review-20261123.test.mjs'
@@ -42,6 +44,8 @@ on:
       - 'qa/food-tests-structured-99-point-review-candidate-20261122.json'
       - 'qa/food-tests-99-concept-collision-review-20261123.json'
       - 'qa/food-tests-297-distractor-first-pass-20261123.json'
+      - 'qa/food-tests-99-semantic-overlap-review-20261123.json'
+      - 'tests/food-tests-99-semantic-overlap-20261123.test.mjs'
       - 'tests/food-tests-297-distractor-first-pass-20261123.test.mjs'
       - 'tests/food-tests-99-concept-collision-20261123.test.mjs'
       - 'tests/food-tests-academic-143-review-20261123.test.mjs'
@@ -66,6 +70,8 @@ jobs:
         run: node --test tests/food-tests-99-concept-collision-20261123.test.mjs
       - name: Review all 297 MCQ distractors and 45 high-risk individual science rationales without teacher approval
         run: node --test tests/food-tests-297-distractor-first-pass-20261123.test.mjs
+      - name: Check cross-answer semantic overlap families and prevent duplicate-mastery claims in held QA pool
+        run: node --test tests/food-tests-99-semantic-overlap-20261123.test.mjs
       - name: Verify 48 QA-only duplicate replacements are unique and never formally credited
         run: node --test tests/food-tests-48-replacement-candidate-20261123.test.mjs
       - name: Verify 143-row candidate preview retains 95 originals and blocks all scoring
