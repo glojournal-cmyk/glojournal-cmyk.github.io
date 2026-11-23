@@ -1,0 +1,20 @@
+{
+  "commit": "367c773ca38e6c3acb2737b967842fe0fefd77cb",
+  "kind": "chromium-ipad-profile",
+  "not": ["webkit-launch", "physical-ipad-pwa", "academic-qa-approval", "release-approval"],
+  "profile": "fresh browser profile; seeded Daily tasks stayed at progress 0. This does not exercise an existing pupil record.",
+  "route": "/study/biology/practise?year=8&mode=quick&topic=bio-y8-food-tests",
+  "checks": {
+    "fiveNeutralAnswers": true,
+    "finishShowsUnmarkedCompletion": true,
+    "indexedDbUnmarkedCompletedAndNotDeleted": true,
+    "reopenShowsSameCompletion": true,
+    "reopenKeepsDraft": true,
+    "xpMpQuestionsTodayFormalAttemptsAndDailyUnchanged": true,
+    "failedCompletionSaveDoesNotOpenCompletionScreen": true,
+    "failedCompletionSaveDoesNotWriteUnmarkedCompleted": true,
+    "failedCompletionSaveShowsRetryWarning": false
+  },
+  "failedSaveNote": "Forcing the completion write to fail left the last question and Finish button on screen, did not open the completion screen, and did not store unmarkedCompleted. The explicit retry warning was not visible. The per-answer line 'Practice saved. Not a formal mark.' was still visible.",
+  "release": "BLOCKED"
+}
