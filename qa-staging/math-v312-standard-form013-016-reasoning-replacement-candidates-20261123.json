@@ -79,44 +79,44 @@
       "replacesRevisionId": "LUX-MATH-Y9-STANDARD_FORM-014-REVIEW-2",
       "topicId": "math-y9-standard-form",
       "sourceDisposition": "PROPOSED_REPLACEMENT_OF_ROUTINE_ARITHMETIC_NUMERIC_ROTATION",
-      "stem": "A sample's mass is recorded as $3.7\\times10^{5}$ g to 2 significant figures and its volume as $8.0\\times10^{2}$ cm³ to 2 significant figures. Find the limiting upper bound for its density in g/cm³, expressing the limiting value to 3 significant figures in standard form.",
+      "stem": "A mineral sample's mass is recorded as $3.7\\times10^{3}$ g to 2 significant figures and its volume as $8.0\\times10^{2}$ cm³ to 2 significant figures. Find the limiting upper bound for its density in g/cm³, expressing the limiting value to 3 significant figures in standard form.",
       "options": [
         {
           "id": "A",
-          "latex": "4.63\\times10^{2}",
-          "errorPath": "Use both reported central measurements, 370000÷800, instead of their bounding values."
+          "latex": "4.63\\times10^{0}",
+          "errorPath": "Use both reported central measurements, 3700÷800, instead of their bounding values."
         },
         {
           "id": "B",
-          "latex": "4.59\\times10^{2}",
+          "latex": "4.59\\times10^{0}",
           "errorPath": "Take the lower bound of mass rather than the upper bound, while still using the lower volume bound."
         },
         {
           "id": "C",
-          "latex": "4.66\\times10^{2}",
+          "latex": "4.66\\times10^{0}",
           "errorPath": "Use upper bounds for both mass and volume rather than the lower volume bound."
         },
         {
           "id": "D",
-          "latex": "4.69\\times10^{2}",
+          "latex": "4.69\\times10^{0}",
           "errorPath": "Use the upper mass bound but keep the volume at its central reported value."
         },
         {
           "id": "E",
-          "latex": "4.72\\times10^{2}"
+          "latex": "4.72\\times10^{0}"
         },
         {
           "id": "F",
-          "latex": "4.75\\times10^{2}",
+          "latex": "4.75\\times10^{0}",
           "errorPath": "Mistake the lower volume bound as 790 cm³ instead of 795 cm³."
         }
       ],
       "correctOptionId": "E",
-      "correctAnswerLatex": "4.72\\times10^{2}",
+      "correctAnswerLatex": "4.72\\times10^{0}",
       "workedSolutionSteps": [
-        "Rounding mass $3.7\\times10^5$ g to two significant figures gives the interval $3.65\\times10^5\\le m<3.75\\times10^5$ g.",
+        "Rounding mass $3.7\\times10^3$ g to two significant figures gives the interval $3.65\\times10^3\\le m<3.75\\times10^3$ g.",
         "For the density supremum, use the limiting upper mass and the lower volume; the mass upper endpoint is not itself attainable.",
-        "The limiting (unattained) quotient is $\\dfrac{3.75\\times10^{5}}{795}$ g/cm³, approximately 471.698 g/cm³, which is $4.72\\times10^2$ g/cm³ to three significant figures."
+        "The limiting (unattained) quotient is $\\dfrac{3.75\\times10^{5}}{795}$ g/cm³, approximately 4.71698 g/cm³, which is $4.72\\times10^0$ g/cm³ to three significant figures."
       ],
       "provisionalAOFocus": "AO2 candidate: distinguish bounds from central values and use monotonicity of a positive quotient.",
       "unverifiedTaughtSubskill": "Upper/lower bounds, inequalities and measured quantities to 2sf must be established as taught at the student's current stage.",
@@ -238,5 +238,6 @@
       "dailyEligible": false,
       "masteryEligible": false
     }
-  ]
+  ],
+  "stagingSourceEditorialCorrection": "2026-11-23 QA correction: STANDARD_FORM-014 original mass 370000g for 800cm^3 implied ~463 g/cm^3, implausible for an ordinary mineral; revised to 3700g and answer 4.72 g/cm^3 with all six options and explanations consistently rescaled. Source bank 200 untouched, educational approvals remain zero."
 }
