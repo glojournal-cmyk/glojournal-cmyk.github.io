@@ -33,10 +33,10 @@
       "topicId": "bio-y8-food-tests",
       "prompt": "Iodine remains orange-brown in one fresh portion of a drink, but a separate portion gives an orange precipitate after heating with Benedict's. Which conclusion is justified?",
       "options": [
-        "Starch and reducing sugar were both detected.",
+        "Starch was detected; reducing sugar was not detected.",
         "Reducing sugar was detected; starch was not detected.",
-        "Only starch was detected, since iodine stayed brown.",
-        "Neither starch nor reducing sugar was detected."
+        "Neither starch nor reducing sugar was detected because iodine stayed brown.",
+        "Reducing sugar was detected, and the iodine result also confirms starch."
       ],
       "answer": {
         "mode": "choice",
@@ -52,7 +52,8 @@
       "approved": false,
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
-      "sourceStatus": "proposed replacement; not imported"
+      "sourceStatus": "proposed replacement; not imported",
+      "distractorRevisionNote": "Replaced implausible foil with a misconception or evidence-limits foil; independently check all wrong options before approval."
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-2-2",
@@ -63,9 +64,9 @@
       "prompt": "Biuret reagent turns lilac in a sample, while heated Benedict's solution stays blue. Which statement is supported?",
       "options": [
         "Protein was detected, but reducing sugar was not detected.",
-        "Reducing sugar and protein were both detected.",
-        "Starch was detected because Biuret became lilac.",
-        "The lipid concentration must be zero."
+        "Protein and reducing sugar were detected because both reagents were added.",
+        "Protein was not detected, but reducing sugar was detected.",
+        "The blue Benedict's result also indicates reducing sugar when Biuret is lilac."
       ],
       "answer": {
         "mode": "choice",
@@ -81,7 +82,8 @@
       "approved": false,
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
-      "sourceStatus": "proposed replacement; not imported"
+      "sourceStatus": "proposed replacement; not imported",
+      "distractorRevisionNote": "Replaced implausible foil with a misconception or evidence-limits foil; independently check all wrong options before approval."
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-2-3",
@@ -92,8 +94,8 @@
       "prompt": "An extract is tested with iodine and Biuret: iodine becomes blue-black and Biuret turns lilac. No other tests are done. What can be concluded?",
       "options": [
         "All four nutrient groups were detected.",
-        "Only starch was detected.",
-        "Reducing sugar and lipid must both be absent.",
+        "Only starch was detected because lilac is a negative Biuret colour.",
+        "Starch and protein were detected, but the untested sugar and lipid must also be absent.",
         "Starch and protein were detected; reducing sugar and lipid remain untested."
       ],
       "answer": {
@@ -110,7 +112,8 @@
       "approved": false,
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
-      "sourceStatus": "proposed replacement; not imported"
+      "sourceStatus": "proposed replacement; not imported",
+      "distractorRevisionNote": "Replaced implausible foil with a misconception or evidence-limits foil; independently check all wrong options before approval."
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-2-4",
@@ -120,10 +123,10 @@
       "topicId": "bio-y8-food-tests",
       "prompt": "A food extract gives a green Benedict's result after the prescribed water-bath heating; the water blank remains blue. How should this be recorded?",
       "options": [
-        "A green result proves there is no reducing sugar.",
-        "The food must contain starch because Benedict's turned green.",
+        "A green result means no reducing sugar because only brick-red is positive.",
+        "Green and blue are both negative because the tube did not become brick-red.",
         "The food extract tested positive for reducing sugar.",
-        "The water blank tested positive for protein."
+        "The blue water blank makes a green sample result unreliable."
       ],
       "answer": {
         "mode": "choice",
@@ -139,7 +142,8 @@
       "approved": false,
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
-      "sourceStatus": "proposed replacement; not imported"
+      "sourceStatus": "proposed replacement; not imported",
+      "distractorRevisionNote": "Replaced implausible foil with a misconception or evidence-limits foil; independently check all wrong options before approval."
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-2-5",
@@ -236,10 +240,10 @@
       "topicId": "bio-y8-food-tests",
       "prompt": "A clear ethanol extract becomes cloudy white when added to water, while a correctly prepared ethanol-water blank stays clear. What is supported?",
       "options": [
-        "Protein was detected because the extract went white.",
-        "Starch was detected because the blank stayed clear.",
+        "The emulsion was negative because the ethanol extract was initially clear.",
+        "The cloudy result identifies protein rather than lipid.",
         "Lipid was detected in the sample.",
-        "No lipid was detected because the ethanol extract had first been clear."
+        "A clear water blank confirms that the food contains reducing sugar."
       ],
       "answer": {
         "mode": "choice",
@@ -255,7 +259,8 @@
       "approved": false,
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
-      "sourceStatus": "proposed replacement; not imported"
+      "sourceStatus": "proposed replacement; not imported",
+      "distractorRevisionNote": "Replaced implausible foil with a misconception or evidence-limits foil; independently check all wrong options before approval."
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-2-9",
@@ -439,9 +444,9 @@
       "topicId": "bio-y8-food-tests",
       "prompt": "A properly heated Benedict's test gives yellow precipitate. A separate, correctly performed emulsion test stays clear. Which statement is supported?",
       "options": [
-        "Lipid was detected, but reducing sugar was not.",
-        "Both tests were negative.",
-        "The two tests together prove the food contains no protein.",
+        "Reducing sugar was absent because the Benedict's precipitate was yellow rather than brick-red.",
+        "Lipid was detected because the ethanol-water mixture remained clear.",
+        "A positive Benedict's colour means the lipid result must also be positive.",
         "Reducing sugar was detected; lipid was not detected."
       ],
       "answer": {
@@ -458,7 +463,8 @@
       "approved": false,
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
-      "sourceStatus": "proposed replacement; not imported"
+      "sourceStatus": "proposed replacement; not imported",
+      "distractorRevisionNote": "Replaced implausible foil with a misconception or evidence-limits foil; independently check all wrong options before approval."
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-2-16",
@@ -497,10 +503,10 @@
       "topicId": "bio-y8-food-tests",
       "prompt": "When comparing iodine tests on samples taken from two different bread types, which control makes the comparison fairer?",
       "options": [
-        "Use more iodine on the bread expected to contain more starch.",
+        "Use the same number of crumbs without checking their masses.",
         "Measure the same mass of each bread sample.",
-        "Use a larger piece of the darker bread.",
-        "Compare one wet crumb with one dry whole loaf."
+        "Add more iodine to the bread expected to contain less starch.",
+        "Choose pieces that look equally dark even if their masses differ."
       ],
       "answer": {
         "mode": "choice",
@@ -517,7 +523,8 @@
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
       "sourceStatus": "proposed replacement; not imported",
-      "reviewIssueResolvedInDraft": "Original draft already said 'equal portions', making the keyed 'measure the same mass' action redundant."
+      "reviewIssueResolvedInDraft": "Original draft already said 'equal portions', making the keyed 'measure the same mass' action redundant.",
+      "distractorRevisionNote": "Replaced implausible foil with a misconception or evidence-limits foil; independently check all wrong options before approval."
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-3-2",
@@ -528,9 +535,9 @@
       "prompt": "Two food extracts are compared by heating each with Benedict's solution. Which reagent condition should be controlled?",
       "options": [
         "Add the same measured volume of Benedict's solution to each equal sample volume.",
-        "Use twice as much Benedict's solution in the sample expected to be sweeter.",
-        "Dilute one tube until its colour matches the other.",
-        "Add reagent only to the sample that looks cloudy."
+        "Keep the total liquid volume similar by diluting only one food extract.",
+        "Add more Benedict's reagent to the food expected to contain more sugar.",
+        "Adjust reagent volume until the two tubes reach a similar colour."
       ],
       "answer": {
         "mode": "choice",
@@ -546,7 +553,8 @@
       "approved": false,
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
-      "sourceStatus": "proposed replacement; not imported"
+      "sourceStatus": "proposed replacement; not imported",
+      "distractorRevisionNote": "Replaced implausible foil with a misconception or evidence-limits foil; independently check all wrong options before approval."
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-3-3",
@@ -644,9 +652,9 @@
       "prompt": "A food gives a faint starch colour in one iodine trial. Which design best tests repeatability?",
       "options": [
         "Repeat on fresh equal-sized portions using the same iodine volume and procedure.",
-        "Record the same tube three times as three independent trials.",
-        "Keep changing the iodine quantity until a dark colour appears.",
-        "Use a different food for each repeated observation."
+        "Look at the same tube several times and count these as independent repeat tests.",
+        "Use fresh portions but change the iodine volume until the results agree.",
+        "Repeat on different foods rather than on the food with the doubtful result."
       ],
       "answer": {
         "mode": "choice",
@@ -662,7 +670,8 @@
       "approved": false,
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
-      "sourceStatus": "proposed replacement; not imported"
+      "sourceStatus": "proposed replacement; not imported",
+      "distractorRevisionNote": "Replaced implausible foil with a misconception or evidence-limits foil; independently check all wrong options before approval."
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-3-7",
@@ -672,9 +681,9 @@
       "topicId": "bio-y8-food-tests",
       "prompt": "Which material is a suitable negative control for a Biuret protein test?",
       "options": [
-        "A dissolved egg-white sample.",
-        "Milk diluted with a little water.",
-        "A known albumin protein standard.",
+        "A dilute egg-white solution prepared to make the purple colour faint.",
+        "A sugar solution made with milk, which contains some protein.",
+        "A known protein solution made from albumen.",
         "Distilled water with the usual amount of Biuret reagent."
       ],
       "answer": {
@@ -691,7 +700,8 @@
       "approved": false,
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
-      "sourceStatus": "proposed replacement; not imported"
+      "sourceStatus": "proposed replacement; not imported",
+      "distractorRevisionNote": "Replaced implausible foil with a misconception or evidence-limits foil; independently check all wrong options before approval."
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-3-8",
@@ -730,10 +740,10 @@
       "topicId": "bio-y8-food-tests",
       "prompt": "To confirm that iodine reagent can detect starch, which positive-control sample should be used?",
       "options": [
-        "Distilled water without starch.",
+        "A glucose solution that gives a positive Benedict's test.",
         "A known starch suspension or solution.",
-        "Pure vegetable oil.",
-        "A glucose solution with no starch."
+        "Distilled water that is known to give a negative iodine result.",
+        "A vegetable-oil sample that gives a positive lipid test."
       ],
       "answer": {
         "mode": "choice",
@@ -749,7 +759,8 @@
       "approved": false,
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
-      "sourceStatus": "proposed replacement; not imported"
+      "sourceStatus": "proposed replacement; not imported",
+      "distractorRevisionNote": "Replaced implausible foil with a misconception or evidence-limits foil; independently check all wrong options before approval."
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-3-10",
@@ -760,9 +771,9 @@
       "prompt": "Which negative control should remain orange-brown when iodine is added?",
       "options": [
         "Distilled water containing no starch.",
-        "A known starch suspension.",
-        "Mashed potato known to contain starch.",
-        "A bread extract already confirmed starch-positive."
+        "Potato extract known to turn iodine blue-black.",
+        "Glucose dissolved in a starch-containing suspension.",
+        "Bread flour that is known to contain starch."
       ],
       "answer": {
         "mode": "choice",
@@ -778,7 +789,8 @@
       "approved": false,
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
-      "sourceStatus": "proposed replacement; not imported"
+      "sourceStatus": "proposed replacement; not imported",
+      "distractorRevisionNote": "Replaced implausible foil with a misconception or evidence-limits foil; independently check all wrong options before approval."
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-3-11",
@@ -817,10 +829,10 @@
       "topicId": "bio-y8-food-tests",
       "prompt": "Which negative control should normally remain blue after suitable heating with Benedict's solution?",
       "options": [
-        "A known glucose solution mixed with Benedict's solution.",
-        "A fruit juice already shown to contain glucose.",
+        "A dilute glucose standard prepared to produce a weaker positive colour.",
+        "A concentrated glucose solution used as a positive control.",
         "Distilled water mixed with Benedict's solution.",
-        "A reducing-sugar standard known to give an orange precipitate."
+        "Fruit juice known to contain reducing sugar."
       ],
       "answer": {
         "mode": "choice",
@@ -836,7 +848,8 @@
       "approved": false,
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
-      "sourceStatus": "proposed replacement; not imported"
+      "sourceStatus": "proposed replacement; not imported",
+      "distractorRevisionNote": "Replaced implausible foil with a misconception or evidence-limits foil; independently check all wrong options before approval."
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-3-13",
@@ -876,9 +889,9 @@
       "prompt": "Which properly prepared negative control is most appropriate for the ethanol emulsion test?",
       "options": [
         "Ethanol and water without food or added lipid.",
-        "Vegetable oil shaken with ethanol and diluted in water.",
-        "A milk-fat extract transferred to water.",
-        "A known lipid sample prepared beside the unknown."
+        "Ethanol and water deliberately mixed with a few drops of vegetable oil.",
+        "A milk-fat extract added to water after shaking with ethanol.",
+        "A positive lipid control used alongside the unknown extract."
       ],
       "answer": {
         "mode": "choice",
@@ -894,7 +907,8 @@
       "approved": false,
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
-      "sourceStatus": "proposed replacement; not imported"
+      "sourceStatus": "proposed replacement; not imported",
+      "distractorRevisionNote": "Replaced implausible foil with a misconception or evidence-limits foil; independently check all wrong options before approval."
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-3-15",
@@ -1252,9 +1266,9 @@
       "topicId": "bio-y8-food-tests",
       "prompt": "Equal volumes of two extracts are tested with equal Benedict's reagent and identical heating. One is green and one brick-red. What can be said?",
       "options": [
-        "Green is a stronger positive than brick-red under the same conditions.",
-        "The colour proves the exact mass of glucose in each food.",
-        "The results show which food contains more protein.",
+        "Both extracts contain the same sugar concentration because they both changed colour.",
+        "The green sample has more sugar because green is a stronger positive Benedict's result.",
+        "The brick-red colour proves the exact concentration of glucose in the original sample.",
         "Brick-red suggests a higher reducing-sugar level, but not an exact concentration."
       ],
       "answer": {
@@ -1271,7 +1285,8 @@
       "approved": false,
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
-      "sourceStatus": "proposed replacement; not imported"
+      "sourceStatus": "proposed replacement; not imported",
+      "distractorRevisionNote": "Replaced implausible foil with a misconception or evidence-limits foil; independently check all wrong options before approval."
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-4-12",
@@ -1281,10 +1296,10 @@
       "topicId": "bio-y8-food-tests",
       "prompt": "An unknown sample gives four negative food tests while positive and negative controls behave correctly. Which conclusion is justified?",
       "options": [
-        "The sample is proved to contain no nutrients of any kind.",
-        "The sample must be pure water.",
+        "Every nutrient, including vitamins and minerals, was absent.",
+        "The negative results establish that the sample was pure distilled water.",
         "None of the four targeted groups was detected; other nutrients might still be present.",
-        "The sample cannot contain any dissolved molecules."
+        "A negative Biuret result also establishes that glucose was not present."
       ],
       "answer": {
         "mode": "choice",
@@ -1300,7 +1315,8 @@
       "approved": false,
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
-      "sourceStatus": "proposed replacement; not imported"
+      "sourceStatus": "proposed replacement; not imported",
+      "distractorRevisionNote": "Replaced implausible foil with a misconception or evidence-limits foil; independently check all wrong options before approval."
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-4-13",
@@ -1341,9 +1357,9 @@
       "prompt": "An ethanol extract is cloudy before water is added. Which evidence is still needed to judge a lipid emulsion test?",
       "options": [
         "A clean, clear extract that becomes cloudy on addition to water, with a clear blank.",
-        "A cloudy result before dilution is sufficient proof on its own.",
-        "A purple Biuret result can substitute for the lipid emulsion endpoint.",
-        "A heated Benedict's result tells whether lipid was extracted."
+        "The initial cloudiness is already the positive endpoint, so adding water is unnecessary.",
+        "The original cloudiness proves that no lipid was dissolved in ethanol.",
+        "Initial cloudiness is sufficient to estimate how much fat the sample contains."
       ],
       "answer": {
         "mode": "choice",
@@ -1359,7 +1375,8 @@
       "approved": false,
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
-      "sourceStatus": "proposed replacement; not imported"
+      "sourceStatus": "proposed replacement; not imported",
+      "distractorRevisionNote": "Replaced implausible foil with a misconception or evidence-limits foil; independently check all wrong options before approval."
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-4-15",
@@ -1369,9 +1386,9 @@
       "topicId": "bio-y8-food-tests",
       "prompt": "A packaged drink is advertised as sweet, but the iodine test stays orange-brown. Which statement is justified?",
       "options": [
-        "A sweet taste proves starch is present despite the iodine result.",
-        "The iodine result proves glucose is absent.",
-        "Orange-brown iodine is a positive test for reducing sugar.",
+        "The negative iodine reaction means no carbohydrate, including dissolved sugar, is present.",
+        "The sweet product label means that starch must be present despite the iodine result.",
+        "The negative iodine result proves that reducing sugar cannot be present.",
         "Starch was not detected; sweetness alone cannot determine which sugars are present."
       ],
       "answer": {
@@ -1389,7 +1406,8 @@
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
       "sourceStatus": "proposed replacement; not imported",
-      "reviewIssueResolvedInDraft": "The original referred to someone tasting the practical sample, risking unsafe practice interpretation."
+      "reviewIssueResolvedInDraft": "The original referred to someone tasting the practical sample, risking unsafe practice interpretation.",
+      "distractorRevisionNote": "Replaced implausible foil with a misconception or evidence-limits foil; independently check all wrong options before approval."
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-4-16",
@@ -1399,10 +1417,10 @@
       "topicId": "bio-y8-food-tests",
       "prompt": "Biuret reagent turns lilac when added to a food extract. Which claim goes beyond what this one test can establish?",
       "options": [
-        "The Biuret test gave a positive result for protein.",
-        "A change from blue to lilac is consistent with protein being present.",
+        "The Biuret result provides qualitative evidence that protein is present.",
+        "Lilac or purple is a positive colour in the Biuret test.",
         "The exact amount and identity of every protein in the food.",
-        "The observation is qualitative evidence of protein in the tested sample."
+        "The positive result does not itself provide a precise protein concentration."
       ],
       "answer": {
         "mode": "choice",
@@ -1419,25 +1437,40 @@
       "formalCreditEligible": false,
       "curriculumReview": "TGS taught scope pending",
       "sourceStatus": "proposed replacement; not imported",
-      "reviewIssueResolvedInDraft": "The old 'what conclusion cannot be made' could also be read as excluding an unrelated methodological statement about needing an iodine test."
+      "reviewIssueResolvedInDraft": "The old 'what conclusion cannot be made' could also be read as excluding an unrelated methodological statement about needing an iodine test.",
+      "distractorRevisionNote": "Replaced implausible foil with a misconception or evidence-limits foil; independently check all wrong options before approval."
     }
   ],
-  "revision": "2026-11-23-r3-ambiguity-remediation",
+  "revision": "2026-11-23-r4-misconception-distractors",
   "rewrittenDistractorSets": [
+    1,
+    2,
+    3,
+    4,
     5,
     6,
     7,
+    8,
     10,
     11,
     12,
     13,
     14,
+    15,
+    17,
+    18,
     19,
     20,
     21,
+    22,
+    23,
     24,
+    25,
+    26,
     27,
+    28,
     29,
+    30,
     31,
     32,
     33,
@@ -1449,9 +1482,14 @@
     39,
     40,
     41,
-    45
+    43,
+    44,
+    45,
+    46,
+    47,
+    48
   ],
-  "reviewWarning": "26 sets rewritten to remove nonsensical distractors; all 48 four-option records still require independent scientific and classroom-level sole-answer adjudication.",
+  "reviewWarning": "All draft distractors, including 45 revised groups, require independent scientific sole-correctness and plausibility adjudication; correct-key-position balance does not constitute approval.",
   "qaOnlyAmbiguityRemediations": [
     "bio-y8-food-tests-case-20261025-3-1",
     "bio-y8-food-tests-case-20261025-4-13",
