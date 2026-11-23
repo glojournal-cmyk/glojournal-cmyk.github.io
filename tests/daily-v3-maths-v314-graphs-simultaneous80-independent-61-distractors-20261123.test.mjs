@@ -189,3 +189,46 @@ test('22 source-specific revised explanation candidates retain 132 exact A-F mat
  const reassessed=simultaneous.map(q=>replacements.get(q.sourceId)||q);
  assert.equal(auditSimultaneous40(reassessed).length,40);
 });
+
+
+test('24 previous retain candidates receive an independent challenge-demand screen without silently approving routine AO1 steps',()=>{
+ const grade=read('math-v314-prior24-retain-grade-demand-reclassification-20261123.json');
+ assert.equal(grade.kind,'MATHS_V314_24_FORMER_RETAIN_G7PLUS_PEDAGOGICAL_CHALLENGE_SCREEN_ALL_HOLD');
+ assert.equal(grade.sourceUnmodified,true);
+ assert.equal(grade.rows.length,24);
+ assert.equal(grade.totals.previousRetainCandidates,24);
+ assert.equal(grade.totals.plainGraphsMultiStepNoDemonstratedG7Plus,16);
+ assert.equal(grade.totals.ticketsWithContextButDemandUnproved,4);
+ assert.equal(grade.totals.parameterCaseReviewable,4);
+ assert.equal(grade.totals.questionGrade7PlusIndependentlyApproved,0);
+ assert.equal(grade.totals.learnerCreditApproved,0);
+ assert.equal(grade.schoolPDF,'SKIPPED_PER_PARENT_INSTRUCTION');
+ assert.ok(grade.referenceFramework.AQA_GCSE_8300_AO.includes('aqa.org.uk'));
+ const derived=new Map([...auditGraphSource40(graphs),...auditSimultaneous40(simultaneous)].map(x=>[x.sourceId,x]));
+ const source=new Map([...graphs,...simultaneous].map(x=>[x.sourceId,x]));
+ const seen=new Set();
+ for(const row of grade.rows){
+  const q=source.get(row.sourceId),res=derived.get(row.sourceId);
+  const old=triage.rows.find(x=>x.id===row.sourceId);
+  assert.ok(q&&res&&old);
+  assert.ok(!seen.has(row.sourceId));seen.add(row.sourceId);
+  assert.equal(old.triageAction,'RETAIN_FOR_EXTERNAL_BENCHMARK');
+  assert.equal(q.stem,row.sourceStem);
+  assert.equal(q.revisionId,row.sourceRevisionId);
+  assert.equal(row.confirmedCorrectOption,q.correctOptionId);
+  assert.equal(row.confirmedCorrectOption,res.key);
+  assert.ok(close(row.confirmedNumericalAnswer,res.expected??res.answer));
+  assert.equal(row.independentQuestionGrade7PlusCertified,false);
+  assert.equal(row.actualTeachingConfirmed,false);
+  assert.equal(row.independentMisconceptionsCertified,false);
+  assert.equal(row.independentConceptCreditCertified,false);
+  assert.equal(row.academicDecision,'HOLD');
+  assert.equal(row.dailyEligible,false);
+  assert.equal(row.masteryEligible,false);
+  assert.ok(row.reasonFromActualQuestionStructure.length>90);
+  if(row.sourceId.includes('GRAPHS'))assert.equal(row.secondPassPedagogicalAction,'ROUTINE_MULTISTEP_G7PLUS_DEMAND_NOT_ESTABLISHED');
+  else if(Number(row.sourceId.slice(-3))<=8)assert.equal(row.secondPassPedagogicalAction,'MODELLING_CONTEXT_AO3_POSSIBLE_G7PLUS_DEMAND_NOT_ESTABLISHED');
+  else assert.equal(row.secondPassPedagogicalAction,'PROVISIONAL_PARAMETER_CASE_REASONING_RETAIN_FOR_INDEPENDENT_BENCHMARK');
+ }
+ assert.equal(seen.size,24);
+});
