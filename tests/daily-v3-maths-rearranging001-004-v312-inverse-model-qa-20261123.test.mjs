@@ -162,10 +162,10 @@ function prove(q){
   assert.ok(!near(p*d,q0),'Would be constant and noninvertible');
   const samples=[-10,-5,-3,-1,0,1,2,4,11];
   for(const o of options){
-   const declared=domainSimple(o.condition);
    if(o.letter==='F'){
     assert.ok(o.condition.replace(/\s/g,'')==='y>3');
    }else{
+    const declared=domainSimple(o.condition);
     assert.equal(declared.kind,'excluded');
     const intended=o.letter==='D'?y1:o.letter==='E'?y2:p;
     assert.ok(near(declared.value,intended),'Q2 '+o.letter+' false excluded y origin');
