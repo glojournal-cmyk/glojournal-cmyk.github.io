@@ -1,6 +1,6 @@
 {
   "type": "Food Tests independent academic content QA register (AI-assisted, NOT qualified teacher approval)",
-  "revision": "2026-11-23-r4-typed-synonyms-and-double-negative-defence",
+  "revision": "2026-11-23-r5-typed-15-and-safety-point-92",
   "basis": "Draft PR #308, source academic repairs 0e5d1a6 and 21c437f (QA-only)",
   "topic": "bio-y8-food-tests",
   "sourcePath": "content/topics/bio-y8-food-tests.json",
@@ -85,7 +85,8 @@
       39,
       45,
       72,
-      75
+      75,
+      92
     ],
     "issuesAreHistoricalFindings": true,
     "replacementDraft": {
@@ -127,7 +128,10 @@
       "twoQuizBundleExpectations": "all must pass",
       "reviewStatus": "AI-authored probes; independent teacher, unseen answers, iPad pending",
       "formalApprovals": 0
-    }
+    },
+    "multiplePlausibleSafetyOptionsCorrectedInQADraft": [
+      92
+    ]
   },
   "unresolvedFormalScoringEvidence": [
     {
@@ -6755,16 +6759,16 @@
       "ordinal": 92,
       "pointId": "bio-y8-food-tests-application-20261025-safe-bunsen::p1",
       "sourceId": "bio-y8-food-tests-application-20261025-safe-bunsen",
-      "stem": "Which property of ethanol vapour matters when a burner is nearby?",
+      "stem": "Which property of ethanol vapour creates the direct fire hazard if it reaches a naked flame?",
       "keyedChoice": "It can ignite",
       "distractors": [
-        "It condenses on cold glass",
-        "It can form when ethanol evaporates",
-        "It can mix with air without being seen"
+        "It can condense into liquid droplets on a cool surface",
+        "It can carry some dissolved ethanol away from an open container",
+        "It can become more dilute when mixed with surrounding air"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "NOT_INDEPENDENTLY_SIGNED_OFF",
-      "concern": null,
+      "distractorQuality": "REWRITTEN_AFTER_MULTIPLE_PLAUSIBLE_SAFETY_ANSWERS",
+      "concern": "Original 'which property matters' stem allowed more than one safety-relevant correct-sounding response (flammability or mixing into air). New direct-ignition wording narrows intended evidence; independently re-adjudicate all four choices.",
       "approved": false
     },
     {
