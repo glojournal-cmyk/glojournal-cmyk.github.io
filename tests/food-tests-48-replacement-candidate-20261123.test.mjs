@@ -104,3 +104,25 @@ test('equal-glucose extracts fair-temperature comparison contains no hidden conc
  assert.equal(q.approved,false);
  assert.equal(q.formalCreditEligible,false);
 });
+
+
+test('two cross-bank duplicate candidates now demand different practical reasoning than the 99-point pool',()=>{
+ const c=new Map(replacements.map(q=>[q.sourceId,q]));
+ const berry=c.get('bio-y8-food-tests-case-20261025-3-7');
+ const repeats=c.get('bio-y8-food-tests-case-20261025-4-11');
+ assert.match(berry.prompt,/already purple before Biuret/i);
+ assert.match(berry.answer.accepted[0],/pigment may mask a Biuret colour change/i);
+ assert.doesNotMatch(berry.prompt,/suitable negative control/i);
+ assert.match(repeats.prompt,/Two tubes turn orange, but one remains blue/i);
+ assert.match(repeats.answer.accepted[0],/Record all results.*repeat with fresh portions/i);
+ assert.doesNotMatch(repeats.prompt,/brick-red/i);
+ for(const q of [berry,repeats]){
+  assert.equal(q.correctIndex,3);
+  assert.equal(q.options[q.correctIndex],q.answer.accepted[0]);
+  assert.equal(q.approved,false);
+  assert.equal(q.formalCreditEligible,false);
+  assert.equal(q.distractorReview,'pending');
+ }
+ assert.deepEqual(draft.crossPoolDuplicateReview.resolvedCandidates,[berry.sourceId,repeats.sourceId]);
+ assert.equal(draft.crossPoolDuplicateReview.academicApprovals,0);
+});
