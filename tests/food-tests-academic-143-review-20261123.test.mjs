@@ -147,7 +147,14 @@ test('publish gate remains blocked with no teacher or iPad release permission',(
   'bio-y8-food-tests-application-20261025-sugar-strength',
   'bio-y8-food-tests-application-20261025-all-negative'
  ]);
- assert.equal(qa.summary.structuredPointsRevisedAwaitingIndependentAssessment.length,5);
+ assert.deepEqual(qa.summary.structuredPointsRevisedAwaitingIndependentAssessment,
+  [32,39,45,72,75,92]);
+ const vapour=draft.items.flatMap(item=>item.parts)[91];
+ assert.match(vapour.stem,/direct fire hazard/);
+ assert.equal(vapour.options.find(o=>o.id===vapour.correctOptionId).text,'It can ignite');
+ assert.equal(vapour.options.length,4);
+ assert.ok(vapour.options.every(o=>!/mix with air without being seen/i.test(o.text)),
+   'multiple plausible safety options should be absent');
  assert.equal(proposal.appliedStructuredPointIndices.length,5);
  const sugar=original.find(q=>q.id==='bio-y8-food-tests-application-20261025-sugar-strength');
  assert.match(sugar.prompt,/equal volumes of food extract/i);
