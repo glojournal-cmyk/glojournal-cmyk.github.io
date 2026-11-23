@@ -43,3 +43,12 @@ Therefore, the following claims remain **NOT verified**:
 - formal completed-green GitHub Actions and real iPad WebKit/PWA reopens, storage/recovery and credit safety.
 
 **Safety conclusion:** 200/200 revised items still \`dailyEligible:false\`, 0/200 formal Grade7+ academic approvals and no changes to student Daily/XP/MP/Mastery. PR #306 remains Draft; no merge/deploy. The priority **for the next academic revision** is to replace or supplement selected repeated template families with distinct taught Grade7+ reasoning opportunities, followed by one-to-one student-error plausibility and independent teacher/class review; do not simply rename a repeated arithmetic variant as a new Mastery concept.
+
+
+## Additional no-number-only-repeat Draft selector defense
+
+The live selector source on the QA branch `assets/math-study/daily-v31-selector.js` was inspected. It **already** rejects duplicate signed `templateId`, signed `conceptFamilyId` and original-equation collisions within a day, and uses history for recent-family avoidance. That is sound; this review does **not** claim that the existing selector had no duplicate checks.
+
+As an additional fail-closed defense against accidentally assigning **different labels** to a near-identical numeric version of the same question, the **Draft** selector now computes a number-neutral visible stem key from the approved question's `stemLatex` (fallback `stem`) and its topic. It disallows two matching keys both within the pair for one topic and across all 10 questions; final candidate checks repeat the condition. The check does not invent a `conceptFamilyId`, approve any question, or replace the independent concept reviewer. Synthetic older fixtures lacking any stem remain subject to existing template/concept checks without fabricated patterns.
+
+The existing `tests/daily-v3-maths-selector-20261122.test.mjs` was extended with two adversarial tests: (1) artificially unique editorial template/concept labels cannot make 40 number-only copies per topic a valid 10-question Daily; (2) ten substantively different signatures per topic are not accidentally blocked. Both pass. All **nine** tests in the committed selector test file pass in the independent V8 harness after the branch changes. This still does **not** constitute an official GitHub Actions or iPad PWA pass. **No learner-facing deployment, Live Daily selection, source question approval or scoring state was altered.**
