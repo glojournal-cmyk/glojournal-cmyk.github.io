@@ -88,3 +88,19 @@ test('one already-used ID is not recycled to make artificial ten without indepen
  assert.equal(result.ready,false);
  assert.equal(result.questions.length,0);
 });
+
+test('adversarial renaming of editorial template and concept labels cannot hide forty copies of one number-only stem per topic',()=>{
+ const bad=fixture.map((q,i)=>({...q,
+  templateId:'arbitrary-template-'+q.id,conceptFamilyId:'fake-independent-family-'+q.id,
+  stemLatex:'Evaluate $x^{'+String((i%5)+2)+'}+3$ as an exact answer.'}));
+ const result=selectMathsV31Daily({approvedQuestions:bad,day:'2026-11-23'});
+ assert.equal(result.ready,false,'cannot assemble two mathematically identical stem shapes per topic');
+ assert.equal(result.questions.length,0);
+});
+test('different substantive stem wording remains selectable with signed distinct templates and family IDs',()=>{
+ const vocabulary=['alpha','beta','gamma','delta','epsilon','zeta','eta','theta','iota','kappa'];
+ const good=fixture.map((q,i)=>({...q,stemLatex:'Solve the '+vocabulary[i%10]+' maths situation for y'}));
+ const result=selectMathsV31Daily({approvedQuestions:good,day:'2026-11-23'});
+ assert.equal(result.ready,true,result.issues?.join(','));
+ assert.equal(new Set(result.questions.map(q=>q.stemLatex.toLowerCase().replace(/\d+/g,'#')+q.topicId)).size,10);
+});
