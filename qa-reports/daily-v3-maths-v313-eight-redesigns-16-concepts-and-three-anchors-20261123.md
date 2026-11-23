@@ -8,7 +8,7 @@
 - Thirty older V3.1.2 alternatives and their 30-item ledger retained unchanged (0/30 independently signed off).
 - Eight NEW V3.1.3 replacements: [source file](../qa-staging/math-v313-eight-grade-demand-redesign-candidates-20261123.json), Git blob `85ae5991c94fadfb09489dcdd8ef9f3f0a2b91a1`, superseding eight older V3.1.2 *candidate versions*, **not** importing or changing the 200 source.
 - Sixteen source-exact original rearranging records: [four-group provisional concept disposition](../qa-staging/math-v313-rearranging025-040-concept-consolidation-no-credit-20261123.json), Git blob `0a1de4378b3c88198166e02934f9d556e56e313d`.
-- Three source-linked distinct technique anchors: [029,033,037 alternatives](../qa-staging/math-v313-rearranging029-033-037-distinct-anchor-candidates-20261123.json), Git blob `c1f7f65a6d96453b3a4b418dfb1a7d083cbd393f`.
+- Three source-linked distinct technique anchors: [029,033,037 alternatives](../qa-staging/math-v313-rearranging029-033-037-distinct-anchor-candidates-20261123.json), Git blob `7b3635eddbd4df63319a11147065f86409ea70dc`.
 
 No user progress was read, overwritten, backdated, replayed or awarded. **NO MERGE / NO DEPLOY.** The Tiffin Girls Year 9 curriculum PDF was **intentionally NOT fetched**, following the parent's explicit instruction.
 
@@ -60,3 +60,7 @@ Three anchor drafts contain 18 options and 15 error-route explanations. In direc
 - Current `main` Food Tests and numeric marking repairs must be preserved. Do not force-merge the Draft PR.
 
 **Next substantive QA wave:** independently calibrate grade demand for the 11 drafts, check conceptual overlap in the eight candidate group, and continue high-value Graphs and Simultaneous candidate improvement without assigning credit before evidence.
+
+## CI fault correction (23 November)
+
+The first GitHub Actions run with the new three-anchor QA ([45246551731](https://github.com/glojournal-cmyk/glojournal-cmyk.github.io/actions/runs/45246551731)) failed because one worked-solution line of Q033 contained no MathML despite the stricter renderer test requiring a math fragment in every worked line. The *QA-only* source was corrected to format `$y=2$`, `$x=-1$`, and `$y=1$` as maths. Direct native offline parsing subsequently confirmed 30/30 fields. Check [follow-up CI run 45246942267](https://github.com/glojournal-cmyk/glojournal-cmyk.github.io/actions/runs/45246942267) for official status; the direct renderer success must not be conflated with full CI, classroom Grade7+ or real iPad approval.
