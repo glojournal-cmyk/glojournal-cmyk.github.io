@@ -80,7 +80,7 @@ test('40 revised straight-line graph stems: independently compute answer from or
   assert.ok(near(computed,key),q.sourceId+' wrong candidate answer: expected '+computed+' got '+key);
   assert.equal(q.options.length,6);
   const vals=q.options.map(o=>[o.id,numberAt(o.latex)]);
-  assert.ok(vals.every((a,i)=>vals.every((b,j)=>i===j||!near(a[1],b[1])),
+  assert.ok(vals.every((a,i)=>vals.every((b,j)=>i===j||!near(a[1],b[1]))),
     q.sourceId+' numerically equivalent A-F options');
   assert.equal(vals.filter(([id,v])=>near(v,computed)).length,1,
     q.sourceId+' has multiple correct or no correct alternatives');
