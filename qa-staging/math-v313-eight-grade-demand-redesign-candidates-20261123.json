@@ -1,0 +1,501 @@
+{
+  "kind": "STANDALONE_V313_EIGHT_AO2_AO3_MATHS_REDESIGN_DRAFT_NO_APPROVAL",
+  "date": "2026-11-23",
+  "pr": 306,
+  "sourceBankPath": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "sourceBankQuestionCount": 200,
+  "sourceBankUnchanged": true,
+  "priorV312CandidateStatus": "RETAIN_OLD_V312_PACKS_UNCHANGED_ALL_HOLD",
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-006",
+      "revisionId": "LUX-MATH-Y9-INDICES-006-V313-AO2-AO3-REDESIGN-DRAFT",
+      "supersedesCandidateRevisionId": "LUX-MATH-Y9-INDICES-006-V312-GRADE-DEMAND-DRAFT",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-006-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "sourceDisposition": "QA_ONLY_REDRAFT_NOT_RELEASED",
+      "stem": "For positive integers $a,b$ with $1\\le a\\le12$, $1\\le b\\le15$ and $a+b\\le18$, suppose $P=2^a3^b$ is a perfect cube and $Q=2^{a+2}3^{b+1}$ is a perfect square. What is the **greatest possible value** of $ab$?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "18",
+          "errorPath": "Select the smallest admissible pair a=6,b=3 rather than maximising their product."
+        },
+        {
+          "id": "B",
+          "latex": "36",
+          "errorPath": "Choose a=12,b=3 merely because a is largest, overlooking the larger product 6×9."
+        },
+        {
+          "id": "C",
+          "latex": "54"
+        },
+        {
+          "id": "D",
+          "latex": "90",
+          "errorPath": "Choose a=6,b=15, forgetting that a+b=21 breaches the required upper bound 18."
+        },
+        {
+          "id": "E",
+          "latex": "72",
+          "errorPath": "Choose a=12,b=6, ignoring that b+1 is odd so Q cannot be a square."
+        },
+        {
+          "id": "F",
+          "latex": "24",
+          "errorPath": "Choose a=6,b=4, ignoring that b must be a multiple of three for P to be a cube."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "54",
+      "workedSolutionSteps": [
+        "Perfect-cube $P=2^a3^b$ requires both $a$ and $b$ divisible by 3. Perfect-square $Q=2^{a+2}3^{b+1}$ additionally requires even $a$ and odd $b$.",
+        "Thus $a$ is a positive multiple of 6 and $b$ is an odd multiple of 3. Given $a\\le12$, $b\\le15$ and $a+b\\le18$, the only pairs are $(6,3)$, $(6,9)$ and $(12,3)$.",
+        "The products are 18, 54 and 36 respectively, so the global maximum is $ab=54$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate: combine prime-factor parity/divisibility rules with a constrained integer optimum.",
+      "unverifiedTaughtSubskill": "Perfect powers, modular divisibility, two-variable integer constraints and constrained optimisation need exact class-subskill evidence.",
+      "conceptOverlapReviewRequired": [
+        "INDICES-008_INTEGER_OPTIMISATION"
+      ],
+      "academicQA": "pending",
+      "gradeStatus": "PROVISIONAL_AO2_AO3_DEMAND_NOT_INDEPENDENT_GRADE7_CERTIFIED",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-001",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-001-V313-AO2-AO3-REDESIGN-DRAFT",
+      "supersedesCandidateRevisionId": "LUX-MATH-Y9-REARRANGING-001-V312-DISTINCT-INVERSE-MODELLING-CANDIDATE",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-001-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "QA_ONLY_REDRAFT_NOT_RELEASED",
+      "stem": "For real $x\\ge0$, let $y=\\frac{4x+7}{x+3}$. A whole-number input is accepted only when $3\\le y<\\frac{7}{2}$. Which option correctly makes $x$ the subject and gives the **number $N$ of accepted integer inputs**?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "x=\\frac{3y-7}{4-y},N=6",
+          "errorPath": "Include x=7 by treating the strict upper output bound as if equality were permitted."
+        },
+        {
+          "id": "B",
+          "latex": "x=\\frac{3y+7}{4-y},N=5",
+          "errorPath": "Move the numerator constant with the wrong sign during the inverse rearrangement."
+        },
+        {
+          "id": "C",
+          "latex": "x=\\frac{3y-7}{4-y},N=5"
+        },
+        {
+          "id": "D",
+          "latex": "x=\\frac{3y-7}{4-y},N=7",
+          "errorPath": "Include x=0 and x=1 without checking that their outputs lie below the lower bound y=3."
+        },
+        {
+          "id": "E",
+          "latex": "x=\\frac{3y-7}{y-4},N=5",
+          "errorPath": "Reverse the denominator sign while collecting the terms containing x."
+        },
+        {
+          "id": "F",
+          "latex": "x=\\frac{4-y}{3y-7},N=5",
+          "errorPath": "Invert the final fraction after correctly cross-multiplying the original equation."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "x=\\frac{3y-7}{4-y},N=5",
+      "workedSolutionSteps": [
+        "Cross-multiply $y(x+3)=4x+7$ and isolate the variable: $(4-y)x=3y-7$, so $x=\\frac{3y-7}{4-y}$.",
+        "Writing $y=4-\\frac{5}{x+3}$ shows this function is increasing for $x\\ge0$. The condition $3\\le y<\\frac{7}{2}$ is exactly $2\\le x<7$.",
+        "The allowed integer inputs are $2,3,4,5,6$, so $N=5$. Both the inverse and the strict upper inequality are necessary."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate: rational inversion, strict endpoint reasoning and discrete input counting.",
+      "unverifiedTaughtSubskill": "Rational rearranging, strict inequalities and integer domain constraints require taught-subskill confirmation.",
+      "conceptOverlapReviewRequired": [
+        "REARRANGING-009_INVERSE_PARAMETER_RANGE",
+        "REARRANGING-019_RECIPROCAL_THRESHOLD"
+      ],
+      "academicQA": "pending",
+      "gradeStatus": "PROVISIONAL_AO2_AO3_DEMAND_NOT_INDEPENDENT_GRADE7_CERTIFIED",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-003",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-003-V313-AO2-AO3-REDESIGN-DRAFT",
+      "supersedesCandidateRevisionId": "LUX-MATH-Y9-REARRANGING-003-V312-DISTINCT-INVERSE-MODELLING-CANDIDATE",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-003-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "QA_ONLY_REDRAFT_NOT_RELEASED",
+      "stem": "For $x\\ge0$, define $y=\\sqrt{x+1}-\\sqrt{x}$. Which option makes $x$ the subject, gives the **full possible range** of $y$, and calculates $x$ when $y=\\frac13$?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "x=\\frac{(1-y^2)^2}{4y^2},0<y\\le1,x(1/3)=\\frac{16}{9}"
+        },
+        {
+          "id": "B",
+          "latex": "x=\\frac{(1-y^2)^2}{4y^2},0<y\\le1,x(1/3)=\\frac{64}{9}",
+          "errorPath": "Rationalise correctly but omit the factor of 2 before squaring to evaluate x at y=1/3."
+        },
+        {
+          "id": "C",
+          "latex": "x=\\frac{(1+y^2)^2}{4y^2},0<y\\le1,x(1/3)=\\frac{25}{9}",
+          "errorPath": "Reverse the sign of the y^2 term when isolating the positive square root."
+        },
+        {
+          "id": "D",
+          "latex": "x=\\frac{(1-y^2)^2}{4y^2},0\\le y\\le1,x(1/3)=\\frac{16}{9}",
+          "errorPath": "Allow y=0 although the positive difference of these roots never reaches zero at finite x."
+        },
+        {
+          "id": "E",
+          "latex": "x=\\frac{(1-y^2)^2}{4y^2},0<y<1,x(1/3)=\\frac{16}{9}",
+          "errorPath": "Exclude y=1 even though it occurs at the permitted input x=0."
+        },
+        {
+          "id": "F",
+          "latex": "x=\\frac{(1-y^2)^2}{4y^2},0<y\\le1,x(1/3)=\\frac49",
+          "errorPath": "After rationalisation, halve only the term 1/y and fail to halve the subtracted y."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "x=\\frac{(1-y^2)^2}{4y^2},0<y\\le1,x(1/3)=\\frac{16}{9}",
+      "workedSolutionSteps": [
+        "Rationalise: $y(\\sqrt{x+1}+\\sqrt{x})=1$. Subtract the original difference to get $2\\sqrt{x}=\\frac1y-y$, where $y>0$.",
+        "Hence $x=\\frac{(1-y^2)^2}{4y^2}$. The difference decreases from 1 at x=0 towards 0 without reaching 0, so $0<y\\le1$.",
+        "At $y=\\frac13$, $\\sqrt{x}=\\frac{3-1/3}{2}=\\frac43$, giving $x=\\frac{16}{9}$."
+      ],
+      "provisionalAOFocus": "AO2 candidate: conjugate-root identity, inverse-square derivation, endpoint analysis and exact substitution.",
+      "unverifiedTaughtSubskill": "Surd rationalisation and inverse/domain work need exact classroom confirmation; check conceptual distinctness from two-radical Q005.",
+      "conceptOverlapReviewRequired": [
+        "REARRANGING-005_RADICAL_DIFFERENCE_SUM"
+      ],
+      "academicQA": "pending",
+      "gradeStatus": "PROVISIONAL_AO2_AO3_DEMAND_NOT_INDEPENDENT_GRADE7_CERTIFIED",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-009",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-009-V313-AO2-AO3-REDESIGN-DRAFT",
+      "supersedesCandidateRevisionId": "LUX-MATH-Y9-REARRANGING-009-V312-INVERSE-REASONING-CANDIDATE",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-009-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "QA_ONLY_REDRAFT_NOT_RELEASED",
+      "stem": "A model has $y=\\frac{kx+4}{2x+5}$ for $x\\ge0$. It records $y=1$ when $x=1$. Which choice determines $k$, makes $x$ the subject, and gives **all possible values** of $y$?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "k=3,x=\\frac{5y-4}{3-2y},\\frac45\\le y\\le\\frac32",
+          "errorPath": "Include the unattainable horizontal asymptote y=3/2 as an actual model output."
+        },
+        {
+          "id": "B",
+          "latex": "k=3,x=\\frac{5y-4}{3-2y},\\frac45<y<\\frac32",
+          "errorPath": "Exclude the lower endpoint y=4/5 even though x=0 is permitted."
+        },
+        {
+          "id": "C",
+          "latex": "k=3,x=\\frac{5y-4}{3-2y},\\frac45\\le y<\\frac32"
+        },
+        {
+          "id": "D",
+          "latex": "k=3,x=\\frac{5y-4}{2y-3},\\frac45\\le y<\\frac32",
+          "errorPath": "Reverse the sign of the denominator while collecting x terms."
+        },
+        {
+          "id": "E",
+          "latex": "k=3,x=\\frac{5y+4}{3-2y},\\frac45\\le y<\\frac32",
+          "errorPath": "Carry the constant 4 across equality with the wrong sign."
+        },
+        {
+          "id": "F",
+          "latex": "k=7,x=\\frac{5y-4}{7-2y},\\frac45\\le y<\\frac72",
+          "errorPath": "Add rather than subtract the numerator constant when calibrating k from the x=1 measurement."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "k=3,x=\\frac{5y-4}{3-2y},\\frac45\\le y<\\frac32",
+      "workedSolutionSteps": [
+        "The observation gives $1=\\frac{k+4}{7}$, so $k=3$. Therefore $y=\\frac{3x+4}{2x+5}$.",
+        "Cross-multiplication yields $(3-2y)x=5y-4$, hence $x=\\frac{5y-4}{3-2y}$. The model increases because for larger x the fraction $\\frac{3x+4}{2x+5}$ approaches its higher limiting ratio.",
+        "At x=0, $y=\\frac45$ is attained; as x increases without bound, y approaches but never equals $\\frac32$. Hence $\\frac45\\le y<\\frac32$."
+      ],
+      "provisionalAOFocus": "AO2 candidate: infer a model parameter from an observation before inversion and derive the attainable output interval.",
+      "unverifiedTaughtSubskill": "Parametric formulas, rational inverses and asymptotic bounds need individual taught-subskill evidence.",
+      "conceptOverlapReviewRequired": [
+        "REARRANGING-002_OBSERVATION_CALIBRATION",
+        "REARRANGING-001_INVERSE_RANGE"
+      ],
+      "academicQA": "pending",
+      "gradeStatus": "PROVISIONAL_AO2_AO3_DEMAND_NOT_INDEPENDENT_GRADE7_CERTIFIED",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-012",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-012-V313-AO2-AO3-REDESIGN-DRAFT",
+      "supersedesCandidateRevisionId": "LUX-MATH-Y9-REARRANGING-012-V312-REASONING-CANDIDATE",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-012-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "QA_ONLY_REDRAFT_NOT_RELEASED",
+      "stem": "For $x\\ge0$, let $y=2+\\frac{6}{3x+2}$. Which option both makes $x$ the subject, finds the **non-negative fixed point** (where $y=x$), and gives the exact possible values of $y$?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2-\\sqrt{34}}3,2<y\\le5",
+          "errorPath": "Select the negative root from the fixed-point quadratic despite x being non-negative."
+        },
+        {
+          "id": "B",
+          "latex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{34}}3,2\\le y\\le5",
+          "errorPath": "Include the unattainable limiting output y=2 in the range."
+        },
+        {
+          "id": "C",
+          "latex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{34}}3,2<y<5",
+          "errorPath": "Exclude y=5 even though x=0 is an admissible input."
+        },
+        {
+          "id": "D",
+          "latex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{34}}3,2<y\\le5"
+        },
+        {
+          "id": "E",
+          "latex": "x=\\frac{10+2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{34}}3,2<y\\le5",
+          "errorPath": "Move the 2y constant across the equality without changing its sign."
+        },
+        {
+          "id": "F",
+          "latex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{30}}3,2<y\\le5",
+          "errorPath": "Calculate the quadratic discriminant as 120 instead of 136."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{34}}3,2<y\\le5",
+      "workedSolutionSteps": [
+        "Multiply out $(y-2)(3x+2)=6$, giving $3x(y-2)=10-2y$ and $x=\\frac{10-2y}{3(y-2)}$. From x≥0, the image is $2<y\\le5$.",
+        "At a fixed point y=x, multiply $x=2+\\frac6{3x+2}$ to obtain $3x^2-4x-10=0$.",
+        "The roots are $x=\\frac{2\\pm\\sqrt{34}}3$. The negative branch is excluded by x≥0, so the unique fixed point is $x=\\frac{2+\\sqrt{34}}3$."
+      ],
+      "provisionalAOFocus": "AO2 candidate: connect inverse rational formula to a quadratic fixed-point equation with branch and endpoint decisions.",
+      "unverifiedTaughtSubskill": "Quadratic formula with surd discriminant, functional fixed-point concept and reciprocal inversion require taught-subskill confirmation.",
+      "conceptOverlapReviewRequired": [
+        "REARRANGING-018_FIXED_POINT"
+      ],
+      "academicQA": "pending",
+      "gradeStatus": "PROVISIONAL_AO2_AO3_DEMAND_NOT_INDEPENDENT_GRADE7_CERTIFIED",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-014",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-014-V313-AO2-AO3-REDESIGN-DRAFT",
+      "supersedesCandidateRevisionId": "LUX-MATH-Y9-REARRANGING-014-V312-REASONING-CANDIDATE",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-014-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "QA_ONLY_REDRAFT_NOT_RELEASED",
+      "stem": "For $0\\le x\\le7$, the output is $y=(x-3)^2+4$. Which option gives **both inverse branches** and the exact values of $y$ for which **two distinct permitted values** of $x$ exist?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "x=3\\pm\\sqrt{y-4},4\\le y\\le13",
+          "errorPath": "Include y=4, where both inverse branches coincide at x=3 and there is only one distinct solution."
+        },
+        {
+          "id": "B",
+          "latex": "x=3\\pm\\sqrt{y-4},4<y<13",
+          "errorPath": "Exclude y=13 even though x=0 and x=6 are both permitted."
+        },
+        {
+          "id": "C",
+          "latex": "x=3\\pm\\sqrt{y-4},4<y\\le20",
+          "errorPath": "Use the global largest output at x=7 without noticing that the other branch is negative when y>13."
+        },
+        {
+          "id": "D",
+          "latex": "x=3\\pm\\sqrt{y-4},4<y\\le13"
+        },
+        {
+          "id": "E",
+          "latex": "x=-3\\pm\\sqrt{y-4},4<y\\le13",
+          "errorPath": "Move the horizontal shift with the wrong sign while isolating x."
+        },
+        {
+          "id": "F",
+          "latex": "x=3\\pm\\sqrt{y+4},4<y\\le13",
+          "errorPath": "Add rather than subtract the vertical shift before taking square roots."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "x=3\\pm\\sqrt{y-4},4<y\\le13",
+      "workedSolutionSteps": [
+        "The square equation is $(x-3)^2=y-4$, so the two algebraic branches are $x=3\\pm\\sqrt{y-4}$.",
+        "To be distinct, $y>4$. For the lower branch to remain in the input interval, $3-\\sqrt{y-4}\\ge0$, giving $y\\le13$; the upper branch stays ≤7 throughout this smaller range.",
+        "At $y=13$, both $x=0$ and $x=6$ are permitted. Thus there are exactly two distinct solutions for $4<y\\le13$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate: intersect two inverse-branch domain conditions to count permissible solutions.",
+      "unverifiedTaughtSubskill": "Quadratic inverse branches, endpoint feasibility and solution counting need exact class teaching confirmation.",
+      "conceptOverlapReviewRequired": [
+        "REARRANGING-008_TWO_BRANCH_ROOT_DOMAIN"
+      ],
+      "academicQA": "pending",
+      "gradeStatus": "PROVISIONAL_AO2_AO3_DEMAND_NOT_INDEPENDENT_GRADE7_CERTIFIED",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-017",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-017-V313-AO2-AO3-REDESIGN-DRAFT",
+      "supersedesCandidateRevisionId": "LUX-MATH-Y9-REARRANGING-017-V312-INVERSE-REASONING-CANDIDATE",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-017-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "QA_ONLY_REDRAFT_NOT_RELEASED",
+      "stem": "The relation $y=\\frac{x^2-25}{x-5}$ is defined only for $x\\ne5$. A second relation is $y=x^2-3x$. How many **valid real intersections** are there, and what is their location?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "N=2,(x,y)=(-1,4),(5,10)",
+          "errorPath": "Cancel the common x-5 factor and forget that the original rational formula was undefined at x=5."
+        },
+        {
+          "id": "B",
+          "latex": "N=1,(x,y)=(5,10)",
+          "errorPath": "Discard the negative x root incorrectly and keep the excluded x=5 root."
+        },
+        {
+          "id": "C",
+          "latex": "N=0",
+          "errorPath": "Discard the permitted x=-1 root as well as the genuinely forbidden x=5 root."
+        },
+        {
+          "id": "D",
+          "latex": "N=1,(x,y)=(-1,4)"
+        },
+        {
+          "id": "E",
+          "latex": "N=1,(x,y)=(-1,-4)",
+          "errorPath": "Substitute x=-1 into the linear branch but give y the wrong sign."
+        },
+        {
+          "id": "F",
+          "latex": "N=1,(x,y)=(1,4)",
+          "errorPath": "Drop the negative sign when extracting x=-1 from the factored intersection equation."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "N=1,(x,y)=(-1,4)",
+      "workedSolutionSteps": [
+        "For x≠5, factor the numerator as $(x-5)(x+5)$, so the rational relation agrees with $y=x+5$ but has a missing point at x=5.",
+        "Set the two expressions for y equal: $x+5=x^2-3x$, so $(x-5)(x+1)=0$ and the algebraic candidates are x=5 or x=-1.",
+        "The original model forbids x=5. At x=-1, y=x+5=4. Thus exactly one valid intersection remains: $(-1,4)$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate: solve a cross-model intersection then reject the root at a removable discontinuity.",
+      "unverifiedTaughtSubskill": "Factorisation, quadratic intersection models and domain holes need individual teaching evidence.",
+      "conceptOverlapReviewRequired": [
+        "REARRANGING-014_INVERSE_BRANCH_NOT_SAME_CONCEPT"
+      ],
+      "academicQA": "pending",
+      "gradeStatus": "PROVISIONAL_AO2_AO3_DEMAND_NOT_INDEPENDENT_GRADE7_CERTIFIED",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-019",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-019-V313-AO2-AO3-REDESIGN-DRAFT",
+      "supersedesCandidateRevisionId": "LUX-MATH-Y9-REARRANGING-019-V312-COMPOSITE-RECIPROCAL-REASONING-CANDIDATE",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-019-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "QA_ONLY_REDRAFT_NOT_RELEASED",
+      "stem": "For integers $x\\ge0$, the output $y(x)$ satisfies $\\frac1{y(x)}=1+\\frac2{3x+2}$. Inputs are allowed only when $y(x)\\ge\\frac45$. What is the **greatest possible increase** $y(x+1)-y(x)$ between consecutive allowed integer inputs?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac3{14}",
+          "errorPath": "Calculate the one-step increase at x=0 without enforcing the minimum output y≥4/5."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac3{35}",
+          "errorPath": "Start at x=1 because of an incorrectly relaxed lower-bound inequality."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac3{65}"
+        },
+        {
+          "id": "D",
+          "latex": "\\frac3{104}",
+          "errorPath": "Start at x=3 instead of the smallest permitted x=2, giving a smaller adjacent difference."
+        },
+        {
+          "id": "E",
+          "latex": "\\frac15",
+          "errorPath": "Mistake the gap between y(2)=4/5 and the horizontal ceiling y=1 for a one-step increase."
+        },
+        {
+          "id": "F",
+          "latex": "0",
+          "errorPath": "Treat the limiting zero increase as a greatest rather than a least limiting increment."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "\\frac3{65}",
+      "workedSolutionSteps": [
+        "The source is $y(x)=\\frac{3x+2}{3x+4}=1-\\frac2{3x+4}$. Its bound $y(x)\\ge\\frac45$ is equivalent to $x\\ge2$.",
+        "Subtract consecutive outputs: $y(x+1)-y(x)=\\frac2{3x+4}-\\frac2{3x+7}=\\frac6{(3x+4)(3x+7)}$.",
+        "Both positive denominator factors increase with x, so the greatest admissible increment occurs at the smallest allowed integer x=2: $\\frac6{10\\times13}=\\frac3{65}$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate: inverse-based feasibility threshold plus a finite-difference optimisation across discrete inputs.",
+      "unverifiedTaughtSubskill": "Rational-function differences and monotonic bounds are not confirmed within the student's taught Year9 content.",
+      "conceptOverlapReviewRequired": [
+        "REARRANGING-001_THRESHOLD_DISCRETE_INPUTS",
+        "REARRANGING-021_ASYMPTOTIC_RATIONAL"
+      ],
+      "academicQA": "pending",
+      "gradeStatus": "PROVISIONAL_AO2_AO3_DEMAND_NOT_INDEPENDENT_GRADE7_CERTIFIED",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    }
+  ],
+  "totals": {
+    "newDesigns": 8,
+    "choices": 48,
+    "wrongOptions": 40,
+    "academicApprovals": 0,
+    "dailyEnabled": 0,
+    "masteryEnabled": 0
+  },
+  "scope": {
+    "schoolPdf": "SKIPPED_AS_INSTRUCTED",
+    "teacherSubskills": "NOT_CONFIRMED",
+    "externalIndependentGCSEGrade": "NOT_SIGNED",
+    "physicalIpad": "NOT_SIGNED"
+  }
+}
