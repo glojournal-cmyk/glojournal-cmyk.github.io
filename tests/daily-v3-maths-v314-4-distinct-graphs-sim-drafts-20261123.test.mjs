@@ -43,7 +43,7 @@ const allAnswers=()=>{
  const child=(rows[0][0]*rows[1][2]-rows[0][2]*rows[1][0])/det;
  const exact=Number(s5.stem.match(/exactly (\d+) tickets/)?.[1]);
  const minChild=Number(s5.stem.match(/at least (\d+) child tickets/)?.[1]);
- const budget=Number(s5.stem.match(/£(\d+).*?What is the/)?.[1]||s5.stem.match(/budget of \*\*£(\d+)\*\*/)?.[1]);
+ const budget=Number(s5.stem.match(/budget of \*\*£(\d+)\*\*/)?.[1]);
  assert.ok(exact>0&&minChild>0&&budget>0);
  const feasible=[];for(let ad=0;ad<=exact;ad++){const ch=exact-ad;if(ch>=minChild&&adult*ad+child*ch<=budget)feasible.push({ad,ch,cost:adult*ad+child*ch})}
  ans.sim005={adult,child,maximum:Math.max(...feasible.map(x=>x.ad)),best:feasible.at(-1)};
