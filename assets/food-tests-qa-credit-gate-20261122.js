@@ -158,7 +158,7 @@ export function canEarnFormalCredit(value){return !isFoodTestsQaHeld(value);}
 // reveal a model answer. Formal credit stays closed.
 export function foodTestsPupilVerdict(value){
  if(!isFoodTestsQaHeld(value))return null;
- return {ok:false,practiceOnly:true,formalCredit:false,errorKind:'unmarked',score:null,total:null,pointResults:null,model:'Practice saved. Not a formal mark.'};
+ return {ok:false,practiceOnly:true,formalCredit:false,errorKind:'unmarked',score:null,total:null,pointResults:null,model:'Unmarked practice answer. Not a formal mark.'};
 }
 
 // A practice completion must never claim "saved" before iPad storage confirms.
