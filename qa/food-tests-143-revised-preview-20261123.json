@@ -3384,32 +3384,32 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mc_single",
-      "prompt": "Which material is a suitable negative control for a Biuret protein test?",
+      "prompt": "A purple berry extract is already purple before Biuret reagent is added. It stays purple after the reagent is mixed in. What is the most justified interpretation?",
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
-        "A dilute egg-white solution prepared to make the purple colour faint.",
-        "A sugar solution made with milk, which contains some protein.",
-        "A known protein solution made from albumen.",
-        "Distilled water with the usual amount of Biuret reagent."
+        "The final purple colour alone confirms protein regardless of the starting food colour.",
+        "The original purple colour is sufficient evidence that the berry extract contains protein.",
+        "Biuret reagent's starting blue colour ensures that purple food pigments cannot affect interpretation.",
+        "The starting pigment may mask a Biuret colour change; compare an untreated sample and working controls before deciding."
       ],
       "answer": {
         "mode": "choice",
         "accepted": [
-          "Distilled water with the usual amount of Biuret reagent."
+          "The starting pigment may mask a Biuret colour change; compare an untreated sample and working controls before deciding."
         ],
         "totalMarks": 1
       },
       "stimulus": {},
       "feedback": {
-        "short": "Clean water contains no protein and should remain blue.",
+        "short": "A food extract that is purple before reagent addition may mask the Biuret colour response. A sample-colour comparison and appropriate positive/negative controls are needed; the final purple appearance alone is inconclusive.",
         "steps": [
-          "Check reagent and experimental controls.",
-          "Use observations rather than assumptions.",
-          "Clean water contains no protein and should remain blue."
+          "Read the observations and distinguish direct evidence from inference.",
+          "Check whether the experimental conditions or starting sample colour affect interpretation.",
+          "A food extract that is purple before reagent addition may mask the Biuret colour response. A sample-colour comparison and appropriate positive/negative controls are needed; the final purple appearance alone is inconclusive."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
-        "remember": "Clean water contains no protein and should remain blue."
+        "remember": "A food extract that is purple before reagent addition may mask the Biuret colour response. A sample-colour comparison and appropriate positive/negative controls are needed; the final purple appearance alone is inconclusive."
       },
       "task": {
         "label": "ANALYSE THE EXPERIMENT",
@@ -3425,13 +3425,14 @@
         "sourceOriginalPrompt": "A pupil checks four substances in an unknown extract. Sample F3-07 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
         "originalSourceKey": "starch, lipid",
         "candidateId": "bio-y8-food-tests-case-20261025-3-7",
-        "rationale": "Clean water contains no protein and should remain blue.",
+        "rationale": "A food extract that is purple before reagent addition may mask the Biuret colour response. A sample-colour comparison and appropriate positive/negative controls are needed; the final purple appearance alone is inconclusive.",
         "distractorReview": "pending",
         "teacherReview": "pending",
         "release": "not-authorised",
         "displacedLegacyDailyConceptGroup": "bio-y8-food-tests-indicators-starch-lipid",
-        "proposedDiagnosticSkill": "control-validity",
-        "dailyConceptMappingStatus": "PENDING_NEW_SKILL_GROUP_REVIEW"
+        "proposedDiagnosticSkill": "observation-quality",
+        "dailyConceptMappingStatus": "PENDING_NEW_SKILL_GROUP_REVIEW",
+        "crossPoolOverlapResolvedInDraft": "Replaced near-identical Biuret negative-control selection question (same concept as structured point #26) with a coloured-sample observation-interference inference."
       }
     },
     {
@@ -4504,32 +4505,32 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mc_single",
-      "prompt": "Equal volumes of two extracts are tested with equal Benedict's reagent and identical heating. One is green and one brick-red. What can be said?",
+      "prompt": "A pupil repeats a heated Benedict's test on three equal portions of the same well-mixed juice using identical reagent volumes, bath temperature and heating time. Two tubes turn orange, but one remains blue. What should the pupil do?",
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
-        "Both extracts contain the same sugar concentration because they both changed colour.",
-        "The green sample has more sugar because green is a stronger positive Benedict's result.",
-        "The brick-red colour proves the exact concentration of glucose in the original sample.",
-        "Brick-red suggests a higher reducing-sugar level, but not an exact concentration."
+        "Record only the two orange results and discard the blue result without comment.",
+        "Treat the blue tube as proof that the original juice contains no reducing sugar.",
+        "Calculate the exact sugar concentration by treating two out of three positive tubes as a concentration ratio.",
+        "Record all results, check possible procedural errors and repeat with fresh portions before interpreting the inconsistency."
       ],
       "answer": {
         "mode": "choice",
         "accepted": [
-          "Brick-red suggests a higher reducing-sugar level, but not an exact concentration."
+          "Record all results, check possible procedural errors and repeat with fresh portions before interpreting the inconsistency."
         ],
         "totalMarks": 1
       },
       "stimulus": {},
       "feedback": {
-        "short": "Benedict's colours are semi-quantitative only with controlled conditions.",
+        "short": "Disagreement between nominally identical Benedict's trials should be recorded and investigated, not discarded or converted into a sugar concentration. Repeat with fresh equal portions while controlling the method.",
         "steps": [
-          "Check reagent and experimental controls.",
-          "Use observations rather than assumptions.",
-          "Benedict's colours are semi-quantitative only with controlled conditions."
+          "Read the observations and distinguish direct evidence from inference.",
+          "Check whether the experimental conditions or starting sample colour affect interpretation.",
+          "Disagreement between nominally identical Benedict's trials should be recorded and investigated, not discarded or converted into a sugar concentration. Repeat with fresh equal portions while controlling the method."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
-        "remember": "Benedict's colours are semi-quantitative only with controlled conditions."
+        "remember": "Disagreement between nominally identical Benedict's trials should be recorded and investigated, not discarded or converted into a sugar concentration. Repeat with fresh equal portions while controlling the method."
       },
       "task": {
         "label": "ANALYSE THE EXPERIMENT",
@@ -4545,13 +4546,14 @@
         "sourceOriginalPrompt": "A laboratory technician checks an unknown food mixture. Sample F4-11 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
         "originalSourceKey": "starch, protein",
         "candidateId": "bio-y8-food-tests-case-20261025-4-11",
-        "rationale": "Benedict's colours are semi-quantitative only with controlled conditions.",
+        "rationale": "Disagreement between nominally identical Benedict's trials should be recorded and investigated, not discarded or converted into a sugar concentration. Repeat with fresh equal portions while controlling the method.",
         "distractorReview": "pending",
         "teacherReview": "pending",
         "release": "not-authorised",
         "displacedLegacyDailyConceptGroup": "bio-y8-food-tests-indicators-starch-protein",
-        "proposedDiagnosticSkill": "fair-comparison",
-        "dailyConceptMappingStatus": "PENDING_NEW_SKILL_GROUP_REVIEW"
+        "proposedDiagnosticSkill": "repeatability",
+        "dailyConceptMappingStatus": "PENDING_NEW_SKILL_GROUP_REVIEW",
+        "crossPoolOverlapResolvedInDraft": "Replaced green-versus-brick-red concentration comparison duplicated by structured point #48 with an inconsistent-repeat-trials reliability question."
       }
     },
     {
@@ -6651,6 +6653,10 @@
     "legacyIndicatorTagsRemoved": 48,
     "proposedSkillsUnapproved": 48,
     "requiresNewDailyConceptGroupMappingBeforeRelease": true,
-    "reason": "Original 16 binary observation tags were copied onto different questions about controls, safety, fair comparisons and inference. Removing incorrect tags prevents silent weakness-tracking errors."
+    "reason": "Original 16 binary observation tags were copied onto different questions about controls, safety, fair comparisons and inference. Removing incorrect tags prevents silent weakness-tracking errors.",
+    "crossPoolDuplicateCorrectionsDraftOnly": [
+      "3-7",
+      "4-11"
+    ]
   }
 }
