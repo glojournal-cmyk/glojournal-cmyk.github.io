@@ -1,0 +1,120 @@
+{
+  "kind": "STANDALONE_QA_REPLACEMENT_CANDIDATES_NOT_APPROVED",
+  "date": "2026-11-23",
+  "version": "3.1.2-rearranging-018-024-fixedpoint-quadratic-domain",
+  "pr": 306,
+  "sourceBank": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "sourceBankQuestionCount": 200,
+  "sourceBankUnchanged": true,
+  "tgsCurriculumPdf": "SKIPPED_AT_PARENT_REQUEST",
+  "officialGrade7Benchmark": "NOT_COMPLETE",
+  "educationalAcceptance": 0,
+  "releaseDisposition": "NO_DAILY_NO_XP_MP_MASTERY",
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-018",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-018-V312-INVERSE_FIXEDPOINT_OR_QUADRATIC_DOMAIN-DRAFT",
+      "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-018-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "SEPARATE_REASONING_REPLACEMENT_CANDIDATE_UNAPPROVED",
+      "stem": "For $x\\ge0$, let $y=\\dfrac{4x+5}{x+2}$. Which option correctly makes $x$ the subject and gives the **non-negative fixed point** (a value for which $y=x$)?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "x=\\frac{2y-5}{4-y};x_{\\mathrm{fixed}}=1-\\sqrt{6}",
+          "errorPath": "Use the negative root of the fixed-point quadratic even though the given input requires x to be non-negative."
+        },
+        {
+          "id": "B",
+          "latex": "x=\\frac{2y+5}{4-y};x_{\\mathrm{fixed}}=1+\\sqrt{6}",
+          "errorPath": "Move the +5 term in the numerator to the other side with the wrong sign when isolating x."
+        },
+        {
+          "id": "C",
+          "latex": "x=\\frac{4-y}{2y-5};x_{\\mathrm{fixed}}=1+\\sqrt{6}",
+          "errorPath": "Reverse numerator and denominator of the inverse expression after collecting the x terms."
+        },
+        {
+          "id": "D",
+          "latex": "x=\\frac{2y-5}{4-y};x_{\\mathrm{fixed}}=1+\\sqrt{6}"
+        },
+        {
+          "id": "E",
+          "latex": "x=\\frac{2y-5}{4-y};x_{\\mathrm{fixed}}=-1+\\sqrt{6}",
+          "errorPath": "Change the sign of the linear coefficient in the fixed-point equation, solving x squared +2x−5=0 instead of x squared −2x−5=0."
+        },
+        {
+          "id": "F",
+          "latex": "x=\\frac{2y-5}{4-y};x_{\\mathrm{fixed}}=1+\\sqrt{5}",
+          "errorPath": "Replace the constant 5 by 4 in the fixed-point quadratic, leading to x squared −2x−4=0."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "x=\\frac{2y-5}{4-y};x_{\\mathrm{fixed}}=1+\\sqrt{6}",
+      "workedSolutionSteps": [
+        "Cross-multiply $y(x+2)=4x+5$ and collect terms: $(4-y)x=2y-5$, so $x=\\dfrac{2y-5}{4-y}$.",
+        "For a fixed point, set $y=x$ in the original formula. Then $x(x+2)=4x+5$, giving $x^2-2x-5=0$.",
+        "Solving gives $x=1+\\sqrt{6}$ or $x=1-\\sqrt{6}$. Since $x\\ge0$, the only admissible fixed point is $1+\\sqrt{6}$."
+      ],
+      "provisionalAOFocus": "Invert a Möbius transformation and connect its fixed points to a quadratic; distinguish the positive branch from an inadmissible root.",
+      "independentGradeCalibrated": false,
+      "independentStudentMisconceptionCertified": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-024",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-024-V312-INVERSE_FIXEDPOINT_OR_QUADRATIC_DOMAIN-DRAFT",
+      "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-024-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "SEPARATE_REASONING_REPLACEMENT_CANDIDATE_UNAPPROVED",
+      "stem": "For constants $u>0$ and $a>0$, the relation $s=ut+\\dfrac{1}{2}at^2$ holds for $t\\ge0$. Which option makes $t$ the subject and gives the exact permissible values of $s$?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "t=\\frac{-u-\\sqrt{u^2+2as}}{a},s\\ge0",
+          "errorPath": "Choose the negative quadratic-formula root, which produces a negative time when u,a are positive."
+        },
+        {
+          "id": "B",
+          "latex": "t=\\frac{u+\\sqrt{u^2+2as}}{a},s\\ge0",
+          "errorPath": "Change the sign of the negative u term in the quadratic formula when solving for t."
+        },
+        {
+          "id": "C",
+          "latex": "t=\\frac{\\sqrt{u^2+as}-u}{a},s\\ge0",
+          "errorPath": "Omit the factor of 2 multiplying as inside the square-root discriminant."
+        },
+        {
+          "id": "D",
+          "latex": "t=\\frac{\\sqrt{u^2+2as}-u}{2a},s\\ge0",
+          "errorPath": "Keep a factor of 2 in the final denominator after clearing the one-half coefficient of at squared."
+        },
+        {
+          "id": "E",
+          "latex": "t=\\frac{\\sqrt{u^2+2as}-u}{a},s\\ge0"
+        },
+        {
+          "id": "F",
+          "latex": "t=\\frac{\\sqrt{u^2+2as}-u}{a},s>0",
+          "errorPath": "Exclude s=0 even though t=0 is permitted and gives exactly zero distance."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "t=\\frac{\\sqrt{u^2+2as}-u}{a},s\\ge0",
+      "workedSolutionSteps": [
+        "Multiply by 2 to clear the fraction: $at^2+2ut-2s=0$.",
+        "Apply the quadratic formula: $t=\\dfrac{-2u\\pm\\sqrt{4u^2+8as}}{2a}=\\dfrac{-u\\pm\\sqrt{u^2+2as}}{a}$.",
+        "Since $t\\ge0$, $u>0$ and $a>0$, select the plus-square-root branch. Every $s\\ge0$ is possible, including $s=0$ when $t=0$."
+      ],
+      "provisionalAOFocus": "Apply a general quadratic inverse with a real-world time domain, explain the discarded root, and retain the closed zero-distance endpoint.",
+      "independentGradeCalibrated": false,
+      "independentStudentMisconceptionCertified": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    }
+  ]
+}
