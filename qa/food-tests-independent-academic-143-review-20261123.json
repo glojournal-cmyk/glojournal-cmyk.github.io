@@ -1,6 +1,6 @@
 {
   "type": "Food Tests independent academic content QA register (AI-assisted, NOT qualified teacher approval)",
-  "revision": "2026-11-23-r5-typed-15-and-safety-point-92",
+  "revision": "2026-11-23-r6-distractor-improvement-typed-contradiction",
   "basis": "Draft PR #308, source academic repairs 0e5d1a6 and 21c437f (QA-only)",
   "topic": "bio-y8-food-tests",
   "sourcePath": "content/topics/bio-y8-food-tests.json",
@@ -102,7 +102,7 @@
         "D": 12
       },
       "differentlyWordedUniqueStems": 48,
-      "reworkedDistractorSets": 26,
+      "reworkedDistractorSets": 45,
       "subjectScope": "AQA standard lab methods checked; TGS Year 8 taught practical scope NOT verified",
       "remainingChecks": [
         "independent scientific truth of all 144 distractors",
@@ -110,7 +110,15 @@
         "question-by-question Year 8/9 taught scope",
         "duplicate/overlap check against other bank",
         "real player scoring and no formal credit on held topic"
-      ]
+      ],
+      "ambiguityCorrections": [
+        "bio-y8-food-tests-case-20261025-3-1",
+        "bio-y8-food-tests-case-20261025-4-13",
+        "bio-y8-food-tests-case-20261025-4-15",
+        "bio-y8-food-tests-case-20261025-4-16"
+      ],
+      "remainingUnrewrittenDistractorSets": 3,
+      "academicApproved": 0
     },
     "matchingScoreRecalculation": {
       "questionId": "bio-y8-app-food-test-match",
@@ -2396,7 +2404,8 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-3-1",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "replacementStemAmbiguity": "Corrected in unapproved QA-only 48-question candidate; no change to original source question; independent review pending"
     },
     {
       "ordinal": 67,
@@ -3404,7 +3413,8 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-4-13",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "replacementStemAmbiguity": "Corrected in unapproved QA-only 48-question candidate; no change to original source question; independent review pending"
     },
     {
       "ordinal": 95,
@@ -3476,7 +3486,8 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-4-15",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "replacementStemAmbiguity": "Corrected in unapproved QA-only 48-question candidate; no change to original source question; independent review pending"
     },
     {
       "ordinal": 97,
@@ -3512,7 +3523,8 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-4-16",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "replacementStemAmbiguity": "Corrected in unapproved QA-only 48-question candidate; no change to original source question; independent review pending"
     },
     {
       "ordinal": 98,
