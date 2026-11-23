@@ -78,3 +78,17 @@ test('45 revised distractor sets and four ambiguous stems are documented; no sci
   assert.equal(q.formalCreditEligible,false);
  }
 });
+
+
+test('lipid emulsion dilution item is distinct from the pre-water-cloudiness item',()=>{
+ const prior=replacements.find(q=>q.sourceId==='bio-y8-food-tests-case-20261025-2-7');
+ const dilution=replacements.find(q=>q.sourceId==='bio-y8-food-tests-case-20261025-4-14');
+ assert.match(prior.prompt,/cloudy before|already cloudy/i);
+ assert.match(dilution.prompt,/2 mL of water and the other to 10 mL/i);
+ assert.match(dilution.options[dilution.correctIndex],/equal measured volumes of extract and water/i);
+ assert.doesNotMatch(dilution.prompt,/cloudy before water|cloudy before it is added/i);
+ assert.equal(dilution.answer.accepted[0],dilution.options[0]);
+ assert.ok(dilution.scienceRationale.includes('qualitative'));
+ assert.equal(dilution.approved,false);
+ assert.equal(dilution.formalCreditEligible,false);
+});
