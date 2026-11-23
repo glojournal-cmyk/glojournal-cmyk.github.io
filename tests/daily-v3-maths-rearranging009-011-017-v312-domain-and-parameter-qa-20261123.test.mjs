@@ -179,13 +179,15 @@ function inspect(q){
    }[option.id];
    assert.ok(near(positive,desired),'Q11 claimed wrong determinant operation does not match '+option.id);
    for(const k of [positive,-positive]){
-    let v0=null;
+    let v0=null,changed=false;
     for(const x of [-7,-3,-1,0,1,2,4]){
      const den=c*x+k;if(near(den,0))continue;
      const y=(k*x+b)/den;
      if(v0===null)v0=y;
      else if(option.id==='D')assert.ok(near(v0,y),'Q11 constant candidate varied with x');
+     else if(!near(v0,y))changed=true;
     }
+    if(option.id!=='D')assert.ok(changed,'Wrong parameter unexpectedly makes the original relation constant');
    }
    values.push(positive);
   }
@@ -217,8 +219,20 @@ function inspect(q){
  const modelVerified=q.options.map(o=>({id:o.id,correct: n===11?o.id==='D':compareWrong(q,o,source)}));
  assert.deepEqual(modelVerified.filter(x=>x.correct).map(x=>x.id),[correct],
    'Every alternative requires exactly one correct algebra+domain answer');
- for(const o of q.options.filter(x=>x.id!==correct))
+ const errorKinds={
+  9:{A:/move.*\+4.*wrong sign/i,B:/reverse.*coefficient/i,
+    D:/invert.*fraction/i,E:/copy.*excluded x/i,F:/zero of the numerator/i},
+  10:{A:/include t=3/i,B:/reverse the sign/i,D:/wrong sign/i,
+    E:/fail to impose p>0/i,F:/invert the final expression/i},
+  11:{A:/forget.*coefficient 3/i,B:/coefficient 3 for 2/i,
+    C:/halve 18/i,E:/coefficient 3 with.*6/i,F:/square.*coefficient 3/i},
+  17:{A:/copy the excluded input/i,B:/adding 5/i,
+    C:/sign error/i,E:/forget.*undefined/i,F:/linear shift of 25/i}
+ }[n];
+ for(const o of q.options.filter(x=>x.id!==correct)){
    assert.ok(o.errorPath&&o.errorPath.length>35,'Explain actual mathematical error');
+   assert.match(o.errorPath,errorKinds[o.id],q.sourceId+' '+o.id+' causality text mismatch');
+ }
 }
 test('four inverse/domain/parameter reasoning questions are mathematically independent and exactly one A-F statement correct',()=>{
  assert.equal(pack.kind,'STANDALONE_QA_REPLACEMENT_CANDIDATES_NOT_APPROVED');
@@ -238,6 +252,10 @@ test('wrong key, broken domain, changed stem coefficients and forged credit all 
   const badDomain=copy();
   const correct=badDomain.options.find(o=>o.id===badDomain.correctOptionId);
   correct.latex+=' y\\ne999';assert.throws(()=>inspect(badDomain));
+  const wrongReason=copy();
+  wrongReason.options.find(o=>o.id!==wrongReason.correctOptionId).errorPath=
+   'This is a made-up and unsupported explanation that is not the displayed algebraic operation.';
+  assert.throws(()=>inspect(wrongReason));
   const forged=copy();forged.dailyEligible=true;assert.throws(()=>inspect(forged));
   const changed=copy(),replacements={
    '009':['3x+4','4x+4'],
