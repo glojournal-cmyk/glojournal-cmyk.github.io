@@ -63,7 +63,15 @@ Each draft has six distinct options, explanatory wrong choices and three worked 
 - 200 original Maths questions remain in the QA-only reviewed bank unchanged and blocked from Daily, XP, MP, Mastery and Recovery credit.
 - Current formal Maths Academic QA approval remains **0/200**, not 80/80 or four new approvals.
 - Exact class-taught content not independently verified; TGS curriculum outline PDF retrieval is **SKIPPED per parent instruction**, not silently claimed verified.
-- Outstanding: review 74 short wrong-option rationales against actual erroneous computation; grade benchmark/educational distinction across 33 syntax-template groups; complete independent Grade7+ calibration and physical iPad PWA scoring/offline/persistence acceptance.
+- Remaining work: independently assess **educational realism** and student misconception frequency of the now numerically verified 74 error paths; Grade7+ benchmark/educational distinction across 33 syntax-template groups; independent taught-subskill confirmation; physical iPad PWA scoring/offline/persistence acceptance.
 - **PR #306 remains Draft, no merge, no deployment.** A green technical CI run is technical evidence only.
 
 The risk corrected here is **a false-positive academic QA finding**, which is as important to fix as an incorrect student answer. Never mark an item as educationally passed solely because a mistaken warning was withdrawn.
+
+## Follow-up — all 74 short error-path descriptions now numerically reproduced
+
+A new [74-row evidence register](../qa-staging/math-v315-indices-standard-74-source-recomputed-wrong-option-explanation-repairs-20261123.json) reopens the exact original source stems and recalculates the displayed wrong answers using the stated error operation. **74/74** generated values match their original A–F numerical choices: **34 Indices and 40 Standard Form, affecting 32 questions**. Every proposed wording now describes the faulty operation using the actual item numbers and contrasts the correct result; original answer keys are unchanged. All proposals remain educational **HOLD** because a numerically reproducible wrong calculation does not establish how often real pupils make it.
+
+The [32-question full QA-only candidate pack](../qa-staging/math-v315-indices-standard-32-causal-rationale-repaired-candidates-20261123.json) materialises all 32 MCQs, keeping 192 original answer-option expressions, all source stems, correct keys and worked solutions unchanged, and replacing only the **74** short error-rationale fields. It has distinct revision IDs and all 32 candidates have `academicQA:pending`, `dailyEligible:false`, `masteryEligible:false`. The corresponding [V315 CI regression](../tests/daily-v3-maths-v315-80-source-hold-and-four-distinct-reasoning-20261123.test.mjs) compares the repair packs field-by-field to the exact canonical originals and verifies zero release permission.
+
+No changes were applied to the canonical 200-question student bank. No independent Grade7+ approval was issued.
