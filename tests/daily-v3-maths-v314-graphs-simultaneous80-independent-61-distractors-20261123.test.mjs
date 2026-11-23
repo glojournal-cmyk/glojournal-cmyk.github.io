@@ -136,3 +136,56 @@ test('adversarial source graph changes and simultaneous system tampering trigger
  for(const [i,run] of cases.entries())assert.throws(run,undefined,'Mutation not rejected '+i);
  assert.equal(cases.length,6);
 });
+
+test('22 source-specific revised explanation candidates retain 132 exact A-F mathematics and all student-score barriers',()=>{
+ const staged=read('math-v314-simultaneous-22-rationale-repair-candidates-20261123.json');
+ assert.equal(staged.kind,'STANDALONE_22_SIMULTANEOUS_RATIONALE_REPAIR_CANDIDATES_NOT_APPROVED');
+ assert.equal(staged.sourceBankUnchanged,true);
+ assert.equal(staged.sourceCorrectKeysRecomputed,40);
+ assert.equal(staged.totals.candidateQuestions,22);
+ assert.equal(staged.totals.optionStatements,132);
+ assert.equal(staged.totals.revisedWrongRationales,61);
+ assert.equal(staged.totals.formalAcademicApprovals,0);
+ assert.equal(staged.totals.dailyEnabled,0);
+ assert.equal(staged.totals.masteryEnabled,0);
+ const originalById=new Map(simultaneous.map(q=>[q.sourceId,q]));
+ const repairs=new Map();
+ for(const row of rationale.rows){
+  const key=row.sourceId+'/'+row.optionId;
+  assert.ok(!repairs.has(key));repairs.set(key,row);
+ }
+ let modified=0;
+ const seen=new Set();
+ for(const q of staged.questions){
+  const old=originalById.get(q.sourceId);
+  assert.ok(old);
+  assert.equal(q.replacesRevisionId,old.revisionId);
+  assert.notEqual(q.revisionId,old.revisionId);
+  assert.equal(q.stem,old.stem);
+  assert.equal(q.correctOptionId,old.correctOptionId);
+  assert.equal(q.correctAnswerLatex,old.correctAnswerLatex);
+  assert.deepEqual(q.workedSolutionSteps,old.workedSolutionSteps);
+  assert.equal(q.topicId,old.topicId);
+  assert.equal(q.academicQA,'pending');
+  assert.equal(q.dailyEligible,false);
+  assert.equal(q.masteryEligible,false);
+  assert.equal(q.teacherTaughtConfirmed,false);
+  assert.equal(q.independentGradeCalibrated,false);
+  assert.equal(q.studentMisconceptionsEmpiricallyVerified,false);
+  assert.equal(q.options.length,6);
+  for(const o of q.options){
+   const previous=old.options.find(x=>x.id===o.id),fix=repairs.get(q.sourceId+'/'+o.id);
+   assert.ok(previous);
+   assert.equal(o.latex,previous.latex);
+   assert.equal(o.id,previous.id);
+   assert.equal(o.errorPath,fix?fix.proposedErrorPath:previous.errorPath);
+   if(fix){modified++;seen.add(q.sourceId+'/'+o.id)}
+  }
+ }
+ assert.equal(staged.questions.length,22);
+ assert.equal(modified,61);
+ assert.equal(seen.size,61);
+ const replacements=new Map(staged.questions.map(q=>[q.sourceId,q]));
+ const reassessed=simultaneous.map(q=>replacements.get(q.sourceId)||q);
+ assert.equal(auditSimultaneous40(reassessed).length,40);
+});
