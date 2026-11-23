@@ -68,7 +68,7 @@
       "correctOptionId": "D",
       "correctAnswerLatex": "24",
       "workedSolutionSteps": [
-        "Simplify $Q(t)=\\frac{2^{3t-1}}{2^{2t+2}}=2^{t-3}$. For the ratio to be an integer perfect square, each exponent $n-3$ and $m-3$ must be even. The product condition gives $(n-3)+(m-3)=14$, hence $n+m=20$.",
+        "Simplify $Q(t)=\\frac{2^{3t-1}}{2^{2t+2}}=2^{t-3}$. Since both $Q(n)$ and $Q(m)$ must be integer perfect squares, the exponents $n-3$ and $m-3$ must each be even and nonnegative. The product condition gives $(n-3)+(m-3)=14$, hence $n+m=20$.",
         "The ratio condition is $\\frac{Q(m)}{Q(n)}=2^{m-n}\\le2^6$, so $m-n\\le6$. Together with $n<m$ and $m=20-n$, it implies $7\\le n<10$. Since $n-3$ is even, $n$ is odd.",
         "The only possibilities are $(n,m)=(7,13)$ and $(9,11)$, both with square ratios and product $2^{14}$. The sum of all possible values of $m$ is $13+11=24$."
       ],
