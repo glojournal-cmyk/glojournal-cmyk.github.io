@@ -121,7 +121,7 @@ test('all 40 revised indices candidates solved from stem, six choices unique and
   const key=number(q.correctAnswerLatex);
   assert.ok(near(answer,key),q.sourceId+' wrong candidate key: '+answer+' vs '+key);
   const values=q.options.map(o=>({id:o.id,v:number(o.latex)}));
-  assert.ok(values.every((a,i)=>values.every((b,j)=>i===j||!near(a.v,b.v)),
+  assert.ok(values.every((a,i)=>values.every((b,j)=>i===j||!near(a.v,b.v))),
     q.sourceId+' equivalent numeric options');
   assert.deepEqual(values.filter(o=>near(o.v,answer)).map(o=>o.id),[q.correctOptionId],
     q.sourceId+' wrong option mapping');
