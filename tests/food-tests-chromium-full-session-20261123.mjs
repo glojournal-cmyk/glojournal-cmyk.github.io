@@ -31,7 +31,7 @@ const quick='/study/biology/practise?year=8&mode=quick&topic=bio-y8-food-tests';
 const report={commit:process.env.GITHUB_SHA||null,
  environment:'fresh Chromium iPad Pro 11 viewport and Safari user-agent; NOT WebKit/physical iPad',
  route,checks:[],questions:[],errors:[]};
-let browser;
+let browser,activePage;
 const record=(name,ok,extra={})=>{report.checks.push({name,ok,...extra});assert.equal(ok,true,name)};
 const newContext=async()=>{
  const ctx=await browser.newContext({viewport:{width:834,height:1194},hasTouch:true,
@@ -137,6 +137,7 @@ try{
  browser=await chromium.launch({headless:true});
  const context=await newContext();
  const page=await context.newPage();
+ activePage=page;
  page.on('pageerror',e=>report.errors.push(e.message));
  await openPractice(page,route);
  const baseline=await stateMetrics(page);
@@ -164,6 +165,7 @@ try{
 
  const failureContext=await newContext();
  const failPage=await failureContext.newPage();
+ activePage=failPage;
  await openPractice(failPage,quick);
  await finishSitting(failPage,5,{forceFail:true});
  const warning=failPage.getByRole('alert').filter({hasText:'Save failed. Your answers are still on this page. Retry Finish'});
@@ -177,6 +179,26 @@ try{
  fs.writeFileSync(out+'/evidence.json',JSON.stringify(report,null,2));
 }catch(e){
  report.failure=String(e?.stack||e);
+ if(activePage&&!activePage.isClosed()){
+  try{
+   report.debug=await activePage.evaluate(()=>({
+    url:location.href,ready:document.documentElement.dataset.luxReady||null,
+    visibility:document.visibilityState,bodyClass:document.body.className,
+    questions:[...document.querySelectorAll('[data-question-id]')].map(q=>{
+     const rect=q.getBoundingClientRect(),p=q.querySelector('.tabular-nums');
+     const a=[],nodes=[p,q,q.parentElement,q.parentElement?.parentElement,q.parentElement?.parentElement?.parentElement];
+     for(const n of nodes)if(n)a.push({tag:n.tagName,id:n.id,class:n.className,
+      display:getComputedStyle(n).display,visibility:getComputedStyle(n).visibility,
+      opacity:getComputedStyle(n).opacity,width:n.getBoundingClientRect().width,height:n.getBoundingClientRect().height});
+     return {id:q.getAttribute('data-question-id'),format:q.getAttribute('data-question-format'),
+      visible:rect.width>0&&rect.height>0,text:p?.textContent,ancestorStyles:a};
+    }),
+    bodyText:(document.body.innerText||'').slice(-1700),
+    alerts:[...document.querySelectorAll('[role=alert]')].map(n=>n.textContent)
+   }));
+   await activePage.screenshot({path:out+'/failure-debug.png',fullPage:true,timeout:8000});
+  }catch(debugError){report.debugError=String(debugError);}
+ }
  console.error('FOOD_TESTS_CHROMIUM_10Q_FAILURE '+JSON.stringify(report));
  fs.writeFileSync(out+'/evidence.json',JSON.stringify(report,null,2));
  process.exitCode=1;
