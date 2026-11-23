@@ -143,3 +143,23 @@ test('adversarial option quality round 5 preserves exact science key and rejects
  assert.deepEqual(candidate.qaDraftSecondPass.additionalMisconceptionDistractorFixes,[38,40,42]);
  assert.equal(candidate.approved,0);
 });
+
+
+test('two nuanced source concepts remain represented in unapproved MCQ choices',()=>{
+ const p61=candidateParts[60],p93=candidateParts[92];
+ assert.match(p61.concept,/below the detection limit/i);
+ assert.match(p61.keyedAnswer,/do not target every nutrient/i);
+ assert.match(p61.keyedAnswer,/below detection limits/i);
+ assert.match(p61.stem,/working controls/i);
+ assert.match(p93.concept,/open flame can ignite/i);
+ assert.match(p93.stem,/yellow safety flame/i);
+ assert.equal(p93.keyedAnswer,'The vapour can catch fire');
+ for(const row of [p61,p93]){
+  assert.equal(row.options.find(z=>z.id===row.correctOptionId)?.text,row.keyedAnswer);
+  assert.equal(row.options.filter(z=>z.text===row.keyedAnswer).length,1);
+  assert.equal(row.approved,false);
+  assert.equal(row.distractorReview,'REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW'==='foo'?'foo':'pending');
+ }
+ assert.equal(candidate.formalCreditEligible,false);
+ assert.equal(candidate.approved,0);
+});
