@@ -21,8 +21,8 @@
     "options": 396,
     "proposedKeys": 99,
     "distractors": 297,
-    "individualSpecificDistractorReasons": 45,
-    "distractorNotesAtFamilyLevel": 252,
+    "individualSpecificDistractorReasons": 123,
+    "distractorNotesAtFamilyLevel": 174,
     "qualifiedApprovals": 0
   },
   "limits": [
@@ -1112,8 +1112,8 @@
           "text": "The iodine converts the starch into glucose",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Iodine does not chemically convert starch into glucose as a prerequisite for Benedict's reaction.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1138,8 +1138,8 @@
           "text": "The second reagent measures the iodine concentration",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Benedict's is not a measurement of residual iodine concentration.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1151,8 +1151,8 @@
           "text": "Starch and glucose separate into layers in the tube",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Starch and glucose do not automatically separate into distinct layers in that mixed test tube.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -1182,8 +1182,8 @@
           "text": "Pour the first completed test mixture into a second tube",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Pouring a reacted iodine/Benedict mixture into a new tube carries the first reagent forward.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1208,8 +1208,8 @@
           "text": "Rinse the first test mixture with water before the next test",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Rinsing an already reacted mixture does not return it to a fresh uncontaminated food portion.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1221,8 +1221,8 @@
           "text": "Add both reagents to the drink and then divide it",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Dividing after combining reagents does not create independent tests.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -1252,8 +1252,8 @@
           "text": "Re-read the colour of the same already reacted tube and record it as a new trial",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Re-reading a reacted tube is another observation, not a new independent trial.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1265,8 +1265,8 @@
           "text": "Test a different food that is known to contain starch",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Switching to a different food does not repeat the test on the questioned same food.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1291,8 +1291,8 @@
           "text": "Change how much iodine is added to the old tube until the colours agree",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Adding more iodine to the original reaction changes its conditions and is not a fresh repeat.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -1322,8 +1322,8 @@
           "text": "The final volume, while varying the proportion of iodine",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Matching only total volume can still leave different iodine-to-sample proportions.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1335,8 +1335,8 @@
           "text": "The volume of extract, with iodine adjusted to match the first colour",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Adjusting iodine until the same colour appears is not a controlled reagent-volume repeat.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1348,8 +1348,8 @@
           "text": "The number of tubes used for each recorded colour",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Tube count cannot replace matching reagent and extract volumes in each trial.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1475,8 +1475,8 @@
           "text": "The unheated blue colour already proves that reducing sugar is absent",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Blue in an unheated Benedict test cannot rule out reducing sugar because the test requires heating.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1488,8 +1488,8 @@
           "text": "The mixture needs ethanol rather than heat to detect reducing sugar",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Ethanol is not the heating substitute needed for the Benedict reaction.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1501,8 +1501,8 @@
           "text": "A blue result can be interpreted only after adding iodine to the same tube",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Iodine is a separate starch test, not a required addition to interpret properly heated Benedict reagent.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -1812,8 +1812,8 @@
           "text": "Milk",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Milk ordinarily contains proteins, so it is unsuitable as a protein-free Biuret negative control.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1825,8 +1825,8 @@
           "text": "Dilute egg-white solution",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Dilute egg white contains protein and is not a Biuret-negative reference.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -1851,8 +1851,8 @@
           "text": "A dissolved protein standard",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A known dissolved protein standard is a positive control, not a negative control.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -2092,8 +2092,8 @@
           "text": "The mass of the empty tube in place of extract volume",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The empty tube's mass is not a substitute for dispensing a controlled extract volume.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -2105,8 +2105,8 @@
           "text": "The final liquid depth in tubes of different widths",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Equal liquid depth in differently sized tubes need not mean equal extract volume.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -2118,8 +2118,8 @@
           "text": "The volume of water left in the stock bottle",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Stock-bottle residual water volume is not the aliquot of food extract placed into each test tube.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -2315,8 +2315,8 @@
           "text": "A false negative because extra glucose prevents Benedict's reagent changing colour",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Glucose contamination may make Benedict's positive rather than prevent its reducing-sugar response.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -2328,8 +2328,8 @@
           "text": "A positive Biuret protein result caused by glucose residue",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Glucose does not yield a positive Biuret result in place of detectable protein peptide bonds.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -2341,8 +2341,8 @@
           "text": "A positive iodine starch result caused by glucose residue",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The source concept requires a specific reagent-to-nutrient or observation-to-conclusion match; this answer is not demonstrated by the stated test, even if that nutrient could be present.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Glucose is not starch and does not make iodine produce its starch-positive blue-black response.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -2512,8 +2512,8 @@
           "text": "Move the burner behind a transparent splash screen",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not address the stated ignition, ingestion or eye hazard with the correct cause, procedure or precaution.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A transparent splash screen does not extinguish a lit burner or remove vapour ignition risk.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -2525,8 +2525,8 @@
           "text": "Reduce the burner to its yellow safety flame",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not address the stated ignition, ingestion or eye hazard with the correct cause, procedure or precaution.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A yellow Bunsen safety flame remains an ignition source for flammable ethanol vapour.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -2551,8 +2551,8 @@
           "text": "Raise the ethanol tube above the burner on a rack",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not address the stated ignition, ingestion or eye hazard with the correct cause, procedure or precaution.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Positioning an ethanol container above a lit burner is not a safe fire-prevention step.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -2665,8 +2665,8 @@
           "text": "Hot glass stops being a burn hazard immediately when removed from the water bath",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Glass retains heat after removal from a bath and may still cause burns.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -2678,8 +2678,8 @@
           "text": "The tube is safe to hold when the blue colour of Benedict's reagent has not changed",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The colour of Benedict reagent is not a reliable indicator of tube temperature.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -2691,8 +2691,8 @@
           "text": "A test tube is safe to touch as soon as the hot liquid stops bubbling",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Liquid stopping bubbling does not establish that surrounding glass can safely be touched.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -2735,8 +2735,8 @@
           "text": "It ensures the mixture stays at exactly the bath temperature",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Pointing a tube away from people does not make the mixture exactly equal to bath temperature.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -2748,8 +2748,8 @@
           "text": "It prevents evaporation and therefore fixes the reagent concentration",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Changing the mouth direction does not prevent evaporation or fix the reagent concentration.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -2761,8 +2761,8 @@
           "text": "It makes a positive colour change happen more quickly",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Test-tube orientation away from people is a splash precaution, not a reaction-speed control.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -2932,8 +2932,8 @@
           "text": "The total surface area stays the same because the total mass has not changed",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The alternative conflicts with preparing an appropriate food extract, exposing the sample or establishing the emulsion endpoint only after water has been added.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Breaking a solid into smaller fragments generally increases total exposed surface at fixed mass.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -2945,8 +2945,8 @@
           "text": "Each smaller fragment necessarily has a higher starch concentration than the original cube",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The alternative conflicts with preparing an appropriate food extract, exposing the sample or establishing the emulsion endpoint only after water has been added.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Physical fragmentation does not necessarily increase the starch concentration of each fragment.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -2958,8 +2958,8 @@
           "text": "Iodine must travel farther through each smaller fragment to reach the starch",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The alternative conflicts with preparing an appropriate food extract, exposing the sample or establishing the emulsion endpoint only after water has been added.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Smaller pieces shorten rather than lengthen the distance from outside iodine to internal tissue.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3002,8 +3002,8 @@
           "text": "Breaking the potato creates starch that the intact potato did not contain",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The alternative conflicts with preparing an appropriate food extract, exposing the sample or establishing the emulsion endpoint only after water has been added.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Breaking potato tissue exposes existing starch; it does not synthesize new starch.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3015,8 +3015,8 @@
           "text": "The iodine reagent only reacts with starch in pieces below a fixed size",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The alternative conflicts with preparing an appropriate food extract, exposing the sample or establishing the emulsion endpoint only after water has been added.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Iodine does not have a fixed fragment-size threshold for reacting with accessible starch.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3041,8 +3041,8 @@
           "text": "Crushing a potato can turn iodine blue-black even if no starch is present",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The alternative conflicts with preparing an appropriate food extract, exposing the sample or establishing the emulsion endpoint only after water has been added.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Crushing without starch cannot by itself produce the starch-specific blue-black iodine endpoint.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -3072,8 +3072,8 @@
           "text": "Starch content per gram",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Matching the mass of bread does not force both breads to contain the same starch fraction.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3085,8 +3085,8 @@
           "text": "Colour produced by iodine",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Equal masses do not directly fix or guarantee the resulting colour; this is an observation.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3098,8 +3098,8 @@
           "text": "Type of bread",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Two different types of bread remain different types after their masses are matched.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3212,8 +3212,8 @@
           "text": "Concentration of the stock reagent",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Using different volumes of the same stock Benedict reagent does not by itself change its original stock concentration.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3225,8 +3225,8 @@
           "text": "Temperature of the water bath",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "If only reagent volume was changed, the bath temperature is not the manipulated factor.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3251,8 +3251,8 @@
           "text": "Time spent heating",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Different dispensed reagent volumes do not imply the heating durations differ.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -3295,8 +3295,8 @@
           "text": "A larger reagent volume means the original food contained more reducing sugar",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Reagent added by the pupil does not alter how much reducing sugar was already in the food.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3308,8 +3308,8 @@
           "text": "Different reagent volumes ensure a fair comparison when total tube volumes are the same",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "An equal total tube volume alone does not control the reagent-to-food ratio.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -3321,8 +3321,8 @@
           "text": "The size of the colour change is independent of the ratio of reagent to sample",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Reagent-to-food volume ratios can affect observable reactions, so independence cannot be assumed.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -4192,8 +4192,8 @@
           "text": "The sample consisted of pure water",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "A valid negative result supports 'not detected under these conditions'; it does not prove absolute absence of all molecules, including untested classes.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Negative targeted tests do not identify the sample as pure water.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4205,8 +4205,8 @@
           "text": "The sample contained no carbohydrates of any kind",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "A valid negative result supports 'not detected under these conditions'; it does not prove absolute absence of all molecules, including untested classes.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The tests do not screen every possible carbohydrate; a negative targeted result does not prove none exist.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4218,8 +4218,8 @@
           "text": "The sample contained no dissolved material",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "A valid negative result supports 'not detected under these conditions'; it does not prove absolute absence of all molecules, including untested classes.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "An unchanged food-test colour does not prove the food contains no dissolved substances.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4332,8 +4332,8 @@
           "text": "The cloudiness alone confirms a positive lipid emulsion test before any water is added",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The alternative conflicts with preparing an appropriate food extract, exposing the sample or establishing the emulsion endpoint only after water has been added.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Pre-water turbidity is not the ethanol-water emulsion endpoint used to judge lipid.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4358,8 +4358,8 @@
           "text": "An initially cloudy extract proves there are no suspended food particles",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The alternative conflicts with preparing an appropriate food extract, exposing the sample or establishing the emulsion endpoint only after water has been added.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "An initially cloudy extract may contain suspended food fragments; their absence cannot be proved by cloudiness.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4371,8 +4371,8 @@
           "text": "Cloudiness before water addition proves that the subsequent test must be negative",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The alternative conflicts with preparing an appropriate food extract, exposing the sample or establishing the emulsion endpoint only after water has been added.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Cloudiness before water addition cannot predetermine that the later controlled test must be negative.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -4415,8 +4415,8 @@
           "text": "Score the initial undiluted cloudiness as the lipid-test endpoint",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The alternative conflicts with preparing an appropriate food extract, exposing the sample or establishing the emulsion endpoint only after water has been added.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The emulsion endpoint is observed after adding ethanol extract to water, not before dilution.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4428,8 +4428,8 @@
           "text": "Add water to the cloudy extract and count all remaining cloudiness as positive without a blank",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The alternative conflicts with preparing an appropriate food extract, exposing the sample or establishing the emulsion endpoint only after water has been added.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Baseline cloudiness requires a blank or clean clear extract before later cloudiness can be interpreted as lipid.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -4441,8 +4441,8 @@
           "text": "Compare the initial cloudy extract with the colours in a Benedict's sugar test",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The alternative conflicts with preparing an appropriate food extract, exposing the sample or establishing the emulsion endpoint only after water has been added.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The Benedict colour scale tests reducing sugar, not the ethanol-emulsion endpoint.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -5172,8 +5172,8 @@
           "text": "A protein result determines how much sugar is present",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The observation does not justify an exact nutrient quantity, unrelated nutrient claim, or whole-diet assessment without additional controlled evidence.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Detecting protein cannot quantify sugar in that same food.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -5185,8 +5185,8 @@
           "text": "Their colours measure the snack’s energy per serving",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The observation does not justify an exact nutrient quantity, unrelated nutrient claim, or whole-diet assessment without additional controlled evidence.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Food-test reagent colours are not calibrated to measure the snack's energy per serving.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -5211,8 +5211,8 @@
           "text": "A sugar result measures the amount of fibre",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The observation does not justify an exact nutrient quantity, unrelated nutrient claim, or whole-diet assessment without additional controlled evidence.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Reducing sugar is not a direct assay for fibre content.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -5325,8 +5325,8 @@
           "text": "Increase the iodine until the first tube looks dark",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Adding extra iodine to the original tube changes reagent quantity and is not a reproducibility repeat.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -5338,8 +5338,8 @@
           "text": "Discard the result in favour of the prediction",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Discarding an unexpected observation solely because it conflicts with a prediction biases results.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -5351,8 +5351,8 @@
           "text": "Record the same tube twice as separate trials",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Writing down the same tube twice is not evidence from two independent trials.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -5395,8 +5395,8 @@
           "text": "Compare with glucose in a heated Benedict’s test",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A glucose control for heated Benedict testing is not the appropriate iodine positive/negative control.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -5408,8 +5408,8 @@
           "text": "Compare with a positive protein test under the same light",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A protein test under different conditions does not standardise the iodine colour against starch controls.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -5421,8 +5421,8 @@
           "text": "Compare untreated samples from two different foods",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Two unknown untreated foods are not validated starch-positive and starch-free controls.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -5465,8 +5465,8 @@
           "text": "The bath makes their sugar concentrations the same",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Heating samples in one bath does not equalise their starting sugar concentrations.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -5478,8 +5478,8 @@
           "text": "The bath supplies equal volumes of reagent",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Water-bath temperature does not determine the quantities of reagent dispensed.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -5491,8 +5491,8 @@
           "text": "The bath makes each tube reach the same final colour",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Standardising the bath cannot guarantee different samples develop the same colour endpoint.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -5535,8 +5535,8 @@
           "text": "It makes pointing the tube towards people safe",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A hot-water bath does not make it safe to direct hot-test-tube contents at people.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -5548,8 +5548,8 @@
           "text": "It prevents liquid splashes if the tube is shaken",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A water bath cannot prevent splashing if the tube is shaken or mishandled.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -5561,8 +5561,8 @@
           "text": "It prevents the glass becoming hot enough to burn fingers",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The choice does not follow the stated controlled heating or safe hot-glass procedure; a hotter liquid or flame is not automatically a fairer or safer test.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Hot water can heat the glass sufficiently to burn skin.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -6165,8 +6165,8 @@
           "text": "The blank confirms lipid came specifically from the food",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A cloudy blank undermines attribution of cloudiness solely to lipid from the food.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6178,8 +6178,8 @@
           "text": "The blank measures the mass of lipid in the food",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "A qualitative cloudy blank is not a measurement of lipid mass in the sample.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6191,8 +6191,8 @@
           "text": "The blank confirms that the food contains protein",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Ethanol-water blank cloudiness does not demonstrate protein in a food sample.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         }
@@ -6222,8 +6222,8 @@
           "text": "Keep the same blank and count the sample as positive",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Treating a food tube as positive while the negative blank is cloudy fails to resolve method contamination.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6235,8 +6235,8 @@
           "text": "Use the sample as its own negative control",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "The food sample under investigation cannot serve as a known lipid-free negative control.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6248,8 +6248,8 @@
           "text": "Replace the blank with oil and use it as a negative control",
           "choiceRole": "DISTRACTOR",
           "firstPassJudgement": "DOES_NOT_ANSWER_THIS_STEM_ON_PRELIMINARY_SCREEN",
-          "reason": "The option does not supply the control variable, independent repeat, uncontaminated sample, lab safety technique or valid observation required by the question.",
-          "reasonSpecificity": "QUESTION_FAMILY_CONTEXT",
+          "reason": "Oil itself contains lipids and would be a positive emulsion control, not the negative control.",
+          "reasonSpecificity": "INDIVIDUAL_SCIENCE_JUSTIFICATION",
           "independentQualifiedApproval": false,
           "needsIndependentSoleKeyReview": true
         },
@@ -6968,5 +6968,7 @@
         }
       ]
     }
-  ]
+  ],
+  "revision": "2026-11-23 second-pass: individual science rationale expansion",
+  "additionalReviewNote": "A second batch of 78 individually explained distractors was added without any qualification signoff; the remaining generic-context entries still need individually reasoned review."
 }
