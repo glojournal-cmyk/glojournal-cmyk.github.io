@@ -199,3 +199,67 @@ test('negative source mutations change computed optima instead of trusting cache
  const changedChamber=deriveChamber(chamber.stem.replace('removes **25%**','removes **20%**'));
  assert.equal(changedChamber.feasible.length,0);
 });
+
+
+test('V319 externally sourced AQA Higher 2024 comparator flags real Standard Form topic drift, not invented per-question Grade7 ratings',()=>{
+ const qa=read('math-v319-aqa-2024-higher-comparator-three-topic-content-audit-20261123.json');
+ assert.equal(qa.kind,'V319_REAL_AQA_HIGHER_2H_2024_QUESTION_COMPARATOR_AND_THREE_TOPIC_ALIGNMENT_REVIEW');
+ assert.equal(qa.canonicalBankUnchanged,true);
+ assert.equal(qa.v318CandidatePath,'qa-staging/math-v318-three-lower-demand-indices-standard-replacements-20261123.json');
+ assert.equal(qa.stats.reviewed,3);
+ assert.equal(qa.stats.verifiedNumericKeysFromPriorV318,3);
+ assert.equal(qa.stats.standardFormTopicAlignmentRiskHigh,2);
+ assert.equal(qa.stats.indicesTopicAlignmentRiskLow,1);
+ assert.equal(qa.stats.officialIndividualGrade7Certification,0);
+ assert.equal(qa.stats.actualTaughtSubskillSignoffs,0);
+ assert.equal(qa.stats.empiricalWrongOptionSignoffs,0);
+ assert.equal(qa.stats.methodPointsDefinedForOptionalWrittenAssessment,16);
+ assert.equal(qa.stats.originalStudentCreditsApproved,0);
+ assert.equal(qa.releaseGate,'HOLD_ALL_NO_IMPORT_NO_MERGE_NO_DEPLOY_NO_STUDENT_CREDIT');
+ assert.ok(qa.officialSources.aqaN7N9.includes('aqa.org.uk/subjects/mathematics/'));
+ assert.ok(qa.officialSources.aqaJune2024HigherPaper2QuestionPaper.includes('AQ'+'A-83002H-QP-JUN24'));
+ assert.ok(qa.officialSources.aqaJune2024HigherPaper2MarkScheme.includes('AQA-83002H-MS-JUN24'));
+ assert.ok(qa.officialSources.examComparatorSummary.includes('2.5×10^6'));
+ assert.ok(qa.officialSources.importantLimit.includes('NO official isolated Grade7 rating'));
+ const source=new Map(bank.questions.map(q=>[q.sourceId,q]));
+ const seen=new Set(); let marks=0,high=0;
+ for(const row of qa.rows){
+  const q=pack.questions.find(q=>q.sourceId===row.sourceId),original=source.get(row.sourceId);
+  assert.ok(q&&original&&!seen.has(row.sourceId));
+  seen.add(row.sourceId);
+  assert.equal(row.originalRevisionId,original.revisionId);
+  assert.equal(row.candidateRevisionId,q.revisionId);
+  assert.equal(row.candidateStem,q.stem);
+  assert.equal(row.candidateCorrectOptionId,q.correctOptionId);
+  assert.equal(row.candidateCorrectAnswerLatex,q.correctAnswerLatex);
+  assert.equal(row.academicQA,'HOLD');
+  assert.equal(row.grade7PlusCertified,false);
+  assert.equal(row.taughtAtTGSConfirmed,false);
+  assert.equal(row.realPupilMisconceptionsVerified,false);
+  assert.equal(row.dailyEligible,false);
+  assert.equal(row.masteryEligible,false);
+  assert.equal(row.scoringWritesAllowed,false);
+  assert.equal(row.proposedWrittenExamOnlyMarkScheme.author,'INTERNAL_QA_DRAFT_NOT_AQA_MARK_SCHEME');
+  assert.equal(row.proposedWrittenExamOnlyMarkScheme.partialCreditOnlyInSeparateWrittenAssessment,true);
+  assert.equal(row.proposedWrittenExamOnlyMarkScheme.allowEquivalentValidMethods,true);
+  assert.equal(row.proposedWrittenExamOnlyMarkScheme.criteria.length,row.proposedWrittenExamOnlyMarkScheme.totalMarks);
+  assert.equal(row.proposedWrittenExamOnlyMarkScheme.criteria.filter(x=>x.mark==='A1').length,1);
+  assert.ok(row.proposedWrittenExamOnlyMarkScheme.criteria.every(x=>x.criterion.length>35));
+  assert.ok(row.assessedSkillsUnverified.length>=4);
+  assert.ok(row.criticalHold.length>110);
+  marks+=row.proposedWrittenExamOnlyMarkScheme.totalMarks;
+  if(q.topicId==='math-y9-standard-form'){
+   assert.equal(row.answerRequiresStandardForm,false);
+   assert.equal(row.topicAlignmentRisk,'HIGH');
+   assert.equal(row.topicSpecificity,'PARTIAL_APPLICATION_STANDARD_FORM_NOT_FINAL_ANSWER');
+   high++;
+  }else {
+   assert.equal(q.topicId,'math-y9-indices');
+   assert.equal(row.topicAlignmentRisk,'LOW');
+   assert.equal(row.topicSpecificity,'STRONG_INDICES_WITH_MIXED_INEQUALITY');
+  }
+ }
+ assert.equal(seen.size,3);
+ assert.equal(high,2);
+ assert.equal(marks,16);
+});
