@@ -45,6 +45,16 @@ This is an AI-assisted item-by-item scientific and assessment-quality review, **
 
 **Status: ACADEMIC QA INSPECTION COMPLETE FOR 143 SOURCE IDs; ACADEMIC APPROVAL 0/143; RELEASE BLOCKED.**
 
+## Round 3 — replacement candidate for the 48 repeated case questions (QA draft only)
+
+The 64 source MCQs with four observations currently show only **16 distinct positive/negative combinations**, each in four wordings. This was not a finding that their answer keys are wrong; it was a diversity and diagnostic-value defect.
+
+A separate **48-question replacement candidate** has now been authored at [Food Tests 48 duplicate replacements](food-tests-48-duplicate-replacements-draft-20261123.json), using the exact IDs of the repeated F2/F3/F4 source items but leaving the source content and its student learning history **unchanged**. The existing F1 16-science-pattern exemplars remain source questions.
+
+The replacements examine evidence limitations, positive and negative controls, contamination, independent variables, repeatability, safety, and justified inference rather than changing only sample identifiers. Each draft item has four answers, exactly one keyed option, a science rationale, and explicit `approved:false`. Key positions are deliberately balanced A/B/C/D **12 each**; that is a structural safeguard, **not proof of independent plausibility or scientific sole-correctness**. An initial distractor self-review rewrote 26 choice sets that were obviously implausible. The remaining distractors must also be checked by a separate subject reviewer, including every distractor's scientific truth, lab condition and taught scope.
+
+**Status: 48/48 replacement drafts authored; 0/48 independently academically approved; 0/143 live source items formally approved.** Nothing imported to `content/topics` from this candidate and none enabled for Daily/MP/Mastery.
+
 ## Round 2 applied fixes (QA branch only)
 
 - Source commit `0e5d1a6`: the 4-pair Food Tests matching item now advertises **4 marks**, and Benedict's comparison / all-negative conclusion have scientifically constrained stems and matching model points; original 143 IDs retained. App formal scoring remains held by PR #310 independently.
