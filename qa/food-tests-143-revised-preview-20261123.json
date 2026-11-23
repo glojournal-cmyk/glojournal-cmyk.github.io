@@ -2999,7 +2999,7 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mc_single",
-      "prompt": "When comparing iodine tests on equal portions of two different bread types, which control makes the comparison fairer?",
+      "prompt": "When comparing iodine tests on samples taken from two different bread types, which control makes the comparison fairer?",
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
@@ -3017,14 +3017,14 @@
       },
       "stimulus": {},
       "feedback": {
-        "short": "Different sample masses can confound comparison of starch observations.",
+        "short": "Original draft already said 'equal portions', making the keyed 'measure the same mass' action redundant. Different sample masses can confound comparison of starch observations.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
-          "Different sample masses can confound comparison of starch observations."
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
+          "Original draft already said 'equal portions', making the keyed 'measure the same mass' action redundant. Different sample masses can confound comparison of starch observations."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
-        "remember": "Different sample masses can confound comparison of starch observations."
+        "remember": "Original draft already said 'equal portions', making the keyed 'measure the same mass' action redundant. Different sample masses can confound comparison of starch observations."
       },
       "task": {
         "label": "ANALYSE THE EXPERIMENT",
@@ -3040,10 +3040,11 @@
         "sourceOriginalPrompt": "A pupil checks four substances in an unknown extract. Sample F3-01 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
         "originalSourceKey": "starch, reducing sugar, protein, lipid",
         "candidateId": "bio-y8-food-tests-case-20261025-3-1",
-        "rationale": "Different sample masses can confound comparison of starch observations.",
+        "rationale": "Original draft already said 'equal portions', making the keyed 'measure the same mass' action redundant. Different sample masses can confound comparison of starch observations.",
         "distractorReview": "pending",
         "teacherReview": "pending",
-        "release": "not-authorised"
+        "release": "not-authorised",
+        "ambiguityCorrectedInDraft": true
       }
     },
     {
@@ -4483,32 +4484,32 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mc_single",
-      "prompt": "A snack is positive for protein and reducing sugar. Why can a pupil not call it a balanced diet on that evidence?",
+      "prompt": "A snack tests positive for protein and reducing sugar. Why is this insufficient to conclude that including it automatically makes someone's diet balanced?",
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
         "A positive test confirms the snack contains enough protein for a balanced meal.",
-        "The tests do not measure nutrient amounts or the person's overall diet.",
+        "Food tests do not reveal nutrient quantities or the rest of a person's diet.",
         "Two positive reactions establish its total energy content per serving.",
         "Presence of reducing sugar and protein rules out excessive fat or salt."
       ],
       "answer": {
         "mode": "choice",
         "accepted": [
-          "The tests do not measure nutrient amounts or the person's overall diet."
+          "Food tests do not reveal nutrient quantities or the rest of a person's diet."
         ],
         "totalMarks": 1
       },
       "stimulus": {},
       "feedback": {
-        "short": "Food test presence is not a complete assessment of diet quality.",
+        "short": "The original conflated an individual snack with an entire balanced diet. Food test presence is not a complete assessment of diet quality.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
-          "Food test presence is not a complete assessment of diet quality."
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
+          "The original conflated an individual snack with an entire balanced diet. Food test presence is not a complete assessment of diet quality."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
-        "remember": "Food test presence is not a complete assessment of diet quality."
+        "remember": "The original conflated an individual snack with an entire balanced diet. Food test presence is not a complete assessment of diet quality."
       },
       "task": {
         "label": "ANALYSE THE EXPERIMENT",
@@ -4524,10 +4525,11 @@
         "sourceOriginalPrompt": "A laboratory technician checks an unknown food mixture. Sample F4-13 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
         "originalSourceKey": "starch, reducing sugar",
         "candidateId": "bio-y8-food-tests-case-20261025-4-13",
-        "rationale": "Food test presence is not a complete assessment of diet quality.",
+        "rationale": "The original conflated an individual snack with an entire balanced diet. Food test presence is not a complete assessment of diet quality.",
         "distractorReview": "pending",
         "teacherReview": "pending",
-        "release": "not-authorised"
+        "release": "not-authorised",
+        "ambiguityCorrectedInDraft": true
       }
     },
     {
@@ -4589,7 +4591,7 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mc_single",
-      "prompt": "Iodine stays orange-brown in a drink that tastes sweet. Which statement is justified?",
+      "prompt": "A packaged drink is advertised as sweet, but the iodine test stays orange-brown. Which statement is justified?",
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
@@ -4607,14 +4609,14 @@
       },
       "stimulus": {},
       "feedback": {
-        "short": "Iodine targets starch, not soluble glucose or taste.",
+        "short": "The original referred to someone tasting the practical sample, risking unsafe practice interpretation. Iodine targets starch, not soluble glucose or taste.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
-          "Iodine targets starch, not soluble glucose or taste."
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
+          "The original referred to someone tasting the practical sample, risking unsafe practice interpretation. Iodine targets starch, not soluble glucose or taste."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
-        "remember": "Iodine targets starch, not soluble glucose or taste."
+        "remember": "The original referred to someone tasting the practical sample, risking unsafe practice interpretation. Iodine targets starch, not soluble glucose or taste."
       },
       "task": {
         "label": "ANALYSE THE EXPERIMENT",
@@ -4630,10 +4632,11 @@
         "sourceOriginalPrompt": "A laboratory technician checks an unknown food mixture. Sample F4-15 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
         "originalSourceKey": "starch",
         "candidateId": "bio-y8-food-tests-case-20261025-4-15",
-        "rationale": "Iodine targets starch, not soluble glucose or taste.",
+        "rationale": "The original referred to someone tasting the practical sample, risking unsafe practice interpretation. Iodine targets starch, not soluble glucose or taste.",
         "distractorReview": "pending",
         "teacherReview": "pending",
-        "release": "not-authorised"
+        "release": "not-authorised",
+        "ambiguityCorrectedInDraft": true
       }
     },
     {
@@ -4642,32 +4645,32 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mc_single",
-      "prompt": "A food turns Biuret reagent lilac. What additional conclusion cannot be made using that test alone?",
+      "prompt": "Biuret reagent turns lilac when added to a food extract. Which claim goes beyond what this one test can establish?",
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
-        "A protein-positive reaction was observed.",
-        "A separate iodine test is needed to assess starch.",
-        "The exact amount and identity of each protein in the food.",
-        "The original Biuret reagent would have been blue before a positive reaction."
+        "The Biuret test gave a positive result for protein.",
+        "A change from blue to lilac is consistent with protein being present.",
+        "The exact amount and identity of every protein in the food.",
+        "The observation is qualitative evidence of protein in the tested sample."
       ],
       "answer": {
         "mode": "choice",
         "accepted": [
-          "The exact amount and identity of each protein in the food."
+          "The exact amount and identity of every protein in the food."
         ],
         "totalMarks": 1
       },
       "stimulus": {},
       "feedback": {
-        "short": "The purple colour signals protein but does not identify or quantify each protein.",
+        "short": "The old 'what conclusion cannot be made' could also be read as excluding an unrelated methodological statement about needing an iodine test. The purple colour signals protein but does not identify or quantify each protein.",
         "steps": [
-          "Identify the relevant reagent, observation and control condition.",
-          "Distinguish the scientific inference from a guess or an untested claim.",
-          "The purple colour signals protein but does not identify or quantify each protein."
+          "Check reagent and experimental controls.",
+          "Use observations rather than assumptions.",
+          "The old 'what conclusion cannot be made' could also be read as excluding an unrelated methodological statement about needing an iodine test. The purple colour signals protein but does not identify or quantify each protein."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
-        "remember": "The purple colour signals protein but does not identify or quantify each protein."
+        "remember": "The old 'what conclusion cannot be made' could also be read as excluding an unrelated methodological statement about needing an iodine test. The purple colour signals protein but does not identify or quantify each protein."
       },
       "task": {
         "label": "ANALYSE THE EXPERIMENT",
@@ -4683,10 +4686,11 @@
         "sourceOriginalPrompt": "A laboratory technician checks an unknown food mixture. Sample F4-16 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
         "originalSourceKey": "none of these four nutrients",
         "candidateId": "bio-y8-food-tests-case-20261025-4-16",
-        "rationale": "The purple colour signals protein but does not identify or quantify each protein.",
+        "rationale": "The old 'what conclusion cannot be made' could also be read as excluding an unrelated methodological statement about needing an iodine test. The purple colour signals protein but does not identify or quantify each protein.",
         "distractorReview": "pending",
         "teacherReview": "pending",
-        "release": "not-authorised"
+        "release": "not-authorised",
+        "ambiguityCorrectedInDraft": true
       }
     },
     {
@@ -6497,5 +6501,5 @@
       "academicApproved": false
     }
   ],
-  "revision": "2026-11-23-typed15-equivalence-expansion"
+  "revision": "2026-11-23-r3-typed-and-case-ambiguity-review"
 }
