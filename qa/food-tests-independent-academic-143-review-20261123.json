@@ -160,6 +160,12 @@
     "additionalSourceClarityRevisionsPending": [
       31,
       45
+    ],
+    "substantiveDistractorRevisionsPending": [
+      40,
+      41,
+      75,
+      93
     ]
   },
   "unresolvedFormalScoringEvidence": [
@@ -5990,32 +5996,32 @@
       "ordinal": 40,
       "pointId": "bio-y8-food-tests-application-20261025-protein-extraction::p1",
       "sourceId": "bio-y8-food-tests-application-20261025-protein-extraction",
-      "stem": "Why crush a solid food before making an extract for a protein test?",
+      "stem": "A pupil crushes a solid food sample before adding water to make an extract for a protein test. What does crushing mainly achieve?",
       "keyedChoice": "More of the inside of the food is exposed",
       "distractors": [
-        "Crushing creates new protein rather than simply exposing the original protein",
-        "Crushing increases the concentration of Biuret reagent before it is added",
-        "Crushing changes the protein in food into a different nutrient"
+        "It increases the mass of protein in the same quantity of food.",
+        "It breaks protein peptide bonds, which must happen before Biuret reagent can detect protein.",
+        "It removes dissolved nutrients other than protein before extraction."
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW",
-      "concern": "Distractors were revised to represent practical misconceptions; correct-key uniqueness is currently structural only. Verify each alternative's scientific falsehood, relevance and Year 8/9 taught scope independently.",
+      "distractorQuality": "AI_REVISED_MISCONCEPTION_BASED_FOILS__TEACHER_SOLE_KEY_SIGNOFF_PENDING",
+      "concern": "A prior set relied on three categorical 'guarantees' and removed wrong-solubility reasoning. New foils test creation of protein, physical vs chemical breakdown and false selectivity. Correct keyed option remains a QA-only proposed answer, not an independent teacher validation.",
       "approved": false
     },
     {
       "ordinal": 41,
       "pointId": "bio-y8-food-tests-application-20261025-protein-extraction::p2",
       "sourceId": "bio-y8-food-tests-application-20261025-protein-extraction",
-      "stem": "Why mix the crushed food with water before testing a liquid portion with Biuret reagent?",
+      "stem": "A pupil has crushed a food sample and now needs a liquid portion for a Biuret protein test. What is the purpose of mixing it with water?",
       "keyedChoice": "Soluble material can pass into the liquid for testing",
       "distractors": [
         "Water guarantees that every protein in the crushed food dissolves completely",
         "Water ensures that no other dissolved nutrients enter the extract",
-        "Water itself makes blue Biuret reagent turn lilac without protein"
+        "Water alone would turn Biuret reagent lilac even if no protein moved into the liquid."
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW",
-      "concern": "Distractors were revised to represent practical misconceptions; correct-key uniqueness is currently structural only. Verify each alternative's scientific falsehood, relevance and Year 8/9 taught scope independently.",
+      "distractorQuality": "AI_REVISED_MISCONCEPTION_BASED_FOILS__TEACHER_SOLE_KEY_SIGNOFF_PENDING",
+      "concern": "Separates the physical extraction of soluble material from universal solubility, selective extraction and a water-caused false-positive misconception. Correct keyed option remains a QA-only proposed answer, not an independent teacher validation.",
       "approved": false
     },
     {
@@ -6550,16 +6556,16 @@
       "ordinal": 75,
       "pointId": "bio-y8-food-tests-application-20261025-inference::p2",
       "sourceId": "bio-y8-food-tests-application-20261025-inference",
-      "stem": "What further information would help assess how a snack fits into a diet?",
+      "stem": "A pupil knows only that a snack tests positive for protein and reducing sugar. What additional information is most useful for judging how it fits into a balanced diet?",
       "keyedChoice": "Quantities of nutrients per serving and the rest of the person’s diet",
       "distractors": [
-        "How many food tests gave a positive result, without nutrient quantities",
-        "Whether the food-test colour was lilac rather than orange",
-        "Whether the same test tube was used for the whole investigation"
+        "Only which food tests showed any colour change, without quantities or serving sizes",
+        "A deeper Biuret purple colour treated as an exact measurement of protein mass per serving",
+        "A brick-red Benedict's result treated as the total energy content of the snack"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW",
-      "concern": "Distractors were revised to represent practical misconceptions; correct-key uniqueness is currently structural only. Verify each alternative's scientific falsehood, relevance and Year 8/9 taught scope independently.",
+      "distractorQuality": "AI_REVISED_MISCONCEPTION_BASED_FOILS__TEACHER_SOLE_KEY_SIGNOFF_PENDING",
+      "concern": "Former foils included unrelated laboratory logistics; new choices challenge the misuse of qualitative food-test colour as quantitative nutrition information. Correct keyed option remains a QA-only proposed answer, not an independent teacher validation.",
       "approved": false
     },
     {
@@ -6838,16 +6844,16 @@
       "ordinal": 93,
       "pointId": "bio-y8-food-tests-application-20261025-safe-bunsen::p2",
       "sourceId": "bio-y8-food-tests-application-20261025-safe-bunsen",
-      "stem": "A pupil leaves a Bunsen burner on its yellow safety flame while opening ethanol for a lipid test. Why is this still unsafe?",
-      "keyedChoice": "The vapour can catch fire",
+      "stem": "A pupil sees a lit Bunsen burner on its yellow safety flame before opening ethanol for the lipid emulsion test. Which action most directly removes the ignition risk?",
+      "keyedChoice": "Extinguish the Bunsen burner before opening ethanol so its flame cannot ignite ethanol vapour",
       "distractors": [
-        "A yellow safety flame cannot ignite ethanol vapour",
-        "Ethanol can ignite only if it is heated to boiling first",
-        "Only liquid ethanol touching a flame can ignite"
+        "Leave the burner on its yellow safety flame because yellow flames cannot ignite vapour",
+        "Change the Bunsen flame to blue so it cannot ignite vapour from ethanol",
+        "Move the ethanol bottle a few centimetres away while keeping the burner lit on the same bench"
       ],
       "scienceKeyReview": "keyed science statement appears consistent with AQA/CCEA standard (not sole-correct option signoff)",
-      "distractorQuality": "REWRITTEN_QA_DRAFT_REQUIRES_INDEPENDENT_SOLE_KEY_REVIEW",
-      "concern": "Turns a duplicate combustion recall into a safer practical decision: the yellow safety flame is still an ignition source. Unapproved: independent scientific/age scope verification remains required.",
+      "distractorQuality": "AI_REVISED_MISCONCEPTION_BASED_FOILS__TEACHER_SOLE_KEY_SIGNOFF_PENDING",
+      "concern": "Original #92 and #93 both keyed an interchangeable 'vapour can ignite' answer; #92 now remains a property question, #93 becomes an independent safety-action application of the original flame-ignition source concept. Correct keyed option remains a QA-only proposed answer, not an independent teacher validation.",
       "approved": false
     },
     {
