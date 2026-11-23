@@ -31,7 +31,7 @@ test('exactly the existing 143 Food Tests questions are on academic hold',()=>{
   assert.equal(reply.score,null);
   assert.equal(reply.total,null);
   assert.equal(reply.pointResults,null);
-  assert.equal(reply.model,'Practice saved. Not a formal mark.');
+  assert.equal(reply.model,'Unmarked practice answer. Not a formal mark.');
  }
  const other={id:'unrelated-biology-question',topicId:'bio-y8-nutrition'};
  assert.equal(isFoodTestsQaHeld(other),false);
@@ -80,7 +80,7 @@ test('both live quiz bundles bypass untrusted marking and suppress answer leaks 
   assert.ok(src.includes('!G.practiceOnly&&correction?.missingWords.length'),path);
   assert.ok(src.includes('!G.practiceOnly&&!G.ok&&correction?.reason'),path);
   assert.ok(src.includes('!G.practiceOnly&&!G.ok&&correction?.rule'),path);
-  assert.ok(src.includes('G.practiceOnly?`Practice saved. Not a formal mark.`'),path);
+  assert.ok(src.includes('G.practiceOnly?`Unmarked practice answer. Not a formal mark.`'),path);
   assert.ok(src.includes('G&&!isFoodTestsQaHeld(Y)&&B(Y,e,a).ok'),path);
   assert.equal(src.includes('n.ok&&!Y._repair&&Y.formal!==!1&&se'),false,path);
  }
@@ -270,7 +270,7 @@ test('actual iPad practice-drafts store keeps unmarked completion after a simula
  };
  const first=open(),key='food-tests-held-completion-20261122';
  const payload={base:[topicQ[0]],rr:[],j:0,N:'iodine solution',G:{
-    practiceOnly:true,ok:false,model:'Practice saved. Not a formal mark.'
+    practiceOnly:true,ok:false,model:'Unmarked practice answer. Not a formal mark.'
    },sessionLog:[{questionId:topicQ[0].id,formal:false,correct:false}],
    ce:false,unmarkedCompleted:true,href:'/study/biology/practise?topic=bio-y8-food-tests',title:'Food Tests'};
  assert.equal(await saveHeldPracticeCompletion(first,key,payload,2500),true);
@@ -286,4 +286,24 @@ test('actual iPad practice-drafts store keeps unmarked completion after a simula
    'helper must refuse legacy ce:true which would DELETE the saved draft');
  assert.equal(localRows.get('lux-practice-drafts-v1'),before,
    'rejected destructive completion must leave storage byte-for-byte unchanged');
+});
+
+test('failed completion must show a visible warning beside Finish, not an early saved claim',()=>{
+ for(const path of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-rWAnuDVj.js']){
+  const src=read(path);
+  const failedMarker="finishFailure&&!ce&&G?.practiceOnly?";
+  const marker=src.indexOf(failedMarker);
+  const button=src.indexOf('(0,T.jsx)(S,{type:`button`',marker);
+  assert.ok(marker>0&&button>marker&&button-marker<500,path+' places warning beside the Finish action');
+  const inline=src.slice(marker,button);
+  assert.ok(inline.includes('role:`alert`'),path+' warning announces assistively');
+  assert.ok(inline.includes('Save failed. Your answers are still on this page. Retry Finish; do not close this tab.'),
+    path+' includes an explicit retry instruction');
+  assert.ok(src.includes('G.practiceOnly?`Unmarked practice answer. Not a formal mark.`'),
+    path+' may not promise a save before Finish');
+  assert.equal(src.includes('G.practiceOnly?`Practice saved. Not a formal mark.`'),false,path);
+ }
+ const alternate=read('assets/quiz-session-rWAnuDVj.js');
+ assert.ok(alternate.includes('onClick:async()=>{if(finishingRef.current)return;finishingRef.current=true;try{await pe()}'),
+    'secondary quiz bundle must await Finish and keep double-submit guard');
 });
