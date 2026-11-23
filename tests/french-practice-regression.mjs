@@ -140,7 +140,9 @@ test('a Food Tests answer stays unmarked while iPad draft save is pending, then 
  let tree=runner.render(()=>ctx.H(props));
  button(tree,q.answer.accepted[0]).props.onClick();
  tree=runner.render(()=>ctx.H(props));
- assert.ok(textOf(tree).includes('Practice saved. Not a formal mark.'));
+ assert.ok(textOf(tree).includes('Unmarked practice answer. Not a formal mark.'));
+ assert.equal(textOf(tree).includes('Practice saved.'),false,
+   'answer feedback must not claim completion is persisted before Finish');
  assert.equal(textOf(tree).includes(q.feedback.short),false,'held pupil must not see the model explanation');
  assert.equal(textOf(tree).includes(q.feedback.remember),false,'held pupil must not see the memorisation answer');
  assert.equal(/Correct answer|Not quite\.|\bCorrect!\b|\bWrong\b/.test(textOf(tree)),false);
@@ -193,7 +195,83 @@ test('a failed Food Tests iPad save leaves answers visible and never shows a suc
    'failed save must not show a completed result');
  assert.ok(textOf(tree).includes('Could not save this practice on this device'),
    'storage error must be shown, not hidden');
+ assert.ok(flatten(tree).some(n=>n?.props?.role==='alert'&&
+   textOf(n).includes('Save failed. Your answers are still on this page. Retry Finish')),
+   'retry warning must be directly visible beside Finish, not just at top of long page');
+ assert.equal(textOf(tree).includes('Practice saved.'),false,
+   'failed Finish must never show a premature saved claim');
  assert.ok(textOf(tree).includes('Question 1 / 1'),'attempt remains on screen');
  assert.ok(flatten(tree).some(n=>n?.props?.children==='Finish'),
    'Finish must remain available for retry');
+});
+
+test('ten independent Food Tests quiz answers complete unmarked, remain saved on remount, and cannot change XP, MP or Daily',async()=>{
+ const pool=JSON.parse(read('content/topics/bio-y8-food-tests.json')).questions
+  .filter(q=>q.format==='mc_single'&&q.answer?.accepted?.length&&
+    q.options?.includes(q.answer.accepted[0])).slice(0,10);
+ assert.equal(pool.length,10,'real bank must supply ten unique answerable questions');
+ assert.equal(new Set(pool.map(q=>q.id)).size,10);
+ const history=[];
+ const state={...newState(),xp:73,masteryPoints:12,
+   daily:[{id:'y8-standard-a',progress:3,target:10,done:false,assignedTopic:'bio-y8-food-tests'}],
+   formalAttemptLog:[{questionId:'known-latin',correct:true}],
+   topicStats:{'latin-y8-existing':{attempted:7,correct:5}}};
+ const original=JSON.stringify({
+  xp:state.xp,mp:state.masteryPoints,daily:state.daily,
+  formalAttemptLog:state.formalAttemptLog,topicStats:state.topicStats
+ });
+ state.recordAttempt=(...args)=>history.push(['attempt',args]);
+ state.bumpDaily=(...args)=>history.push(['daily',args]);
+ state.award=(...args)=>history.push(['award',args]);
+ let stored=null,clearCount=0;
+ const drafts={
+  key:()=>'food-ten-independent',
+  read:()=>stored,
+  save:async(_key,data)=>{stored=structuredClone(data);return true;},
+  clear:async()=>{clearCount++;stored=null;return true;}
+ };
+ const props={title:'Food Tests',subject:'biology',items:pool,size:10,
+  backHref:'/study/biology',resumeMode:'standard'};
+ const mount=()=>{
+  const runner=hooks();
+  const ctx=vm.createContext({...context,...env(state,runner),LuxPracticeDrafts:drafts});
+  vm.runInContext(quiz.slice(quiz.indexOf('function re('),quiz.indexOf('function ie(')),ctx);
+  return {runner,ctx};
+ };
+ const first=mount();
+ let tree=first.runner.render(()=>first.ctx.H(props));
+ for(let i=0;i<10;i++){
+  assert.ok(textOf(tree).includes(`Question ${i+1} / 10`),'question '+(i+1));
+  // Test both correct and incorrect choices: the held gate is independent of correctness.
+  const answer=i%2===0?pool[i].answer.accepted[0]:
+    pool[i].options.find(x=>!pool[i].answer.accepted.includes(x));
+  assert.ok(answer);
+  button(tree,answer).props.onClick();
+  tree=first.runner.render(()=>first.ctx.H(props));
+  assert.ok(textOf(tree).includes('Unmarked practice answer. Not a formal mark.'),
+    'every marked feedback remains neutral');
+  assert.equal(textOf(tree).includes('Practice saved.'),false,
+    'no answer falsely promises persistent completion');
+  assert.ok(!textOf(tree).includes(pool[i].feedback?.short||'SHOULD_NEVER_APPEAR'),
+    'do not leak the model answer while Academic QA is held');
+  button(tree,i===9?'Finish':'Next question').props.onClick();
+  if(i===9)await new Promise(resolve=>setImmediate(resolve));
+  tree=first.runner.render(()=>first.ctx.H(props));
+ }
+ assert.equal(stored?.unmarkedCompleted,true,'completed sitting must be persistently recorded');
+ assert.equal(stored?.ce,false,'must not use draft-deleting completion semantics');
+ assert.equal(stored?.sessionLog?.length,10);
+ assert.ok(stored.sessionLog.every(q=>q.formal===false&&q.correct===false));
+ assert.ok(flatten(tree).some(node=>node?.props?.unmarked===true),'neutral completion screen');
+ assert.equal(clearCount,0,'do not delete completed practice record');
+ assert.equal(history.length,0,'no attempt event, Daily award or XP may be issued');
+ assert.equal(JSON.stringify({
+  xp:state.xp,mp:state.masteryPoints,daily:state.daily,
+  formalAttemptLog:state.formalAttemptLog,topicStats:state.topicStats
+ }),original,'preexisting learner data must remain exactly unchanged');
+ const second=mount();
+ const reopened=second.runner.render(()=>second.ctx.H(props));
+ assert.ok(flatten(reopened).some(node=>node?.props?.unmarked===true),
+   'on remount, the actual quiz component restores unmarked completion');
+ assert.equal(stored?.unmarkedCompleted,true,'reopening must not clear persisted draft');
 });
