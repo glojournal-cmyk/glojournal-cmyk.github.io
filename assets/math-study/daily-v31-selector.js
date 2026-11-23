@@ -5,6 +5,16 @@ const TOPICS=['math-y9-indices','math-y9-standard-form','math-y9-changing-subjec
 const BANDS={G7:4,G8:4,'G8-9':2};
 const PAIRS=[['G7','G7'],['G7','G8'],['G7','G8-9'],['G8','G8'],['G8','G8-9'],['G8-9','G8-9']];
 const dateOf=x=>String(x||'').slice(0,10);
+// Defense in depth: even distinct editorial template/concept labels must not
+// allow obvious number-only copies inside one day's signed 10-item selection.
+// This is a conservative textual pattern check, not an academic concept signoff.
+const numberNeutralStemKey=q=>{
+  const stem=typeof q?.stemLatex==='string'?q.stemLatex:
+    typeof q?.stem==='string'?q.stem:'';
+  if(!stem.trim())return null;
+  return q.topicId+'::'+stem.toLowerCase().replace(/\\dfrac/g,'\\frac')
+    .replace(/\d+(?:\.\d+)?/g,'#').replace(/\s+/g,' ').trim();
+};
 function hash(s){let h=2166136261;for(const c of s){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}return h>>>0;}
 const valid=q=>typeof q?.conceptFamilyId==='string'&&q.conceptFamilyId.trim()&&q?.subject==='maths'&&Number(q.year)===9&&TOPICS.includes(q.topicId)&&Object.hasOwn(BANDS,q.difficultyTarget)&&q.academicQA==='approved'&&q.taughtVerified===true&&q.mathDailyEnabled===true&&q.renderRequired===true&&q.qaSourceStatus!=='BLOCKED_FOR_LIVE_IMPORT'&&mathsOriginalGradeDemandDecision(q).ok&&Array.isArray(q.options)&&q.options.length===6&&q.templateId&&q.id;
 
@@ -59,6 +69,7 @@ export function selectMathsV31Daily({approvedQuestions=[],day,history=[]}={}){
       for(const grade of pair){
         const available=pool.filter(q=>q.difficultyTarget===grade&&
           !picked.some(p=>p.id===q.id||p.templateId===q.templateId||p.conceptFamilyId===q.conceptFamilyId||
+            (numberNeutralStemKey(q)!==null&&numberNeutralStemKey(q)===numberNeutralStemKey(p))||
             (verifiedSourceSystemKeyForMathsId(q.id)!==null&&
              verifiedSourceSystemKeyForMathsId(q.id)===verifiedSourceSystemKeyForMathsId(p.id))));
         available.sort((a,b)=>value(a)-value(b)||a.id.localeCompare(b.id));
@@ -77,7 +88,7 @@ export function selectMathsV31Daily({approvedQuestions=[],day,history=[]}={}){
   });
   if(possibilities.some(p=>p.length===0))return {ready:false,questions:[],
     issues:['insufficient-fresh-approved-topic:'+TOPICS[possibilities.findIndex(p=>!p.length)]]};
-  let states=new Map([['0|0|0',{cost:0,questions:[],templates:[],families:[],sourceSystems:[]}]]);
+  let states=new Map([['0|0|0',{cost:0,questions:[],templates:[],families:[],sourceSystems:[],stemPatterns:[]}]]);
   for(const choices of possibilities){
     const next=new Map();
     for(const [key,state]of states){
@@ -86,6 +97,7 @@ export function selectMathsV31Daily({approvedQuestions=[],day,history=[]}={}){
         const totals=counts.map((n,i)=>n+option.counts[i]);
         if(totals[0]>4||totals[1]>4||totals[2]>2||
           option.questions.some(q=>state.templates.includes(q.templateId)||state.families.includes(q.conceptFamilyId)||
+            (numberNeutralStemKey(q)!==null&&state.stemPatterns.includes(numberNeutralStemKey(q)))||
             (verifiedSourceSystemKeyForMathsId(q.id)!==null&&
              state.sourceSystems.includes(verifiedSourceSystemKeyForMathsId(q.id)))))continue;
         const k=totals.join('|'),cost=state.cost+option.cost,prior=next.get(k);
@@ -93,6 +105,7 @@ export function selectMathsV31Daily({approvedQuestions=[],day,history=[]}={}){
           cost,questions:[...state.questions,...option.questions],
           templates:[...state.templates,...option.questions.map(q=>q.templateId)],
           families:[...state.families,...option.questions.map(q=>q.conceptFamilyId)],
+          stemPatterns:[...state.stemPatterns,...option.questions.map(numberNeutralStemKey).filter(Boolean)],
           sourceSystems:[...state.sourceSystems,...option.questions.map(q=>verifiedSourceSystemKeyForMathsId(q.id)).filter(Boolean)]
         });
       }
@@ -107,7 +120,9 @@ export function selectMathsV31Daily({approvedQuestions=[],day,history=[]}={}){
   if(new Set(exactSystems).size!==exactSystems.length||
      new Set(questions.map(q=>q.id)).size!==10||
      new Set(questions.map(q=>q.templateId)).size!==10||
-     new Set(questions.map(q=>q.conceptFamilyId)).size!==10)
+     new Set(questions.map(q=>q.conceptFamilyId)).size!==10||
+     new Set(questions.map(numberNeutralStemKey).filter(Boolean)).size!==
+       questions.map(numberNeutralStemKey).filter(Boolean).length)
     return {ready:false,questions:[],issues:['repeated-id-or-template']};
   return {ready:true,questions,issues:[],diagnostics:{
     previousDayTemplateRepeats:questions.filter(q=>previous.has(q.templateId)).length,
