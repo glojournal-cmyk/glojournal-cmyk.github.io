@@ -7,6 +7,53 @@ import {auditSimultaneous40} from '../assets/math-study/math-v314-source-first-s
 const read=p=>JSON.parse(readFileSync(new URL('../qa-staging/'+p,import.meta.url),'utf8'));
 const bank=read('math-v311-reviewed-200.json'),triage=read('math-v311-200-item-grade-demand-triage-20261122.json');
 const rationale=read('math-v314-simultaneous-61-short-distractor-path-repair-register-20261123.json');
+
+const register=read('math-v314-graphs40-simultaneous40-source-first-pedagogical-hold-register-20261123.json');
+test('80-row source identity and 20 four-item family risk register cannot manufacture Grade7+ or Mastery approval',()=>{
+ assert.equal(register.kind,'MATHS_V314_80_SOURCE_FIRST_NUMERIC_QA_WITH_PEDAGOGICAL_HOLD');
+ assert.equal(register.counts.questions,80);
+ assert.equal(register.counts.sourceFirstCorrectKeyChecks,80);
+ assert.equal(register.counts.allOptionsValueChecks,480);
+ assert.equal(register.counts.shortErrorPathEditorialRepairs,61);
+ assert.equal(register.counts.templateGroups,20);
+ assert.equal(register.counts.grade7PlusApprovals,0);
+ assert.equal(register.counts.independentConceptApprovals,0);
+ assert.equal(register.counts.dailyEligible,0);
+ assert.equal(register.counts.masteryEligible,0);
+ assert.equal(register.groupManifest.length,20);
+ assert.equal(register.rows.length,80);
+ assert.equal(register.schoolPdf,'SKIPPED_PER_USER_INSTRUCTION');
+ const sources=new Map([...graphs,...simultaneous].map(q=>[q.sourceId,q]));
+ const derived=new Map([...auditGraphSource40(graphs),...auditSimultaneous40(simultaneous)].map(x=>[x.sourceId,x]));
+ for(const row of register.rows){
+  const source=sources.get(row.sourceId),oracle=derived.get(row.sourceId);
+  assert.ok(source&&oracle,'Unknown ID in 80-row QA register');
+  assert.equal(source.dailyEligible,false);
+  assert.equal(row.academicDecision,'HOLD');
+  assert.equal(row.independentGCSEGrade7PlusCertified,false);
+  assert.equal(row.teacherTaughtConfirmed,false);
+  assert.equal(row.independentConceptEquivalenceSigned,false);
+  assert.equal(row.dailyEligible,false);
+  assert.equal(row.masteryEligible,false);
+  assert.equal(row.derivedCorrectOption,source.correctOptionId);
+  assert.equal(row.derivedCorrectOption,oracle.key);
+  assert.ok(close(row.derivedAnswer,oracle.expected??oracle.answer));
+  const sourceTriage=triage.rows.find(x=>x.id===row.sourceId);
+  assert.equal(row.sourceTriage,sourceTriage.triageAction);
+  assert.equal(row.sourceTemplateId,sourceTriage.sourceTemplateId);
+ }
+ const familyCounts=new Map();
+ for(const row of register.rows)familyCounts.set(row.sourceTemplateId,(familyCounts.get(row.sourceTemplateId)||0)+1);
+ assert.equal(familyCounts.size,20);
+ for(const count of familyCounts.values())assert.equal(count,4);
+ assert.deepEqual(register.counts.triage,{
+  QUARANTINE_TAUGHT_SCOPE:20,
+  RETAIN_FOR_EXTERNAL_BENCHMARK:24,
+  UPGRADE_STEM_FOR_G7PLUS:31,
+  REWRITE_CONTEXT_OR_DUPLICATE:5
+ });
+});
+
 const graphs=bank.questions.filter(q=>/GRAPHS-\d+$/.test(q.sourceId));
 const simultaneous=bank.questions.filter(q=>/SIMULTANEOUS-\d+$/.test(q.sourceId));
 const close=(a,b)=>Number.isFinite(a)&&Number.isFinite(b)&&Math.abs(a-b)<1e-8*Math.max(1,Math.abs(a),Math.abs(b));
