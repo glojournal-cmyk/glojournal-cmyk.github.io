@@ -592,11 +592,11 @@
           "options": [
             {
               "id": "bio-y8-food-tests-application-20261025-iodine-repeat::p1::A",
-              "text": "Test a different food with the same reagent"
+              "text": "Re-read the colour of the same already reacted tube and record it as a new trial"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-iodine-repeat::p1::B",
-              "text": "Read the first tube again after copying its result"
+              "text": "Test a different food that is known to contain starch"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-iodine-repeat::p1::C",
@@ -604,12 +604,12 @@
             },
             {
               "id": "bio-y8-food-tests-application-20261025-iodine-repeat::p1::D",
-              "text": "Average the names of the two observed colours"
+              "text": "Change how much iodine is added to the old tube until the colours agree"
             }
           ],
           "correctOptionId": "bio-y8-food-tests-application-20261025-iodine-repeat::p1::C",
           "approved": false,
-          "stem": "Two iodine results disagree. Which action provides a new observation of the same food?",
+          "stem": "Two iodine tests on different portions of the same food disagree. Which action gives an independent repeat using that same food?",
           "academicReview": "pending",
           "distractorReview": "pending",
           "keyedAnswer": "Test another freshly prepared portion"
@@ -688,15 +688,15 @@
             },
             {
               "id": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2::B",
-              "text": "Blue shows that the glucose has changed into starch"
+              "text": "The unheated blue colour already proves that reducing sugar is absent"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2::C",
-              "text": "The blue colour measures the temperature of the room"
+              "text": "The mixture needs ethanol rather than heat to detect reducing sugar"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2::D",
-              "text": "A glucose solution gives a white emulsion before heating"
+              "text": "A blue result can be interpreted only after adding iodine to the same tube"
             }
           ],
           "correctOptionId": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2::A",
@@ -1072,15 +1072,15 @@
             },
             {
               "id": "bio-y8-food-tests-application-20261025-cross-contamination::p2::B",
-              "text": "A protein result because glucose binds Biuret reagent in this tube"
+              "text": "A false negative because extra glucose prevents Benedict's reagent changing colour"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-cross-contamination::p2::C",
-              "text": "A false negative because glucose keeps the reagent blue"
+              "text": "A positive Biuret protein result caused by glucose residue"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-cross-contamination::p2::D",
-              "text": "A lipid result because glucose forms an emulsion in this tube"
+              "text": "A positive iodine starch result caused by glucose residue"
             }
           ],
           "correctOptionId": "bio-y8-food-tests-application-20261025-cross-contamination::p2::A",
@@ -1296,7 +1296,7 @@
           "options": [
             {
               "id": "bio-y8-food-tests-application-20261025-protein-extraction::p1::A",
-              "text": "Crushing changes starch into protein"
+              "text": "Crushing creates new protein rather than simply exposing the original protein"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-protein-extraction::p1::B",
@@ -1304,11 +1304,11 @@
             },
             {
               "id": "bio-y8-food-tests-application-20261025-protein-extraction::p1::C",
-              "text": "Crushing supplies the purple Biuret colour"
+              "text": "Crushing increases the concentration of Biuret reagent before it is added"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-protein-extraction::p1::D",
-              "text": "More water is produced inside the food"
+              "text": "Crushing changes the protein in food into a different nutrient"
             }
           ],
           "correctOptionId": "bio-y8-food-tests-application-20261025-protein-extraction::p1::B",
@@ -1328,15 +1328,15 @@
             },
             {
               "id": "bio-y8-food-tests-application-20261025-protein-extraction::p2::B",
-              "text": "Water separates each nutrient into a different coloured layer"
+              "text": "Water guarantees that every protein in the crushed food dissolves completely"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-protein-extraction::p2::C",
-              "text": "Water turns dissolved protein purple before reagent is added"
+              "text": "Water ensures that no other dissolved nutrients enter the extract"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-protein-extraction::p2::D",
-              "text": "Water converts insoluble starch into soluble protein"
+              "text": "Water itself makes blue Biuret reagent turn lilac without protein"
             }
           ],
           "correctOptionId": "bio-y8-food-tests-application-20261025-protein-extraction::p2::A",
@@ -1360,15 +1360,15 @@
           "options": [
             {
               "id": "bio-y8-food-tests-application-20261025-starch-extraction::p1::A",
-              "text": "The starch dissolves in the air"
+              "text": "The total amount of starch increases as the potato is broken up"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-starch-extraction::p1::B",
-              "text": "The fragments gain starch per gram"
+              "text": "The smaller fragments necessarily have a higher starch concentration than the original potato"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-starch-extraction::p1::C",
-              "text": "The mass of starch doubles"
+              "text": "Breaking a potato into pieces changes its starch into reducing sugars"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-starch-extraction::p1::D",
@@ -1388,11 +1388,11 @@
           "options": [
             {
               "id": "bio-y8-food-tests-application-20261025-starch-extraction::p2::A",
-              "text": "Crushing produces iodine inside the cells"
+              "text": "Breaking the potato creates starch that the intact potato did not contain"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-starch-extraction::p2::B",
-              "text": "Air converts the exposed starch into iodine"
+              "text": "The iodine reagent only reacts with starch in pieces below a fixed size"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-starch-extraction::p2::C",
@@ -1400,7 +1400,7 @@
             },
             {
               "id": "bio-y8-food-tests-application-20261025-starch-extraction::p2::D",
-              "text": "Crushing makes the brown iodine colour darker before contact"
+              "text": "Crushing a potato can turn iodine blue-black even if no starch is present"
             }
           ],
           "correctOptionId": "bio-y8-food-tests-application-20261025-starch-extraction::p2::C",
@@ -1520,15 +1520,15 @@
             },
             {
               "id": "bio-y8-food-tests-application-20261025-fair-reagent::p2::B",
-              "text": "The different colours measure the volumes of the empty tubes"
+              "text": "A larger reagent volume means the original food contained more reducing sugar"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-fair-reagent::p2::C",
-              "text": "The smaller reagent volume identifies which sample contained starch"
+              "text": "Different reagent volumes ensure a fair comparison when total tube volumes are the same"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-fair-reagent::p2::D",
-              "text": "The larger reagent volume shows the food contained more sugar"
+              "text": "The size of the colour change is independent of the ratio of reagent to sample"
             }
           ],
           "correctOptionId": "bio-y8-food-tests-application-20261025-fair-reagent::p2::A",
@@ -2000,7 +2000,7 @@
           "options": [
             {
               "id": "bio-y8-food-tests-application-20261025-retest-ethanol::p1::A",
-              "text": "The early cloudiness confirms a positive emulsion endpoint"
+              "text": "The cloudiness alone confirms a positive lipid emulsion test before any water is added"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-retest-ethanol::p1::B",
@@ -2008,11 +2008,11 @@
             },
             {
               "id": "bio-y8-food-tests-application-20261025-retest-ethanol::p1::C",
-              "text": "Cloudiness before dilution confirms the presence of protein"
+              "text": "An initially cloudy extract proves there are no suspended food particles"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-retest-ethanol::p1::D",
-              "text": "The extract has already given a positive Benedict’s result"
+              "text": "Cloudiness before water addition proves that the subsequent test must be negative"
             }
           ],
           "correctOptionId": "bio-y8-food-tests-application-20261025-retest-ethanol::p1::B",
@@ -2032,15 +2032,15 @@
             },
             {
               "id": "bio-y8-food-tests-application-20261025-retest-ethanol::p2::B",
-              "text": "Compare the undiluted cloudy liquid with a Biuret colour chart"
+              "text": "Score the initial undiluted cloudiness as the lipid-test endpoint"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-retest-ethanol::p2::C",
-              "text": "Add the cloudy mixture to more solid food and inspect the sediment"
+              "text": "Add water to the cloudy extract and count all remaining cloudiness as positive without a blank"
             },
             {
               "id": "bio-y8-food-tests-application-20261025-retest-ethanol::p2::D",
-              "text": "Count the original cloudiness as the result before adding water"
+              "text": "Compare the initial cloudy extract with the colours in a Benedict's sugar test"
             }
           ],
           "correctOptionId": "bio-y8-food-tests-application-20261025-retest-ethanol::p2::A",
@@ -3196,5 +3196,22 @@
         }
       ]
     }
-  ]
+  ],
+  "qaDraftSecondPass": {
+    "status": "unapproved",
+    "newlyRewritten": [
+      18,
+      21,
+      33,
+      40,
+      41,
+      42,
+      43,
+      47,
+      62,
+      63
+    ],
+    "academicApproved": 0,
+    "reason": "Ten previously weak or implausible distractor sets were rewritten as misconception-based foils; all require independently checked sole-correctness and taught scope."
+  }
 }
