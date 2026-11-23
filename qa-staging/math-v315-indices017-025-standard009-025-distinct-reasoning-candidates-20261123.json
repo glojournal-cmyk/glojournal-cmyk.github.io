@@ -1,0 +1,251 @@
+{
+  "kind": "V315_FOUR_DISTINCT_INDICES_STANDARD_FORM_AO2_AO3_CANDIDATES_NO_GRADE_CERTIFICATION",
+  "date": "2026-11-23",
+  "pr": 306,
+  "branch": "feature/daily-tasks-v3-20261122",
+  "sourceBankPath": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "sourceBankUnmodified": true,
+  "evidenceRegisterPath": "qa-staging/math-v315-indices40-standardform40-source-exact-pedagogical-hold-and-12-risk-corrections-20261123.json",
+  "evidenceRegisterBlobSha": "a58c214078b0089fbf292ae64b01f1078c2dec5a",
+  "taughtSchoolPDF": "SKIPPED_AS_INSTRUCTED",
+  "priorCandidateVersions": "RETAIN_UNCHANGED_OTHER_REDESIGNS",
+  "totals": {
+    "candidateQuestions": 4,
+    "indices": 2,
+    "standardForm": 2,
+    "choices": 24,
+    "wrongDistractors": 20,
+    "correctKeysConfirmed": 0,
+    "independentGCSEGrade7Certifications": 0,
+    "formalAcademicApprovals": 0,
+    "dailyEnabled": 0,
+    "masteryEnabled": 0
+  },
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-017",
+      "revisionId": "LUX-MATH-Y9-INDICES-017-V315-REASONING-REDESIGN-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-017-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "sourceTemplateGroup": "MATH_Y9_INDICES_08",
+      "originalPedagogicalIssue": "UPGRADE_STEM_FOR_G7PLUS",
+      "stem": "For every integer $n\\ge0$, define $S(n)=2^{2n}+2^{2n+2}$. A positive integer $k$ satisfies $S(2)<k^2<S(5)$. It is divisible by $8$ but **not** by $16$. Find the sum of **all** possible values of $k$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "128",
+          "errorPath": "Include k=8, which meets the divisibility rule but gives k²=64 below the strict lower bound 80."
+        },
+        {
+          "id": "B",
+          "latex": "192",
+          "errorPath": "Include k=72, which meets the divisibility rule but gives k²=5184 above the strict upper bound 5120."
+        },
+        {
+          "id": "C",
+          "latex": "96",
+          "errorPath": "Miss the valid smallest candidate k=24 while correctly counting 40 and 56, producing 40+56=96."
+        },
+        {
+          "id": "D",
+          "latex": "120"
+        },
+        {
+          "id": "E",
+          "latex": "80",
+          "errorPath": "Miss the valid central candidate k=40 while keeping 24 and 56, producing 24+56=80."
+        },
+        {
+          "id": "F",
+          "latex": "64",
+          "errorPath": "Miss the valid largest candidate k=56 while keeping 24 and 40, producing 24+40=64."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "120",
+      "workedSolutionSteps": [
+        "Factor $S(n)=2^{2n}(1+2^2)=5\\cdot 2^{2n}$. Hence $S(2)=80$ and $S(5)=5120$, so a positive integer $k$ must satisfy $9\\le k\\le71$.",
+        "Multiples of 8 which are not multiples of 16 are $8,24,40,56,72,\\ldots$; apply both strict-square bounds to retain exactly $24,40,56$.",
+        "The requested sum is $24+40+56=120$. The excluded neighbours give $8^2=64<80$ and $72^2=5184>5120$."
+      ],
+      "intendedAssessmentObjective": "AO2/AO3 candidate: connect an exponential expression to strict square bounds and enumerate a congruence class.",
+      "unverifiedTaughtSubskill": "Power factoring, inequalities with square numbers and divisibility conditions need exact taught scope.",
+      "academicQA": "pending",
+      "independentGCSEGrade7PlusCertified": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-025",
+      "revisionId": "LUX-MATH-Y9-INDICES-025-V315-REASONING-REDESIGN-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-025-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "sourceTemplateGroup": "MATH_Y9_INDICES_10",
+      "originalPedagogicalIssue": "UPGRADE_STEM_FOR_G7PLUS",
+      "stem": "For an integer $n\\ge0$, let $A=2^{3n-1}$ and $B=4^{n+1}$. The ratio $\\frac{A}{B}$ is an **integer perfect square**, and $2^4\\le\\frac{A}{B}\\le2^9$. Find the sum of **all** possible values of $n$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "57",
+          "errorPath": "Count every n from 7 through 12 within the exponent bounds, ignoring the perfect-square requirement."
+        },
+        {
+          "id": "B",
+          "latex": "30",
+          "errorPath": "Select n=8,10,12, whose ratio exponents are odd, rather than the even exponents of perfect-square powers of two."
+        },
+        {
+          "id": "C",
+          "latex": "20",
+          "errorPath": "Omit the valid lower-bound case n=7, leaving only n=9 and n=11 with sum 20."
+        },
+        {
+          "id": "D",
+          "latex": "16",
+          "errorPath": "Omit the valid upper allowed perfect-square case n=11, leaving n=7 and n=9 with sum 16."
+        },
+        {
+          "id": "E",
+          "latex": "27"
+        },
+        {
+          "id": "F",
+          "latex": "18",
+          "errorPath": "Omit the middle admissible case n=9, leaving n=7 and n=11 with sum 18."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "27",
+      "workedSolutionSteps": [
+        "Rewrite $B=2^{2n+2}$; then $\\frac{A}{B}=2^{3n-1-(2n+2)}=2^{n-3}$.",
+        "Bounds $2^4\\le2^{n-3}\\le2^9$ give $7\\le n\\le12$. An integer power of 2 is a perfect square exactly when its nonnegative exponent is even, so $n-3$ must be even.",
+        "Thus $n=7,9,11$ only, and their sum is $7+9+11=27$."
+      ],
+      "intendedAssessmentObjective": "AO2 candidate: constrain an exponential ratio by intervals and square-exponent parity, then exhaust all integer cases.",
+      "unverifiedTaughtSubskill": "Perfect-square exponent reasoning and indexed inequalities require teaching check.",
+      "academicQA": "pending",
+      "independentGCSEGrade7PlusCertified": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-009",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-009-V315-REASONING-REDESIGN-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-009-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_06",
+      "originalPedagogicalIssue": "UPGRADE_STEM_FOR_G7PLUS",
+      "stem": "A factory produces $6\\times10^5$ g of material and discards $3\\times10^4$ g. The retained material is divided equally among $N$ identical containers, each of total capacity $1.2\\times10^5$ g. For safe shipping, **at least 10% of each container's capacity must remain empty**. Find the **minimum whole number $N$** and the **total unused capacity $U$** in grams of those $N$ containers.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "N=5,U=3\\times10^4",
+          "errorPath": "Choose five containers by their nominal capacity and calculate 600000−570000=30000 g free, but this leaves only 5% empty per container, not 10%."
+        },
+        {
+          "id": "B",
+          "latex": "N=6,U=1.5\\times10^5"
+        },
+        {
+          "id": "C",
+          "latex": "N=6,U=1.8\\times10^5",
+          "errorPath": "Subtract the discarded 30000 g twice, use 540000 g retained, and report 720000−540000=180000 g unused."
+        },
+        {
+          "id": "D",
+          "latex": "N=6,U=1.2\\times10^5",
+          "errorPath": "Ignore the discarded 30000 g when calculating empty capacity: 720000−600000=120000 g rather than 150000 g."
+        },
+        {
+          "id": "E",
+          "latex": "N=7,U=2.7\\times10^5",
+          "errorPath": "Choose seven containers unnecessarily; the resulting 840000−570000=270000 g unused is possible but not the minimum-container solution."
+        },
+        {
+          "id": "F",
+          "latex": "N=5,U=6\\times10^4",
+          "errorPath": "Use five nominal containers and erroneously subtract the waste twice, giving 600000−540000=60000 g spare."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "N=6,U=1.5\\times10^5",
+      "workedSolutionSteps": [
+        "The mass retained is $6\\times10^5-3\\times10^4=5.7\\times10^5$ g. Since at least 10% must be empty, the maximum load in each container is $0.90(1.2\\times10^5)=1.08\\times10^5$ g.",
+        "The container count satisfies $N\\ge\\frac{5.7\\times10^5}{1.08\\times10^5}>5$, so the minimum whole number is $N=6$. Five containers would leave less than 10% empty per container.",
+        "Six containers have total capacity $6(1.2\\times10^5)=7.2\\times10^5$ g, so the total unused capacity is $U=7.2\\times10^5-5.7\\times10^5=1.5\\times10^5$ g."
+      ],
+      "intendedAssessmentObjective": "AO3 candidate: optimize an integer packing choice under a safety-headroom constraint, then evaluate a derived quantity.",
+      "unverifiedTaughtSubskill": "Capacity/headroom interpretation and integer ceiling optimisation have not been independently confirmed taught.",
+      "academicQA": "pending",
+      "independentGCSEGrade7PlusCertified": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-025",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-025-V315-REASONING-REDESIGN-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-025-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "sourceTemplateGroup": "MATH_Y9_STANDARD_FORM_13",
+      "originalPedagogicalIssue": "UPGRADE_STEM_FOR_G7PLUS",
+      "stem": "A chamber of volume $2.5\\times10^{-3}$ m$^3$ initially contains $4\\times10^3$ particles per cm$^3$. A filter removes **25%** of its particles. The chamber is then compressed to $2.0\\times10^{-3}$ m$^3$ without further loss. How many particles must be added to reach $6\\times10^3$ particles per cm$^3$? Give the number to add in standard form. ($1$ m$^3=10^6$ cm$^3$.)",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2\\times10^6",
+          "errorPath": "Ignore the 25% filtering loss: subtract all 10 million starting particles from the 12 million target."
+        },
+        {
+          "id": "B",
+          "latex": "4.5\\times10^6"
+        },
+        {
+          "id": "C",
+          "latex": "4\\times10^6",
+          "errorPath": "Apply a 20% removal instead of the stated 25%, leaving 8 million before topping up to 12 million."
+        },
+        {
+          "id": "D",
+          "latex": "2.5\\times10^6",
+          "errorPath": "Report the number filtered out, 25% of 10 million, rather than the extra particles now required."
+        },
+        {
+          "id": "E",
+          "latex": "7.5\\times10^6",
+          "errorPath": "Use the original 2500 cm³ chamber volume to calculate the final target of 15 million, instead of the compressed 2000 cm³ volume."
+        },
+        {
+          "id": "F",
+          "latex": "5\\times10^6",
+          "errorPath": "Compare the initial 4000 concentration against the target 6000 and multiply the gap by the original 2500 cm³, omitting filtering and compression."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "4.5\\times10^6",
+      "workedSolutionSteps": [
+        "Convert the initial volume: $2.5\\times10^{-3}\\times10^6=2.5\\times10^3$ cm$^3$. Initial particles total $(2.5\\times10^3)(4\\times10^3)=1.0\\times10^7$.",
+        "A 25% loss leaves $0.75(1.0\\times10^7)=7.5\\times10^6$ particles. The new chamber volume is $2.0\\times10^{-3}\\times10^6=2.0\\times10^3$ cm$^3$.",
+        "The required final number is $(6\\times10^3)(2.0\\times10^3)=1.2\\times10^7$ particles, so add $1.2\\times10^7-7.5\\times10^6=4.5\\times10^6$ particles."
+      ],
+      "intendedAssessmentObjective": "AO3 candidate: combine conversion, concentration, fractional loss and a changed capacity to infer a required adjustment.",
+      "unverifiedTaughtSubskill": "Volume conversions, multiplicative percentage reduction and reverse target decisions require exact taught curriculum proof.",
+      "academicQA": "pending",
+      "independentGCSEGrade7PlusCertified": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    }
+  ]
+}
