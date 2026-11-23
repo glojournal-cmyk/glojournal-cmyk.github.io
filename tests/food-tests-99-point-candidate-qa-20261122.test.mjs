@@ -163,3 +163,24 @@ test('two nuanced source concepts remain represented in unapproved MCQ choices',
  assert.equal(candidate.formalCreditEligible,false);
  assert.equal(candidate.approved,0);
 });
+
+
+test('99-point preliminary QA: fair-heating endpoint and qualitative iodine mass control are not confounded',()=>{
+ const p31=candidateParts[30],p45=candidateParts[44];
+ assert.match(p31.stem,/final Benedict's colours/);
+ assert.match(p31.stem,/endpoint colours/);
+ assert.equal(p31.keyedAnswer,'Same bath temperature and same heating time');
+ assert.match(p45.stem,/large piece/);
+ assert.match(p45.keyedAnswer,/equal measured masses/);
+ assert.doesNotMatch(p45.keyedAnswer,/colour comparisons|exact concentration/i);
+ for(const p of [p31,p45]){
+  assert.equal(p.options.filter(o=>o.text===p.keyedAnswer).length,1);
+  assert.equal(p.options.find(o=>o.id===p.correctOptionId)?.text,p.keyedAnswer);
+  assert.equal(p.approved,false);
+  assert.equal(p.academicReview,'pending');
+  assert.equal(p.distractorReview,'pending');
+ }
+ assert.deepEqual(candidate.qaDraftSecondPass.sourceClarityReviewIndices,[31,45]);
+ assert.equal(candidate.approved,0);
+ assert.equal(candidate.formalCreditEligible,false);
+});
