@@ -97,7 +97,9 @@ test('three pair-matching tasks contain four pairs; 8 points for 4 compound matc
   assert.equal(byId.get(q.id).reviewDisposition,'REVISE_MATCHING_PARTIAL_CREDIT');
  }
  const compound=match.find(q=>q.id==='bio-y8-app-food-test-match');
- assert.equal(compound.answer.totalMarks,8,'the unresolved source defect must not be masked');
+ assert.equal(compound.answer.totalMarks,4,'one actual selectable pair is one mark; eight was an overclaim');
+ assert.match(compound.prompt,/one mark for each complete pairing \(4 marks\)/i);
+ assert.equal(byId.get(compound.id)?.currentQAStatus,'REVISED_IN_DRAFT_BRANCH_AWAITING_INDEPENDENT_SCORER_AND_CURRICULUM_REVIEW');
  assert.ok(byId.get(compound.id).issues.some(x=>x.code==='EIGHT_MARKS_FOUR_PAIRS'));
  assert.equal(proposal.sourceQuestionCorrections.find(x=>x.questionId===compound.id).proposedAnswerTotalMarks,4);
 });
@@ -140,7 +142,23 @@ test('99 MCQ candidate mark-points have a single keyed option, but zero distract
  }
 });
 test('publish gate remains blocked with no teacher or iPad release permission',()=>{
- assert.equal(proposal.approvals.questions,0);
+ assert.deepEqual(qa.summary.sourceQuestionCorrectionsAppliedInQAOnly,[
+  'bio-y8-app-food-test-match',
+  'bio-y8-food-tests-application-20261025-sugar-strength',
+  'bio-y8-food-tests-application-20261025-all-negative'
+ ]);
+ assert.equal(qa.summary.structuredPointsRevisedAwaitingIndependentAssessment.length,5);
+ assert.equal(proposal.appliedStructuredPointIndices.length,5);
+ const sugar=original.find(q=>q.id==='bio-y8-food-tests-application-20261025-sugar-strength');
+ assert.match(sugar.prompt,/equal volumes of food extract/i);
+ assert.match(sugar.prompt,/equal volumes of fresh Benedict/i);
+ assert.match(sugar.prompt,/same time in the same hot-water bath/i);
+ assert.match(sugar.answer.markPoints[1],/not an exact concentration/i);
+ const neg=original.find(q=>q.id==='bio-y8-food-tests-application-20261025-all-negative');
+ assert.match(neg.prompt,/Positive and negative controls work correctly/);
+ assert.match(neg.answer.markPoints[0],/was detected under the test conditions/);
+ assert.match(neg.answer.markPoints[1],/detection limit/);
+  assert.equal(proposal.approvals.questions,0);
  assert.equal(proposal.approvals.structuredCandidateParts,0);
  assert.equal(qa.summary.scienceKeyMismatches.length,0);
  assert.equal(qa.summary.typedItemsRequiringEquivalenceReview,15);
