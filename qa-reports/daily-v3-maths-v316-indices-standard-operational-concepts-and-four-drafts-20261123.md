@@ -60,3 +60,12 @@ A question's provisional AO2/AO3 intent does not grant an official per-question 
 5. Run a real physical iPad PWA acceptance covering offline data, question rendering, selection, score isolation, refresh persistence and Daily lock; browser-based WebKit tests do not constitute hardware signoff.
 
 **Current formal source approval stays 0/200. PR #306 remains Draft, no merge, no deployment, no Daily/XP/MP/Mastery/Recovery credit.**
+
+
+## V316 20 wrong-choice numeric review and corrected distractor
+
+The additional [20-row independently recalculated distractor audit](../qa-staging/math-v316-four-reasoning-20-distractor-causal-audit-20261123.json) verifies each candidate's **five wrong A–F values**, including the ordered-pair values in INDICES-037. All **20/20** currently displayed wrong results are numerically derivable from their corresponding written hypothetical error paths. The [Node regression](../tests/daily-v3-maths-v316-80-method-collisions-four-reasoning-20261123.test.mjs) recalculates these independently again rather than merely comparing two JSON strings.
+
+A substantive source-specific Academic QA repair was made to STANDARD_FORM-029: the original option D **52** was a largely arbitrary integer inside the continuous capacity interval and did not convincingly follow from a distinct wrong calculation. Option D is now **56**, exactly obtained by **omitting the 2×10⁷ loss**: (800,000,000 + 40,000,000) ÷ 15,000,000 = 56. Option F's earlier "round down 41 to 40" explanation was also not an actual rounding operation. Its new explanation explicitly uses only the original 800,000,000 and divides by the maximum 20,000,000 particles per cartridge to yield 40, exposing the skipped later changes and wrong minimisation strategy. Because option F involves multiple shortcuts rather than one isolated misconception, **empirical distractor realism remains pending**; arithmetic reproducibility does not constitute educational approval.
+
+**No old source key was modified, no Daily/MP/Mastery permissions were added and no independent GCSE Grade7+ sign-off was issued.**
