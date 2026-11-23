@@ -11,6 +11,8 @@ const scientific=s=>{
  const clean=String(s).replace(/\s/g,'');
  const m=clean.match(/^(-?\d+(?:\.\d+)?)\\times10\^(?:\{(-?\d+)\}|(-?\d+))$/);
  if(m)return Number(m[1])*10**Number(m[2]??m[3]);
+ const frac=clean.match(/^(-?)\\(?:d?frac)\{(-?\d+)\}\{(-?\d+)\}$/);
+ if(frac)return (frac[1]?-1:1)*Number(frac[2])/Number(frac[3]);
  if(/^-?\d+(?:\.\d+)?$/.test(clean))return Number(clean);
  throw Error('Non numeric canonical value '+s);
 };
