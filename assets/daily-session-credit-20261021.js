@@ -19,7 +19,7 @@ export function verifiedQuizSlots(questions,answers){
  }
  for(const answer of answers||[]){
   const id=String(answer?.questionId||''),group=buckets.get(id);
-  if(!group?.length||answer.repair||answer.formal===false||
+  if(!group?.length||answer.repair||answer.formal===false||isFoodTestsQaHeld(answer)||
     typeof answer.correct!=='boolean')continue;
   const slot=group.find(x=>x.correct===null);
   if(slot)slot.correct=answer.correct;
@@ -78,7 +78,7 @@ export function reconcileDailySession(state,receipt={}) {
   const creditedIds=new Set();
   for(const answer of answers){
     const id=String(answer?.questionId||'');
-    if(!id||answer.repair||answer.formal===false||
+    if(!id||answer.repair||answer.formal===false||isFoodTestsQaHeld(answer)||
        typeof answer.correct!=='boolean'||(day>='2026-10-24'&&answer.correct!==true)||
        !eligible.has(id)||!remaining.get(id))continue;
     remaining.set(id,remaining.get(id)-1);
