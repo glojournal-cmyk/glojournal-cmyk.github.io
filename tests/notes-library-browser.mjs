@@ -22,6 +22,17 @@ for(const [name,engine,viewport] of [
    headers:{'Access-Control-Allow-Origin':'*'}}));
  await page.goto(BASE+'/notes/',{waitUntil:'domcontentloaded'});
  await page.waitForFunction(()=>document.querySelector('#status')?.textContent?.includes('8 / 97 Notes available'));
+ // WebKit can expose updated status text before the first layout is ready.
+ // Wait for actual visible geometry, not an arbitrary sleep; retain all assertions.
+ try {
+   await page.locator('#subjectScreen').waitFor({state:'visible',timeout:10000});
+   await page.locator('#subjectGrid .subject-card').first().waitFor({state:'visible',timeout:10000});
+   await page.locator('#detailScreen').waitFor({state:'hidden',timeout:10000});
+ } catch(error) {
+   await page.screenshot({path:'test-results/notes-library-'+name+'-startup-failure.png',fullPage:true}).catch(()=>{});
+   console.error('NOTES_STARTUP_FAILURE',name,await page.evaluate(()=>({hash:location.hash,status:document.querySelector('#status')?.textContent,subjectHidden:document.querySelector('#subjectScreen')?.hidden,detailHidden:document.querySelector('#detailScreen')?.hidden,cards:document.querySelectorAll('.subject-card').length,subjectRect:document.querySelector('#subjectScreen')?.getBoundingClientRect()?.toJSON()})));
+   throw error;
+ }
  assert.equal(await page.locator('#yearSelect').inputValue(),'year9');
  assert.equal(await page.locator('#subjectScreen').isVisible(),true);
  assert.equal(await page.locator('#detailScreen').isVisible(),false);
