@@ -12,7 +12,8 @@ for(const bundle of bundles){
   const src=read(bundle),start=src.indexOf('function B(e,t,n,r){');
   const end=src.indexOf('function ',start+30);
   assert.ok(start>0&&end>start&&end-start<12000,bundle+' parse scorer');
-  const body=src.slice(start,end);
+  const reviewed=src.indexOf('function reviewedMark(');assert.ok(reviewed>=0&&reviewed<start);
+  const body=src.slice(reviewed,start)+src.slice(start,end);
   const score=new Function('L','I',body+'\nreturn B;')(q=>q.answer?.modelAnswer||'',q=>q.answer?.accepted||[]);
   const pairs=question.answer.pairs;
   assert.equal(pairs.length,4);
