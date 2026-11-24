@@ -1,0 +1,80 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+
+const raw=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
+const read=p=>JSON.parse(raw(p));
+const blob=p=>{const c=raw(p);return createHash('sha1').update('blob '+Buffer.byteLength(c)+'\0').update(c).digest('hex')};
+const p=read('qa-staging/math-v325-graphs12-reasoning-replacements-20261124.json');
+const original=read(p.sourceBankPath);
+const older=read(p.priorV323Register);
+const v324=read(p.priorV324Pack);
+const qById=new Map(p.questions.map(q=>[q.sourceId.slice(-3),q]));
+const gcd=(a,b)=>b?gcd(b,a%b):Math.abs(a);
+const fraction=(n,d)=>{if(d<0){n=-n;d=-d}const g=gcd(n,d);n/=g;d/=g;return d===1?String(n):(n<0?'-':'')+'\\frac{'+Math.abs(n)+'}{'+d+'}'};
+const close=(a,b)=>Math.abs(a-b)<1e-9;
+
+test('V325: 12 actual source-linked graph redesigns, six options each and no release or credit',()=>{
+ assert.equal(p.sourceBankBlobSha,blob(p.sourceBankPath));
+ assert.equal(original.questions.length,200);
+ assert.equal(p.questions.length,12);
+ assert.equal(qById.size,12);
+ assert.deepEqual([...qById.keys()],['001','002','003','004','005','006','007','008','010','011','012','013']);
+ assert.equal(p.optionsCount,72);
+ assert.equal(p.wrongOptionExplanationsCount,60);
+ assert.equal(new Set(p.questions.map(q=>q.provisionalConceptFamily)).size,12);
+ for(const q of p.questions){
+  const source=original.questions.find(x=>x.sourceId===q.sourceId);
+  assert.ok(source);
+  assert.equal(q.replacesOriginalRevisionId,source.revisionId);
+  assert.notEqual(q.stem,source.stem);
+  assert.equal(q.topicId,source.topicId);
+  assert.equal(older.rows.find(x=>x.sourceId===q.sourceId).candidateAudit.sourceIdVariants,0);
+  assert.ok(!v324.questions.some(x=>x.sourceId===q.sourceId));
+  assert.deepEqual(q.options.map(x=>x.id),['A','B','C','D','E','F']);
+  assert.equal(new Set(q.options.map(x=>x.latex)).size,6);
+  assert.equal(q.options.find(x=>x.id===q.correctOptionId).latex,q.correctAnswerLatex);
+  assert.equal(q.options.filter(x=>x.errorPath).length,5);
+  assert.ok(q.workedSolutionSteps.length>=3);
+  for(const flag of ['dailyEligible','masteryEligible','teacherTaughtConfirmed','independentGradeCalibrated','studentMisconceptionsEmpiricallyVerified','conceptFamilyIndependentlyApproved'])assert.equal(q[flag],false);
+  assert.equal(q.academicQA,'pending');
+ }
+ assert.equal(p.academicApprovals,0);
+ assert.equal(p.dailyEligible,0);
+ assert.equal(p.masteryEligible,0);
+});
+
+test('V325: independently derive all 12 exact keys and verify domain and geometry constraints',()=>{
+ const reflectionX=(8+0.5-1)/(2+0.5), reflectionY=2*reflectionX+1;
+ assert.equal((reflectionY-8)/(reflectionX-1),-0.5);
+ const image=[2*reflectionX-1,2*reflectionY-8];
+ const kTriangle=5+4/(-2);
+ const triArea=Math.abs(4*4-2*(kTriangle-5))/2;
+ assert.equal(4*(kTriangle-5)+2*4,0);
+ const param=11/5;
+ assert.ok(close((2*param-4)/(param-3),-0.5));
+ const eligible=Array.from({length:8},(_,i)=>i+2).filter(k=>{const m=(k+2)/(k-1);return m>1&&m<2});
+ assert.deepEqual(eligible,[5,6,7,8,9]);
+ const t=(16+25-4-1)/8;
+ assert.ok(close(4+(t-1)**2,16+(t-5)**2));
+ const centre=[3,(1+16-9)/8];
+ for(const [x,y] of [[0,0],[6,0],[2,4]])assert.equal((centre[0]-x)**2+(centre[1]-y)**2,10);
+ const roots=[2+Math.sqrt(25-9),2-Math.sqrt(25-9)];
+ assert.ok(roots.every(k=>(k-2)**2+9===25));
+ const boundary=(36+16-4)/12;
+ const distDiff=x=>(x-6)**2+16-(x*x+4);
+ assert.equal(distDiff(boundary),0);
+ assert.ok(distDiff(boundary-0.01)>0&&distDiff(boundary+0.01)<0);
+ const amounts=Array.from({length:16},(_,i)=>i).filter(n=>4+5*n-(12+3*n)>=10&&12+3*n<=48);
+ assert.deepEqual(amounts,[9,10,11,12]);
+ const gradient=(40-20)/(24-8),offset=20-gradient*8,trueValue=offset/(1.5-gradient);
+ assert.equal(gradient*trueValue+offset,1.5*trueValue);
+ const meetingT=(6+5)/(5-2);
+ assert.ok(5>3&&meetingT>=3);
+ assert.ok(close(2*meetingT+6,5*(meetingT-1)));
+ const intercept=(8*6/2-8*4/2)/8;
+ assert.ok(intercept>=0&&intercept+4<=6);
+ const expected={'001':'('+image.join(',')+')','002':String(triArea),'003':fraction(11,5),'004':String(eligible.reduce((a,b)=>a+b,0)),'005':fraction(4*4+7*7,4),'006':String(centre[0]**2+centre[1]**2),'007':String(roots[0]*roots[1]),'008':String(10-boundary),'010':String(amounts.length),'011':String(trueValue),'012':fraction(2*11+6*3,3),'013':String(intercept)};
+ for(const [id,value] of Object.entries(expected))assert.equal(qById.get(id).correctAnswerLatex,value,id);
+});
