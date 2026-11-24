@@ -208,7 +208,9 @@
       "matchingSciencePairMapsPass": 3,
       "matchingMarks": 12,
       "independentAcademicApprovals": 0,
-      "evidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json"
+      "evidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "matchingScorerSourcesVerified": 3,
+      "matchingScoreCasesAcrossTwoBundles": 30
     },
     "ai99StructuredAcademicContentReview": {
       "sourceFreeEnglishQuestions": 52,
@@ -1542,7 +1544,7 @@
       ],
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "aiSecondPassSciencePairs": "PASS_4_OF_4",
-      "aiSecondPassPartialCreditAcceptance": "PENDING_0_TO_4_PER_SOURCE_BUNDLE_TEST",
+      "aiSecondPassPartialCreditAcceptance": "BOTH_SCORER_BUNDLES_VERIFIED_0_TO_4_PER_SOURCE",
       "aiSecondPassContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
       "independentQualifiedTeacherApproval": false,
       "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
@@ -1580,7 +1582,7 @@
       ],
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "aiSecondPassSciencePairs": "PASS_4_OF_4",
-      "aiSecondPassPartialCreditAcceptance": "PENDING_0_TO_4_PER_SOURCE_BUNDLE_TEST",
+      "aiSecondPassPartialCreditAcceptance": "BOTH_SCORER_BUNDLES_VERIFIED_0_TO_4_PER_SOURCE",
       "aiSecondPassContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
       "independentQualifiedTeacherApproval": false,
       "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
@@ -1684,7 +1686,7 @@
       "currentQAStatus": "REVISED_IN_DRAFT_BRANCH_AWAITING_INDEPENDENT_SCORER_AND_CURRICULUM_REVIEW",
       "fixAppliedInQAOnly": true,
       "aiSecondPassSciencePairs": "PASS_4_OF_4",
-      "aiSecondPassPartialCreditAcceptance": "PENDING_0_TO_4_PER_SOURCE_BUNDLE_TEST",
+      "aiSecondPassPartialCreditAcceptance": "BOTH_SCORER_BUNDLES_VERIFIED_0_TO_4_PER_SOURCE",
       "aiSecondPassContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
       "independentQualifiedTeacherApproval": false,
       "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
