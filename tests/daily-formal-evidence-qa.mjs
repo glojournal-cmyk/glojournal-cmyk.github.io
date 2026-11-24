@@ -1,3 +1,4 @@
+import {isFoodTestsQaHeld,FOOD_TESTS_QA_HOLD_IDS} from '../assets/food-tests-qa-credit-gate-20261122.js';
 import {creditCurriculumAttempt} from "../assets/daily-curriculum-20261004.js";
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -8,7 +9,7 @@ const src=fs.readFileSync('assets/index-BLVOhKhN.js','utf8');
 const day='2026-09-30',topic='fr-y8-s24-numbers-and-age';
 let state={today:day,year:8,topicStats:{},reviews:{},daily:[],questionsToday:0};
 const context=vm.createContext({
-  URLSearchParams,addMasteryEvidence,saveMarkedAnswer:async()=>true,recoveryAttemptSequence:0,
+  isFoodTestsQaHeld,URLSearchParams,addMasteryEvidence,saveMarkedAnswer:async()=>true,recoveryAttemptSequence:0,
   creditCurriculumAttempt,
   todayKey:()=>day,inferSubjectFromTopic:()=> 'french',
   store:{getState:()=>state,setState:patch=>{state={...state,...patch};}},
@@ -27,6 +28,13 @@ for(const [start,end] of [['function focusAttemptsToday(','function vocabGateSta
   const from=src.indexOf(start),to=src.indexOf(end,from);assert.ok(from>=0&&to>from);vm.runInContext(src.slice(from,to),context);
 }
 const focus={subject:'french',topicId:topic};
+assert.equal(FOOD_TESTS_QA_HOLD_IDS.length,143);
+const beforeHold=JSON.stringify(state);
+for(const id of FOOD_TESTS_QA_HOLD_IDS){
+ const held=context.patchedRecordAttempt(id,true,'biology',{topicId:'bio-y8-food-tests'});
+ assert.equal(held.formalCredit,false,id);assert.equal(held.awarded,0,id);
+}
+assert.equal(JSON.stringify(state),beforeHold,'Held questions cannot mutate formal evidence');
 context.patchedRecordAttempt('q1',false,'french',{topicId:topic});
 assert.equal(context.focusAttemptsToday(state,focus),1);
 assert.equal(context.topicAttemptsToday(state,topic),1);
