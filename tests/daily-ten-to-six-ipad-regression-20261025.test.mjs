@@ -76,8 +76,8 @@ test('wrong-day subject or topic cannot borrow a different completed task proof'
  assert.notEqual(findTask(rebuilt).verifiedCorrectIds?.length,10);
 });
 
-test('Biology Food Tests: ten marked CORRECT slots with only six unique IDs still count 10/10',()=>{
- const topic='bio-y8-food-tests',id='y8-standard-a';
+test('Non-held Biology: ten marked CORRECT slots with only six unique IDs still count 10/10',()=>{
+ const topic='bio-y8-digestion-absorption',id='y8-standard-a';
  const task={id,planDate:day,target:10,progress:0,
   assignedSubject:'biology',assignedTopic:topic,assignedYear:8,
   href:'/study/biology/practise?daily=1&locked=1&year=8&mode=standard&task='+id+'&topic='+topic};
@@ -94,8 +94,8 @@ test('Biology Food Tests: ten marked CORRECT slots with only six unique IDs stil
  assert.equal(result.daily[0].verifiedCorrectSlots,10);
  assert.equal(result.daily[0].done,true);
 });
-test('Biology Food Tests ten repeated-ID slots survive reload of iPad completed-quiz receipt',async()=>{
- const topic='bio-y8-food-tests',id='y8-standard-a';
+test('Non-held Biology ten repeated-ID slots survive reload of iPad completed-quiz receipt',async()=>{
+ const topic='bio-y8-digestion-absorption',id='y8-standard-a';
  const task={id,planDate:day,target:10,progress:6,
   assignedSubject:'biology',assignedTopic:topic,assignedYear:8,
   href:'/study/biology/practise?daily=1&locked=1&year=8&mode=standard&task='+id+'&topic='+topic};
@@ -144,4 +144,36 @@ test('A verified 10/10 Daily with repeated IDs still reads 10/10 after its journ
  const rebuilt=buildYear8DailyV2({...start,daily:first.daily,formalAttemptLog:six},get);
  assert.equal(findTask(rebuilt).progress,10);
  assert.equal(findTask(rebuilt).verifiedCorrectSlots,10);
+});
+
+// Keep the original Food Tests hold distinct from valid historical slot integrity.
+test('held Food Tests cannot grant fresh repeated-slot credit, overwrite old receipts or erase existing progress',async()=>{
+ const topic='bio-y8-food-tests',id='y8-standard-a';
+ const task={id,planDate:day,target:10,progress:6,assignedSubject:'biology',assignedTopic:topic,assignedYear:8,
+  href:'/study/biology/practise?daily=1&locked=1&year=8&mode=standard&task='+id+'&topic='+topic};
+ const questions=['a','b','c','d','e','f','a','b','c','d'].map(k=>({id:'food-'+k,topicId:topic,formal:true}));
+ const answers=questions.map(q=>({questionId:q.id,correct:true,formal:true,repair:false}));
+ const receipt={day,taskId:id,subject:'biology',year:8,mode:'standard',questions,answers};
+ const snapshot={today:day,daily:[task],dailyLog:{[day]:{date:day,tasks:[task],total:1,done:0}},formalAttemptLog:[]};
+ const before=JSON.stringify(snapshot);
+ const held=reconcileDailySession(snapshot,receipt);
+ assert.equal(held.changed,false);assert.equal(held.reason,'academic-qa-hold');assert.equal(held.progress,6);
+ assert.strictEqual(held.daily,snapshot.daily);
+ const {saveCompletedDailyReceipt,reconcileCompletedDailyReceipts,saveVerifiedBiologyAnswerSync}=await import('../assets/daily-completed-session-receipts-20261024.js');
+ const old={...receipt,key:[day,id,'biology',topic,'standard',10].join('|'),topicId:topic,target:10,at:1};
+ const k='lux-daily-completed-sessions-safe-v1',saved=new Map([[k,JSON.stringify([old])]]),original=saved.get(k),oldLocal=globalThis.localStorage;
+ globalThis.localStorage={getItem:k=>saved.get(k)||null,setItem:(k,v)=>saved.set(k,String(v))};
+ try{
+  assert.equal(await saveCompletedDailyReceipt(snapshot,receipt),false);
+  // Even a stale player that omits question topic metadata cannot persist this held assignment.
+  const stale={...receipt,questions:questions.map(({topicId,...q})=>q)};
+  assert.equal(await saveCompletedDailyReceipt(snapshot,stale),false);
+  assert.equal(reconcileCompletedDailyReceipts(snapshot,[old]),null);
+  assert.equal(saved.get(k),original);
+  const t={...task,id:'year9-light',assignedYear:9,href:'/study/biology/practise?daily=1&locked=1&year=9&mode=standard&task=year9-light&topic='+topic};
+  const single={...stale,taskId:t.id,year:9,questions:stale.questions.slice(0,1),answers:answers.slice(0,1)};
+  assert.equal(saveVerifiedBiologyAnswerSync({...snapshot,daily:[t]},single),false);
+  assert.equal(saved.get(k),original);
+  assert.equal(JSON.stringify(snapshot),before);
+ }finally{globalThis.localStorage=oldLocal;}
 });
