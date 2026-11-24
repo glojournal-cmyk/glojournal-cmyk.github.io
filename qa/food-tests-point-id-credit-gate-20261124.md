@@ -61,3 +61,14 @@ A second fabricated case exposed the same risk on the fresh submitted-answer pat
 **Retested** against the actual GitHub Daily code with 99 held structured points wrapped as different-topic answers and journal events: no verified slots, no change in daily progress, and no modification to the original task. As a negative control, an unrelated Biology answer correctly increased progress. Also added the complete source-linked 99-case-per-path regression into `tests/food-tests-qa-credit-hold-20261122.test.mjs`.
 
 **Classification:** Confirmed *synthetic-data credit-path weakness*, not evidence of real student misuse, live app release, or stored learner marks changing. The fixes are in **unmerged Draft QA PR #308** only. They are required for future candidate imports but do not approve the science, questions, Daily mappings, or PWA player. Formal Academic Approval remains **0/143** original sources and **0/99** candidate points.
+
+
+## Safari receipt sanitization boundary — 24 November 2026
+
+The compact receipt converter `sanitized(source,task)` in `assets/daily-completed-session-receipts-20261024.js` originally copied the visible question `id` and answer `questionId` but **discarded original `sourceId` and `pointId` metadata**. That meant a wrapped held Food Tests answer could lose its only visible held-source identification **before** subsequent Daily credit verification, including Safari retry / fallback storage. This was a further potential future import loophole; no evidence of a real pupil saved receipt being affected.
+
+The QA branch now **fails closed before sanitization** if any source question or answer is held under its original ID, point ID, source ID, or Food Tests topic. The synchronous Biology single-answer fallback also explicitly checks the entire answer object. This avoids persisting a compact record with critical QA hold provenance silently removed.
+
+`tests/food-tests-qa-credit-hold-20261122.test.mjs` now covers three concrete wrapped-meta cases in **both** `saveVerifiedBiologyAnswerSync` and `saveCompletedDailyReceipt`, verifying that both paths refuse the held records before any persistence attempt. This is code-level defensive evidence, not actual IndexedDB/iPad acceptance.
+
+**Combined P0 scope:** 99 source mark-point IDs, 52 group objects, wrapper-identified Mastery entries, immediate and journal Daily evidence, plus Safari compact receipt paths. Approval **0/143** original bank and **0/99** candidate MCQ points; no merge/deploy/student-history changes.
