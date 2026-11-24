@@ -126,3 +126,31 @@ test('two cross-bank duplicate candidates now demand different practical reasoni
  assert.deepEqual(draft.crossPoolDuplicateReview.resolvedCandidates,[berry.sourceId,repeats.sourceId]);
  assert.equal(draft.crossPoolDuplicateReview.academicApprovals,0);
 });
+
+
+test('Benedict final-colour comparison fixes an alternative endpoint-method ambiguity',()=>{
+ const q=replacements.find(x=>x.sourceId==='bio-y8-food-tests-case-20261025-3-4');
+ assert.match(q.prompt,/final colour after five minutes/i);
+ assert.match(q.prompt,/30 seconds.*five minutes/i);
+ assert.match(q.answer.accepted[0],/same heating duration/i);
+ assert.match(q.options[3],/first changes colour/i);
+ assert.match(q.scienceRationale,/fixed period/i);
+ assert.equal(q.correctIndex,2);
+ assert.equal(q.approved,false);
+ assert.equal(q.formalCreditEligible,false);
+});
+
+test('ethanol test wording distinguishes a specified two-stage method from universal no-flame safety',()=>{
+ const byId=s=>replacements.find(x=>x.sourceId==='bio-y8-food-tests-case-20261025-'+s);
+ for(const s of ['2-7','3-13','4-14']){
+  assert.match(byId(s).prompt,/two-stage ethanol/i,s);
+  assert.equal(byId(s).approved,false,s);
+ }
+ const safety=byId('4-2');
+ assert.match(safety.answer.accepted[0],/Do not heat ethanol/i);
+ assert.match(safety.answer.accepted[0],/instructed ethanol-and-water emulsion method/i);
+ assert.match(safety.scienceRationale,/protocol must follow the method taught/i);
+ assert.doesNotMatch(safety.answer.accepted[0],/then add the clear extract to water/i);
+ assert.equal(safety.correctIndex,0);
+ assert.equal(safety.formalCreditEligible,false);
+});
