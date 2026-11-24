@@ -1,0 +1,2665 @@
+{
+  "kind": "48 Food Tests replacement MCQ candidates; 192 option-by-option contextual science rationale QA evidence",
+  "date": "2026-11-24",
+  "branch": "qa/p0-eligibility-2e556ff",
+  "sourceDraft": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
+  "sourcePreview": "qa/food-tests-143-revised-preview-20261123.json",
+  "reviewScope": "AI_FIRST_PASS_CONTEXTUAL_SCIENCE_JUSTIFICATION_NOT_QUALIFIED_TEACHER_SIGNOFF",
+  "counts": {
+    "replacements": 48,
+    "options": 192,
+    "proposedKeys": 48,
+    "individuallyReasonedDistractors": 144,
+    "approvedReplacements": 0
+  },
+  "limits": [
+    "A contextual reason explains why a proposed distractor does not answer the current stem; it does not imply the statement is false in all other contexts.",
+    "Independent qualified academic reviewer must verify each key and all three foils, AQA and TGS taught protocol, and any school-specific scope.",
+    "48 replacement Daily concept mappings remain null; 26 preliminary cross-pool flags are not release-eligible.",
+    "CI structural integrity can pass while scientific independent approval remains zero.",
+    "No merge, deployment, formal marking, XP/MP/Mastery or student data changes."
+  ],
+  "releaseStatus": "BLOCKED",
+  "candidateQuestions": [
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-1",
+      "stem": "Iodine remains orange-brown in one fresh portion of a drink, but a separate portion gives an orange precipitate after heating with Benedict's. Which conclusion is justified?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-2-1",
+      "proposedKey": "Reducing sugar was detected; starch was not detected.",
+      "correctChoice": "B",
+      "scienceRationale": "A positive heated Benedict's result is evidence for reducing sugar; orange-brown iodine is starch-negative.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Starch was detected; reducing sugar was not detected.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Brown iodine is not a positive starch result, while orange heated Benedict precipitate is positive for reducing sugar.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Reducing sugar was detected; starch was not detected.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: A positive heated Benedict's result is evidence for reducing sugar; orange-brown iodine is starch-negative.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Neither starch nor reducing sugar was detected because iodine stayed brown.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "The orange Benedict precipitate is evidence of reducing sugar even when iodine remains negative.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Reducing sugar was detected, and the iodine result also confirms starch.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "The unchanged brown iodine does not confirm starch; only the Benedict reaction is positive.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-2",
+      "stem": "Biuret reagent turns lilac in a sample, while heated Benedict's solution stays blue. Which statement is supported?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-2-2",
+      "proposedKey": "Protein was detected, but reducing sugar was not detected.",
+      "correctChoice": "A",
+      "scienceRationale": "The two reagents report separate nutrient groups and do not establish any lipid result.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Protein was detected, but reducing sugar was not detected.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: The two reagents report separate nutrient groups and do not establish any lipid result.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Protein and reducing sugar were detected because both reagents were added.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Lilac Biuret indicates protein, but correctly heated Benedict remaining blue does not show reducing sugar.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Protein was not detected, but reducing sugar was detected.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A lilac Biuret outcome is not protein-negative, and a blue Benedict endpoint is not sugar-positive.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "The blue Benedict's result also indicates reducing sugar when Biuret is lilac.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Blue is the negative heated Benedict endpoint regardless of a separate positive protein test.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-3",
+      "stem": "An extract is tested with iodine and Biuret: iodine becomes blue-black and Biuret turns lilac. No other tests are done. What can be concluded?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-2-3",
+      "proposedKey": "Starch and protein were detected; reducing sugar and lipid remain untested.",
+      "correctChoice": "D",
+      "scienceRationale": "Only tested positive reactions can support conclusions; unperformed tests cannot establish absence.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "All four nutrient groups were detected.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Iodine and Biuret supply evidence for starch and protein only; the unperformed tests cannot confirm all four groups.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Only starch was detected because lilac is a negative Biuret colour.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Lilac is the positive Biuret protein reaction, so starch is not the only identified nutrient.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Starch and protein were detected, but the untested sugar and lipid must also be absent.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Not performing sugar or lipid tests gives no basis for asserting either nutrient is absent.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Starch and protein were detected; reducing sugar and lipid remain untested.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Only tested positive reactions can support conclusions; unperformed tests cannot establish absence.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-4",
+      "stem": "A food extract gives a green Benedict's result after the prescribed water-bath heating; the water blank remains blue. How should this be recorded?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-2-4",
+      "proposedKey": "The food extract tested positive for reducing sugar.",
+      "correctChoice": "C",
+      "scienceRationale": "Green is a weak positive reducing-sugar result under appropriate heating.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "A green result means no reducing sugar because only brick-red is positive.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A green precipitate after prescribed Benedict heating is a weak positive, not a requirement to turn brick-red.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Green and blue are both negative because the tube did not become brick-red.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Green after appropriate heating is a positive Benedict endpoint; blue is the unchanged negative reference.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "The food extract tested positive for reducing sugar.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Green is a weak positive reducing-sugar result under appropriate heating.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "The blue water blank makes a green sample result unreliable.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A correctly blue distilled-water blank supports the test rather than invalidating a green sample result.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-5",
+      "stem": "A known glucose positive-control sample remains blue with Benedict's solution after the heating stage. Which is the safest scientific interpretation?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-2-5",
+      "proposedKey": "The procedure or reagent failed its positive control; repeat before interpreting unknown samples.",
+      "correctChoice": "B",
+      "scienceRationale": "A failed positive control invalidates a conclusion based on negative sample results.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "The negative colour can be accepted without checking whether the positive control worked.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Failure of a known glucose positive control means a negative unknown cannot be trusted without troubleshooting.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "The procedure or reagent failed its positive control; repeat before interpreting unknown samples.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: A failed positive control invalidates a conclusion based on negative sample results.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Add more Benedict's reagent to every unknown until the blue colour disappears.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Adding reagent blindly cannot repair an unexplained failed positive control or validate unknowns.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Use the failed positive control to calculate the concentration of the unknowns.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A failed glucose control cannot calibrate the unknown's sugar concentration.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-6",
+      "stem": "Distilled water turns lilac with Biuret reagent in the same batch used to test a food. What should happen before trusting the food result?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-2-6",
+      "proposedKey": "Prepare fresh reagents or clean equipment and repeat the water blank and food test.",
+      "correctChoice": "A",
+      "scienceRationale": "A negative control ought to remain blue; a lilac blank suggests a problem.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Prepare fresh reagents or clean equipment and repeat the water blank and food test.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: A negative control ought to remain blue; a lilac blank suggests a problem.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "The lilac blank can be subtracted mentally from the food colour without retesting.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Mentally subtracting a positive negative-control colour does not establish whether contamination occurred.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "The water blank establishes a positive Biuret result for every food tested.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "An abnormal lilac water blank is not evidence that every tested food contains protein.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Repeated results from the same batch rule out the possibility of contamination.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Repeated tests with the same contaminated reagents can reproduce the same false-positive control.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-7",
+      "stem": "In a two-stage ethanol-then-water emulsion test, a seed's ethanol extract is already cloudy before it is added to water. What does that observation establish?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-2-7",
+      "proposedKey": "It is not yet a valid positive emulsion result; prepare a clear extract and perform the water-addition stage.",
+      "correctChoice": "D",
+      "scienceRationale": "The emulsion endpoint is cloudiness developing on dilution of an ethanol extract with water.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "A cloudy ethanol extract alone is sufficient because cloudiness is always a positive emulsion endpoint.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Pre-water cloudiness may come from suspended material; it is not by itself the water-added emulsion endpoint.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Adding water is unnecessary if the ethanol extract does not look completely transparent.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "The stated two-stage method includes adding the ethanol extract to water to assess new milkiness.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "The cloudiness shows there is no lipid because all lipids dissolve into completely clear water.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Cloudiness before water addition does not demonstrate that all food lipids are absent from the mixture.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "It is not yet a valid positive emulsion result; prepare a clear extract and perform the water-addition stage.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: The emulsion endpoint is cloudiness developing on dilution of an ethanol extract with water.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-8",
+      "stem": "A clear ethanol extract becomes cloudy white when added to water, while a correctly prepared ethanol-water blank stays clear. What is supported?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-2-8",
+      "proposedKey": "Lipid was detected in the sample.",
+      "correctChoice": "C",
+      "scienceRationale": "A clear blank with a milky sample supports a positive lipid emulsion result.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "The emulsion was negative because the ethanol extract was initially clear.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "An initially clear ethanol extract can become milky on adding water; that is the positive emulsion indication.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "The cloudy result identifies protein rather than lipid.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A milky ethanol-and-water emulsion suggests lipid, not a positive protein Biuret result.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Lipid was detected in the sample.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: A clear blank with a milky sample supports a positive lipid emulsion result.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "A clear water blank confirms that the food contains reducing sugar.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A clear ethanol-water blank controls the lipid procedure, not the presence of reducing sugar.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-9",
+      "stem": "A purple Biuret result is seen, but the pupil never performs an iodine test. Which statement would overreach the evidence?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-2-9",
+      "proposedKey": "The sample must contain no starch.",
+      "correctChoice": "B",
+      "scienceRationale": "Protein evidence cannot prove absence of untested starch.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "The Biuret result supports protein being present.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "It is supported that a purple Biuret reaction indicates protein; this statement does not overreach the available evidence.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "The sample must contain no starch.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Protein evidence cannot prove absence of untested starch.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "No iodine test result is available.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "It is a true statement that no iodine test was performed, so it does not make an unsupported claim.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "A separate iodine test is needed to assess starch.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "An iodine test is needed to investigate starch; requesting it does not assert unmeasured starch absence.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-10",
+      "stem": "A clean water blank unexpectedly becomes blue-black when iodine is added. What is the best response?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-2-10",
+      "proposedKey": "Investigate contamination or a faulty control and repeat with clean water and equipment.",
+      "correctChoice": "A",
+      "scienceRationale": "The water blank must not behave like a starch-positive sample.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Investigate contamination or a faulty control and repeat with clean water and equipment.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: The water blank must not behave like a starch-positive sample.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Accept a blue-black water blank as normal because iodine is naturally dark-coloured.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A clean-water iodine blank should remain the negative orange-brown colour; blue-black is a starch-positive reaction.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Subtract the blank's colour by eye and continue to score the original unknowns as positive.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A faulty blank cannot be corrected by visually subtracting its colour while retaining the original unknown claims.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Repeat the unknown only, without checking the blank, because food extracts cannot contaminate water.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Repeating only unknowns leaves the abnormal negative blank uninvestigated.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-11",
+      "stem": "Iodine stays orange-brown in a known starch positive-control solution. What can the pupil conclude about unknown negative-looking tubes?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-2-11",
+      "proposedKey": "They cannot yet be trusted; the reagent or method needs checking.",
+      "correctChoice": "D",
+      "scienceRationale": "A failed known positive control makes negative results uncertain.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "The negative-looking unknowns are reliable because the reagent gave the same colour in every tube.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A known starch positive control failing to turn blue-black undermines the interpretation of negative unknowns.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Increase the iodine added to unknown samples until a positive colour is seen.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Adding iodine until a desired colour appears is not a controlled way to repair failed positive-control performance.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Treat the starch control as a negative control because it stayed brown.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A known starch solution is not a negative control merely because the reagent failed to change colour.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "They cannot yet be trusted; the reagent or method needs checking.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: A failed known positive control makes negative results uncertain.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-12",
+      "stem": "A food remains blue in the Biuret test, while an egg-white positive control turns purple. What is the cautious conclusion?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-2-12",
+      "proposedKey": "Protein was not detected in the food under the test conditions.",
+      "correctChoice": "C",
+      "scienceRationale": "A valid negative supports 'not detected', not absolute absence.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "A blue Biuret result proves there are absolutely no proteins, regardless of detection limits.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A blue Biuret result means protein was not detected at the method's sensitivity, not that all protein molecules are impossible.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "The food must contain protein because the positive control became purple.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A working egg-white positive control validates reagent performance; it cannot force the unknown food positive.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Protein was not detected in the food under the test conditions.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: A valid negative supports 'not detected', not absolute absence.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "The blue result means a Benedict's reducing-sugar test would necessarily be negative.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Biuret tests protein and gives no necessary prediction of a separate Benedict reducing-sugar result.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-13",
+      "stem": "After suitable heating, the distilled-water Benedict's blank turns orange. Why is interpreting the food tubes risky?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-2-13",
+      "proposedKey": "The negative control is abnormal, so contamination or a reagent problem must be investigated.",
+      "correctChoice": "B",
+      "scienceRationale": "Heated distilled water should remain blue in a working reducing-sugar test.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Use the orange blank as the normal negative reference and accept all food results.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A heated distilled-water Benedict blank becoming orange is an abnormal positive control observation, not the expected negative reference.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "The negative control is abnormal, so contamination or a reagent problem must be investigated.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Heated distilled water should remain blue in a working reducing-sugar test.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Subtract the blank colour visually from food tubes without checking contamination.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Subtracting the anomalous colour by eye does not verify whether reagent contamination influenced sample outcomes.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Repeat the food tubes but omit the blank because a positive blank cannot affect the inference.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Omitting a failed negative blank from repeats removes a necessary check against contamination.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-14",
+      "stem": "A pupil heats a Benedict's tube for much less time than the working glucose control and it stays blue. Which conclusion is justified?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-2-14",
+      "proposedKey": "The shortened heating may give a false negative; repeat with the same prescribed heating time.",
+      "correctChoice": "A",
+      "scienceRationale": "Inadequate heating undermines a negative Benedict's result.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "The shortened heating may give a false negative; repeat with the same prescribed heating time.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Inadequate heating undermines a negative Benedict's result.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Treat blue as a valid negative result even though the tube received less heat than the control.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A shortened heating interval can suppress a positive Benedict reaction, making the blue result unreliable.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Increase the reagent volume instead of correcting the shortened heating time.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "More reagent does not restore the deliberately unmatched heating duration or a fair assay.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Compare with an unheated control only and infer there is no reducing sugar.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "An unheated reference cannot replace comparing equally heated sample and functioning controls.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-15",
+      "stem": "A properly heated Benedict's test gives yellow precipitate. A separate, correctly performed emulsion test stays clear. Which statement is supported?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-2-15",
+      "proposedKey": "Reducing sugar was detected; lipid was not detected.",
+      "correctChoice": "D",
+      "scienceRationale": "A positive yellow Benedict's result and a negative emulsion test address different substances.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Reducing sugar was absent because the Benedict's precipitate was yellow rather than brick-red.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Yellow after sufficient heating is a positive Benedict reducing-sugar endpoint, not proof the sugar test is negative.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Lipid was detected because the ethanol-water mixture remained clear.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A clear emulsion after correct extraction is a negative lipid endpoint, not lipid detected.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "A positive Benedict's colour means the lipid result must also be positive.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A reducing-sugar positive test cannot determine the result of an independent lipid assay.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Reducing sugar was detected; lipid was not detected.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: A positive yellow Benedict's result and a negative emulsion test address different substances.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-16",
+      "stem": "Iodine, heated Benedict's and Biuret tests are negative. The ethanol emulsion test is not performed. Which conclusion is NOT justified?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-2-16",
+      "proposedKey": "No lipids are present in the sample.",
+      "correctChoice": "C",
+      "scienceRationale": "An unperformed lipid test cannot establish that lipids are absent.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Starch was not detected by iodine.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "The iodine-negative observation justifies 'starch not detected', so this is not the unjustified choice.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Reducing sugar was not detected by heated Benedict's.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Properly heated Benedict staying blue supports 'reducing sugar not detected' under test conditions.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "No lipids are present in the sample.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: An unperformed lipid test cannot establish that lipids are absent.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Protein was not detected by Biuret.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Negative Biuret supports protein not detected; the untested class is lipid, not protein.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-1",
+      "stem": "When comparing iodine tests on samples taken from two different bread types, which control makes the comparison fairer?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-3-1",
+      "proposedKey": "Measure the same mass of each bread sample.",
+      "correctChoice": "B",
+      "scienceRationale": "Original draft already said 'equal portions', making the keyed 'measure the same mass' action redundant. Different sample masses can confound comparison of starch observations.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Use the same number of crumbs without checking their masses.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Matching numbers of crumbs does not control bread mass when pieces differ in size.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Measure the same mass of each bread sample.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Original draft already said 'equal portions', making the keyed 'measure the same mass' action redundant. Different sample masses can confound comparison of starch observations.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Add more iodine to the bread expected to contain less starch.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Adding different amounts of iodine confounds comparison rather than controlling mass or reagent volume.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Choose pieces that look equally dark even if their masses differ.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Similar-looking darkness is not a measurement of equal mass and can pre-bias visual starch conclusions.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-2",
+      "stem": "Two food extracts are compared by heating each with Benedict's solution. Which reagent condition should be controlled?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-3-2",
+      "proposedKey": "Add the same measured volume of Benedict's solution to each equal sample volume.",
+      "correctChoice": "A",
+      "scienceRationale": "Unequal reagent amounts make colour comparison less fair.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Add the same measured volume of Benedict's solution to each equal sample volume.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Unequal reagent amounts make colour comparison less fair.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Keep the total liquid volume similar by diluting only one food extract.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Diluting only one extract changes concentration even if the total tube volumes are equal.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Add more Benedict's reagent to the food expected to contain more sugar.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Giving more Benedict to the expected sugar-rich sample makes reaction conditions unequal.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Adjust reagent volume until the two tubes reach a similar colour.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Titrating reagent volumes until colours match removes the ability to compare the original samples fairly.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-3",
+      "stem": "Two equal-volume portions of the same glucose solution are heated with equal Benedict's reagent in water baths at different temperatures. Which adjustment gives the fairest comparison of reducing-sugar results?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-3-3",
+      "proposedKey": "Heat both tubes at the same controlled bath temperature.",
+      "correctChoice": "D",
+      "scienceRationale": "The glucose solution, sample volume, Benedict's volume and heating duration should be comparable; the bath temperatures must also match because temperature affects the colour reaction.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Keep the different bath temperatures but record them, then compare the colours as if conditions were identical.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Recording unequal water-bath temperatures does not make the colour endpoints directly comparable as if identical.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Use more Benedict's reagent in the cooler tube until its colour matches the warmer tube.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Adding extra Benedict reagent changes another variable rather than fixing unequal bath temperatures.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Heat both tubes for the same time but leave them in baths at different temperatures.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Equal heating duration is insufficient for a fair endpoint-colour comparison if bath temperature differs.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Heat both tubes at the same controlled bath temperature.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: The glucose solution, sample volume, Benedict's volume and heating duration should be comparable; the bath temperatures must also match because temperature affects the colour reaction.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-4",
+      "stem": "Two equal-volume food extracts are compared using the final colour after five minutes in the same Benedict's water bath. One tube was removed after 30 seconds and the other after five minutes. What should the pupil change for a fair comparison of final colours?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-3-4",
+      "proposedKey": "Use the same heating duration for both tubes.",
+      "correctChoice": "C",
+      "scienceRationale": "For a comparison of final Benedict's colours after a fixed period, both extracts must receive the same water-bath heating time, alongside other matched conditions.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Record the two heating durations and compare the final colours without adjustment.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Observing unequal heating durations does not remove the resulting chemical-reaction confound for final colours.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Add extra Benedict's solution to the shorter-heated tube to compensate for less heating.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Adding Benedict to only the short-heated tube changes reagent ratio and does not standardise heating time.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Use the same heating duration for both tubes.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: For a comparison of final Benedict's colours after a fixed period, both extracts must receive the same water-bath heating time, alongside other matched conditions.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Stop each tube as soon as it first changes colour, even if that makes heating times unequal.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Timing until first colour change is a different possible experiment, not the requested comparison of final colour after a fixed interval.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-5",
+      "stem": "A technician compares two fruit juices for reducing sugar. Which volume should be kept equal when loading the test tubes?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-3-5",
+      "proposedKey": "The volume of fruit-juice extract added to each tube.",
+      "correctChoice": "B",
+      "scienceRationale": "Compare equal amounts of the tested material.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Keep the same volume of Benedict's solution but use different amounts of juice based on colour.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Matching reagent volume alone is insufficient if the amount of fruit-juice extract differs.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "The volume of fruit-juice extract added to each tube.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Compare equal amounts of the tested material.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Dilute the juice expected to contain more sugar before comparing it with the other.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Diluting only the expected stronger sample changes its concentration before comparison.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Use more juice in whichever tube is initially paler and treat that as a fair comparison.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Adjusting fruit-juice volumes until colours appear similar makes the samples incomparable.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-6",
+      "stem": "A food gives a faint starch colour in one iodine trial. Which design best tests repeatability?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-3-6",
+      "proposedKey": "Repeat on fresh equal-sized portions using the same iodine volume and procedure.",
+      "correctChoice": "A",
+      "scienceRationale": "Independent repeat trials must control the method rather than copy one result.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Repeat on fresh equal-sized portions using the same iodine volume and procedure.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Independent repeat trials must control the method rather than copy one result.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Look at the same tube several times and count these as independent repeat tests.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Looking repeatedly at one tube is not an independent new iodine trial on a fresh portion.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Use fresh portions but change the iodine volume until the results agree.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Changing iodine volume between repeats alters a controlled variable and prevents comparability.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Repeat on different foods rather than on the food with the doubtful result.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A different food is not a repeat of the doubtful result for the original tested food.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-7",
+      "stem": "A purple berry extract is already purple before Biuret reagent is added. It stays purple after the reagent is mixed in. What is the most justified interpretation?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-3-7",
+      "proposedKey": "The starting pigment may mask a Biuret colour change; compare an untreated sample and working controls before deciding.",
+      "correctChoice": "D",
+      "scienceRationale": "A food extract that is purple before reagent addition may mask the Biuret colour response. A sample-colour comparison and appropriate positive/negative controls are needed; the final purple appearance alone is inconclusive.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "The final purple colour alone confirms protein regardless of the starting food colour.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A purple final colour can be the berry's existing pigment rather than a newly positive Biuret reaction.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "The original purple colour is sufficient evidence that the berry extract contains protein.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "The berry's purple colour before reagent was added is not evidence of protein chemistry.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Biuret reagent's starting blue colour ensures that purple food pigments cannot affect interpretation.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "The reagent's starting blue colour does not guarantee a strongly pigmented extract cannot mask a true change.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "The starting pigment may mask a Biuret colour change; compare an untreated sample and working controls before deciding.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: A food extract that is purple before reagent addition may mask the Biuret colour response. A sample-colour comparison and appropriate positive/negative controls are needed; the final purple appearance alone is inconclusive.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-8",
+      "stem": "Which material is the most useful positive control for testing whether Biuret reagent works?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-3-8",
+      "proposedKey": "A known albumen or protein solution.",
+      "correctChoice": "C",
+      "scienceRationale": "A known protein sample should turn Biuret reagent lilac.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Use an unknown food extract that stayed blue in a previous Biuret test.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A previous blue outcome in an unknown food is not a known protein-positive standard.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Use distilled water because it should give a strong lilac reaction.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Distilled water is a suitable negative reference, not the required protein-positive control.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "A known albumen or protein solution.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: A known protein sample should turn Biuret reagent lilac.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Use glucose dissolved in water because Benedict's would give a positive result.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Glucose is a reducing-sugar control for Benedict's and does not supply protein for a Biuret-positive standard.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-9",
+      "stem": "To confirm that iodine reagent can detect starch, which positive-control sample should be used?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-3-9",
+      "proposedKey": "A known starch suspension or solution.",
+      "correctChoice": "B",
+      "scienceRationale": "Known starch should turn iodine blue-black.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "A glucose solution that gives a positive Benedict's test.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Glucose gives a Benedict response but does not serve as a known starch-positive iodine sample.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "A known starch suspension or solution.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Known starch should turn iodine blue-black.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Distilled water that is known to give a negative iodine result.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Distilled water should be iodine-negative and therefore is not a starch-positive control.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "A vegetable-oil sample that gives a positive lipid test.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Vegetable oil gives a lipid-positive reference, not a known starch-positive iodine outcome.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-10",
+      "stem": "Which negative control should remain orange-brown when iodine is added?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-3-10",
+      "proposedKey": "Distilled water containing no starch.",
+      "correctChoice": "A",
+      "scienceRationale": "Clean water should not give the positive blue-black iodine reaction.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Distilled water containing no starch.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Clean water should not give the positive blue-black iodine reaction.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Potato extract known to turn iodine blue-black.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Known potato starch should make iodine blue-black and so is a positive, not negative, control.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Glucose dissolved in a starch-containing suspension.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A mixture expressly containing starch cannot be presumed iodine-negative merely because it also contains glucose.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Bread flour that is known to contain starch.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Bread flour normally contains starch and should not be selected as an iodine-negative reference.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-11",
+      "stem": "To check that the heated Benedict's test is working, what makes a good positive control?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-3-11",
+      "proposedKey": "A known glucose solution heated with Benedict's solution in the normal water bath.",
+      "correctChoice": "D",
+      "scienceRationale": "Glucose is reducing sugar, so it should produce a positive heated Benedict's test.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Use a known starch suspension, heated with Benedict's in a water bath.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A starch standard is not the defined known reducing-sugar control for the heated Benedict test.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Use a known protein solution with Benedict's, omitting the heating stage.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A protein solution without heating is not a valid positive Benedict reducing-sugar standard.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Use a sample of distilled water as the positive control under the usual heating conditions.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Distilled water should remain blue in Benedict's and is a negative, not positive, control.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "A known glucose solution heated with Benedict's solution in the normal water bath.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Glucose is reducing sugar, so it should produce a positive heated Benedict's test.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-12",
+      "stem": "Which negative control should normally remain blue after suitable heating with Benedict's solution?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-3-12",
+      "proposedKey": "Distilled water mixed with Benedict's solution.",
+      "correctChoice": "C",
+      "scienceRationale": "The water blank should be negative for reducing sugars.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "A dilute glucose standard prepared to produce a weaker positive colour.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Even dilute glucose is a reducing sugar and can yield a positive response with working heated Benedict's reagent.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "A concentrated glucose solution used as a positive control.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Concentrated glucose is a positive standard, not an appropriate negative water blank.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Distilled water mixed with Benedict's solution.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: The water blank should be negative for reducing sugars.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Fruit juice known to contain reducing sugar.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Fruit juice known to contain reducing sugar should not be used as a Benedict-negative control.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-13",
+      "stem": "For a two-stage ethanol-extraction-then-water emulsion test, which material can serve as a positive lipid control?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-3-13",
+      "proposedKey": "A small known vegetable-oil sample extracted with ethanol and then added to water.",
+      "correctChoice": "B",
+      "scienceRationale": "Vegetable oil is lipid and should produce a milky emulsion.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Use a known glucose solution with the same ethanol-then-water steps.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Glucose is a reducing sugar; it is not the known lipid required for this ethanol-water positive control.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "A small known vegetable-oil sample extracted with ethanol and then added to water.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Vegetable oil is lipid and should produce a milky emulsion.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Use a known starch suspension with ethanol and water.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Starch suspension is a carbohydrate control rather than a known sample of lipid.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Use a clean water blank without any fat while retaining the emulsion method.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A blank made without fat serves as a negative rather than a lipid-positive emulsion reference.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-14",
+      "stem": "Which properly prepared negative control is most appropriate for the ethanol emulsion test?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-3-14",
+      "proposedKey": "Ethanol and water without food or added lipid.",
+      "correctChoice": "A",
+      "scienceRationale": "A blank without lipid should stay clear when ethanol and water are combined.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Ethanol and water without food or added lipid.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: A blank without lipid should stay clear when ethanol and water are combined.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Ethanol and water deliberately mixed with a few drops of vegetable oil.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Adding vegetable oil introduces lipid and makes the tube a positive emulsion control.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "A milk-fat extract added to water after shaking with ethanol.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Milk-fat extract adds lipid to the ethanol-water test and cannot be a lipid-free negative blank.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "A positive lipid control used alongside the unknown extract.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A positive lipid control cannot also serve as the defined absence-of-lipid negative reference.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-15",
+      "stem": "The teacher labels four clear sample extracts A–D before adding reagents. Why is this especially important?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-3-15",
+      "proposedKey": "Each observed reaction can be traced to the correct food sample.",
+      "correctChoice": "D",
+      "scienceRationale": "Sample identity must be preserved through the practical.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Labelling ensures the reagents cannot contaminate the other samples.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Labelling preserves sample identity but cannot chemically prevent cross-contamination.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Labelling removes the need to keep a separate results table.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Labelling does not record the observed outcome, so a results table is still needed.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Labelling automatically controls the volumes of test reagent used.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Labels do not meter reagent volumes; those must be controlled separately.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Each observed reaction can be traced to the correct food sample.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Sample identity must be preserved through the practical.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-16",
+      "stem": "A pipette has just transferred a glucose solution. Why use a clean pipette for a supposed sugar-free sample?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-3-16",
+      "proposedKey": "Glucose residue could make a false positive in the second sample.",
+      "correctChoice": "C",
+      "scienceRationale": "Residue carries sugar and compromises the result.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Rinsing a pipette briefly with the new sample is guaranteed to remove all traces of glucose.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A rinse with the next sample is not guaranteed to remove carry-over glucose from a reused pipette.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "A clear pipette must be free of glucose because dissolved sugar is colourless.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Dissolved glucose can be colourless, so a clear-looking pipette is not proof it is clean.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Glucose residue could make a false positive in the second sample.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Residue carries sugar and compromises the result.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Using one pipette is harmless if both extracts are later heated with the same Benedict's volume.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Equal Benedict reagent volume cannot remove glucose introduced earlier by a contaminated pipette.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-1",
+      "stem": "After an ethanol emulsion test, a pupil leaves a working ethanol bottle uncapped beside a warm water bath, although the Bunsen flame has been extinguished. What should the pupil do next?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-4-1",
+      "proposedKey": "Cap the ethanol promptly and return it to its designated safe location away from heat and ignition sources.",
+      "correctChoice": "B",
+      "scienceRationale": "Ethanol releases flammable vapour and unnecessary evaporation increases exposure; promptly cap the container and keep it away from hot equipment and ignition sources. This is distinct from merely extinguishing a lit burner.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Leave the bottle open until the equipment has cooled; there is no visible flame now.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "An extinguished flame does not make an open ethanol bottle safe beside a warm bath because ethanol vapour can still escape.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Cap the ethanol promptly and return it to its designated safe location away from heat and ignition sources.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Ethanol releases flammable vapour and unnecessary evaporation increases exposure; promptly cap the container and keep it away from hot equipment and ignition sources. This is distinct from merely extinguishing a lit burner.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Move the uncapped ethanol bottle away from the water bath, but leave it open for the next group.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Moving an uncapped solvent bottle without closing it leaves evaporation and exposure uncontrolled for the next group.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Cover the bottle opening with a tissue while it remains beside the warm bath.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A tissue is not an adequate chemical bottle cap and leaves flammable vapour risk beside the warm bath.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-2",
+      "stem": "A pupil proposes heating an ethanol-food mixture to make the emulsion form faster. Which correction is best?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-4-2",
+      "proposedKey": "Do not heat ethanol; follow the instructed ethanol-and-water emulsion method away from ignition sources.",
+      "correctChoice": "A",
+      "scienceRationale": "Ethanol is highly flammable and should not be heated or handled near an ignition source. The order in a valid emulsion-test protocol must follow the method taught; AQA's practical handbook and the two-stage ethanol-extract method differ in the order of water and ethanol.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Do not heat ethanol; follow the instructed ethanol-and-water emulsion method away from ignition sources.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Ethanol is highly flammable and should not be heated or handled near an ignition source. The order in a valid emulsion-test protocol must follow the method taught; AQA's practical handbook and the two-stage ethanol-extract method differ in the order of water and ethanol.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Warming ethanol gently in an open tube is needed before water can produce an emulsion.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Heating ethanol in an open tube is unsafe and not required to perform the emulsion reaction.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Add water first and then heat the ethanol-water mixture to obtain a stronger white emulsion.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Heating the ethanol-water mixture still introduces unnecessary ignition hazards and does not define the taught lipid protocol.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Replace ethanol with hot water because the same lipid test result will form.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Hot water is not an equivalent lipid-extraction solvent to ethanol in the stated method.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-3",
+      "stem": "For Benedict's test, why use a hot-water bath rather than heating the bottom of a test tube over a direct flame?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-4-3",
+      "proposedKey": "It gives more controlled, even heating and reduces local overheating.",
+      "correctChoice": "D",
+      "scienceRationale": "A water bath provides controlled indirect heating.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "The bath prevents the glass from getting hot enough to cause burns.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Indirect heating can still heat the tube enough to burn; a water bath does not prevent hot glass.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "The bath guarantees every reducing-sugar sample gives the same precipitate colour.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Different reducing-sugar amounts can give different colours even under the same bath conditions.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "The bath removes any need to keep heating time consistent across samples.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Comparable test endpoints still require the heating duration to be held consistent.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "It gives more controlled, even heating and reduces local overheating.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: A water bath provides controlled indirect heating.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-4",
+      "stem": "A pupil needs to remove a tube after heating Benedict's reagent. Which action reduces burn risk?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-4-4",
+      "proposedKey": "Use a test-tube holder and treat the glass as hot.",
+      "correctChoice": "C",
+      "scienceRationale": "Heated glass and contents can cause burns.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Hold the glass near its upper rim because the rim stays cool while the bottom is hot.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Hot glass can remain hot near its rim; bare-handed handling is not a safe control.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Use an ordinary paper tissue instead of a holder even if the tube remains very hot.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "An ordinary tissue can conduct heat or become wet; it does not replace a suitable test-tube holder.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Use a test-tube holder and treat the glass as hot.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Heated glass and contents can cause burns.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Grip the tube with fingers after lifting it straight out of the bath.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Lifting a hot tube from the bath does not make it safe to grip with bare fingers.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-5",
+      "stem": "Which direction should the open end of a heated Benedict's test tube face?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-4-5",
+      "proposedKey": "Away from all people, in case the hot mixture splashes.",
+      "correctChoice": "B",
+      "scienceRationale": "Hot liquid may spit during heating or handling.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Point the mouth towards the observer so the precipitate colour is easier to see.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Facing an open hot tube towards the observer puts them in the path of splashing reagent.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Away from all people, in case the hot mixture splashes.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Hot liquid may spit during heating or handling.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Point the hot tube at the neighbouring pupil once the burner has been switched off.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A switched-off burner does not eliminate hot liquid in the tube, so pointing it at a pupil remains unsafe.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Tilt the opening towards the holder's face because the mixture is no longer on a flame.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Stopping direct flame heating does not make hot test-tube contents safe to direct towards the face.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-6",
+      "stem": "What PPE protects the eyes when working with Benedict's, Biuret and ethanol reagents?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-4-6",
+      "proposedKey": "Suitable laboratory splash goggles.",
+      "correctChoice": "A",
+      "scienceRationale": "Wear protective goggles against accidental splashes.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Suitable laboratory splash goggles.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Wear protective goggles against accidental splashes.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Ordinary prescription glasses are equivalent to sealed splash goggles.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Ordinary prescription glasses generally do not provide the required coverage against chemical splashes.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "A lab coat alone prevents droplets from reaching the eyes.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A lab coat protects clothing and skin but cannot cover the eyes against liquid droplets.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Working slowly removes the need for any eye protection.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Slow careful working lowers risk but cannot replace proper eye protection.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-7",
+      "stem": "An unknown food extract has just been tested with laboratory reagents. Why must it never be tasted?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-4-7",
+      "proposedKey": "It may now contain hazardous reagents or contaminants.",
+      "correctChoice": "D",
+      "scienceRationale": "No tasting materials in a chemical practical.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "If the sample looked edible before the practical, it remains safe to taste after adding reagents.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Being edible before adding lab reagents does not establish a chemically treated sample is safe to taste.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "A negative result in all four nutrient tests shows that chemical contamination is absent.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Negative nutrient-test results do not test for lab chemical residue or harmful contaminants.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Tasting a small diluted portion is safe once the test tube has cooled.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Cooling or dilution does not prove that added reagents and contaminants are safe to ingest.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "It may now contain hazardous reagents or contaminants.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: No tasting materials in a chemical practical.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-8",
+      "stem": "How should a pupil transfer reagent into a tube during a food-test practical?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-4-8",
+      "proposedKey": "Use a suitable dropper or pipette; never suck liquid by mouth.",
+      "correctChoice": "C",
+      "scienceRationale": "Never mouth-pipette laboratory chemicals.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Use mouth suction when the pipette is clean and the liquid looks harmless.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Mouth suction risks ingesting or inhaling laboratory reagents even in a clean pipette.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Pour unused reagent back into the stock bottle after the test to avoid waste.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Pouring used reagent back into its stock bottle can contaminate all future portions.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Use a suitable dropper or pipette; never suck liquid by mouth.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Never mouth-pipette laboratory chemicals.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Hold a filled pipette above eye level to read the volume and release the liquid.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Holding a filled pipette above eye level and releasing reagent increases splash/exposure risk.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-9",
+      "stem": "Ethanol is spilled near the bench during the emulsion test. What is the safest immediate response?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-4-9",
+      "proposedKey": "Alert the teacher, avoid ignition sources and follow the spill procedure.",
+      "correctChoice": "B",
+      "scienceRationale": "A trained adult should manage a flammable-solvent spill.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Wipe up the ethanol while leaving a yellow safety flame burning nearby.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Cleaning ethanol beside a still-lit safety flame leaves an ignition source next to flammable vapour.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Alert the teacher, avoid ignition sources and follow the spill procedure.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: A trained adult should manage a flammable-solvent spill.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Continue the practical without reporting the spill if only a small amount escaped.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "An unreported ethanol spill remains a possible fire hazard even if the volume is small.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Dilute the ethanol with more ethanol before restarting the burner.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Adding more ethanol increases flammable solvent and does not safely manage a spill.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-10",
+      "stem": "A properly heated Benedict's test remains blue. What conclusion would be too strong even with good controls?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-4-10",
+      "proposedKey": "The drink contains no sugar of any type.",
+      "correctChoice": "A",
+      "scienceRationale": "Benedict's does not detect every kind of sugar, and negative never proves absolute absence.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "The drink contains no sugar of any type.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Benedict's does not detect every kind of sugar, and negative never proves absolute absence.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Reducing sugar was not detected under these test conditions.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "'Reducing sugar not detected' is a scientifically cautious report of a correctly heated negative Benedict reaction, so it is not too strong.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "This Benedict's test gave a negative result.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Calling a still-blue, properly heated Benedict test negative is supported by the stated result.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "A separate test may be needed to investigate other substances.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Investigating other substances with a different test is reasonable; Benedict's alone cannot assess all sugars.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-11",
+      "stem": "A pupil repeats a heated Benedict's test on three equal portions of the same well-mixed juice using identical reagent volumes, bath temperature and heating time. Two tubes turn orange, but one remains blue. What should the pupil do?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-4-11",
+      "proposedKey": "Record all results, check possible procedural errors and repeat with fresh portions before interpreting the inconsistency.",
+      "correctChoice": "D",
+      "scienceRationale": "Disagreement between nominally identical Benedict's trials should be recorded and investigated, not discarded or converted into a sugar concentration. Repeat with fresh equal portions while controlling the method.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Record only the two orange results and discard the blue result without comment.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Discarding the lone blue result without comment hides an inconsistency rather than investigating it.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Treat the blue tube as proof that the original juice contains no reducing sugar.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "One anomalous negative tube does not disprove two reproducible positive Benedict observations.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Calculate the exact sugar concentration by treating two out of three positive tubes as a concentration ratio.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "The fraction of positive replicates is not a calibrated concentration measurement of reducing sugar.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Record all results, check possible procedural errors and repeat with fresh portions before interpreting the inconsistency.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Disagreement between nominally identical Benedict's trials should be recorded and investigated, not discarded or converted into a sugar concentration. Repeat with fresh equal portions while controlling the method.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-12",
+      "stem": "An unknown sample gives four negative food tests while positive and negative controls behave correctly. Which conclusion is justified?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-4-12",
+      "proposedKey": "None of the four targeted groups was detected; other nutrients might still be present.",
+      "correctChoice": "C",
+      "scienceRationale": "The tests only target starch, reducing sugar, protein and lipid at detectable levels.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Every nutrient, including vitamins and minerals, was absent.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "The four reactions do not test every nutrient class or establish that vitamins and minerals are absent.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "The negative results establish that the sample was pure distilled water.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Negative targeted tests cannot identify the sample as pure distilled water.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "None of the four targeted groups was detected; other nutrients might still be present.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: The tests only target starch, reducing sugar, protein and lipid at detectable levels.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "A negative Biuret result also establishes that glucose was not present.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A negative protein Biuret result does not exclude glucose, which requires a different test.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-13",
+      "stem": "A snack tests positive for protein and reducing sugar. Why is this insufficient to conclude that including it automatically makes someone's diet balanced?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-4-13",
+      "proposedKey": "Food tests do not reveal nutrient quantities or the rest of a person's diet.",
+      "correctChoice": "B",
+      "scienceRationale": "The original conflated an individual snack with an entire balanced diet. Food test presence is not a complete assessment of diet quality.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "A positive test confirms the snack contains enough protein for a balanced meal.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A positive Biuret reaction shows protein detected, not that the serving supplies an adequate dietary amount.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Food tests do not reveal nutrient quantities or the rest of a person's diet.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: The original conflated an individual snack with an entire balanced diet. Food test presence is not a complete assessment of diet quality.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "Two positive reactions establish its total energy content per serving.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Qualitative positives do not determine a snack's energy per serving without amounts and composition.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Presence of reducing sugar and protein rules out excessive fat or salt.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Protein and reducing sugar detected do not exclude dietary fat or salt and do not prove a balanced diet.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-14",
+      "stem": "Using a two-stage ethanol-then-water emulsion test, a pupil compares lipid-test cloudiness from two seed extracts prepared in the same way. One clear ethanol extract is added to 2 mL of water and the other to 10 mL. Which criticism is most valid?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-4-14",
+      "proposedKey": "Different dilution volumes can affect cloudiness; use equal measured volumes of extract and water before comparing.",
+      "correctChoice": "A",
+      "scienceRationale": "Emulsion cloudiness depends on dilution conditions. Equal measured extract and water volumes, along with matched extraction conditions, make a qualitative comparison fairer; cloudiness alone does not give an exact lipid concentration.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "Different dilution volumes can affect cloudiness; use equal measured volumes of extract and water before comparing.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: Emulsion cloudiness depends on dilution conditions. Equal measured extract and water volumes, along with matched extraction conditions, make a qualitative comparison fairer; cloudiness alone does not give an exact lipid concentration.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "The cloudier emulsion proves twice as much lipid in the original seed, regardless of dilution.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Cloudiness is qualitative and depends on dilution; it cannot establish an exact twofold lipid amount.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "The amount of water added cannot affect the emulsion appearance, so the comparison is fair.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Different measured water volumes can affect emulsion appearance, so the comparison is not controlled.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "The paler emulsion proves there was no lipid in that seed, even without a working control.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A paler emulsion with unequal dilution does not prove absence of lipid or replace working controls.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-15",
+      "stem": "A packaged drink is advertised as sweet, but the iodine test stays orange-brown. Which statement is justified?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-4-15",
+      "proposedKey": "Starch was not detected; sweetness alone cannot determine which sugars are present.",
+      "correctChoice": "D",
+      "scienceRationale": "The original referred to someone tasting the practical sample, risking unsafe practice interpretation. Iodine targets starch, not soluble glucose or taste.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "The negative iodine reaction means no carbohydrate, including dissolved sugar, is present.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Unchanged iodine only indicates starch not detected; it cannot exclude dissolved reducing or non-reducing sugars.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "The sweet product label means that starch must be present despite the iodine result.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "A sweet-product label does not demonstrate starch in the sample against the iodine-negative observation.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "The negative iodine result proves that reducing sugar cannot be present.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "The starch-specific iodine test cannot show that a separate reducing-sugar Benedict test must be negative.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "Starch was not detected; sweetness alone cannot determine which sugars are present.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: The original referred to someone tasting the practical sample, risking unsafe practice interpretation. Iodine targets starch, not soluble glucose or taste.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-16",
+      "stem": "Biuret reagent turns lilac when added to a food extract. Which claim goes beyond what this one test can establish?",
+      "sourceOriginalId": "bio-y8-food-tests-case-20261025-4-16",
+      "proposedKey": "The exact amount and identity of every protein in the food.",
+      "correctChoice": "C",
+      "scienceRationale": "The old 'what conclusion cannot be made' could also be read as excluding an unrelated methodological statement about needing an iodine test. The purple colour signals protein but does not identify or quantify each protein.",
+      "choices": [
+        {
+          "letter": "A",
+          "text": "The Biuret result provides qualitative evidence that protein is present.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "It is supported that a positive lilac Biuret result is qualitative evidence of protein, so this does not go beyond the test.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "B",
+          "text": "Lilac or purple is a positive colour in the Biuret test.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Lilac or purple is the expected protein-positive Biuret colour, an observation rather than an excessive claim.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "C",
+          "text": "The exact amount and identity of every protein in the food.",
+          "role": "PROPOSED_KEY",
+          "contextualScienceReason": "This is the proposed key because: The old 'what conclusion cannot be made' could also be read as excluding an unrelated methodological statement about needing an iodine test. The purple colour signals protein but does not identify or quantify each protein.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        },
+        {
+          "letter": "D",
+          "text": "The positive result does not itself provide a precise protein concentration.",
+          "role": "PROPOSED_DISTRACTOR",
+          "contextualScienceReason": "Acknowledging that a positive Biuret result lacks a calibrated precise concentration is appropriately cautious.",
+          "individualScienceExplanation": true,
+          "qualifiedIndependentReview": "PENDING",
+          "academicApproved": false,
+          "formalCreditEligible": false
+        }
+      ],
+      "qaPreviewMatched": true,
+      "teacherSoleKeyDecision": "PENDING",
+      "tgsMethodScope": "PENDING",
+      "academicApproved": false,
+      "formalCreditEligible": false
+    }
+  ]
+}
