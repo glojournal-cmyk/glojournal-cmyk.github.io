@@ -1,0 +1,1131 @@
+{
+  "kind": "Held option-order overlay for 48 Food Tests replacements; no source or live changes",
+  "baseHead": "5228ea518bac6944c76b5c74e7cd30daa82eca62",
+  "sourceBlob": "261ca1034387b8eabef2e025c8776929b58ef446",
+  "release": "BLOCKED",
+  "formalCreditEligible": false,
+  "approved": 0,
+  "counts": {
+    "items": 48,
+    "options": 192,
+    "keyPositions": [
+      12,
+      12,
+      12,
+      12
+    ]
+  },
+  "originalOrder": "BADC repeated 12 times",
+  "newOrder": "ABCDACBDCBADBADCDACBCDBADCABBDCAACDBCABDDBACBCDA",
+  "limitations": [
+    "No claim of actual pupil-player shuffling; this removes the existing fixed four-position cycle only.",
+    "No new science content or signoff; item keys and foils unchanged.",
+    "Skill deduplication and curriculum/device gates remain."
+  ],
+  "items": [
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-2-1",
+      "prompt": "Iodine remains orange-brown in one fresh portion of a drink, but a separate portion gives an orange precipitate after heating with Benedict's. Which conclusion is justified?",
+      "oldOptions": [
+        "Starch was detected; reducing sugar was not detected.",
+        "Reducing sugar was detected; starch was not detected.",
+        "Neither starch nor reducing sugar was detected because iodine stayed brown.",
+        "Reducing sugar was detected, and the iodine result also confirms starch."
+      ],
+      "oldCorrectIndex": 1,
+      "options": [
+        "Reducing sugar was detected; starch was not detected.",
+        "Starch was detected; reducing sugar was not detected.",
+        "Neither starch nor reducing sugar was detected because iodine stayed brown.",
+        "Reducing sugar was detected, and the iodine result also confirms starch."
+      ],
+      "correctIndex": 0,
+      "accepted": [
+        "Reducing sugar was detected; starch was not detected."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-2-2",
+      "prompt": "Biuret reagent turns lilac in a sample, while heated Benedict's solution stays blue. Which statement is supported?",
+      "oldOptions": [
+        "Protein was detected, but reducing sugar was not detected.",
+        "Protein and reducing sugar were detected because both reagents were added.",
+        "Protein was not detected, but reducing sugar was detected.",
+        "The blue Benedict's result also indicates reducing sugar when Biuret is lilac."
+      ],
+      "oldCorrectIndex": 0,
+      "options": [
+        "The blue Benedict's result also indicates reducing sugar when Biuret is lilac.",
+        "Protein was detected, but reducing sugar was not detected.",
+        "Protein and reducing sugar were detected because both reagents were added.",
+        "Protein was not detected, but reducing sugar was detected."
+      ],
+      "correctIndex": 1,
+      "accepted": [
+        "Protein was detected, but reducing sugar was not detected."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-2-3",
+      "prompt": "An extract is tested with iodine and Biuret: iodine becomes blue-black and Biuret turns lilac. No other tests are done. What can be concluded?",
+      "oldOptions": [
+        "All four nutrient groups were detected.",
+        "Only starch was detected because lilac is a negative Biuret colour.",
+        "Starch and protein were detected, but the untested sugar and lipid must also be absent.",
+        "Starch and protein were detected; reducing sugar and lipid remain untested."
+      ],
+      "oldCorrectIndex": 3,
+      "options": [
+        "Only starch was detected because lilac is a negative Biuret colour.",
+        "Starch and protein were detected, but the untested sugar and lipid must also be absent.",
+        "Starch and protein were detected; reducing sugar and lipid remain untested.",
+        "All four nutrient groups were detected."
+      ],
+      "correctIndex": 2,
+      "accepted": [
+        "Starch and protein were detected; reducing sugar and lipid remain untested."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-2-4",
+      "prompt": "A food extract gives a green Benedict's result after the prescribed water-bath heating; the water blank remains blue. How should this be recorded?",
+      "oldOptions": [
+        "A green result means no reducing sugar because only brick-red is positive.",
+        "Green and blue are both negative because the tube did not become brick-red.",
+        "The food extract tested positive for reducing sugar.",
+        "The blue water blank makes a green sample result unreliable."
+      ],
+      "oldCorrectIndex": 2,
+      "options": [
+        "A green result means no reducing sugar because only brick-red is positive.",
+        "Green and blue are both negative because the tube did not become brick-red.",
+        "The blue water blank makes a green sample result unreliable.",
+        "The food extract tested positive for reducing sugar."
+      ],
+      "correctIndex": 3,
+      "accepted": [
+        "The food extract tested positive for reducing sugar."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-2-5",
+      "prompt": "A known glucose positive-control sample remains blue with Benedict's solution after the heating stage. Which is the safest scientific interpretation?",
+      "oldOptions": [
+        "The negative colour can be accepted without checking whether the positive control worked.",
+        "The procedure or reagent failed its positive control; repeat before interpreting unknown samples.",
+        "Add more Benedict's reagent to every unknown until the blue colour disappears.",
+        "Use the failed positive control to calculate the concentration of the unknowns."
+      ],
+      "oldCorrectIndex": 1,
+      "options": [
+        "The procedure or reagent failed its positive control; repeat before interpreting unknown samples.",
+        "Use the failed positive control to calculate the concentration of the unknowns.",
+        "The negative colour can be accepted without checking whether the positive control worked.",
+        "Add more Benedict's reagent to every unknown until the blue colour disappears."
+      ],
+      "correctIndex": 0,
+      "accepted": [
+        "The procedure or reagent failed its positive control; repeat before interpreting unknown samples."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-2-6",
+      "prompt": "Distilled water turns lilac with Biuret reagent in the same batch used to test a food. What should happen before trusting the food result?",
+      "oldOptions": [
+        "Prepare fresh reagents or clean equipment and repeat the water blank and food test.",
+        "The lilac blank can be subtracted mentally from the food colour without retesting.",
+        "The water blank establishes a positive Biuret result for every food tested.",
+        "Repeated results from the same batch rule out the possibility of contamination."
+      ],
+      "oldCorrectIndex": 0,
+      "options": [
+        "The water blank establishes a positive Biuret result for every food tested.",
+        "Repeated results from the same batch rule out the possibility of contamination.",
+        "Prepare fresh reagents or clean equipment and repeat the water blank and food test.",
+        "The lilac blank can be subtracted mentally from the food colour without retesting."
+      ],
+      "correctIndex": 2,
+      "accepted": [
+        "Prepare fresh reagents or clean equipment and repeat the water blank and food test."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-2-7",
+      "prompt": "In a two-stage ethanol-then-water emulsion test, a seed's ethanol extract is already cloudy before it is added to water. What does that observation establish?",
+      "oldOptions": [
+        "A cloudy ethanol extract alone is sufficient because cloudiness is always a positive emulsion endpoint.",
+        "Adding water is unnecessary if the ethanol extract does not look completely transparent.",
+        "The cloudiness shows there is no lipid because all lipids dissolve into completely clear water.",
+        "It is not yet a valid positive emulsion result; prepare a clear extract and perform the water-addition stage."
+      ],
+      "oldCorrectIndex": 3,
+      "options": [
+        "A cloudy ethanol extract alone is sufficient because cloudiness is always a positive emulsion endpoint.",
+        "It is not yet a valid positive emulsion result; prepare a clear extract and perform the water-addition stage.",
+        "Adding water is unnecessary if the ethanol extract does not look completely transparent.",
+        "The cloudiness shows there is no lipid because all lipids dissolve into completely clear water."
+      ],
+      "correctIndex": 1,
+      "accepted": [
+        "It is not yet a valid positive emulsion result; prepare a clear extract and perform the water-addition stage."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-2-8",
+      "prompt": "A clear ethanol extract becomes cloudy white when added to water, while a correctly prepared ethanol-water blank stays clear. What is supported?",
+      "oldOptions": [
+        "The emulsion was negative because the ethanol extract was initially clear.",
+        "The cloudy result identifies protein rather than lipid.",
+        "Lipid was detected in the sample.",
+        "A clear water blank confirms that the food contains reducing sugar."
+      ],
+      "oldCorrectIndex": 2,
+      "options": [
+        "A clear water blank confirms that the food contains reducing sugar.",
+        "The emulsion was negative because the ethanol extract was initially clear.",
+        "The cloudy result identifies protein rather than lipid.",
+        "Lipid was detected in the sample."
+      ],
+      "correctIndex": 3,
+      "accepted": [
+        "Lipid was detected in the sample."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-2-9",
+      "prompt": "A purple Biuret result is seen, but the pupil never performs an iodine test. Which statement would overreach the evidence?",
+      "oldOptions": [
+        "The Biuret result supports protein being present.",
+        "The sample must contain no starch.",
+        "No iodine test result is available.",
+        "A separate iodine test is needed to assess starch."
+      ],
+      "oldCorrectIndex": 1,
+      "options": [
+        "No iodine test result is available.",
+        "A separate iodine test is needed to assess starch.",
+        "The sample must contain no starch.",
+        "The Biuret result supports protein being present."
+      ],
+      "correctIndex": 2,
+      "accepted": [
+        "The sample must contain no starch."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-2-10",
+      "prompt": "A clean water blank unexpectedly becomes blue-black when iodine is added. What is the best response?",
+      "oldOptions": [
+        "Investigate contamination or a faulty control and repeat with clean water and equipment.",
+        "Accept a blue-black water blank as normal because iodine is naturally dark-coloured.",
+        "Subtract the blank's colour by eye and continue to score the original unknowns as positive.",
+        "Repeat the unknown only, without checking the blank, because food extracts cannot contaminate water."
+      ],
+      "oldCorrectIndex": 0,
+      "options": [
+        "Accept a blue-black water blank as normal because iodine is naturally dark-coloured.",
+        "Investigate contamination or a faulty control and repeat with clean water and equipment.",
+        "Subtract the blank's colour by eye and continue to score the original unknowns as positive.",
+        "Repeat the unknown only, without checking the blank, because food extracts cannot contaminate water."
+      ],
+      "correctIndex": 1,
+      "accepted": [
+        "Investigate contamination or a faulty control and repeat with clean water and equipment."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-2-11",
+      "prompt": "Iodine stays orange-brown in a known starch positive-control solution. What can the pupil conclude about unknown negative-looking tubes?",
+      "oldOptions": [
+        "The negative-looking unknowns are reliable because the reagent gave the same colour in every tube.",
+        "Increase the iodine added to unknown samples until a positive colour is seen.",
+        "Treat the starch control as a negative control because it stayed brown.",
+        "They cannot yet be trusted; the reagent or method needs checking."
+      ],
+      "oldCorrectIndex": 3,
+      "options": [
+        "They cannot yet be trusted; the reagent or method needs checking.",
+        "Treat the starch control as a negative control because it stayed brown.",
+        "The negative-looking unknowns are reliable because the reagent gave the same colour in every tube.",
+        "Increase the iodine added to unknown samples until a positive colour is seen."
+      ],
+      "correctIndex": 0,
+      "accepted": [
+        "They cannot yet be trusted; the reagent or method needs checking."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-2-12",
+      "prompt": "A food remains blue in the Biuret test, while an egg-white positive control turns purple. What is the cautious conclusion?",
+      "oldOptions": [
+        "A blue Biuret result proves there are absolutely no proteins, regardless of detection limits.",
+        "The food must contain protein because the positive control became purple.",
+        "Protein was not detected in the food under the test conditions.",
+        "The blue result means a Benedict's reducing-sugar test would necessarily be negative."
+      ],
+      "oldCorrectIndex": 2,
+      "options": [
+        "The food must contain protein because the positive control became purple.",
+        "The blue result means a Benedict's reducing-sugar test would necessarily be negative.",
+        "A blue Biuret result proves there are absolutely no proteins, regardless of detection limits.",
+        "Protein was not detected in the food under the test conditions."
+      ],
+      "correctIndex": 3,
+      "accepted": [
+        "Protein was not detected in the food under the test conditions."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-2-13",
+      "prompt": "After suitable heating, the distilled-water Benedict's blank turns orange. Why is interpreting the food tubes risky?",
+      "oldOptions": [
+        "Use the orange blank as the normal negative reference and accept all food results.",
+        "The negative control is abnormal, so contamination or a reagent problem must be investigated.",
+        "Subtract the blank colour visually from food tubes without checking contamination.",
+        "Repeat the food tubes but omit the blank because a positive blank cannot affect the inference."
+      ],
+      "oldCorrectIndex": 1,
+      "options": [
+        "Use the orange blank as the normal negative reference and accept all food results.",
+        "The negative control is abnormal, so contamination or a reagent problem must be investigated.",
+        "Subtract the blank colour visually from food tubes without checking contamination.",
+        "Repeat the food tubes but omit the blank because a positive blank cannot affect the inference."
+      ],
+      "correctIndex": 1,
+      "accepted": [
+        "The negative control is abnormal, so contamination or a reagent problem must be investigated."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-2-14",
+      "prompt": "A pupil heats a Benedict's tube for much less time than the working glucose control and it stays blue. Which conclusion is justified?",
+      "oldOptions": [
+        "The shortened heating may give a false negative; repeat with the same prescribed heating time.",
+        "Treat blue as a valid negative result even though the tube received less heat than the control.",
+        "Increase the reagent volume instead of correcting the shortened heating time.",
+        "Compare with an unheated control only and infer there is no reducing sugar."
+      ],
+      "oldCorrectIndex": 0,
+      "options": [
+        "The shortened heating may give a false negative; repeat with the same prescribed heating time.",
+        "Compare with an unheated control only and infer there is no reducing sugar.",
+        "Treat blue as a valid negative result even though the tube received less heat than the control.",
+        "Increase the reagent volume instead of correcting the shortened heating time."
+      ],
+      "correctIndex": 0,
+      "accepted": [
+        "The shortened heating may give a false negative; repeat with the same prescribed heating time."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-2-15",
+      "prompt": "A properly heated Benedict's test gives yellow precipitate. A separate, correctly performed emulsion test stays clear. Which statement is supported?",
+      "oldOptions": [
+        "Reducing sugar was absent because the Benedict's precipitate was yellow rather than brick-red.",
+        "Lipid was detected because the ethanol-water mixture remained clear.",
+        "A positive Benedict's colour means the lipid result must also be positive.",
+        "Reducing sugar was detected; lipid was not detected."
+      ],
+      "oldCorrectIndex": 3,
+      "options": [
+        "Lipid was detected because the ethanol-water mixture remained clear.",
+        "A positive Benedict's colour means the lipid result must also be positive.",
+        "Reducing sugar was absent because the Benedict's precipitate was yellow rather than brick-red.",
+        "Reducing sugar was detected; lipid was not detected."
+      ],
+      "correctIndex": 3,
+      "accepted": [
+        "Reducing sugar was detected; lipid was not detected."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-2-16",
+      "prompt": "Iodine, heated Benedict's and Biuret tests are negative. The ethanol emulsion test is not performed. Which conclusion is NOT justified?",
+      "oldOptions": [
+        "Starch was not detected by iodine.",
+        "Reducing sugar was not detected by heated Benedict's.",
+        "No lipids are present in the sample.",
+        "Protein was not detected by Biuret."
+      ],
+      "oldCorrectIndex": 2,
+      "options": [
+        "Starch was not detected by iodine.",
+        "Reducing sugar was not detected by heated Benedict's.",
+        "No lipids are present in the sample.",
+        "Protein was not detected by Biuret."
+      ],
+      "correctIndex": 2,
+      "accepted": [
+        "No lipids are present in the sample."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-3-1",
+      "prompt": "When comparing iodine tests on samples taken from two different bread types, which control makes the comparison fairer?",
+      "oldOptions": [
+        "Use the same number of crumbs without checking their masses.",
+        "Measure the same mass of each bread sample.",
+        "Add more iodine to the bread expected to contain less starch.",
+        "Choose pieces that look equally dark even if their masses differ."
+      ],
+      "oldCorrectIndex": 1,
+      "options": [
+        "Choose pieces that look equally dark even if their masses differ.",
+        "Use the same number of crumbs without checking their masses.",
+        "Add more iodine to the bread expected to contain less starch.",
+        "Measure the same mass of each bread sample."
+      ],
+      "correctIndex": 3,
+      "accepted": [
+        "Measure the same mass of each bread sample."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-3-2",
+      "prompt": "Two food extracts are compared by heating each with Benedict's solution. Which reagent condition should be controlled?",
+      "oldOptions": [
+        "Add the same measured volume of Benedict's solution to each equal sample volume.",
+        "Keep the total liquid volume similar by diluting only one food extract.",
+        "Add more Benedict's reagent to the food expected to contain more sugar.",
+        "Adjust reagent volume until the two tubes reach a similar colour."
+      ],
+      "oldCorrectIndex": 0,
+      "options": [
+        "Add the same measured volume of Benedict's solution to each equal sample volume.",
+        "Add more Benedict's reagent to the food expected to contain more sugar.",
+        "Adjust reagent volume until the two tubes reach a similar colour.",
+        "Keep the total liquid volume similar by diluting only one food extract."
+      ],
+      "correctIndex": 0,
+      "accepted": [
+        "Add the same measured volume of Benedict's solution to each equal sample volume."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-3-3",
+      "prompt": "Two equal-volume portions of the same glucose solution are heated with equal Benedict's reagent in water baths at different temperatures. Which adjustment gives the fairest comparison of reducing-sugar results?",
+      "oldOptions": [
+        "Keep the different bath temperatures but record them, then compare the colours as if conditions were identical.",
+        "Use more Benedict's reagent in the cooler tube until its colour matches the warmer tube.",
+        "Heat both tubes for the same time but leave them in baths at different temperatures.",
+        "Heat both tubes at the same controlled bath temperature."
+      ],
+      "oldCorrectIndex": 3,
+      "options": [
+        "Keep the different bath temperatures but record them, then compare the colours as if conditions were identical.",
+        "Use more Benedict's reagent in the cooler tube until its colour matches the warmer tube.",
+        "Heat both tubes at the same controlled bath temperature.",
+        "Heat both tubes for the same time but leave them in baths at different temperatures."
+      ],
+      "correctIndex": 2,
+      "accepted": [
+        "Heat both tubes at the same controlled bath temperature."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-3-4",
+      "prompt": "Two equal-volume food extracts are compared using the final colour after five minutes in the same Benedict's water bath. One tube was removed after 30 seconds and the other after five minutes. What should the pupil change for a fair comparison of final colours?",
+      "oldOptions": [
+        "Record the two heating durations and compare the final colours without adjustment.",
+        "Add extra Benedict's solution to the shorter-heated tube to compensate for less heating.",
+        "Use the same heating duration for both tubes.",
+        "Stop each tube as soon as it first changes colour, even if that makes heating times unequal."
+      ],
+      "oldCorrectIndex": 2,
+      "options": [
+        "Stop each tube as soon as it first changes colour, even if that makes heating times unequal.",
+        "Use the same heating duration for both tubes.",
+        "Record the two heating durations and compare the final colours without adjustment.",
+        "Add extra Benedict's solution to the shorter-heated tube to compensate for less heating."
+      ],
+      "correctIndex": 1,
+      "accepted": [
+        "Use the same heating duration for both tubes."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-3-5",
+      "prompt": "A technician compares two fruit juices for reducing sugar. Which volume should be kept equal when loading the test tubes?",
+      "oldOptions": [
+        "Keep the same volume of Benedict's solution but use different amounts of juice based on colour.",
+        "The volume of fruit-juice extract added to each tube.",
+        "Dilute the juice expected to contain more sugar before comparing it with the other.",
+        "Use more juice in whichever tube is initially paler and treat that as a fair comparison."
+      ],
+      "oldCorrectIndex": 1,
+      "options": [
+        "Dilute the juice expected to contain more sugar before comparing it with the other.",
+        "Use more juice in whichever tube is initially paler and treat that as a fair comparison.",
+        "The volume of fruit-juice extract added to each tube.",
+        "Keep the same volume of Benedict's solution but use different amounts of juice based on colour."
+      ],
+      "correctIndex": 2,
+      "accepted": [
+        "The volume of fruit-juice extract added to each tube."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-3-6",
+      "prompt": "A food gives a faint starch colour in one iodine trial. Which design best tests repeatability?",
+      "oldOptions": [
+        "Repeat on fresh equal-sized portions using the same iodine volume and procedure.",
+        "Look at the same tube several times and count these as independent repeat tests.",
+        "Use fresh portions but change the iodine volume until the results agree.",
+        "Repeat on different foods rather than on the food with the doubtful result."
+      ],
+      "oldCorrectIndex": 0,
+      "options": [
+        "Look at the same tube several times and count these as independent repeat tests.",
+        "Use fresh portions but change the iodine volume until the results agree.",
+        "Repeat on different foods rather than on the food with the doubtful result.",
+        "Repeat on fresh equal-sized portions using the same iodine volume and procedure."
+      ],
+      "correctIndex": 3,
+      "accepted": [
+        "Repeat on fresh equal-sized portions using the same iodine volume and procedure."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-3-7",
+      "prompt": "A purple berry extract is already purple before Biuret reagent is added. It stays purple after the reagent is mixed in. What is the most justified interpretation?",
+      "oldOptions": [
+        "The final purple colour alone confirms protein regardless of the starting food colour.",
+        "The original purple colour is sufficient evidence that the berry extract contains protein.",
+        "Biuret reagent's starting blue colour ensures that purple food pigments cannot affect interpretation.",
+        "The starting pigment may mask a Biuret colour change; compare an untreated sample and working controls before deciding."
+      ],
+      "oldCorrectIndex": 3,
+      "options": [
+        "Biuret reagent's starting blue colour ensures that purple food pigments cannot affect interpretation.",
+        "The starting pigment may mask a Biuret colour change; compare an untreated sample and working controls before deciding.",
+        "The final purple colour alone confirms protein regardless of the starting food colour.",
+        "The original purple colour is sufficient evidence that the berry extract contains protein."
+      ],
+      "correctIndex": 1,
+      "accepted": [
+        "The starting pigment may mask a Biuret colour change; compare an untreated sample and working controls before deciding."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-3-8",
+      "prompt": "Which material is the most useful positive control for testing whether Biuret reagent works?",
+      "oldOptions": [
+        "Use an unknown food extract that stayed blue in a previous Biuret test.",
+        "Use distilled water because it should give a strong lilac reaction.",
+        "A known albumen or protein solution.",
+        "Use glucose dissolved in water because Benedict's would give a positive result."
+      ],
+      "oldCorrectIndex": 2,
+      "options": [
+        "A known albumen or protein solution.",
+        "Use distilled water because it should give a strong lilac reaction.",
+        "Use glucose dissolved in water because Benedict's would give a positive result.",
+        "Use an unknown food extract that stayed blue in a previous Biuret test."
+      ],
+      "correctIndex": 0,
+      "accepted": [
+        "A known albumen or protein solution."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-3-9",
+      "prompt": "To confirm that iodine reagent can detect starch, which positive-control sample should be used?",
+      "oldOptions": [
+        "A glucose solution that gives a positive Benedict's test.",
+        "A known starch suspension or solution.",
+        "Distilled water that is known to give a negative iodine result.",
+        "A vegetable-oil sample that gives a positive lipid test."
+      ],
+      "oldCorrectIndex": 1,
+      "options": [
+        "A glucose solution that gives a positive Benedict's test.",
+        "Distilled water that is known to give a negative iodine result.",
+        "A vegetable-oil sample that gives a positive lipid test.",
+        "A known starch suspension or solution."
+      ],
+      "correctIndex": 3,
+      "accepted": [
+        "A known starch suspension or solution."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-3-10",
+      "prompt": "Which negative control should remain orange-brown when iodine is added?",
+      "oldOptions": [
+        "Distilled water containing no starch.",
+        "Potato extract known to turn iodine blue-black.",
+        "Glucose dissolved in a starch-containing suspension.",
+        "Bread flour that is known to contain starch."
+      ],
+      "oldCorrectIndex": 0,
+      "options": [
+        "Bread flour that is known to contain starch.",
+        "Potato extract known to turn iodine blue-black.",
+        "Distilled water containing no starch.",
+        "Glucose dissolved in a starch-containing suspension."
+      ],
+      "correctIndex": 2,
+      "accepted": [
+        "Distilled water containing no starch."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-3-11",
+      "prompt": "To check that the heated Benedict's test is working, what makes a good positive control?",
+      "oldOptions": [
+        "Use a known starch suspension, heated with Benedict's in a water bath.",
+        "Use a known protein solution with Benedict's, omitting the heating stage.",
+        "Use a sample of distilled water as the positive control under the usual heating conditions.",
+        "A known glucose solution heated with Benedict's solution in the normal water bath."
+      ],
+      "oldCorrectIndex": 3,
+      "options": [
+        "A known glucose solution heated with Benedict's solution in the normal water bath.",
+        "Use a known protein solution with Benedict's, omitting the heating stage.",
+        "Use a sample of distilled water as the positive control under the usual heating conditions.",
+        "Use a known starch suspension, heated with Benedict's in a water bath."
+      ],
+      "correctIndex": 0,
+      "accepted": [
+        "A known glucose solution heated with Benedict's solution in the normal water bath."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-3-12",
+      "prompt": "Which negative control should normally remain blue after suitable heating with Benedict's solution?",
+      "oldOptions": [
+        "A dilute glucose standard prepared to produce a weaker positive colour.",
+        "A concentrated glucose solution used as a positive control.",
+        "Distilled water mixed with Benedict's solution.",
+        "Fruit juice known to contain reducing sugar."
+      ],
+      "oldCorrectIndex": 2,
+      "options": [
+        "A dilute glucose standard prepared to produce a weaker positive colour.",
+        "Distilled water mixed with Benedict's solution.",
+        "A concentrated glucose solution used as a positive control.",
+        "Fruit juice known to contain reducing sugar."
+      ],
+      "correctIndex": 1,
+      "accepted": [
+        "Distilled water mixed with Benedict's solution."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-3-13",
+      "prompt": "For a two-stage ethanol-extraction-then-water emulsion test, which material can serve as a positive lipid control?",
+      "oldOptions": [
+        "Use a known glucose solution with the same ethanol-then-water steps.",
+        "A small known vegetable-oil sample extracted with ethanol and then added to water.",
+        "Use a known starch suspension with ethanol and water.",
+        "Use a clean water blank without any fat while retaining the emulsion method."
+      ],
+      "oldCorrectIndex": 1,
+      "options": [
+        "Use a clean water blank without any fat while retaining the emulsion method.",
+        "A small known vegetable-oil sample extracted with ethanol and then added to water.",
+        "Use a known glucose solution with the same ethanol-then-water steps.",
+        "Use a known starch suspension with ethanol and water."
+      ],
+      "correctIndex": 1,
+      "accepted": [
+        "A small known vegetable-oil sample extracted with ethanol and then added to water."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-3-14",
+      "prompt": "Which properly prepared negative control is most appropriate for the ethanol emulsion test?",
+      "oldOptions": [
+        "Ethanol and water without food or added lipid.",
+        "Ethanol and water deliberately mixed with a few drops of vegetable oil.",
+        "A milk-fat extract added to water after shaking with ethanol.",
+        "A positive lipid control used alongside the unknown extract."
+      ],
+      "oldCorrectIndex": 0,
+      "options": [
+        "A milk-fat extract added to water after shaking with ethanol.",
+        "A positive lipid control used alongside the unknown extract.",
+        "Ethanol and water deliberately mixed with a few drops of vegetable oil.",
+        "Ethanol and water without food or added lipid."
+      ],
+      "correctIndex": 3,
+      "accepted": [
+        "Ethanol and water without food or added lipid."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-3-15",
+      "prompt": "The teacher labels four clear sample extracts A–D before adding reagents. Why is this especially important?",
+      "oldOptions": [
+        "Labelling ensures the reagents cannot contaminate the other samples.",
+        "Labelling removes the need to keep a separate results table.",
+        "Labelling automatically controls the volumes of test reagent used.",
+        "Each observed reaction can be traced to the correct food sample."
+      ],
+      "oldCorrectIndex": 3,
+      "options": [
+        "Labelling ensures the reagents cannot contaminate the other samples.",
+        "Labelling removes the need to keep a separate results table.",
+        "Each observed reaction can be traced to the correct food sample.",
+        "Labelling automatically controls the volumes of test reagent used."
+      ],
+      "correctIndex": 2,
+      "accepted": [
+        "Each observed reaction can be traced to the correct food sample."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-3-16",
+      "prompt": "A pipette has just transferred a glucose solution. Why use a clean pipette for a supposed sugar-free sample?",
+      "oldOptions": [
+        "Rinsing a pipette briefly with the new sample is guaranteed to remove all traces of glucose.",
+        "A clear pipette must be free of glucose because dissolved sugar is colourless.",
+        "Glucose residue could make a false positive in the second sample.",
+        "Using one pipette is harmless if both extracts are later heated with the same Benedict's volume."
+      ],
+      "oldCorrectIndex": 2,
+      "options": [
+        "Glucose residue could make a false positive in the second sample.",
+        "Using one pipette is harmless if both extracts are later heated with the same Benedict's volume.",
+        "Rinsing a pipette briefly with the new sample is guaranteed to remove all traces of glucose.",
+        "A clear pipette must be free of glucose because dissolved sugar is colourless."
+      ],
+      "correctIndex": 0,
+      "accepted": [
+        "Glucose residue could make a false positive in the second sample."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-4-1",
+      "prompt": "After an ethanol emulsion test, a pupil leaves a working ethanol bottle uncapped beside a warm water bath, although the Bunsen flame has been extinguished. What should the pupil do next?",
+      "oldOptions": [
+        "Leave the bottle open until the equipment has cooled; there is no visible flame now.",
+        "Cap the ethanol promptly and return it to its designated safe location away from heat and ignition sources.",
+        "Move the uncapped ethanol bottle away from the water bath, but leave it open for the next group.",
+        "Cover the bottle opening with a tissue while it remains beside the warm bath."
+      ],
+      "oldCorrectIndex": 1,
+      "options": [
+        "Cap the ethanol promptly and return it to its designated safe location away from heat and ignition sources.",
+        "Move the uncapped ethanol bottle away from the water bath, but leave it open for the next group.",
+        "Cover the bottle opening with a tissue while it remains beside the warm bath.",
+        "Leave the bottle open until the equipment has cooled; there is no visible flame now."
+      ],
+      "correctIndex": 0,
+      "accepted": [
+        "Cap the ethanol promptly and return it to its designated safe location away from heat and ignition sources."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-4-2",
+      "prompt": "A pupil proposes heating an ethanol-food mixture to make the emulsion form faster. Which correction is best?",
+      "oldOptions": [
+        "Do not heat ethanol; follow the instructed ethanol-and-water emulsion method away from ignition sources.",
+        "Warming ethanol gently in an open tube is needed before water can produce an emulsion.",
+        "Add water first and then heat the ethanol-water mixture to obtain a stronger white emulsion.",
+        "Replace ethanol with hot water because the same lipid test result will form."
+      ],
+      "oldCorrectIndex": 0,
+      "options": [
+        "Warming ethanol gently in an open tube is needed before water can produce an emulsion.",
+        "Add water first and then heat the ethanol-water mixture to obtain a stronger white emulsion.",
+        "Do not heat ethanol; follow the instructed ethanol-and-water emulsion method away from ignition sources.",
+        "Replace ethanol with hot water because the same lipid test result will form."
+      ],
+      "correctIndex": 2,
+      "accepted": [
+        "Do not heat ethanol; follow the instructed ethanol-and-water emulsion method away from ignition sources."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-4-3",
+      "prompt": "For Benedict's test, why use a hot-water bath rather than heating the bottom of a test tube over a direct flame?",
+      "oldOptions": [
+        "The bath prevents the glass from getting hot enough to cause burns.",
+        "The bath guarantees every reducing-sugar sample gives the same precipitate colour.",
+        "The bath removes any need to keep heating time consistent across samples.",
+        "It gives more controlled, even heating and reduces local overheating."
+      ],
+      "oldCorrectIndex": 3,
+      "options": [
+        "The bath removes any need to keep heating time consistent across samples.",
+        "The bath prevents the glass from getting hot enough to cause burns.",
+        "The bath guarantees every reducing-sugar sample gives the same precipitate colour.",
+        "It gives more controlled, even heating and reduces local overheating."
+      ],
+      "correctIndex": 3,
+      "accepted": [
+        "It gives more controlled, even heating and reduces local overheating."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-4-4",
+      "prompt": "A pupil needs to remove a tube after heating Benedict's reagent. Which action reduces burn risk?",
+      "oldOptions": [
+        "Hold the glass near its upper rim because the rim stays cool while the bottom is hot.",
+        "Use an ordinary paper tissue instead of a holder even if the tube remains very hot.",
+        "Use a test-tube holder and treat the glass as hot.",
+        "Grip the tube with fingers after lifting it straight out of the bath."
+      ],
+      "oldCorrectIndex": 2,
+      "options": [
+        "Use an ordinary paper tissue instead of a holder even if the tube remains very hot.",
+        "Use a test-tube holder and treat the glass as hot.",
+        "Grip the tube with fingers after lifting it straight out of the bath.",
+        "Hold the glass near its upper rim because the rim stays cool while the bottom is hot."
+      ],
+      "correctIndex": 1,
+      "accepted": [
+        "Use a test-tube holder and treat the glass as hot."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-4-5",
+      "prompt": "Which direction should the open end of a heated Benedict's test tube face?",
+      "oldOptions": [
+        "Point the mouth towards the observer so the precipitate colour is easier to see.",
+        "Away from all people, in case the hot mixture splashes.",
+        "Point the hot tube at the neighbouring pupil once the burner has been switched off.",
+        "Tilt the opening towards the holder's face because the mixture is no longer on a flame."
+      ],
+      "oldCorrectIndex": 1,
+      "options": [
+        "Point the mouth towards the observer so the precipitate colour is easier to see.",
+        "Point the hot tube at the neighbouring pupil once the burner has been switched off.",
+        "Away from all people, in case the hot mixture splashes.",
+        "Tilt the opening towards the holder's face because the mixture is no longer on a flame."
+      ],
+      "correctIndex": 2,
+      "accepted": [
+        "Away from all people, in case the hot mixture splashes."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-4-6",
+      "prompt": "What PPE protects the eyes when working with Benedict's, Biuret and ethanol reagents?",
+      "oldOptions": [
+        "Suitable laboratory splash goggles.",
+        "Ordinary prescription glasses are equivalent to sealed splash goggles.",
+        "A lab coat alone prevents droplets from reaching the eyes.",
+        "Working slowly removes the need for any eye protection."
+      ],
+      "oldCorrectIndex": 0,
+      "options": [
+        "Suitable laboratory splash goggles.",
+        "Working slowly removes the need for any eye protection.",
+        "Ordinary prescription glasses are equivalent to sealed splash goggles.",
+        "A lab coat alone prevents droplets from reaching the eyes."
+      ],
+      "correctIndex": 0,
+      "accepted": [
+        "Suitable laboratory splash goggles."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-4-7",
+      "prompt": "An unknown food extract has just been tested with laboratory reagents. Why must it never be tasted?",
+      "oldOptions": [
+        "If the sample looked edible before the practical, it remains safe to taste after adding reagents.",
+        "A negative result in all four nutrient tests shows that chemical contamination is absent.",
+        "Tasting a small diluted portion is safe once the test tube has cooled.",
+        "It may now contain hazardous reagents or contaminants."
+      ],
+      "oldCorrectIndex": 3,
+      "options": [
+        "A negative result in all four nutrient tests shows that chemical contamination is absent.",
+        "It may now contain hazardous reagents or contaminants.",
+        "Tasting a small diluted portion is safe once the test tube has cooled.",
+        "If the sample looked edible before the practical, it remains safe to taste after adding reagents."
+      ],
+      "correctIndex": 1,
+      "accepted": [
+        "It may now contain hazardous reagents or contaminants."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-4-8",
+      "prompt": "How should a pupil transfer reagent into a tube during a food-test practical?",
+      "oldOptions": [
+        "Use mouth suction when the pipette is clean and the liquid looks harmless.",
+        "Pour unused reagent back into the stock bottle after the test to avoid waste.",
+        "Use a suitable dropper or pipette; never suck liquid by mouth.",
+        "Hold a filled pipette above eye level to read the volume and release the liquid."
+      ],
+      "oldCorrectIndex": 2,
+      "options": [
+        "Use mouth suction when the pipette is clean and the liquid looks harmless.",
+        "Pour unused reagent back into the stock bottle after the test to avoid waste.",
+        "Hold a filled pipette above eye level to read the volume and release the liquid.",
+        "Use a suitable dropper or pipette; never suck liquid by mouth."
+      ],
+      "correctIndex": 3,
+      "accepted": [
+        "Use a suitable dropper or pipette; never suck liquid by mouth."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-4-9",
+      "prompt": "Ethanol is spilled near the bench during the emulsion test. What is the safest immediate response?",
+      "oldOptions": [
+        "Wipe up the ethanol while leaving a yellow safety flame burning nearby.",
+        "Alert the teacher, avoid ignition sources and follow the spill procedure.",
+        "Continue the practical without reporting the spill if only a small amount escaped.",
+        "Dilute the ethanol with more ethanol before restarting the burner."
+      ],
+      "oldCorrectIndex": 1,
+      "options": [
+        "Dilute the ethanol with more ethanol before restarting the burner.",
+        "Wipe up the ethanol while leaving a yellow safety flame burning nearby.",
+        "Continue the practical without reporting the spill if only a small amount escaped.",
+        "Alert the teacher, avoid ignition sources and follow the spill procedure."
+      ],
+      "correctIndex": 3,
+      "accepted": [
+        "Alert the teacher, avoid ignition sources and follow the spill procedure."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-4-10",
+      "prompt": "A properly heated Benedict's test remains blue. What conclusion would be too strong even with good controls?",
+      "oldOptions": [
+        "The drink contains no sugar of any type.",
+        "Reducing sugar was not detected under these test conditions.",
+        "This Benedict's test gave a negative result.",
+        "A separate test may be needed to investigate other substances."
+      ],
+      "oldCorrectIndex": 0,
+      "options": [
+        "This Benedict's test gave a negative result.",
+        "The drink contains no sugar of any type.",
+        "A separate test may be needed to investigate other substances.",
+        "Reducing sugar was not detected under these test conditions."
+      ],
+      "correctIndex": 1,
+      "accepted": [
+        "The drink contains no sugar of any type."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-4-11",
+      "prompt": "A pupil repeats a heated Benedict's test on three equal portions of the same well-mixed juice using identical reagent volumes, bath temperature and heating time. Two tubes turn orange, but one remains blue. What should the pupil do?",
+      "oldOptions": [
+        "Record only the two orange results and discard the blue result without comment.",
+        "Treat the blue tube as proof that the original juice contains no reducing sugar.",
+        "Calculate the exact sugar concentration by treating two out of three positive tubes as a concentration ratio.",
+        "Record all results, check possible procedural errors and repeat with fresh portions before interpreting the inconsistency."
+      ],
+      "oldCorrectIndex": 3,
+      "options": [
+        "Record all results, check possible procedural errors and repeat with fresh portions before interpreting the inconsistency.",
+        "Record only the two orange results and discard the blue result without comment.",
+        "Treat the blue tube as proof that the original juice contains no reducing sugar.",
+        "Calculate the exact sugar concentration by treating two out of three positive tubes as a concentration ratio."
+      ],
+      "correctIndex": 0,
+      "accepted": [
+        "Record all results, check possible procedural errors and repeat with fresh portions before interpreting the inconsistency."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-4-12",
+      "prompt": "An unknown sample gives four negative food tests while positive and negative controls behave correctly. Which conclusion is justified?",
+      "oldOptions": [
+        "Every nutrient, including vitamins and minerals, was absent.",
+        "The negative results establish that the sample was pure distilled water.",
+        "None of the four targeted groups was detected; other nutrients might still be present.",
+        "A negative Biuret result also establishes that glucose was not present."
+      ],
+      "oldCorrectIndex": 2,
+      "options": [
+        "A negative Biuret result also establishes that glucose was not present.",
+        "Every nutrient, including vitamins and minerals, was absent.",
+        "None of the four targeted groups was detected; other nutrients might still be present.",
+        "The negative results establish that the sample was pure distilled water."
+      ],
+      "correctIndex": 2,
+      "accepted": [
+        "None of the four targeted groups was detected; other nutrients might still be present."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-4-13",
+      "prompt": "A snack tests positive for protein and reducing sugar. Why is this insufficient to conclude that including it automatically makes someone's diet balanced?",
+      "oldOptions": [
+        "A positive test confirms the snack contains enough protein for a balanced meal.",
+        "Food tests do not reveal nutrient quantities or the rest of a person's diet.",
+        "Two positive reactions establish its total energy content per serving.",
+        "Presence of reducing sugar and protein rules out excessive fat or salt."
+      ],
+      "oldCorrectIndex": 1,
+      "options": [
+        "Two positive reactions establish its total energy content per serving.",
+        "Food tests do not reveal nutrient quantities or the rest of a person's diet.",
+        "Presence of reducing sugar and protein rules out excessive fat or salt.",
+        "A positive test confirms the snack contains enough protein for a balanced meal."
+      ],
+      "correctIndex": 1,
+      "accepted": [
+        "Food tests do not reveal nutrient quantities or the rest of a person's diet."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-4-14",
+      "prompt": "Using a two-stage ethanol-then-water emulsion test, a pupil compares lipid-test cloudiness from two seed extracts prepared in the same way. One clear ethanol extract is added to 2 mL of water and the other to 10 mL. Which criticism is most valid?",
+      "oldOptions": [
+        "Different dilution volumes can affect cloudiness; use equal measured volumes of extract and water before comparing.",
+        "The cloudier emulsion proves twice as much lipid in the original seed, regardless of dilution.",
+        "The amount of water added cannot affect the emulsion appearance, so the comparison is fair.",
+        "The paler emulsion proves there was no lipid in that seed, even without a working control."
+      ],
+      "oldCorrectIndex": 0,
+      "options": [
+        "The cloudier emulsion proves twice as much lipid in the original seed, regardless of dilution.",
+        "The amount of water added cannot affect the emulsion appearance, so the comparison is fair.",
+        "Different dilution volumes can affect cloudiness; use equal measured volumes of extract and water before comparing.",
+        "The paler emulsion proves there was no lipid in that seed, even without a working control."
+      ],
+      "correctIndex": 2,
+      "accepted": [
+        "Different dilution volumes can affect cloudiness; use equal measured volumes of extract and water before comparing."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-4-15",
+      "prompt": "A packaged drink is advertised as sweet, but the iodine test stays orange-brown. Which statement is justified?",
+      "oldOptions": [
+        "The negative iodine reaction means no carbohydrate, including dissolved sugar, is present.",
+        "The sweet product label means that starch must be present despite the iodine result.",
+        "The negative iodine result proves that reducing sugar cannot be present.",
+        "Starch was not detected; sweetness alone cannot determine which sugars are present."
+      ],
+      "oldCorrectIndex": 3,
+      "options": [
+        "The negative iodine result proves that reducing sugar cannot be present.",
+        "The negative iodine reaction means no carbohydrate, including dissolved sugar, is present.",
+        "The sweet product label means that starch must be present despite the iodine result.",
+        "Starch was not detected; sweetness alone cannot determine which sugars are present."
+      ],
+      "correctIndex": 3,
+      "accepted": [
+        "Starch was not detected; sweetness alone cannot determine which sugars are present."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-4-16",
+      "prompt": "Biuret reagent turns lilac when added to a food extract. Which claim goes beyond what this one test can establish?",
+      "oldOptions": [
+        "The Biuret result provides qualitative evidence that protein is present.",
+        "Lilac or purple is a positive colour in the Biuret test.",
+        "The exact amount and identity of every protein in the food.",
+        "The positive result does not itself provide a precise protein concentration."
+      ],
+      "oldCorrectIndex": 2,
+      "options": [
+        "The exact amount and identity of every protein in the food.",
+        "Lilac or purple is a positive colour in the Biuret test.",
+        "The positive result does not itself provide a precise protein concentration.",
+        "The Biuret result provides qualitative evidence that protein is present."
+      ],
+      "correctIndex": 0,
+      "accepted": [
+        "The exact amount and identity of every protein in the food."
+      ],
+      "formalCreditEligible": false,
+      "academicApproved": false
+    }
+  ]
+}
