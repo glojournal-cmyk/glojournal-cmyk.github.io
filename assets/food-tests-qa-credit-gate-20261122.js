@@ -2,6 +2,7 @@
 // Never infer approval from 'enabled', a passing prose matcher or a stored correct flag.
 // Structured proposals may use sourceId::pN instead of the original 143-item ID.
 // Always reduce a structured point ID to its known held source ID before credit checks.
+// Inspect every available ID field so a harmless wrapper ID cannot hide a held sourceId or pointId.
 export const FOOD_TESTS_QA_TOPIC='bio-y8-food-tests';
 export const FOOD_TESTS_QA_HOLD_IDS=Object.freeze([
   "bio-y8-food-tests-iodine-solution-mc",
@@ -150,10 +151,14 @@ export const FOOD_TESTS_QA_HOLD_IDS=Object.freeze([
 ]);
 const pending=new Set(FOOD_TESTS_QA_HOLD_IDS);
 export function isFoodTestsQaHeld(value){
- const id=typeof value==='string'?value:String(value?.id||value?.questionId||'');
+ const ids=typeof value==='string'?[value]:[
+  value?.id,value?.questionId,value?.pointId,value?.sourceId
+ ].filter(id=>typeof id==='string'&&id.length>0);
  const topic=value&&typeof value==='object'?String(value.topicId||''):'';
- const sourceId=id.includes('::')?id.slice(0,id.indexOf('::')):id;
- return pending.has(id)||pending.has(sourceId)||sourceId.startsWith('bio-y8-food-tests-')||topic===FOOD_TESTS_QA_TOPIC;
+ return topic===FOOD_TESTS_QA_TOPIC||ids.some(id=>{
+  const sourceId=id.includes('::')?id.slice(0,id.indexOf('::')):id;
+  return pending.has(id)||pending.has(sourceId)||sourceId.startsWith('bio-y8-food-tests-');
+ });
 }
 export function canEarnFormalCredit(value){return !isFoodTestsQaHeld(value);}
 // Pupil-facing result for an unapproved Food Tests answer. The prose matcher
