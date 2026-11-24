@@ -157,7 +157,7 @@ export function isFoodTestsQaHeld(value){
  const topic=value&&typeof value==='object'?String(value.topicId||''):'';
  return topic===FOOD_TESTS_QA_TOPIC||ids.some(id=>{
   const sourceId=id.includes('::')?id.slice(0,id.indexOf('::')):id;
-  return pending.has(id)||pending.has(sourceId)||sourceId.startsWith('bio-y8-food-tests-');
+  return sourceId===FOOD_TESTS_QA_TOPIC||pending.has(id)||pending.has(sourceId)||sourceId.startsWith('bio-y8-food-tests-');
  });
 }
 export function canEarnFormalCredit(value){return !isFoodTestsQaHeld(value);}
