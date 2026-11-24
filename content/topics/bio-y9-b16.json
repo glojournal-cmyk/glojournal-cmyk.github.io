@@ -891,7 +891,7 @@
       "format": "typed_exact",
       "prompt": "Which large biological molecules are made by linking amino acids together?",
       "difficulty": 2,
-      "status": "enabled",
+      "status": "disabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
@@ -913,7 +913,9 @@
         "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "duplicateOf": "bio-y9-b16-amino-acids-to-proteins-e7cec6ca5f-typed",
+      "formal": false
     },
     {
       "id": "bio-y9-b16-amino-acids-to-proteins-e7cec6ca5f-explain",
@@ -1080,7 +1082,7 @@
       "format": "typed_exact",
       "prompt": "A seed stores energy as oil. To which group of nutrients do oils belong?",
       "difficulty": 2,
-      "status": "enabled",
+      "status": "disabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
@@ -1103,7 +1105,9 @@
         "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "duplicateOf": "bio-y9-b16-glucose-to-lipids-244465bb20-typed",
+      "formal": false
     },
     {
       "id": "bio-y9-b16-glucose-to-lipids-244465bb20-explain",
@@ -1608,13 +1612,12 @@
       "ordinary": true
     }
   ],
-  "enabled": 40,
+  "enabled": 38,
   "preview": 0,
-  "disabled": 0,
+  "disabled": 2,
   "formats": {
     "mc_single": 14,
-    "typed_exact": 6,
-    "spelling_restore": 7,
+    "typed_exact": 13,
     "mark_points": 8,
     "typed_short": 1,
     "matching": 3,

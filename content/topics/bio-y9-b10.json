@@ -530,7 +530,7 @@
       "format": "typed_exact",
       "prompt": "Which cellular process supplies energy for active transport?",
       "difficulty": 2,
-      "status": "enabled",
+      "status": "disabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
@@ -552,7 +552,9 @@
         "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "duplicateOf": "bio-y9-b10-respiration-energy-171463f941-typed",
+      "formal": false
     },
     {
       "id": "bio-y9-b10-respiration-energy-171463f941-explain",
@@ -1848,17 +1850,18 @@
       "ordinary": true
     }
   ],
-  "enabled": 45,
+  "enabled": 44,
   "preview": 0,
-  "disabled": 0,
+  "disabled": 1,
   "formats": {
     "mc_single": 16,
     "typed_short": 5,
-    "spelling_restore": 8,
-    "mark_points": 10,
-    "typed_exact": 3,
+    "typed_exact": 9,
+    "mark_points": 9,
+    "spelling_restore": 2,
     "matching": 2,
-    "sorting": 1
+    "sorting": 1,
+    "extended_response": 1
   },
   "gated": false,
   "note": {

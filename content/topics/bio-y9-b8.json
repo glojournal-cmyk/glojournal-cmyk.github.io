@@ -1114,7 +1114,7 @@
       "format": "typed_exact",
       "prompt": "Folding an exchange surface allows more particles to cross at once. Which property of the surface has increased?",
       "difficulty": 2,
-      "status": "enabled",
+      "status": "disabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
@@ -1136,7 +1136,9 @@
         "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "duplicateOf": "bio-y9-b8-larger-surface-area-cdba7cddae-typed",
+      "formal": false
     },
     {
       "id": "bio-y9-b8-larger-surface-area-cdba7cddae-explain",
@@ -2555,16 +2557,17 @@
       "ordinary": true
     }
   ],
-  "enabled": 62,
+  "enabled": 61,
   "preview": 0,
-  "disabled": 0,
+  "disabled": 1,
   "formats": {
     "mc_single": 22,
-    "typed_exact": 8,
-    "spelling_restore": 11,
-    "mark_points": 14,
+    "typed_exact": 12,
+    "spelling_restore": 7,
+    "mark_points": 12,
     "typed_short": 3,
     "matching": 3,
+    "extended_response": 2,
     "diagram_label": 1
   },
   "gated": false,

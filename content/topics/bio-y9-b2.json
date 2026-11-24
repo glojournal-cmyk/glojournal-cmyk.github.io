@@ -529,7 +529,7 @@
       "format": "typed_exact",
       "prompt": "Which structure propels a human sperm cell?",
       "difficulty": 2,
-      "status": "enabled",
+      "status": "disabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
@@ -552,7 +552,9 @@
         "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "duplicateOf": "bio-y9-b2-sperm-cell-tail-0b96d6707e-typed",
+      "formal": false
     },
     {
       "id": "bio-y9-b2-sperm-cell-tail-0b96d6707e-explain",
@@ -2524,15 +2526,15 @@
       "ordinary": true
     }
   ],
-  "enabled": 62,
+  "enabled": 61,
   "preview": 0,
-  "disabled": 0,
+  "disabled": 1,
   "formats": {
     "mc_single": 22,
     "typed_short": 3,
-    "spelling_restore": 11,
+    "spelling_restore": 5,
     "mark_points": 13,
-    "typed_exact": 8,
+    "typed_exact": 14,
     "matching": 4,
     "diagram_label": 1
   },
