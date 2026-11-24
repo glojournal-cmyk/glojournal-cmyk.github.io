@@ -157,3 +157,34 @@ test('display wrapper Daily slot with sourceId or pointId cannot disguise held F
  }
  assert.equal(verifiedQuizSlots([{id:alias,sourceId:'unrelated-source'}],answers).length,1);
 });
+
+test('hidden Food Tests source in answer or journal event never raises a separate Biology Daily task',()=>{
+ const day='2026-11-24',alias='display-wrapper-id';
+ const task={id:'y8-standard-a',planDate:day,assignedSubject:'biology',assignedYear:8,
+  assignedTopic:'other-biology-topic',target:10,progress:0,done:false,
+  href:'/study/biology/practise?daily=1&locked=1&task=y8-standard-a&topic=other-biology-topic&mode=standard&year=8'};
+ const receipt={day,taskId:task.id,subject:'biology',year:8,mode:'standard'};
+ const newState=events=>({today:day,daily:[task],formalAttemptLog:events,dailyLog:{}});
+ const baseQ={id:alias,topicId:task.assignedTopic,formal:true};
+ const parts=structuredCandidate.items.flatMap(x=>x.parts);
+ assert.equal(parts.length,99);
+ for(const part of parts){
+  const answer={questionId:alias,correct:true,formal:true,
+   pointId:part.pointId,sourceId:part.pointId.split('::')[0]};
+  assert.equal(isFoodTestsQaHeld(answer),true);
+  assert.deepEqual(verifiedQuizSlots([baseQ],[answer]),[]);
+  const direct=reconcileDailySession(newState([]),{...receipt,questions:[baseQ],answers:[answer]});
+  assert.equal(direct.changed,false,'held Food Tests answer counted: '+part.pointId);
+  assert.strictEqual(direct.daily[0],task);
+  const event={day,dailyTaskId:task.id,subject:'biology',year:8,
+   topicId:task.assignedTopic,questionId:alias,correct:true,formal:true,
+   pointId:part.pointId,sourceId:part.pointId.split('::')[0]};
+  const historical=reconcileDailySession(newState([event]),{...receipt,questions:[],answers:[]});
+  assert.equal(historical.changed,false,'held Food Tests event counted: '+part.pointId);
+  assert.strictEqual(historical.daily[0],task);
+ }
+ const unrelated=reconcileDailySession(newState([]),{...receipt,questions:[baseQ],
+  answers:[{questionId:alias,correct:true,formal:true,sourceId:'other-biology-source'}]});
+ assert.equal(unrelated.changed,true,'unrelated Biology Daily answer should not be overblocked');
+ assert.equal(unrelated.progress,1);
+});
