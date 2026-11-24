@@ -21,7 +21,7 @@ function scorer(file){
  if(i<0||r<0||fam<0||!s.includes("import {scoreFoodTestsRemaining37}"))throw Error("Missing actual QuizSession scorer: "+file);
  const R=new Function(s.slice(fam,endOf(s,r))+"\nreturn R;")();
  return new Function("L","I","R","scoreFoodTestsGuarded","scoreFoodTestsEthanolSafety","scoreFoodTestsRemaining37",
- s.slice(i,endOf(s,i))+"\nreturn B;")(
+ s.slice(s.indexOf('function reviewedMark('),i)+s.slice(i,endOf(s,i))+"\nreturn B;")(
  q=>q.answer.modelAnswer||"",()=>[],R,six,ethanol,remaining);
 }
 const bundlePaths=["assets/quiz-session-y8fix-20260920.js","assets/quiz-session-rWAnuDVj.js"];
