@@ -1,3 +1,6 @@
+import {scoreFoodTestsGuarded} from '../assets/food-tests-six-guarded-rubric-20261122.js';
+import {scoreFoodTestsRemaining37} from '../assets/food-tests-remaining-37-rubric-20261122.js';
+import {scoreFoodTestsEthanolSafety} from '../assets/food-tests-ethanol-rubric-20261122.js';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
@@ -110,7 +113,7 @@ console.log('72 source-scoped questions; rubrics, units, partial marks, history 
 const masterSrc=read('assets/quiz-session-rWAnuDVj.js');
 const startB=masterSrc.indexOf('function B(e,t,n,r)');
 const endB=masterSrc.indexOf('function ',startB+9);
-const master=vm.createContext({L:q=>q.answer.modelAnswer,I:()=>[],R:points=>['a','b','c'].includes(points[0])?1:0,Math});
+const master=vm.createContext({scoreFoodTestsGuarded,scoreFoodTestsRemaining37,scoreFoodTestsEthanolSafety,L:q=>q.answer.modelAnswer,I:()=>[],R:points=>['a','b','c'].includes(points[0])?1:0,Math});
 const reviewedStart=masterSrc.indexOf("function reviewedMark(");
 assert.ok(reviewedStart>=0 && reviewedStart<startB);
 vm.runInContext(masterSrc.slice(reviewedStart,endB),master);

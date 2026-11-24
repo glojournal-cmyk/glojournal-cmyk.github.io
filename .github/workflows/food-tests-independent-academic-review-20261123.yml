@@ -1,0 +1,133 @@
+name: Food Tests 143-item Independent Content QA Evidence (0 approved)
+on:
+  push:
+    branches:
+      - qa/p0-eligibility-2e556ff
+    paths:
+      - 'content/topics/bio-y8-food-tests.json'
+      - 'qa/food-tests-independent-academic-143-review-20261123.json'
+      - 'qa/food-tests-48-duplicate-replacements-draft-20261123.json'
+      - 'qa/food-tests-48-144-foil-reasons-20261124.json'
+      - 'qa/food-tests-16-retained-case-concrete-observations-20261124.json'
+      - 'qa/food-tests-48-and-16-academic-qa-20261124.md'
+      - 'qa/food-tests-25-source-mcq-content-adjudication-20261124.json'
+      - 'qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json'
+      - 'qa/food-tests-48-replacement-content-adjudication-20261124.json'
+      - 'qa/food-tests-99-structured-content-adjudication-20261124.json'
+      - 'qa/food-tests-143-source-academic-dispositions-20261124.json'
+      - 'qa/food-tests-143-academic-content-decision-20261124.md'
+      - 'tests/food-tests-25-mcq-content-adjudication-20261124.test.mjs'
+      - 'tests/food-tests-15-typed-3-matching-content-20261124.test.mjs'
+      - 'tests/food-tests-48-content-adjudication-20261124.test.mjs'
+      - 'tests/food-tests-99-structured-content-adjudication-20261124.test.mjs'
+      - 'tests/food-tests-143-academic-content-dispositions-20261124.test.mjs'
+      - 'tests/food-tests-16-concrete-observation-proposals-20261124.test.mjs'
+      - 'tests/food-tests-16-near-miss-distractors-20261124.test.mjs'
+      - 'qa/food-tests-16-near-miss-distractor-proposals-20261124.json'
+      - 'tests/food-tests-48-144-foil-reasons-20261124.test.mjs'
+      - 'qa/food-tests-48-vs-99-skill-overlap-20261124.json'
+      - 'qa/food-tests-143-revised-preview-20261123.json'
+      - 'tests/food-tests-143-preview-qa-20261123.test.mjs'
+      - 'tests/food-tests-48-replacement-candidate-20261123.test.mjs'
+      - 'tests/food-tests-matching-scoring-20261123.test.mjs'
+      - 'tests/food-tests-typed-15-adversarial-20261123.test.mjs'
+      - 'qa/food-tests-typed-15-adversarial-probes-20261123.json'
+      - 'assets/quiz-session-y8fix-20260920.js'
+      - 'assets/quiz-session-rWAnuDVj.js'
+      - 'qa/food-tests-academic-correction-proposals-20261123.json'
+      - 'qa/food-tests-independent-academic-143-review-20261123.md'
+      - 'qa/food-tests-structured-99-point-review-candidate-20261122.json'
+      - 'qa/food-tests-99-concept-collision-review-20261123.json'
+      - 'qa/food-tests-297-distractor-first-pass-20261123.json'
+      - 'qa/food-tests-99-semantic-overlap-review-20261123.json'
+      - 'tests/food-tests-99-semantic-overlap-20261123.test.mjs'
+      - 'tests/food-tests-297-distractor-first-pass-20261123.test.mjs'
+      - 'tests/food-tests-99-concept-collision-20261123.test.mjs'
+      - 'tests/food-tests-academic-143-review-20261123.test.mjs'
+      - '.github/workflows/food-tests-independent-academic-review-20261123.yml'
+  pull_request:
+    paths:
+      - 'content/topics/bio-y8-food-tests.json'
+      - 'qa/food-tests-independent-academic-143-review-20261123.json'
+      - 'qa/food-tests-48-duplicate-replacements-draft-20261123.json'
+      - 'qa/food-tests-48-144-foil-reasons-20261124.json'
+      - 'qa/food-tests-16-retained-case-concrete-observations-20261124.json'
+      - 'qa/food-tests-48-and-16-academic-qa-20261124.md'
+      - 'qa/food-tests-25-source-mcq-content-adjudication-20261124.json'
+      - 'qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json'
+      - 'qa/food-tests-48-replacement-content-adjudication-20261124.json'
+      - 'qa/food-tests-99-structured-content-adjudication-20261124.json'
+      - 'qa/food-tests-143-source-academic-dispositions-20261124.json'
+      - 'qa/food-tests-143-academic-content-decision-20261124.md'
+      - 'tests/food-tests-25-mcq-content-adjudication-20261124.test.mjs'
+      - 'tests/food-tests-15-typed-3-matching-content-20261124.test.mjs'
+      - 'tests/food-tests-48-content-adjudication-20261124.test.mjs'
+      - 'tests/food-tests-99-structured-content-adjudication-20261124.test.mjs'
+      - 'tests/food-tests-143-academic-content-dispositions-20261124.test.mjs'
+      - 'tests/food-tests-16-concrete-observation-proposals-20261124.test.mjs'
+      - 'tests/food-tests-16-near-miss-distractors-20261124.test.mjs'
+      - 'qa/food-tests-16-near-miss-distractor-proposals-20261124.json'
+      - 'tests/food-tests-48-144-foil-reasons-20261124.test.mjs'
+      - 'qa/food-tests-48-vs-99-skill-overlap-20261124.json'
+      - 'qa/food-tests-143-revised-preview-20261123.json'
+      - 'tests/food-tests-143-preview-qa-20261123.test.mjs'
+      - 'tests/food-tests-48-replacement-candidate-20261123.test.mjs'
+      - 'tests/food-tests-matching-scoring-20261123.test.mjs'
+      - 'tests/food-tests-typed-15-adversarial-20261123.test.mjs'
+      - 'qa/food-tests-typed-15-adversarial-probes-20261123.json'
+      - 'assets/quiz-session-y8fix-20260920.js'
+      - 'assets/quiz-session-rWAnuDVj.js'
+      - 'qa/food-tests-academic-correction-proposals-20261123.json'
+      - 'qa/food-tests-independent-academic-143-review-20261123.md'
+      - 'qa/food-tests-structured-99-point-review-candidate-20261122.json'
+      - 'qa/food-tests-99-concept-collision-review-20261123.json'
+      - 'qa/food-tests-297-distractor-first-pass-20261123.json'
+      - 'qa/food-tests-99-semantic-overlap-review-20261123.json'
+      - 'tests/food-tests-99-semantic-overlap-20261123.test.mjs'
+      - 'tests/food-tests-297-distractor-first-pass-20261123.test.mjs'
+      - 'tests/food-tests-99-concept-collision-20261123.test.mjs'
+      - 'tests/food-tests-academic-143-review-20261123.test.mjs'
+      - '.github/workflows/food-tests-independent-academic-review-20261123.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  academic-review-register:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check independent academic consistency script syntax
+        run: node --check tests/food-tests-academic-143-review-20261123.test.mjs
+      - name: Validate exact 143-item review and 99 candidate point references; never approve by test alone
+        run: node --test tests/food-tests-academic-143-review-20261123.test.mjs
+      - name: Audit all 99 MCQ mark points against 52 source concepts and 9 repeated-answer clusters, still 0 approved
+        run: node --test tests/food-tests-99-concept-collision-20261123.test.mjs
+      - name: Review all 297 individually reasoned structured MCQ distractors without teacher approval
+        run: node --test tests/food-tests-297-distractor-first-pass-20261123.test.mjs
+      - name: Check cross-answer semantic overlap families and prevent duplicate-mastery claims in held QA pool
+        run: node --test tests/food-tests-99-semantic-overlap-20261123.test.mjs
+      - name: "Academic content QA: validate 143 original source dispositions plus 48 and 99 unapproved candidate science reviews"
+        run: |
+          node --test tests/food-tests-25-mcq-content-adjudication-20261124.test.mjs
+          node --test tests/food-tests-15-typed-3-matching-content-20261124.test.mjs
+          node --test tests/food-tests-48-content-adjudication-20261124.test.mjs
+          node --test tests/food-tests-99-structured-content-adjudication-20261124.test.mjs
+          node --test tests/food-tests-143-academic-content-dispositions-20261124.test.mjs
+      - name: Verify 16 held original case prompts have realistic unimported observation revisions without altering science answers
+        run: node --test tests/food-tests-16-concrete-observation-proposals-20261124.test.mjs
+      - name: Check 16 revised near-miss draft cases and preserve credit hold
+        run: node --test tests/food-tests-16-near-miss-distractors-20261124.test.mjs
+      - name: Verify all 144 draft wrong-choice reasons map to the current 48 held MCQs
+        run: node --test tests/food-tests-48-144-foil-reasons-20261124.test.mjs
+      - name: Verify 48 QA-only duplicate replacements are unique and never formally credited
+        run: node --test tests/food-tests-48-replacement-candidate-20261123.test.mjs
+      - name: Verify 143-row candidate preview retains 95 originals and blocks all scoring
+        run: node --test tests/food-tests-143-preview-qa-20261123.test.mjs
+      - name: Verify both original matching scorers return 0-4 independently earned marks
+        run: node --test tests/food-tests-matching-scoring-20261123.test.mjs
+      - name: Check fifteen typed valid alternatives and contradictory negations against both quiz scorers
+        run: node --test tests/food-tests-typed-15-adversarial-20261123.test.mjs

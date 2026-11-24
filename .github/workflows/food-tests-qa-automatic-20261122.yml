@@ -1,0 +1,95 @@
+name: Food Tests QA - automatic Node checks (no deploy)
+on:
+  push:
+    branches:
+      - qa/p0-eligibility-2e556ff
+    paths:
+      - 'assets/food-tests-*'
+      - 'assets/quiz-session-y8fix-20260920.js'
+      - 'assets/quiz-session-rWAnuDVj.js'
+      - 'assets/daily-session-credit-20261021.js'
+      - 'assets/daily-completed-session-receipts-20261024.js'
+      - 'assets/mastery-v2-20261018.js'
+      - 'tests/food-tests-*'
+      - 'qa/food-tests-*'
+      - 'qa/academic-qa-bio-y8-food-tests-items.json'
+      - 'content/topics/bio-y8-food-tests.json'
+      - '.github/workflows/food-tests-qa-automatic-20261122.yml'
+  pull_request:
+    paths:
+      - 'assets/food-tests-*'
+      - 'tests/food-tests-*'
+      - 'content/topics/bio-y8-food-tests.json'
+      - '.github/workflows/food-tests-qa-automatic-20261122.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: food-tests-qa-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  no-credit-and-regressions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax checks
+        run: |
+          node --check assets/food-tests-qa-credit-gate-20261122.js
+          node --check assets/food-tests-structured-concept-checks-20261122.js
+          node --check assets/quiz-session-y8fix-20260920.js
+          node --check assets/quiz-session-rWAnuDVj.js
+          node --check assets/daily-session-credit-20261021.js
+          node --check assets/daily-completed-session-receipts-20261024.js
+          node --check assets/mastery-v2-20261018.js
+          node --check assets/daily-curriculum-20261004.js
+          node --check assets/index-BLVOhKhN.js
+      - name: No unapproved Food Tests Daily, MP or Mastery credit
+        run: |
+          node --test tests/food-tests-qa-credit-hold-20261122.test.mjs
+          node --test tests/food-tests-99-point-candidate-qa-20261122.test.mjs
+      - name: Existing practice scoring regression
+        run: |
+          node tests/food-tests-round1-batch-acceptance.mjs
+          # The old six-guard runner asserts a pre-37-repair snapshot (159/196).
+          # Current 37-item runner checks all six guarded questions (49/49),
+          # the 196-item regression, 62 ethanol cases and 148 adversarial cases.
+          node tests/food-tests-remaining-37-acceptance.mjs
+          node tests/food-tests-four-confirmed-overcredit-acceptance.mjs
+      - name: Record 37 legacy + all 52 original prose mismatch diagnostics without approving grades
+        if: always()
+        run: |
+          node tests/food-tests-37-unseen-diagnostic.mjs --write
+          node --test tests/food-tests-52-coverage-20261123.test.mjs
+          node tests/food-tests-52-unseen-diagnostic-20261123.mjs --write
+          node --test tests/food-tests-pupil-unmarked-20261122.test.mjs
+      - name: Check 18 held editorial correction candidates (no approval or import)
+        if: always()
+        run: node --test tests/food-tests-18-editorial-corrections-20261124.test.mjs
+      - name: Verify 147 held candidate skill mappings and rotation conflicts
+        if: always()
+        run: node --test tests/food-tests-147-skill-crosswalk-20261124.test.mjs
+      - name: Verify all 143 consolidated source groups and 190 held rotation units
+        if: always()
+        run: node --test tests/food-tests-143-consolidated-held-20261124.test.mjs
+      - name: Execute consolidated candidate scoring and verify all credit holds
+        if: always()
+        run: node --test tests/food-tests-consolidated-actual-scoring-20261124.test.mjs
+      - name: Verify held candidate curriculum, store, reward and receipt ingress
+        if: always()
+        run: node --test tests/food-tests-consolidated-credit-ingress-20261124.test.mjs
+      - name: Verify 93 main-to-QA question differences and preserve held candidate corrections
+        if: always()
+        run: node --test tests/food-tests-main-reconciliation-20261124.test.mjs
+      - name: Upload QA evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: food-tests-qa-heldout-evidence
+          path: |
+            qa/food-tests-37-unseen-node-result.json
+            qa/food-tests-52-unseen-node-result-20261123.json
+          if-no-files-found: ignore

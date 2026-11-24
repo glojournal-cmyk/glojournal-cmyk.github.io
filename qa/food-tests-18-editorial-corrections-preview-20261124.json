@@ -1,0 +1,970 @@
+{
+  "kind": "QA-only 18 complete editorial correction candidates; NOT an imported bank or an approved marking scheme",
+  "date": "2026-11-24",
+  "sourcePath": "content/topics/bio-y8-food-tests.json",
+  "sourceBlob": "5638c927319c4ea7f73b636006bdee70220533cd",
+  "basePreview": "qa/food-tests-143-revised-preview-20261123.json",
+  "baseHead": "9184dbeb0ecc16bfba6b49f83aaa688b8be7d9b4",
+  "counts": {
+    "completeSetCases": 16,
+    "benedictRecall": 1,
+    "negativeIodineTyped": 1,
+    "total": 18,
+    "independentlyApproved": 0
+  },
+  "formalCreditEligible": false,
+  "release": "BLOCKED",
+  "sourceEdited": false,
+  "notes": [
+    "The existing 143-row preview and original bank remain unchanged. These 18 replacement question objects form an additional held editorial overlay only.",
+    "For the iodine item the four original shorthand variants remain accepted in the original bank, and require school-marking adjudication; the draft changed demand and answer list must never retrospectively alter marks.",
+    "All typed alternatives require separate scorer fairness checks before release; no credit or player use authorised."
+  ],
+  "items": [
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-1",
+      "change": "CONCRETE_OBSERVATION_AND_COMPLETE_SET",
+      "academicApproved": false,
+      "formalCreditEligible": false,
+      "independentQualifiedApproval": false,
+      "question": {
+        "id": "bio-y8-food-tests-case-20261025-1-1",
+        "conceptId": "bio-y8-concept-food-tests-case-20261025-1-1",
+        "topicId": "bio-y8-food-tests",
+        "topic": "Food tests and laboratory safety",
+        "format": "mc_single",
+        "prompt": "During a practical, Sample F1-01 has these results: iodine blue-black; heated Benedict's green precipitate; Biuret lilac; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+        "difficulty": 2,
+        "status": "qa-pending",
+        "options": [
+          "none of these four nutrients",
+          "starch",
+          "reducing sugar",
+          "starch, reducing sugar, protein, lipid"
+        ],
+        "answer": {
+          "mode": "choice",
+          "accepted": [
+            "starch, reducing sugar, protein, lipid"
+          ],
+          "totalMarks": 1
+        },
+        "stimulus": {},
+        "feedback": {
+          "short": "Detected: starch, reducing sugar, protein, lipid.",
+          "steps": [
+            "Blue-black iodine indicates starch.",
+            "The observed coloured Benedict's precipitate indicates reducing sugar.",
+            "The lilac or purple Biuret result indicates protein.",
+            "The cloudy white emulsion indicates lipid."
+          ],
+          "commonError": "A correct option must include every detected group and no undetected group. A negative result does not establish absolute absence.",
+          "remember": "Detected: starch, reducing sugar, protein, lipid."
+        },
+        "task": {
+          "label": "CHOOSE THE ANSWER",
+          "instruction": "Choose the complete set of nutrient groups detected."
+        },
+        "preview": true,
+        "ordinary": false,
+        "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein-lipid",
+        "academicReview": "pending",
+        "formalCreditEligible": false,
+        "academicApproved": false
+      }
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-2",
+      "change": "CONCRETE_OBSERVATION_AND_COMPLETE_SET",
+      "academicApproved": false,
+      "formalCreditEligible": false,
+      "independentQualifiedApproval": false,
+      "question": {
+        "id": "bio-y8-food-tests-case-20261025-1-2",
+        "conceptId": "bio-y8-concept-food-tests-case-20261025-1-2",
+        "topicId": "bio-y8-food-tests",
+        "topic": "Food tests and laboratory safety",
+        "format": "mc_single",
+        "prompt": "During a practical, Sample F1-02 has these results: iodine orange-brown; heated Benedict's yellow precipitate; Biuret purple; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+        "difficulty": 2,
+        "status": "qa-pending",
+        "options": [
+          "starch, reducing sugar",
+          "starch, protein",
+          "reducing sugar, protein, lipid",
+          "starch"
+        ],
+        "answer": {
+          "mode": "choice",
+          "accepted": [
+            "reducing sugar, protein, lipid"
+          ],
+          "totalMarks": 1
+        },
+        "stimulus": {},
+        "feedback": {
+          "short": "Detected: reducing sugar, protein, lipid.",
+          "steps": [
+            "Orange-brown iodine means starch was not detected.",
+            "The observed coloured Benedict's precipitate indicates reducing sugar.",
+            "The lilac or purple Biuret result indicates protein.",
+            "The cloudy white emulsion indicates lipid."
+          ],
+          "commonError": "A correct option must include every detected group and no undetected group. A negative result does not establish absolute absence.",
+          "remember": "Detected: reducing sugar, protein, lipid."
+        },
+        "task": {
+          "label": "CHOOSE THE ANSWER",
+          "instruction": "Choose the complete set of nutrient groups detected."
+        },
+        "preview": true,
+        "ordinary": false,
+        "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-protein-lipid",
+        "academicReview": "pending",
+        "formalCreditEligible": false,
+        "academicApproved": false
+      }
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-3",
+      "change": "CONCRETE_OBSERVATION_AND_COMPLETE_SET",
+      "academicApproved": false,
+      "formalCreditEligible": false,
+      "independentQualifiedApproval": false,
+      "question": {
+        "id": "bio-y8-food-tests-case-20261025-1-3",
+        "conceptId": "bio-y8-concept-food-tests-case-20261025-1-3",
+        "topicId": "bio-y8-food-tests",
+        "topic": "Food tests and laboratory safety",
+        "format": "mc_single",
+        "prompt": "During a practical, Sample F1-03 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+        "difficulty": 2,
+        "status": "qa-pending",
+        "options": [
+          "reducing sugar, lipid",
+          "starch, protein, lipid",
+          "reducing sugar",
+          "reducing sugar, protein"
+        ],
+        "answer": {
+          "mode": "choice",
+          "accepted": [
+            "starch, protein, lipid"
+          ],
+          "totalMarks": 1
+        },
+        "stimulus": {},
+        "feedback": {
+          "short": "Detected: starch, protein, lipid.",
+          "steps": [
+            "Blue-black iodine indicates starch.",
+            "Heated Benedict's remaining blue means reducing sugar was not detected.",
+            "The lilac or purple Biuret result indicates protein.",
+            "The cloudy white emulsion indicates lipid."
+          ],
+          "commonError": "A correct option must include every detected group and no undetected group. A negative result does not establish absolute absence.",
+          "remember": "Detected: starch, protein, lipid."
+        },
+        "task": {
+          "label": "CHOOSE THE ANSWER",
+          "instruction": "Choose the complete set of nutrient groups detected."
+        },
+        "preview": true,
+        "ordinary": false,
+        "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-protein-lipid",
+        "academicReview": "pending",
+        "formalCreditEligible": false,
+        "academicApproved": false
+      }
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-4",
+      "change": "CONCRETE_OBSERVATION_AND_COMPLETE_SET",
+      "academicApproved": false,
+      "formalCreditEligible": false,
+      "independentQualifiedApproval": false,
+      "question": {
+        "id": "bio-y8-food-tests-case-20261025-1-4",
+        "conceptId": "bio-y8-concept-food-tests-case-20261025-1-4",
+        "topicId": "bio-y8-food-tests",
+        "topic": "Food tests and laboratory safety",
+        "format": "mc_single",
+        "prompt": "During a practical, Sample F1-04 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret purple; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+        "difficulty": 2,
+        "status": "qa-pending",
+        "options": [
+          "protein, lipid",
+          "starch, reducing sugar",
+          "starch, reducing sugar, lipid",
+          "reducing sugar"
+        ],
+        "answer": {
+          "mode": "choice",
+          "accepted": [
+            "protein, lipid"
+          ],
+          "totalMarks": 1
+        },
+        "stimulus": {},
+        "feedback": {
+          "short": "Detected: protein, lipid.",
+          "steps": [
+            "Orange-brown iodine means starch was not detected.",
+            "Heated Benedict's remaining blue means reducing sugar was not detected.",
+            "The lilac or purple Biuret result indicates protein.",
+            "The cloudy white emulsion indicates lipid."
+          ],
+          "commonError": "A correct option must include every detected group and no undetected group. A negative result does not establish absolute absence.",
+          "remember": "Detected: protein, lipid."
+        },
+        "task": {
+          "label": "CHOOSE THE ANSWER",
+          "instruction": "Choose the complete set of nutrient groups detected."
+        },
+        "preview": true,
+        "ordinary": false,
+        "dailyConceptGroup": "bio-y8-food-tests-indicators-protein-lipid",
+        "academicReview": "pending",
+        "formalCreditEligible": false,
+        "academicApproved": false
+      }
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-5",
+      "change": "CONCRETE_OBSERVATION_AND_COMPLETE_SET",
+      "academicApproved": false,
+      "formalCreditEligible": false,
+      "independentQualifiedApproval": false,
+      "question": {
+        "id": "bio-y8-food-tests-case-20261025-1-5",
+        "conceptId": "bio-y8-concept-food-tests-case-20261025-1-5",
+        "topicId": "bio-y8-food-tests",
+        "topic": "Food tests and laboratory safety",
+        "format": "mc_single",
+        "prompt": "During a practical, Sample F1-05 has these results: iodine blue-black; heated Benedict's orange precipitate; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+        "difficulty": 2,
+        "status": "qa-pending",
+        "options": [
+          "protein",
+          "starch, protein",
+          "reducing sugar, protein",
+          "starch, reducing sugar, lipid"
+        ],
+        "answer": {
+          "mode": "choice",
+          "accepted": [
+            "starch, reducing sugar, lipid"
+          ],
+          "totalMarks": 1
+        },
+        "stimulus": {},
+        "feedback": {
+          "short": "Detected: starch, reducing sugar, lipid.",
+          "steps": [
+            "Blue-black iodine indicates starch.",
+            "The observed coloured Benedict's precipitate indicates reducing sugar.",
+            "Biuret remaining blue means protein was not detected.",
+            "The cloudy white emulsion indicates lipid."
+          ],
+          "commonError": "A correct option must include every detected group and no undetected group. A negative result does not establish absolute absence.",
+          "remember": "Detected: starch, reducing sugar, lipid."
+        },
+        "task": {
+          "label": "CHOOSE THE ANSWER",
+          "instruction": "Choose the complete set of nutrient groups detected."
+        },
+        "preview": true,
+        "ordinary": false,
+        "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-lipid",
+        "academicReview": "pending",
+        "formalCreditEligible": false,
+        "academicApproved": false
+      }
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-6",
+      "change": "CONCRETE_OBSERVATION_AND_COMPLETE_SET",
+      "academicApproved": false,
+      "formalCreditEligible": false,
+      "independentQualifiedApproval": false,
+      "question": {
+        "id": "bio-y8-food-tests-case-20261025-1-6",
+        "conceptId": "bio-y8-concept-food-tests-case-20261025-1-6",
+        "topicId": "bio-y8-food-tests",
+        "topic": "Food tests and laboratory safety",
+        "format": "mc_single",
+        "prompt": "During a practical, Sample F1-06 has these results: iodine orange-brown; heated Benedict's brick-red precipitate; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+        "difficulty": 2,
+        "status": "qa-pending",
+        "options": [
+          "starch, reducing sugar, protein",
+          "starch",
+          "reducing sugar, lipid",
+          "starch, protein"
+        ],
+        "answer": {
+          "mode": "choice",
+          "accepted": [
+            "reducing sugar, lipid"
+          ],
+          "totalMarks": 1
+        },
+        "stimulus": {},
+        "feedback": {
+          "short": "Detected: reducing sugar, lipid.",
+          "steps": [
+            "Orange-brown iodine means starch was not detected.",
+            "The observed coloured Benedict's precipitate indicates reducing sugar.",
+            "Biuret remaining blue means protein was not detected.",
+            "The cloudy white emulsion indicates lipid."
+          ],
+          "commonError": "A correct option must include every detected group and no undetected group. A negative result does not establish absolute absence.",
+          "remember": "Detected: reducing sugar, lipid."
+        },
+        "task": {
+          "label": "CHOOSE THE ANSWER",
+          "instruction": "Choose the complete set of nutrient groups detected."
+        },
+        "preview": true,
+        "ordinary": false,
+        "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-lipid",
+        "academicReview": "pending",
+        "formalCreditEligible": false,
+        "academicApproved": false
+      }
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-7",
+      "change": "CONCRETE_OBSERVATION_AND_COMPLETE_SET",
+      "academicApproved": false,
+      "formalCreditEligible": false,
+      "independentQualifiedApproval": false,
+      "question": {
+        "id": "bio-y8-food-tests-case-20261025-1-7",
+        "conceptId": "bio-y8-concept-food-tests-case-20261025-1-7",
+        "topicId": "bio-y8-food-tests",
+        "topic": "Food tests and laboratory safety",
+        "format": "mc_single",
+        "prompt": "During a practical, Sample F1-07 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+        "difficulty": 2,
+        "status": "qa-pending",
+        "options": [
+          "reducing sugar, protein, lipid",
+          "starch, lipid",
+          "reducing sugar, protein",
+          "reducing sugar"
+        ],
+        "answer": {
+          "mode": "choice",
+          "accepted": [
+            "starch, lipid"
+          ],
+          "totalMarks": 1
+        },
+        "stimulus": {},
+        "feedback": {
+          "short": "Detected: starch, lipid.",
+          "steps": [
+            "Blue-black iodine indicates starch.",
+            "Heated Benedict's remaining blue means reducing sugar was not detected.",
+            "Biuret remaining blue means protein was not detected.",
+            "The cloudy white emulsion indicates lipid."
+          ],
+          "commonError": "A correct option must include every detected group and no undetected group. A negative result does not establish absolute absence.",
+          "remember": "Detected: starch, lipid."
+        },
+        "task": {
+          "label": "CHOOSE THE ANSWER",
+          "instruction": "Choose the complete set of nutrient groups detected."
+        },
+        "preview": true,
+        "ordinary": false,
+        "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-lipid",
+        "academicReview": "pending",
+        "formalCreditEligible": false,
+        "academicApproved": false
+      }
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-8",
+      "change": "CONCRETE_OBSERVATION_AND_COMPLETE_SET",
+      "academicApproved": false,
+      "formalCreditEligible": false,
+      "independentQualifiedApproval": false,
+      "question": {
+        "id": "bio-y8-food-tests-case-20261025-1-8",
+        "conceptId": "bio-y8-concept-food-tests-case-20261025-1-8",
+        "topicId": "bio-y8-food-tests",
+        "topic": "Food tests and laboratory safety",
+        "format": "mc_single",
+        "prompt": "During a practical, Sample F1-08 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+        "difficulty": 2,
+        "status": "qa-pending",
+        "options": [
+          "lipid",
+          "starch, reducing sugar, protein",
+          "starch, reducing sugar, protein, lipid",
+          "reducing sugar, protein"
+        ],
+        "answer": {
+          "mode": "choice",
+          "accepted": [
+            "lipid"
+          ],
+          "totalMarks": 1
+        },
+        "stimulus": {},
+        "feedback": {
+          "short": "Detected: lipid.",
+          "steps": [
+            "Orange-brown iodine means starch was not detected.",
+            "Heated Benedict's remaining blue means reducing sugar was not detected.",
+            "Biuret remaining blue means protein was not detected.",
+            "The cloudy white emulsion indicates lipid."
+          ],
+          "commonError": "A correct option must include every detected group and no undetected group. A negative result does not establish absolute absence.",
+          "remember": "Detected: lipid."
+        },
+        "task": {
+          "label": "CHOOSE THE ANSWER",
+          "instruction": "Choose the complete set of nutrient groups detected."
+        },
+        "preview": true,
+        "ordinary": false,
+        "dailyConceptGroup": "bio-y8-food-tests-indicators-lipid",
+        "academicReview": "pending",
+        "formalCreditEligible": false,
+        "academicApproved": false
+      }
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-9",
+      "change": "CONCRETE_OBSERVATION_AND_COMPLETE_SET",
+      "academicApproved": false,
+      "formalCreditEligible": false,
+      "independentQualifiedApproval": false,
+      "question": {
+        "id": "bio-y8-food-tests-case-20261025-1-9",
+        "conceptId": "bio-y8-concept-food-tests-case-20261025-1-9",
+        "topicId": "bio-y8-food-tests",
+        "topic": "Food tests and laboratory safety",
+        "format": "mc_single",
+        "prompt": "During a practical, Sample F1-09 has these results: iodine blue-black; heated Benedict's green precipitate; Biuret lilac; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+        "difficulty": 2,
+        "status": "qa-pending",
+        "options": [
+          "lipid",
+          "starch, lipid",
+          "reducing sugar, lipid",
+          "starch, reducing sugar, protein"
+        ],
+        "answer": {
+          "mode": "choice",
+          "accepted": [
+            "starch, reducing sugar, protein"
+          ],
+          "totalMarks": 1
+        },
+        "stimulus": {},
+        "feedback": {
+          "short": "Detected: starch, reducing sugar, protein.",
+          "steps": [
+            "Blue-black iodine indicates starch.",
+            "The observed coloured Benedict's precipitate indicates reducing sugar.",
+            "The lilac or purple Biuret result indicates protein.",
+            "The clear emulsion test means lipid was not detected."
+          ],
+          "commonError": "A correct option must include every detected group and no undetected group. A negative result does not establish absolute absence.",
+          "remember": "Detected: starch, reducing sugar, protein."
+        },
+        "task": {
+          "label": "CHOOSE THE ANSWER",
+          "instruction": "Choose the complete set of nutrient groups detected."
+        },
+        "preview": true,
+        "ordinary": false,
+        "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein",
+        "academicReview": "pending",
+        "formalCreditEligible": false,
+        "academicApproved": false
+      }
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-10",
+      "change": "CONCRETE_OBSERVATION_AND_COMPLETE_SET",
+      "academicApproved": false,
+      "formalCreditEligible": false,
+      "independentQualifiedApproval": false,
+      "question": {
+        "id": "bio-y8-food-tests-case-20261025-1-10",
+        "conceptId": "bio-y8-concept-food-tests-case-20261025-1-10",
+        "topicId": "bio-y8-food-tests",
+        "topic": "Food tests and laboratory safety",
+        "format": "mc_single",
+        "prompt": "During a practical, Sample F1-10 has these results: iodine orange-brown; heated Benedict's yellow precipitate; Biuret purple; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+        "difficulty": 2,
+        "status": "qa-pending",
+        "options": [
+          "starch, reducing sugar, lipid",
+          "starch, protein, lipid",
+          "reducing sugar, protein",
+          "starch, lipid"
+        ],
+        "answer": {
+          "mode": "choice",
+          "accepted": [
+            "reducing sugar, protein"
+          ],
+          "totalMarks": 1
+        },
+        "stimulus": {},
+        "feedback": {
+          "short": "Detected: reducing sugar, protein.",
+          "steps": [
+            "Orange-brown iodine means starch was not detected.",
+            "The observed coloured Benedict's precipitate indicates reducing sugar.",
+            "The lilac or purple Biuret result indicates protein.",
+            "The clear emulsion test means lipid was not detected."
+          ],
+          "commonError": "A correct option must include every detected group and no undetected group. A negative result does not establish absolute absence.",
+          "remember": "Detected: reducing sugar, protein."
+        },
+        "task": {
+          "label": "CHOOSE THE ANSWER",
+          "instruction": "Choose the complete set of nutrient groups detected."
+        },
+        "preview": true,
+        "ordinary": false,
+        "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-protein",
+        "academicReview": "pending",
+        "formalCreditEligible": false,
+        "academicApproved": false
+      }
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-11",
+      "change": "CONCRETE_OBSERVATION_AND_COMPLETE_SET",
+      "academicApproved": false,
+      "formalCreditEligible": false,
+      "independentQualifiedApproval": false,
+      "question": {
+        "id": "bio-y8-food-tests-case-20261025-1-11",
+        "conceptId": "bio-y8-concept-food-tests-case-20261025-1-11",
+        "topicId": "bio-y8-food-tests",
+        "topic": "Food tests and laboratory safety",
+        "format": "mc_single",
+        "prompt": "During a practical, Sample F1-11 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+        "difficulty": 2,
+        "status": "qa-pending",
+        "options": [
+          "reducing sugar",
+          "starch, protein",
+          "reducing sugar, lipid",
+          "reducing sugar, protein, lipid"
+        ],
+        "answer": {
+          "mode": "choice",
+          "accepted": [
+            "starch, protein"
+          ],
+          "totalMarks": 1
+        },
+        "stimulus": {},
+        "feedback": {
+          "short": "Detected: starch, protein.",
+          "steps": [
+            "Blue-black iodine indicates starch.",
+            "Heated Benedict's remaining blue means reducing sugar was not detected.",
+            "The lilac or purple Biuret result indicates protein.",
+            "The clear emulsion test means lipid was not detected."
+          ],
+          "commonError": "A correct option must include every detected group and no undetected group. A negative result does not establish absolute absence.",
+          "remember": "Detected: starch, protein."
+        },
+        "task": {
+          "label": "CHOOSE THE ANSWER",
+          "instruction": "Choose the complete set of nutrient groups detected."
+        },
+        "preview": true,
+        "ordinary": false,
+        "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-protein",
+        "academicReview": "pending",
+        "formalCreditEligible": false,
+        "academicApproved": false
+      }
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-12",
+      "change": "CONCRETE_OBSERVATION_AND_COMPLETE_SET",
+      "academicApproved": false,
+      "formalCreditEligible": false,
+      "independentQualifiedApproval": false,
+      "question": {
+        "id": "bio-y8-food-tests-case-20261025-1-12",
+        "conceptId": "bio-y8-concept-food-tests-case-20261025-1-12",
+        "topicId": "bio-y8-food-tests",
+        "topic": "Food tests and laboratory safety",
+        "format": "mc_single",
+        "prompt": "During a practical, Sample F1-12 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret purple; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+        "difficulty": 2,
+        "status": "qa-pending",
+        "options": [
+          "protein",
+          "starch, reducing sugar, lipid",
+          "starch, reducing sugar",
+          "reducing sugar, lipid"
+        ],
+        "answer": {
+          "mode": "choice",
+          "accepted": [
+            "protein"
+          ],
+          "totalMarks": 1
+        },
+        "stimulus": {},
+        "feedback": {
+          "short": "Detected: protein.",
+          "steps": [
+            "Orange-brown iodine means starch was not detected.",
+            "Heated Benedict's remaining blue means reducing sugar was not detected.",
+            "The lilac or purple Biuret result indicates protein.",
+            "The clear emulsion test means lipid was not detected."
+          ],
+          "commonError": "A correct option must include every detected group and no undetected group. A negative result does not establish absolute absence.",
+          "remember": "Detected: protein."
+        },
+        "task": {
+          "label": "CHOOSE THE ANSWER",
+          "instruction": "Choose the complete set of nutrient groups detected."
+        },
+        "preview": true,
+        "ordinary": false,
+        "dailyConceptGroup": "bio-y8-food-tests-indicators-protein",
+        "academicReview": "pending",
+        "formalCreditEligible": false,
+        "academicApproved": false
+      }
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-13",
+      "change": "CONCRETE_OBSERVATION_AND_COMPLETE_SET",
+      "academicApproved": false,
+      "formalCreditEligible": false,
+      "independentQualifiedApproval": false,
+      "question": {
+        "id": "bio-y8-food-tests-case-20261025-1-13",
+        "conceptId": "bio-y8-concept-food-tests-case-20261025-1-13",
+        "topicId": "bio-y8-food-tests",
+        "topic": "Food tests and laboratory safety",
+        "format": "mc_single",
+        "prompt": "During a practical, Sample F1-13 has these results: iodine blue-black; heated Benedict's orange precipitate; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+        "difficulty": 2,
+        "status": "qa-pending",
+        "options": [
+          "protein, lipid",
+          "starch, protein, lipid",
+          "reducing sugar, protein, lipid",
+          "starch, reducing sugar"
+        ],
+        "answer": {
+          "mode": "choice",
+          "accepted": [
+            "starch, reducing sugar"
+          ],
+          "totalMarks": 1
+        },
+        "stimulus": {},
+        "feedback": {
+          "short": "Detected: starch, reducing sugar.",
+          "steps": [
+            "Blue-black iodine indicates starch.",
+            "The observed coloured Benedict's precipitate indicates reducing sugar.",
+            "Biuret remaining blue means protein was not detected.",
+            "The clear emulsion test means lipid was not detected."
+          ],
+          "commonError": "A correct option must include every detected group and no undetected group. A negative result does not establish absolute absence.",
+          "remember": "Detected: starch, reducing sugar."
+        },
+        "task": {
+          "label": "CHOOSE THE ANSWER",
+          "instruction": "Choose the complete set of nutrient groups detected."
+        },
+        "preview": true,
+        "ordinary": false,
+        "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar",
+        "academicReview": "pending",
+        "formalCreditEligible": false,
+        "academicApproved": false
+      }
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-14",
+      "change": "CONCRETE_OBSERVATION_AND_COMPLETE_SET",
+      "academicApproved": false,
+      "formalCreditEligible": false,
+      "independentQualifiedApproval": false,
+      "question": {
+        "id": "bio-y8-food-tests-case-20261025-1-14",
+        "conceptId": "bio-y8-concept-food-tests-case-20261025-1-14",
+        "topicId": "bio-y8-food-tests",
+        "topic": "Food tests and laboratory safety",
+        "format": "mc_single",
+        "prompt": "During a practical, Sample F1-14 has these results: iodine orange-brown; heated Benedict's brick-red precipitate; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+        "difficulty": 2,
+        "status": "qa-pending",
+        "options": [
+          "starch, reducing sugar, protein, lipid",
+          "starch, lipid",
+          "reducing sugar",
+          "starch, protein, lipid"
+        ],
+        "answer": {
+          "mode": "choice",
+          "accepted": [
+            "reducing sugar"
+          ],
+          "totalMarks": 1
+        },
+        "stimulus": {},
+        "feedback": {
+          "short": "Detected: reducing sugar.",
+          "steps": [
+            "Orange-brown iodine means starch was not detected.",
+            "The observed coloured Benedict's precipitate indicates reducing sugar.",
+            "Biuret remaining blue means protein was not detected.",
+            "The clear emulsion test means lipid was not detected."
+          ],
+          "commonError": "A correct option must include every detected group and no undetected group. A negative result does not establish absolute absence.",
+          "remember": "Detected: reducing sugar."
+        },
+        "task": {
+          "label": "CHOOSE THE ANSWER",
+          "instruction": "Choose the complete set of nutrient groups detected."
+        },
+        "preview": true,
+        "ordinary": false,
+        "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar",
+        "academicReview": "pending",
+        "formalCreditEligible": false,
+        "academicApproved": false
+      }
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-15",
+      "change": "CONCRETE_OBSERVATION_AND_COMPLETE_SET",
+      "academicApproved": false,
+      "formalCreditEligible": false,
+      "independentQualifiedApproval": false,
+      "question": {
+        "id": "bio-y8-food-tests-case-20261025-1-15",
+        "conceptId": "bio-y8-concept-food-tests-case-20261025-1-15",
+        "topicId": "bio-y8-food-tests",
+        "topic": "Food tests and laboratory safety",
+        "format": "mc_single",
+        "prompt": "During a practical, Sample F1-15 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+        "difficulty": 2,
+        "status": "qa-pending",
+        "options": [
+          "reducing sugar, protein",
+          "starch",
+          "reducing sugar, protein, lipid",
+          "reducing sugar, lipid"
+        ],
+        "answer": {
+          "mode": "choice",
+          "accepted": [
+            "starch"
+          ],
+          "totalMarks": 1
+        },
+        "stimulus": {},
+        "feedback": {
+          "short": "Detected: starch.",
+          "steps": [
+            "Blue-black iodine indicates starch.",
+            "Heated Benedict's remaining blue means reducing sugar was not detected.",
+            "Biuret remaining blue means protein was not detected.",
+            "The clear emulsion test means lipid was not detected."
+          ],
+          "commonError": "A correct option must include every detected group and no undetected group. A negative result does not establish absolute absence.",
+          "remember": "Detected: starch."
+        },
+        "task": {
+          "label": "CHOOSE THE ANSWER",
+          "instruction": "Choose the complete set of nutrient groups detected."
+        },
+        "preview": true,
+        "ordinary": false,
+        "dailyConceptGroup": "bio-y8-food-tests-indicators-starch",
+        "academicReview": "pending",
+        "formalCreditEligible": false,
+        "academicApproved": false
+      }
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-16",
+      "change": "CONCRETE_OBSERVATION_AND_COMPLETE_SET",
+      "academicApproved": false,
+      "formalCreditEligible": false,
+      "independentQualifiedApproval": false,
+      "question": {
+        "id": "bio-y8-food-tests-case-20261025-1-16",
+        "conceptId": "bio-y8-concept-food-tests-case-20261025-1-16",
+        "topicId": "bio-y8-food-tests",
+        "topic": "Food tests and laboratory safety",
+        "format": "mc_single",
+        "prompt": "During a practical, Sample F1-16 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+        "difficulty": 2,
+        "status": "qa-pending",
+        "options": [
+          "none of these four nutrients",
+          "starch, reducing sugar, protein, lipid",
+          "starch, reducing sugar, protein",
+          "reducing sugar, protein, lipid"
+        ],
+        "answer": {
+          "mode": "choice",
+          "accepted": [
+            "none of these four nutrients"
+          ],
+          "totalMarks": 1
+        },
+        "stimulus": {},
+        "feedback": {
+          "short": "None of the four nutrient groups was detected.",
+          "steps": [
+            "Orange-brown iodine means starch was not detected.",
+            "Heated Benedict's remaining blue means reducing sugar was not detected.",
+            "Biuret remaining blue means protein was not detected.",
+            "The clear emulsion test means lipid was not detected."
+          ],
+          "commonError": "A correct option must include every detected group and no undetected group. A negative result does not establish absolute absence.",
+          "remember": "None of the four nutrient groups was detected."
+        },
+        "task": {
+          "label": "CHOOSE THE ANSWER",
+          "instruction": "Choose the complete set of nutrient groups detected."
+        },
+        "preview": true,
+        "ordinary": false,
+        "dailyConceptGroup": "bio-y8-food-tests-indicators-none-of-these-four-nutrients",
+        "academicReview": "pending",
+        "formalCreditEligible": false,
+        "academicApproved": false
+      }
+    },
+    {
+      "sourceId": "bio-y8-food-tests-brick-red-mc",
+      "change": "BENEDICT_STRENGTH_UNAMBIGUOUS",
+      "academicApproved": false,
+      "formalCreditEligible": false,
+      "independentQualifiedApproval": false,
+      "question": {
+        "id": "bio-y8-food-tests-brick-red-mc",
+        "conceptId": "bio-y8-concept-food-tests-brick-red",
+        "topicId": "bio-y8-food-tests",
+        "topic": "Food tests and laboratory safety",
+        "format": "mc_single",
+        "prompt": "Under the same heated Benedict's test conditions, which of these colours usually indicates the strongest positive result for reducing sugar?",
+        "difficulty": 1,
+        "status": "qa-pending",
+        "options": [
+          "brick-red",
+          "yellow",
+          "green",
+          "orange"
+        ],
+        "answer": {
+          "mode": "choice",
+          "accepted": [
+            "brick-red"
+          ]
+        },
+        "stimulus": {},
+        "feedback": {
+          "short": "Brick-red is the usual strongest positive endpoint among these colours.",
+          "steps": [
+            "Green, yellow and orange may also indicate reducing sugar.",
+            "Under comparable test conditions, brick-red is the strongest typical endpoint among the listed colours.",
+            "The colour is a qualitative or semi-quantitative indicator, not an exact concentration measurement."
+          ],
+          "commonError": "Treating orange as uniquely correct merely because it is a positive result.",
+          "remember": "Typical order of increasing positive colour intensity: green, yellow, orange, brick-red."
+        },
+        "task": {
+          "label": "CHOOSE THE ANSWER",
+          "instruction": "Choose the one correct option."
+        },
+        "preview": true,
+        "ordinary": false,
+        "academicReview": "pending",
+        "formalCreditEligible": false,
+        "academicApproved": false
+      }
+    },
+    {
+      "sourceId": "bio-y8-app-iodine-negative",
+      "change": "DETECTION_LIMIT_PRECISE_TYPED_DRAFT",
+      "academicApproved": false,
+      "formalCreditEligible": false,
+      "independentQualifiedApproval": false,
+      "schoolShorthandPending": [
+        "no starch is present",
+        "starch is not present",
+        "starch is absent",
+        "no starch present"
+      ],
+      "legacyAcceptedPreservedInSource": true,
+      "typedScorerFairnessVerified": false,
+      "question": {
+        "id": "bio-y8-app-iodine-negative",
+        "conceptId": "bio-y8-concept-iodine-negative",
+        "topicId": "bio-y8-food-tests",
+        "topic": "Food tests and laboratory safety",
+        "format": "typed_short",
+        "prompt": "After iodine is added to a food sample, it remains orange-brown. State what this test detected or did not detect; do not make a claim about absolute absence.",
+        "difficulty": 1,
+        "status": "qa-pending",
+        "options": null,
+        "answer": {
+          "mode": "exact_or_equivalent",
+          "accepted": [
+            "no starch was detected",
+            "starch was not detected",
+            "no starch detected",
+            "starch was not found in the iodine test",
+            "the iodine test did not detect starch",
+            "the iodine test did not show starch",
+            "starch was not detected in the sample",
+            "no starch was detected in the sample",
+            "the iodine test was negative for starch",
+            "negative for starch",
+            "the test did not detect starch",
+            "starch was not detected by the test"
+          ],
+          "totalMarks": 1
+        },
+        "stimulus": {},
+        "feedback": {
+          "short": "No starch was detected in the tested sample.",
+          "steps": [
+            "Orange-brown is a negative iodine test result.",
+            "The appropriate conclusion is that starch was not detected under these test conditions.",
+            "This result alone does not prove that the sample contains absolutely no starch."
+          ],
+          "commonError": "Confusing a negative result with proof of absolute absence.",
+          "remember": "Orange-brown iodine: starch not detected."
+        },
+        "task": {
+          "label": "WRITE A SHORT ANSWER",
+          "instruction": "Write the precise short answer requested."
+        },
+        "preview": true,
+        "ordinary": false,
+        "academicReview": "pending",
+        "formalCreditEligible": false,
+        "academicApproved": false
+      }
+    }
+  ]
+}

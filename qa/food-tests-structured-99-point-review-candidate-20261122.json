@@ -1,0 +1,3241 @@
+{
+  "kind": "Food Tests 52-item/99-point independent concept MCQ QA candidate",
+  "sourceTopic": "bio-y8-food-tests",
+  "sourceSha": "779ce4e1f15262f89c95602f392c625baed8032f",
+  "sourceStatus": "unapproved",
+  "status": "academic-review-required",
+  "approved": 0,
+  "authoringNote": "Each part has its own learner-facing question and four choices. The sourcePrompt, concept, keyedAnswer and correctOptionId are reviewer metadata. All formal credit remains held pending independent review.",
+  "formalCreditEligible": false,
+  "items": [
+    {
+      "sourceId": "bio-y8-food-tests-iodine-solution-explain",
+      "sourcePrompt": "In Food tests and laboratory safety, state the precise Year 8 meaning, role or function of iodine solution.",
+      "totalMarks": 1,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-iodine-solution-explain::p1",
+          "concept": "the reagent used to test for starch",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-iodine-solution-explain::p1::A",
+              "text": "Lipid"
+            },
+            {
+              "id": "bio-y8-food-tests-iodine-solution-explain::p1::B",
+              "text": "Protein"
+            },
+            {
+              "id": "bio-y8-food-tests-iodine-solution-explain::p1::C",
+              "text": "Starch"
+            },
+            {
+              "id": "bio-y8-food-tests-iodine-solution-explain::p1::D",
+              "text": "Reducing sugar"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-iodine-solution-explain::p1::C",
+          "approved": false,
+          "stem": "Which substance does iodine solution detect in a food sample?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Starch"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-benedict-s-solution-explain",
+      "sourcePrompt": "In Food tests and laboratory safety, state the precise Year 8 meaning, role or function of Benedict's solution.",
+      "totalMarks": 1,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-benedict-s-solution-explain::p1",
+          "concept": "the reagent heated in a water bath to test for reducing sugar",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-benedict-s-solution-explain::p1::A",
+              "text": "Starch"
+            },
+            {
+              "id": "bio-y8-food-tests-benedict-s-solution-explain::p1::B",
+              "text": "Protein"
+            },
+            {
+              "id": "bio-y8-food-tests-benedict-s-solution-explain::p1::C",
+              "text": "Lipid"
+            },
+            {
+              "id": "bio-y8-food-tests-benedict-s-solution-explain::p1::D",
+              "text": "Reducing sugar"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-benedict-s-solution-explain::p1::D",
+          "approved": false,
+          "stem": "Which substance is detected by heating a food extract with Benedict’s solution?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Reducing sugar"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-biuret-solution-explain",
+      "sourcePrompt": "In Food tests and laboratory safety, state the precise Year 8 meaning, role or function of Biuret solution.",
+      "totalMarks": 1,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-biuret-solution-explain::p1",
+          "concept": "the reagent used to test for protein",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-biuret-solution-explain::p1::A",
+              "text": "Reducing sugar"
+            },
+            {
+              "id": "bio-y8-food-tests-biuret-solution-explain::p1::B",
+              "text": "Starch"
+            },
+            {
+              "id": "bio-y8-food-tests-biuret-solution-explain::p1::C",
+              "text": "Protein"
+            },
+            {
+              "id": "bio-y8-food-tests-biuret-solution-explain::p1::D",
+              "text": "Lipid"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-biuret-solution-explain::p1::C",
+          "approved": false,
+          "stem": "What does Biuret reagent detect in a food extract?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Protein"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-ethanol-emulsion-test-explain",
+      "sourcePrompt": "In Food tests and laboratory safety, state the precise Year 8 meaning, role or function of ethanol emulsion test.",
+      "totalMarks": 1,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-ethanol-emulsion-test-explain::p1",
+          "concept": "the lipid test in which ethanol is shaken with the sample before water is added",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-ethanol-emulsion-test-explain::p1::A",
+              "text": "Mix with ethanol, then add the extract to water"
+            },
+            {
+              "id": "bio-y8-food-tests-ethanol-emulsion-test-explain::p1::B",
+              "text": "Add iodine solution to the food"
+            },
+            {
+              "id": "bio-y8-food-tests-ethanol-emulsion-test-explain::p1::C",
+              "text": "Heat with Benedict’s solution in a water bath"
+            },
+            {
+              "id": "bio-y8-food-tests-ethanol-emulsion-test-explain::p1::D",
+              "text": "Mix the extract with Biuret reagent"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-ethanol-emulsion-test-explain::p1::A",
+          "approved": false,
+          "stem": "Which treatment is used to test a food for lipid?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Mix with ethanol, then add the extract to water"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-blue-black-explain",
+      "sourcePrompt": "In Food tests and laboratory safety, state the precise Year 8 meaning, role or function of blue-black.",
+      "totalMarks": 1,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-blue-black-explain::p1",
+          "concept": "the positive colour for starch after iodine is added",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-blue-black-explain::p1::A",
+              "text": "Lipid is present"
+            },
+            {
+              "id": "bio-y8-food-tests-blue-black-explain::p1::B",
+              "text": "Protein is present"
+            },
+            {
+              "id": "bio-y8-food-tests-blue-black-explain::p1::C",
+              "text": "Reducing sugar is present"
+            },
+            {
+              "id": "bio-y8-food-tests-blue-black-explain::p1::D",
+              "text": "Starch is present"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-blue-black-explain::p1::D",
+          "approved": false,
+          "stem": "Iodine solution on a piece of bread turns blue-black. What does this indicate?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Starch is present"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-brick-red-explain",
+      "sourcePrompt": "In Food tests and laboratory safety, state the precise Year 8 meaning, role or function of brick-red.",
+      "totalMarks": 1,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-brick-red-explain::p1",
+          "concept": "a strong positive Benedict's result for reducing sugar after heating",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-brick-red-explain::p1::A",
+              "text": "A brick-red precipitate"
+            },
+            {
+              "id": "bio-y8-food-tests-brick-red-explain::p1::B",
+              "text": "A lilac solution"
+            },
+            {
+              "id": "bio-y8-food-tests-brick-red-explain::p1::C",
+              "text": "A milky white emulsion"
+            },
+            {
+              "id": "bio-y8-food-tests-brick-red-explain::p1::D",
+              "text": "A blue solution"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-brick-red-explain::p1::A",
+          "approved": false,
+          "stem": "Which appearance indicates a strong positive result after heating with Benedict’s solution?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "A brick-red precipitate"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-lilac-or-purple-explain",
+      "sourcePrompt": "In Food tests and laboratory safety, state the precise Year 8 meaning, role or function of lilac or purple.",
+      "totalMarks": 1,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-lilac-or-purple-explain::p1",
+          "concept": "the positive colour produced by protein in the Biuret test",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-lilac-or-purple-explain::p1::A",
+              "text": "Blue-black"
+            },
+            {
+              "id": "bio-y8-food-tests-lilac-or-purple-explain::p1::B",
+              "text": "Brick-red"
+            },
+            {
+              "id": "bio-y8-food-tests-lilac-or-purple-explain::p1::C",
+              "text": "Orange-brown"
+            },
+            {
+              "id": "bio-y8-food-tests-lilac-or-purple-explain::p1::D",
+              "text": "Lilac"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-lilac-or-purple-explain::p1::D",
+          "approved": false,
+          "stem": "Which colour indicates a positive Biuret test?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Lilac"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-cloudy-white-emulsion-explain",
+      "sourcePrompt": "In Food tests and laboratory safety, state the precise Year 8 meaning, role or function of cloudy white emulsion.",
+      "totalMarks": 1,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-cloudy-white-emulsion-explain::p1",
+          "concept": "the positive result for lipid in the ethanol emulsion test",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-cloudy-white-emulsion-explain::p1::A",
+              "text": "A blue-black solution"
+            },
+            {
+              "id": "bio-y8-food-tests-cloudy-white-emulsion-explain::p1::B",
+              "text": "A purple solution"
+            },
+            {
+              "id": "bio-y8-food-tests-cloudy-white-emulsion-explain::p1::C",
+              "text": "An orange precipitate"
+            },
+            {
+              "id": "bio-y8-food-tests-cloudy-white-emulsion-explain::p1::D",
+              "text": "A milky white emulsion"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-cloudy-white-emulsion-explain::p1::D",
+          "approved": false,
+          "stem": "What would you see if water were added to a clear ethanol extract containing lipid?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "A milky white emulsion"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-water-bath-explain",
+      "sourcePrompt": "State two points about a water bath in food tests: what it is used for, and whether the ethanol emulsion test heats ethanol.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-water-bath-explain::p1",
+          "concept": "heats Benedict's test evenly in hot water",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-water-bath-explain::p1::A",
+              "text": "Benedict’s test"
+            },
+            {
+              "id": "bio-y8-food-tests-water-bath-explain::p1::B",
+              "text": "Biuret test"
+            },
+            {
+              "id": "bio-y8-food-tests-water-bath-explain::p1::C",
+              "text": "Iodine test"
+            },
+            {
+              "id": "bio-y8-food-tests-water-bath-explain::p1::D",
+              "text": "Ethanol emulsion test"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-water-bath-explain::p1::A",
+          "approved": false,
+          "stem": "In which test is a hot-water bath used to heat the reaction mixture?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Benedict’s test"
+        },
+        {
+          "pointId": "bio-y8-food-tests-water-bath-explain::p2",
+          "concept": "the ethanol emulsion test does not heat the ethanol",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-water-bath-explain::p2::A",
+              "text": "When mixing the food with ethanol"
+            },
+            {
+              "id": "bio-y8-food-tests-water-bath-explain::p2::B",
+              "text": "Neither stage requires heating"
+            },
+            {
+              "id": "bio-y8-food-tests-water-bath-explain::p2::C",
+              "text": "When adding the extract to water"
+            },
+            {
+              "id": "bio-y8-food-tests-water-bath-explain::p2::D",
+              "text": "After the extract and water have been mixed"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-water-bath-explain::p2::B",
+          "approved": false,
+          "stem": "At what stage is heating needed in the ethanol emulsion test?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Neither stage requires heating"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-app-benedicts-method",
+      "sourcePrompt": "Describe the Benedict's test for reducing sugar, including the positive result.",
+      "totalMarks": 3,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-app-benedicts-method::p1",
+          "concept": "add Benedict's solution",
+          "options": [
+            {
+              "id": "bio-y8-app-benedicts-method::p1::A",
+              "text": "Iodine solution"
+            },
+            {
+              "id": "bio-y8-app-benedicts-method::p1::B",
+              "text": "Biuret reagent"
+            },
+            {
+              "id": "bio-y8-app-benedicts-method::p1::C",
+              "text": "Benedict’s solution"
+            },
+            {
+              "id": "bio-y8-app-benedicts-method::p1::D",
+              "text": "Ethanol"
+            }
+          ],
+          "correctOptionId": "bio-y8-app-benedicts-method::p1::C",
+          "approved": false,
+          "stem": "Which reagent should be added to a food extract to test for reducing sugar?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Benedict’s solution"
+        },
+        {
+          "pointId": "bio-y8-app-benedicts-method::p2",
+          "concept": "heat in a hot-water bath",
+          "options": [
+            {
+              "id": "bio-y8-app-benedicts-method::p2::A",
+              "text": "Warm the food and let it cool before adding reagent"
+            },
+            {
+              "id": "bio-y8-app-benedicts-method::p2::B",
+              "text": "Warm the empty tube before adding the cold mixture"
+            },
+            {
+              "id": "bio-y8-app-benedicts-method::p2::C",
+              "text": "Place the tube in a hot-water bath"
+            },
+            {
+              "id": "bio-y8-app-benedicts-method::p2::D",
+              "text": "Stand the tube in water at room temperature"
+            }
+          ],
+          "correctOptionId": "bio-y8-app-benedicts-method::p2::C",
+          "approved": false,
+          "stem": "How should the food extract mixed with Benedict’s solution be warmed?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Place the tube in a hot-water bath"
+        },
+        {
+          "pointId": "bio-y8-app-benedicts-method::p3",
+          "concept": "positive result changes from blue towards green, yellow, orange or brick-red",
+          "options": [
+            {
+              "id": "bio-y8-app-benedicts-method::p3::A",
+              "text": "Blue to lilac in a clear solution"
+            },
+            {
+              "id": "bio-y8-app-benedicts-method::p3::B",
+              "text": "Blue to orange with a precipitate"
+            },
+            {
+              "id": "bio-y8-app-benedicts-method::p3::C",
+              "text": "Brown to blue-black in the sample"
+            },
+            {
+              "id": "bio-y8-app-benedicts-method::p3::D",
+              "text": "Clear to milky white on dilution"
+            }
+          ],
+          "correctOptionId": "bio-y8-app-benedicts-method::p3::B",
+          "approved": false,
+          "stem": "Which change on heating with Benedict’s solution supports a positive result?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Blue to orange with a precipitate"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-app-ethanol-safety",
+      "sourcePrompt": "Explain why ethanol must not be heated over a naked flame, and state how the ethanol emulsion test is carried out.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-app-ethanol-safety::p1",
+          "concept": "ethanol is highly flammable",
+          "options": [
+            {
+              "id": "bio-y8-app-ethanol-safety::p1::A",
+              "text": "It mixes with water"
+            },
+            {
+              "id": "bio-y8-app-ethanol-safety::p1::B",
+              "text": "It gives off flammable vapour"
+            },
+            {
+              "id": "bio-y8-app-ethanol-safety::p1::C",
+              "text": "It dissolves some lipids"
+            },
+            {
+              "id": "bio-y8-app-ethanol-safety::p1::D",
+              "text": "It evaporates and cools the tube"
+            }
+          ],
+          "correctOptionId": "bio-y8-app-ethanol-safety::p1::B",
+          "approved": false,
+          "stem": "Which property of ethanol creates a fire risk during the lipid test?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "It gives off flammable vapour"
+        },
+        {
+          "pointId": "bio-y8-app-ethanol-safety::p2",
+          "concept": "shake the sample with ethanol, then add water, without heating the ethanol",
+          "options": [
+            {
+              "id": "bio-y8-app-ethanol-safety::p2::A",
+              "text": "Shake crushed seed with ethanol, then add the clear extract to water at room temperature"
+            },
+            {
+              "id": "bio-y8-app-ethanol-safety::p2::B",
+              "text": "Shake seed with ethanol and look for sediment before adding water"
+            },
+            {
+              "id": "bio-y8-app-ethanol-safety::p2::C",
+              "text": "Add iodine to crushed seed and look for a darkened surface"
+            },
+            {
+              "id": "bio-y8-app-ethanol-safety::p2::D",
+              "text": "Shake seed with water, strain it and heat the water extract"
+            }
+          ],
+          "correctOptionId": "bio-y8-app-ethanol-safety::p2::A",
+          "approved": false,
+          "stem": "Which method tests a seed for lipid?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Shake crushed seed with ethanol, then add the clear extract to water at room temperature"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-sample-separation",
+      "sourcePrompt": "A pupil plans to test a drink for starch and reducing sugar. Explain why two separate portions of the drink should be used.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-sample-separation::p1",
+          "concept": "reagents can interfere with one another",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-sample-separation::p1::A",
+              "text": "The iodine converts the starch into glucose"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sample-separation::p1::B",
+              "text": "The first reagent can affect the second test or mask its colour"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sample-separation::p1::C",
+              "text": "The second reagent measures the iodine concentration"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sample-separation::p1::D",
+              "text": "Starch and glucose separate into layers in the tube"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-sample-separation::p1::B",
+          "approved": false,
+          "stem": "Why might adding Benedict’s reagent to a tube already used for an iodine test mislead a pupil?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "The first reagent can affect the second test or mask its colour"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-sample-separation::p2",
+          "concept": "each test needs its own uncontaminated sample",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-sample-separation::p2::A",
+              "text": "Pour the first completed test mixture into a second tube"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sample-separation::p2::B",
+              "text": "Divide the mixed drink between two clean tubes before adding reagents"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sample-separation::p2::C",
+              "text": "Rinse the first test mixture with water before the next test"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sample-separation::p2::D",
+              "text": "Add both reagents to the drink and then divide it"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-sample-separation::p2::B",
+          "approved": false,
+          "stem": "How should a pupil prepare a drink for two different food tests?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Divide the mixed drink between two clean tubes before adding reagents"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-iodine-repeat",
+      "sourcePrompt": "Two iodine tests on the same food disagree. Suggest two actions to improve the reliability of the results.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-iodine-repeat::p1",
+          "concept": "repeat the tests using fresh samples",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-repeat::p1::A",
+              "text": "Re-read the colour of the same already reacted tube and record it as a new trial"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-repeat::p1::B",
+              "text": "Test a different food that is known to contain starch"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-repeat::p1::C",
+              "text": "Test another freshly prepared portion"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-repeat::p1::D",
+              "text": "Change how much iodine is added to the old tube until the colours agree"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-iodine-repeat::p1::C",
+          "approved": false,
+          "stem": "Two iodine tests on different portions of the same food disagree. Which action gives an independent repeat using that same food?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Test another freshly prepared portion"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-iodine-repeat::p2",
+          "concept": "use the same measured volume of sample and iodine",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-repeat::p2::A",
+              "text": "The final volume, while varying the proportion of iodine"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-repeat::p2::B",
+              "text": "The volume of extract, with iodine adjusted to match the first colour"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-repeat::p2::C",
+              "text": "The number of tubes used for each recorded colour"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-repeat::p2::D",
+              "text": "The volume of extract and the volume of iodine in each tube"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-iodine-repeat::p2::D",
+          "approved": false,
+          "stem": "Two repeats will use the same food extract and iodine stock. What should be matched when dispensing them?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "The volume of extract and the volume of iodine in each tube"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-benedict-no-heat",
+      "sourcePrompt": "A pupil adds Benedict's reagent to a glucose solution but leaves it cold. Explain why the result cannot be considered a valid negative.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-benedict-no-heat::p1",
+          "concept": "Benedict's reducing-sugar test requires heating",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-benedict-no-heat::p1::A",
+              "text": "Cooling the mixture in ice"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-benedict-no-heat::p1::B",
+              "text": "Filtering the glucose solution"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-benedict-no-heat::p1::C",
+              "text": "Heating the mixture in a hot-water bath"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-benedict-no-heat::p1::D",
+              "text": "Diluting the reagent until colourless"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-benedict-no-heat::p1::C",
+          "approved": false,
+          "stem": "A known glucose solution remains blue with Benedict’s reagent at room temperature. Which step was missed?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Heating the mixture in a hot-water bath"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2",
+          "concept": "without heating the expected positive colour change may not occur",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2::A",
+              "text": "A sample containing reducing sugar may still appear blue without heating"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2::B",
+              "text": "The unheated blue colour already proves that reducing sugar is absent"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2::C",
+              "text": "The mixture needs ethanol rather than heat to detect reducing sugar"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2::D",
+              "text": "A blue result can be interpreted only after adding iodine to the same tube"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2::A",
+          "approved": false,
+          "stem": "Why is a blue result from an unheated Benedict’s test inconclusive?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "A sample containing reducing sugar may still appear blue without heating"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-negative-sugar",
+      "sourcePrompt": "After heating with Benedict's reagent, a drink remains blue. State the observation and what it means.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-negative-sugar::p1",
+          "concept": "Benedict's solution remains blue",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-negative-sugar::p1::A",
+              "text": "The mixture became green"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-negative-sugar::p1::B",
+              "text": "A yellow precipitate formed"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-negative-sugar::p1::C",
+              "text": "An orange precipitate formed"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-negative-sugar::p1::D",
+              "text": "The mixture remained blue"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-negative-sugar::p1::D",
+          "approved": false,
+          "stem": "What observation should be recorded for a negative Benedict’s test after suitable heating?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "The mixture remained blue"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-negative-sugar::p2",
+          "concept": "no reducing sugar was detected",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-negative-sugar::p2::A",
+              "text": "Starch was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-negative-sugar::p2::B",
+              "text": "Reducing sugar was not detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-negative-sugar::p2::C",
+              "text": "Lipid was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-negative-sugar::p2::D",
+              "text": "Protein was not detected"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-negative-sugar::p2::B",
+          "approved": false,
+          "stem": "A correctly heated Benedict’s test stays blue and the controls work. What can be reported?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Reducing sugar was not detected"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-positive-sugar",
+      "sourcePrompt": "A heated food mixture changes Benedict's solution from blue to orange. Explain the conclusion.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-positive-sugar::p1",
+          "concept": "a colour change from blue indicates a positive test",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-positive-sugar::p1::A",
+              "text": "Both tubes warm to the bath temperature"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-positive-sugar::p1::B",
+              "text": "The sample tube remains the same blue as the control"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-positive-sugar::p1::C",
+              "text": "The liquid level falls slightly in both tubes"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-positive-sugar::p1::D",
+              "text": "An orange precipitate appears in the sample tube"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-positive-sugar::p1::D",
+          "approved": false,
+          "stem": "Which observation distinguishes a positive heated Benedict’s tube from a blue negative control?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "An orange precipitate appears in the sample tube"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-positive-sugar::p2",
+          "concept": "reducing sugar is present",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-positive-sugar::p2::A",
+              "text": "Protein was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-positive-sugar::p2::B",
+              "text": "Reducing sugar was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-positive-sugar::p2::C",
+              "text": "Lipid was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-positive-sugar::p2::D",
+              "text": "Starch was detected"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-positive-sugar::p2::B",
+          "approved": false,
+          "stem": "What does an orange precipitate in a properly heated Benedict’s test indicate?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Reducing sugar was detected"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-biuret-control",
+      "sourcePrompt": "A pupil tests an unknown food extract with Biuret reagent. What control sample could they use and why?",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-biuret-control::p1",
+          "concept": "use water as a negative control",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-biuret-control::p1::A",
+              "text": "Milk"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-biuret-control::p1::B",
+              "text": "Dilute egg-white solution"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-biuret-control::p1::C",
+              "text": "Distilled water"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-biuret-control::p1::D",
+              "text": "A dissolved protein standard"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-biuret-control::p1::C",
+          "approved": false,
+          "stem": "Which sample makes a suitable negative control for a Biuret test?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Distilled water"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-biuret-control::p2",
+          "concept": "it should stay blue to check for contamination",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-biuret-control::p2::A",
+              "text": "It becomes lilac"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-biuret-control::p2::B",
+              "text": "It stays blue"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-biuret-control::p2::C",
+              "text": "It becomes blue-black"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-biuret-control::p2::D",
+              "text": "It forms a white emulsion"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-biuret-control::p2::B",
+          "approved": false,
+          "stem": "What appearance is expected when Biuret reagent is added to a clean water control?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "It stays blue"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-iodine-control",
+      "sourcePrompt": "Describe a suitable positive control for an iodine test and explain the expected colour.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-iodine-control::p1",
+          "concept": "test a known starch solution",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-control::p1::A",
+              "text": "Glucose solution"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-control::p1::B",
+              "text": "Starch suspension"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-control::p1::C",
+              "text": "Vegetable oil"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-control::p1::D",
+              "text": "Dilute egg white"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-iodine-control::p1::B",
+          "approved": false,
+          "stem": "Which material should be used as the known positive control for the iodine test?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Starch suspension"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-iodine-control::p2",
+          "concept": "iodine should turn blue-black",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-control::p2::A",
+              "text": "Milky white"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-control::p2::B",
+              "text": "Brick-red"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-control::p2::C",
+              "text": "Lilac"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-control::p2::D",
+              "text": "Blue-black"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-iodine-control::p2::D",
+          "approved": false,
+          "stem": "How should a working iodine reagent look when mixed with its starch control?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Blue-black"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-repeatability",
+      "sourcePrompt": "The same food sample is tested three times for reducing sugar. Give two conditions that must remain the same.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-repeatability::p1",
+          "concept": "use the same volume or mass of food extract",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-repeatability::p1::A",
+              "text": "The mass of the empty tube in place of extract volume"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-repeatability::p1::B",
+              "text": "The final liquid depth in tubes of different widths"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-repeatability::p1::C",
+              "text": "The volume of water left in the stock bottle"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-repeatability::p1::D",
+              "text": "The volume of extract in each tube"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-repeatability::p1::D",
+          "approved": false,
+          "stem": "When repeating a reducing-sugar test from one stock extract, what should be matched as the extract is dispensed?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "The volume of extract in each tube"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-repeatability::p2",
+          "concept": "keep the heating time or water bath temperature the same",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-repeatability::p2::A",
+              "text": "Same bath temperature, removing each tube at its first colour change"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-repeatability::p2::B",
+              "text": "Same heating time, with hotter water for paler extracts"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-repeatability::p2::C",
+              "text": "Same final colour, adjusting the bath for each tube"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-repeatability::p2::D",
+              "text": "Same bath temperature and same heating time"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-repeatability::p2::D",
+          "approved": false,
+          "stem": "A pupil compares the final Benedict's colours from equal samples after heating. Which conditions must be the same for those endpoint colours to be compared fairly?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Same bath temperature and same heating time"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-cross-contamination",
+      "sourcePrompt": "A pupil uses the same unwashed pipette in all four food tests. Explain two ways this could affect their conclusions.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-cross-contamination::p1",
+          "concept": "reagent or food from one sample could contaminate another",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-cross-contamination::p1::A",
+              "text": "The sugar-free extract is measured into a clean test tube with a clean pipette"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-cross-contamination::p1::B",
+              "text": "The same pipette transfers a drop of glucose solution left from an earlier sample"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-cross-contamination::p1::C",
+              "text": "The food extract and Benedict’s reagent are heated for the same time as a negative control"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-cross-contamination::p1::D",
+              "text": "The reagent volume is held constant while clean pipettes are used between samples"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-cross-contamination::p1::B",
+          "approved": false,
+          "stem": "How could glucose enter a sugar-free sample when a pipette is reused?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "The same pipette transfers a drop of glucose solution left from an earlier sample"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-cross-contamination::p2",
+          "concept": "contamination can cause a false positive or unreliable result",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-cross-contamination::p2::A",
+              "text": "A false positive for reducing sugar"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-cross-contamination::p2::B",
+              "text": "A false negative because extra glucose prevents Benedict's reagent changing colour"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-cross-contamination::p2::C",
+              "text": "A positive Biuret protein result caused by glucose residue"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-cross-contamination::p2::D",
+              "text": "A positive iodine starch result caused by glucose residue"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-cross-contamination::p2::A",
+          "approved": false,
+          "stem": "A pipette carries glucose into a sugar-free sample. What error could follow in a heated Benedict’s test?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "A false positive for reducing sugar"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages",
+      "sourcePrompt": "Explain the correct sequence for testing an unknown food for lipids using ethanol.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p1",
+          "concept": "shake the food sample with ethanol",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p1::A",
+              "text": "Heat the seed with Benedict’s reagent"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p1::B",
+              "text": "Shake the seed with ethanol"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p1::C",
+              "text": "Crush the seed into iodine solution"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p1::D",
+              "text": "Stir the seed into Biuret reagent"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p1::B",
+          "approved": false,
+          "stem": "Which step extracts lipid from a crushed seed before testing the extract?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Shake the seed with ethanol"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p2",
+          "concept": "add water and look for a cloudy white emulsion",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p2::A",
+              "text": "Add it to water and look for purple"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p2::B",
+              "text": "Add more ethanol and look for blue-black"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p2::C",
+              "text": "Add it to water and look for milkiness"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p2::D",
+              "text": "Add iodine and look for a red precipitate"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p2::C",
+          "approved": false,
+          "stem": "A clear ethanol extract of a seed is ready. What is the next step and positive observation?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Add it to water and look for milkiness"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-ethanol-ventilation",
+      "sourcePrompt": "State two safety precautions when carrying out an ethanol emulsion test.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-ethanol-ventilation::p1",
+          "concept": "keep ethanol away from naked flames because it is flammable",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-ethanol-ventilation::p1::A",
+              "text": "Move the burner behind a transparent splash screen"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-ethanol-ventilation::p1::B",
+              "text": "Reduce the burner to its yellow safety flame"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-ethanol-ventilation::p1::C",
+              "text": "Extinguish nearby flames and keep ignition sources away"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-ethanol-ventilation::p1::D",
+              "text": "Raise the ethanol tube above the burner on a rack"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-ethanol-ventilation::p1::C",
+          "approved": false,
+          "stem": "Which preparation addresses the fire hazard before opening ethanol?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Extinguish nearby flames and keep ignition sources away"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-ethanol-ventilation::p2",
+          "concept": "wear safety goggles to protect eyes",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-ethanol-ventilation::p2::A",
+              "text": "Test-tube holder"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-ethanol-ventilation::p2::B",
+              "text": "Heatproof mat"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-ethanol-ventilation::p2::C",
+              "text": "Splash goggles"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-ethanol-ventilation::p2::D",
+              "text": "Lab coat"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-ethanol-ventilation::p2::C",
+          "approved": false,
+          "stem": "Which item protects the eyes against splashes when mixing ethanol and water?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Splash goggles"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-benedict-hot-tube",
+      "sourcePrompt": "Explain why a pupil should use a test-tube holder and point the tube away from others when heating Benedict's test.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p1",
+          "concept": "the test tube and water can be hot and cause burns",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p1::A",
+              "text": "Hot glass can burn the hand"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p1::B",
+              "text": "Hot glass stops being a burn hazard immediately when removed from the water bath"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p1::C",
+              "text": "The tube is safe to hold when the blue colour of Benedict's reagent has not changed"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p1::D",
+              "text": "A test tube is safe to touch as soon as the hot liquid stops bubbling"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p1::A",
+          "approved": false,
+          "stem": "Why use a holder to lift a heated Benedict’s tube?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Hot glass can burn the hand"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p2",
+          "concept": "hot liquid could splash onto another person",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p2::A",
+              "text": "Hot liquid can spit or splash out towards whoever the tube faces"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p2::B",
+              "text": "It ensures the mixture stays at exactly the bath temperature"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p2::C",
+              "text": "It prevents evaporation and therefore fixes the reagent concentration"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p2::D",
+              "text": "It makes a positive colour change happen more quickly"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p2::A",
+          "approved": false,
+          "stem": "Why point the mouth of a heated test tube away from people?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Hot liquid can spit or splash out towards whoever the tube faces"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-protein-extraction",
+      "sourcePrompt": "Before using Biuret reagent on a solid food, explain why the food may need to be crushed and mixed with water.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-protein-extraction::p1",
+          "concept": "crushing breaks up the sample to expose substances",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-protein-extraction::p1::A",
+              "text": "It increases the mass of protein in the same quantity of food."
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-protein-extraction::p1::B",
+              "text": "More of the inside of the food is exposed"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-protein-extraction::p1::C",
+              "text": "It breaks protein peptide bonds, which must happen before Biuret reagent can detect protein."
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-protein-extraction::p1::D",
+              "text": "It removes dissolved nutrients other than protein before extraction."
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-protein-extraction::p1::B",
+          "approved": false,
+          "stem": "A pupil crushes a solid food sample before adding water to make an extract for a protein test. What does crushing mainly achieve?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "More of the inside of the food is exposed"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-protein-extraction::p2",
+          "concept": "mixing with water allows a testable extract to be produced",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-protein-extraction::p2::A",
+              "text": "Soluble material can pass into the liquid for testing"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-protein-extraction::p2::B",
+              "text": "Water guarantees that every protein in the crushed food dissolves completely"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-protein-extraction::p2::C",
+              "text": "Water ensures that no other dissolved nutrients enter the extract"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-protein-extraction::p2::D",
+              "text": "Water alone would turn Biuret reagent lilac even if no protein moved into the liquid."
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-protein-extraction::p2::A",
+          "approved": false,
+          "stem": "A pupil has crushed a food sample and now needs a liquid portion for a Biuret protein test. What is the purpose of mixing it with water?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Soluble material can pass into the liquid for testing"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-starch-extraction",
+      "sourcePrompt": "A pupil crushes a potato sample before adding iodine. Explain how this makes the test more effective.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-starch-extraction::p1",
+          "concept": "crushing increases exposed surface area or releases starch",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-starch-extraction::p1::A",
+              "text": "The total surface area stays the same because the total mass has not changed"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-starch-extraction::p1::B",
+              "text": "Each smaller fragment necessarily has a higher starch concentration than the original cube"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-starch-extraction::p1::C",
+              "text": "Iodine must travel farther through each smaller fragment to reach the starch"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-starch-extraction::p1::D",
+              "text": "More surface is exposed for the same mass"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-starch-extraction::p1::D",
+          "approved": false,
+          "stem": "What physical change occurs when a potato cube is broken into small fragments?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "More surface is exposed for the same mass"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-starch-extraction::p2",
+          "concept": "iodine can contact the starch more easily",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-starch-extraction::p2::A",
+              "text": "Breaking the potato creates starch that the intact potato did not contain"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-starch-extraction::p2::B",
+              "text": "The iodine reagent only reacts with starch in pieces below a fixed size"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-starch-extraction::p2::C",
+              "text": "Iodine can reach starch in exposed tissue"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-starch-extraction::p2::D",
+              "text": "Crushing a potato can turn iodine blue-black even if no starch is present"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-starch-extraction::p2::C",
+          "approved": false,
+          "stem": "Why may iodine reveal starch more readily on a crushed potato than on its intact skin?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Iodine can reach starch in exposed tissue"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-fair-amount",
+      "sourcePrompt": "Two bread samples are compared using iodine. Explain why equal masses of each sample should be tested.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-fair-amount::p1",
+          "concept": "the amount of sample is a control variable",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-fair-amount::p1::A",
+              "text": "Starch content per gram"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-fair-amount::p1::B",
+              "text": "Colour produced by iodine"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-fair-amount::p1::C",
+              "text": "Type of bread"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-fair-amount::p1::D",
+              "text": "Mass of bread tested"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-fair-amount::p1::D",
+          "approved": false,
+          "stem": "Which variable is controlled by weighing equal portions of two breads for an iodine comparison?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Mass of bread tested"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-fair-amount::p2",
+          "concept": "different masses could make the comparison unfair",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-fair-amount::p2::A",
+              "text": "Equal mass guarantees both breads contain the same percentage of starch"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-fair-amount::p2::B",
+              "text": "Different sample masses could affect the observed iodine result, so the samples should be prepared with equal measured masses."
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-fair-amount::p2::C",
+              "text": "Equal mass removes any need to control the volume of iodine reagent"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-fair-amount::p2::D",
+              "text": "Only the larger sample can give a positive iodine result even if both contain starch"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-fair-amount::p2::B",
+          "approved": false,
+          "stem": "Two breads are tested with iodine using a large piece of one and a tiny crumb of the other. Why does this make the test conditions less comparable?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Different sample masses could affect the observed iodine result, so the samples should be prepared with equal measured masses."
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-fair-reagent",
+      "sourcePrompt": "Two food extracts receive different volumes of Benedict's solution. Explain why this is a problem.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-fair-reagent::p1",
+          "concept": "the reagent volume is not controlled",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-fair-reagent::p1::A",
+              "text": "Concentration of the stock reagent"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-fair-reagent::p1::B",
+              "text": "Temperature of the water bath"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-fair-reagent::p1::C",
+              "text": "Volume of reagent"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-fair-reagent::p1::D",
+              "text": "Time spent heating"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-fair-reagent::p1::C",
+          "approved": false,
+          "stem": "One tube receives 1 mL of Benedict’s reagent and another receives 4 mL. Which factor was varied?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Volume of reagent"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-fair-reagent::p2",
+          "concept": "any difference in result could be due to reagent volume rather than the samples",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-fair-reagent::p2::A",
+              "text": "The reagent-to-sample ratio could affect the observed result"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-fair-reagent::p2::B",
+              "text": "A larger reagent volume means the original food contained more reducing sugar"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-fair-reagent::p2::C",
+              "text": "Different reagent volumes ensure a fair comparison when total tube volumes are the same"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-fair-reagent::p2::D",
+              "text": "The size of the colour change is independent of the ratio of reagent to sample"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-fair-reagent::p2::A",
+          "approved": false,
+          "stem": "Why is a colour comparison difficult when different volumes of Benedict’s reagent were added?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "The reagent-to-sample ratio could affect the observed result"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-sugar-strength",
+      "sourcePrompt": "Two equal volumes of food extract are mixed with equal volumes of fresh Benedict's solution and heated for the same time in the same hot-water bath. One gives a green precipitate and the other a brick-red precipitate. Explain what this suggests about the relative reducing-sugar concentrations and one limitation of the comparison.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-sugar-strength::p1",
+          "concept": "With these controlled conditions, brick-red suggests a greater reducing-sugar concentration than green.",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-strength::p1::A",
+              "text": "The green sample probably contained more reducing sugar per mL"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-strength::p1::B",
+              "text": "The brick-red sample probably contained more protein per mL"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-strength::p1::C",
+              "text": "The two extracts had equal sugar concentrations because both were positive"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-strength::p1::D",
+              "text": "The brick-red sample probably contained more reducing sugar per mL"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-sugar-strength::p1::D",
+          "approved": false,
+          "stem": "Equal volumes of two extracts are tested with identical reagent and heating conditions. One gives green and the other brick-red. Which inference is supported?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "The brick-red sample probably contained more reducing sugar per mL"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-sugar-strength::p2",
+          "concept": "The colour result gives only a rough comparison, not an exact concentration.",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-strength::p2::A",
+              "text": "The exact mass of glucose in each original food"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-strength::p2::B",
+              "text": "The identity of the reducing sugar in each extract"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-strength::p2::C",
+              "text": "A rough ranking of reducing-sugar concentrations"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-strength::p2::D",
+              "text": "The exact ratio of the two concentrations"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-sugar-strength::p2::C",
+          "approved": false,
+          "stem": "What can a visual comparison of green and brick-red Benedict’s results establish without calibration?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "A rough ranking of reducing-sugar concentrations"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-cloudy-not-protein",
+      "sourcePrompt": "After an emulsion test, the liquid becomes cloudy white. Explain why the pupil should not conclude the sample contains protein.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-cloudy-not-protein::p1",
+          "concept": "cloudy white is evidence for lipid in the ethanol emulsion test",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-cloudy-not-protein::p1::A",
+              "text": "Reducing sugar"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-cloudy-not-protein::p1::B",
+              "text": "Protein"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-cloudy-not-protein::p1::C",
+              "text": "Starch"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-cloudy-not-protein::p1::D",
+              "text": "Lipid"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-cloudy-not-protein::p1::D",
+          "approved": false,
+          "stem": "A clear ethanol extract turns milky when added to water. Which nutrient does this support?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Lipid"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-cloudy-not-protein::p2",
+          "concept": "protein needs a separate Biuret test",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-cloudy-not-protein::p2::A",
+              "text": "Benedict’s reagent"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-cloudy-not-protein::p2::B",
+              "text": "Ethanol"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-cloudy-not-protein::p2::C",
+              "text": "Iodine solution"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-cloudy-not-protein::p2::D",
+              "text": "Biuret reagent"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-cloudy-not-protein::p2::D",
+          "approved": false,
+          "stem": "Which separate reagent would test a fresh portion of the same food for protein?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Biuret reagent"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-starch-vs-glucose",
+      "sourcePrompt": "A sample tests positive with iodine but negative with heated Benedict's. What two conclusions are supported?",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p1",
+          "concept": "starch was detected in the sample",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p1::A",
+              "text": "Reducing sugar was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p1::B",
+              "text": "Protein was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p1::C",
+              "text": "Lipid was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p1::D",
+              "text": "Starch was detected"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p1::D",
+          "approved": false,
+          "stem": "Iodine becomes blue-black in a sample whose heated Benedict’s test stays blue. What does the iodine tube show?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Starch was detected"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p2",
+          "concept": "reducing sugar was not detected",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p2::A",
+              "text": "Starch was not detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p2::B",
+              "text": "Reducing sugar was not detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p2::C",
+              "text": "Reducing sugar was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p2::D",
+              "text": "Protein was not detected"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p2::B",
+          "approved": false,
+          "stem": "Heated Benedict’s reagent stayed blue while iodine became blue-black. What does the Benedict’s tube show?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Reducing sugar was not detected"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-sugar-vs-starch",
+      "sourcePrompt": "A sample tests positive with Benedict's but iodine remains orange-brown. State two conclusions.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p1",
+          "concept": "reducing sugar was detected",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p1::A",
+              "text": "Starch was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p1::B",
+              "text": "Protein was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p1::C",
+              "text": "Reducing sugar was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p1::D",
+              "text": "Lipid was detected"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p1::C",
+          "approved": false,
+          "stem": "A juice gives an orange precipitate with heated Benedict’s solution and stays brown with iodine. What does the precipitate indicate?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Reducing sugar was detected"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p2",
+          "concept": "starch was not detected",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p2::A",
+              "text": "Reducing sugar was not detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p2::B",
+              "text": "Starch was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p2::C",
+              "text": "Protein was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p2::D",
+              "text": "Starch was not detected"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p2::D",
+          "approved": false,
+          "stem": "Iodine added to a juice remains orange-brown. What does that observation support?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Starch was not detected"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-biuret-vs-sugar",
+      "sourcePrompt": "Biuret turns purple and heated Benedict's remains blue. State two justified conclusions.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p1",
+          "concept": "protein was detected",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p1::A",
+              "text": "Reducing sugar was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p1::B",
+              "text": "Protein was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p1::C",
+              "text": "Starch was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p1::D",
+              "text": "Lipid was detected"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p1::B",
+          "approved": false,
+          "stem": "An extract gives lilac with Biuret and blue with heated Benedict’s. Which conclusion follows from the lilac tube?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Protein was detected"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p2",
+          "concept": "reducing sugar was not detected",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p2::A",
+              "text": "Reducing sugar was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p2::B",
+              "text": "Reducing sugar was not detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p2::C",
+              "text": "Protein was not detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p2::D",
+              "text": "Starch was not detected"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p2::B",
+          "approved": false,
+          "stem": "In an extract that tested positive for protein, heated Benedict’s solution stayed blue. What did this second test show?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Reducing sugar was not detected"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-lipid-vs-starch",
+      "sourcePrompt": "An emulsion turns cloudy white but iodine stays orange-brown. State two justified conclusions.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p1",
+          "concept": "lipid was detected",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p1::A",
+              "text": "Protein was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p1::B",
+              "text": "Lipid was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p1::C",
+              "text": "Starch was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p1::D",
+              "text": "Reducing sugar was detected"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p1::B",
+          "approved": false,
+          "stem": "An ethanol extract becomes milky in water while a separate iodine test stays brown. What does the milkiness indicate?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Lipid was detected"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p2",
+          "concept": "starch was not detected",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p2::A",
+              "text": "Lipid was not detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p2::B",
+              "text": "Starch was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p2::C",
+              "text": "Reducing sugar was not detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p2::D",
+              "text": "Starch was not detected"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p2::D",
+          "approved": false,
+          "stem": "Iodine stays orange-brown in a sample that gave a positive lipid test. Which conclusion follows from the iodine result?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Starch was not detected"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-all-negative",
+      "sourcePrompt": "Positive and negative controls work correctly. An unknown sample gives negative results in the iodine, heated Benedict's, Biuret and ethanol emulsion tests. Explain what these results show and one limitation.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-all-negative::p1",
+          "concept": "None of starch, reducing sugar, protein or lipid was detected under the test conditions.",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-all-negative::p1::A",
+              "text": "The sample consisted of pure water"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-all-negative::p1::B",
+              "text": "The sample contained no carbohydrates of any kind"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-all-negative::p1::C",
+              "text": "The sample contained no dissolved material"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-all-negative::p1::D",
+              "text": "None of the four targeted nutrient groups was detected"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-all-negative::p1::D",
+          "approved": false,
+          "stem": "A sample gives negative iodine, heated Benedict’s, Biuret and emulsion tests. The controls work. What did the tests show?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "None of the four targeted nutrient groups was detected"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-all-negative::p2",
+          "concept": "The results do not prove that there are no nutrients: other nutrients or amounts below the detection limit may still be present.",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-all-negative::p2::A",
+              "text": "The working controls prove that all nutrients, including vitamins, were tested."
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-all-negative::p2::B",
+              "text": "The tests do not target every nutrient, and small amounts of tested nutrients may be below detection limits."
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-all-negative::p2::C",
+              "text": "A negative result proves that each targeted nutrient is absent at every possible concentration."
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-all-negative::p2::D",
+              "text": "Small amounts of reducing sugar must always give a brick-red Benedict's precipitate."
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-all-negative::p2::B",
+          "approved": false,
+          "stem": "Why do four negative food tests with working controls still not prove that the sample contains no nutrients?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "The tests do not target every nutrient, and small amounts of tested nutrients may be below detection limits."
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-retest-ethanol",
+      "sourcePrompt": "The ethanol emulsion test is cloudy before water is added. Explain two reasons to repeat the test.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-retest-ethanol::p1",
+          "concept": "the sample or glassware may have been contaminated",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-retest-ethanol::p1::A",
+              "text": "The cloudiness alone confirms a positive lipid emulsion test before any water is added"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-retest-ethanol::p1::B",
+              "text": "Residue or suspended particles may have caused the initial cloudiness"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-retest-ethanol::p1::C",
+              "text": "An initially cloudy extract proves there are no suspended food particles"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-retest-ethanol::p1::D",
+              "text": "Cloudiness before water addition proves that the subsequent test must be negative"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-retest-ethanol::p1::B",
+          "approved": false,
+          "stem": "An ethanol extract is cloudy before water is added. Which possibility warrants checking the tube and extract?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Residue or suspended particles may have caused the initial cloudiness"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-retest-ethanol::p2",
+          "concept": "a valid result requires the correct ethanol then water procedure",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-retest-ethanol::p2::A",
+              "text": "Prepare a clear ethanol extract, then add it to water and observe"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-retest-ethanol::p2::B",
+              "text": "Score the initial undiluted cloudiness as the lipid-test endpoint"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-retest-ethanol::p2::C",
+              "text": "Add water to the cloudy extract and count all remaining cloudiness as positive without a blank"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-retest-ethanol::p2::D",
+              "text": "Compare the initial cloudy extract with the colours in a Benedict's sugar test"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-retest-ethanol::p2::A",
+          "approved": false,
+          "stem": "How should an initially cloudy ethanol extract be retested to judge the emulsion endpoint?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Prepare a clear ethanol extract, then add it to water and observe"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-glassware",
+      "sourcePrompt": "Give two reasons to use clean labelled test tubes for four different food samples.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-glassware::p1",
+          "concept": "labels prevent samples from being mixed up",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-glassware::p1::A",
+              "text": "To show that the pipette is free from residue"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-glassware::p1::B",
+              "text": "To standardise the temperature of each mixture"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-glassware::p1::C",
+              "text": "To ensure equal volumes in the tubes"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-glassware::p1::D",
+              "text": "To match each result to the right sample"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-glassware::p1::D",
+          "approved": false,
+          "stem": "Why label each tube before dispensing visually similar food extracts?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "To match each result to the right sample"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-glassware::p2",
+          "concept": "clean tubes avoid contamination that could change results",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-glassware::p2::A",
+              "text": "Residue from another food could change the result"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-glassware::p2::B",
+              "text": "To dispense the same reagent volume"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-glassware::p2::C",
+              "text": "To keep the mass of each sample constant"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-glassware::p2::D",
+              "text": "To bring each extract to the same temperature"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-glassware::p2::A",
+          "approved": false,
+          "stem": "Why use a clean tube for each food extract?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Residue from another food could change the result"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-eyes",
+      "sourcePrompt": "A student splashes an unknown reagent near their eyes while testing food. Explain the role of two safety precautions.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-eyes::p1",
+          "concept": "goggles reduce risk of chemicals reaching the eyes",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-eyes::p1::A",
+              "text": "They neutralise liquid in the test tube"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-eyes::p1::B",
+              "text": "They prevent droplets forming at the pipette tip"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-eyes::p1::C",
+              "text": "They form a barrier between a splash and the eyes"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-eyes::p1::D",
+              "text": "They reduce the pressure inside the pipette"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-eyes::p1::C",
+          "approved": false,
+          "stem": "How do splash goggles reduce risk during pipetting?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "They form a barrier between a splash and the eyes"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-eyes::p2",
+          "concept": "careful handling or pipetting reduces splashes",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-eyes::p2::A",
+              "text": "Expel it rapidly onto the liquid surface"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-eyes::p2::B",
+              "text": "Release it gently close to the inside wall of the tube"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-eyes::p2::C",
+              "text": "Hold the tip high above the mouth of the tube"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-eyes::p2::D",
+              "text": "Blow air through the pipette into the liquid"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-eyes::p2::B",
+          "approved": false,
+          "stem": "Which way of dispensing reagent reduces the chance of a splash?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Release it gently close to the inside wall of the tube"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-heat-variable",
+      "sourcePrompt": "A pupil compares two sugar samples, heating one for 20 seconds and the other for 3 minutes. Why is the comparison unreliable?",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-heat-variable::p1",
+          "concept": "heating time is a variable that was changed",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-heat-variable::p1::A",
+              "text": "Heating duration"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-heat-variable::p1::B",
+              "text": "Bath temperature setting"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-heat-variable::p1::C",
+              "text": "Identity of the reagent"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-heat-variable::p1::D",
+              "text": "Starting reagent concentration"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-heat-variable::p1::A",
+          "approved": false,
+          "stem": "Two samples were heated in the same bath for 20 seconds and 3 minutes respectively. Which variable differed?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Heating duration"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-heat-variable::p2",
+          "concept": "the colour difference might be due to heating time not sugar concentration",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-heat-variable::p2::A",
+              "text": "The paler result measures the original sample volume"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-heat-variable::p2::B",
+              "text": "A longer heating time identifies the particular sugar present"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-heat-variable::p2::C",
+              "text": "The reaction can progress further in the longer-heated tube"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-heat-variable::p2::D",
+              "text": "The heating time converts the colour scale into exact concentrations"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-heat-variable::p2::C",
+          "approved": false,
+          "stem": "Why can different heating times mislead a comparison of Benedict’s colours?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "The reaction can progress further in the longer-heated tube"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-no-taste",
+      "sourcePrompt": "Explain why a pupil must not taste an unknown food sample during a food-test practical.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-no-taste::p1",
+          "concept": "the sample may contain harmful or contaminated substances",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-no-taste::p1::A",
+              "text": "Its label confirms it is safe to eat"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-no-taste::p1::B",
+              "text": "Its colour indicates a safe tasting dose"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-no-taste::p1::C",
+              "text": "It could carry residues from reagents or equipment"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-no-taste::p1::D",
+              "text": "A negative starch test demonstrates chemical purity"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-no-taste::p1::C",
+          "approved": false,
+          "stem": "Why might even familiar-looking food be hazardous after use in a practical?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "It could carry residues from reagents or equipment"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-no-taste::p2",
+          "concept": "laboratory substances and chemicals must not be ingested",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-no-taste::p2::A",
+              "text": "Taste a drop before adding any reagent"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-no-taste::p2::B",
+              "text": "Use the assigned chemical test and keep the drink out of the mouth"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-no-taste::p2::C",
+              "text": "Compare its flavour with a known sugar solution"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-no-taste::p2::D",
+              "text": "Taste a diluted portion after a negative result"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-no-taste::p2::B",
+          "approved": false,
+          "stem": "How should a pupil investigate an unknown drink handed out during a food-test practical?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Use the assigned chemical test and keep the drink out of the mouth"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-recording",
+      "sourcePrompt": "Describe two useful pieces of information to record in a results table for each food test.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-recording::p1",
+          "concept": "record the reagent or type of test used",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-recording::p1::A",
+              "text": "Nutrient the pupil expected to find"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-recording::p1::B",
+              "text": "Colour of the food before any reagent was added"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-recording::p1::C",
+              "text": "Reagent or type of food test used"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-recording::p1::D",
+              "text": "Name of the unknown food sample"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-recording::p1::C",
+          "approved": false,
+          "stem": "Which table heading tells a reader how a recorded colour was produced?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Reagent or type of food test used"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-recording::p2",
+          "concept": "record the observed colour change or appearance and conclusion",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-recording::p2::A",
+              "text": "Biuret changed from blue to lilac; protein detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-recording::p2::B",
+              "text": "Biuret used; test completed"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-recording::p2::C",
+              "text": "Protein expected; snack looked nutritious"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-recording::p2::D",
+              "text": "Positive; prediction confirmed"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-recording::p2::A",
+          "approved": false,
+          "stem": "Which entry records both direct evidence and an interpretation?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Biuret changed from blue to lilac; protein detected"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-inference",
+      "sourcePrompt": "A pupil writes 'this snack is healthy' after finding proteins and sugars. Explain why the claim is not supported by the tests alone.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-inference::p1",
+          "concept": "food tests identify some nutrient groups but not overall nutritional balance",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-inference::p1::A",
+              "text": "A protein result determines how much sugar is present"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-inference::p1::B",
+              "text": "Their colours measure the snack’s energy per serving"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-inference::p1::C",
+              "text": "They identify selected nutrient groups without measuring its full composition"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-inference::p1::D",
+              "text": "A sugar result measures the amount of fibre"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-inference::p1::C",
+          "approved": false,
+          "stem": "Why do positive protein and reducing-sugar tests fall short of evaluating the nutritional balance of a snack?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "They identify selected nutrient groups without measuring its full composition"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-inference::p2",
+          "concept": "healthiness depends on amounts and other dietary factors",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-inference::p2::A",
+              "text": "Quantities of nutrients per serving and the rest of the person’s diet"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-inference::p2::B",
+              "text": "Only which food tests showed any colour change, without quantities or serving sizes"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-inference::p2::C",
+              "text": "A deeper Biuret purple colour treated as an exact measurement of protein mass per serving"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-inference::p2::D",
+              "text": "A brick-red Benedict's result treated as the total energy content of the snack"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-inference::p2::A",
+          "approved": false,
+          "stem": "A pupil knows only that a snack tests positive for protein and reducing sugar. What additional information is most useful for judging how it fits into a balanced diet?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Quantities of nutrients per serving and the rest of the person’s diet"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-weak-blueblack",
+      "sourcePrompt": "A pupil sees a faint blue-black colour with iodine. Suggest two scientifically sound actions before reporting the result.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-weak-blueblack::p1",
+          "concept": "repeat the test with a clean sample or equipment",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-weak-blueblack::p1::A",
+              "text": "Repeat with a fresh portion and clean equipment"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-weak-blueblack::p1::B",
+              "text": "Increase the iodine until the first tube looks dark"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-weak-blueblack::p1::C",
+              "text": "Discard the result in favour of the prediction"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-weak-blueblack::p1::D",
+              "text": "Record the same tube twice as separate trials"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-weak-blueblack::p1::A",
+          "approved": false,
+          "stem": "A food gives an unexpectedly faint blue-black iodine result. Which action checks whether it is reproducible?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Repeat with a fresh portion and clean equipment"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-weak-blueblack::p2",
+          "concept": "compare the result with a known positive and negative control",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-weak-blueblack::p2::A",
+              "text": "Run known starch and starch-free controls under the same conditions"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-weak-blueblack::p2::B",
+              "text": "Compare with glucose in a heated Benedict’s test"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-weak-blueblack::p2::C",
+              "text": "Compare with a positive protein test under the same light"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-weak-blueblack::p2::D",
+              "text": "Compare untreated samples from two different foods"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-weak-blueblack::p2::A",
+          "approved": false,
+          "stem": "What comparison helps interpret a faint colour after iodine is added?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Run known starch and starch-free controls under the same conditions"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-temperature-safety",
+      "sourcePrompt": "Give two reasons for heating Benedict's mixture in a water bath instead of holding a test tube in a direct flame.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-temperature-safety::p1",
+          "concept": "a water bath provides more even or controlled heating",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-temperature-safety::p1::A",
+              "text": "The tubes can be heated at a common controlled temperature"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-temperature-safety::p1::B",
+              "text": "The bath makes their sugar concentrations the same"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-temperature-safety::p1::C",
+              "text": "The bath supplies equal volumes of reagent"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-temperature-safety::p1::D",
+              "text": "The bath makes each tube reach the same final colour"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-temperature-safety::p1::A",
+          "approved": false,
+          "stem": "Why use a water bath for several Benedict’s tubes being compared?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "The tubes can be heated at a common controlled temperature"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-temperature-safety::p2",
+          "concept": "indirect heating lowers the risk of splashing or overheating",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-temperature-safety::p2::A",
+              "text": "It reduces local overheating compared with a flame on one spot"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-temperature-safety::p2::B",
+              "text": "It makes pointing the tube towards people safe"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-temperature-safety::p2::C",
+              "text": "It prevents liquid splashes if the tube is shaken"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-temperature-safety::p2::D",
+              "text": "It prevents the glass becoming hot enough to burn fingers"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-temperature-safety::p2::A",
+          "approved": false,
+          "stem": "How does surrounding the lower part of a tube with hot water help during heating?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "It reduces local overheating compared with a flame on one spot"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-test-plan",
+      "sourcePrompt": "A food manufacturer wants to check whether a biscuit contains starch and fat. Name the two tests and a positive observation for each.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-test-plan::p1",
+          "concept": "iodine test for starch gives blue-black",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-test-plan::p1::A",
+              "text": "Biuret gives lilac"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-test-plan::p1::B",
+              "text": "Heated Benedict’s gives orange"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-test-plan::p1::C",
+              "text": "Iodine gives blue-black"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-test-plan::p1::D",
+              "text": "An ethanol extract becomes milky in water"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-test-plan::p1::C",
+          "approved": false,
+          "stem": "Which test and result provide evidence of starch in a biscuit?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Iodine gives blue-black"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-test-plan::p2",
+          "concept": "ethanol emulsion test for fat gives cloudy white",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-test-plan::p2::A",
+              "text": "Iodine changes from brown to blue-black"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-test-plan::p2::B",
+              "text": "Heated Benedict’s produces a brick-red precipitate"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-test-plan::p2::C",
+              "text": "Biuret changes from blue to lilac"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-test-plan::p2::D",
+              "text": "A clear ethanol extract becomes milky when added to water"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-test-plan::p2::D",
+          "approved": false,
+          "stem": "Which test and result provide evidence of fat in a biscuit?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "A clear ethanol extract becomes milky when added to water"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat",
+      "sourcePrompt": "A sample turns Biuret reagent purple but produces no white emulsion. Explain both observations.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p1",
+          "concept": "purple Biuret is a positive test for protein",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p1::A",
+              "text": "Lipid"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p1::B",
+              "text": "Protein"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p1::C",
+              "text": "Starch"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p1::D",
+              "text": "Reducing sugar"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p1::B",
+          "approved": false,
+          "stem": "Biuret reagent turns purple in a food extract. Which nutrient has been detected?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Protein"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p2",
+          "concept": "no cloudy emulsion means lipid was not detected",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p2::A",
+              "text": "Lipid was not detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p2::B",
+              "text": "Protein was not detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p2::C",
+              "text": "Lipid was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p2::D",
+              "text": "Starch was not detected"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p2::A",
+          "approved": false,
+          "stem": "A protein-positive food gives a clear mixture in a correctly performed ethanol emulsion test. What does the clear mixture show?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Lipid was not detected"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-result-not-proof",
+      "sourcePrompt": "A reducing sugar test remains blue despite a pupil thinking the drink tastes sweet. Explain why the pupil should trust the chemical result cautiously.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-result-not-proof::p1",
+          "concept": "the test did not detect reducing sugar under the test conditions",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-result-not-proof::p1::A",
+              "text": "Reducing sugar was not detected under these conditions"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-result-not-proof::p1::B",
+              "text": "The drink must contain starch"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-result-not-proof::p1::C",
+              "text": "The drink contains no sweet-tasting substances"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-result-not-proof::p1::D",
+              "text": "The drink contains no dissolved sugars of any type"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-result-not-proof::p1::A",
+          "approved": false,
+          "stem": "A sweet drink remains blue with Benedict’s after suitable heating and working controls. Which conclusion is justified?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Reducing sugar was not detected under these conditions"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-result-not-proof::p2",
+          "concept": "sweetness does not prove that a reducing sugar is present",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-result-not-proof::p2::A",
+              "text": "Sweetness shows that the drink contains protein"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-result-not-proof::p2::B",
+              "text": "All sweet substances are reducing sugars at room temperature"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-result-not-proof::p2::C",
+              "text": "A sweet substance need not be a reducing sugar"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-result-not-proof::p2::D",
+              "text": "Sweetness measures the concentration of reducing sugar directly"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-result-not-proof::p2::C",
+          "approved": false,
+          "stem": "Why could a sweet drink give a negative Benedict’s result?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "A sweet substance need not be a reducing sugar"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-wrong-reagent",
+      "sourcePrompt": "A pupil uses iodine to test an unknown drink for protein. Explain why this method cannot support the claim.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-wrong-reagent::p1",
+          "concept": "iodine tests for starch not protein",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-wrong-reagent::p1::A",
+              "text": "Starch"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-wrong-reagent::p1::B",
+              "text": "Reducing sugar"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-wrong-reagent::p1::C",
+              "text": "Protein"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-wrong-reagent::p1::D",
+              "text": "Lipid"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-wrong-reagent::p1::A",
+          "approved": false,
+          "stem": "A pupil adds iodine to a drink to investigate protein. Which nutrient does this test actually target?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Starch"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-wrong-reagent::p2",
+          "concept": "Biuret reagent is required to test for protein",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-wrong-reagent::p2::A",
+              "text": "Biuret reagent"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-wrong-reagent::p2::B",
+              "text": "Benedict’s solution"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-wrong-reagent::p2::C",
+              "text": "Ethanol"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-wrong-reagent::p2::D",
+              "text": "Iodine solution"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-wrong-reagent::p2::A",
+          "approved": false,
+          "stem": "A pupil uses iodine on a drink and says that an orange-brown result means it contains no protein. To investigate that separate claim with a fresh portion, which reagent is needed?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Biuret reagent"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-uncertain-emulsion",
+      "sourcePrompt": "A tube goes cloudy after ethanol and water, but the clean water control also goes cloudy. Explain the concern and a remedy.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-uncertain-emulsion::p1",
+          "concept": "the control suggests contamination or a problem with reagents",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-uncertain-emulsion::p1::A",
+              "text": "The blank shows that the procedure or materials can produce cloudiness without the food"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-uncertain-emulsion::p1::B",
+              "text": "The blank confirms lipid came specifically from the food"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-uncertain-emulsion::p1::C",
+              "text": "The blank measures the mass of lipid in the food"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-uncertain-emulsion::p1::D",
+              "text": "The blank confirms that the food contains protein"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-uncertain-emulsion::p1::A",
+          "approved": false,
+          "stem": "The water blank and food sample both become milky in an emulsion test. Why is the sample result uncertain?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "The blank shows that the procedure or materials can produce cloudiness without the food"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-uncertain-emulsion::p2",
+          "concept": "repeat using fresh clean equipment and reagents",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-uncertain-emulsion::p2::A",
+              "text": "Keep the same blank and count the sample as positive"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-uncertain-emulsion::p2::B",
+              "text": "Use the sample as its own negative control"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-uncertain-emulsion::p2::C",
+              "text": "Replace the blank with oil and use it as a negative control"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-uncertain-emulsion::p2::D",
+              "text": "Repeat the blank and sample with clean equipment and fresh materials"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-uncertain-emulsion::p2::D",
+          "approved": false,
+          "stem": "How should a pupil investigate a cloudy emulsion-test blank?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Repeat the blank and sample with clean equipment and fresh materials"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-iodine-no-heat",
+      "sourcePrompt": "A student heats iodine solution with the food sample before observing it. Explain why this step is unnecessary and suggest the correct method.",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-iodine-no-heat::p1",
+          "concept": "iodine starch testing does not require heating",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-no-heat::p1::A",
+              "text": "After cooling the mixture to freezing"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-no-heat::p1::B",
+              "text": "Just below boiling in a hot-water bath"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-no-heat::p1::C",
+              "text": "Room temperature"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-no-heat::p1::D",
+              "text": "While warming the sample over a burner"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-iodine-no-heat::p1::C",
+          "approved": false,
+          "stem": "Which condition does the standard school iodine test for starch call for?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Room temperature"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-iodine-no-heat::p2",
+          "concept": "add iodine solution to the sample and observe whether it turns blue-black",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-no-heat::p2::A",
+              "text": "Add iodine solution and look for lilac"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-no-heat::p2::B",
+              "text": "Add iodine solution and look for blue-black"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-no-heat::p2::C",
+              "text": "Heat with Benedict’s and look for green"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-iodine-no-heat::p2::D",
+              "text": "Mix with Biuret reagent and look for blue"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-iodine-no-heat::p2::B",
+          "approved": false,
+          "stem": "Which method and observation would support starch in an unknown food?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Add iodine solution and look for blue-black"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-safe-bunsen",
+      "sourcePrompt": "Why should a Bunsen burner be extinguished before an ethanol emulsion test begins?",
+      "totalMarks": 2,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-safe-bunsen::p1",
+          "concept": "ethanol vapour is flammable",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-safe-bunsen::p1::A",
+              "text": "It can condense into liquid droplets on a cool surface"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-safe-bunsen::p1::B",
+              "text": "It can ignite"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-safe-bunsen::p1::C",
+              "text": "It can carry some dissolved ethanol away from an open container"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-safe-bunsen::p1::D",
+              "text": "It can become more dilute when mixed with surrounding air"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-safe-bunsen::p1::B",
+          "approved": false,
+          "stem": "Which property of ethanol vapour creates the direct fire hazard if it reaches a naked flame?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "It can ignite"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-safe-bunsen::p2",
+          "concept": "an open flame can ignite the ethanol causing fire",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-safe-bunsen::p2::A",
+              "text": "Extinguish the Bunsen burner before opening ethanol so its flame cannot ignite ethanol vapour"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-safe-bunsen::p2::B",
+              "text": "Leave the burner on its yellow safety flame because yellow flames cannot ignite vapour"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-safe-bunsen::p2::C",
+              "text": "Change the Bunsen flame to blue so it cannot ignite vapour from ethanol"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-safe-bunsen::p2::D",
+              "text": "Move the ethanol bottle a few centimetres away while keeping the burner lit on the same bench"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-safe-bunsen::p2::A",
+          "approved": false,
+          "stem": "A pupil sees a lit Bunsen burner on its yellow safety flame before opening ethanol for the lipid emulsion test. Which action most directly removes the ignition risk?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Extinguish the Bunsen burner before opening ethanol so its flame cannot ignite ethanol vapour"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-unknown-analysis",
+      "sourcePrompt": "An unknown food gives a blue-black iodine test, purple Biuret, and a clear ethanol emulsion. State the three conclusions.",
+      "totalMarks": 3,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-unknown-analysis::p1",
+          "concept": "starch is present",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-unknown-analysis::p1::A",
+              "text": "Protein was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-unknown-analysis::p1::B",
+              "text": "Lipid was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-unknown-analysis::p1::C",
+              "text": "Reducing sugar was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-unknown-analysis::p1::D",
+              "text": "Starch was detected"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-unknown-analysis::p1::D",
+          "approved": false,
+          "stem": "Iodine turns blue-black in an unknown food, but no other nutrient tests have been performed. Which conclusion follows without assuming results from unperformed tests?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Starch was detected"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-unknown-analysis::p2",
+          "concept": "protein is present",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-unknown-analysis::p2::A",
+              "text": "Starch was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-unknown-analysis::p2::B",
+              "text": "Lipid was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-unknown-analysis::p2::C",
+              "text": "Reducing sugar was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-unknown-analysis::p2::D",
+              "text": "Protein was detected"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-unknown-analysis::p2::D",
+          "approved": false,
+          "stem": "A separate portion of an unknown food gives purple with Biuret. What does this show?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Protein was detected"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-unknown-analysis::p3",
+          "concept": "lipid was not detected",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-unknown-analysis::p3::A",
+              "text": "Lipid was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-unknown-analysis::p3::B",
+              "text": "Protein was not detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-unknown-analysis::p3::C",
+              "text": "Lipid was not detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-unknown-analysis::p3::D",
+              "text": "Starch was not detected"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-unknown-analysis::p3::C",
+          "approved": false,
+          "stem": "The clear ethanol extract of an unknown food stays clear after water is added. With valid controls, what can be recorded?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Lipid was not detected"
+        }
+      ]
+    },
+    {
+      "sourceId": "bio-y8-food-tests-application-20261025-sugar-analysis",
+      "sourcePrompt": "Heated Benedict's turns orange but iodine remains orange-brown, and Biuret is blue. State all three conclusions.",
+      "totalMarks": 3,
+      "academicReview": "pending",
+      "parts": [
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-sugar-analysis::p1",
+          "concept": "reducing sugar is present",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-analysis::p1::A",
+              "text": "Starch was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-analysis::p1::B",
+              "text": "Reducing sugar was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-analysis::p1::C",
+              "text": "Protein was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-analysis::p1::D",
+              "text": "Lipid was detected"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-sugar-analysis::p1::B",
+          "approved": false,
+          "stem": "A pupil sees an orange precipitate after correctly heating a drink with Benedict's solution, then wrongly claims it proves starch. Which nutrient was actually detected?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Reducing sugar was detected"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-sugar-analysis::p2",
+          "concept": "starch was not detected",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-analysis::p2::A",
+              "text": "Reducing sugar was not detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-analysis::p2::B",
+              "text": "Starch was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-analysis::p2::C",
+              "text": "Starch was not detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-analysis::p2::D",
+              "text": "Lipid was detected"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-sugar-analysis::p2::C",
+          "approved": false,
+          "stem": "A separate portion of the drink gives orange-brown with iodine, its original reagent colour. What does this show?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Starch was not detected"
+        },
+        {
+          "pointId": "bio-y8-food-tests-application-20261025-sugar-analysis::p3",
+          "concept": "protein was not detected",
+          "options": [
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-analysis::p3::A",
+              "text": "Reducing sugar was not detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-analysis::p3::B",
+              "text": "Protein was detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-analysis::p3::C",
+              "text": "Lipid was not detected"
+            },
+            {
+              "id": "bio-y8-food-tests-application-20261025-sugar-analysis::p3::D",
+              "text": "Protein was not detected"
+            }
+          ],
+          "correctOptionId": "bio-y8-food-tests-application-20261025-sugar-analysis::p3::D",
+          "approved": false,
+          "stem": "Biuret reagent stays blue in a fresh portion of the drink. What does this show?",
+          "academicReview": "pending",
+          "distractorReview": "pending",
+          "keyedAnswer": "Protein was not detected"
+        }
+      ]
+    }
+  ],
+  "qaDraftSecondPass": {
+    "status": "unapproved",
+    "newlyRewritten": [
+      18,
+      21,
+      33,
+      40,
+      41,
+      42,
+      43,
+      47,
+      62,
+      63
+    ],
+    "academicApproved": 0,
+    "reason": "Ten previously weak or implausible distractor sets were rewritten as misconception-based foils; all require independently checked sole-correctness and taught scope. Three further near-repetitious factual stems (points 87, 94, 97) were redrafted as evidence-limit and incorrect-inference challenges without changing their source points or answer keys. Three additional obviously implausible foil sets (#38, #40, #42) were replaced with controlled-condition, extraction, and surface-area misconceptions. Two source-alignment/safety judgement adjustments (#61 and #93) were applied to preserve detection-limit understanding and distinguish yellow safety flame hazards. Two more source-alignment fixes (#31 final colours vs time-to-colour, #45 qualitative iodine vs exact starch comparison) preserve the underlying control-variable concept without granting academic credit. A further 4-point QA-only revision now targets protein extraction misconceptions, dietary-amount reasoning and distinct ethanol-ignition safety action (#40, #41, #75, #93).",
+    "evidenceLimitStemRedesignIndices": [
+      87,
+      94,
+      97
+    ],
+    "additionalMisconceptionDistractorFixes": [
+      38,
+      40,
+      42
+    ],
+    "sourcePointAlignmentFixes": [
+      61,
+      93
+    ],
+    "sourceClarityReviewIndices": [
+      31,
+      45
+    ],
+    "substantiveDistractorRevisions": [
+      40,
+      41,
+      75,
+      93
+    ]
+  }
+}

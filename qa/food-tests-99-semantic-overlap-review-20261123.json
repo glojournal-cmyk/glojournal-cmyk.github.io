@@ -1,0 +1,288 @@
+{
+  "kind": "QA-only semantic near-duplicate families across Food Tests structured 99 MCQ parts, including different correct-answer strings",
+  "date": "2026-11-23",
+  "status": "PROVISIONAL_SEMANTIC_ROTATION_QA_DO_NOT_DEPLOY",
+  "source": "qa/food-tests-structured-99-point-review-candidate-20261122.json",
+  "principle": "These groups are not proof of redundant source marks. They identify high-overlap or adjacent knowledge questions that should not independently earn repeated Daily/Mastery mastery evidence without academic skill review.",
+  "reviewerType": "AI_PRACTICAL_SCIENCE_PRELIMINARY__NOT_TGS_TEACHER",
+  "totalCandidateParts": 99,
+  "crossKeyReviewGroupCount": 13,
+  "highOverlapGroupCount": 8,
+  "uniquePointsFlagged": 32,
+  "academicApprovals": 0,
+  "sourceApprovals": 0,
+  "qaOnlySuggestedRule": "At most one question from each high-overlap or related-skill family per formal Daily set after independent review; do not activate selector while bank held.",
+  "limitations": [
+    "No real Daily selection logic modified",
+    "No code or learner scoring released",
+    "Pairs and skill boundaries require independent teacher adjudication",
+    "Does not replace 9 exact-answer-text collision groups"
+  ],
+  "groups": [
+    {
+      "id": "iodine_reagent_target",
+      "pointIndices": [
+        1,
+        86
+      ],
+      "pointIds": [
+        "bio-y8-food-tests-iodine-solution-explain::p1",
+        "bio-y8-food-tests-application-20261025-wrong-reagent::p1"
+      ],
+      "keyedAnswers": [
+        "Starch",
+        "Starch"
+      ],
+      "reason": "Both ask which nutrient iodine tests; the story about the pupil does not change that fact.",
+      "risk": "HIGH_OVERLAP",
+      "releaseDisposition": "PROVISIONAL_ROTATION_AVOID_SAME_DAILY_UNTIL_QUALIFIED_REVIEW",
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "benedict_reagent_target_inverse",
+      "pointIndices": [
+        2,
+        11
+      ],
+      "pointIds": [
+        "bio-y8-food-tests-benedict-s-solution-explain::p1",
+        "bio-y8-app-benedicts-method::p1"
+      ],
+      "keyedAnswers": [
+        "Reducing sugar",
+        "Benedict’s solution"
+      ],
+      "reason": "One asks what Benedict detects and one asks which reagent tests reducing sugar: the same inverse reagent-target fact.",
+      "risk": "HIGH_OVERLAP",
+      "releaseDisposition": "PROVISIONAL_ROTATION_AVOID_SAME_DAILY_UNTIL_QUALIFIED_REVIEW",
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "biuret_reagent_target_inverse",
+      "pointIndices": [
+        3,
+        51,
+        87
+      ],
+      "pointIds": [
+        "bio-y8-food-tests-biuret-solution-explain::p1",
+        "bio-y8-food-tests-application-20261025-cloudy-not-protein::p2",
+        "bio-y8-food-tests-application-20261025-wrong-reagent::p2"
+      ],
+      "keyedAnswers": [
+        "Protein",
+        "Biuret reagent",
+        "Biuret reagent"
+      ],
+      "reason": "Biuret/protein is tested in forward and reverse wording; the two protein-reagent questions duplicate directly.",
+      "risk": "HIGH_OVERLAP",
+      "releaseDisposition": "PROVISIONAL_ROTATION_AVOID_SAME_DAILY_UNTIL_QUALIFIED_REVIEW",
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "ethanol_emulsion_sequence",
+      "pointIndices": [
+        4,
+        15
+      ],
+      "pointIds": [
+        "bio-y8-food-tests-ethanol-emulsion-test-explain::p1",
+        "bio-y8-app-ethanol-safety::p2"
+      ],
+      "keyedAnswers": [
+        "Mix with ethanol, then add the extract to water",
+        "Shake crushed seed with ethanol, then add the clear extract to water at room temperature"
+      ],
+      "reason": "Both require the same complete ethanol extraction then water emulsion procedure.",
+      "risk": "HIGH_OVERLAP",
+      "releaseDisposition": "PROVISIONAL_ROTATION_AVOID_SAME_DAILY_UNTIL_QUALIFIED_REVIEW",
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "iodine_blueblack_positive_inference",
+      "pointIndices": [
+        5,
+        52,
+        94
+      ],
+      "pointIds": [
+        "bio-y8-food-tests-blue-black-explain::p1",
+        "bio-y8-food-tests-application-20261025-starch-vs-glucose::p1",
+        "bio-y8-food-tests-application-20261025-unknown-analysis::p1"
+      ],
+      "keyedAnswers": [
+        "Starch is present",
+        "Starch was detected",
+        "Starch was detected"
+      ],
+      "reason": "All ask for starch inference from iodine becoming blue-black, even though two keyed answers differ in wording.",
+      "risk": "HIGH_OVERLAP",
+      "releaseDisposition": "PROVISIONAL_ROTATION_AVOID_SAME_DAILY_UNTIL_QUALIFIED_REVIEW",
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "benedict_positive_colour_observation",
+      "pointIndices": [
+        6,
+        13,
+        24
+      ],
+      "pointIds": [
+        "bio-y8-food-tests-brick-red-explain::p1",
+        "bio-y8-app-benedicts-method::p3",
+        "bio-y8-food-tests-application-20261025-positive-sugar::p1"
+      ],
+      "keyedAnswers": [
+        "A brick-red precipitate",
+        "Blue to orange with a precipitate",
+        "An orange precipitate appears in the sample tube"
+      ],
+      "reason": "All test Benedict positivity by changing from blue to a warm-coloured precipitate; strength of result and control comparison are not identical skills.",
+      "risk": "RELATED_COLOUR_SUBSKILLS",
+      "releaseDisposition": "PROVISIONAL_ROTATION_AVOID_SAME_DAILY_UNTIL_QUALIFIED_REVIEW",
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "biuret_purple_and_protein",
+      "pointIndices": [
+        7,
+        56,
+        82,
+        95
+      ],
+      "pointIds": [
+        "bio-y8-food-tests-lilac-or-purple-explain::p1",
+        "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p1",
+        "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p1",
+        "bio-y8-food-tests-application-20261025-unknown-analysis::p2"
+      ],
+      "keyedAnswers": [
+        "Lilac",
+        "Protein was detected",
+        "Protein",
+        "Protein was detected"
+      ],
+      "reason": "Positive lilac/purple recognition and protein inference are related, but an educator must decide if they warrant separate mastery evidence.",
+      "risk": "RELATED_COLOUR_AND_INFERENCE",
+      "releaseDisposition": "PROVISIONAL_ROTATION_AVOID_SAME_DAILY_UNTIL_QUALIFIED_REVIEW",
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "benedict_hot_bath_method",
+      "pointIndices": [
+        9,
+        12
+      ],
+      "pointIds": [
+        "bio-y8-food-tests-water-bath-explain::p1",
+        "bio-y8-app-benedicts-method::p2"
+      ],
+      "keyedAnswers": [
+        "Benedict’s test",
+        "Place the tube in a hot-water bath"
+      ],
+      "reason": "Both require recognition that the Benedict mixture is heated in a water bath.",
+      "risk": "HIGH_OVERLAP",
+      "releaseDisposition": "PROVISIONAL_ROTATION_AVOID_SAME_DAILY_UNTIL_QUALIFIED_REVIEW",
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "ethanol_vapour_flammability",
+      "pointIndices": [
+        14,
+        92
+      ],
+      "pointIds": [
+        "bio-y8-app-ethanol-safety::p1",
+        "bio-y8-food-tests-application-20261025-safe-bunsen::p1"
+      ],
+      "keyedAnswers": [
+        "It gives off flammable vapour",
+        "It can ignite"
+      ],
+      "reason": "Both check that ethanol vapour can ignite, despite differently worded answer keys.",
+      "risk": "HIGH_OVERLAP",
+      "releaseDisposition": "PROVISIONAL_ROTATION_AVOID_SAME_DAILY_UNTIL_QUALIFIED_REVIEW",
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "extinguish_open_flame_precaution",
+      "pointIndices": [
+        36,
+        93
+      ],
+      "pointIds": [
+        "bio-y8-food-tests-application-20261025-ethanol-ventilation::p1",
+        "bio-y8-food-tests-application-20261025-safe-bunsen::p2"
+      ],
+      "keyedAnswers": [
+        "Extinguish nearby flames and keep ignition sources away",
+        "Extinguish the Bunsen burner before opening ethanol so its flame cannot ignite ethanol vapour"
+      ],
+      "reason": "Both require extinguishing open flame before opening ethanol; point 93 now frames the correct safe action.",
+      "risk": "HIGH_OVERLAP",
+      "releaseDisposition": "PROVISIONAL_ROTATION_AVOID_SAME_DAILY_UNTIL_QUALIFIED_REVIEW",
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "emulsion_milkiness_lipid_inference",
+      "pointIndices": [
+        50,
+        58,
+        81
+      ],
+      "pointIds": [
+        "bio-y8-food-tests-application-20261025-cloudy-not-protein::p1",
+        "bio-y8-food-tests-application-20261025-lipid-vs-starch::p1",
+        "bio-y8-food-tests-application-20261025-test-plan::p2"
+      ],
+      "keyedAnswers": [
+        "Lipid",
+        "Lipid was detected",
+        "A clear ethanol extract becomes milky when added to water"
+      ],
+      "reason": "Ethanol emulsion milkiness and lipid identification are adjacent skills; test+observation selection is not necessarily identical to interpreting a result.",
+      "risk": "RELATED_COLOUR_AND_INFERENCE",
+      "releaseDisposition": "PROVISIONAL_ROTATION_AVOID_SAME_DAILY_UNTIL_QUALIFIED_REVIEW",
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "biuret_negative_water",
+      "pointIndices": [
+        26,
+        27
+      ],
+      "pointIds": [
+        "bio-y8-food-tests-application-20261025-biuret-control::p1",
+        "bio-y8-food-tests-application-20261025-biuret-control::p2"
+      ],
+      "keyedAnswers": [
+        "Distilled water",
+        "It stays blue"
+      ],
+      "reason": "Selecting the negative water control and predicting its blue endpoint can be separate observable skills.",
+      "risk": "RELATED_CONTROL_AND_OBSERVATION",
+      "releaseDisposition": "PROVISIONAL_ROTATION_AVOID_SAME_DAILY_UNTIL_QUALIFIED_REVIEW",
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "ethanol_extraction_phases",
+      "pointIndices": [
+        34,
+        35
+      ],
+      "pointIds": [
+        "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p1",
+        "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p2"
+      ],
+      "keyedAnswers": [
+        "Shake the seed with ethanol",
+        "Add it to water and look for milkiness"
+      ],
+      "reason": "Extracting lipid into ethanol and judging the milky emulsion after adding water are different steps in one procedure.",
+      "risk": "RELATED_SEQUENTIAL_STEPS",
+      "releaseDisposition": "PROVISIONAL_ROTATION_AVOID_SAME_DAILY_UNTIL_QUALIFIED_REVIEW",
+      "independentAcademicApproved": false
+    }
+  ]
+}

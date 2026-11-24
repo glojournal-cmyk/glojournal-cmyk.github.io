@@ -1,0 +1,82 @@
+{
+  "kind": "food-tests-ethanol-43-node-result",
+  "qaCommit": "6b226b65cb062f37be907aad322d209346da4f57",
+  "main": "2e556ffcb48f6c7346b3b663f8058f57271b643d",
+  "command": "node tests/food-tests-round1-batch-acceptance.mjs",
+  "exitCode": 0,
+  "bundles": {
+    "assets/quiz-session-y8fix-20260920.js": 43,
+    "assets/quiz-session-rWAnuDVj.js": 43
+  },
+  "approved": 0,
+  "filesChangedIn6b226b6": [
+    "assets/food-tests-ethanol-rubric-20261122.js",
+    "tests/food-tests-round1-batch-acceptance.mjs",
+    "qa/academic-qa-bio-y8-food-tests-items.json"
+  ],
+  "previousFiveExactSentences": "4/5 now match. 'Add water after shaking the sample with ethanol' is still 1/2.",
+  "extraProbes": {
+    "kind": "ethanol-extra-probes",
+    "passed": 3,
+    "total": 5,
+    "results": [
+      {
+        "name": "caution against premixing should not cancel a correct method",
+        "expected": 2,
+        "actual": 2,
+        "pointResults": [
+          true,
+          true
+        ],
+        "pass": true
+      },
+      {
+        "name": "past participle shaken, water was then added",
+        "expected": 2,
+        "actual": 2,
+        "pointResults": [
+          true,
+          true
+        ],
+        "pass": true
+      },
+      {
+        "name": "after expresses the correct order",
+        "expected": 2,
+        "actual": 1,
+        "pointResults": [
+          true,
+          false
+        ],
+        "pass": false
+      },
+      {
+        "name": "non-flammable contradicts safety",
+        "expected": 1,
+        "actual": 1,
+        "pointResults": [
+          false,
+          true
+        ],
+        "pass": true
+      },
+      {
+        "name": "will not catch fire is still a denial",
+        "expected": 1,
+        "actual": 2,
+        "pointResults": [
+          true,
+          true
+        ],
+        "pass": false
+      }
+    ]
+  },
+  "not": [
+    "academic approval",
+    "all possible English",
+    "the other 51 mark-point paraphrases",
+    "cross-day dedupe",
+    "deployment"
+  ]
+}

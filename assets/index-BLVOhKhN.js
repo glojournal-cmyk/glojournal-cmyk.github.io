@@ -1,3 +1,4 @@
+import {isFoodTestsQaHeld} from './food-tests-qa-credit-gate-20261122.js';
 import {restoreCompletedDailyReceipts} from "./daily-completed-session-receipts-20261024.js?v=20261026-bio-savefix2&modeguard=20261030-2";
 import {syncTodayFromDatedRecord} from "./today-record-sync-20261024.js";
 import {dailyVocabTotal} from "./daily-vocab-total-20261020.js?v=20261026-vocabqa7";
@@ -2399,7 +2400,7 @@ const FIRST_MASTERY_MP = 10;
 const RETENTION_MASTERY_MP = 2;
 
 function awardMasteryPoints(kind, topicId) {
-  if (typeof window === "undefined" || !topicId) return 0;
+  if (typeof window === "undefined" || !topicId || isFoodTestsQaHeld({topicId})) return 0;
   try {
     const raw = JSON.parse(localStorage.getItem(PET_REWARD_KEY) || "{}");
     const petState = raw && typeof raw === "object" ? raw : {};
@@ -2568,7 +2569,7 @@ function patchedResetAll() {
 }
 
 function awardFirstTopicMastery(topicId, subject, title, previousState, nextState) {
-  if (!topicId || nextState !== "mastered" || previousState === "mastered") return null;
+  if (!topicId || isFoodTestsQaHeld({topicId}) || nextState !== "mastered" || previousState === "mastered") return null;
   const state = store.getState();
   const stat = state.topicStats?.[topicId] || {};
   if (stat.masteryRewardedAt) return null;
@@ -2604,6 +2605,7 @@ function awardFirstTopicMastery(topicId, subject, title, previousState, nextStat
 }
 
 function awardMasteryRetention(topicId, subject, title) {
+  if (isFoodTestsQaHeld({topicId})) return null;
   const reward = patchedAward("mastery_retention", {
     subject,
     detail: `Mastery retention · ${topicId}`,
@@ -2635,9 +2637,12 @@ function dailyVocabSubject(subject, meta = {}) {
 }
 
 function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
+  // Defense in depth before any core XP, journal, topic, recovery or MP write.
+  if (isFoodTestsQaHeld(questionId) || isFoodTestsQaHeld(meta)) return {ok:false,awarded:0,formalCredit:false,reason:'academic-qa-hold'};
   const before = store.getState();
   const dueBefore = !!before.reviews?.[questionId]?.due && before.reviews[questionId].due <= todayKey();
   const resolved = inferAttemptMeta(questionId, subject, meta || {});
+  if (isFoodTestsQaHeld(resolved)) return {ok:false,awarded:0,formalCredit:false,reason:'academic-qa-hold'};
   const production = isIndependentProduction(resolved);
 
   // Keep core XP/review scheduling, but stop its old streak-only topic mastery from running.

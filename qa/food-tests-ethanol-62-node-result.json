@@ -1,0 +1,26 @@
+{
+  "kind": "food-tests-ethanol-62-node-result",
+  "qaCommit": "2c6358cf17a7e6f310c10e59567964ae35a611d0",
+  "main": "2e556ffcb48f6c7346b3b663f8058f57271b643d",
+  "command": "node tests/food-tests-round1-batch-acceptance.mjs",
+  "exitCode": 0,
+  "caseEntries": 62,
+  "bundles": {
+    "assets/quiz-session-y8fix-20260920.js": 62,
+    "assets/quiz-session-rWAnuDVj.js": 62
+  },
+  "priorExactSentences": "5/5, including Add water after shaking and will not catch fire",
+  "approved": 0,
+  "filesChanged": [
+    "assets/food-tests-ethanol-rubric-20261122.js",
+    "tests/food-tests-round1-batch-acceptance.mjs",
+    "qa/academic-qa-bio-y8-food-tests-items.json"
+  ],
+  "not": [
+    "all English paraphrases",
+    "the other 51 mark-point items",
+    "cross-day dedupe",
+    "approval",
+    "deployment"
+  ]
+}

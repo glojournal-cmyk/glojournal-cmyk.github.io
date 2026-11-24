@@ -21,8 +21,9 @@ const catalog=subjects.flatMap(s=>Array.from({length:5},(_,i)=>({
 for(const id of [
  'la-y8-nouns-and-dictionary-entries','la-y8-nouns-with-genitives',
  'fr-y8-s02-weather-activities-and-opinions','fr-y8-s03-home-family-and-descriptions',
- 'bio-y8-food-tests']){
- const subject=id.startsWith('la-')?'latin':id.startsWith('fr-')?'french':'biology';
+ 'fr-y8-s07-passe-compose','fr-y8-s25-classroom-objects','la-y8-core-verbs',
+ 'chem-y8-working-scientifically','bio-y8-food-tests']){
+ const subject=id.startsWith('la-')?'latin':id.startsWith('fr-')?'french':id.startsWith('chem-')?'chemistry':'biology';
  catalog.push({subject,year:8,topicId:id,title:id,status:'enabled',
    enabled:80,formats:{typed_short:30}});
 }
@@ -145,6 +146,7 @@ test('Oct 23 dated Record becomes the original eight completions without losing 
 test('original ten assignments remain with 165 items when no delayed checks are due',()=>{
   const plan=buildYear8DailyV2(state(),get);
   assert.equal(plan.length,10);
+  assert.ok(!plan.some(t=>t.assignedTopic==='bio-y8-food-tests'),'held bank cannot be a fresh assignment');
   assert.equal(plan.reduce((n,t)=>n+t.target,0),165);
   for(const id of ['y8-mastery-a','y8-mastery-b']){
     assert.equal(lookup(plan,id).target,20);

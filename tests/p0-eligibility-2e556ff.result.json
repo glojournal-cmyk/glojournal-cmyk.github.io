@@ -1,0 +1,158 @@
+{
+  "commit": "2e556ffcb48f6c7346b3b663f8058f57271b643d",
+  "kind": "characterization-of-current-behaviour",
+  "not": [
+    "acceptance-of-a-fix",
+    "ipad-e2e",
+    "academic-qa-allowlist"
+  ],
+  "sha256": {
+    "mastery-v2-20261018.js": "5ddf9bd5e165294928d543ec8132b58a911b9fc96bd468e85c5acda933a8c92d",
+    "daily-session-credit-20261021.js": "a802fdb1e7307cfe5f249753c756b07b7e553005de84906da54da7118e36c05d",
+    "daily-curriculum-20261004.js": "12f17bea7f61f7fcb99f8e9cb02514dcfe000462f405bee862699edc2fee9489",
+    "index-BLVOhKhN.core.js": "565e190951fd139fe860849c46b8bdeb2d3cb5d2076d15438cf2272918ebe4e2"
+  },
+  "practiceXpPolicy": "practice_first_correct is requested even when formal is false. This observation is not by itself a Daily/Mastery defect. Practice XP stays a separate policy from formal credit.",
+  "cases": [
+    {
+      "id": "current.daily.missing-flag-credits",
+      "ok": true,
+      "actual": {
+        "progress": 1,
+        "reason": "correct-answers"
+      }
+    },
+    {
+      "id": "current.daily.same-receipt-does-not-double",
+      "ok": true,
+      "actual": {
+        "progress": 1,
+        "reason": "already-counted"
+      }
+    },
+    {
+      "id": "current.daily.explicit-formal-false-no-progress",
+      "ok": true,
+      "actual": {
+        "progress": 0,
+        "reason": "already-counted"
+      }
+    },
+    {
+      "id": "current.mastery.assisted-typed-short-reaches-check2",
+      "ok": true,
+      "actual": {
+        "stage": "check2",
+        "due": "2026-11-24"
+      }
+    },
+    {
+      "id": "current.mastery.same-attempt-id-does-not-double",
+      "ok": true,
+      "actual": {
+        "once": 1,
+        "twice": 1
+      }
+    },
+    {
+      "id": "current.mastery.retention-before-due-does-not-advance",
+      "ok": true,
+      "actual": {
+        "stage": "check2",
+        "checks": []
+      }
+    },
+    {
+      "id": "current.mastery.more-mastery-mode-does-not-skip-checks",
+      "ok": true,
+      "actual": {
+        "stage": "check2"
+      }
+    },
+    {
+      "id": "current.mastery.explicit-formal-false-retention-ignored",
+      "ok": true,
+      "actual": {
+        "stage": "check2",
+        "checks": []
+      }
+    },
+    {
+      "id": "current.mastery.assisted-4of5-advances-check7",
+      "ok": true,
+      "actual": {
+        "stage": "check7",
+        "due": "2026-11-29"
+      }
+    },
+    {
+      "id": "current.mastery.assisted-retention-reaches-mastered",
+      "ok": true,
+      "actual": {
+        "stage": "mastered",
+        "masteredAt": "2026-11-29"
+      }
+    },
+    {
+      "id": "current.selector.missing-flag-admitted",
+      "ok": true,
+      "actual": [
+        "bare"
+      ]
+    },
+    {
+      "id": "current.curriculum.missing-flag-recorded",
+      "ok": true,
+      "actual": {
+        "2026-11-22": {
+          "y8-practise": {
+            "bio-y8-food-tests": {
+              "foundation": {
+                "UNAPPROVED-1": true
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "current.upstream.omitted-formal-bumps-and-asks-practice-xp",
+      "ok": true,
+      "actual": {
+        "questionsToday": 1,
+        "studySession": 1,
+        "calls": [
+          [
+            "bump",
+            "study-session",
+            1
+          ],
+          [
+            "award",
+            "practice_first_correct"
+          ]
+        ],
+        "returned": {
+          "awarded": "practice_first_correct"
+        }
+      }
+    },
+    {
+      "id": "current.upstream.formal-false-still-asks-practice-xp",
+      "ok": true,
+      "actual": {
+        "questionsToday": 0,
+        "studySession": 0,
+        "calls": [
+          [
+            "award",
+            "practice_first_correct"
+          ]
+        ],
+        "returned": {
+          "awarded": "practice_first_correct"
+        }
+      }
+    }
+  ]
+}

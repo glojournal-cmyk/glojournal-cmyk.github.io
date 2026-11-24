@@ -1,0 +1,422 @@
+{
+  "commit": "2e556ffcb48f6c7346b3b663f8058f57271b643d",
+  "kind": "live-daily-question-source-map",
+  "not": [
+    "academic-approval-list",
+    "ipad-e2e",
+    "complete-vocab-or-recovery-enumeration"
+  ],
+  "chain": [
+    "assets/index-BLVOhKhN.js buildYear8DailyV2(state, getTopicCatalog, readCurriculumLearning())",
+    "readCurriculumLearning() reads localStorage lux-topic-learning-v1. This map uses an empty object, the fresh-profile default.",
+    "assets/daily-curriculum-20261004.js curriculumTopics(subject, 8, getTopicCatalog, learning)",
+    "getTopicCatalog is core function EC: content/catalog.json topics for that subject and year",
+    "A Year 8 topic enters the default pool only when status is enabled, enabled questions are at least 15, and formats contain an independent recall format.",
+    "Opening the locked route loads the topic with core function TC, then filters with AC (exported as lt, imported as h) using includePreview true. AC removes status disabled. It does not remove preview when includePreview is true.",
+    "selectProgressionQuestions does not itself test status disabled. The disabled exclusion happens in AC, before that call, on both practise bundles.",
+    "default-year8-enabled-candidate means the topic is in the default pool and the question status is enabled. It is not the set a single Daily session will serve: freshness, reservations and mode still apply.",
+    "Year 9 curriculumTopics requires learning[topicId] === true. With an empty learning map, no Year 9 topic is in the default Daily pool."
+  ],
+  "defaultYear8": {
+    "topics": 111,
+    "fileQuestions": 9419,
+    "enabledCandidates": 8583,
+    "disabled": 836,
+    "enabledBySubject": {
+      "biology": 1063,
+      "chemistry": 298,
+      "french": 4601,
+      "latin": 2156,
+      "physics": 465
+    },
+    "disabledBySubject": {
+      "french": 836
+    },
+    "catalogQuestions": 9309,
+    "catalogEnabled": 8473,
+    "catalogDisabled": 836,
+    "catalogDrift": [
+      {
+        "topicId": "bio-y8-food-tests",
+        "subject": "biology",
+        "catalogQuestions": 33,
+        "fileQuestions": 143,
+        "catalogEnabled": 33,
+        "fileEnabled": 143,
+        "catalogDisabled": 0,
+        "fileDisabled": 0
+      }
+    ],
+    "meaning": "fileQuestions is every question inside a default-pool topic file. enabledCandidates are those with status enabled. AC drops status disabled before selectProgressionQuestions. enabledCandidates is still not a simulated Daily sitting."
+  },
+  "excludedYear8": {
+    "topics": 46,
+    "reasonCounts": {
+      "enabled-below-15": 41,
+      "no-independent-format": 28,
+      "status:preview": 4
+    }
+  },
+  "year9CatalogTopics": 124,
+  "year9DefaultDaily": "not drawn unless the device learning flag marks the topic taught",
+  "schoolDelta20260926": {
+    "topics": 20,
+    "questionIdsAddedBeyondTopicFiles": 573,
+    "draw": "merged only when that topic id is loaded; these sampled topics are Year 9"
+  },
+  "separateSourcesNotEnumerated": [
+    "Year 8 Latin and French vocab tasks use mode=y8vocab and assets/daily-vocab-20261003.js. They are not the topic JSON pool.",
+    "Recovery, exam-revision and V8 focused practice use other loaders and are not this default Daily pool."
+  ],
+  "excludedYear8Topics": [
+    {
+      "topicId": "la-y8-accusative-forms",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15",
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-case-and-grammar-role",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15",
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-case-functions",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15",
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-case-role-introduction",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15",
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-choose-the-complete-translation",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15",
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-choose-the-exact-latin",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15",
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-choose-the-set-text-translation",
+      "subject": "latin",
+      "reasons": [
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-complete-comprehension",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15",
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-declension-recognition",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15",
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-english-latin",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15"
+      ]
+    },
+    {
+      "topicId": "la-y8-finite-verb-control",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15"
+      ]
+    },
+    {
+      "topicId": "la-y8-genitive-phrases",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15"
+      ]
+    },
+    {
+      "topicId": "la-y8-latin-english",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15"
+      ]
+    },
+    {
+      "topicId": "la-y8-map-locations",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15",
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-perfect-patterns",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15",
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-person-and-number",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15",
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-pluperfect-recognition",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15"
+      ]
+    },
+    {
+      "topicId": "la-y8-possessives",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15"
+      ]
+    },
+    {
+      "topicId": "la-y8-present-person-and-number",
+      "subject": "latin",
+      "reasons": [
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-production-method",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15",
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-research-questions",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15"
+      ]
+    },
+    {
+      "topicId": "la-y8-restore-the-exact-verb",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15",
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-restore-the-sentence",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15",
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-restore-the-set-text",
+      "subject": "latin",
+      "reasons": [
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-set-text-comprehension",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15",
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-set-text-grammar",
+      "subject": "latin",
+      "reasons": [
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-set-text-verb-tense",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15",
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-tense-in-context",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15",
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-tense-meaning",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15"
+      ]
+    },
+    {
+      "topicId": "la-y8-tense-purpose",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15",
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-tense-recognition",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15",
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-tense-recognition-from-models",
+      "subject": "latin",
+      "reasons": [
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-test-style-production",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15"
+      ]
+    },
+    {
+      "topicId": "la-y8-test-style-translation",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15"
+      ]
+    },
+    {
+      "topicId": "la-y8-translation-method",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15",
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-vocative",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15",
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-whole-passage-understanding",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15",
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "la-y8-why-each-place-matters",
+      "subject": "latin",
+      "reasons": [
+        "enabled-below-15",
+        "no-independent-format"
+      ]
+    },
+    {
+      "topicId": "fr-y8-s14-future-time",
+      "subject": "french",
+      "reasons": [
+        "status:preview",
+        "enabled-below-15"
+      ]
+    },
+    {
+      "topicId": "fr-y8-s15-imperfect-conditional-light-exposure",
+      "subject": "french",
+      "reasons": [
+        "status:preview",
+        "enabled-below-15"
+      ]
+    },
+    {
+      "topicId": "bio-y8-ber",
+      "subject": "biology",
+      "reasons": [
+        "enabled-below-15"
+      ]
+    },
+    {
+      "topicId": "bio-y8-continuous-variation",
+      "subject": "biology",
+      "reasons": [
+        "enabled-below-15"
+      ]
+    },
+    {
+      "topicId": "bio-y8-correlation",
+      "subject": "biology",
+      "reasons": [
+        "enabled-below-15"
+      ]
+    },
+    {
+      "topicId": "chem-y8-earth-rocks-resources",
+      "subject": "chemistry",
+      "reasons": [
+        "status:preview",
+        "enabled-below-15"
+      ]
+    },
+    {
+      "topicId": "chem-y8-energy-changes",
+      "subject": "chemistry",
+      "reasons": [
+        "status:preview",
+        "enabled-below-15"
+      ]
+    },
+    {
+      "topicId": "bio-y8-mixed-exam",
+      "subject": "biology",
+      "reasons": [
+        "enabled-below-15"
+      ]
+    }
+  ]
+}

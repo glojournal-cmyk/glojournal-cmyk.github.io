@@ -1,0 +1,829 @@
+{
+  "status": "author-review-only",
+  "formalCreditEligible": false,
+  "sourceCommit": "1ef3eaece3ecf30b2f237d647621117302425cc1",
+  "sourceCount": 143,
+  "structuredSourceCount": 52,
+  "otherSourceCount": 91,
+  "distinctResultPatterns": 16,
+  "items": [
+    {
+      "id": "bio-y8-food-tests-iodine-solution-mc",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "disposition": "review-recall-choice",
+      "scienceKey": "iodine solution"
+    },
+    {
+      "id": "bio-y8-food-tests-iodine-solution-name",
+      "format": "typed_exact",
+      "formalCreditEligible": false,
+      "disposition": "unscored-typed-recall",
+      "scienceKey": "iodine solution",
+      "scoringCheck": "Keep as retrieval practice. Exact strings do not establish coverage of equivalent learner wording."
+    },
+    {
+      "id": "bio-y8-food-tests-benedict-s-solution-mc",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "disposition": "review-recall-choice",
+      "scienceKey": "Benedict's solution"
+    },
+    {
+      "id": "bio-y8-food-tests-benedict-s-solution-name",
+      "format": "typed_exact",
+      "formalCreditEligible": false,
+      "disposition": "unscored-typed-recall",
+      "scienceKey": "Benedict's solution",
+      "scoringCheck": "Keep as retrieval practice. Exact strings do not establish coverage of equivalent learner wording."
+    },
+    {
+      "id": "bio-y8-food-tests-biuret-solution-mc",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "disposition": "review-recall-choice",
+      "scienceKey": "Biuret solution"
+    },
+    {
+      "id": "bio-y8-food-tests-biuret-solution-name",
+      "format": "typed_exact",
+      "formalCreditEligible": false,
+      "disposition": "unscored-typed-recall",
+      "scienceKey": "Biuret solution",
+      "scoringCheck": "Keep as retrieval practice. Exact strings do not establish coverage of equivalent learner wording."
+    },
+    {
+      "id": "bio-y8-food-tests-ethanol-emulsion-test-mc",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "disposition": "review-recall-choice",
+      "scienceKey": "ethanol emulsion test"
+    },
+    {
+      "id": "bio-y8-food-tests-ethanol-emulsion-test-name",
+      "format": "typed_exact",
+      "formalCreditEligible": false,
+      "disposition": "unscored-typed-recall",
+      "scienceKey": "ethanol emulsion test",
+      "scoringCheck": "Keep as retrieval practice. Exact strings do not establish coverage of equivalent learner wording."
+    },
+    {
+      "id": "bio-y8-food-tests-blue-black-mc",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "disposition": "review-recall-choice",
+      "scienceKey": "blue-black"
+    },
+    {
+      "id": "bio-y8-food-tests-blue-black-name",
+      "format": "typed_exact",
+      "formalCreditEligible": false,
+      "disposition": "unscored-typed-recall",
+      "scienceKey": "blue-black",
+      "scoringCheck": "Keep as retrieval practice. Exact strings do not establish coverage of equivalent learner wording."
+    },
+    {
+      "id": "bio-y8-food-tests-brick-red-mc",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "disposition": "review-recall-choice",
+      "scienceKey": "brick-red"
+    },
+    {
+      "id": "bio-y8-food-tests-brick-red-name",
+      "format": "typed_exact",
+      "formalCreditEligible": false,
+      "disposition": "unscored-typed-recall",
+      "scienceKey": "brick-red",
+      "scoringCheck": "Keep as retrieval practice. Exact strings do not establish coverage of equivalent learner wording."
+    },
+    {
+      "id": "bio-y8-food-tests-lilac-or-purple-mc",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "disposition": "review-recall-choice",
+      "scienceKey": "lilac or purple"
+    },
+    {
+      "id": "bio-y8-food-tests-lilac-or-purple-name",
+      "format": "typed_exact",
+      "formalCreditEligible": false,
+      "disposition": "unscored-typed-recall",
+      "scienceKey": "lilac or purple",
+      "scoringCheck": "Keep as retrieval practice. Exact strings do not establish coverage of equivalent learner wording."
+    },
+    {
+      "id": "bio-y8-food-tests-cloudy-white-emulsion-mc",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "disposition": "review-recall-choice",
+      "scienceKey": "cloudy white emulsion"
+    },
+    {
+      "id": "bio-y8-food-tests-cloudy-white-emulsion-name",
+      "format": "typed_exact",
+      "formalCreditEligible": false,
+      "disposition": "unscored-typed-recall",
+      "scienceKey": "cloudy white emulsion",
+      "scoringCheck": "Keep as retrieval practice. Exact strings do not establish coverage of equivalent learner wording."
+    },
+    {
+      "id": "bio-y8-food-tests-water-bath-mc",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "disposition": "review-recall-choice",
+      "scienceKey": "water bath"
+    },
+    {
+      "id": "bio-y8-food-tests-water-bath-name",
+      "format": "typed_exact",
+      "formalCreditEligible": false,
+      "disposition": "unscored-typed-recall",
+      "scienceKey": "water bath",
+      "scoringCheck": "Keep as retrieval practice. Exact strings do not establish coverage of equivalent learner wording."
+    },
+    {
+      "id": "bio-y8-match-food-tests-food-test-reagents-1",
+      "format": "matching",
+      "formalCreditEligible": false,
+      "disposition": "review-matching-interaction",
+      "scienceKey": [
+        {
+          "left": "iodine solution",
+          "right": "the reagent used to test for starch"
+        },
+        {
+          "left": "Benedict's solution",
+          "right": "the reagent heated in a water bath to test for reducing sugar"
+        },
+        {
+          "left": "Biuret solution",
+          "right": "the reagent used to test for protein"
+        },
+        {
+          "left": "ethanol emulsion test",
+          "right": "the lipid test in which ethanol is shaken with the sample before water is added"
+        }
+      ],
+      "scoringCheck": "Award one mark per correct pairing if each right-hand phrase is a single selectable response. Verify shuffled right column and partial credit in the player."
+    },
+    {
+      "id": "bio-y8-match-food-tests-food-test-results-1",
+      "format": "matching",
+      "formalCreditEligible": false,
+      "disposition": "review-matching-interaction",
+      "scienceKey": [
+        {
+          "left": "blue-black",
+          "right": "the positive colour for starch after iodine is added"
+        },
+        {
+          "left": "brick-red",
+          "right": "a strong positive Benedict's result for reducing sugar after heating"
+        },
+        {
+          "left": "lilac or purple",
+          "right": "the positive colour produced by protein in the Biuret test"
+        },
+        {
+          "left": "cloudy white emulsion",
+          "right": "the positive result for lipid in the ethanol emulsion test"
+        }
+      ],
+      "scoringCheck": "Award one mark per correct pairing if each right-hand phrase is a single selectable response. Verify shuffled right column and partial credit in the player."
+    },
+    {
+      "id": "bio-y8-app-food-test-match",
+      "format": "matching",
+      "formalCreditEligible": false,
+      "disposition": "review-matching-interaction",
+      "scienceKey": [
+        {
+          "left": "starch",
+          "right": "iodine; blue-black"
+        },
+        {
+          "left": "reducing sugar",
+          "right": "heated Benedict's; green/yellow/orange/brick-red"
+        },
+        {
+          "left": "protein",
+          "right": "Biuret; lilac/purple"
+        },
+        {
+          "left": "lipid",
+          "right": "ethanol then water; cloudy white emulsion"
+        }
+      ],
+      "scoringCheck": "Award one mark per correct pairing if each right-hand phrase is a single selectable response. Verify shuffled right column and partial credit in the player."
+    },
+    {
+      "id": "bio-y8-app-iodine-negative",
+      "format": "typed_short",
+      "formalCreditEligible": false,
+      "disposition": "unscored-typed-recall",
+      "scienceKey": "no starch was detected",
+      "scoringCheck": "Keep as retrieval practice. Exact strings do not establish coverage of equivalent learner wording. Accept “not detected” as the supported conclusion. The bank also credits absence claims, which exceed the evidence."
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-1",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, reducing sugar, protein, lipid",
+      "disposition": "review-one-exemplar",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: orange precipitate. Biuret: purple. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-2",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "reducing sugar, protein, lipid",
+      "disposition": "review-one-exemplar",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: orange precipitate. Biuret: purple. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-3",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, protein, lipid",
+      "disposition": "review-one-exemplar",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: remains blue. Biuret: purple. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-4",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "protein, lipid",
+      "disposition": "review-one-exemplar",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: remains blue. Biuret: purple. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-5",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, reducing sugar, lipid",
+      "disposition": "review-one-exemplar",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: orange precipitate. Biuret: remains blue. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-6",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "reducing sugar, lipid",
+      "disposition": "review-one-exemplar",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: orange precipitate. Biuret: remains blue. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-7",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, lipid",
+      "disposition": "review-one-exemplar",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: remains blue. Biuret: remains blue. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-8",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "lipid",
+      "disposition": "review-one-exemplar",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: remains blue. Biuret: remains blue. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-9",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, reducing sugar, protein",
+      "disposition": "review-one-exemplar",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: orange precipitate. Biuret: purple. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-10",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "reducing sugar, protein",
+      "disposition": "review-one-exemplar",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: orange precipitate. Biuret: purple. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-11",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, protein",
+      "disposition": "review-one-exemplar",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: remains blue. Biuret: purple. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-12",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "protein",
+      "disposition": "review-one-exemplar",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: remains blue. Biuret: purple. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-13",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, reducing sugar",
+      "disposition": "review-one-exemplar",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: orange precipitate. Biuret: remains blue. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-14",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "reducing sugar",
+      "disposition": "review-one-exemplar",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: orange precipitate. Biuret: remains blue. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-15",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch",
+      "disposition": "review-one-exemplar",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: remains blue. Biuret: remains blue. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-16",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "none of these four nutrients",
+      "disposition": "review-one-exemplar",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: remains blue. Biuret: remains blue. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-1",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, reducing sugar, protein, lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-1",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: orange precipitate. Biuret: purple. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-2",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "reducing sugar, protein, lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-2",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: orange precipitate. Biuret: purple. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-3",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, protein, lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-3",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: remains blue. Biuret: purple. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-4",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "protein, lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-4",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: remains blue. Biuret: purple. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-5",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, reducing sugar, lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-5",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: orange precipitate. Biuret: remains blue. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-6",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "reducing sugar, lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-6",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: orange precipitate. Biuret: remains blue. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-7",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-7",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: remains blue. Biuret: remains blue. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-8",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-8",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: remains blue. Biuret: remains blue. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-9",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, reducing sugar, protein",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-9",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: orange precipitate. Biuret: purple. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-10",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "reducing sugar, protein",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-10",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: orange precipitate. Biuret: purple. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-11",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, protein",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-11",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: remains blue. Biuret: purple. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-12",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "protein",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-12",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: remains blue. Biuret: purple. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-13",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, reducing sugar",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-13",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: orange precipitate. Biuret: remains blue. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-14",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "reducing sugar",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-14",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: orange precipitate. Biuret: remains blue. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-15",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-15",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: remains blue. Biuret: remains blue. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-16",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "none of these four nutrients",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-16",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: remains blue. Biuret: remains blue. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-1",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, reducing sugar, protein, lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-1",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: orange precipitate. Biuret: purple. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-2",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "reducing sugar, protein, lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-2",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: orange precipitate. Biuret: purple. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-3",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, protein, lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-3",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: remains blue. Biuret: purple. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-4",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "protein, lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-4",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: remains blue. Biuret: purple. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-5",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, reducing sugar, lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-5",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: orange precipitate. Biuret: remains blue. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-6",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "reducing sugar, lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-6",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: orange precipitate. Biuret: remains blue. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-7",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-7",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: remains blue. Biuret: remains blue. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-8",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-8",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: remains blue. Biuret: remains blue. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-9",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, reducing sugar, protein",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-9",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: orange precipitate. Biuret: purple. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-10",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "reducing sugar, protein",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-10",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: orange precipitate. Biuret: purple. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-11",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, protein",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-11",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: remains blue. Biuret: purple. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-12",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "protein",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-12",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: remains blue. Biuret: purple. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-13",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, reducing sugar",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-13",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: orange precipitate. Biuret: remains blue. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-14",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "reducing sugar",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-14",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: orange precipitate. Biuret: remains blue. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-15",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-15",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: remains blue. Biuret: remains blue. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-16",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "none of these four nutrients",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-16",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: remains blue. Biuret: remains blue. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-1",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, reducing sugar, protein, lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-1",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: orange precipitate. Biuret: purple. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-2",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "reducing sugar, protein, lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-2",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: orange precipitate. Biuret: purple. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-3",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, protein, lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-3",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: remains blue. Biuret: purple. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-4",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "protein, lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-4",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: remains blue. Biuret: purple. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-5",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, reducing sugar, lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-5",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: orange precipitate. Biuret: remains blue. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-6",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "reducing sugar, lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-6",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: orange precipitate. Biuret: remains blue. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-7",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-7",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: remains blue. Biuret: remains blue. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-8",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "lipid",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-8",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: remains blue. Biuret: remains blue. Ethanol extract added to water: milky white. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-9",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, reducing sugar, protein",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-9",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: orange precipitate. Biuret: purple. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-10",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "reducing sugar, protein",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-10",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: orange precipitate. Biuret: purple. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-11",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, protein",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-11",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: remains blue. Biuret: purple. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-12",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "protein",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-12",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: remains blue. Biuret: purple. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-13",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch, reducing sugar",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-13",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: orange precipitate. Biuret: remains blue. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-14",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "reducing sugar",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-14",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: orange precipitate. Biuret: remains blue. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-15",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "starch",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-15",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: blue-black. Heated Benedict’s: remains blue. Biuret: remains blue. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-16",
+      "format": "mc_single",
+      "formalCreditEligible": false,
+      "scienceKey": "none of these four nutrients",
+      "disposition": "repeat-of-existing-pattern",
+      "equivalentTo": "bio-y8-food-tests-case-20261025-1-16",
+      "proposedPrompt": "Four separate portions of a food were tested. Iodine: orange-brown. Heated Benedict’s: remains blue. Biuret: remains blue. Ethanol extract added to water: clear. Which option lists exactly the nutrients detected?"
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-negative-biuret",
+      "format": "typed_short",
+      "formalCreditEligible": false,
+      "disposition": "unscored-typed-recall",
+      "scienceKey": "blue",
+      "scoringCheck": "Keep as retrieval practice. Exact strings do not establish coverage of equivalent learner wording."
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-negative-emulsion",
+      "format": "typed_short",
+      "formalCreditEligible": false,
+      "disposition": "unscored-typed-recall",
+      "scienceKey": "no lipid detected",
+      "scoringCheck": "Keep as retrieval practice. Exact strings do not establish coverage of equivalent learner wording."
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-positive-benedict",
+      "format": "typed_short",
+      "formalCreditEligible": false,
+      "disposition": "unscored-typed-recall",
+      "scienceKey": "green",
+      "scoringCheck": "Keep as retrieval practice. Exact strings do not establish coverage of equivalent learner wording."
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-starch-negative-colour",
+      "format": "typed_short",
+      "formalCreditEligible": false,
+      "disposition": "unscored-typed-recall",
+      "scienceKey": "orange brown",
+      "scoringCheck": "Keep as retrieval practice. Exact strings do not establish coverage of equivalent learner wording."
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-heating-method",
+      "format": "typed_short",
+      "formalCreditEligible": false,
+      "disposition": "unscored-typed-recall",
+      "scienceKey": "water bath",
+      "scoringCheck": "Keep as retrieval practice. Exact strings do not establish coverage of equivalent learner wording."
+    }
+  ]
+}

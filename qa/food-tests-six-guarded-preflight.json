@@ -1,0 +1,18 @@
+{
+  "kind": "Food Tests 6 guarded marking preflight",
+  "baselineCommit": "4ff3a4ccf5c919a9d47758b60d617cd7cd1312b7",
+  "source": "current R() and patched B() entrypoint",
+  "cases": 49,
+  "perBundlePass": 49,
+  "postFixFull51": {
+    "questions": 51,
+    "pass": 159,
+    "total": 196,
+    "remainingParaphraseFailures": 37,
+    "overCreditSix": 0,
+    "unaffectedQuestions": 45,
+    "regressions": 0
+  },
+  "status": "V8 preflight only. Node, wider adversarial language QA, iPad end-to-end and independent signoff pending.",
+  "approved": 0
+}

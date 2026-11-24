@@ -1,0 +1,517 @@
+{
+  "type": "Academic Science Content QA and answer-fairness review for all 15 typed and 3 matching Food Tests originals",
+  "date": "2026-11-24",
+  "sourcePath": "content/topics/bio-y8-food-tests.json",
+  "sourceGitBlob": "5638c927319c4ea7f73b636006bdee70220533cd",
+  "reviewMethod": "AI science content source comparison plus actual accepted strings; not qualified independent educator approval",
+  "sources": [
+    "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+    "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/",
+    "https://www.legislation.gov.uk/eur/2008/273/annexes/adopted/data.xht?view=snippet&wrap=true"
+  ],
+  "counts": {
+    "typedSourceQuestions": 15,
+    "typedSourceStrings": 88,
+    "typedScienceTargetsPass": 15,
+    "typedAcceptedListContentPass": 14,
+    "typedNeedsQualifiedAdjudication": 1,
+    "acceptedNegativeStarchOverclaims": 4,
+    "matchingSourceQuestions": 3,
+    "matchingSciencePairMapsPass": 3,
+    "matchingPairsChecked": 12,
+    "independentQualifiedApproved": 0,
+    "matchingScoringItemsDirectlyVerified": 3,
+    "bothBundlesIndividualScoringCasesVerified": 30
+  },
+  "crossSkillConcerns": "Nine typed_exact recall items duplicate the nine recall MCQ skills. Do not count typed and multiple-choice evidence as two independent Mastery concepts without independent skill mapping.",
+  "scientificCaution": "A negative iodine observation supports 'starch was not detected in the tested sample under these conditions'; cannot establish metaphysical total absence. Four current school-style accepted alternatives use categorical 'absent/is not present' and must be adjudicated against intended marking standard.",
+  "status": "AI_SCIENCE_CONTENT_PASS_18_TARGETS__ONE_ACCEPTED_RESPONSE_LIST_REQUIRES_REVIEW",
+  "sourceEdited": false,
+  "approvalToRelease": false,
+  "independentQualifiedTeacherSignedOff": false,
+  "tgsYear8TeachingVerified": false,
+  "pwaScoringVerified": false,
+  "formalCreditEligible": false,
+  "typed": [
+    {
+      "ordinal": 1,
+      "sourceId": "bio-y8-food-tests-iodine-solution-name",
+      "format": "typed_exact",
+      "prompt": "Name the scientific term: the reagent used to test for starch.",
+      "sourceAcceptedStrings": [
+        "iodine solution",
+        "iodine",
+        "iodine in potassium iodide solution",
+        "iodine-potassium iodide solution",
+        "Lugol's iodine solution"
+      ],
+      "scientificTargetAnswer": "iodine solution",
+      "scienceTargetVerdict": "AI_SCIENCE_CONTENT_PASS",
+      "acceptedListScientificFairnessVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+      "absoluteOverclaimStrings": [],
+      "qaOnlyCautiousProposal": null,
+      "reviewFlags": [
+        "RECALL_SKILL_REPEATED_IN_ORIGINAL_MC_SINGLE_BANK"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsCourseScopeConfirmed": false,
+      "typedScorerUnseenFairnessApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "ordinal": 2,
+      "sourceId": "bio-y8-food-tests-benedict-s-solution-name",
+      "format": "typed_exact",
+      "prompt": "Name the scientific term: the reagent heated in a water bath to test for reducing sugar.",
+      "sourceAcceptedStrings": [
+        "Benedict's solution",
+        "Benedict solution",
+        "Benedict's",
+        "Benedict's reagent",
+        "Benedicts reagent",
+        "Benedict reagent"
+      ],
+      "scientificTargetAnswer": "Benedict's solution",
+      "scienceTargetVerdict": "AI_SCIENCE_CONTENT_PASS",
+      "acceptedListScientificFairnessVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+      "absoluteOverclaimStrings": [],
+      "qaOnlyCautiousProposal": null,
+      "reviewFlags": [
+        "RECALL_SKILL_REPEATED_IN_ORIGINAL_MC_SINGLE_BANK"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsCourseScopeConfirmed": false,
+      "typedScorerUnseenFairnessApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "ordinal": 3,
+      "sourceId": "bio-y8-food-tests-biuret-solution-name",
+      "format": "typed_exact",
+      "prompt": "Name the scientific term: the reagent used to test for protein.",
+      "sourceAcceptedStrings": [
+        "Biuret solution",
+        "Biuret reagent",
+        "Biuret",
+        "Biuret test reagent",
+        "Biuret test solution"
+      ],
+      "scientificTargetAnswer": "Biuret solution",
+      "scienceTargetVerdict": "AI_SCIENCE_CONTENT_PASS",
+      "acceptedListScientificFairnessVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+      "absoluteOverclaimStrings": [],
+      "qaOnlyCautiousProposal": null,
+      "reviewFlags": [
+        "RECALL_SKILL_REPEATED_IN_ORIGINAL_MC_SINGLE_BANK"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsCourseScopeConfirmed": false,
+      "typedScorerUnseenFairnessApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "ordinal": 4,
+      "sourceId": "bio-y8-food-tests-ethanol-emulsion-test-name",
+      "format": "typed_exact",
+      "prompt": "Name the scientific term: the lipid test in which ethanol is shaken with the sample before water is added.",
+      "sourceAcceptedStrings": [
+        "ethanol emulsion test",
+        "emulsion test",
+        "ethanol-based emulsion test",
+        "lipid emulsion test",
+        "the emulsion test for lipids"
+      ],
+      "scientificTargetAnswer": "ethanol emulsion test",
+      "scienceTargetVerdict": "AI_SCIENCE_CONTENT_PASS",
+      "acceptedListScientificFairnessVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+      "absoluteOverclaimStrings": [],
+      "qaOnlyCautiousProposal": null,
+      "reviewFlags": [
+        "RECALL_SKILL_REPEATED_IN_ORIGINAL_MC_SINGLE_BANK"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsCourseScopeConfirmed": false,
+      "typedScorerUnseenFairnessApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "ordinal": 5,
+      "sourceId": "bio-y8-food-tests-blue-black-name",
+      "format": "typed_exact",
+      "prompt": "Name the scientific term: the positive colour for starch after iodine is added.",
+      "sourceAcceptedStrings": [
+        "blue-black",
+        "dark blue-black",
+        "dark blue black colour"
+      ],
+      "scientificTargetAnswer": "blue-black",
+      "scienceTargetVerdict": "AI_SCIENCE_CONTENT_PASS",
+      "acceptedListScientificFairnessVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+      "absoluteOverclaimStrings": [],
+      "qaOnlyCautiousProposal": null,
+      "reviewFlags": [
+        "RECALL_SKILL_REPEATED_IN_ORIGINAL_MC_SINGLE_BANK"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsCourseScopeConfirmed": false,
+      "typedScorerUnseenFairnessApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "ordinal": 6,
+      "sourceId": "bio-y8-food-tests-brick-red-name",
+      "format": "typed_exact",
+      "prompt": "Name the scientific term: a strong positive Benedict's result for reducing sugar after heating.",
+      "sourceAcceptedStrings": [
+        "brick-red",
+        "brick red",
+        "brickred",
+        "brick-red precipitate",
+        "a brick red solid"
+      ],
+      "scientificTargetAnswer": "brick-red",
+      "scienceTargetVerdict": "AI_SCIENCE_CONTENT_PASS",
+      "acceptedListScientificFairnessVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+      "absoluteOverclaimStrings": [],
+      "qaOnlyCautiousProposal": null,
+      "reviewFlags": [
+        "RECALL_SKILL_REPEATED_IN_ORIGINAL_MC_SINGLE_BANK"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsCourseScopeConfirmed": false,
+      "typedScorerUnseenFairnessApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "ordinal": 7,
+      "sourceId": "bio-y8-food-tests-lilac-or-purple-name",
+      "format": "typed_exact",
+      "prompt": "Name the scientific term: the positive colour produced by protein in the Biuret test.",
+      "sourceAcceptedStrings": [
+        "lilac or purple",
+        "purple",
+        "lilac",
+        "violet",
+        "violet colour"
+      ],
+      "scientificTargetAnswer": "lilac or purple",
+      "scienceTargetVerdict": "AI_SCIENCE_CONTENT_PASS",
+      "acceptedListScientificFairnessVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+      "absoluteOverclaimStrings": [],
+      "qaOnlyCautiousProposal": null,
+      "reviewFlags": [
+        "RECALL_SKILL_REPEATED_IN_ORIGINAL_MC_SINGLE_BANK"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsCourseScopeConfirmed": false,
+      "typedScorerUnseenFairnessApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "ordinal": 8,
+      "sourceId": "bio-y8-food-tests-cloudy-white-emulsion-name",
+      "format": "typed_exact",
+      "prompt": "Name the scientific term: the positive result for lipid in the ethanol emulsion test.",
+      "sourceAcceptedStrings": [
+        "cloudy white emulsion",
+        "white emulsion",
+        "cloudy emulsion",
+        "milky white emulsion",
+        "milky emulsion",
+        "a white cloudy emulsion"
+      ],
+      "scientificTargetAnswer": "cloudy white emulsion",
+      "scienceTargetVerdict": "AI_SCIENCE_CONTENT_PASS",
+      "acceptedListScientificFairnessVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+      "absoluteOverclaimStrings": [],
+      "qaOnlyCautiousProposal": null,
+      "reviewFlags": [
+        "RECALL_SKILL_REPEATED_IN_ORIGINAL_MC_SINGLE_BANK"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsCourseScopeConfirmed": false,
+      "typedScorerUnseenFairnessApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "ordinal": 9,
+      "sourceId": "bio-y8-food-tests-water-bath-name",
+      "format": "typed_exact",
+      "prompt": "Name the scientific term: a container of hot water used to heat Benedict's test evenly and safely.",
+      "sourceAcceptedStrings": [
+        "water bath",
+        "beaker of hot water",
+        "hot-water bath",
+        "beaker of heated water"
+      ],
+      "scientificTargetAnswer": "water bath",
+      "scienceTargetVerdict": "AI_SCIENCE_CONTENT_PASS",
+      "acceptedListScientificFairnessVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+      "absoluteOverclaimStrings": [],
+      "qaOnlyCautiousProposal": null,
+      "reviewFlags": [
+        "RECALL_SKILL_REPEATED_IN_ORIGINAL_MC_SINGLE_BANK"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsCourseScopeConfirmed": false,
+      "typedScorerUnseenFairnessApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "ordinal": 10,
+      "sourceId": "bio-y8-app-iodine-negative",
+      "format": "typed_short",
+      "prompt": "A food sample stays orange-brown after iodine is added. State the conclusion.",
+      "sourceAcceptedStrings": [
+        "no starch was detected",
+        "no starch is present",
+        "starch was not detected",
+        "starch is not present",
+        "starch is absent",
+        "no starch present",
+        "no starch detected",
+        "starch was not found in the iodine test",
+        "the iodine test did not detect starch",
+        "the iodine test did not show starch"
+      ],
+      "scientificTargetAnswer": "no starch was detected",
+      "scienceTargetVerdict": "AI_SCIENCE_CONTENT_PASS",
+      "acceptedListScientificFairnessVerdict": "REVISE_OVERABSOLUTE_NEGATIVE_WORDING",
+      "absoluteOverclaimStrings": [
+        "no starch is present",
+        "starch is not present",
+        "starch is absent",
+        "no starch present"
+      ],
+      "qaOnlyCautiousProposal": [
+        "no starch was detected",
+        "starch was not detected",
+        "no starch detected",
+        "starch was not found in the iodine test",
+        "the iodine test did not detect starch",
+        "the iodine test did not show starch"
+      ],
+      "reviewFlags": [
+        "NEGATIVE_RESULT_NOT_PROOF_OF_ABSOLUTE_ABSENCE__FOUR_SHORTHAND_ACCEPTED_RESPONSES_REVIEW"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsCourseScopeConfirmed": false,
+      "typedScorerUnseenFairnessApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "ordinal": 11,
+      "sourceId": "bio-y8-food-tests-application-20261025-negative-biuret",
+      "format": "typed_short",
+      "prompt": "What colour is Biuret reagent when the test is negative for protein?",
+      "sourceAcceptedStrings": [
+        "blue",
+        "remains blue",
+        "stays blue",
+        "blue colour",
+        "the solution stays blue"
+      ],
+      "scientificTargetAnswer": "blue",
+      "scienceTargetVerdict": "AI_SCIENCE_CONTENT_PASS",
+      "acceptedListScientificFairnessVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+      "absoluteOverclaimStrings": [],
+      "qaOnlyCautiousProposal": null,
+      "reviewFlags": [],
+      "independentQualifiedApproval": false,
+      "tgsCourseScopeConfirmed": false,
+      "typedScorerUnseenFairnessApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "ordinal": 12,
+      "sourceId": "bio-y8-food-tests-application-20261025-negative-emulsion",
+      "format": "typed_short",
+      "prompt": "What does a clear ethanol-water mixture indicate in a properly performed emulsion test?",
+      "sourceAcceptedStrings": [
+        "no lipid detected",
+        "lipid not detected",
+        "no fat detected",
+        "fat not detected",
+        "no lipid was detected",
+        "no fat was detected",
+        "no lipids were found",
+        "no fats detected",
+        "lipids were not detected"
+      ],
+      "scientificTargetAnswer": "no lipid detected",
+      "scienceTargetVerdict": "AI_SCIENCE_CONTENT_PASS",
+      "acceptedListScientificFairnessVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+      "absoluteOverclaimStrings": [],
+      "qaOnlyCautiousProposal": null,
+      "reviewFlags": [],
+      "independentQualifiedApproval": false,
+      "tgsCourseScopeConfirmed": false,
+      "typedScorerUnseenFairnessApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "ordinal": 13,
+      "sourceId": "bio-y8-food-tests-application-20261025-positive-benedict",
+      "format": "typed_short",
+      "prompt": "Name a colour that shows a positive heated Benedict's test.",
+      "sourceAcceptedStrings": [
+        "green",
+        "yellow",
+        "orange",
+        "brick red",
+        "brick-red",
+        "orange precipitate",
+        "red precipitate",
+        "yellow precipitate"
+      ],
+      "scientificTargetAnswer": "green",
+      "scienceTargetVerdict": "AI_SCIENCE_CONTENT_PASS",
+      "acceptedListScientificFairnessVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+      "absoluteOverclaimStrings": [],
+      "qaOnlyCautiousProposal": null,
+      "reviewFlags": [],
+      "independentQualifiedApproval": false,
+      "tgsCourseScopeConfirmed": false,
+      "typedScorerUnseenFairnessApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "ordinal": 14,
+      "sourceId": "bio-y8-food-tests-application-20261025-starch-negative-colour",
+      "format": "typed_short",
+      "prompt": "In a negative iodine starch test, what colour should remain?",
+      "sourceAcceptedStrings": [
+        "orange brown",
+        "orange-brown",
+        "brown",
+        "yellow brown",
+        "yellow-brown",
+        "yellowish brown",
+        "iodine remains yellow-brown"
+      ],
+      "scientificTargetAnswer": "orange brown",
+      "scienceTargetVerdict": "AI_SCIENCE_CONTENT_PASS",
+      "acceptedListScientificFairnessVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+      "absoluteOverclaimStrings": [],
+      "qaOnlyCautiousProposal": null,
+      "reviewFlags": [],
+      "independentQualifiedApproval": false,
+      "tgsCourseScopeConfirmed": false,
+      "typedScorerUnseenFairnessApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "ordinal": 15,
+      "sourceId": "bio-y8-food-tests-application-20261025-heating-method",
+      "format": "typed_short",
+      "prompt": "Which piece of laboratory equipment provides indirect heating for Benedict's test?",
+      "sourceAcceptedStrings": [
+        "water bath",
+        "a water bath",
+        "hot water bath",
+        "a beaker containing hot water",
+        "a heated water bath"
+      ],
+      "scientificTargetAnswer": "water bath",
+      "scienceTargetVerdict": "AI_SCIENCE_CONTENT_PASS",
+      "acceptedListScientificFairnessVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+      "absoluteOverclaimStrings": [],
+      "qaOnlyCautiousProposal": null,
+      "reviewFlags": [],
+      "independentQualifiedApproval": false,
+      "tgsCourseScopeConfirmed": false,
+      "typedScorerUnseenFairnessApproved": false,
+      "formalCreditEligible": false
+    }
+  ],
+  "matching": [
+    {
+      "sourceId": "bio-y8-match-food-tests-food-test-reagents-1",
+      "prompt": "Match each food test reagents term to its precise meaning or role.",
+      "pairs": [
+        {
+          "left": "iodine solution",
+          "right": "the reagent used to test for starch"
+        },
+        {
+          "left": "Benedict's solution",
+          "right": "the reagent heated in a water bath to test for reducing sugar"
+        },
+        {
+          "left": "Biuret solution",
+          "right": "the reagent used to test for protein"
+        },
+        {
+          "left": "ethanol emulsion test",
+          "right": "the lipid test in which ethanol is shaken with the sample before water is added"
+        }
+      ],
+      "numberOfIndependentlyEarnedPairs": 4,
+      "sciencePairMappingVerdict": "AI_CONTENT_SCIENCE_PASS_4_OF_4_PAIRINGS",
+      "knownScoringEvidence": "BOTH_REAL_QUIZ_BUNDLE_SCORERS_VERIFIED_0_TO_4_PAIRWISE_MARKS",
+      "methodsScope": "TWO_STAGE_EMULSION_METHOD__TGS_SCHOOL_COVERAGE_NOT_CONFIRMED",
+      "independentQualifiedApproval": false,
+      "pairwiseScoringReleaseApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-match-food-tests-food-test-results-1",
+      "prompt": "Match each food test results term to its precise meaning or role.",
+      "pairs": [
+        {
+          "left": "blue-black",
+          "right": "the positive colour for starch after iodine is added"
+        },
+        {
+          "left": "brick-red",
+          "right": "a strong positive Benedict's result for reducing sugar after heating"
+        },
+        {
+          "left": "lilac or purple",
+          "right": "the positive colour produced by protein in the Biuret test"
+        },
+        {
+          "left": "cloudy white emulsion",
+          "right": "the positive result for lipid in the ethanol emulsion test"
+        }
+      ],
+      "numberOfIndependentlyEarnedPairs": 4,
+      "sciencePairMappingVerdict": "AI_CONTENT_SCIENCE_PASS_4_OF_4_PAIRINGS",
+      "knownScoringEvidence": "BOTH_REAL_QUIZ_BUNDLE_SCORERS_VERIFIED_0_TO_4_PAIRWISE_MARKS",
+      "methodsScope": "SCHOOL_FOOD_TEST_COLOURS__TGS_SCHOOL_COVERAGE_NOT_CONFIRMED",
+      "independentQualifiedApproval": false,
+      "pairwiseScoringReleaseApproved": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-app-food-test-match",
+      "prompt": "Match each nutrient to its food-test reagent and positive result. Award one mark for each complete pairing (4 marks).",
+      "pairs": [
+        {
+          "left": "starch",
+          "right": "iodine; blue-black"
+        },
+        {
+          "left": "reducing sugar",
+          "right": "heated Benedict's; green/yellow/orange/brick-red"
+        },
+        {
+          "left": "protein",
+          "right": "Biuret; lilac/purple"
+        },
+        {
+          "left": "lipid",
+          "right": "ethanol then water; cloudy white emulsion"
+        }
+      ],
+      "numberOfIndependentlyEarnedPairs": 4,
+      "sciencePairMappingVerdict": "AI_CONTENT_SCIENCE_PASS_4_OF_4_PAIRINGS",
+      "knownScoringEvidence": "BOTH_REAL_QUIZ_BUNDLE_SCORERS_VERIFIED_0_TO_4_PAIRWISE_MARKS",
+      "methodsScope": "TWO_STAGE_EMULSION_METHOD__TGS_SCHOOL_COVERAGE_NOT_CONFIRMED",
+      "independentQualifiedApproval": false,
+      "pairwiseScoringReleaseApproved": false,
+      "formalCreditEligible": false
+    }
+  ],
+  "matchingScoringDirectEvidence": "Direct execution of actual quiz-session-y8fix-20260920.js and quiz-session-rWAnuDVj.js B(e,t,n,r), 3 source matching items × 5 scores (0-4) × 2 bundles = 30 tests with 0 mismatches."
+}

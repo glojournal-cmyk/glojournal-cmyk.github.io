@@ -1,0 +1,48 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {canEarnFormalCredit} from '../assets/food-tests-qa-credit-gate-20261122.js';
+const read=p=>JSON.parse(readFileSync(new URL('../'+p,import.meta.url),'utf8'));
+const draft=read('qa/food-tests-48-duplicate-replacements-draft-20261123.json');
+const review=read('qa/food-tests-48-replacement-content-adjudication-20261124.json');
+const reasons=read('qa/food-tests-48-144-foil-reasons-20261124.json');
+const preview=read('qa/food-tests-143-revised-preview-20261123.json');
+const byPreview=new Map(preview.questions.map(x=>[x.id,x]));
+test('all 48 proposed replacement MCQs have source-aligned answer and 144 individually reasoned foils, AI content PASS only',()=>{
+ assert.equal(draft.questions.length,48);
+ assert.equal(review.rows.length,48);
+ assert.equal(review.totals.candidatesReviewed,48);
+ assert.equal(review.totals.contextuallyCorrectSingleKeys,48);
+ assert.equal(review.totals.wrongOptionsWithIndividualReasons,144);
+ assert.equal(review.totals.crossPoolOverlapFlags,27);
+ assert.equal(review.totals.unflaggedNotCertifiedUnique,21);
+ assert.equal(review.totals.qualifiedIndependentApprovals,0);
+ assert.equal(review.release,'BLOCKED');
+ assert.equal(draft.approved,0);
+ assert.equal(preview.academicApproved,0);
+ assert.equal(reasons.counts.approvedReplacements,0);
+ let foils=0,methodBound=0,overlap=0;
+ for(let i=0;i<48;i++){
+  const q=draft.questions[i],entry=review.rows[i],ref=reasons.candidateQuestions[i],pv=byPreview.get(q.sourceId);
+  assert.equal(entry.sourceId,q.sourceId);
+  assert.equal(entry.stem,q.prompt);
+  assert.equal(entry.chosenAnswer,q.answer.accepted[0]);
+  assert.equal(entry.correctOptionLetter,'ABCD'[q.correctIndex]);
+  assert.deepEqual(entry.allFourOptions,q.options);
+  assert.deepEqual(entry.allThreeFoilExclusions,ref.choices.filter(x=>x.role==='PROPOSED_DISTRACTOR').map(x=>({option:x.text,scientificContextReason:x.contextualScienceReason})));
+  assert.equal(entry.allThreeFoilExclusions.length,3);
+  assert.equal(entry.contentSoleBestAnswerVerdict,'AI_SCIENCE_PASS_SINGLE_BEST_IN_STATED_CONTEXT');
+  assert.equal(entry.contentScienceKeyVerdict,'AI_SCIENCE_PASS');
+  assert.equal(entry.teacherIndependentSignoff,false);
+  assert.equal(entry.tgsYear8CurriculumApproval,false);
+  assert.equal(entry.formalCreditEligible,false);
+  assert.equal(pv.dailyConceptGroup,null);
+  assert.equal(canEarnFormalCredit(q.sourceId),false);
+  if(entry.methodScopeNote.startsWith('SPECIFIED_TWO_STAGE'))methodBound++;
+  if(entry.overlapWithOtherPool)overlap++;
+  foils+=entry.allThreeFoilExclusions.length;
+ }
+ assert.equal(foils,144);
+ assert.equal(methodBound,3);
+ assert.equal(overlap,27);
+});

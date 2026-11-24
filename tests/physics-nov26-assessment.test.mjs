@@ -94,7 +94,9 @@ for(const [number,n] of Object.entries(added)){
  }
 }
 assert.equal(catalog.bySubjectYear.find(x=>x.subject==='physics'&&x.year===9).questions,1066);
-assert.equal(catalog.totals.questions,16693);
+// The Physics assessment owns its 1,066 Year 9 questions, not the growing global bank.
+// Keep global accounting reconciled, without freezing other subjects' question totals.
+assert.equal(catalog.totals.questions,catalog.totals.enabled+catalog.totals.preview+catalog.totals.disabled);
 assert.equal(catalog.totals.enabled,catalog.bySubjectYear.reduce((a,b)=>a+b.enabled,0));
 assert.equal(catalog.totals.questions,catalog.bySubjectYear.reduce((a,b)=>a+b.questions,0));
 console.log('PHYSICS_NOV26_QA PASS',JSON.stringify({examQuestions:all.length,examPerGroup:totals,existingTopicAdds:22,examSelection:25,scope:'conduction only'}));

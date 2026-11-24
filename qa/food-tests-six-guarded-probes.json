@@ -1,0 +1,301 @@
+{
+  "kind": "Year8 Food Tests six guarded-rule QA probe set",
+  "baseline": "qa/food-tests-51-markpoints-node-result.json",
+  "rows": [
+    {
+      "id": "bio-y8-food-tests-iodine-solution-explain",
+      "type": "model",
+      "answer": "the reagent used to test for starch",
+      "expected": 1
+    },
+    {
+      "id": "bio-y8-food-tests-iodine-solution-explain",
+      "type": "paraphrase",
+      "answer": "Iodine solution is used to find out whether starch is present.",
+      "expected": 1
+    },
+    {
+      "id": "bio-y8-food-tests-iodine-solution-explain",
+      "type": "counterexample",
+      "answer": "Iodine solution is the test reagent for protein.",
+      "expected": 0
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-biuret-control",
+      "type": "model",
+      "answer": "use water as a negative control; it should stay blue to check for contamination",
+      "expected": 2
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-biuret-control",
+      "type": "paraphrase",
+      "answer": "Use plain distilled water as the negative control: it should remain blue, revealing any contamination.",
+      "expected": 2
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-biuret-control",
+      "type": "counterexample",
+      "answer": "Use protein solution as the negative control because it should turn purple.",
+      "expected": 0
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-biuret-control",
+      "type": "partial-one-mark",
+      "answer": "use water as a negative control",
+      "expected": 1
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-fair-amount",
+      "type": "model",
+      "answer": "the amount of sample is a control variable; different masses could make the comparison unfair",
+      "expected": 2
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-fair-amount",
+      "type": "paraphrase",
+      "answer": "Use equal bread masses to control sample quantity, so comparing iodine colours is fair.",
+      "expected": 2
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-fair-amount",
+      "type": "counterexample",
+      "answer": "Use very different bread masses to make the iodine comparison fairer.",
+      "expected": 0
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-fair-amount",
+      "type": "partial-one-mark",
+      "answer": "the amount of sample is a control variable",
+      "expected": 1
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-sugar-strength",
+      "type": "model",
+      "answer": "brick-red suggests a greater amount of reducing sugar than green; the colour test gives an approximate result rather than an exact concentration",
+      "expected": 2
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-sugar-strength",
+      "type": "paraphrase",
+      "answer": "Brick-red indicates more reducing sugar than a green result, although the colours are only approximate rather than exact concentrations.",
+      "expected": 2
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-sugar-strength",
+      "type": "counterexample",
+      "answer": "Green is a more concentrated reducing sugar result than brick-red and the colours measure exact amounts.",
+      "expected": 0
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-sugar-strength",
+      "type": "partial-one-mark",
+      "answer": "brick-red suggests a greater amount of reducing sugar than green",
+      "expected": 1
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-temperature-safety",
+      "type": "model",
+      "answer": "a water bath provides more even or controlled heating; indirect heating lowers the risk of splashing or overheating",
+      "expected": 2
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-temperature-safety",
+      "type": "paraphrase",
+      "answer": "A hot-water bath heats more uniformly and reduces the risk of a test tube overheating or splashing.",
+      "expected": 2
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-temperature-safety",
+      "type": "counterexample",
+      "answer": "Heat Benedict's mixture directly with the flame because this is safer and more even than water.",
+      "expected": 0
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-temperature-safety",
+      "type": "partial-one-mark",
+      "answer": "a water bath provides more even or controlled heating",
+      "expected": 1
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat",
+      "type": "model",
+      "answer": "purple Biuret is a positive test for protein; no cloudy emulsion means lipid was not detected",
+      "expected": 2
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat",
+      "type": "paraphrase",
+      "answer": "Purple Biuret indicates protein while absence of milky emulsion suggests no lipid detected.",
+      "expected": 2
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat",
+      "type": "counterexample",
+      "answer": "Purple Biuret proves protein is absent and a clear emulsion confirms fat.",
+      "expected": 0
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat",
+      "type": "partial-one-mark",
+      "answer": "purple Biuret is a positive test for protein",
+      "expected": 1
+    },
+    {
+      "id": "bio-y8-food-tests-iodine-solution-explain",
+      "type": "curated",
+      "answer": "Iodine tests for starch.",
+      "expected": 1
+    },
+    {
+      "id": "bio-y8-food-tests-iodine-solution-explain",
+      "type": "curated",
+      "answer": "You add iodine to detect starch in a sample.",
+      "expected": 1
+    },
+    {
+      "id": "bio-y8-food-tests-iodine-solution-explain",
+      "type": "curated",
+      "answer": "Iodine detects protein, not starch.",
+      "expected": 0
+    },
+    {
+      "id": "bio-y8-food-tests-iodine-solution-explain",
+      "type": "curated",
+      "answer": "Iodine is for testing fats.",
+      "expected": 0
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-biuret-control",
+      "type": "curated",
+      "answer": "Water serves as a negative control.",
+      "expected": 1
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-biuret-control",
+      "type": "curated",
+      "answer": "The clean water should remain blue.",
+      "expected": 1
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-biuret-control",
+      "type": "curated",
+      "answer": "Use water as the positive control and expect purple.",
+      "expected": 0
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-biuret-control",
+      "type": "curated",
+      "answer": "Use water as the negative control; it should remain blue.",
+      "expected": 2
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-biuret-control",
+      "type": "curated",
+      "answer": "Distilled water is a negative control to reveal contamination.",
+      "expected": 2
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-fair-amount",
+      "type": "curated",
+      "answer": "Keep the mass of each bread sample equal.",
+      "expected": 1
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-fair-amount",
+      "type": "curated",
+      "answer": "Different masses could make the comparison unfair.",
+      "expected": 1
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-fair-amount",
+      "type": "curated",
+      "answer": "Change the mass between samples to improve fairness.",
+      "expected": 0
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-fair-amount",
+      "type": "curated",
+      "answer": "Equal masses allow a fair comparison.",
+      "expected": 2
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-sugar-strength",
+      "type": "curated",
+      "answer": "Brick-red shows more reducing sugar than green.",
+      "expected": 1
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-sugar-strength",
+      "type": "curated",
+      "answer": "The test gives only an approximate amount of sugar.",
+      "expected": 1
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-sugar-strength",
+      "type": "curated",
+      "answer": "Green indicates more sugar than brick-red.",
+      "expected": 0
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-sugar-strength",
+      "type": "curated",
+      "answer": "Brick-red suggests more reducing sugar than green; the result is not an exact measurement.",
+      "expected": 2
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-temperature-safety",
+      "type": "curated",
+      "answer": "The water bath heats the tube evenly.",
+      "expected": 1
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-temperature-safety",
+      "type": "curated",
+      "answer": "A water bath reduces splashing risk.",
+      "expected": 1
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-temperature-safety",
+      "type": "curated",
+      "answer": "Direct flame is safer and heats more evenly than a water bath.",
+      "expected": 0
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-temperature-safety",
+      "type": "curated",
+      "answer": "Water bath gives controlled heat and lowers splashing risk.",
+      "expected": 2
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat",
+      "type": "curated",
+      "answer": "Purple Biuret indicates protein was found.",
+      "expected": 1
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat",
+      "type": "curated",
+      "answer": "No cloudy emulsion indicates fat was not detected.",
+      "expected": 1
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat",
+      "type": "curated",
+      "answer": "A purple Biuret result shows there is no protein.",
+      "expected": 0
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat",
+      "type": "curated",
+      "answer": "No white emulsion means no lipid detected.",
+      "expected": 1
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat",
+      "type": "curated",
+      "answer": "The sample gave purple Biuret so contains proteins, with no white emulsion so fats were not found.",
+      "expected": 2
+    }
+  ],
+  "approved": 0
+}

@@ -1,0 +1,1071 @@
+{
+  "kind": "QA-only revised distractors for 16 retained Food Tests cases; never import directly",
+  "date": "2026-11-24",
+  "baseHead": "61b4d9c011dfa5c94aced83e649ab5d15e59997b",
+  "sourceObservationBlob": "8e4a94a5e5c975afc8383cb9d83a259eb465a816",
+  "counts": {
+    "cases": 16,
+    "options": 64,
+    "keys": 16,
+    "singleIndicatorFoils": 32,
+    "approved": 0,
+    "twoIndicatorFoils": 16
+  },
+  "keyPositionCounts": [
+    4,
+    4,
+    4,
+    4
+  ],
+  "formalCreditEligible": false,
+  "release": "BLOCKED",
+  "limitations": [
+    "AI-authored replacement foils require independent science/assessment review",
+    "Fixed key order is non-cyclic but does not replace tested per-session shuffling",
+    "Four indicator interpretations recur across cases and cannot imply 16 independent mastered skills",
+    "Do not mutate old answers, question IDs, runtime bank or learner history",
+    "Use two one-indicator and one two-indicator foil so majority-voting every nutrient cannot uniquely recover the key; one indicator has a 2–2 split in every item. This does not establish observed distractor performance."
+  ],
+  "items": [
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-1",
+      "prompt": "During a practical, Sample F1-01 has these results: iodine blue-black; heated Benedict's green precipitate; Biuret lilac; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceAnswer": [
+        "starch, reducing sugar, protein, lipid"
+      ],
+      "oldOptions": [
+        "none of these four nutrients",
+        "starch",
+        "reducing sugar",
+        "starch, reducing sugar, protein, lipid"
+      ],
+      "newOptions": [
+        "reducing sugar, protein, lipid",
+        "starch, reducing sugar, protein, lipid",
+        "starch, protein, lipid",
+        "reducing sugar, lipid"
+      ],
+      "keyIndex": 1,
+      "optionReasons": [
+        {
+          "text": "reducing sugar, protein, lipid",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "iodine"
+          ],
+          "nutrients": [
+            "starch"
+          ],
+          "reason": "Incorrectly omits starch, which the stated iodine result detects."
+        },
+        {
+          "text": "starch, reducing sugar, protein, lipid",
+          "kind": "key",
+          "reason": "Includes all and only the nutrient groups detected by the four stated observations."
+        },
+        {
+          "text": "starch, protein, lipid",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects."
+        },
+        {
+          "text": "reducing sugar, lipid",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "iodine",
+            "Biuret"
+          ],
+          "nutrients": [
+            "starch",
+            "protein"
+          ],
+          "reason": "Incorrectly omits starch, which the stated iodine result detects. Incorrectly omits protein, which the stated Biuret result detects."
+        }
+      ],
+      "sourceEdited": false,
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-2",
+      "prompt": "During a practical, Sample F1-02 has these results: iodine orange-brown; heated Benedict's yellow precipitate; Biuret purple; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceAnswer": [
+        "reducing sugar, protein, lipid"
+      ],
+      "oldOptions": [
+        "starch, reducing sugar",
+        "starch, protein",
+        "reducing sugar, protein, lipid",
+        "starch"
+      ],
+      "newOptions": [
+        "protein",
+        "reducing sugar, lipid",
+        "protein, lipid",
+        "reducing sugar, protein, lipid"
+      ],
+      "keyIndex": 3,
+      "optionReasons": [
+        {
+          "text": "protein",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "heated Benedict's",
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "reducing sugar",
+            "lipid"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects. Incorrectly omits lipid, which the stated ethanol emulsion result detects."
+        },
+        {
+          "text": "reducing sugar, lipid",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "Biuret"
+          ],
+          "nutrients": [
+            "protein"
+          ],
+          "reason": "Incorrectly omits protein, which the stated Biuret result detects."
+        },
+        {
+          "text": "protein, lipid",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects."
+        },
+        {
+          "text": "reducing sugar, protein, lipid",
+          "kind": "key",
+          "reason": "Includes all and only the nutrient groups detected by the four stated observations."
+        }
+      ],
+      "sourceEdited": false,
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-3",
+      "prompt": "During a practical, Sample F1-03 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceAnswer": [
+        "starch, protein, lipid"
+      ],
+      "oldOptions": [
+        "reducing sugar, lipid",
+        "starch, protein, lipid",
+        "reducing sugar",
+        "reducing sugar, protein"
+      ],
+      "newOptions": [
+        "starch, protein, lipid",
+        "starch, lipid",
+        "starch, protein",
+        "lipid"
+      ],
+      "keyIndex": 0,
+      "optionReasons": [
+        {
+          "text": "starch, protein, lipid",
+          "kind": "key",
+          "reason": "Includes all and only the nutrient groups detected by the four stated observations."
+        },
+        {
+          "text": "starch, lipid",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "Biuret"
+          ],
+          "nutrients": [
+            "protein"
+          ],
+          "reason": "Incorrectly omits protein, which the stated Biuret result detects."
+        },
+        {
+          "text": "starch, protein",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "lipid"
+          ],
+          "reason": "Incorrectly omits lipid, which the stated ethanol emulsion result detects."
+        },
+        {
+          "text": "lipid",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "Biuret",
+            "iodine"
+          ],
+          "nutrients": [
+            "protein",
+            "starch"
+          ],
+          "reason": "Incorrectly omits protein, which the stated Biuret result detects. Incorrectly omits starch, which the stated iodine result detects."
+        }
+      ],
+      "sourceEdited": false,
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-4",
+      "prompt": "During a practical, Sample F1-04 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret purple; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceAnswer": [
+        "protein, lipid"
+      ],
+      "oldOptions": [
+        "protein, lipid",
+        "starch, reducing sugar",
+        "starch, reducing sugar, lipid",
+        "reducing sugar"
+      ],
+      "newOptions": [
+        "reducing sugar, protein",
+        "starch, protein, lipid",
+        "protein, lipid",
+        "protein"
+      ],
+      "keyIndex": 2,
+      "optionReasons": [
+        {
+          "text": "reducing sugar, protein",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "ethanol emulsion",
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "lipid",
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly omits lipid, which the stated ethanol emulsion result detects. Incorrectly includes reducing sugar, which the stated heated Benedict's result does not detect."
+        },
+        {
+          "text": "starch, protein, lipid",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "iodine"
+          ],
+          "nutrients": [
+            "starch"
+          ],
+          "reason": "Incorrectly includes starch, which the stated iodine result does not detect."
+        },
+        {
+          "text": "protein, lipid",
+          "kind": "key",
+          "reason": "Includes all and only the nutrient groups detected by the four stated observations."
+        },
+        {
+          "text": "protein",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "lipid"
+          ],
+          "reason": "Incorrectly omits lipid, which the stated ethanol emulsion result detects."
+        }
+      ],
+      "sourceEdited": false,
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-5",
+      "prompt": "During a practical, Sample F1-05 has these results: iodine blue-black; heated Benedict's orange precipitate; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceAnswer": [
+        "starch, reducing sugar, lipid"
+      ],
+      "oldOptions": [
+        "protein",
+        "starch, protein",
+        "reducing sugar, protein",
+        "starch, reducing sugar, lipid"
+      ],
+      "newOptions": [
+        "reducing sugar, lipid",
+        "starch, lipid",
+        "starch, reducing sugar, lipid",
+        "reducing sugar, protein, lipid"
+      ],
+      "keyIndex": 2,
+      "optionReasons": [
+        {
+          "text": "reducing sugar, lipid",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "iodine"
+          ],
+          "nutrients": [
+            "starch"
+          ],
+          "reason": "Incorrectly omits starch, which the stated iodine result detects."
+        },
+        {
+          "text": "starch, lipid",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects."
+        },
+        {
+          "text": "starch, reducing sugar, lipid",
+          "kind": "key",
+          "reason": "Includes all and only the nutrient groups detected by the four stated observations."
+        },
+        {
+          "text": "reducing sugar, protein, lipid",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "iodine",
+            "Biuret"
+          ],
+          "nutrients": [
+            "starch",
+            "protein"
+          ],
+          "reason": "Incorrectly omits starch, which the stated iodine result detects. Incorrectly includes protein, which the stated Biuret result does not detect."
+        }
+      ],
+      "sourceEdited": false,
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-6",
+      "prompt": "During a practical, Sample F1-06 has these results: iodine orange-brown; heated Benedict's brick-red precipitate; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceAnswer": [
+        "reducing sugar, lipid"
+      ],
+      "oldOptions": [
+        "starch, reducing sugar, protein",
+        "starch",
+        "reducing sugar, lipid",
+        "starch, protein"
+      ],
+      "newOptions": [
+        "reducing sugar, lipid",
+        "none of these four nutrients",
+        "reducing sugar, protein, lipid",
+        "lipid"
+      ],
+      "keyIndex": 0,
+      "optionReasons": [
+        {
+          "text": "reducing sugar, lipid",
+          "kind": "key",
+          "reason": "Includes all and only the nutrient groups detected by the four stated observations."
+        },
+        {
+          "text": "none of these four nutrients",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "heated Benedict's",
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "reducing sugar",
+            "lipid"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects. Incorrectly omits lipid, which the stated ethanol emulsion result detects."
+        },
+        {
+          "text": "reducing sugar, protein, lipid",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "Biuret"
+          ],
+          "nutrients": [
+            "protein"
+          ],
+          "reason": "Incorrectly includes protein, which the stated Biuret result does not detect."
+        },
+        {
+          "text": "lipid",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects."
+        }
+      ],
+      "sourceEdited": false,
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-7",
+      "prompt": "During a practical, Sample F1-07 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceAnswer": [
+        "starch, lipid"
+      ],
+      "oldOptions": [
+        "reducing sugar, protein, lipid",
+        "starch, lipid",
+        "reducing sugar, protein",
+        "reducing sugar"
+      ],
+      "newOptions": [
+        "starch, protein, lipid",
+        "starch",
+        "protein, lipid",
+        "starch, lipid"
+      ],
+      "keyIndex": 3,
+      "optionReasons": [
+        {
+          "text": "starch, protein, lipid",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "Biuret"
+          ],
+          "nutrients": [
+            "protein"
+          ],
+          "reason": "Incorrectly includes protein, which the stated Biuret result does not detect."
+        },
+        {
+          "text": "starch",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "lipid"
+          ],
+          "reason": "Incorrectly omits lipid, which the stated ethanol emulsion result detects."
+        },
+        {
+          "text": "protein, lipid",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "Biuret",
+            "iodine"
+          ],
+          "nutrients": [
+            "protein",
+            "starch"
+          ],
+          "reason": "Incorrectly includes protein, which the stated Biuret result does not detect. Incorrectly omits starch, which the stated iodine result detects."
+        },
+        {
+          "text": "starch, lipid",
+          "kind": "key",
+          "reason": "Includes all and only the nutrient groups detected by the four stated observations."
+        }
+      ],
+      "sourceEdited": false,
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-8",
+      "prompt": "During a practical, Sample F1-08 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceAnswer": [
+        "lipid"
+      ],
+      "oldOptions": [
+        "lipid",
+        "starch, reducing sugar, protein",
+        "starch, reducing sugar, protein, lipid",
+        "reducing sugar, protein"
+      ],
+      "newOptions": [
+        "reducing sugar",
+        "lipid",
+        "starch, lipid",
+        "none of these four nutrients"
+      ],
+      "keyIndex": 1,
+      "optionReasons": [
+        {
+          "text": "reducing sugar",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "ethanol emulsion",
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "lipid",
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly omits lipid, which the stated ethanol emulsion result detects. Incorrectly includes reducing sugar, which the stated heated Benedict's result does not detect."
+        },
+        {
+          "text": "lipid",
+          "kind": "key",
+          "reason": "Includes all and only the nutrient groups detected by the four stated observations."
+        },
+        {
+          "text": "starch, lipid",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "iodine"
+          ],
+          "nutrients": [
+            "starch"
+          ],
+          "reason": "Incorrectly includes starch, which the stated iodine result does not detect."
+        },
+        {
+          "text": "none of these four nutrients",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "lipid"
+          ],
+          "reason": "Incorrectly omits lipid, which the stated ethanol emulsion result detects."
+        }
+      ],
+      "sourceEdited": false,
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-9",
+      "prompt": "During a practical, Sample F1-09 has these results: iodine blue-black; heated Benedict's green precipitate; Biuret lilac; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceAnswer": [
+        "starch, reducing sugar, protein"
+      ],
+      "oldOptions": [
+        "lipid",
+        "starch, lipid",
+        "reducing sugar, lipid",
+        "starch, reducing sugar, protein"
+      ],
+      "newOptions": [
+        "starch, reducing sugar, protein",
+        "reducing sugar, protein",
+        "starch, protein",
+        "reducing sugar"
+      ],
+      "keyIndex": 0,
+      "optionReasons": [
+        {
+          "text": "starch, reducing sugar, protein",
+          "kind": "key",
+          "reason": "Includes all and only the nutrient groups detected by the four stated observations."
+        },
+        {
+          "text": "reducing sugar, protein",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "iodine"
+          ],
+          "nutrients": [
+            "starch"
+          ],
+          "reason": "Incorrectly omits starch, which the stated iodine result detects."
+        },
+        {
+          "text": "starch, protein",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects."
+        },
+        {
+          "text": "reducing sugar",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "iodine",
+            "Biuret"
+          ],
+          "nutrients": [
+            "starch",
+            "protein"
+          ],
+          "reason": "Incorrectly omits starch, which the stated iodine result detects. Incorrectly omits protein, which the stated Biuret result detects."
+        }
+      ],
+      "sourceEdited": false,
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-10",
+      "prompt": "During a practical, Sample F1-10 has these results: iodine orange-brown; heated Benedict's yellow precipitate; Biuret purple; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceAnswer": [
+        "reducing sugar, protein"
+      ],
+      "oldOptions": [
+        "starch, reducing sugar, lipid",
+        "starch, protein, lipid",
+        "reducing sugar, protein",
+        "starch, lipid"
+      ],
+      "newOptions": [
+        "protein, lipid",
+        "reducing sugar, protein",
+        "reducing sugar",
+        "protein"
+      ],
+      "keyIndex": 1,
+      "optionReasons": [
+        {
+          "text": "protein, lipid",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "heated Benedict's",
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "reducing sugar",
+            "lipid"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects. Incorrectly includes lipid, which the stated ethanol emulsion result does not detect."
+        },
+        {
+          "text": "reducing sugar, protein",
+          "kind": "key",
+          "reason": "Includes all and only the nutrient groups detected by the four stated observations."
+        },
+        {
+          "text": "reducing sugar",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "Biuret"
+          ],
+          "nutrients": [
+            "protein"
+          ],
+          "reason": "Incorrectly omits protein, which the stated Biuret result detects."
+        },
+        {
+          "text": "protein",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects."
+        }
+      ],
+      "sourceEdited": false,
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-11",
+      "prompt": "During a practical, Sample F1-11 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceAnswer": [
+        "starch, protein"
+      ],
+      "oldOptions": [
+        "reducing sugar",
+        "starch, protein",
+        "reducing sugar, lipid",
+        "reducing sugar, protein, lipid"
+      ],
+      "newOptions": [
+        "starch",
+        "starch, protein, lipid",
+        "starch, protein",
+        "none of these four nutrients"
+      ],
+      "keyIndex": 2,
+      "optionReasons": [
+        {
+          "text": "starch",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "Biuret"
+          ],
+          "nutrients": [
+            "protein"
+          ],
+          "reason": "Incorrectly omits protein, which the stated Biuret result detects."
+        },
+        {
+          "text": "starch, protein, lipid",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "lipid"
+          ],
+          "reason": "Incorrectly includes lipid, which the stated ethanol emulsion result does not detect."
+        },
+        {
+          "text": "starch, protein",
+          "kind": "key",
+          "reason": "Includes all and only the nutrient groups detected by the four stated observations."
+        },
+        {
+          "text": "none of these four nutrients",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "Biuret",
+            "iodine"
+          ],
+          "nutrients": [
+            "protein",
+            "starch"
+          ],
+          "reason": "Incorrectly omits protein, which the stated Biuret result detects. Incorrectly omits starch, which the stated iodine result detects."
+        }
+      ],
+      "sourceEdited": false,
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-12",
+      "prompt": "During a practical, Sample F1-12 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret purple; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceAnswer": [
+        "protein"
+      ],
+      "oldOptions": [
+        "protein",
+        "starch, reducing sugar, lipid",
+        "starch, reducing sugar",
+        "reducing sugar, lipid"
+      ],
+      "newOptions": [
+        "reducing sugar, protein, lipid",
+        "starch, protein",
+        "protein, lipid",
+        "protein"
+      ],
+      "keyIndex": 3,
+      "optionReasons": [
+        {
+          "text": "reducing sugar, protein, lipid",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "ethanol emulsion",
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "lipid",
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly includes lipid, which the stated ethanol emulsion result does not detect. Incorrectly includes reducing sugar, which the stated heated Benedict's result does not detect."
+        },
+        {
+          "text": "starch, protein",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "iodine"
+          ],
+          "nutrients": [
+            "starch"
+          ],
+          "reason": "Incorrectly includes starch, which the stated iodine result does not detect."
+        },
+        {
+          "text": "protein, lipid",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "lipid"
+          ],
+          "reason": "Incorrectly includes lipid, which the stated ethanol emulsion result does not detect."
+        },
+        {
+          "text": "protein",
+          "kind": "key",
+          "reason": "Includes all and only the nutrient groups detected by the four stated observations."
+        }
+      ],
+      "sourceEdited": false,
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-13",
+      "prompt": "During a practical, Sample F1-13 has these results: iodine blue-black; heated Benedict's orange precipitate; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceAnswer": [
+        "starch, reducing sugar"
+      ],
+      "oldOptions": [
+        "protein, lipid",
+        "starch, protein, lipid",
+        "reducing sugar, protein, lipid",
+        "starch, reducing sugar"
+      ],
+      "newOptions": [
+        "reducing sugar",
+        "starch, reducing sugar",
+        "starch",
+        "reducing sugar, protein"
+      ],
+      "keyIndex": 1,
+      "optionReasons": [
+        {
+          "text": "reducing sugar",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "iodine"
+          ],
+          "nutrients": [
+            "starch"
+          ],
+          "reason": "Incorrectly omits starch, which the stated iodine result detects."
+        },
+        {
+          "text": "starch, reducing sugar",
+          "kind": "key",
+          "reason": "Includes all and only the nutrient groups detected by the four stated observations."
+        },
+        {
+          "text": "starch",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects."
+        },
+        {
+          "text": "reducing sugar, protein",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "iodine",
+            "Biuret"
+          ],
+          "nutrients": [
+            "starch",
+            "protein"
+          ],
+          "reason": "Incorrectly omits starch, which the stated iodine result detects. Incorrectly includes protein, which the stated Biuret result does not detect."
+        }
+      ],
+      "sourceEdited": false,
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-14",
+      "prompt": "During a practical, Sample F1-14 has these results: iodine orange-brown; heated Benedict's brick-red precipitate; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceAnswer": [
+        "reducing sugar"
+      ],
+      "oldOptions": [
+        "starch, reducing sugar, protein, lipid",
+        "starch, lipid",
+        "reducing sugar",
+        "starch, protein, lipid"
+      ],
+      "newOptions": [
+        "lipid",
+        "reducing sugar, protein",
+        "reducing sugar",
+        "none of these four nutrients"
+      ],
+      "keyIndex": 2,
+      "optionReasons": [
+        {
+          "text": "lipid",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "heated Benedict's",
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "reducing sugar",
+            "lipid"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects. Incorrectly includes lipid, which the stated ethanol emulsion result does not detect."
+        },
+        {
+          "text": "reducing sugar, protein",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "Biuret"
+          ],
+          "nutrients": [
+            "protein"
+          ],
+          "reason": "Incorrectly includes protein, which the stated Biuret result does not detect."
+        },
+        {
+          "text": "reducing sugar",
+          "kind": "key",
+          "reason": "Includes all and only the nutrient groups detected by the four stated observations."
+        },
+        {
+          "text": "none of these four nutrients",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects."
+        }
+      ],
+      "sourceEdited": false,
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-15",
+      "prompt": "During a practical, Sample F1-15 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceAnswer": [
+        "starch"
+      ],
+      "oldOptions": [
+        "reducing sugar, protein",
+        "starch",
+        "reducing sugar, protein, lipid",
+        "reducing sugar, lipid"
+      ],
+      "newOptions": [
+        "starch, protein",
+        "starch, lipid",
+        "protein",
+        "starch"
+      ],
+      "keyIndex": 3,
+      "optionReasons": [
+        {
+          "text": "starch, protein",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "Biuret"
+          ],
+          "nutrients": [
+            "protein"
+          ],
+          "reason": "Incorrectly includes protein, which the stated Biuret result does not detect."
+        },
+        {
+          "text": "starch, lipid",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "lipid"
+          ],
+          "reason": "Incorrectly includes lipid, which the stated ethanol emulsion result does not detect."
+        },
+        {
+          "text": "protein",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "Biuret",
+            "iodine"
+          ],
+          "nutrients": [
+            "protein",
+            "starch"
+          ],
+          "reason": "Incorrectly includes protein, which the stated Biuret result does not detect. Incorrectly omits starch, which the stated iodine result detects."
+        },
+        {
+          "text": "starch",
+          "kind": "key",
+          "reason": "Includes all and only the nutrient groups detected by the four stated observations."
+        }
+      ],
+      "sourceEdited": false,
+      "formalCreditEligible": false,
+      "academicApproved": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-16",
+      "prompt": "During a practical, Sample F1-16 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceAnswer": [
+        "none of these four nutrients"
+      ],
+      "oldOptions": [
+        "none of these four nutrients",
+        "starch, reducing sugar, protein, lipid",
+        "starch, reducing sugar, protein",
+        "reducing sugar, protein, lipid"
+      ],
+      "newOptions": [
+        "none of these four nutrients",
+        "reducing sugar, lipid",
+        "starch",
+        "lipid"
+      ],
+      "keyIndex": 0,
+      "optionReasons": [
+        {
+          "text": "none of these four nutrients",
+          "kind": "key",
+          "reason": "Includes all and only the nutrient groups detected by the four stated observations."
+        },
+        {
+          "text": "reducing sugar, lipid",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "ethanol emulsion",
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "lipid",
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly includes lipid, which the stated ethanol emulsion result does not detect. Incorrectly includes reducing sugar, which the stated heated Benedict's result does not detect."
+        },
+        {
+          "text": "starch",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "iodine"
+          ],
+          "nutrients": [
+            "starch"
+          ],
+          "reason": "Incorrectly includes starch, which the stated iodine result does not detect."
+        },
+        {
+          "text": "lipid",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "lipid"
+          ],
+          "reason": "Incorrectly includes lipid, which the stated ethanol emulsion result does not detect."
+        }
+      ],
+      "sourceEdited": false,
+      "formalCreditEligible": false,
+      "academicApproved": false
+    }
+  ]
+}

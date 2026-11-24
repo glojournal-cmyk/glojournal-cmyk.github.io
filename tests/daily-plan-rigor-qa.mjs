@@ -31,7 +31,8 @@ for(const token of [
 ]) requireToken(practice,"practice",token);
 
 for(const token of [
-  'excludeGeneralDaily:!!Y._dailyYear8',
+  'excludeGeneralDaily:qaHeld||!!Y._dailyYear8||!!Y._dailyVocab',
+  'formal:!qaHeld&&Y.formal!==!1',
   'yearOverride:sessionYear',
   'c&&!Y._repair&&c!==`study-session`&&![`y8-practise`,`y8-mastery`].includes(c)&&E(c,1)'
 ]) requireToken(quiz,"quiz",token);

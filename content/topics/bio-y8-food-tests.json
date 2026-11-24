@@ -15,10 +15,10 @@
       "difficulty": 1,
       "status": "enabled",
       "options": [
-        "lilac or purple",
-        "persistent pollutant",
+        "Benedict's solution",
+        "Biuret solution",
         "iodine solution",
-        "autotroph"
+        "ethanol"
       ],
       "answer": {
         "mode": "choice",
@@ -61,7 +61,10 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "iodine solution",
-          "iodine"
+          "iodine",
+          "iodine in potassium iodide solution",
+          "iodine-potassium iodide solution",
+          "Lugol's iodine solution"
         ]
       },
       "stimulus": {
@@ -133,10 +136,10 @@
       "difficulty": 1,
       "status": "enabled",
       "options": [
-        "phenotype probability",
-        "mercury",
+        "iodine solution",
+        "ethanol",
         "Benedict's solution",
-        "competition"
+        "Biuret solution"
       ],
       "answer": {
         "mode": "choice",
@@ -180,7 +183,10 @@
         "accepted": [
           "Benedict's solution",
           "Benedict solution",
-          "Benedict's"
+          "Benedict's",
+          "Benedict's reagent",
+          "Benedicts reagent",
+          "Benedict reagent"
         ]
       },
       "stimulus": {
@@ -252,10 +258,10 @@
       "difficulty": 1,
       "status": "enabled",
       "options": [
-        "amino acids",
+        "iodine solution",
         "Biuret solution",
         "Benedict's solution",
-        "exponential growth"
+        "ethanol"
       ],
       "answer": {
         "mode": "choice",
@@ -299,7 +305,9 @@
         "accepted": [
           "Biuret solution",
           "Biuret reagent",
-          "Biuret"
+          "Biuret",
+          "Biuret test reagent",
+          "Biuret test solution"
         ]
       },
       "stimulus": {
@@ -371,10 +379,10 @@
       "difficulty": 1,
       "status": "enabled",
       "options": [
-        "gene",
+        "Biuret test",
         "ethanol emulsion test",
-        "light colour",
-        "water"
+        "Benedict's test",
+        "iodine test"
       ],
       "answer": {
         "mode": "choice",
@@ -417,7 +425,10 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "ethanol emulsion test",
-          "emulsion test"
+          "emulsion test",
+          "ethanol-based emulsion test",
+          "lipid emulsion test",
+          "the emulsion test for lipids"
         ]
       },
       "stimulus": {
@@ -489,10 +500,10 @@
       "difficulty": 1,
       "status": "enabled",
       "options": [
-        "spongy mesophyll",
+        "brick-red",
         "blue-black",
-        "fibre",
-        "uneaten material"
+        "lilac or purple",
+        "orange-brown"
       ],
       "answer": {
         "mode": "choice",
@@ -534,7 +545,9 @@
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "blue-black"
+          "blue-black",
+          "dark blue-black",
+          "dark blue black colour"
         ]
       },
       "stimulus": {
@@ -607,9 +620,9 @@
       "status": "enabled",
       "options": [
         "brick-red",
-        "genotype",
-        "lilac or purple",
-        "nitrate ions"
+        "yellow",
+        "green",
+        "orange"
       ],
       "answer": {
         "mode": "choice",
@@ -652,8 +665,10 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "brick-red",
-          "orange or brick-red",
-          "green yellow orange or brick-red"
+          "brick red",
+          "brickred",
+          "brick-red precipitate",
+          "a brick red solid"
         ]
       },
       "stimulus": {
@@ -667,7 +682,7 @@
           "Check the precise source statement: a strong positive Benedict's result for reducing sugar after heating.",
           "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail."
         ],
-        "commonError": "Using an everyday description without the defining scientific feature.",
+        "commonError": "Giving the whole positive colour range, such as green, yellow or orange, when the question asks for the strong positive result.",
         "remember": "brick-red = a strong positive Benedict's result for reducing sugar after heating"
       },
       "task": {
@@ -725,10 +740,10 @@
       "difficulty": 1,
       "status": "enabled",
       "options": [
-        "egestion and excretion",
+        "blue-black",
         "lilac or purple",
-        "line graph",
-        "denaturation"
+        "brick-red",
+        "orange-brown"
       ],
       "answer": {
         "mode": "choice",
@@ -772,7 +787,9 @@
         "accepted": [
           "lilac or purple",
           "purple",
-          "lilac"
+          "lilac",
+          "violet",
+          "violet colour"
         ]
       },
       "stimulus": {
@@ -844,9 +861,9 @@
       "difficulty": 1,
       "status": "enabled",
       "options": [
-        "fibre",
-        "omnivore",
-        "scatter graph",
+        "blue-black",
+        "clear solution",
+        "brick-red precipitate",
         "cloudy white emulsion"
       ],
       "answer": {
@@ -891,7 +908,10 @@
         "accepted": [
           "cloudy white emulsion",
           "white emulsion",
-          "cloudy emulsion"
+          "cloudy emulsion",
+          "milky white emulsion",
+          "milky emulsion",
+          "a white cloudy emulsion"
         ]
       },
       "stimulus": {
@@ -959,14 +979,14 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mc_single",
-      "prompt": "Which scientific term matches this description: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol?",
+      "prompt": "Which scientific term matches this description: a container of hot water used to heat Benedict's test evenly and safely.",
       "difficulty": 1,
       "status": "enabled",
       "options": [
-        "lipid",
-        "biotic factor",
+        "Bunsen burner",
+        "test-tube rack",
         "water bath",
-        "validity"
+        "tripod"
       ],
       "answer": {
         "mode": "choice",
@@ -975,18 +995,18 @@
         ]
       },
       "stimulus": {
-        "text": "a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+        "text": "a container of hot water used to heat Benedict's test evenly and safely"
       },
       "feedback": {
-        "short": "water bath: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+        "short": "water bath: a container of hot water used to heat Benedict's test evenly and safely.",
         "steps": [
           "Read the command word.",
           "Retrieve the scientific term and its defining feature.",
-          "Check the precise source statement: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+          "Check the precise source statement: a container of hot water used to heat Benedict's test evenly and safely.",
           "Identify the defining feature before comparing the options. Select the one option that satisfies every part of the prompt."
         ],
         "commonError": "Using an everyday description without the defining scientific feature.",
-        "remember": "water bath = a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+        "remember": "water bath = a container of hot water used to heat Benedict's test evenly and safely. The ethanol emulsion test does not heat the ethanol."
       },
       "task": {
         "label": "CHOOSE THE ANSWER",
@@ -1001,29 +1021,32 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "typed_exact",
-      "prompt": "Name the scientific term: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+      "prompt": "Name the scientific term: a container of hot water used to heat Benedict's test evenly and safely.",
       "difficulty": 1,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "water bath"
+          "water bath",
+          "beaker of hot water",
+          "hot-water bath",
+          "beaker of heated water"
         ]
       },
       "stimulus": {
-        "text": "a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+        "text": "a container of hot water used to heat Benedict's test evenly and safely"
       },
       "feedback": {
-        "short": "water bath: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+        "short": "water bath: a container of hot water used to heat Benedict's test evenly and safely.",
         "steps": [
           "Read the command word.",
           "Retrieve the scientific term and its defining feature.",
-          "Check the precise source statement: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+          "Check the precise source statement: a container of hot water used to heat Benedict's test evenly and safely.",
           "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail."
         ],
         "commonError": "Using an everyday description without the defining scientific feature.",
-        "remember": "water bath = a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+        "remember": "water bath = a container of hot water used to heat Benedict's test evenly and safely. The ethanol emulsion test does not heat the ethanol."
       },
       "task": {
         "label": "TYPE THE ANSWER",
@@ -1038,30 +1061,32 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mark_points",
-      "prompt": "In Food tests and laboratory safety, state the precise Year 8 meaning, role or function of water bath.",
+      "prompt": "State two points about a water bath in food tests: what it is used for, and whether the ethanol emulsion test heats ethanol.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "mark_points",
+        "totalMarks": 2,
         "markPoints": [
-          "a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+          "heats Benedict's test evenly in hot water",
+          "the ethanol emulsion test does not heat the ethanol"
         ],
-        "modelAnswer": "a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+        "modelAnswer": "A water bath heats Benedict's test evenly and safely. The ethanol emulsion test does not heat the ethanol."
       },
       "stimulus": {
         "text": "water bath"
       },
       "feedback": {
-        "short": "water bath: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+        "short": "Heat Benedict's test in a water bath. Do not heat ethanol in the emulsion test.",
         "steps": [
-          "Read the command word.",
-          "Retrieve the scientific term and its defining feature.",
-          "Check the precise source statement: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
+          "Credit a point for heating Benedict's test evenly in hot water.",
+          "Credit a separate point for stating that the ethanol emulsion test does not heat the ethanol.",
+          "Do not accept heating ethanol as a required step of the emulsion test.",
+          "Both points are required."
         ],
-        "commonError": "Using an everyday description without the defining scientific feature.",
-        "remember": "water bath = a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+        "commonError": "Describing a water bath as the required way to heat ethanol.",
+        "remember": "water bath = a container of hot water used to heat Benedict's test evenly and safely. The ethanol emulsion test does not heat the ethanol."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -1214,13 +1239,13 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "matching",
-      "prompt": "Match each food substance to its reagent and positive result.",
+      "prompt": "Match each nutrient to its food-test reagent and positive result. Award one mark for each complete pairing (4 marks).",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "pair_map",
-        "totalMarks": 8,
+        "totalMarks": 4,
         "pairs": [
           {
             "left": "starch",
@@ -1254,7 +1279,7 @@
       },
       "task": {
         "label": "MATCH THE PAIRS",
-        "instruction": "Match every item to its correct partner."
+        "instruction": "Match all four nutrients to the correct combined reagent and positive observation; one mark per complete pair."
       },
       "preview": false,
       "ordinary": true
@@ -1278,7 +1303,10 @@
           "starch is not present",
           "starch is absent",
           "no starch present",
-          "no starch detected"
+          "no starch detected",
+          "starch was not found in the iodine test",
+          "the iodine test did not detect starch",
+          "the iodine test did not show starch"
         ],
         "totalMarks": 1
       },
@@ -1306,29 +1334,30 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mark_points",
-      "prompt": "Explain why ethanol must be heated in a water bath rather than over a naked flame.",
+      "prompt": "Explain why ethanol must not be heated over a naked flame, and state how the ethanol emulsion test is carried out.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "mark_points",
+        "totalMarks": 2,
         "markPoints": [
           "ethanol is highly flammable",
-          "a water bath avoids direct ignition / is safer"
+          "shake the sample with ethanol, then add water, without heating the ethanol"
         ],
-        "totalMarks": 2
+        "modelAnswer": "Ethanol is highly flammable, so it must not be heated over a naked flame. In the emulsion test, shake the sample with ethanol and then add water."
       },
       "stimulus": {},
       "feedback": {
-        "short": "ethanol is highly flammable; a water bath avoids direct ignition / is safer",
+        "short": "Ethanol is highly flammable and is not heated. Shake the sample with ethanol, then add water.",
         "steps": [
-          "ethanol is highly flammable",
-          "a water bath avoids direct ignition / is safer",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
-          "Suggested answer: ethanol is highly flammable; a water bath avoids direct ignition / is safer"
+          "ethanol is highly flammable, so do not heat it over a naked flame",
+          "the emulsion test shakes the sample with ethanol and then adds water",
+          "heating ethanol is not a required step",
+          "Both points are required."
         ],
-        "commonError": "Answering generally without covering every requested part or mark point.",
-        "remember": "ethanol is highly flammable; a water bath avoids direct ignition / is safer"
+        "commonError": "Saying that the emulsion test requires ethanol to be heated.",
+        "remember": "Ethanol is highly flammable. The emulsion test does not heat it: shake with ethanol, then add water."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -1373,7 +1402,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-1-2",
@@ -1411,7 +1441,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-protein-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-1-3",
@@ -1449,7 +1480,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-protein-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-1-4",
@@ -1487,7 +1519,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-protein-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-1-5",
@@ -1525,7 +1558,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-1-6",
@@ -1563,7 +1597,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-1-7",
@@ -1601,7 +1636,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-1-8",
@@ -1639,7 +1675,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-1-9",
@@ -1677,7 +1714,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-1-10",
@@ -1715,7 +1753,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-protein"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-1-11",
@@ -1753,7 +1792,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-protein"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-1-12",
@@ -1791,7 +1831,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-protein"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-1-13",
@@ -1829,7 +1870,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-1-14",
@@ -1867,7 +1909,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-1-15",
@@ -1905,7 +1948,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-1-16",
@@ -1943,7 +1987,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-none-of-these-four-nutrients"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-2-1",
@@ -1981,7 +2026,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-2-2",
@@ -2019,7 +2065,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-protein-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-2-3",
@@ -2057,7 +2104,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-protein-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-2-4",
@@ -2095,7 +2143,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-protein-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-2-5",
@@ -2133,7 +2182,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-2-6",
@@ -2171,7 +2221,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-2-7",
@@ -2209,7 +2260,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-2-8",
@@ -2247,7 +2299,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-2-9",
@@ -2285,7 +2338,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-2-10",
@@ -2323,7 +2377,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-protein"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-2-11",
@@ -2361,7 +2416,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-protein"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-2-12",
@@ -2399,7 +2455,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-protein"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-2-13",
@@ -2437,7 +2494,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-2-14",
@@ -2475,7 +2533,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-2-15",
@@ -2513,7 +2572,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-2-16",
@@ -2551,7 +2611,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-none-of-these-four-nutrients"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-3-1",
@@ -2589,7 +2650,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-3-2",
@@ -2627,7 +2689,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-protein-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-3-3",
@@ -2665,7 +2728,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-protein-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-3-4",
@@ -2703,7 +2767,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-protein-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-3-5",
@@ -2741,7 +2806,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-3-6",
@@ -2779,7 +2845,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-3-7",
@@ -2817,7 +2884,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-3-8",
@@ -2855,7 +2923,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-3-9",
@@ -2893,7 +2962,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-3-10",
@@ -2931,7 +3001,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-protein"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-3-11",
@@ -2969,7 +3040,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-protein"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-3-12",
@@ -3007,7 +3079,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-protein"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-3-13",
@@ -3045,7 +3118,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-3-14",
@@ -3083,7 +3157,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-3-15",
@@ -3121,7 +3196,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-3-16",
@@ -3159,7 +3235,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-none-of-these-four-nutrients"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-4-1",
@@ -3197,7 +3274,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-4-2",
@@ -3235,7 +3313,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-protein-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-4-3",
@@ -3273,7 +3352,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-protein-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-4-4",
@@ -3311,7 +3391,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-protein-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-4-5",
@@ -3349,7 +3430,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-4-6",
@@ -3387,7 +3469,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-4-7",
@@ -3425,7 +3508,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-4-8",
@@ -3463,7 +3547,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-lipid"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-4-9",
@@ -3501,7 +3586,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-4-10",
@@ -3539,7 +3625,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar-protein"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-4-11",
@@ -3577,7 +3664,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-protein"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-4-12",
@@ -3615,7 +3703,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-protein"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-4-13",
@@ -3653,7 +3742,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch-reducing-sugar"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-4-14",
@@ -3691,7 +3781,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-reducing-sugar"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-4-15",
@@ -3729,7 +3820,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-starch"
     },
     {
       "id": "bio-y8-food-tests-case-20261025-4-16",
@@ -3767,7 +3859,8 @@
         "instruction": "Choose one option supported by the experimental evidence."
       },
       "preview": false,
-      "ordinary": true
+      "ordinary": true,
+      "dailyConceptGroup": "bio-y8-food-tests-indicators-none-of-these-four-nutrients"
     },
     {
       "id": "bio-y8-food-tests-application-20261025-sample-separation",
@@ -4351,25 +4444,25 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mark_points",
-      "prompt": "A pupil obtains green with one heated Benedict's sample and brick-red with another. Explain what this suggests and one limitation.",
+      "prompt": "Two equal volumes of food extract are mixed with equal volumes of fresh Benedict's solution and heated for the same time in the same hot-water bath. One gives a green precipitate and the other a brick-red precipitate. Explain what this suggests about the relative reducing-sugar concentrations and one limitation of the comparison.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "brick-red suggests a greater amount of reducing sugar than green",
-          "the colour test gives an approximate result rather than an exact concentration"
+          "With these controlled conditions, brick-red suggests a greater reducing-sugar concentration than green.",
+          "The colour result gives only a rough comparison, not an exact concentration."
         ],
         "totalMarks": 2,
-        "modelAnswer": "brick-red suggests a greater amount of reducing sugar than green; the colour test gives an approximate result rather than an exact concentration"
+        "modelAnswer": "With these controlled conditions, brick-red suggests a greater reducing-sugar concentration than green. The colour result gives only a rough comparison, not an exact concentration."
       },
       "stimulus": {},
       "feedback": {
-        "short": "brick-red suggests a greater amount of reducing sugar than green; the colour test gives an approximate result rather than an exact concentration",
+        "short": "With these controlled conditions, brick-red suggests a greater reducing-sugar concentration than green. The colour result gives only a rough comparison, not an exact concentration.",
         "steps": [
-          "brick-red suggests a greater amount of reducing sugar than green",
-          "the colour test gives an approximate result rather than an exact concentration"
+          "With these controlled conditions, brick-red suggests a greater reducing-sugar concentration than green.",
+          "The colour result gives only a rough comparison, not an exact concentration."
         ],
         "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
         "remember": "Use the observations, not guesses, to identify food groups."
@@ -4567,25 +4660,25 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mark_points",
-      "prompt": "An unknown sample gives four negative food tests. Explain what can and cannot be concluded.",
+      "prompt": "Positive and negative controls work correctly. An unknown sample gives negative results in the iodine, heated Benedict's, Biuret and ethanol emulsion tests. Explain what these results show and one limitation.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "none of starch reducing sugar protein or lipid were detected by these tests",
-          "a negative test does not prove the food contains no nutrients of any kind"
+          "None of starch, reducing sugar, protein or lipid was detected under the test conditions.",
+          "The results do not prove that there are no nutrients: other nutrients or amounts below the detection limit may still be present."
         ],
         "totalMarks": 2,
-        "modelAnswer": "none of starch reducing sugar protein or lipid were detected by these tests; a negative test does not prove the food contains no nutrients of any kind"
+        "modelAnswer": "None of starch, reducing sugar, protein or lipid was detected under the test conditions. The results do not prove that there are no nutrients: other nutrients or amounts below the detection limit may still be present."
       },
       "stimulus": {},
       "feedback": {
-        "short": "none of starch reducing sugar protein or lipid were detected by these tests; a negative test does not prove the food contains no nutrients of any kind",
+        "short": "None of starch, reducing sugar, protein or lipid was detected under the test conditions. The results do not prove that there are no nutrients: other nutrients or amounts below the detection limit may still be present.",
         "steps": [
-          "none of starch reducing sugar protein or lipid were detected by these tests",
-          "a negative test does not prove the food contains no nutrients of any kind"
+          "None of starch, reducing sugar, protein or lipid was detected under the test conditions.",
+          "The results do not prove that there are no nutrients: other nutrients or amounts below the detection limit may still be present."
         ],
         "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
         "remember": "Use the observations, not guesses, to identify food groups."
@@ -5264,7 +5357,9 @@
         "accepted": [
           "blue",
           "remains blue",
-          "stays blue"
+          "stays blue",
+          "blue colour",
+          "the solution stays blue"
         ],
         "totalMarks": 1
       },
@@ -5302,7 +5397,10 @@
           "no fat detected",
           "fat not detected",
           "no lipid was detected",
-          "no fat was detected"
+          "no fat was detected",
+          "no lipids were found",
+          "no fats detected",
+          "lipids were not detected"
         ],
         "totalMarks": 1
       },
@@ -5339,7 +5437,10 @@
           "yellow",
           "orange",
           "brick red",
-          "brick-red"
+          "brick-red",
+          "orange precipitate",
+          "red precipitate",
+          "yellow precipitate"
         ],
         "totalMarks": 1
       },
@@ -5376,7 +5477,9 @@
           "orange-brown",
           "brown",
           "yellow brown",
-          "yellow-brown"
+          "yellow-brown",
+          "yellowish brown",
+          "iodine remains yellow-brown"
         ],
         "totalMarks": 1
       },
@@ -5411,7 +5514,9 @@
         "accepted": [
           "water bath",
           "a water bath",
-          "hot water bath"
+          "hot water bath",
+          "a beaker containing hot water",
+          "a heated water bath"
         ],
         "totalMarks": 1
       },

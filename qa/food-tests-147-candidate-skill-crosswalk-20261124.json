@@ -1,0 +1,5357 @@
+{
+  "kind": "QA-only 147-candidate provisional atomic skill crosswalk; conservative rotation conflicts, not independent mastery approval",
+  "date": "2026-11-24",
+  "sourceHead": "8f269a7e150037316ca157c193f7f0f7eca22963",
+  "sourceFiles": [
+    {
+      "path": "qa/food-tests-structured-99-point-review-candidate-20261122.json",
+      "blob": "41f3fa27d3c407fd8991f2181b6aead4d9a56f2d"
+    },
+    {
+      "path": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
+      "blob": "261ca1034387b8eabef2e025c8776929b58ef446"
+    }
+  ],
+  "counts": {
+    "structured": 99,
+    "replacement": 48,
+    "records": 147,
+    "distinctProvisionalSkillTags": 62,
+    "sharedSkillOrSiblingConflicts": 353,
+    "crossPoolConflicts": 151,
+    "multiSkillItems": 34,
+    "approved": 0,
+    "explicitRelatedConflicts": 1,
+    "totalRotationConflicts": 354,
+    "priorSpecificFlagsCovered": 17
+  },
+  "policy": {
+    "release": "BLOCKED",
+    "formalCreditEligible": false,
+    "liveSelectorChanged": false,
+    "allowMultiSkillItemToEarnMultipleMasteryCredits": false,
+    "rotation": "QA simulation only: reject pairs sharing a tag, original source ID, or explicitly recorded prior related-risk edge. Tags are conservative overlap labels, not a claim of identical learning objectives. Do not apply to formal marks in written assessments.",
+    "sourceSiblings": "Multiple parts of a single original question are not independent Daily exposures; they can still measure different rubric marks within a written assessment.",
+    "scope": "Only the 99 structured points and 48 replacements; recall, matching, typed and 16 retained cases must be mapped before any live selector adoption.",
+    "review": "Provisional AI content mapping. Conservative broad tags are intentional; qualified review required before credit or scheduling.",
+    "relatedRiskNote": "The mouth-pipetting versus wall-directed dispensing pair is a related safety precaution, not an identical atomic skill; keep separate tags and an explicit conservative rotation edge."
+  },
+  "groups": {
+    "iodine-target": [
+      "bio-y8-food-tests-iodine-solution-explain::p1",
+      "bio-y8-food-tests-application-20261025-test-plan::p1",
+      "bio-y8-food-tests-application-20261025-wrong-reagent::p1",
+      "bio-y8-food-tests-application-20261025-iodine-no-heat::p2"
+    ],
+    "benedict-target": [
+      "bio-y8-food-tests-benedict-s-solution-explain::p1",
+      "bio-y8-app-benedicts-method::p1",
+      "bio-y8-food-tests-application-20261025-sugar-analysis::p1"
+    ],
+    "biuret-target": [
+      "bio-y8-food-tests-biuret-solution-explain::p1",
+      "bio-y8-food-tests-application-20261025-cloudy-not-protein::p2",
+      "bio-y8-food-tests-application-20261025-wrong-reagent::p2"
+    ],
+    "emulsion-sequence": [
+      "bio-y8-food-tests-ethanol-emulsion-test-explain::p1",
+      "bio-y8-app-ethanol-safety::p2",
+      "bio-y8-food-tests-application-20261025-test-plan::p2"
+    ],
+    "iodine-positive": [
+      "bio-y8-food-tests-blue-black-explain::p1",
+      "bio-y8-food-tests-application-20261025-starch-vs-glucose::p1",
+      "bio-y8-food-tests-application-20261025-test-plan::p1",
+      "bio-y8-food-tests-application-20261025-iodine-no-heat::p2",
+      "bio-y8-food-tests-application-20261025-unknown-analysis::p1",
+      "bio-y8-food-tests-case-20261025-2-3"
+    ],
+    "benedict-strength": [
+      "bio-y8-food-tests-brick-red-explain::p1",
+      "bio-y8-food-tests-application-20261025-sugar-strength::p1"
+    ],
+    "biuret-positive": [
+      "bio-y8-food-tests-lilac-or-purple-explain::p1",
+      "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p1",
+      "bio-y8-food-tests-application-20261025-recording::p2",
+      "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p1",
+      "bio-y8-food-tests-application-20261025-unknown-analysis::p2",
+      "bio-y8-food-tests-case-20261025-2-2",
+      "bio-y8-food-tests-case-20261025-2-3",
+      "bio-y8-food-tests-case-20261025-4-16"
+    ],
+    "emulsion-positive": [
+      "bio-y8-food-tests-cloudy-white-emulsion-explain::p1",
+      "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p2",
+      "bio-y8-food-tests-application-20261025-cloudy-not-protein::p1",
+      "bio-y8-food-tests-application-20261025-lipid-vs-starch::p1",
+      "bio-y8-food-tests-application-20261025-test-plan::p2",
+      "bio-y8-food-tests-case-20261025-2-8"
+    ],
+    "benedict-heating": [
+      "bio-y8-food-tests-water-bath-explain::p1",
+      "bio-y8-app-benedicts-method::p2",
+      "bio-y8-food-tests-application-20261025-benedict-no-heat::p1",
+      "bio-y8-food-tests-application-20261025-benedict-no-heat::p2"
+    ],
+    "ethanol-no-heat": [
+      "bio-y8-food-tests-water-bath-explain::p2",
+      "bio-y8-food-tests-case-20261025-4-2"
+    ],
+    "benedict-positive": [
+      "bio-y8-app-benedicts-method::p3",
+      "bio-y8-food-tests-application-20261025-positive-sugar::p1",
+      "bio-y8-food-tests-application-20261025-positive-sugar::p2",
+      "bio-y8-food-tests-application-20261025-sugar-vs-starch::p1",
+      "bio-y8-food-tests-application-20261025-sugar-analysis::p1",
+      "bio-y8-food-tests-case-20261025-2-1",
+      "bio-y8-food-tests-case-20261025-2-4",
+      "bio-y8-food-tests-case-20261025-2-15"
+    ],
+    "ethanol-flammability": [
+      "bio-y8-app-ethanol-safety::p1",
+      "bio-y8-food-tests-application-20261025-safe-bunsen::p1"
+    ],
+    "separate-reagents": [
+      "bio-y8-food-tests-application-20261025-sample-separation::p1",
+      "bio-y8-food-tests-application-20261025-sample-separation::p2"
+    ],
+    "repeat-fresh": [
+      "bio-y8-food-tests-application-20261025-iodine-repeat::p1",
+      "bio-y8-food-tests-application-20261025-weak-blueblack::p1",
+      "bio-y8-food-tests-application-20261025-uncertain-emulsion::p2",
+      "bio-y8-food-tests-case-20261025-3-6",
+      "bio-y8-food-tests-case-20261025-4-11"
+    ],
+    "fair-sample-volume": [
+      "bio-y8-food-tests-application-20261025-iodine-repeat::p2",
+      "bio-y8-food-tests-application-20261025-repeatability::p1",
+      "bio-y8-food-tests-case-20261025-3-5"
+    ],
+    "fair-reagent-volume": [
+      "bio-y8-food-tests-application-20261025-iodine-repeat::p2",
+      "bio-y8-food-tests-application-20261025-fair-reagent::p1",
+      "bio-y8-food-tests-application-20261025-fair-reagent::p2",
+      "bio-y8-food-tests-case-20261025-3-2"
+    ],
+    "benedict-negative": [
+      "bio-y8-food-tests-application-20261025-benedict-no-heat::p2",
+      "bio-y8-food-tests-application-20261025-negative-sugar::p1",
+      "bio-y8-food-tests-application-20261025-negative-sugar::p2",
+      "bio-y8-food-tests-application-20261025-starch-vs-glucose::p2",
+      "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p2",
+      "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "bio-y8-food-tests-application-20261025-result-not-proof::p1",
+      "bio-y8-food-tests-case-20261025-2-2",
+      "bio-y8-food-tests-case-20261025-2-14",
+      "bio-y8-food-tests-case-20261025-4-10",
+      "bio-y8-food-tests-case-20261025-4-12"
+    ],
+    "biuret-negative-control": [
+      "bio-y8-food-tests-application-20261025-biuret-control::p1",
+      "bio-y8-food-tests-application-20261025-biuret-control::p2",
+      "bio-y8-food-tests-case-20261025-2-6"
+    ],
+    "iodine-positive-control": [
+      "bio-y8-food-tests-application-20261025-iodine-control::p1",
+      "bio-y8-food-tests-application-20261025-iodine-control::p2",
+      "bio-y8-food-tests-application-20261025-weak-blueblack::p2",
+      "bio-y8-food-tests-case-20261025-2-11",
+      "bio-y8-food-tests-case-20261025-3-9"
+    ],
+    "fair-temperature": [
+      "bio-y8-food-tests-application-20261025-repeatability::p2",
+      "bio-y8-food-tests-application-20261025-temperature-safety::p1",
+      "bio-y8-food-tests-case-20261025-3-3",
+      "bio-y8-food-tests-case-20261025-4-3"
+    ],
+    "fair-duration": [
+      "bio-y8-food-tests-application-20261025-repeatability::p2",
+      "bio-y8-food-tests-application-20261025-heat-variable::p1",
+      "bio-y8-food-tests-application-20261025-heat-variable::p2",
+      "bio-y8-food-tests-case-20261025-2-14",
+      "bio-y8-food-tests-case-20261025-3-4"
+    ],
+    "cross-contamination": [
+      "bio-y8-food-tests-application-20261025-cross-contamination::p1",
+      "bio-y8-food-tests-application-20261025-cross-contamination::p2",
+      "bio-y8-food-tests-application-20261025-glassware::p2",
+      "bio-y8-food-tests-case-20261025-3-16"
+    ],
+    "emulsion-extraction": [
+      "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p1"
+    ],
+    "emulsion-water-stage": [
+      "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p2",
+      "bio-y8-food-tests-application-20261025-retest-ethanol::p2",
+      "bio-y8-food-tests-case-20261025-2-7"
+    ],
+    "ethanol-ignition-control": [
+      "bio-y8-food-tests-application-20261025-ethanol-ventilation::p1",
+      "bio-y8-food-tests-application-20261025-safe-bunsen::p2"
+    ],
+    "eye-protection": [
+      "bio-y8-food-tests-application-20261025-ethanol-ventilation::p2",
+      "bio-y8-food-tests-application-20261025-eyes::p1",
+      "bio-y8-food-tests-case-20261025-4-6"
+    ],
+    "hot-tube-holder": [
+      "bio-y8-food-tests-application-20261025-benedict-hot-tube::p1",
+      "bio-y8-food-tests-case-20261025-4-4"
+    ],
+    "tube-direction": [
+      "bio-y8-food-tests-application-20261025-benedict-hot-tube::p2",
+      "bio-y8-food-tests-case-20261025-4-5"
+    ],
+    "crushing-exposure": [
+      "bio-y8-food-tests-application-20261025-protein-extraction::p1",
+      "bio-y8-food-tests-application-20261025-starch-extraction::p1",
+      "bio-y8-food-tests-application-20261025-starch-extraction::p2"
+    ],
+    "aqueous-extraction": [
+      "bio-y8-food-tests-application-20261025-protein-extraction::p2"
+    ],
+    "fair-sample-mass": [
+      "bio-y8-food-tests-application-20261025-fair-amount::p1",
+      "bio-y8-food-tests-application-20261025-fair-amount::p2",
+      "bio-y8-food-tests-case-20261025-3-1"
+    ],
+    "benedict-quantitation-limit": [
+      "bio-y8-food-tests-application-20261025-sugar-strength::p2"
+    ],
+    "iodine-negative": [
+      "bio-y8-food-tests-application-20261025-sugar-vs-starch::p2",
+      "bio-y8-food-tests-application-20261025-lipid-vs-starch::p2",
+      "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "bio-y8-food-tests-application-20261025-sugar-analysis::p2",
+      "bio-y8-food-tests-case-20261025-2-1",
+      "bio-y8-food-tests-case-20261025-2-9",
+      "bio-y8-food-tests-case-20261025-4-12",
+      "bio-y8-food-tests-case-20261025-4-15"
+    ],
+    "biuret-negative": [
+      "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "bio-y8-food-tests-application-20261025-sugar-analysis::p3",
+      "bio-y8-food-tests-case-20261025-2-12",
+      "bio-y8-food-tests-case-20261025-4-12"
+    ],
+    "emulsion-negative": [
+      "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p2",
+      "bio-y8-food-tests-application-20261025-unknown-analysis::p3",
+      "bio-y8-food-tests-case-20261025-2-15",
+      "bio-y8-food-tests-case-20261025-2-16",
+      "bio-y8-food-tests-case-20261025-4-12"
+    ],
+    "detection-limit": [
+      "bio-y8-food-tests-application-20261025-all-negative::p2",
+      "bio-y8-food-tests-case-20261025-4-12"
+    ],
+    "untested-nutrients": [
+      "bio-y8-food-tests-application-20261025-all-negative::p2",
+      "bio-y8-food-tests-case-20261025-2-3",
+      "bio-y8-food-tests-case-20261025-2-9",
+      "bio-y8-food-tests-case-20261025-2-16",
+      "bio-y8-food-tests-case-20261025-4-12"
+    ],
+    "emulsion-precloudiness": [
+      "bio-y8-food-tests-application-20261025-retest-ethanol::p1",
+      "bio-y8-food-tests-application-20261025-retest-ethanol::p2",
+      "bio-y8-food-tests-case-20261025-2-7"
+    ],
+    "sample-label": [
+      "bio-y8-food-tests-application-20261025-glassware::p1",
+      "bio-y8-food-tests-case-20261025-3-15"
+    ],
+    "gentle-dispensing": [
+      "bio-y8-food-tests-application-20261025-eyes::p2"
+    ],
+    "no-tasting": [
+      "bio-y8-food-tests-application-20261025-no-taste::p1",
+      "bio-y8-food-tests-application-20261025-no-taste::p2",
+      "bio-y8-food-tests-case-20261025-4-7"
+    ],
+    "record-test-label": [
+      "bio-y8-food-tests-application-20261025-recording::p1"
+    ],
+    "record-observation-inference": [
+      "bio-y8-food-tests-application-20261025-recording::p2"
+    ],
+    "diet-composition-limit": [
+      "bio-y8-food-tests-application-20261025-inference::p1",
+      "bio-y8-food-tests-application-20261025-inference::p2",
+      "bio-y8-food-tests-case-20261025-4-13"
+    ],
+    "iodine-negative-control": [
+      "bio-y8-food-tests-application-20261025-weak-blueblack::p2",
+      "bio-y8-food-tests-case-20261025-2-10",
+      "bio-y8-food-tests-case-20261025-3-10"
+    ],
+    "controlled-heating": [
+      "bio-y8-food-tests-application-20261025-temperature-safety::p2",
+      "bio-y8-food-tests-case-20261025-4-3"
+    ],
+    "sweetness-not-reducing-sugar": [
+      "bio-y8-food-tests-application-20261025-result-not-proof::p2",
+      "bio-y8-food-tests-case-20261025-4-10",
+      "bio-y8-food-tests-case-20261025-4-15"
+    ],
+    "emulsion-blank-failure": [
+      "bio-y8-food-tests-application-20261025-uncertain-emulsion::p1",
+      "bio-y8-food-tests-application-20261025-uncertain-emulsion::p2"
+    ],
+    "iodine-room-temperature": [
+      "bio-y8-food-tests-application-20261025-iodine-no-heat::p1"
+    ],
+    "benedict-positive-control": [
+      "bio-y8-food-tests-case-20261025-2-5",
+      "bio-y8-food-tests-case-20261025-3-11"
+    ],
+    "control-failure": [
+      "bio-y8-food-tests-case-20261025-2-5",
+      "bio-y8-food-tests-case-20261025-2-6",
+      "bio-y8-food-tests-case-20261025-2-10",
+      "bio-y8-food-tests-case-20261025-2-11",
+      "bio-y8-food-tests-case-20261025-2-13"
+    ],
+    "biuret-positive-control": [
+      "bio-y8-food-tests-case-20261025-2-12",
+      "bio-y8-food-tests-case-20261025-3-8"
+    ],
+    "benedict-negative-control": [
+      "bio-y8-food-tests-case-20261025-2-13",
+      "bio-y8-food-tests-case-20261025-3-12"
+    ],
+    "pigment-masking": [
+      "bio-y8-food-tests-case-20261025-3-7"
+    ],
+    "emulsion-positive-control": [
+      "bio-y8-food-tests-case-20261025-3-13"
+    ],
+    "emulsion-negative-control": [
+      "bio-y8-food-tests-case-20261025-3-14"
+    ],
+    "ethanol-storage": [
+      "bio-y8-food-tests-case-20261025-4-1"
+    ],
+    "safe-pipetting": [
+      "bio-y8-food-tests-case-20261025-4-8"
+    ],
+    "ethanol-spill": [
+      "bio-y8-food-tests-case-20261025-4-9"
+    ],
+    "inconsistent-results": [
+      "bio-y8-food-tests-case-20261025-4-11"
+    ],
+    "fair-emulsion-dilution": [
+      "bio-y8-food-tests-case-20261025-4-14"
+    ],
+    "protein-quantitation-limit": [
+      "bio-y8-food-tests-case-20261025-4-16"
+    ]
+  },
+  "records": [
+    {
+      "pool": "structured",
+      "ordinal": 1,
+      "id": "bio-y8-food-tests-iodine-solution-explain::p1",
+      "sourceId": "bio-y8-food-tests-iodine-solution-explain",
+      "stem": "Which substance does iodine solution detect in a food sample?",
+      "key": "Starch",
+      "skills": [
+        "iodine-target"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 2,
+      "id": "bio-y8-food-tests-benedict-s-solution-explain::p1",
+      "sourceId": "bio-y8-food-tests-benedict-s-solution-explain",
+      "stem": "Which substance is detected by heating a food extract with Benedict’s solution?",
+      "key": "Reducing sugar",
+      "skills": [
+        "benedict-target"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 3,
+      "id": "bio-y8-food-tests-biuret-solution-explain::p1",
+      "sourceId": "bio-y8-food-tests-biuret-solution-explain",
+      "stem": "What does Biuret reagent detect in a food extract?",
+      "key": "Protein",
+      "skills": [
+        "biuret-target"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 4,
+      "id": "bio-y8-food-tests-ethanol-emulsion-test-explain::p1",
+      "sourceId": "bio-y8-food-tests-ethanol-emulsion-test-explain",
+      "stem": "Which treatment is used to test a food for lipid?",
+      "key": "Mix with ethanol, then add the extract to water",
+      "skills": [
+        "emulsion-sequence"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 5,
+      "id": "bio-y8-food-tests-blue-black-explain::p1",
+      "sourceId": "bio-y8-food-tests-blue-black-explain",
+      "stem": "Iodine solution on a piece of bread turns blue-black. What does this indicate?",
+      "key": "Starch is present",
+      "skills": [
+        "iodine-positive"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 6,
+      "id": "bio-y8-food-tests-brick-red-explain::p1",
+      "sourceId": "bio-y8-food-tests-brick-red-explain",
+      "stem": "Which appearance indicates a strong positive result after heating with Benedict’s solution?",
+      "key": "A brick-red precipitate",
+      "skills": [
+        "benedict-strength"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 7,
+      "id": "bio-y8-food-tests-lilac-or-purple-explain::p1",
+      "sourceId": "bio-y8-food-tests-lilac-or-purple-explain",
+      "stem": "Which colour indicates a positive Biuret test?",
+      "key": "Lilac",
+      "skills": [
+        "biuret-positive"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 8,
+      "id": "bio-y8-food-tests-cloudy-white-emulsion-explain::p1",
+      "sourceId": "bio-y8-food-tests-cloudy-white-emulsion-explain",
+      "stem": "What would you see if water were added to a clear ethanol extract containing lipid?",
+      "key": "A milky white emulsion",
+      "skills": [
+        "emulsion-positive"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 9,
+      "id": "bio-y8-food-tests-water-bath-explain::p1",
+      "sourceId": "bio-y8-food-tests-water-bath-explain",
+      "stem": "In which test is a hot-water bath used to heat the reaction mixture?",
+      "key": "Benedict’s test",
+      "skills": [
+        "benedict-heating"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 10,
+      "id": "bio-y8-food-tests-water-bath-explain::p2",
+      "sourceId": "bio-y8-food-tests-water-bath-explain",
+      "stem": "At what stage is heating needed in the ethanol emulsion test?",
+      "key": "Neither stage requires heating",
+      "skills": [
+        "ethanol-no-heat"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 11,
+      "id": "bio-y8-app-benedicts-method::p1",
+      "sourceId": "bio-y8-app-benedicts-method",
+      "stem": "Which reagent should be added to a food extract to test for reducing sugar?",
+      "key": "Benedict’s solution",
+      "skills": [
+        "benedict-target"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 12,
+      "id": "bio-y8-app-benedicts-method::p2",
+      "sourceId": "bio-y8-app-benedicts-method",
+      "stem": "How should the food extract mixed with Benedict’s solution be warmed?",
+      "key": "Place the tube in a hot-water bath",
+      "skills": [
+        "benedict-heating"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 13,
+      "id": "bio-y8-app-benedicts-method::p3",
+      "sourceId": "bio-y8-app-benedicts-method",
+      "stem": "Which change on heating with Benedict’s solution supports a positive result?",
+      "key": "Blue to orange with a precipitate",
+      "skills": [
+        "benedict-positive"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 14,
+      "id": "bio-y8-app-ethanol-safety::p1",
+      "sourceId": "bio-y8-app-ethanol-safety",
+      "stem": "Which property of ethanol creates a fire risk during the lipid test?",
+      "key": "It gives off flammable vapour",
+      "skills": [
+        "ethanol-flammability"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 15,
+      "id": "bio-y8-app-ethanol-safety::p2",
+      "sourceId": "bio-y8-app-ethanol-safety",
+      "stem": "Which method tests a seed for lipid?",
+      "key": "Shake crushed seed with ethanol, then add the clear extract to water at room temperature",
+      "skills": [
+        "emulsion-sequence"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 16,
+      "id": "bio-y8-food-tests-application-20261025-sample-separation::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-sample-separation",
+      "stem": "Why might adding Benedict’s reagent to a tube already used for an iodine test mislead a pupil?",
+      "key": "The first reagent can affect the second test or mask its colour",
+      "skills": [
+        "separate-reagents"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 17,
+      "id": "bio-y8-food-tests-application-20261025-sample-separation::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-sample-separation",
+      "stem": "How should a pupil prepare a drink for two different food tests?",
+      "key": "Divide the mixed drink between two clean tubes before adding reagents",
+      "skills": [
+        "separate-reagents"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 18,
+      "id": "bio-y8-food-tests-application-20261025-iodine-repeat::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-iodine-repeat",
+      "stem": "Two iodine tests on different portions of the same food disagree. Which action gives an independent repeat using that same food?",
+      "key": "Test another freshly prepared portion",
+      "skills": [
+        "repeat-fresh"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 19,
+      "id": "bio-y8-food-tests-application-20261025-iodine-repeat::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-iodine-repeat",
+      "stem": "Two repeats will use the same food extract and iodine stock. What should be matched when dispensing them?",
+      "key": "The volume of extract and the volume of iodine in each tube",
+      "skills": [
+        "fair-sample-volume",
+        "fair-reagent-volume"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 20,
+      "id": "bio-y8-food-tests-application-20261025-benedict-no-heat::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-benedict-no-heat",
+      "stem": "A known glucose solution remains blue with Benedict’s reagent at room temperature. Which step was missed?",
+      "key": "Heating the mixture in a hot-water bath",
+      "skills": [
+        "benedict-heating"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 21,
+      "id": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-benedict-no-heat",
+      "stem": "Why is a blue result from an unheated Benedict’s test inconclusive?",
+      "key": "A sample containing reducing sugar may still appear blue without heating",
+      "skills": [
+        "benedict-heating",
+        "benedict-negative"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 22,
+      "id": "bio-y8-food-tests-application-20261025-negative-sugar::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-negative-sugar",
+      "stem": "What observation should be recorded for a negative Benedict’s test after suitable heating?",
+      "key": "The mixture remained blue",
+      "skills": [
+        "benedict-negative"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 23,
+      "id": "bio-y8-food-tests-application-20261025-negative-sugar::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-negative-sugar",
+      "stem": "A correctly heated Benedict’s test stays blue and the controls work. What can be reported?",
+      "key": "Reducing sugar was not detected",
+      "skills": [
+        "benedict-negative"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 24,
+      "id": "bio-y8-food-tests-application-20261025-positive-sugar::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-positive-sugar",
+      "stem": "Which observation distinguishes a positive heated Benedict’s tube from a blue negative control?",
+      "key": "An orange precipitate appears in the sample tube",
+      "skills": [
+        "benedict-positive"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 25,
+      "id": "bio-y8-food-tests-application-20261025-positive-sugar::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-positive-sugar",
+      "stem": "What does an orange precipitate in a properly heated Benedict’s test indicate?",
+      "key": "Reducing sugar was detected",
+      "skills": [
+        "benedict-positive"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 26,
+      "id": "bio-y8-food-tests-application-20261025-biuret-control::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-biuret-control",
+      "stem": "Which sample makes a suitable negative control for a Biuret test?",
+      "key": "Distilled water",
+      "skills": [
+        "biuret-negative-control"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 27,
+      "id": "bio-y8-food-tests-application-20261025-biuret-control::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-biuret-control",
+      "stem": "What appearance is expected when Biuret reagent is added to a clean water control?",
+      "key": "It stays blue",
+      "skills": [
+        "biuret-negative-control"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 28,
+      "id": "bio-y8-food-tests-application-20261025-iodine-control::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-iodine-control",
+      "stem": "Which material should be used as the known positive control for the iodine test?",
+      "key": "Starch suspension",
+      "skills": [
+        "iodine-positive-control"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 29,
+      "id": "bio-y8-food-tests-application-20261025-iodine-control::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-iodine-control",
+      "stem": "How should a working iodine reagent look when mixed with its starch control?",
+      "key": "Blue-black",
+      "skills": [
+        "iodine-positive-control"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 30,
+      "id": "bio-y8-food-tests-application-20261025-repeatability::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-repeatability",
+      "stem": "When repeating a reducing-sugar test from one stock extract, what should be matched as the extract is dispensed?",
+      "key": "The volume of extract in each tube",
+      "skills": [
+        "fair-sample-volume"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 31,
+      "id": "bio-y8-food-tests-application-20261025-repeatability::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-repeatability",
+      "stem": "A pupil compares the final Benedict's colours from equal samples after heating. Which conditions must be the same for those endpoint colours to be compared fairly?",
+      "key": "Same bath temperature and same heating time",
+      "skills": [
+        "fair-temperature",
+        "fair-duration"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 32,
+      "id": "bio-y8-food-tests-application-20261025-cross-contamination::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-cross-contamination",
+      "stem": "How could glucose enter a sugar-free sample when a pipette is reused?",
+      "key": "The same pipette transfers a drop of glucose solution left from an earlier sample",
+      "skills": [
+        "cross-contamination"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 33,
+      "id": "bio-y8-food-tests-application-20261025-cross-contamination::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-cross-contamination",
+      "stem": "A pipette carries glucose into a sugar-free sample. What error could follow in a heated Benedict’s test?",
+      "key": "A false positive for reducing sugar",
+      "skills": [
+        "cross-contamination"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 34,
+      "id": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages",
+      "stem": "Which step extracts lipid from a crushed seed before testing the extract?",
+      "key": "Shake the seed with ethanol",
+      "skills": [
+        "emulsion-extraction"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 35,
+      "id": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages",
+      "stem": "A clear ethanol extract of a seed is ready. What is the next step and positive observation?",
+      "key": "Add it to water and look for milkiness",
+      "skills": [
+        "emulsion-water-stage",
+        "emulsion-positive"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 36,
+      "id": "bio-y8-food-tests-application-20261025-ethanol-ventilation::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-ethanol-ventilation",
+      "stem": "Which preparation addresses the fire hazard before opening ethanol?",
+      "key": "Extinguish nearby flames and keep ignition sources away",
+      "skills": [
+        "ethanol-ignition-control"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 37,
+      "id": "bio-y8-food-tests-application-20261025-ethanol-ventilation::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-ethanol-ventilation",
+      "stem": "Which item protects the eyes against splashes when mixing ethanol and water?",
+      "key": "Splash goggles",
+      "skills": [
+        "eye-protection"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 38,
+      "id": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-benedict-hot-tube",
+      "stem": "Why use a holder to lift a heated Benedict’s tube?",
+      "key": "Hot glass can burn the hand",
+      "skills": [
+        "hot-tube-holder"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 39,
+      "id": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-benedict-hot-tube",
+      "stem": "Why point the mouth of a heated test tube away from people?",
+      "key": "Hot liquid can spit or splash out towards whoever the tube faces",
+      "skills": [
+        "tube-direction"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 40,
+      "id": "bio-y8-food-tests-application-20261025-protein-extraction::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-protein-extraction",
+      "stem": "A pupil crushes a solid food sample before adding water to make an extract for a protein test. What does crushing mainly achieve?",
+      "key": "More of the inside of the food is exposed",
+      "skills": [
+        "crushing-exposure"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 41,
+      "id": "bio-y8-food-tests-application-20261025-protein-extraction::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-protein-extraction",
+      "stem": "A pupil has crushed a food sample and now needs a liquid portion for a Biuret protein test. What is the purpose of mixing it with water?",
+      "key": "Soluble material can pass into the liquid for testing",
+      "skills": [
+        "aqueous-extraction"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 42,
+      "id": "bio-y8-food-tests-application-20261025-starch-extraction::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-starch-extraction",
+      "stem": "What physical change occurs when a potato cube is broken into small fragments?",
+      "key": "More surface is exposed for the same mass",
+      "skills": [
+        "crushing-exposure"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 43,
+      "id": "bio-y8-food-tests-application-20261025-starch-extraction::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-starch-extraction",
+      "stem": "Why may iodine reveal starch more readily on a crushed potato than on its intact skin?",
+      "key": "Iodine can reach starch in exposed tissue",
+      "skills": [
+        "crushing-exposure"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 44,
+      "id": "bio-y8-food-tests-application-20261025-fair-amount::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-fair-amount",
+      "stem": "Which variable is controlled by weighing equal portions of two breads for an iodine comparison?",
+      "key": "Mass of bread tested",
+      "skills": [
+        "fair-sample-mass"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 45,
+      "id": "bio-y8-food-tests-application-20261025-fair-amount::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-fair-amount",
+      "stem": "Two breads are tested with iodine using a large piece of one and a tiny crumb of the other. Why does this make the test conditions less comparable?",
+      "key": "Different sample masses could affect the observed iodine result, so the samples should be prepared with equal measured masses.",
+      "skills": [
+        "fair-sample-mass"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 46,
+      "id": "bio-y8-food-tests-application-20261025-fair-reagent::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-fair-reagent",
+      "stem": "One tube receives 1 mL of Benedict’s reagent and another receives 4 mL. Which factor was varied?",
+      "key": "Volume of reagent",
+      "skills": [
+        "fair-reagent-volume"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 47,
+      "id": "bio-y8-food-tests-application-20261025-fair-reagent::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-fair-reagent",
+      "stem": "Why is a colour comparison difficult when different volumes of Benedict’s reagent were added?",
+      "key": "The reagent-to-sample ratio could affect the observed result",
+      "skills": [
+        "fair-reagent-volume"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 48,
+      "id": "bio-y8-food-tests-application-20261025-sugar-strength::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-sugar-strength",
+      "stem": "Equal volumes of two extracts are tested with identical reagent and heating conditions. One gives green and the other brick-red. Which inference is supported?",
+      "key": "The brick-red sample probably contained more reducing sugar per mL",
+      "skills": [
+        "benedict-strength"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 49,
+      "id": "bio-y8-food-tests-application-20261025-sugar-strength::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-sugar-strength",
+      "stem": "What can a visual comparison of green and brick-red Benedict’s results establish without calibration?",
+      "key": "A rough ranking of reducing-sugar concentrations",
+      "skills": [
+        "benedict-quantitation-limit"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 50,
+      "id": "bio-y8-food-tests-application-20261025-cloudy-not-protein::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-cloudy-not-protein",
+      "stem": "A clear ethanol extract turns milky when added to water. Which nutrient does this support?",
+      "key": "Lipid",
+      "skills": [
+        "emulsion-positive"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 51,
+      "id": "bio-y8-food-tests-application-20261025-cloudy-not-protein::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-cloudy-not-protein",
+      "stem": "Which separate reagent would test a fresh portion of the same food for protein?",
+      "key": "Biuret reagent",
+      "skills": [
+        "biuret-target"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 52,
+      "id": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-starch-vs-glucose",
+      "stem": "Iodine becomes blue-black in a sample whose heated Benedict’s test stays blue. What does the iodine tube show?",
+      "key": "Starch was detected",
+      "skills": [
+        "iodine-positive"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 53,
+      "id": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-starch-vs-glucose",
+      "stem": "Heated Benedict’s reagent stayed blue while iodine became blue-black. What does the Benedict’s tube show?",
+      "key": "Reducing sugar was not detected",
+      "skills": [
+        "benedict-negative"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 54,
+      "id": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-sugar-vs-starch",
+      "stem": "A juice gives an orange precipitate with heated Benedict’s solution and stays brown with iodine. What does the precipitate indicate?",
+      "key": "Reducing sugar was detected",
+      "skills": [
+        "benedict-positive"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 55,
+      "id": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-sugar-vs-starch",
+      "stem": "Iodine added to a juice remains orange-brown. What does that observation support?",
+      "key": "Starch was not detected",
+      "skills": [
+        "iodine-negative"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 56,
+      "id": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-biuret-vs-sugar",
+      "stem": "An extract gives lilac with Biuret and blue with heated Benedict’s. Which conclusion follows from the lilac tube?",
+      "key": "Protein was detected",
+      "skills": [
+        "biuret-positive"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 57,
+      "id": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-biuret-vs-sugar",
+      "stem": "In an extract that tested positive for protein, heated Benedict’s solution stayed blue. What did this second test show?",
+      "key": "Reducing sugar was not detected",
+      "skills": [
+        "benedict-negative"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 58,
+      "id": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-lipid-vs-starch",
+      "stem": "An ethanol extract becomes milky in water while a separate iodine test stays brown. What does the milkiness indicate?",
+      "key": "Lipid was detected",
+      "skills": [
+        "emulsion-positive"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 59,
+      "id": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-lipid-vs-starch",
+      "stem": "Iodine stays orange-brown in a sample that gave a positive lipid test. Which conclusion follows from the iodine result?",
+      "key": "Starch was not detected",
+      "skills": [
+        "iodine-negative"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 60,
+      "id": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-all-negative",
+      "stem": "A sample gives negative iodine, heated Benedict’s, Biuret and emulsion tests. The controls work. What did the tests show?",
+      "key": "None of the four targeted nutrient groups was detected",
+      "skills": [
+        "iodine-negative",
+        "benedict-negative",
+        "biuret-negative",
+        "emulsion-negative"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 61,
+      "id": "bio-y8-food-tests-application-20261025-all-negative::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-all-negative",
+      "stem": "Why do four negative food tests with working controls still not prove that the sample contains no nutrients?",
+      "key": "The tests do not target every nutrient, and small amounts of tested nutrients may be below detection limits.",
+      "skills": [
+        "detection-limit",
+        "untested-nutrients"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 62,
+      "id": "bio-y8-food-tests-application-20261025-retest-ethanol::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-retest-ethanol",
+      "stem": "An ethanol extract is cloudy before water is added. Which possibility warrants checking the tube and extract?",
+      "key": "Residue or suspended particles may have caused the initial cloudiness",
+      "skills": [
+        "emulsion-precloudiness"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 63,
+      "id": "bio-y8-food-tests-application-20261025-retest-ethanol::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-retest-ethanol",
+      "stem": "How should an initially cloudy ethanol extract be retested to judge the emulsion endpoint?",
+      "key": "Prepare a clear ethanol extract, then add it to water and observe",
+      "skills": [
+        "emulsion-precloudiness",
+        "emulsion-water-stage"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 64,
+      "id": "bio-y8-food-tests-application-20261025-glassware::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-glassware",
+      "stem": "Why label each tube before dispensing visually similar food extracts?",
+      "key": "To match each result to the right sample",
+      "skills": [
+        "sample-label"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 65,
+      "id": "bio-y8-food-tests-application-20261025-glassware::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-glassware",
+      "stem": "Why use a clean tube for each food extract?",
+      "key": "Residue from another food could change the result",
+      "skills": [
+        "cross-contamination"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 66,
+      "id": "bio-y8-food-tests-application-20261025-eyes::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-eyes",
+      "stem": "How do splash goggles reduce risk during pipetting?",
+      "key": "They form a barrier between a splash and the eyes",
+      "skills": [
+        "eye-protection"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 67,
+      "id": "bio-y8-food-tests-application-20261025-eyes::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-eyes",
+      "stem": "Which way of dispensing reagent reduces the chance of a splash?",
+      "key": "Release it gently close to the inside wall of the tube",
+      "skills": [
+        "gentle-dispensing"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 68,
+      "id": "bio-y8-food-tests-application-20261025-heat-variable::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-heat-variable",
+      "stem": "Two samples were heated in the same bath for 20 seconds and 3 minutes respectively. Which variable differed?",
+      "key": "Heating duration",
+      "skills": [
+        "fair-duration"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 69,
+      "id": "bio-y8-food-tests-application-20261025-heat-variable::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-heat-variable",
+      "stem": "Why can different heating times mislead a comparison of Benedict’s colours?",
+      "key": "The reaction can progress further in the longer-heated tube",
+      "skills": [
+        "fair-duration"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 70,
+      "id": "bio-y8-food-tests-application-20261025-no-taste::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-no-taste",
+      "stem": "Why might even familiar-looking food be hazardous after use in a practical?",
+      "key": "It could carry residues from reagents or equipment",
+      "skills": [
+        "no-tasting"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 71,
+      "id": "bio-y8-food-tests-application-20261025-no-taste::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-no-taste",
+      "stem": "How should a pupil investigate an unknown drink handed out during a food-test practical?",
+      "key": "Use the assigned chemical test and keep the drink out of the mouth",
+      "skills": [
+        "no-tasting"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 72,
+      "id": "bio-y8-food-tests-application-20261025-recording::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-recording",
+      "stem": "Which table heading tells a reader how a recorded colour was produced?",
+      "key": "Reagent or type of food test used",
+      "skills": [
+        "record-test-label"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 73,
+      "id": "bio-y8-food-tests-application-20261025-recording::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-recording",
+      "stem": "Which entry records both direct evidence and an interpretation?",
+      "key": "Biuret changed from blue to lilac; protein detected",
+      "skills": [
+        "record-observation-inference",
+        "biuret-positive"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 74,
+      "id": "bio-y8-food-tests-application-20261025-inference::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-inference",
+      "stem": "Why do positive protein and reducing-sugar tests fall short of evaluating the nutritional balance of a snack?",
+      "key": "They identify selected nutrient groups without measuring its full composition",
+      "skills": [
+        "diet-composition-limit"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 75,
+      "id": "bio-y8-food-tests-application-20261025-inference::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-inference",
+      "stem": "A pupil knows only that a snack tests positive for protein and reducing sugar. What additional information is most useful for judging how it fits into a balanced diet?",
+      "key": "Quantities of nutrients per serving and the rest of the person’s diet",
+      "skills": [
+        "diet-composition-limit"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 76,
+      "id": "bio-y8-food-tests-application-20261025-weak-blueblack::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-weak-blueblack",
+      "stem": "A food gives an unexpectedly faint blue-black iodine result. Which action checks whether it is reproducible?",
+      "key": "Repeat with a fresh portion and clean equipment",
+      "skills": [
+        "repeat-fresh"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 77,
+      "id": "bio-y8-food-tests-application-20261025-weak-blueblack::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-weak-blueblack",
+      "stem": "What comparison helps interpret a faint colour after iodine is added?",
+      "key": "Run known starch and starch-free controls under the same conditions",
+      "skills": [
+        "iodine-positive-control",
+        "iodine-negative-control"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 78,
+      "id": "bio-y8-food-tests-application-20261025-temperature-safety::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-temperature-safety",
+      "stem": "Why use a water bath for several Benedict’s tubes being compared?",
+      "key": "The tubes can be heated at a common controlled temperature",
+      "skills": [
+        "fair-temperature"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 79,
+      "id": "bio-y8-food-tests-application-20261025-temperature-safety::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-temperature-safety",
+      "stem": "How does surrounding the lower part of a tube with hot water help during heating?",
+      "key": "It reduces local overheating compared with a flame on one spot",
+      "skills": [
+        "controlled-heating"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 80,
+      "id": "bio-y8-food-tests-application-20261025-test-plan::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-test-plan",
+      "stem": "Which test and result provide evidence of starch in a biscuit?",
+      "key": "Iodine gives blue-black",
+      "skills": [
+        "iodine-target",
+        "iodine-positive"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 81,
+      "id": "bio-y8-food-tests-application-20261025-test-plan::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-test-plan",
+      "stem": "Which test and result provide evidence of fat in a biscuit?",
+      "key": "A clear ethanol extract becomes milky when added to water",
+      "skills": [
+        "emulsion-sequence",
+        "emulsion-positive"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 82,
+      "id": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat",
+      "stem": "Biuret reagent turns purple in a food extract. Which nutrient has been detected?",
+      "key": "Protein",
+      "skills": [
+        "biuret-positive"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 83,
+      "id": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat",
+      "stem": "A protein-positive food gives a clear mixture in a correctly performed ethanol emulsion test. What does the clear mixture show?",
+      "key": "Lipid was not detected",
+      "skills": [
+        "emulsion-negative"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 84,
+      "id": "bio-y8-food-tests-application-20261025-result-not-proof::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-result-not-proof",
+      "stem": "A sweet drink remains blue with Benedict’s after suitable heating and working controls. Which conclusion is justified?",
+      "key": "Reducing sugar was not detected under these conditions",
+      "skills": [
+        "benedict-negative"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 85,
+      "id": "bio-y8-food-tests-application-20261025-result-not-proof::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-result-not-proof",
+      "stem": "Why could a sweet drink give a negative Benedict’s result?",
+      "key": "A sweet substance need not be a reducing sugar",
+      "skills": [
+        "sweetness-not-reducing-sugar"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 86,
+      "id": "bio-y8-food-tests-application-20261025-wrong-reagent::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-wrong-reagent",
+      "stem": "A pupil adds iodine to a drink to investigate protein. Which nutrient does this test actually target?",
+      "key": "Starch",
+      "skills": [
+        "iodine-target"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 87,
+      "id": "bio-y8-food-tests-application-20261025-wrong-reagent::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-wrong-reagent",
+      "stem": "A pupil uses iodine on a drink and says that an orange-brown result means it contains no protein. To investigate that separate claim with a fresh portion, which reagent is needed?",
+      "key": "Biuret reagent",
+      "skills": [
+        "biuret-target"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 88,
+      "id": "bio-y8-food-tests-application-20261025-uncertain-emulsion::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-uncertain-emulsion",
+      "stem": "The water blank and food sample both become milky in an emulsion test. Why is the sample result uncertain?",
+      "key": "The blank shows that the procedure or materials can produce cloudiness without the food",
+      "skills": [
+        "emulsion-blank-failure"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 89,
+      "id": "bio-y8-food-tests-application-20261025-uncertain-emulsion::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-uncertain-emulsion",
+      "stem": "How should a pupil investigate a cloudy emulsion-test blank?",
+      "key": "Repeat the blank and sample with clean equipment and fresh materials",
+      "skills": [
+        "emulsion-blank-failure",
+        "repeat-fresh"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 90,
+      "id": "bio-y8-food-tests-application-20261025-iodine-no-heat::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-iodine-no-heat",
+      "stem": "Which condition does the standard school iodine test for starch call for?",
+      "key": "Room temperature",
+      "skills": [
+        "iodine-room-temperature"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 91,
+      "id": "bio-y8-food-tests-application-20261025-iodine-no-heat::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-iodine-no-heat",
+      "stem": "Which method and observation would support starch in an unknown food?",
+      "key": "Add iodine solution and look for blue-black",
+      "skills": [
+        "iodine-target",
+        "iodine-positive"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 92,
+      "id": "bio-y8-food-tests-application-20261025-safe-bunsen::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-safe-bunsen",
+      "stem": "Which property of ethanol vapour creates the direct fire hazard if it reaches a naked flame?",
+      "key": "It can ignite",
+      "skills": [
+        "ethanol-flammability"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 93,
+      "id": "bio-y8-food-tests-application-20261025-safe-bunsen::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-safe-bunsen",
+      "stem": "A pupil sees a lit Bunsen burner on its yellow safety flame before opening ethanol for the lipid emulsion test. Which action most directly removes the ignition risk?",
+      "key": "Extinguish the Bunsen burner before opening ethanol so its flame cannot ignite ethanol vapour",
+      "skills": [
+        "ethanol-ignition-control"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 94,
+      "id": "bio-y8-food-tests-application-20261025-unknown-analysis::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-unknown-analysis",
+      "stem": "Iodine turns blue-black in an unknown food, but no other nutrient tests have been performed. Which conclusion follows without assuming results from unperformed tests?",
+      "key": "Starch was detected",
+      "skills": [
+        "iodine-positive"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 95,
+      "id": "bio-y8-food-tests-application-20261025-unknown-analysis::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-unknown-analysis",
+      "stem": "A separate portion of an unknown food gives purple with Biuret. What does this show?",
+      "key": "Protein was detected",
+      "skills": [
+        "biuret-positive"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 96,
+      "id": "bio-y8-food-tests-application-20261025-unknown-analysis::p3",
+      "sourceId": "bio-y8-food-tests-application-20261025-unknown-analysis",
+      "stem": "The clear ethanol extract of an unknown food stays clear after water is added. With valid controls, what can be recorded?",
+      "key": "Lipid was not detected",
+      "skills": [
+        "emulsion-negative"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 97,
+      "id": "bio-y8-food-tests-application-20261025-sugar-analysis::p1",
+      "sourceId": "bio-y8-food-tests-application-20261025-sugar-analysis",
+      "stem": "A pupil sees an orange precipitate after correctly heating a drink with Benedict's solution, then wrongly claims it proves starch. Which nutrient was actually detected?",
+      "key": "Reducing sugar was detected",
+      "skills": [
+        "benedict-positive",
+        "benedict-target"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 98,
+      "id": "bio-y8-food-tests-application-20261025-sugar-analysis::p2",
+      "sourceId": "bio-y8-food-tests-application-20261025-sugar-analysis",
+      "stem": "A separate portion of the drink gives orange-brown with iodine, its original reagent colour. What does this show?",
+      "key": "Starch was not detected",
+      "skills": [
+        "iodine-negative"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "structured",
+      "ordinal": 99,
+      "id": "bio-y8-food-tests-application-20261025-sugar-analysis::p3",
+      "sourceId": "bio-y8-food-tests-application-20261025-sugar-analysis",
+      "stem": "Biuret reagent stays blue in a fresh portion of the drink. What does this show?",
+      "key": "Protein was not detected",
+      "skills": [
+        "biuret-negative"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 1,
+      "id": "bio-y8-food-tests-case-20261025-2-1",
+      "sourceId": "bio-y8-food-tests-case-20261025-2-1",
+      "stem": "Iodine remains orange-brown in one fresh portion of a drink, but a separate portion gives an orange precipitate after heating with Benedict's. Which conclusion is justified?",
+      "key": "Reducing sugar was detected; starch was not detected.",
+      "skills": [
+        "benedict-positive",
+        "iodine-negative"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 2,
+      "id": "bio-y8-food-tests-case-20261025-2-2",
+      "sourceId": "bio-y8-food-tests-case-20261025-2-2",
+      "stem": "Biuret reagent turns lilac in a sample, while heated Benedict's solution stays blue. Which statement is supported?",
+      "key": "Protein was detected, but reducing sugar was not detected.",
+      "skills": [
+        "biuret-positive",
+        "benedict-negative"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 3,
+      "id": "bio-y8-food-tests-case-20261025-2-3",
+      "sourceId": "bio-y8-food-tests-case-20261025-2-3",
+      "stem": "An extract is tested with iodine and Biuret: iodine becomes blue-black and Biuret turns lilac. No other tests are done. What can be concluded?",
+      "key": "Starch and protein were detected; reducing sugar and lipid remain untested.",
+      "skills": [
+        "iodine-positive",
+        "biuret-positive",
+        "untested-nutrients"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 4,
+      "id": "bio-y8-food-tests-case-20261025-2-4",
+      "sourceId": "bio-y8-food-tests-case-20261025-2-4",
+      "stem": "A food extract gives a green Benedict's result after the prescribed water-bath heating; the water blank remains blue. How should this be recorded?",
+      "key": "The food extract tested positive for reducing sugar.",
+      "skills": [
+        "benedict-positive"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 5,
+      "id": "bio-y8-food-tests-case-20261025-2-5",
+      "sourceId": "bio-y8-food-tests-case-20261025-2-5",
+      "stem": "A known glucose positive-control sample remains blue with Benedict's solution after the heating stage. Which is the safest scientific interpretation?",
+      "key": "The procedure or reagent failed its positive control; repeat before interpreting unknown samples.",
+      "skills": [
+        "benedict-positive-control",
+        "control-failure"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 6,
+      "id": "bio-y8-food-tests-case-20261025-2-6",
+      "sourceId": "bio-y8-food-tests-case-20261025-2-6",
+      "stem": "Distilled water turns lilac with Biuret reagent in the same batch used to test a food. What should happen before trusting the food result?",
+      "key": "Prepare fresh reagents or clean equipment and repeat the water blank and food test.",
+      "skills": [
+        "biuret-negative-control",
+        "control-failure"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 7,
+      "id": "bio-y8-food-tests-case-20261025-2-7",
+      "sourceId": "bio-y8-food-tests-case-20261025-2-7",
+      "stem": "In a two-stage ethanol-then-water emulsion test, a seed's ethanol extract is already cloudy before it is added to water. What does that observation establish?",
+      "key": "It is not yet a valid positive emulsion result; prepare a clear extract and perform the water-addition stage.",
+      "skills": [
+        "emulsion-precloudiness",
+        "emulsion-water-stage"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 8,
+      "id": "bio-y8-food-tests-case-20261025-2-8",
+      "sourceId": "bio-y8-food-tests-case-20261025-2-8",
+      "stem": "A clear ethanol extract becomes cloudy white when added to water, while a correctly prepared ethanol-water blank stays clear. What is supported?",
+      "key": "Lipid was detected in the sample.",
+      "skills": [
+        "emulsion-positive"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 9,
+      "id": "bio-y8-food-tests-case-20261025-2-9",
+      "sourceId": "bio-y8-food-tests-case-20261025-2-9",
+      "stem": "A purple Biuret result is seen, but the pupil never performs an iodine test. Which statement would overreach the evidence?",
+      "key": "The sample must contain no starch.",
+      "skills": [
+        "untested-nutrients",
+        "iodine-negative"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 10,
+      "id": "bio-y8-food-tests-case-20261025-2-10",
+      "sourceId": "bio-y8-food-tests-case-20261025-2-10",
+      "stem": "A clean water blank unexpectedly becomes blue-black when iodine is added. What is the best response?",
+      "key": "Investigate contamination or a faulty control and repeat with clean water and equipment.",
+      "skills": [
+        "iodine-negative-control",
+        "control-failure"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 11,
+      "id": "bio-y8-food-tests-case-20261025-2-11",
+      "sourceId": "bio-y8-food-tests-case-20261025-2-11",
+      "stem": "Iodine stays orange-brown in a known starch positive-control solution. What can the pupil conclude about unknown negative-looking tubes?",
+      "key": "They cannot yet be trusted; the reagent or method needs checking.",
+      "skills": [
+        "iodine-positive-control",
+        "control-failure"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 12,
+      "id": "bio-y8-food-tests-case-20261025-2-12",
+      "sourceId": "bio-y8-food-tests-case-20261025-2-12",
+      "stem": "A food remains blue in the Biuret test, while an egg-white positive control turns purple. What is the cautious conclusion?",
+      "key": "Protein was not detected in the food under the test conditions.",
+      "skills": [
+        "biuret-negative",
+        "biuret-positive-control"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 13,
+      "id": "bio-y8-food-tests-case-20261025-2-13",
+      "sourceId": "bio-y8-food-tests-case-20261025-2-13",
+      "stem": "After suitable heating, the distilled-water Benedict's blank turns orange. Why is interpreting the food tubes risky?",
+      "key": "The negative control is abnormal, so contamination or a reagent problem must be investigated.",
+      "skills": [
+        "benedict-negative-control",
+        "control-failure"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 14,
+      "id": "bio-y8-food-tests-case-20261025-2-14",
+      "sourceId": "bio-y8-food-tests-case-20261025-2-14",
+      "stem": "A pupil heats a Benedict's tube for much less time than the working glucose control and it stays blue. Which conclusion is justified?",
+      "key": "The shortened heating may give a false negative; repeat with the same prescribed heating time.",
+      "skills": [
+        "fair-duration",
+        "benedict-negative"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 15,
+      "id": "bio-y8-food-tests-case-20261025-2-15",
+      "sourceId": "bio-y8-food-tests-case-20261025-2-15",
+      "stem": "A properly heated Benedict's test gives yellow precipitate. A separate, correctly performed emulsion test stays clear. Which statement is supported?",
+      "key": "Reducing sugar was detected; lipid was not detected.",
+      "skills": [
+        "benedict-positive",
+        "emulsion-negative"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 16,
+      "id": "bio-y8-food-tests-case-20261025-2-16",
+      "sourceId": "bio-y8-food-tests-case-20261025-2-16",
+      "stem": "Iodine, heated Benedict's and Biuret tests are negative. The ethanol emulsion test is not performed. Which conclusion is NOT justified?",
+      "key": "No lipids are present in the sample.",
+      "skills": [
+        "untested-nutrients",
+        "emulsion-negative"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 17,
+      "id": "bio-y8-food-tests-case-20261025-3-1",
+      "sourceId": "bio-y8-food-tests-case-20261025-3-1",
+      "stem": "When comparing iodine tests on samples taken from two different bread types, which control makes the comparison fairer?",
+      "key": "Measure the same mass of each bread sample.",
+      "skills": [
+        "fair-sample-mass"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 18,
+      "id": "bio-y8-food-tests-case-20261025-3-2",
+      "sourceId": "bio-y8-food-tests-case-20261025-3-2",
+      "stem": "Two food extracts are compared by heating each with Benedict's solution. Which reagent condition should be controlled?",
+      "key": "Add the same measured volume of Benedict's solution to each equal sample volume.",
+      "skills": [
+        "fair-reagent-volume"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 19,
+      "id": "bio-y8-food-tests-case-20261025-3-3",
+      "sourceId": "bio-y8-food-tests-case-20261025-3-3",
+      "stem": "Two equal-volume portions of the same glucose solution are heated with equal Benedict's reagent in water baths at different temperatures. Which adjustment gives the fairest comparison of reducing-sugar results?",
+      "key": "Heat both tubes at the same controlled bath temperature.",
+      "skills": [
+        "fair-temperature"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 20,
+      "id": "bio-y8-food-tests-case-20261025-3-4",
+      "sourceId": "bio-y8-food-tests-case-20261025-3-4",
+      "stem": "Two equal-volume food extracts are compared using the final colour after five minutes in the same Benedict's water bath. One tube was removed after 30 seconds and the other after five minutes. What should the pupil change for a fair comparison of final colours?",
+      "key": "Use the same heating duration for both tubes.",
+      "skills": [
+        "fair-duration"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 21,
+      "id": "bio-y8-food-tests-case-20261025-3-5",
+      "sourceId": "bio-y8-food-tests-case-20261025-3-5",
+      "stem": "A technician compares two fruit juices for reducing sugar. Which volume should be kept equal when loading the test tubes?",
+      "key": "The volume of fruit-juice extract added to each tube.",
+      "skills": [
+        "fair-sample-volume"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 22,
+      "id": "bio-y8-food-tests-case-20261025-3-6",
+      "sourceId": "bio-y8-food-tests-case-20261025-3-6",
+      "stem": "A food gives a faint starch colour in one iodine trial. Which design best tests repeatability?",
+      "key": "Repeat on fresh equal-sized portions using the same iodine volume and procedure.",
+      "skills": [
+        "repeat-fresh"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 23,
+      "id": "bio-y8-food-tests-case-20261025-3-7",
+      "sourceId": "bio-y8-food-tests-case-20261025-3-7",
+      "stem": "A purple berry extract is already purple before Biuret reagent is added. It stays purple after the reagent is mixed in. What is the most justified interpretation?",
+      "key": "The starting pigment may mask a Biuret colour change; compare an untreated sample and working controls before deciding.",
+      "skills": [
+        "pigment-masking"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 24,
+      "id": "bio-y8-food-tests-case-20261025-3-8",
+      "sourceId": "bio-y8-food-tests-case-20261025-3-8",
+      "stem": "Which material is the most useful positive control for testing whether Biuret reagent works?",
+      "key": "A known albumen or protein solution.",
+      "skills": [
+        "biuret-positive-control"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 25,
+      "id": "bio-y8-food-tests-case-20261025-3-9",
+      "sourceId": "bio-y8-food-tests-case-20261025-3-9",
+      "stem": "To confirm that iodine reagent can detect starch, which positive-control sample should be used?",
+      "key": "A known starch suspension or solution.",
+      "skills": [
+        "iodine-positive-control"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 26,
+      "id": "bio-y8-food-tests-case-20261025-3-10",
+      "sourceId": "bio-y8-food-tests-case-20261025-3-10",
+      "stem": "Which negative control should remain orange-brown when iodine is added?",
+      "key": "Distilled water containing no starch.",
+      "skills": [
+        "iodine-negative-control"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 27,
+      "id": "bio-y8-food-tests-case-20261025-3-11",
+      "sourceId": "bio-y8-food-tests-case-20261025-3-11",
+      "stem": "To check that the heated Benedict's test is working, what makes a good positive control?",
+      "key": "A known glucose solution heated with Benedict's solution in the normal water bath.",
+      "skills": [
+        "benedict-positive-control"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 28,
+      "id": "bio-y8-food-tests-case-20261025-3-12",
+      "sourceId": "bio-y8-food-tests-case-20261025-3-12",
+      "stem": "Which negative control should normally remain blue after suitable heating with Benedict's solution?",
+      "key": "Distilled water mixed with Benedict's solution.",
+      "skills": [
+        "benedict-negative-control"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 29,
+      "id": "bio-y8-food-tests-case-20261025-3-13",
+      "sourceId": "bio-y8-food-tests-case-20261025-3-13",
+      "stem": "For a two-stage ethanol-extraction-then-water emulsion test, which material can serve as a positive lipid control?",
+      "key": "A small known vegetable-oil sample extracted with ethanol and then added to water.",
+      "skills": [
+        "emulsion-positive-control"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 30,
+      "id": "bio-y8-food-tests-case-20261025-3-14",
+      "sourceId": "bio-y8-food-tests-case-20261025-3-14",
+      "stem": "Which properly prepared negative control is most appropriate for the ethanol emulsion test?",
+      "key": "Ethanol and water without food or added lipid.",
+      "skills": [
+        "emulsion-negative-control"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 31,
+      "id": "bio-y8-food-tests-case-20261025-3-15",
+      "sourceId": "bio-y8-food-tests-case-20261025-3-15",
+      "stem": "The teacher labels four clear sample extracts A–D before adding reagents. Why is this especially important?",
+      "key": "Each observed reaction can be traced to the correct food sample.",
+      "skills": [
+        "sample-label"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 32,
+      "id": "bio-y8-food-tests-case-20261025-3-16",
+      "sourceId": "bio-y8-food-tests-case-20261025-3-16",
+      "stem": "A pipette has just transferred a glucose solution. Why use a clean pipette for a supposed sugar-free sample?",
+      "key": "Glucose residue could make a false positive in the second sample.",
+      "skills": [
+        "cross-contamination"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 33,
+      "id": "bio-y8-food-tests-case-20261025-4-1",
+      "sourceId": "bio-y8-food-tests-case-20261025-4-1",
+      "stem": "After an ethanol emulsion test, a pupil leaves a working ethanol bottle uncapped beside a warm water bath, although the Bunsen flame has been extinguished. What should the pupil do next?",
+      "key": "Cap the ethanol promptly and return it to its designated safe location away from heat and ignition sources.",
+      "skills": [
+        "ethanol-storage"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 34,
+      "id": "bio-y8-food-tests-case-20261025-4-2",
+      "sourceId": "bio-y8-food-tests-case-20261025-4-2",
+      "stem": "A pupil proposes heating an ethanol-food mixture to make the emulsion form faster. Which correction is best?",
+      "key": "Do not heat ethanol; follow the instructed ethanol-and-water emulsion method away from ignition sources.",
+      "skills": [
+        "ethanol-no-heat"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 35,
+      "id": "bio-y8-food-tests-case-20261025-4-3",
+      "sourceId": "bio-y8-food-tests-case-20261025-4-3",
+      "stem": "For Benedict's test, why use a hot-water bath rather than heating the bottom of a test tube over a direct flame?",
+      "key": "It gives more controlled, even heating and reduces local overheating.",
+      "skills": [
+        "controlled-heating",
+        "fair-temperature"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 36,
+      "id": "bio-y8-food-tests-case-20261025-4-4",
+      "sourceId": "bio-y8-food-tests-case-20261025-4-4",
+      "stem": "A pupil needs to remove a tube after heating Benedict's reagent. Which action reduces burn risk?",
+      "key": "Use a test-tube holder and treat the glass as hot.",
+      "skills": [
+        "hot-tube-holder"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 37,
+      "id": "bio-y8-food-tests-case-20261025-4-5",
+      "sourceId": "bio-y8-food-tests-case-20261025-4-5",
+      "stem": "Which direction should the open end of a heated Benedict's test tube face?",
+      "key": "Away from all people, in case the hot mixture splashes.",
+      "skills": [
+        "tube-direction"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 38,
+      "id": "bio-y8-food-tests-case-20261025-4-6",
+      "sourceId": "bio-y8-food-tests-case-20261025-4-6",
+      "stem": "What PPE protects the eyes when working with Benedict's, Biuret and ethanol reagents?",
+      "key": "Suitable laboratory splash goggles.",
+      "skills": [
+        "eye-protection"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 39,
+      "id": "bio-y8-food-tests-case-20261025-4-7",
+      "sourceId": "bio-y8-food-tests-case-20261025-4-7",
+      "stem": "An unknown food extract has just been tested with laboratory reagents. Why must it never be tasted?",
+      "key": "It may now contain hazardous reagents or contaminants.",
+      "skills": [
+        "no-tasting"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 40,
+      "id": "bio-y8-food-tests-case-20261025-4-8",
+      "sourceId": "bio-y8-food-tests-case-20261025-4-8",
+      "stem": "How should a pupil transfer reagent into a tube during a food-test practical?",
+      "key": "Use a suitable dropper or pipette; never suck liquid by mouth.",
+      "skills": [
+        "safe-pipetting"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 41,
+      "id": "bio-y8-food-tests-case-20261025-4-9",
+      "sourceId": "bio-y8-food-tests-case-20261025-4-9",
+      "stem": "Ethanol is spilled near the bench during the emulsion test. What is the safest immediate response?",
+      "key": "Alert the teacher, avoid ignition sources and follow the spill procedure.",
+      "skills": [
+        "ethanol-spill"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 42,
+      "id": "bio-y8-food-tests-case-20261025-4-10",
+      "sourceId": "bio-y8-food-tests-case-20261025-4-10",
+      "stem": "A properly heated Benedict's test remains blue. What conclusion would be too strong even with good controls?",
+      "key": "The drink contains no sugar of any type.",
+      "skills": [
+        "benedict-negative",
+        "sweetness-not-reducing-sugar"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 43,
+      "id": "bio-y8-food-tests-case-20261025-4-11",
+      "sourceId": "bio-y8-food-tests-case-20261025-4-11",
+      "stem": "A pupil repeats a heated Benedict's test on three equal portions of the same well-mixed juice using identical reagent volumes, bath temperature and heating time. Two tubes turn orange, but one remains blue. What should the pupil do?",
+      "key": "Record all results, check possible procedural errors and repeat with fresh portions before interpreting the inconsistency.",
+      "skills": [
+        "repeat-fresh",
+        "inconsistent-results"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 44,
+      "id": "bio-y8-food-tests-case-20261025-4-12",
+      "sourceId": "bio-y8-food-tests-case-20261025-4-12",
+      "stem": "An unknown sample gives four negative food tests while positive and negative controls behave correctly. Which conclusion is justified?",
+      "key": "None of the four targeted groups was detected; other nutrients might still be present.",
+      "skills": [
+        "iodine-negative",
+        "benedict-negative",
+        "biuret-negative",
+        "emulsion-negative",
+        "untested-nutrients",
+        "detection-limit"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 45,
+      "id": "bio-y8-food-tests-case-20261025-4-13",
+      "sourceId": "bio-y8-food-tests-case-20261025-4-13",
+      "stem": "A snack tests positive for protein and reducing sugar. Why is this insufficient to conclude that including it automatically makes someone's diet balanced?",
+      "key": "Food tests do not reveal nutrient quantities or the rest of a person's diet.",
+      "skills": [
+        "diet-composition-limit"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 46,
+      "id": "bio-y8-food-tests-case-20261025-4-14",
+      "sourceId": "bio-y8-food-tests-case-20261025-4-14",
+      "stem": "Using a two-stage ethanol-then-water emulsion test, a pupil compares lipid-test cloudiness from two seed extracts prepared in the same way. One clear ethanol extract is added to 2 mL of water and the other to 10 mL. Which criticism is most valid?",
+      "key": "Different dilution volumes can affect cloudiness; use equal measured volumes of extract and water before comparing.",
+      "skills": [
+        "fair-emulsion-dilution"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 47,
+      "id": "bio-y8-food-tests-case-20261025-4-15",
+      "sourceId": "bio-y8-food-tests-case-20261025-4-15",
+      "stem": "A packaged drink is advertised as sweet, but the iodine test stays orange-brown. Which statement is justified?",
+      "key": "Starch was not detected; sweetness alone cannot determine which sugars are present.",
+      "skills": [
+        "iodine-negative",
+        "sweetness-not-reducing-sugar"
+      ],
+      "formalCreditEligible": false
+    },
+    {
+      "pool": "replacement",
+      "ordinal": 48,
+      "id": "bio-y8-food-tests-case-20261025-4-16",
+      "sourceId": "bio-y8-food-tests-case-20261025-4-16",
+      "stem": "Biuret reagent turns lilac when added to a food extract. Which claim goes beyond what this one test can establish?",
+      "key": "The exact amount and identity of every protein in the food.",
+      "skills": [
+        "biuret-positive",
+        "protein-quantitation-limit"
+      ],
+      "formalCreditEligible": false
+    }
+  ],
+  "conflicts": [
+    {
+      "a": "bio-y8-food-tests-iodine-solution-explain::p1",
+      "b": "bio-y8-food-tests-application-20261025-test-plan::p1",
+      "shared": [
+        "iodine-target"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-iodine-solution-explain::p1",
+      "b": "bio-y8-food-tests-application-20261025-wrong-reagent::p1",
+      "shared": [
+        "iodine-target"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-iodine-solution-explain::p1",
+      "b": "bio-y8-food-tests-application-20261025-iodine-no-heat::p2",
+      "shared": [
+        "iodine-target"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-benedict-s-solution-explain::p1",
+      "b": "bio-y8-app-benedicts-method::p1",
+      "shared": [
+        "benedict-target"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-benedict-s-solution-explain::p1",
+      "b": "bio-y8-food-tests-application-20261025-sugar-analysis::p1",
+      "shared": [
+        "benedict-target"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-biuret-solution-explain::p1",
+      "b": "bio-y8-food-tests-application-20261025-cloudy-not-protein::p2",
+      "shared": [
+        "biuret-target"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-biuret-solution-explain::p1",
+      "b": "bio-y8-food-tests-application-20261025-wrong-reagent::p2",
+      "shared": [
+        "biuret-target"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-ethanol-emulsion-test-explain::p1",
+      "b": "bio-y8-app-ethanol-safety::p2",
+      "shared": [
+        "emulsion-sequence"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-ethanol-emulsion-test-explain::p1",
+      "b": "bio-y8-food-tests-application-20261025-test-plan::p2",
+      "shared": [
+        "emulsion-sequence"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-blue-black-explain::p1",
+      "b": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p1",
+      "shared": [
+        "iodine-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-blue-black-explain::p1",
+      "b": "bio-y8-food-tests-application-20261025-test-plan::p1",
+      "shared": [
+        "iodine-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-blue-black-explain::p1",
+      "b": "bio-y8-food-tests-application-20261025-iodine-no-heat::p2",
+      "shared": [
+        "iodine-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-blue-black-explain::p1",
+      "b": "bio-y8-food-tests-application-20261025-unknown-analysis::p1",
+      "shared": [
+        "iodine-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-blue-black-explain::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-3",
+      "shared": [
+        "iodine-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-brick-red-explain::p1",
+      "b": "bio-y8-food-tests-application-20261025-sugar-strength::p1",
+      "shared": [
+        "benedict-strength"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-lilac-or-purple-explain::p1",
+      "b": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p1",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-lilac-or-purple-explain::p1",
+      "b": "bio-y8-food-tests-application-20261025-recording::p2",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-lilac-or-purple-explain::p1",
+      "b": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p1",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-lilac-or-purple-explain::p1",
+      "b": "bio-y8-food-tests-application-20261025-unknown-analysis::p2",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-lilac-or-purple-explain::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-2",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-lilac-or-purple-explain::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-3",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-lilac-or-purple-explain::p1",
+      "b": "bio-y8-food-tests-case-20261025-4-16",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-cloudy-white-emulsion-explain::p1",
+      "b": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p2",
+      "shared": [
+        "emulsion-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-cloudy-white-emulsion-explain::p1",
+      "b": "bio-y8-food-tests-application-20261025-cloudy-not-protein::p1",
+      "shared": [
+        "emulsion-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-cloudy-white-emulsion-explain::p1",
+      "b": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p1",
+      "shared": [
+        "emulsion-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-cloudy-white-emulsion-explain::p1",
+      "b": "bio-y8-food-tests-application-20261025-test-plan::p2",
+      "shared": [
+        "emulsion-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-cloudy-white-emulsion-explain::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-8",
+      "shared": [
+        "emulsion-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-water-bath-explain::p1",
+      "b": "bio-y8-food-tests-water-bath-explain::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-water-bath-explain::p1",
+      "b": "bio-y8-app-benedicts-method::p2",
+      "shared": [
+        "benedict-heating"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-water-bath-explain::p1",
+      "b": "bio-y8-food-tests-application-20261025-benedict-no-heat::p1",
+      "shared": [
+        "benedict-heating"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-water-bath-explain::p1",
+      "b": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2",
+      "shared": [
+        "benedict-heating"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-water-bath-explain::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-2",
+      "shared": [
+        "ethanol-no-heat"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-app-benedicts-method::p1",
+      "b": "bio-y8-app-benedicts-method::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-app-benedicts-method::p1",
+      "b": "bio-y8-app-benedicts-method::p3",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-app-benedicts-method::p1",
+      "b": "bio-y8-food-tests-application-20261025-sugar-analysis::p1",
+      "shared": [
+        "benedict-target"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-app-benedicts-method::p2",
+      "b": "bio-y8-app-benedicts-method::p3",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-app-benedicts-method::p2",
+      "b": "bio-y8-food-tests-application-20261025-benedict-no-heat::p1",
+      "shared": [
+        "benedict-heating"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-app-benedicts-method::p2",
+      "b": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2",
+      "shared": [
+        "benedict-heating"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-app-benedicts-method::p3",
+      "b": "bio-y8-food-tests-application-20261025-positive-sugar::p1",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-app-benedicts-method::p3",
+      "b": "bio-y8-food-tests-application-20261025-positive-sugar::p2",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-app-benedicts-method::p3",
+      "b": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p1",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-app-benedicts-method::p3",
+      "b": "bio-y8-food-tests-application-20261025-sugar-analysis::p1",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-app-benedicts-method::p3",
+      "b": "bio-y8-food-tests-case-20261025-2-1",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-app-benedicts-method::p3",
+      "b": "bio-y8-food-tests-case-20261025-2-4",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-app-benedicts-method::p3",
+      "b": "bio-y8-food-tests-case-20261025-2-15",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-app-ethanol-safety::p1",
+      "b": "bio-y8-app-ethanol-safety::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-app-ethanol-safety::p1",
+      "b": "bio-y8-food-tests-application-20261025-safe-bunsen::p1",
+      "shared": [
+        "ethanol-flammability"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-app-ethanol-safety::p2",
+      "b": "bio-y8-food-tests-application-20261025-test-plan::p2",
+      "shared": [
+        "emulsion-sequence"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sample-separation::p1",
+      "b": "bio-y8-food-tests-application-20261025-sample-separation::p2",
+      "shared": [
+        "separate-reagents"
+      ],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-iodine-repeat::p1",
+      "b": "bio-y8-food-tests-application-20261025-iodine-repeat::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-iodine-repeat::p1",
+      "b": "bio-y8-food-tests-application-20261025-weak-blueblack::p1",
+      "shared": [
+        "repeat-fresh"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-iodine-repeat::p1",
+      "b": "bio-y8-food-tests-application-20261025-uncertain-emulsion::p2",
+      "shared": [
+        "repeat-fresh"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-iodine-repeat::p1",
+      "b": "bio-y8-food-tests-case-20261025-3-6",
+      "shared": [
+        "repeat-fresh"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-iodine-repeat::p1",
+      "b": "bio-y8-food-tests-case-20261025-4-11",
+      "shared": [
+        "repeat-fresh"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-iodine-repeat::p2",
+      "b": "bio-y8-food-tests-application-20261025-repeatability::p1",
+      "shared": [
+        "fair-sample-volume"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-iodine-repeat::p2",
+      "b": "bio-y8-food-tests-application-20261025-fair-reagent::p1",
+      "shared": [
+        "fair-reagent-volume"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-iodine-repeat::p2",
+      "b": "bio-y8-food-tests-application-20261025-fair-reagent::p2",
+      "shared": [
+        "fair-reagent-volume"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-iodine-repeat::p2",
+      "b": "bio-y8-food-tests-case-20261025-3-2",
+      "shared": [
+        "fair-reagent-volume"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-iodine-repeat::p2",
+      "b": "bio-y8-food-tests-case-20261025-3-5",
+      "shared": [
+        "fair-sample-volume"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-benedict-no-heat::p1",
+      "b": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2",
+      "shared": [
+        "benedict-heating"
+      ],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2",
+      "b": "bio-y8-food-tests-application-20261025-negative-sugar::p1",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2",
+      "b": "bio-y8-food-tests-application-20261025-negative-sugar::p2",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2",
+      "b": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p2",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2",
+      "b": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p2",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2",
+      "b": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2",
+      "b": "bio-y8-food-tests-application-20261025-result-not-proof::p1",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-2",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-14",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-10",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-12",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-negative-sugar::p1",
+      "b": "bio-y8-food-tests-application-20261025-negative-sugar::p2",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-negative-sugar::p1",
+      "b": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p2",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-negative-sugar::p1",
+      "b": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p2",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-negative-sugar::p1",
+      "b": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-negative-sugar::p1",
+      "b": "bio-y8-food-tests-application-20261025-result-not-proof::p1",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-negative-sugar::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-2",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-negative-sugar::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-14",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-negative-sugar::p1",
+      "b": "bio-y8-food-tests-case-20261025-4-10",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-negative-sugar::p1",
+      "b": "bio-y8-food-tests-case-20261025-4-12",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-negative-sugar::p2",
+      "b": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p2",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-negative-sugar::p2",
+      "b": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p2",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-negative-sugar::p2",
+      "b": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-negative-sugar::p2",
+      "b": "bio-y8-food-tests-application-20261025-result-not-proof::p1",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-negative-sugar::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-2",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-negative-sugar::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-14",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-negative-sugar::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-10",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-negative-sugar::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-12",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-positive-sugar::p1",
+      "b": "bio-y8-food-tests-application-20261025-positive-sugar::p2",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-positive-sugar::p1",
+      "b": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p1",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-positive-sugar::p1",
+      "b": "bio-y8-food-tests-application-20261025-sugar-analysis::p1",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-positive-sugar::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-1",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-positive-sugar::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-4",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-positive-sugar::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-15",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-positive-sugar::p2",
+      "b": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p1",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-positive-sugar::p2",
+      "b": "bio-y8-food-tests-application-20261025-sugar-analysis::p1",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-positive-sugar::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-1",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-positive-sugar::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-4",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-positive-sugar::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-15",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-biuret-control::p1",
+      "b": "bio-y8-food-tests-application-20261025-biuret-control::p2",
+      "shared": [
+        "biuret-negative-control"
+      ],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-biuret-control::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-6",
+      "shared": [
+        "biuret-negative-control"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-biuret-control::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-6",
+      "shared": [
+        "biuret-negative-control"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-iodine-control::p1",
+      "b": "bio-y8-food-tests-application-20261025-iodine-control::p2",
+      "shared": [
+        "iodine-positive-control"
+      ],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-iodine-control::p1",
+      "b": "bio-y8-food-tests-application-20261025-weak-blueblack::p2",
+      "shared": [
+        "iodine-positive-control"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-iodine-control::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-11",
+      "shared": [
+        "iodine-positive-control"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-iodine-control::p1",
+      "b": "bio-y8-food-tests-case-20261025-3-9",
+      "shared": [
+        "iodine-positive-control"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-iodine-control::p2",
+      "b": "bio-y8-food-tests-application-20261025-weak-blueblack::p2",
+      "shared": [
+        "iodine-positive-control"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-iodine-control::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-11",
+      "shared": [
+        "iodine-positive-control"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-iodine-control::p2",
+      "b": "bio-y8-food-tests-case-20261025-3-9",
+      "shared": [
+        "iodine-positive-control"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-repeatability::p1",
+      "b": "bio-y8-food-tests-application-20261025-repeatability::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-repeatability::p1",
+      "b": "bio-y8-food-tests-case-20261025-3-5",
+      "shared": [
+        "fair-sample-volume"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-repeatability::p2",
+      "b": "bio-y8-food-tests-application-20261025-heat-variable::p1",
+      "shared": [
+        "fair-duration"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-repeatability::p2",
+      "b": "bio-y8-food-tests-application-20261025-heat-variable::p2",
+      "shared": [
+        "fair-duration"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-repeatability::p2",
+      "b": "bio-y8-food-tests-application-20261025-temperature-safety::p1",
+      "shared": [
+        "fair-temperature"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-repeatability::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-14",
+      "shared": [
+        "fair-duration"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-repeatability::p2",
+      "b": "bio-y8-food-tests-case-20261025-3-3",
+      "shared": [
+        "fair-temperature"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-repeatability::p2",
+      "b": "bio-y8-food-tests-case-20261025-3-4",
+      "shared": [
+        "fair-duration"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-repeatability::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-3",
+      "shared": [
+        "fair-temperature"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-cross-contamination::p1",
+      "b": "bio-y8-food-tests-application-20261025-cross-contamination::p2",
+      "shared": [
+        "cross-contamination"
+      ],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-cross-contamination::p1",
+      "b": "bio-y8-food-tests-application-20261025-glassware::p2",
+      "shared": [
+        "cross-contamination"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-cross-contamination::p1",
+      "b": "bio-y8-food-tests-case-20261025-3-16",
+      "shared": [
+        "cross-contamination"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-cross-contamination::p2",
+      "b": "bio-y8-food-tests-application-20261025-glassware::p2",
+      "shared": [
+        "cross-contamination"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-cross-contamination::p2",
+      "b": "bio-y8-food-tests-case-20261025-3-16",
+      "shared": [
+        "cross-contamination"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p1",
+      "b": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p2",
+      "b": "bio-y8-food-tests-application-20261025-cloudy-not-protein::p1",
+      "shared": [
+        "emulsion-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p2",
+      "b": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p1",
+      "shared": [
+        "emulsion-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p2",
+      "b": "bio-y8-food-tests-application-20261025-retest-ethanol::p2",
+      "shared": [
+        "emulsion-water-stage"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p2",
+      "b": "bio-y8-food-tests-application-20261025-test-plan::p2",
+      "shared": [
+        "emulsion-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-7",
+      "shared": [
+        "emulsion-water-stage"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-8",
+      "shared": [
+        "emulsion-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-ethanol-ventilation::p1",
+      "b": "bio-y8-food-tests-application-20261025-ethanol-ventilation::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-ethanol-ventilation::p1",
+      "b": "bio-y8-food-tests-application-20261025-safe-bunsen::p2",
+      "shared": [
+        "ethanol-ignition-control"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-ethanol-ventilation::p2",
+      "b": "bio-y8-food-tests-application-20261025-eyes::p1",
+      "shared": [
+        "eye-protection"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-ethanol-ventilation::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-6",
+      "shared": [
+        "eye-protection"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p1",
+      "b": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p1",
+      "b": "bio-y8-food-tests-case-20261025-4-4",
+      "shared": [
+        "hot-tube-holder"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-5",
+      "shared": [
+        "tube-direction"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-protein-extraction::p1",
+      "b": "bio-y8-food-tests-application-20261025-protein-extraction::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-protein-extraction::p1",
+      "b": "bio-y8-food-tests-application-20261025-starch-extraction::p1",
+      "shared": [
+        "crushing-exposure"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-protein-extraction::p1",
+      "b": "bio-y8-food-tests-application-20261025-starch-extraction::p2",
+      "shared": [
+        "crushing-exposure"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-starch-extraction::p1",
+      "b": "bio-y8-food-tests-application-20261025-starch-extraction::p2",
+      "shared": [
+        "crushing-exposure"
+      ],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-fair-amount::p1",
+      "b": "bio-y8-food-tests-application-20261025-fair-amount::p2",
+      "shared": [
+        "fair-sample-mass"
+      ],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-fair-amount::p1",
+      "b": "bio-y8-food-tests-case-20261025-3-1",
+      "shared": [
+        "fair-sample-mass"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-fair-amount::p2",
+      "b": "bio-y8-food-tests-case-20261025-3-1",
+      "shared": [
+        "fair-sample-mass"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-fair-reagent::p1",
+      "b": "bio-y8-food-tests-application-20261025-fair-reagent::p2",
+      "shared": [
+        "fair-reagent-volume"
+      ],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-fair-reagent::p1",
+      "b": "bio-y8-food-tests-case-20261025-3-2",
+      "shared": [
+        "fair-reagent-volume"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-fair-reagent::p2",
+      "b": "bio-y8-food-tests-case-20261025-3-2",
+      "shared": [
+        "fair-reagent-volume"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-strength::p1",
+      "b": "bio-y8-food-tests-application-20261025-sugar-strength::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-cloudy-not-protein::p1",
+      "b": "bio-y8-food-tests-application-20261025-cloudy-not-protein::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-cloudy-not-protein::p1",
+      "b": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p1",
+      "shared": [
+        "emulsion-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-cloudy-not-protein::p1",
+      "b": "bio-y8-food-tests-application-20261025-test-plan::p2",
+      "shared": [
+        "emulsion-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-cloudy-not-protein::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-8",
+      "shared": [
+        "emulsion-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-cloudy-not-protein::p2",
+      "b": "bio-y8-food-tests-application-20261025-wrong-reagent::p2",
+      "shared": [
+        "biuret-target"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p1",
+      "b": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p1",
+      "b": "bio-y8-food-tests-application-20261025-test-plan::p1",
+      "shared": [
+        "iodine-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p1",
+      "b": "bio-y8-food-tests-application-20261025-iodine-no-heat::p2",
+      "shared": [
+        "iodine-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p1",
+      "b": "bio-y8-food-tests-application-20261025-unknown-analysis::p1",
+      "shared": [
+        "iodine-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-3",
+      "shared": [
+        "iodine-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p2",
+      "b": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p2",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p2",
+      "b": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p2",
+      "b": "bio-y8-food-tests-application-20261025-result-not-proof::p1",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-2",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-14",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-10",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-starch-vs-glucose::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-12",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p1",
+      "b": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p1",
+      "b": "bio-y8-food-tests-application-20261025-sugar-analysis::p1",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-1",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-4",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-15",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p2",
+      "b": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p2",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p2",
+      "b": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p2",
+      "b": "bio-y8-food-tests-application-20261025-sugar-analysis::p2",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-1",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-9",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-12",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-vs-starch::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-15",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p1",
+      "b": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p1",
+      "b": "bio-y8-food-tests-application-20261025-recording::p2",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p1",
+      "b": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p1",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p1",
+      "b": "bio-y8-food-tests-application-20261025-unknown-analysis::p2",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-2",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-3",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p1",
+      "b": "bio-y8-food-tests-case-20261025-4-16",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p2",
+      "b": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p2",
+      "b": "bio-y8-food-tests-application-20261025-result-not-proof::p1",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-2",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-14",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-10",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-12",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p1",
+      "b": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p1",
+      "b": "bio-y8-food-tests-application-20261025-test-plan::p2",
+      "shared": [
+        "emulsion-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-8",
+      "shared": [
+        "emulsion-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p2",
+      "b": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p2",
+      "b": "bio-y8-food-tests-application-20261025-sugar-analysis::p2",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-1",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-9",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-12",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-lipid-vs-starch::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-15",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "b": "bio-y8-food-tests-application-20261025-all-negative::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "b": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p2",
+      "shared": [
+        "emulsion-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "b": "bio-y8-food-tests-application-20261025-result-not-proof::p1",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "b": "bio-y8-food-tests-application-20261025-unknown-analysis::p3",
+      "shared": [
+        "emulsion-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "b": "bio-y8-food-tests-application-20261025-sugar-analysis::p2",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "b": "bio-y8-food-tests-application-20261025-sugar-analysis::p3",
+      "shared": [
+        "biuret-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-1",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-2",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-9",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-12",
+      "shared": [
+        "biuret-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-14",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-15",
+      "shared": [
+        "emulsion-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-16",
+      "shared": [
+        "emulsion-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "b": "bio-y8-food-tests-case-20261025-4-10",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "b": "bio-y8-food-tests-case-20261025-4-12",
+      "shared": [
+        "iodine-negative",
+        "benedict-negative",
+        "biuret-negative",
+        "emulsion-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-all-negative::p1",
+      "b": "bio-y8-food-tests-case-20261025-4-15",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-all-negative::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-3",
+      "shared": [
+        "untested-nutrients"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-all-negative::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-9",
+      "shared": [
+        "untested-nutrients"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-all-negative::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-16",
+      "shared": [
+        "untested-nutrients"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-all-negative::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-12",
+      "shared": [
+        "detection-limit",
+        "untested-nutrients"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-retest-ethanol::p1",
+      "b": "bio-y8-food-tests-application-20261025-retest-ethanol::p2",
+      "shared": [
+        "emulsion-precloudiness"
+      ],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-retest-ethanol::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-7",
+      "shared": [
+        "emulsion-precloudiness"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-retest-ethanol::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-7",
+      "shared": [
+        "emulsion-precloudiness",
+        "emulsion-water-stage"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-glassware::p1",
+      "b": "bio-y8-food-tests-application-20261025-glassware::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-glassware::p1",
+      "b": "bio-y8-food-tests-case-20261025-3-15",
+      "shared": [
+        "sample-label"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-glassware::p2",
+      "b": "bio-y8-food-tests-case-20261025-3-16",
+      "shared": [
+        "cross-contamination"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-eyes::p1",
+      "b": "bio-y8-food-tests-application-20261025-eyes::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-eyes::p1",
+      "b": "bio-y8-food-tests-case-20261025-4-6",
+      "shared": [
+        "eye-protection"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-heat-variable::p1",
+      "b": "bio-y8-food-tests-application-20261025-heat-variable::p2",
+      "shared": [
+        "fair-duration"
+      ],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-heat-variable::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-14",
+      "shared": [
+        "fair-duration"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-heat-variable::p1",
+      "b": "bio-y8-food-tests-case-20261025-3-4",
+      "shared": [
+        "fair-duration"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-heat-variable::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-14",
+      "shared": [
+        "fair-duration"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-heat-variable::p2",
+      "b": "bio-y8-food-tests-case-20261025-3-4",
+      "shared": [
+        "fair-duration"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-no-taste::p1",
+      "b": "bio-y8-food-tests-application-20261025-no-taste::p2",
+      "shared": [
+        "no-tasting"
+      ],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-no-taste::p1",
+      "b": "bio-y8-food-tests-case-20261025-4-7",
+      "shared": [
+        "no-tasting"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-no-taste::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-7",
+      "shared": [
+        "no-tasting"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-recording::p1",
+      "b": "bio-y8-food-tests-application-20261025-recording::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-recording::p2",
+      "b": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p1",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-recording::p2",
+      "b": "bio-y8-food-tests-application-20261025-unknown-analysis::p2",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-recording::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-2",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-recording::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-3",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-recording::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-16",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-inference::p1",
+      "b": "bio-y8-food-tests-application-20261025-inference::p2",
+      "shared": [
+        "diet-composition-limit"
+      ],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-inference::p1",
+      "b": "bio-y8-food-tests-case-20261025-4-13",
+      "shared": [
+        "diet-composition-limit"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-inference::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-13",
+      "shared": [
+        "diet-composition-limit"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-weak-blueblack::p1",
+      "b": "bio-y8-food-tests-application-20261025-weak-blueblack::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-weak-blueblack::p1",
+      "b": "bio-y8-food-tests-application-20261025-uncertain-emulsion::p2",
+      "shared": [
+        "repeat-fresh"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-weak-blueblack::p1",
+      "b": "bio-y8-food-tests-case-20261025-3-6",
+      "shared": [
+        "repeat-fresh"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-weak-blueblack::p1",
+      "b": "bio-y8-food-tests-case-20261025-4-11",
+      "shared": [
+        "repeat-fresh"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-weak-blueblack::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-10",
+      "shared": [
+        "iodine-negative-control"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-weak-blueblack::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-11",
+      "shared": [
+        "iodine-positive-control"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-weak-blueblack::p2",
+      "b": "bio-y8-food-tests-case-20261025-3-9",
+      "shared": [
+        "iodine-positive-control"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-weak-blueblack::p2",
+      "b": "bio-y8-food-tests-case-20261025-3-10",
+      "shared": [
+        "iodine-negative-control"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-temperature-safety::p1",
+      "b": "bio-y8-food-tests-application-20261025-temperature-safety::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-temperature-safety::p1",
+      "b": "bio-y8-food-tests-case-20261025-3-3",
+      "shared": [
+        "fair-temperature"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-temperature-safety::p1",
+      "b": "bio-y8-food-tests-case-20261025-4-3",
+      "shared": [
+        "fair-temperature"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-temperature-safety::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-3",
+      "shared": [
+        "controlled-heating"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-test-plan::p1",
+      "b": "bio-y8-food-tests-application-20261025-test-plan::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-test-plan::p1",
+      "b": "bio-y8-food-tests-application-20261025-wrong-reagent::p1",
+      "shared": [
+        "iodine-target"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-test-plan::p1",
+      "b": "bio-y8-food-tests-application-20261025-iodine-no-heat::p2",
+      "shared": [
+        "iodine-target",
+        "iodine-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-test-plan::p1",
+      "b": "bio-y8-food-tests-application-20261025-unknown-analysis::p1",
+      "shared": [
+        "iodine-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-test-plan::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-3",
+      "shared": [
+        "iodine-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-test-plan::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-8",
+      "shared": [
+        "emulsion-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p1",
+      "b": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p1",
+      "b": "bio-y8-food-tests-application-20261025-unknown-analysis::p2",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-2",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-3",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p1",
+      "b": "bio-y8-food-tests-case-20261025-4-16",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p2",
+      "b": "bio-y8-food-tests-application-20261025-unknown-analysis::p3",
+      "shared": [
+        "emulsion-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-15",
+      "shared": [
+        "emulsion-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-16",
+      "shared": [
+        "emulsion-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-12",
+      "shared": [
+        "emulsion-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-result-not-proof::p1",
+      "b": "bio-y8-food-tests-application-20261025-result-not-proof::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-result-not-proof::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-2",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-result-not-proof::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-14",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-result-not-proof::p1",
+      "b": "bio-y8-food-tests-case-20261025-4-10",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-result-not-proof::p1",
+      "b": "bio-y8-food-tests-case-20261025-4-12",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-result-not-proof::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-10",
+      "shared": [
+        "sweetness-not-reducing-sugar"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-result-not-proof::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-15",
+      "shared": [
+        "sweetness-not-reducing-sugar"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-wrong-reagent::p1",
+      "b": "bio-y8-food-tests-application-20261025-wrong-reagent::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-wrong-reagent::p1",
+      "b": "bio-y8-food-tests-application-20261025-iodine-no-heat::p2",
+      "shared": [
+        "iodine-target"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-uncertain-emulsion::p1",
+      "b": "bio-y8-food-tests-application-20261025-uncertain-emulsion::p2",
+      "shared": [
+        "emulsion-blank-failure"
+      ],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-uncertain-emulsion::p2",
+      "b": "bio-y8-food-tests-case-20261025-3-6",
+      "shared": [
+        "repeat-fresh"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-uncertain-emulsion::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-11",
+      "shared": [
+        "repeat-fresh"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-iodine-no-heat::p1",
+      "b": "bio-y8-food-tests-application-20261025-iodine-no-heat::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-iodine-no-heat::p2",
+      "b": "bio-y8-food-tests-application-20261025-unknown-analysis::p1",
+      "shared": [
+        "iodine-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-iodine-no-heat::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-3",
+      "shared": [
+        "iodine-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-safe-bunsen::p1",
+      "b": "bio-y8-food-tests-application-20261025-safe-bunsen::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-unknown-analysis::p1",
+      "b": "bio-y8-food-tests-application-20261025-unknown-analysis::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-unknown-analysis::p1",
+      "b": "bio-y8-food-tests-application-20261025-unknown-analysis::p3",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-unknown-analysis::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-3",
+      "shared": [
+        "iodine-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-unknown-analysis::p2",
+      "b": "bio-y8-food-tests-application-20261025-unknown-analysis::p3",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-unknown-analysis::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-2",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-unknown-analysis::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-3",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-unknown-analysis::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-16",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-unknown-analysis::p3",
+      "b": "bio-y8-food-tests-case-20261025-2-15",
+      "shared": [
+        "emulsion-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-unknown-analysis::p3",
+      "b": "bio-y8-food-tests-case-20261025-2-16",
+      "shared": [
+        "emulsion-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-unknown-analysis::p3",
+      "b": "bio-y8-food-tests-case-20261025-4-12",
+      "shared": [
+        "emulsion-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-analysis::p1",
+      "b": "bio-y8-food-tests-application-20261025-sugar-analysis::p2",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-analysis::p1",
+      "b": "bio-y8-food-tests-application-20261025-sugar-analysis::p3",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-analysis::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-1",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-analysis::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-4",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-analysis::p1",
+      "b": "bio-y8-food-tests-case-20261025-2-15",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-analysis::p2",
+      "b": "bio-y8-food-tests-application-20261025-sugar-analysis::p3",
+      "shared": [],
+      "sameSource": true,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-analysis::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-1",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-analysis::p2",
+      "b": "bio-y8-food-tests-case-20261025-2-9",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-analysis::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-12",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-analysis::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-15",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-analysis::p3",
+      "b": "bio-y8-food-tests-case-20261025-2-12",
+      "shared": [
+        "biuret-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-sugar-analysis::p3",
+      "b": "bio-y8-food-tests-case-20261025-4-12",
+      "shared": [
+        "biuret-negative"
+      ],
+      "sameSource": false,
+      "crossPool": true
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-1",
+      "b": "bio-y8-food-tests-case-20261025-2-4",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-1",
+      "b": "bio-y8-food-tests-case-20261025-2-9",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-1",
+      "b": "bio-y8-food-tests-case-20261025-2-15",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-1",
+      "b": "bio-y8-food-tests-case-20261025-4-12",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-1",
+      "b": "bio-y8-food-tests-case-20261025-4-15",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-2",
+      "b": "bio-y8-food-tests-case-20261025-2-3",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-2",
+      "b": "bio-y8-food-tests-case-20261025-2-14",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-2",
+      "b": "bio-y8-food-tests-case-20261025-4-10",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-2",
+      "b": "bio-y8-food-tests-case-20261025-4-12",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-2",
+      "b": "bio-y8-food-tests-case-20261025-4-16",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-3",
+      "b": "bio-y8-food-tests-case-20261025-2-9",
+      "shared": [
+        "untested-nutrients"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-3",
+      "b": "bio-y8-food-tests-case-20261025-2-16",
+      "shared": [
+        "untested-nutrients"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-3",
+      "b": "bio-y8-food-tests-case-20261025-4-12",
+      "shared": [
+        "untested-nutrients"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-3",
+      "b": "bio-y8-food-tests-case-20261025-4-16",
+      "shared": [
+        "biuret-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-4",
+      "b": "bio-y8-food-tests-case-20261025-2-15",
+      "shared": [
+        "benedict-positive"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-5",
+      "b": "bio-y8-food-tests-case-20261025-2-6",
+      "shared": [
+        "control-failure"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-5",
+      "b": "bio-y8-food-tests-case-20261025-2-10",
+      "shared": [
+        "control-failure"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-5",
+      "b": "bio-y8-food-tests-case-20261025-2-11",
+      "shared": [
+        "control-failure"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-5",
+      "b": "bio-y8-food-tests-case-20261025-2-13",
+      "shared": [
+        "control-failure"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-5",
+      "b": "bio-y8-food-tests-case-20261025-3-11",
+      "shared": [
+        "benedict-positive-control"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-6",
+      "b": "bio-y8-food-tests-case-20261025-2-10",
+      "shared": [
+        "control-failure"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-6",
+      "b": "bio-y8-food-tests-case-20261025-2-11",
+      "shared": [
+        "control-failure"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-6",
+      "b": "bio-y8-food-tests-case-20261025-2-13",
+      "shared": [
+        "control-failure"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-9",
+      "b": "bio-y8-food-tests-case-20261025-2-16",
+      "shared": [
+        "untested-nutrients"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-9",
+      "b": "bio-y8-food-tests-case-20261025-4-12",
+      "shared": [
+        "untested-nutrients",
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-9",
+      "b": "bio-y8-food-tests-case-20261025-4-15",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-10",
+      "b": "bio-y8-food-tests-case-20261025-2-11",
+      "shared": [
+        "control-failure"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-10",
+      "b": "bio-y8-food-tests-case-20261025-2-13",
+      "shared": [
+        "control-failure"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-10",
+      "b": "bio-y8-food-tests-case-20261025-3-10",
+      "shared": [
+        "iodine-negative-control"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-11",
+      "b": "bio-y8-food-tests-case-20261025-2-13",
+      "shared": [
+        "control-failure"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-11",
+      "b": "bio-y8-food-tests-case-20261025-3-9",
+      "shared": [
+        "iodine-positive-control"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-12",
+      "b": "bio-y8-food-tests-case-20261025-3-8",
+      "shared": [
+        "biuret-positive-control"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-12",
+      "b": "bio-y8-food-tests-case-20261025-4-12",
+      "shared": [
+        "biuret-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-13",
+      "b": "bio-y8-food-tests-case-20261025-3-12",
+      "shared": [
+        "benedict-negative-control"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-14",
+      "b": "bio-y8-food-tests-case-20261025-3-4",
+      "shared": [
+        "fair-duration"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-14",
+      "b": "bio-y8-food-tests-case-20261025-4-10",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-14",
+      "b": "bio-y8-food-tests-case-20261025-4-12",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-15",
+      "b": "bio-y8-food-tests-case-20261025-2-16",
+      "shared": [
+        "emulsion-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-15",
+      "b": "bio-y8-food-tests-case-20261025-4-12",
+      "shared": [
+        "emulsion-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-2-16",
+      "b": "bio-y8-food-tests-case-20261025-4-12",
+      "shared": [
+        "untested-nutrients",
+        "emulsion-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-3-3",
+      "b": "bio-y8-food-tests-case-20261025-4-3",
+      "shared": [
+        "fair-temperature"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-3-6",
+      "b": "bio-y8-food-tests-case-20261025-4-11",
+      "shared": [
+        "repeat-fresh"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-4-10",
+      "b": "bio-y8-food-tests-case-20261025-4-12",
+      "shared": [
+        "benedict-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-4-10",
+      "b": "bio-y8-food-tests-case-20261025-4-15",
+      "shared": [
+        "sweetness-not-reducing-sugar"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-case-20261025-4-12",
+      "b": "bio-y8-food-tests-case-20261025-4-15",
+      "shared": [
+        "iodine-negative"
+      ],
+      "sameSource": false,
+      "crossPool": false
+    },
+    {
+      "a": "bio-y8-food-tests-application-20261025-eyes::p2",
+      "b": "bio-y8-food-tests-case-20261025-4-8",
+      "shared": [],
+      "sameSource": false,
+      "crossPool": true,
+      "explicitRelatedRisk": "RELATED_PIPETTING_SAFETY",
+      "reason": "Both concern safer reagent delivery, although one tests avoiding mouth pipetting and the other wall-directed dispensing."
+    }
+  ],
+  "qaSimulation": {
+    "method": "Deterministic greedy pass in source order; not live selection, no optimality claim",
+    "nonConflictingPoolExample": [
+      "bio-y8-food-tests-iodine-solution-explain::p1",
+      "bio-y8-food-tests-benedict-s-solution-explain::p1",
+      "bio-y8-food-tests-biuret-solution-explain::p1",
+      "bio-y8-food-tests-ethanol-emulsion-test-explain::p1",
+      "bio-y8-food-tests-blue-black-explain::p1",
+      "bio-y8-food-tests-brick-red-explain::p1",
+      "bio-y8-food-tests-lilac-or-purple-explain::p1",
+      "bio-y8-food-tests-cloudy-white-emulsion-explain::p1",
+      "bio-y8-food-tests-water-bath-explain::p1",
+      "bio-y8-app-benedicts-method::p3",
+      "bio-y8-app-ethanol-safety::p1",
+      "bio-y8-food-tests-application-20261025-sample-separation::p1",
+      "bio-y8-food-tests-application-20261025-iodine-repeat::p1",
+      "bio-y8-food-tests-application-20261025-negative-sugar::p1",
+      "bio-y8-food-tests-application-20261025-biuret-control::p1",
+      "bio-y8-food-tests-application-20261025-iodine-control::p1",
+      "bio-y8-food-tests-application-20261025-repeatability::p1",
+      "bio-y8-food-tests-application-20261025-cross-contamination::p1",
+      "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p1",
+      "bio-y8-food-tests-application-20261025-ethanol-ventilation::p1",
+      "bio-y8-food-tests-application-20261025-benedict-hot-tube::p1",
+      "bio-y8-food-tests-application-20261025-protein-extraction::p1",
+      "bio-y8-food-tests-application-20261025-fair-amount::p1",
+      "bio-y8-food-tests-application-20261025-fair-reagent::p1",
+      "bio-y8-food-tests-application-20261025-sugar-strength::p2",
+      "bio-y8-food-tests-application-20261025-sugar-vs-starch::p2",
+      "bio-y8-food-tests-application-20261025-all-negative::p2",
+      "bio-y8-food-tests-application-20261025-retest-ethanol::p1",
+      "bio-y8-food-tests-application-20261025-glassware::p1",
+      "bio-y8-food-tests-application-20261025-eyes::p1",
+      "bio-y8-food-tests-application-20261025-heat-variable::p1",
+      "bio-y8-food-tests-application-20261025-no-taste::p1",
+      "bio-y8-food-tests-application-20261025-recording::p1",
+      "bio-y8-food-tests-application-20261025-inference::p1",
+      "bio-y8-food-tests-application-20261025-temperature-safety::p1",
+      "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p2",
+      "bio-y8-food-tests-application-20261025-result-not-proof::p2",
+      "bio-y8-food-tests-application-20261025-uncertain-emulsion::p1",
+      "bio-y8-food-tests-application-20261025-iodine-no-heat::p1",
+      "bio-y8-food-tests-application-20261025-sugar-analysis::p3",
+      "bio-y8-food-tests-case-20261025-2-5",
+      "bio-y8-food-tests-case-20261025-3-7",
+      "bio-y8-food-tests-case-20261025-3-8",
+      "bio-y8-food-tests-case-20261025-3-10",
+      "bio-y8-food-tests-case-20261025-3-12",
+      "bio-y8-food-tests-case-20261025-3-13",
+      "bio-y8-food-tests-case-20261025-3-14",
+      "bio-y8-food-tests-case-20261025-4-1",
+      "bio-y8-food-tests-case-20261025-4-2",
+      "bio-y8-food-tests-case-20261025-4-5",
+      "bio-y8-food-tests-case-20261025-4-8",
+      "bio-y8-food-tests-case-20261025-4-9",
+      "bio-y8-food-tests-case-20261025-4-14"
+    ],
+    "example10": [
+      "bio-y8-food-tests-iodine-solution-explain::p1",
+      "bio-y8-food-tests-benedict-s-solution-explain::p1",
+      "bio-y8-food-tests-biuret-solution-explain::p1",
+      "bio-y8-food-tests-ethanol-emulsion-test-explain::p1",
+      "bio-y8-food-tests-blue-black-explain::p1",
+      "bio-y8-food-tests-brick-red-explain::p1",
+      "bio-y8-food-tests-lilac-or-purple-explain::p1",
+      "bio-y8-food-tests-cloudy-white-emulsion-explain::p1",
+      "bio-y8-food-tests-water-bath-explain::p1",
+      "bio-y8-app-benedicts-method::p3"
+    ],
+    "formalCreditEligible": false
+  }
+}
