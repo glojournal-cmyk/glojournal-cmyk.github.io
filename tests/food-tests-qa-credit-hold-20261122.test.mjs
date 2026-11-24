@@ -10,6 +10,7 @@ const read=p=>JSON.parse(fs.readFileSync(new URL('../'+p,import.meta.url),'utf8'
 const bank=read('content/topics/bio-y8-food-tests.json');
 const register=read('qa/academic-qa-bio-y8-food-tests-items.json');
 const draft=read('qa/food-tests-structured-mark-points-draft-20261122.json');
+const structuredCandidate=read('qa/food-tests-structured-99-point-review-candidate-20261122.json');
 const q=bank.questions[0];
 test('All 143 food test questions are held even when enabled',()=>{
  assert.equal(bank.questions.length,143);
@@ -73,4 +74,41 @@ test('Even a fully specified deterministic concept check does not unlock current
  assert.equal(validateConceptChoiceItem(item).valid,true);
  const got=scoreConceptChoices(item,{'sample::p1':'b'});
  assert.equal(got.score,1);assert.equal(got.formalCreditEligible,false);
+});
+
+test('every structured point ID from the full 99-candidate bank inherits its held original source ID',()=>{
+ const points=structuredCandidate.items.flatMap(item=>item.parts);
+ assert.equal(structuredCandidate.items.length,52);
+ assert.equal(points.length,99);
+ assert.equal(structuredCandidate.approved,0);
+ let nonstandard=0;
+ for(const part of points){
+  const sourceId=part.pointId.split('::')[0];
+  assert.ok(FOOD_TESTS_QA_HOLD_IDS.includes(sourceId),'unknown original ID '+sourceId);
+  assert.equal(isFoodTestsQaHeld(sourceId),true);
+  assert.equal(isFoodTestsQaHeld(part.pointId),true,'candidate mark-point ID escaped hold: '+part.pointId);
+  assert.equal(isFoodTestsQaHeld({id:part.pointId}),true,part.pointId);
+  assert.equal(isFoodTestsQaHeld({questionId:part.pointId}),true,part.pointId);
+  assert.equal(canEarnFormalCredit(part.pointId),false,part.pointId);
+  assert.equal(canEarnFormalCredit({id:part.pointId,topicId:''}),false,part.pointId);
+  assert.equal(foodTestsPupilVerdict(part.pointId)?.score,null,part.pointId);
+  if(!part.pointId.startsWith('bio-y8-food-tests-'))nonstandard++;
+ }
+ assert.equal(nonstandard,5,'all five bio-y8-app-... structured point IDs must be held');
+ assert.equal(isFoodTestsQaHeld('unrelated-biology-question::p1'),false);
+ assert.equal(canEarnFormalCredit('unrelated-maths-question::p1'),true);
+});
+test('candidate point IDs with truthful correct flags cannot create verified Daily or Mastery credit',()=>{
+ const points=structuredCandidate.items.flatMap(x=>x.parts);
+ const examples=[points[0],...points.filter(p=>p.pointId.startsWith('bio-y8-app-'))];
+ assert.equal(examples.length,6);
+ for(const part of examples){
+  const question={id:part.pointId,format:'mc_single',topicId:'unmapped-candidate'};
+  const answers=[{questionId:part.pointId,correct:true,formal:true}];
+  assert.deepEqual(verifiedQuizSlots([question],answers),[],part.pointId);
+  const old={stage:'learning',roundTarget:20,attempts:[]};
+  const result=addMasteryEvidence({masteryV2:old},{questionId:part.pointId,year:8,mode:'mastery',
+   day:'2026-11-24',correct:true,formal:true,format:'mc_single'});
+  assert.strictEqual(result,old,'Mastery moved for '+part.pointId);
+ }
 });
