@@ -1,0 +1,918 @@
+{
+  "kind": "STANDARD_FORM16_DIFFICULTY_HOLD_REDESIGN_NO_APPROVAL",
+  "date": "2026-11-24",
+  "sourceRegister": "qa-staging/math-final-academic-review-all200-consolidated-20261124.json",
+  "sourceRegisterBlobSha": "c2b3abea3711012c7f00d7355f4f2d332cc9d39c",
+  "count": 16,
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-002",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-002-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-002-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "effective-density-and-dilution",
+      "stem": "A tank contains $2\\times10^5$ mL of solution at concentration $3\\times10^{-4}$ g/mL. One quarter of this well-mixed solution is removed. Pure water is then added in complete $2.5\\times10^4$ mL batches. The final concentration must be between $8\\times10^{-5}$ and $9\\times10^{-5}$ g/mL inclusive. Assuming additive volumes and no further salt loss, find the greatest volume of water that can be added, in mL. Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3.5\\times10^{5}",
+          "errorPath": "Use the lower permitted added volume, which gives the upper concentration boundary."
+        },
+        {
+          "id": "B",
+          "latex": "4\\times10^{5}"
+        },
+        {
+          "id": "C",
+          "latex": "3.75\\times10^{5}",
+          "errorPath": "Choose the intermediate feasible batch count rather than the greatest."
+        },
+        {
+          "id": "D",
+          "latex": "4.25\\times10^{5}",
+          "errorPath": "Include one extra batch beyond the upper volume bound."
+        },
+        {
+          "id": "E",
+          "latex": "1.5\\times10^{5}",
+          "errorPath": "Report remaining original solution volume rather than the added water."
+        },
+        {
+          "id": "F",
+          "latex": "5.5\\times10^{5}",
+          "errorPath": "Report the final total volume at the optimum."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "4\\times10^{5}",
+      "workedSolutionSteps": [
+        "Removing one quarter leaves 150000 mL and 45 g of salt.",
+        "The concentration bounds imply 500000≤total volume≤562500, or 350000≤added volume≤412500.",
+        "The largest multiple of 25000 in this interval is 400000 (16 batches), giving concentration 45/550000≈8.18×10^-5 g/mL."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Reverse a concentration interval with discrete batch constraints.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-002-V328-REASONING-QA-ONLY"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-003",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-003-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-003-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "percentage-change-with-offset",
+      "stem": "An archive originally contains $4\\times10^6$ files, each of size $2.5\\times10^5$ bytes. All files are compressed. There are two methods: A retains 20% of a file's original size and B retains 35%. Method B must be used for at least one quarter of the files. A fixed index adds $3\\times10^9$ bytes. Storage capacity is $2.78\\times10^{11}$ bytes. What is the greatest possible number of files compressed using B? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2\\times10^{6}"
+        },
+        {
+          "id": "B",
+          "latex": "1\\times10^{6}",
+          "errorPath": "Report the minimum required number using B, not the maximum."
+        },
+        {
+          "id": "C",
+          "latex": "2.08\\times10^{6}",
+          "errorPath": "Omit the fixed index when calculating the available extra capacity for method B."
+        },
+        {
+          "id": "D",
+          "latex": "3\\times10^{6}",
+          "errorPath": "Use all files except the minimum one quarter, without testing the storage limit."
+        },
+        {
+          "id": "E",
+          "latex": "5\\times10^{5}",
+          "errorPath": "Report one quarter of the correct maximum rather than the maximum."
+        },
+        {
+          "id": "F",
+          "latex": "4\\times10^{6}",
+          "errorPath": "Use B for every file, ignoring the storage constraint."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "2\\times10^{6}",
+      "workedSolutionSteps": [
+        "If all use A, compressed size is 2×10^11 bytes; including index gives 2.03×10^11 bytes.",
+        "Each B file adds (0.35−0.20)(2.5×10^5)=37500 bytes. Capacity permits at most (2.78×10^11−2.03×10^11)/37500=2000000 B files.",
+        "The required minimum is 1000000. The maximum 2000000 is feasible, and any extra B file exceeds capacity."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Optimise an allocation subject to minimum usage and capacity.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-003-V328-REASONING-QA-ONLY"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-006",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-006-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-006-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-006-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "average-speed-and-time-budget",
+      "stem": "A probe travels $9\\times10^6$ km, covering the first third of its distance at $3\\times10^3$ km/h. It covers the rest at one of six available constant speeds. It must complete the entire journey, including a mandatory $2\\times10^2$ hour stop, in at most $2.2\\times10^3$ hours. Fuel use per kilometre increases with speed. What is the lowest feasible speed for the second leg, in km/h? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3\\times10^{3}",
+          "errorPath": "Reuse the first speed, exceeding the time budget."
+        },
+        {
+          "id": "B",
+          "latex": "5\\times10^{3}",
+          "errorPath": "Ignore the 200-hour stop when allocating the remaining travel time."
+        },
+        {
+          "id": "C",
+          "latex": "5.5\\times10^{3}",
+          "errorPath": "Choose a speed below the minimum; 6×10^6/5500 exceeds 1000 hours."
+        },
+        {
+          "id": "D",
+          "latex": "6\\times10^{3}"
+        },
+        {
+          "id": "E",
+          "latex": "7.5\\times10^{3}",
+          "errorPath": "Choose a feasible speed greater than necessary."
+        },
+        {
+          "id": "F",
+          "latex": "9\\times10^{3}",
+          "errorPath": "Choose a feasible but unnecessarily high speed."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "6\\times10^{3}",
+      "workedSolutionSteps": [
+        "First leg: 3×10^6/3000=1000 h. After the 200 h stop, at most 1000 h remain.",
+        "The remaining distance is 6×10^6 km, so its speed must be at least 6000 km/h.",
+        "Among the offered speeds, 6000 is the lowest feasible one; it reaches the time limit exactly."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Find the minimum feasible rate from a staged time budget.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-006-V331-EDITORIAL-UPGRADE-QA-ONLY"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-011",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-011-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-011-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-011-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "tare-and-unit-count",
+      "stem": "A shipment of $2\\times10^2$ identical boxes and identical items has total mass $9.6\\times10^5$ g. Each empty box weighs $8\\times10^2$ g. Each item weighs $4\\times10^1$ g. After removing 15% of the items, the remaining items must be repacked into identical boxes holding at most 90 items each. The new shipment must weigh at most $8.4\\times10^5$ g. What is the maximum number of empty boxes that can also be included, beyond those needed to hold all the remaining items? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "1.2\\times10^{1}",
+          "errorPath": "Round the required filled-box count down instead of up."
+        },
+        {
+          "id": "B",
+          "latex": "1.89\\times10^{2}",
+          "errorPath": "Report the minimum number of boxes needed to hold the items."
+        },
+        {
+          "id": "C",
+          "latex": "2\\times10^{2}",
+          "errorPath": "Report the maximum total box count rather than the extra empty boxes."
+        },
+        {
+          "id": "D",
+          "latex": "1.5\\times10^{1}",
+          "errorPath": "Report the percentage removed."
+        },
+        {
+          "id": "E",
+          "latex": "1.1\\times10^{1}"
+        },
+        {
+          "id": "F",
+          "latex": "1.7\\times10^{4}",
+          "errorPath": "Report the number of remaining items rather than additional empty boxes."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "1.1\\times10^{1}",
+      "workedSolutionSteps": [
+        "The original items weigh 800000 g, so there were 20000 items; 17000 remain, weighing 680000 g.",
+        "At least ceil(17000/90)=189 boxes are needed. The mass cap allows at most floor((840000−680000)/800)=200 boxes in total.",
+        "Therefore at most 200−189=11 empty boxes may also be included. This packing is attainable."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Combine a capacity ceiling and mass-budget floor.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-011-ACADEMIC-REVIEW-20261124"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-017",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-017-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-017-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "area-rate-and-unit-conversion",
+      "stem": "An array measures $3\\times10^2$ m by $8\\times10^1$ m. Of its area, 75% is active. The active area is divided into two panel types: A produces $2\\times10^{-1}$ Wh/cm² per day and B produces $5\\times10^{-1}$ Wh/cm² per day. The target daily energy is exactly $5.4\\times10^7$ Wh. What area of type B, in m², is required? Assume $1$ m²=$10^4$ cm² and no output losses. Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "1.2\\times10^{4}",
+          "errorPath": "Report the area of type A instead of B."
+        },
+        {
+          "id": "B",
+          "latex": "1.8\\times10^{4}",
+          "errorPath": "Report the entire active area."
+        },
+        {
+          "id": "C",
+          "latex": "1.08\\times10^{4}",
+          "errorPath": "Divide the target by B's yield alone, ignoring the output from A."
+        },
+        {
+          "id": "D",
+          "latex": "9\\times10^{3}",
+          "errorPath": "Assume both types cover equal areas."
+        },
+        {
+          "id": "E",
+          "latex": "6\\times10^{3}"
+        },
+        {
+          "id": "F",
+          "latex": "6\\times10^{7}",
+          "errorPath": "Calculate the correct area in cm² but fail to convert to m²."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "6\\times10^{3}",
+      "workedSolutionSteps": [
+        "Active area is 300×80×0.75=18000 m², or 1.8×10^8 cm².",
+        "All type A would produce 3.6×10^7 Wh. Replacing 1 cm² with B adds 0.3 Wh, so the required B area is (5.4×10^7−3.6×10^7)/0.3=6×10^7 cm².",
+        "Convert to m²: 6000. The remaining A area is 12000 m², satisfying the target."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Solve a weighted output allocation with area conversion.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-017-V328-REASONING-QA-ONLY"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-019",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-019-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-019-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "geometric-scaling-and-unit-conversion",
+      "stem": "A model has outer volume $6.4\\times10^{-5}$ m³. An object with a similar outer shape has every linear dimension multiplied by a positive integer k. A cavity occupies exactly 12.5% of its outer volume. The solid material has density $2.5\\times10^3$ kg/m³ and its mass must be at most $1.75\\times10^4$ kg. Which is the greatest possible integer k? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "5.1\\times10^{1}",
+          "errorPath": "Include the next integer without checking the mass."
+        },
+        {
+          "id": "B",
+          "latex": "4\\times10^{1}",
+          "errorPath": "Choose a feasible but smaller scale factor."
+        },
+        {
+          "id": "C",
+          "latex": "5\\times10^{1}"
+        },
+        {
+          "id": "D",
+          "latex": "2.5\\times10^{1}",
+          "errorPath": "Halve the maximum linear factor as though volume scaled linearly."
+        },
+        {
+          "id": "E",
+          "latex": "1.25\\times10^{5}",
+          "errorPath": "Report the maximum volume scale factor k³."
+        },
+        {
+          "id": "F",
+          "latex": "7\\times10^{0}",
+          "errorPath": "Report the maximum solid volume in m³."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "5\\times10^{1}",
+      "workedSolutionSteps": [
+        "Solid volume equals 0.875×6.4×10^-5×k³ m³. Its mass is 0.14k³ kg.",
+        "The mass cap gives k³≤17500/0.14=125000.",
+        "Since 50³=125000 and 51³=132651, the greatest possible integer scale factor is 50."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Reverse cubic scaling with density and an integer mass cap.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-019-ACADEMIC-REVIEW-20261124"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-022",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-022-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-022-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-022-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "percentage-change-with-offset",
+      "stem": "A sensor displays $D=(1+p)T-C$, where T is the true reading, p is a constant fractional increase and C is a fixed positive offset. True readings $4\\times10^6$ and $8\\times10^6$ give displays $4.2\\times10^6$ and $8.6\\times10^6$ respectively. A third display is $1.3\\times10^7$. Find its true reading T, in units. Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "1.3\\times10^{7}",
+          "errorPath": "Report the displayed value without reversing the calibration."
+        },
+        {
+          "id": "B",
+          "latex": "1.32\\times10^{8}",
+          "errorPath": "Shift the exponent of the offset-corrected numerator 1.32×10^7 up one place."
+        },
+        {
+          "id": "C",
+          "latex": "2\\times10^{5}",
+          "errorPath": "Report the inferred fixed offset."
+        },
+        {
+          "id": "D",
+          "latex": "1.32\\times10^{7}",
+          "errorPath": "Undo the offset but ignore the percentage increase."
+        },
+        {
+          "id": "E",
+          "latex": "4.4\\times10^{6}",
+          "errorPath": "Report the change in display used to derive the calibration."
+        },
+        {
+          "id": "F",
+          "latex": "1.2\\times10^{7}"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "1.2\\times10^{7}",
+      "workedSolutionSteps": [
+        "The change in display is 4.4×10^6 for a true change of 4×10^6, so 1+p=1.1.",
+        "Use the first pair: C=1.1×4×10^6−4.2×10^6=2×10^5.",
+        "For the third display, T=(1.3×10^7+2×10^5)/1.1=1.2×10^7."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Recover an unknown proportional calibration and offset from two readings.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-022-ACADEMIC-REVIEW-20261124"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-024",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-024-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-024-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-024-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "relative-percentage-comparison",
+      "stem": "Town A initially has population $4\\times10^5$. Town B initially has 25% more people. Both populations rise at fixed positive annual percentage rates. After one year A has grown by 20% and B by 4%. Assume these same growth factors apply to the next year. At the end of that second year, how many additional people would the smaller town need to gain to equal the larger town? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "4\\times10^{4}",
+          "errorPath": "Report the gap at the end of the first year."
+        },
+        {
+          "id": "B",
+          "latex": "5.76\\times10^{5}",
+          "errorPath": "Report A's population after two years."
+        },
+        {
+          "id": "C",
+          "latex": "5.408\\times10^{5}",
+          "errorPath": "Report B's population after two years."
+        },
+        {
+          "id": "D",
+          "latex": "3.52\\times10^{4}"
+        },
+        {
+          "id": "E",
+          "latex": "2\\times10^{4}",
+          "errorPath": "Use simple rather than compound growth: 400000×1.4−500000×1.08=20000."
+        },
+        {
+          "id": "F",
+          "latex": "1\\times10^{5}",
+          "errorPath": "Report the original gap."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "3.52\\times10^{4}",
+      "workedSolutionSteps": [
+        "Initially B has 500000 people. After two years A has 400000×1.2²=576000.",
+        "After two years B has 500000×1.04²=540800. A has overtaken B.",
+        "B therefore needs 576000−540800=35200 additional people."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Compare compound growth on unequal bases and determine which population is smaller.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-024-V331-EDITORIAL-UPGRADE-QA-ONLY"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-026-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-026-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "geometric-scaling-and-unit-conversion",
+      "stem": "A cube-shaped tank has internal side length $4\\times10^{-2}$ m. A coating occupies 25% of its internal volume. A second cube-shaped tank has internal side length k times that of the first, where k is a positive integer, and its coating occupies 50% of its internal volume. What is the smallest possible liquid capacity of the second tank, in mm³, that is at least five times the first tank's liquid capacity? Use $1$ m³=$10^9$ mm³. Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2.4\\times10^{5}",
+          "errorPath": "Report exactly five times the first capacity without imposing the integer scale condition."
+        },
+        {
+          "id": "B",
+          "latex": "2.56\\times10^{5}"
+        },
+        {
+          "id": "C",
+          "latex": "3.2\\times10^{4}",
+          "errorPath": "Use k=1, which fails the capacity requirement."
+        },
+        {
+          "id": "D",
+          "latex": "4.8\\times10^{4}",
+          "errorPath": "Report the first tank's liquid capacity."
+        },
+        {
+          "id": "E",
+          "latex": "5.12\\times10^{5}",
+          "errorPath": "Find the second tank's full internal volume at k=2, ignoring its coating."
+        },
+        {
+          "id": "F",
+          "latex": "8.64\\times10^{5}",
+          "errorPath": "Use k=3 even though k=2 is sufficient."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "2.56\\times10^{5}",
+      "workedSolutionSteps": [
+        "First internal volume is 64000 mm³, and its liquid capacity is 48000 mm³.",
+        "Second liquid capacity is 32000k³ mm³. At least five times the first requires k³≥240000/32000=7.5.",
+        "The smallest positive integer satisfying this is k=2, so capacity is 32000×8=256000 mm³."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Compare two cubic capacities and reverse an integer scale inequality.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-026-V328-REASONING-QA-ONLY"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-027",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-027-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-027-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "effective-density-and-dilution",
+      "stem": "A liquid contains $2.4\\times10^8$ particles per mL. A process removes exactly 40% of these particles. A sample must retain at least $7.2\\times10^{10}$ particles. It is processed in complete containers of $1.6\\times10^2$ mL each, and each container requires an additional 20 mL of particle-free flushing liquid that cannot be counted towards the sample. Find the minimum total volume of sample and flushing liquid used, in litres. Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "7.2\\times10^{-1}"
+        },
+        {
+          "id": "B",
+          "latex": "5\\times10^{-1}",
+          "errorPath": "Ignore the whole-container and flushing requirements."
+        },
+        {
+          "id": "C",
+          "latex": "6.4\\times10^{-1}",
+          "errorPath": "Round to four containers but omit their flushing liquid."
+        },
+        {
+          "id": "D",
+          "latex": "5.4\\times10^{-1}",
+          "errorPath": "Use only three containers including their flush, leaving too few retained particles."
+        },
+        {
+          "id": "E",
+          "latex": "8\\times10^{-1}",
+          "errorPath": "Use five containers of sample alone instead of the minimum four with flushing."
+        },
+        {
+          "id": "F",
+          "latex": "8\\times10^{-2}",
+          "errorPath": "Report the flushing liquid alone."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "7.2\\times10^{-1}",
+      "workedSolutionSteps": [
+        "Each mL retains 1.44×10^8 particles, so at least 500 mL of sample is needed.",
+        "Containers hold 160 mL each; ceil(500/160)=4 complete containers. Three hold only 480 mL.",
+        "Four containers use 4×(160+20)=720 mL=0.72 L in total."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Reverse a retention requirement, then enforce batching and separate overhead.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-027-V328-REASONING-QA-ONLY"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-030",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-030-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-030-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-030-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "reverse-numerical-expression",
+      "stem": "Positive N satisfies $\\frac{N+3\\times10^8}{2\\times10^5}=4.5\\times10^3$. A calculation uses this N and an integer k, with $1\\le k\\le10$: $R=\\frac{N-k\\times10^8}{5\\times10^4}$. Find the greatest possible positive value of R strictly less than $5\\times10^3$. Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "5\\times10^{3}",
+          "errorPath": "Treat the upper bound as attainable without checking integer k."
+        },
+        {
+          "id": "B",
+          "latex": "6\\times10^{3}",
+          "errorPath": "Use k=3, which violates the strict bound."
+        },
+        {
+          "id": "C",
+          "latex": "2\\times10^{3}",
+          "errorPath": "Use k=5 rather than the greatest feasible result."
+        },
+        {
+          "id": "D",
+          "latex": "4\\times10^{3}"
+        },
+        {
+          "id": "E",
+          "latex": "9\\times10^{3}",
+          "errorPath": "Use a subtraction of 1.5×10^8 instead of an integer multiple."
+        },
+        {
+          "id": "F",
+          "latex": "1.2\\times10^{4}",
+          "errorPath": "Omit the subtraction entirely."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "4\\times10^{3}",
+      "workedSolutionSteps": [
+        "The first relation gives N=6×10^8.",
+        "Hence R=2000(6−k). The required inequalities give 0<6−k<2.5, so k is 4 or 5.",
+        "The greatest allowed R is 4000, at k=4."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Transfer a recovered quantity into a discrete strict inequality.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-030-V331-EDITORIAL-UPGRADE-QA-ONLY"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-031",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-031-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-031-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-031-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "discrete-capacity-and-optimisation",
+      "stem": "A data link has capacity $7.5\\times10^8$ bytes per session, including a fixed overhead of $1.5\\times10^8$ bytes. A large file uses $2.4\\times10^5$ bytes and a small file uses $1.2\\times10^5$ bytes. Exactly $3\\times10^3$ complete files must be sent, with at least one quarter large. Find the greatest number of large files that can be sent. Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2.5\\times10^{3}",
+          "errorPath": "Divide the available capacity by the large-file size, ignoring the required total count."
+        },
+        {
+          "id": "B",
+          "latex": "7.5\\times10^{2}",
+          "errorPath": "Report the minimum large-file count."
+        },
+        {
+          "id": "C",
+          "latex": "2\\times10^{3}"
+        },
+        {
+          "id": "D",
+          "latex": "1\\times10^{3}",
+          "errorPath": "Report the number of small files at the optimum."
+        },
+        {
+          "id": "E",
+          "latex": "3\\times10^{3}",
+          "errorPath": "Treat all required files as large, ignoring capacity."
+        },
+        {
+          "id": "F",
+          "latex": "1.5\\times10^{3}",
+          "errorPath": "Assume equal numbers of large and small files."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "2\\times10^{3}",
+      "workedSolutionSteps": [
+        "All 3000 files treated as small would use 3.6×10^8 bytes. The available capacity after overhead is 6×10^8.",
+        "Each large file adds 1.2×10^5 bytes. Thus the number L of large files obeys 1.2×10^5 L≤2.4×10^8, or L≤2000.",
+        "The minimum is 750. Taking L=2000 and 1000 small files exactly meets capacity and all constraints."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Optimise a two-size allocation under a fixed total and capacity.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-031-V331-EDITORIAL-UPGRADE-QA-ONLY"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-032",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-032-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-032-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-032-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "discrete-capacity-and-optimisation",
+      "stem": "A square site has side length $3\\times10^3$ m. Exactly 20% of its area is reserved for paths. The remaining area may contain small plots of area $2\\times10^3$ m² and large plots of area $3\\times10^3$ m². There must be exactly $3\\times10^3$ plots, at least half of which are small. Ignoring layout restrictions, find the greatest possible total area occupied by large plots, in m², without exceeding usable area. Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "4.5\\times10^{6}",
+          "errorPath": "Use only the requirement that at least half are small; 1500 large plots exceed the area limit."
+        },
+        {
+          "id": "B",
+          "latex": "3.6\\times10^{6}"
+        },
+        {
+          "id": "C",
+          "latex": "7.2\\times10^{6}",
+          "errorPath": "Report the total usable area."
+        },
+        {
+          "id": "D",
+          "latex": "6\\times10^{6}",
+          "errorPath": "Report the area if all plots were small."
+        },
+        {
+          "id": "E",
+          "latex": "1.2\\times10^{3}",
+          "errorPath": "Report the number of large plots rather than their area."
+        },
+        {
+          "id": "F",
+          "latex": "1.2\\times10^{6}",
+          "errorPath": "Multiply the optimal large count by the extra area per large plot, not its whole area."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "3.6\\times10^{6}",
+      "workedSolutionSteps": [
+        "Usable area is 0.8×3000²=7.2×10^6 m². If every plot were small, the total would be 6×10^6 m².",
+        "Each large plot adds 1000 m², so capacity permits at most 1200 large plots. At least half small separately requires at most 1500 large plots.",
+        "The binding limit is 1200 large plots, with 1800 small plots. The maximum large-plot area is 1200×3000=3.6×10^6 m²."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Compare a count cap and area budget to maximise the area of one plot type.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-032-V331-EDITORIAL-UPGRADE-QA-ONLY"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-034",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-034-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-034-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "ratio-transfer",
+      "stem": "Two storage units A and B initially hold data in ratio 7:2, with total $9\\times10^8$ bytes. Exactly 10% of the data originally in A is deleted and 20% of the data originally in B is deleted. Then data is transferred from A to B, with no further losses. The final ratio A:B is 2:3. How many bytes are transferred? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3.4\\times10^{8}",
+          "errorPath": "Ignore both deletions: initial A 700000000 minus target A 360000000."
+        },
+        {
+          "id": "B",
+          "latex": "3.16\\times10^{8}",
+          "errorPath": "Report A's final amount, not the transfer."
+        },
+        {
+          "id": "C",
+          "latex": "4.74\\times10^{8}",
+          "errorPath": "Report final B amount rather than the transfer."
+        },
+        {
+          "id": "D",
+          "latex": "6.3\\times10^{8}",
+          "errorPath": "Report A's amount immediately after deletion."
+        },
+        {
+          "id": "E",
+          "latex": "1.6\\times10^{8}",
+          "errorPath": "Report B's amount immediately after deletion."
+        },
+        {
+          "id": "F",
+          "latex": "3.14\\times10^{8}"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "3.14\\times10^{8}",
+      "workedSolutionSteps": [
+        "Initially A has 7×10^8 bytes and B has 2×10^8. After deletion they hold 6.3×10^8 and 1.6×10^8 respectively.",
+        "The remaining total is 7.9×10^8 bytes. The required final A share is 2/5 of this, namely 3.16×10^8.",
+        "The transferred amount is 6.3×10^8−3.16×10^8=3.14×10^8 bytes; the final B share is 4.74×10^8."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Recalculate conserved total after unequal losses, then invert a target ratio.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-034-V328-REASONING-QA-ONLY"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-039",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-039-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-039-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-039-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "percentage-change-with-offset",
+      "stem": "A data store grows by 20% in each of two months. Afterwards $5\\times10^7$ records are deleted. The remaining records are divided equally among $4\\times10^4$ storage units, each holding exactly $1\\times10^4$ records. The original data was held in complete batches of $1.25\\times10^5$ records. How many original batches were there? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2.5\\times10^{3}"
+        },
+        {
+          "id": "B",
+          "latex": "3.2\\times10^{3}",
+          "errorPath": "Divide the final total by the original batch size, ignoring growth and deletion."
+        },
+        {
+          "id": "C",
+          "latex": "3.6\\times10^{3}",
+          "errorPath": "Undo the deletion but omit both reverse growth steps."
+        },
+        {
+          "id": "D",
+          "latex": "3\\times10^{3}",
+          "errorPath": "Undo the deletion and only one growth step."
+        },
+        {
+          "id": "E",
+          "latex": "3.125\\times10^{8}",
+          "errorPath": "Report the original record count instead of the batch count."
+        },
+        {
+          "id": "F",
+          "latex": "2\\times10^{3}",
+          "errorPath": "Apply an additional 20% reduction to the correct batch count."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "2.5\\times10^{3}",
+      "workedSolutionSteps": [
+        "The final total is (4×10^4)(1×10^4)=4×10^8 records. Before deletion it was 4.5×10^8.",
+        "Reverse two 20% increases: 4.5×10^8/1.44=3.125×10^8 records.",
+        "Divide by 1.25×10^5 records per batch to obtain 2500 complete original batches."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Reverse a compound-growth and deletion model, then recover an integer batch count.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-039-ACADEMIC-REVIEW-20261124"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-040",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-040-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-040-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-040-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "discrete-capacity-and-optimisation",
+      "stem": "A laboratory has $7.6\\times10^8$ units of a resource and must complete exactly $4\\times10^4$ tests. Method A uses $2\\times10^4$ units per test; method B uses 20% less. At least $1.5\\times10^4$ tests must use A. Find the greatest possible number of tests using A. Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "1.5\\times10^{4}",
+          "errorPath": "Report the minimum A count."
+        },
+        {
+          "id": "B",
+          "latex": "4\\times10^{4}",
+          "errorPath": "Use A for all tests despite exceeding the budget."
+        },
+        {
+          "id": "C",
+          "latex": "1\\times10^{4}",
+          "errorPath": "Report the number of B tests at the optimum."
+        },
+        {
+          "id": "D",
+          "latex": "3.8\\times10^{4}",
+          "errorPath": "Divide the resource by A's consumption, ignoring the required B tests."
+        },
+        {
+          "id": "E",
+          "latex": "2.5\\times10^{4}",
+          "errorPath": "Subtract the minimum A count from the total, giving the largest B count."
+        },
+        {
+          "id": "F",
+          "latex": "3\\times10^{4}"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "3\\times10^{4}",
+      "workedSolutionSteps": [
+        "Method B consumes 16000 units per test. If A is the count using method A, B=40000−A.",
+        "Total use is 20000A+16000(40000−A)=6.4×10^8+4000A. The budget implies A≤(7.6×10^8−6.4×10^8)/4000=30000.",
+        "A=30000 meets the minimum and leaves 10000 B tests; resource use equals the cap, proving maximality."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Optimise under a resource limit and minimum total count; improve binding constraints below.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-040-V331-EDITORIAL-UPGRADE-QA-ONLY"
+    }
+  ],
+  "verification": "Author arithmetic and constraint checks; 16 keys rederived, 96 normalized option strings, 80 explanations. Independent grade and taught scope calibration pending. No student credit.",
+  "academicApprovals": 0,
+  "dailyEligible": 0,
+  "masteryEligible": 0
+}
