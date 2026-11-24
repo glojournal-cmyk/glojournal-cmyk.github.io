@@ -1,0 +1,1522 @@
+{
+  "kind": "SIMULTANEOUS_EQUATIONS40_ITEM_LEVEL_ACADEMIC_REVIEW_AND_CORRECTIONS_NO_IMPORT",
+  "date": "2026-11-24",
+  "registerPath": "qa-staging/math-all200-reasoning-candidate-review-register-20261124.json",
+  "registerBlobSha": "fc389023285fa8514e866fc4a4e764f5d5e3e3fa",
+  "counts": {
+    "reviewed": 40,
+    "mathsContentChecked": 40,
+    "corrected": 12,
+    "higherReasoningCandidates": 14,
+    "benchmarkOrDifficultyReview": 26,
+    "provisionalSharedMasteryFamilies": 25,
+    "formalApprovals": 0
+  },
+  "limitations": "Author item review of all 40 selected stems, choices and solutions. Exact arithmetic, finite search and substitution supplement manual algebra. Difficulty flags provisional; no independent GCSE calibration or taught scope confirmation. Full symbolic option equivalence, rendering and empirical distractor validation pending. Cross-topic Mastery grouping pending. Historical packs pinned; corrected records are staging only.",
+  "masteryGroups": {
+    "dependent-system-extra-constraint": [
+      1,
+      33
+    ],
+    "error-diagnosis": [
+      2
+    ],
+    "three-variable-pair-sums": [
+      3
+    ],
+    "place-value-model": [
+      4
+    ],
+    "ticket-price-model": [
+      5,
+      6
+    ],
+    "linear-combination-target": [
+      7,
+      29,
+      30,
+      34
+    ],
+    "quantity-cost-model": [
+      8,
+      19
+    ],
+    "ratio-and-domain": [
+      9,
+      35
+    ],
+    "parameter-invariant": [
+      10
+    ],
+    "coefficient-recovery": [
+      11,
+      16
+    ],
+    "difference-square-factorisation": [
+      12,
+      24
+    ],
+    "proportional-equations-classification": [
+      13,
+      15,
+      37
+    ],
+    "two-singular-parameter-cases": [
+      14,
+      36
+    ],
+    "rate-model": [
+      17
+    ],
+    "weighted-mixture": [
+      18
+    ],
+    "price-change-model": [
+      20
+    ],
+    "quadratic-line-tangency": [
+      21
+    ],
+    "absolute-value-branches": [
+      22,
+      40
+    ],
+    "symmetric-square-identity": [
+      23
+    ],
+    "mass-model": [
+      25,
+      26
+    ],
+    "age-model": [
+      27
+    ],
+    "ratio-transfer": [
+      28
+    ],
+    "parameter-inequality": [
+      31,
+      38
+    ],
+    "integer-parameter-feasibility": [
+      32
+    ],
+    "linear-quadratic-two-roots": [
+      39
+    ]
+  },
+  "rows": [
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-001",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-001-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v332-editorial22-simultaneous-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "985ce54e29c1acf9cd661a6d1beb207456513c43",
+      "reviewedCorrectKey": "\\frac{39}{5}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Dependent equations then independent condition; exact fractional sum.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "dependent-system-extra-constraint",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-002",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-002-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v332-editorial22-simultaneous-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "985ce54e29c1acf9cd661a6d1beb207456513c43",
+      "reviewedCorrectKey": "12",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Quantifies supplied error; only simple substitution and subtraction.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "error-diagnosis",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-003",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-003-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v332-editorial22-simultaneous-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "985ce54e29c1acf9cd661a6d1beb207456513c43",
+      "reviewedCorrectKey": "5:8",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Pair-sum elimination valid; straightforward arithmetic; three-variable scope check.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "three-variable-pair-sums",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-004",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-004-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v332-editorial22-simultaneous-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "985ce54e29c1acf9cd661a6d1beb207456513c43",
+      "reviewedCorrectKey": "47",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Place-value model yields unique digits; standard two-equation method.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "place-value-model",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-005",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-005-V314-DISTINCT_REDESIGN_QA_ONLY",
+      "selectedPackPath": "qa-staging/math-v314-graphs029-030-sim005-013-four-distinct-reasoning-drafts-20261123.json",
+      "selectedPackBlobSha": "32bf1de7e46e9ff6e2917e9666f9385d92dc246a",
+      "reviewedCorrectKey": "15",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Integer feasibility and both caps checked; budget is nonbinding, child count determines maximum.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "ticket-price-model",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-006",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-006-V330-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v330-simultaneous15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "f30a747cf8776e06965bf99f73403c8a2ce2374b",
+      "reviewedCorrectKey": "51",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Reverse discount before finding both prices and new combination.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "ticket-price-model",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-007",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-007-V330-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v330-simultaneous15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "f30a747cf8776e06965bf99f73403c8a2ce2374b",
+      "reviewedCorrectKey": "67",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Direct linear combination valid; modest recognition demand.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "linear-combination-target",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-008",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-008-V330-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v330-simultaneous15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "f30a747cf8776e06965bf99f73403c8a2ce2374b",
+      "reviewedCorrectKey": "5:7",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Integer item counts and transfer verified; familiar modelling.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "quantity-cost-model",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-009",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v332-editorial22-simultaneous-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "985ce54e29c1acf9cd661a6d1beb207456513c43",
+      "reviewedCorrectKey": "\\frac{2}{3}",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Direct ratio follows from first equation; second verifies nonzero denominator.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "ratio-and-domain",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-010",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v332-editorial22-simultaneous-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "985ce54e29c1acf9cd661a6d1beb207456513c43",
+      "reviewedCorrectKey": "x",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Invariant under unknown constant; direct addition, modest demand.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "parameter-invariant",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-011",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-011-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v332-editorial22-simultaneous-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "985ce54e29c1acf9cd661a6d1beb207456513c43",
+      "reviewedCorrectKey": "\\frac{23}{4}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Two coefficient substitutions valid; simple independent calculations.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "coefficient-recovery",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-012",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-012-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v332-editorial22-simultaneous-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "985ce54e29c1acf9cd661a6d1beb207456513c43",
+      "reviewedCorrectKey": "1",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Linear solution and difference-of-squares cancellation; routine.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "difference-square-factorisation",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-013",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-013-V314-DISTINCT_REDESIGN_QA_ONLY",
+      "selectedPackPath": "qa-staging/math-v314-graphs029-030-sim005-013-four-distinct-reasoning-drafts-20261123.json",
+      "selectedPackBlobSha": "32bf1de7e46e9ff6e2917e9666f9385d92dc246a",
+      "reviewedCorrectKey": "I:k=4,t=7;N:k=4,t\\ne7",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Both parameter conditions derived by elimination; all other cases unique.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "proportional-equations-classification",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-014",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-014-V324-REASONING_REDESIGN_QA_ONLY",
+      "selectedPackPath": "qa-staging/math-v324-four-source-linked-multiconstraint-reasoning-candidates-20261124.json",
+      "selectedPackBlobSha": "9eeab6a50c05876420ffb910676e26922f629b44",
+      "reviewedCorrectKey": "-\\frac{14}{3}",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Two inconsistent cases proved with addition/subtraction; both exhaustive.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "two-singular-parameter-cases",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-015",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-015-V330-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v330-simultaneous15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "f30a747cf8776e06965bf99f73403c8a2ce2374b",
+      "reviewedCorrectKey": "\\text{Infinitely many solutions only when }k=4",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "One proportionality test; routine classification.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "proportional-equations-classification",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-016",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-016-V330-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v330-simultaneous15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "f30a747cf8776e06965bf99f73403c8a2ce2374b",
+      "reviewedCorrectKey": "2",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Extra x=y condition yields unique k with short substitution.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "coefficient-recovery",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-017",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-017-V330-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v330-simultaneous15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "f30a747cf8776e06965bf99f73403c8a2ce2374b",
+      "reviewedCorrectKey": "1160",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Positive integer machine rates verified; familiar rate modelling.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "rate-model",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-018",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-018-V330-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v330-simultaneous15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "f30a747cf8776e06965bf99f73403c8a2ce2374b",
+      "reviewedCorrectKey": "500",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Mass and salt conservation verified; overlaps Standard Form mixture tasks.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "weighted-mixture",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-019",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-019-V330-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v330-simultaneous15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "f30a747cf8776e06965bf99f73403c8a2ce2374b",
+      "reviewedCorrectKey": "\\text{Impossible with whole-number quantities}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Unique real pair is nonintegral; report impossible; short feasibility.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "quantity-cost-model",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-020",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-020-V330-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v330-simultaneous15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "f30a747cf8776e06965bf99f73403c8a2ce2374b",
+      "reviewedCorrectKey": "19.8",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Original prices and different percentage multipliers correct.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "price-change-model",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-021",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-021-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v332-editorial22-simultaneous-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "985ce54e29c1acf9cd661a6d1beb207456513c43",
+      "reviewedCorrectKey": "0",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Exactly one real intersection by completed square; all cases checked.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "quadratic-line-tangency",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-022",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-022-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v332-editorial22-simultaneous-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "985ce54e29c1acf9cd661a6d1beb207456513c43",
+      "reviewedCorrectKey": "-20",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Both ordered pairs distinct; sum of products negative; related to Q040.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "absolute-value-branches",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-023",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-V330-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v330-simultaneous15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "f30a747cf8776e06965bf99f73403c8a2ce2374b",
+      "reviewedCorrectKey": "10",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Symmetric square identity directly gives product; short calculation.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "symmetric-square-identity",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-024",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v332-editorial22-simultaneous-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "985ce54e29c1acf9cd661a6d1beb207456513c43",
+      "reviewedCorrectKey": "\\frac{5}{3}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Factor difference of squares and solve; overlaps Q012.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "difference-square-factorisation",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-025",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-025-V330-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v330-simultaneous15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "f30a747cf8776e06965bf99f73403c8a2ce2374b",
+      "reviewedCorrectKey": "11",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Positive box and content masses checked; routine elimination.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "mass-model",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-026",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-026-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v332-editorial22-simultaneous-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "985ce54e29c1acf9cd661a6d1beb207456513c43",
+      "reviewedCorrectKey": "600",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Mass conversion verified; overlaps Q025.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "mass-model",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-027",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-027-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v332-editorial22-simultaneous-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "985ce54e29c1acf9cd661a6d1beb207456513c43",
+      "reviewedCorrectKey": "31",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Whole-year ages satisfy both time conditions; standard age model.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "age-model",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-028",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v332-editorial22-simultaneous-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "985ce54e29c1acf9cd661a6d1beb207456513c43",
+      "reviewedCorrectKey": "17:13",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Ratio transfer conserved; no simultaneous system needed; cross-topic overlap.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "ratio-transfer",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-029",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-029-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v332-editorial22-simultaneous-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "985ce54e29c1acf9cd661a6d1beb207456513c43",
+      "reviewedCorrectKey": "-\\frac{9}{2}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Two different combinations form signed quotient; denominator nonzero.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "linear-combination-target",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-030",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v332-editorial22-simultaneous-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "985ce54e29c1acf9cd661a6d1beb207456513c43",
+      "reviewedCorrectKey": "32",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Recover two constants and multiply; short elimination.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "linear-combination-target",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-031",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-031-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v332-editorial22-simultaneous-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "985ce54e29c1acf9cd661a6d1beb207456513c43",
+      "reviewedCorrectKey": "k>5",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Strict parameter inequality proved; boundary excluded.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "parameter-inequality",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-032",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-032-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v332-editorial22-simultaneous-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "985ce54e29c1acf9cd661a6d1beb207456513c43",
+      "reviewedCorrectKey": "3",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Integer divisibility and neighbouring excluded k checked; positivity satisfied.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "integer-parameter-feasibility",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-033",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-033-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v332-editorial22-simultaneous-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "985ce54e29c1acf9cd661a6d1beb207456513c43",
+      "reviewedCorrectKey": "(1,3)",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Dependent system becomes unique; same family as Q001.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "dependent-system-extra-constraint",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-034",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-034-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v332-editorial22-simultaneous-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "985ce54e29c1acf9cd661a6d1beb207456513c43",
+      "reviewedCorrectKey": "11",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Target p−q directly equals given x+2y; short shortcut.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "linear-combination-target",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-035",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-035-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v332-editorial22-simultaneous-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "985ce54e29c1acf9cd661a6d1beb207456513c43",
+      "reviewedCorrectKey": "\\frac{32}{15}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Ratio substitution and parameter verified; modest calculation.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "ratio-and-domain",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-036",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v332-editorial22-simultaneous-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "985ce54e29c1acf9cd661a6d1beb207456513c43",
+      "reviewedCorrectKey": "4",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Two singular cases proved by GCSE elimination.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "two-singular-parameter-cases",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-037",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-037-V330-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v330-simultaneous15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "f30a747cf8776e06965bf99f73403c8a2ce2374b",
+      "reviewedCorrectKey": "(8,36)",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Proportional coefficients and constants; direct calculation.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "proportional-equations-classification",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-038",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-038-V330-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v330-simultaneous15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "f30a747cf8776e06965bf99f73403c8a2ce2374b",
+      "reviewedCorrectKey": "k>\\frac{5}{3}",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Both positive conditions and exact strict range verified.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "parameter-inequality",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-039",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-039-V330-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v330-simultaneous15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "f30a747cf8776e06965bf99f73403c8a2ce2374b",
+      "reviewedCorrectKey": "-2",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Quadratic substitution, both real roots verified.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "linear-quadratic-two-roots",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-040",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-040-V330-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v330-simultaneous15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "f30a747cf8776e06965bf99f73403c8a2ce2374b",
+      "reviewedCorrectKey": "34",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Both absolute-value branches contribute squares; related to Q022.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "absolute-value-branches",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    }
+  ],
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-005",
+      "reason": "Clarify the full feasible interval; budget is nonbinding at the maximum; replace a two-error distractor with a direct competing quantity.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-005",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-005-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-005-REVIEW-2",
+        "sourceTemplateId": "V3-SIM-G7-NEW-TICKET-COMBINATION",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "Two adult tickets and three child tickets cost £40; three adult tickets and two child tickets cost £45. A group must buy **exactly 25 tickets**, including **at least 10 child tickets**, on a maximum budget of **£230**. Let $A$ denote the number of adult tickets. What is the **greatest possible value of $A$**?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "16",
+            "errorPath": "Use only the £230 budget and exactly 25 tickets; sixteen adults leave nine children, which violates the ten-child minimum."
+          },
+          {
+            "id": "B",
+            "latex": "5",
+            "errorPath": "Report the difference between the adult and child ticket prices, £11−£6=£5, instead of the maximum adult count."
+          },
+          {
+            "id": "C",
+            "latex": "14",
+            "errorPath": "Apply an unnecessary extra requirement of at least eleven child tickets and cap adults at fourteen, losing one permitted adult ticket."
+          },
+          {
+            "id": "D",
+            "latex": "10",
+            "errorPath": "Confuse the condition requiring at least ten child tickets with a ten-adult maximum, ignoring the exact feasible optimisation."
+          },
+          {
+            "id": "E",
+            "latex": "15"
+          },
+          {
+            "id": "F",
+            "latex": "25",
+            "errorPath": "Ignore the minimum child count and available budget, and count every one of the twenty-five tickets as an adult ticket."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "15",
+        "workedSolutionSteps": [
+          "Write adult price a and child price c. Solve $2a+3c=40$ and $3a+2c=45$ to obtain $a=11$ and $c=6$ pounds.",
+          "Let A be adult-ticket count. Exactly 25 tickets gives children $25-A$. The budget requires $11A+6(25-A)=150+5A\\le230$, hence $A\\le16$.",
+          "The child minimum requires 25−A≥10, so A≤15. The feasible integer interval is 0≤A≤15, since the budget alone permits A≤16. At A=15, the cost is £225. Thus 15 is attainable and no larger A can satisfy both conditions."
+        ],
+        "provisionalAOFocus": "AO3 candidate: infer two unit prices, model an integer count/budget feasible region and maximise under independent constraints.",
+        "explicitDifferenceFromRoutineSource": "Adds separate child quota and optimisation constraints to the original one-step ticket substitution.",
+        "unverifiedTaughtSubskill": "Two-variable budget inequalities and integer maximum feasible choices need actual Year9 lesson coverage evidence.",
+        "sourceTriage": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-005-V314-DISTINCT_REDESIGN_QA_ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-009",
+      "reason": "Give the shortest valid solution and disclose that the second equation only verifies the denominator.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-009",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "fractional-ratio-transfer",
+        "stem": "Real x,y satisfy $\\frac{x+y}{3}=\\frac{x-y}{2}$ and $2x+3y=26$. Find the exact value of $\\frac{x-y}{x+y}$.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\frac{3}{2}",
+            "errorPath": "Reverse the requested ratio."
+          },
+          {
+            "id": "B",
+            "latex": "\\frac{1}{5}",
+            "errorPath": "Report y/x."
+          },
+          {
+            "id": "C",
+            "latex": "5",
+            "errorPath": "Report x/y."
+          },
+          {
+            "id": "D",
+            "latex": "8",
+            "errorPath": "Report x−y."
+          },
+          {
+            "id": "E",
+            "latex": "12",
+            "errorPath": "Report x+y."
+          },
+          {
+            "id": "F",
+            "latex": "\\frac{2}{3}"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "\\frac{2}{3}",
+        "workedSolutionSteps": [
+          "The first relation alone gives 2(x+y)=3(x−y), so (x−y)/(x+y)=2/3 provided x+y≠0.",
+          "If x+y=0, the first equation also forces x−y=0, hence x=y=0. This contradicts 2x+3y=26.",
+          "Therefore the quotient is defined and equals 2/3. The second equation verifies the domain, not a need to solve both variables."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+        "unverifiedTaughtSubskill": "Direct ratio extraction and checking a nonzero denominator; low-demand benchmark.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-V332-EDITORIAL-UPGRADE-QA-ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-010",
+      "reason": "Replace generic distractor explanations with explicit expressions.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-010",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "parameter-invariant",
+        "stem": "For every real c, the equations $x+2y=c$ and $3x-2y=12-c$ have a unique solution. Which expression has the same value for every c?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "y",
+            "errorPath": "y=(c−3)/2 varies with c, so it is not invariant."
+          },
+          {
+            "id": "B",
+            "latex": "x+y",
+            "errorPath": "x+y=(c+3)/2 varies with c, so it is not invariant."
+          },
+          {
+            "id": "C",
+            "latex": "x-y",
+            "errorPath": "x−y=(9−c)/2 varies with c, so it is not invariant."
+          },
+          {
+            "id": "D",
+            "latex": "2x+y",
+            "errorPath": "2x+y=(c+9)/2 varies with c, so it is not invariant."
+          },
+          {
+            "id": "E",
+            "latex": "x"
+          },
+          {
+            "id": "F",
+            "latex": "2y-x",
+            "errorPath": "2y−x=c−6 varies with c, so it is not invariant."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "x",
+        "workedSolutionSteps": [
+          "Add the equations: 4x=12, so x=3 independent of c.",
+          "Then y=(c−3)/2, so y varies.",
+          "The five other expressions simplify to (c−3)/2, (c+3)/2, (9−c)/2, (c+9)/2 and c−6. Each contains a nonzero coefficient of c, so x is uniquely invariant."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+        "unverifiedTaughtSubskill": "Eliminate an unknown constant and identify an invariant.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-V332-EDITORIAL-UPGRADE-QA-ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-013",
+      "reason": "Provide an elimination proof of uniqueness for all nonsingular parameters rather than requiring a determinant.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-013",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-013-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-013-REVIEW-2",
+        "sourceTemplateId": "V2-SIMULTANEOUS-4",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "For real parameters $k$ and $t$, consider $\\begin{cases}2x+3y=7\\\\(k+2)x+(2k+1)y=14+t\\end{cases}$. In the options, $I$ states when the system has **infinitely many solutions**, and $N$ states when it has **no solution**. Which gives both conditions correctly?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "I:k=4,t\\ne7;N:k=4,t=7",
+            "errorPath": "Interchange the equal and unequal right-hand-side conditions: the consistent proportional case gives infinitely many, not none."
+          },
+          {
+            "id": "B",
+            "latex": "I:k=3,t=7;N:k=3,t\\ne7",
+            "errorPath": "Set the coefficient proportionality at k=3 even though it does not make both rows parallel."
+          },
+          {
+            "id": "C",
+            "latex": "I:k=4,t=7;N:k=4,t\\ne7"
+          },
+          {
+            "id": "D",
+            "latex": "I:k=4,t=21;N:k=4,t\\ne21",
+            "errorPath": "Forget the second constant is 14+t, not t, when matching the triple of the first right-hand side."
+          },
+          {
+            "id": "E",
+            "latex": "I:k=4,t=7;N:k\\ne4,t=7",
+            "errorPath": "Treat the nonsingular cases with k different from four as inconsistent, although they instead have one unique solution."
+          },
+          {
+            "id": "F",
+            "latex": "I:k=4,t=7;N:k=4,t>7",
+            "errorPath": "Exclude inconsistent cases with t below seven, despite every t different from seven producing parallel distinct lines."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "I:k=4,t=7;N:k=4,t\\ne7",
+        "workedSolutionSteps": [
+          "Multiply the first equation by 2k+1 and the second by 3, then subtract. The y terms cancel, leaving (k−4)x on the left. If k≠4, x is uniquely determined, and the first equation uniquely determines y.",
+          "When k=4, the second left-hand side is 6x+9y=3(2x+3y). To describe the same line, its right-hand side 14+t must equal 21.",
+          "Therefore I is k=4,t=7 and N is k=4,t≠7. All remaining cases have one solution."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate: classify the full two-parameter set into unique, parallel-distinct and coincident systems.",
+        "explicitDifferenceFromRoutineSource": "Requires two independent parameter conditions and a three-way solution classification instead of finding k from one ratio.",
+        "unverifiedTaughtSubskill": "Parameter-dependent elimination and identical/distinct parallel equations.",
+        "sourceTriage": "UPGRADE_STEM_FOR_G7PLUS",
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-013-V314-DISTINCT_REDESIGN_QA_ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-014",
+      "reason": "Replace determinant terminology with GCSE-style addition/subtraction and prove both exhaustiveness and inconsistency.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-014",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-014-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-014-REVIEW-2",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "Consider the system $\\begin{cases}(k-1)x+(2k+3)y=7\\\\(2k+3)x+(k-1)y=14\\end{cases}$. Find the **sum of all real values of $k$** for which the system has **no solution**.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "-4",
+            "errorPath": "Recognise equal coefficient rows for k=-4 but omit the distinct case where the rows are negatives of each other."
+          },
+          {
+            "id": "B",
+            "latex": "-\\frac{2}{3}",
+            "errorPath": "Recognise opposite coefficient rows for k=-2/3 but omit the equal-row case k=-4."
+          },
+          {
+            "id": "C",
+            "latex": "-\\frac{14}{3}"
+          },
+          {
+            "id": "D",
+            "latex": "\\frac{14}{3}",
+            "errorPath": "Calculate both values k=-4 and -2/3 but discard their negative signs when summing."
+          },
+          {
+            "id": "E",
+            "latex": "-6",
+            "errorPath": "Find the first root k=-4; solve 3k+2=0 wrongly as k=-2, forgetting division by 3."
+          },
+          {
+            "id": "F",
+            "latex": "0",
+            "errorPath": "Mistake the phrase 'system has no solution' for a claim that no parameter values can cause parallel distinct equations."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "-\\frac{14}{3}",
+        "workedSolutionSteps": [
+          "Add the two equations to obtain (3k+2)(x+y)=21. Subtract the second from the first to obtain (−k−4)(x−y)=−7.",
+          "If k=−2/3, the sum equation becomes 0=21; if k=−4, the difference equation becomes 0=−7. Both are impossible.",
+          "For every other k, both x+y and x−y are uniquely determined, hence x and y are uniquely determined. The required sum is −4−2/3=−14/3."
+        ],
+        "provisionalAOFocus": "AO2 reasoning candidate: identify two distinct singular parameter branches and prove both inconsistent rather than merely equating a single coefficient ratio.",
+        "explicitDifferenceFromRoutineSource": "Replaces a one-case parallel-line k question by exhaustive parameter-case reasoning.",
+        "unverifiedTaughtSubskill": "Adding and subtracting parameterised equations, zero coefficients and inconsistent cases.",
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-014-V324-REASONING_REDESIGN_QA_ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-015",
+      "reason": "Replace unnecessary determinant language in the distractor.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-015",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-015-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-015-REVIEW-2",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "parameter-coincident-versus-parallel",
+        "stem": "For real k, consider $2x+3y=8$ and $kx+6y=16$. Which statement is true?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\text{No solution when }k=4",
+            "errorPath": "Recognise proportional coefficients but fail to check the proportional constants."
+          },
+          {
+            "id": "B",
+            "latex": "\\text{Infinitely many solutions for every }k",
+            "errorPath": "Assume the repeated y ratio makes the lines identical regardless of k."
+          },
+          {
+            "id": "C",
+            "latex": "\\text{Exactly one solution when }k=4",
+            "errorPath": "Treat two identical equations as two independent constraints and incorrectly conclude they determine one point."
+          },
+          {
+            "id": "D",
+            "latex": "\\text{No solution for every }k\\ne4",
+            "errorPath": "Mistake nonparallel lines for inconsistent equations."
+          },
+          {
+            "id": "E",
+            "latex": "\\text{Infinitely many solutions only when }k=4"
+          },
+          {
+            "id": "F",
+            "latex": "\\text{Infinitely many solutions only when }k=2",
+            "errorPath": "Match x coefficients directly instead of comparing with the factor 2 in the y coefficients."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "\\text{Infinitely many solutions only when }k=4",
+        "workedSolutionSteps": [
+          "Twice the first equation gives 4x+6y=16.",
+          "Subtract this from the second equation: (k−4)x=0.",
+          "At k=4 the equations are identical and describe infinitely many points. Otherwise x=0 and y=8/3 form the unique solution."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+        "unverifiedTaughtSubskill": "Dependent equations and unique solution after subtraction; benchmark.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-015-V330-REASONING-QA-ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-018",
+      "reason": "Make conservation assumptions explicit and verify both mixture constraints.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-018",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-018-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-018-REVIEW-2",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "mixture-concentration-total-mass",
+        "stem": "A technician mixes two solutions containing 8% and 20% salt by mass. Assume no mass or salt is lost during mixing. The mixture has mass 750 g and is 16% salt by mass. How many grams of the 20% solution are used?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "250",
+            "errorPath": "Report the weaker solution's mass."
+          },
+          {
+            "id": "B",
+            "latex": "500"
+          },
+          {
+            "id": "C",
+            "latex": "120",
+            "errorPath": "Report the total mass of salt."
+          },
+          {
+            "id": "D",
+            "latex": "375",
+            "errorPath": "Assume equal masses of the two solutions."
+          },
+          {
+            "id": "E",
+            "latex": "600",
+            "errorPath": "Use 16/20 of the mixture mass, ignoring salt contributed by the weaker solution."
+          },
+          {
+            "id": "F",
+            "latex": "300",
+            "errorPath": "Use the 8 percentage point increase over 8% as a fraction of the full 20% concentration rather than the 12 point difference."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "500",
+        "workedSolutionSteps": [
+          "Let a and b be the masses of the 8% and 20% solutions. a+b=750 and 0.08a+0.20b=120.",
+          "Substitute a=750−b to get 60+0.12b=120.",
+          "Hence b=500 g and a=250 g, both nonnegative. Their total mass is 750 g and the salt mass is 0.08×250+0.20×500=120 g, which is 16% of 750 g."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+        "unverifiedTaughtSubskill": "Total mass and weighted concentration equations.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-018-V330-REASONING-QA-ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-021",
+      "reason": "Establish all three root-count cases; replace arbitrary distractor with a traceable completing-square error.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-021",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-021-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-021-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-021-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "linear-quadratic-tangency",
+        "stem": "For real x,y, $y=2x+k$ and $y=x^2+1$ have exactly one common point. Find k.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "1",
+            "errorPath": "Use the parabola intercept."
+          },
+          {
+            "id": "B",
+            "latex": "2",
+            "errorPath": "Report the line gradient."
+          },
+          {
+            "id": "C",
+            "latex": "-1",
+            "errorPath": "Reverse the parabola intercept sign."
+          },
+          {
+            "id": "D",
+            "latex": "4",
+            "errorPath": "Report the squared coefficient of x without completing the square."
+          },
+          {
+            "id": "E",
+            "latex": "-3",
+            "errorPath": "Incorrectly complete x²−2x as (x−2)²−4 instead of (x−1)²−1, leading to (x−2)²=k+3 and the false threshold k=−3."
+          },
+          {
+            "id": "F",
+            "latex": "0"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "0",
+        "workedSolutionSteps": [
+          "Equate: x²−2x+1−k=0.",
+          "Complete the square: (x−1)²=k.",
+          "For k<0 there are no real roots; for k>0 there are two distinct real roots 1±√k. Only k=0 gives exactly one, x=1, with y=2."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+        "unverifiedTaughtSubskill": "Repeated root and quadratic-linear intersections.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-021-V332-EDITORIAL-UPGRADE-QA-ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-032",
+      "reason": "Correct the adjacent eligible k used in the wrong-option explanation (33, not 35).",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-032",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-032-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-032-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-032-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "bounded-integer-system",
+        "stem": "Integers x,y satisfy $x+y=15$ and $3x-y=k$. For $20\\le k\\le32$, how many integer k give positive integer x and y?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "3"
+          },
+          {
+            "id": "B",
+            "latex": "4",
+            "errorPath": "Ignore the stated upper bound and count the next eligible value k=33 as well; this adds a fourth case."
+          },
+          {
+            "id": "C",
+            "latex": "13",
+            "errorPath": "Count every k without requiring integer x."
+          },
+          {
+            "id": "D",
+            "latex": "2",
+            "errorPath": "Omit valid k=21."
+          },
+          {
+            "id": "E",
+            "latex": "1",
+            "errorPath": "Keep only k=25."
+          },
+          {
+            "id": "F",
+            "latex": "0",
+            "errorPath": "Assume odd total makes integer solutions impossible."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "3",
+        "workedSolutionSteps": [
+          "Adding gives 4x=k+15.",
+          "Because x is an integer, k+15 must be divisible by 4. In the closed interval 20≤k≤32, the eligible integers are 21,25,29; the neighbouring candidates 17 and 33 are outside the interval.",
+          "The x values are 9,10,11; y=6,5,4, all positive. Count 3."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+        "unverifiedTaughtSubskill": "Divisibility and bounded integer feasibility.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-032-V332-EDITORIAL-UPGRADE-QA-ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-034",
+      "reason": "Expose the direct shortcut; the item does not actually require solving a simultaneous system.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-034",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-034-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-034-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-034-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "shared-solution-transfer",
+        "stem": "The systems $x+2y=11,\\ 3x-y=5$ and $2x+y=p,\\ x-y=q$ share the same solution. Find p−q.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "10",
+            "errorPath": "Report p."
+          },
+          {
+            "id": "B",
+            "latex": "-1",
+            "errorPath": "Report q."
+          },
+          {
+            "id": "C",
+            "latex": "9",
+            "errorPath": "Add p and q."
+          },
+          {
+            "id": "D",
+            "latex": "1",
+            "errorPath": "Report |q|."
+          },
+          {
+            "id": "E",
+            "latex": "11"
+          },
+          {
+            "id": "F",
+            "latex": "5",
+            "errorPath": "Report 3x−y."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "11",
+        "workedSolutionSteps": [
+          "The shared solution gives p=2x+y and q=x−y.",
+          "Subtract: p−q=(2x+y)−(x−y)=x+2y.",
+          "The first system already gives x+2y=11, so p−q=11 directly."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+        "unverifiedTaughtSubskill": "Recognise a directly given linear combination; low-demand benchmark.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-034-V332-EDITORIAL-UPGRADE-QA-ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-036",
+      "reason": "Replace determinant with elimination and avoid division by a parameter that may be zero.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-036",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "two-singular-parameter-cases",
+        "stem": "For real k, consider $(k-2)x+3y=9$ and $6x+(k-2)y=12$. Find the sum of all k for which there is no solution.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "0",
+            "errorPath": "Sum the shifted roots k−2."
+          },
+          {
+            "id": "B",
+            "latex": "2",
+            "errorPath": "Report the midpoint."
+          },
+          {
+            "id": "C",
+            "latex": "4"
+          },
+          {
+            "id": "D",
+            "latex": "18",
+            "errorPath": "Report 3×6."
+          },
+          {
+            "id": "E",
+            "latex": "-14",
+            "errorPath": "Report product of the two k values."
+          },
+          {
+            "id": "F",
+            "latex": "-4",
+            "errorPath": "Reverse the sum's sign."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "4",
+        "workedSolutionSteps": [
+          "Let u=k−2. Multiply the first equation by 6 and the second by u, then subtract: (18−u²)y=54−12u.",
+          "If u²≠18, y is uniquely determined and the second equation 6x+uy=12 uniquely gives x. If u=±3√2, the left side is zero but 54−12u is nonzero, so there is no solution.",
+          "Thus both and only k=2±3√2 make the system inconsistent; their sum is 4."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+        "unverifiedTaughtSubskill": "Parameter elimination, quadratic roots and checking inconsistent cases without determinants.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-V332-EDITORIAL-UPGRADE-QA-ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-038",
+      "reason": "Clarify that the complete necessary-and-sufficient set is required, because several distractors describe subsets or supersets.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-038",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-038-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-038-REVIEW-2",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "parameter-solution-sign-interval",
+        "stem": "For real k≠1, the equations $x+y=6$ and $kx+y=10$ have a unique solution. Which option gives exactly the set of all real k for which both x and y are strictly positive?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "k>1",
+            "errorPath": "Require x>0 but fail to impose y>0."
+          },
+          {
+            "id": "B",
+            "latex": "k\\ge\\frac{5}{3}",
+            "errorPath": "Include the equality boundary where y=0."
+          },
+          {
+            "id": "C",
+            "latex": "1<k<\\frac{5}{3}",
+            "errorPath": "Reverse the inequality for y>0."
+          },
+          {
+            "id": "D",
+            "latex": "k<1",
+            "errorPath": "Choose the denominator sign that makes x negative."
+          },
+          {
+            "id": "E",
+            "latex": "k>\\frac{3}{2}",
+            "errorPath": "Use x<8 instead of the correct requirement x<6, giving 4/(k−1)<8 and the weaker threshold k>3/2."
+          },
+          {
+            "id": "F",
+            "latex": "k>\\frac{5}{3}"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "k>\\frac{5}{3}",
+        "workedSolutionSteps": [
+          "Subtract the equations: (k−1)x=4, so x=4/(k−1).",
+          "Positivity of x requires k>1. Positivity of y=6−x requires x<6.",
+          "With k−1 positive, 4/(k−1)<6 implies k−1>2/3, so k>5/3. At the boundary y=0."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+        "unverifiedTaughtSubskill": "Parameterised solution and strict inequalities.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-038-V330-REASONING-QA-ONLY"
+      }
+    }
+  ]
+}
