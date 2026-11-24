@@ -10,6 +10,16 @@ on:
       - 'qa/food-tests-48-144-foil-reasons-20261124.json'
       - 'qa/food-tests-16-retained-case-concrete-observations-20261124.json'
       - 'qa/food-tests-48-and-16-academic-qa-20261124.md'
+      - 'qa/food-tests-25-source-mcq-content-adjudication-20261124.json'
+      - 'qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json'
+      - 'qa/food-tests-48-replacement-content-adjudication-20261124.json'
+      - 'qa/food-tests-99-structured-content-adjudication-20261124.json'
+      - 'qa/food-tests-143-source-academic-dispositions-20261124.json'
+      - 'tests/food-tests-25-mcq-content-adjudication-20261124.test.mjs'
+      - 'tests/food-tests-15-typed-3-matching-content-20261124.test.mjs'
+      - 'tests/food-tests-48-content-adjudication-20261124.test.mjs'
+      - 'tests/food-tests-99-structured-content-adjudication-20261124.test.mjs'
+      - 'tests/food-tests-143-academic-content-dispositions-20261124.test.mjs'
       - 'tests/food-tests-16-concrete-observation-proposals-20261124.test.mjs'
       - 'tests/food-tests-48-144-foil-reasons-20261124.test.mjs'
       - 'qa/food-tests-48-vs-99-skill-overlap-20261124.json'
@@ -40,6 +50,16 @@ on:
       - 'qa/food-tests-48-144-foil-reasons-20261124.json'
       - 'qa/food-tests-16-retained-case-concrete-observations-20261124.json'
       - 'qa/food-tests-48-and-16-academic-qa-20261124.md'
+      - 'qa/food-tests-25-source-mcq-content-adjudication-20261124.json'
+      - 'qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json'
+      - 'qa/food-tests-48-replacement-content-adjudication-20261124.json'
+      - 'qa/food-tests-99-structured-content-adjudication-20261124.json'
+      - 'qa/food-tests-143-source-academic-dispositions-20261124.json'
+      - 'tests/food-tests-25-mcq-content-adjudication-20261124.test.mjs'
+      - 'tests/food-tests-15-typed-3-matching-content-20261124.test.mjs'
+      - 'tests/food-tests-48-content-adjudication-20261124.test.mjs'
+      - 'tests/food-tests-99-structured-content-adjudication-20261124.test.mjs'
+      - 'tests/food-tests-143-academic-content-dispositions-20261124.test.mjs'
       - 'tests/food-tests-16-concrete-observation-proposals-20261124.test.mjs'
       - 'tests/food-tests-48-144-foil-reasons-20261124.test.mjs'
       - 'qa/food-tests-48-vs-99-skill-overlap-20261124.json'
@@ -84,6 +104,13 @@ jobs:
         run: node --test tests/food-tests-297-distractor-first-pass-20261123.test.mjs
       - name: Check cross-answer semantic overlap families and prevent duplicate-mastery claims in held QA pool
         run: node --test tests/food-tests-99-semantic-overlap-20261123.test.mjs
+      - name: Academic content QA: validate 143 original source dispositions plus 48 and 99 unapproved candidate science reviews
+        run: |
+          node --test tests/food-tests-25-mcq-content-adjudication-20261124.test.mjs
+          node --test tests/food-tests-15-typed-3-matching-content-20261124.test.mjs
+          node --test tests/food-tests-48-content-adjudication-20261124.test.mjs
+          node --test tests/food-tests-99-structured-content-adjudication-20261124.test.mjs
+          node --test tests/food-tests-143-academic-content-dispositions-20261124.test.mjs
       - name: Verify 16 held original case prompts have realistic unimported observation revisions without altering science answers
         run: node --test tests/food-tests-16-concrete-observation-proposals-20261124.test.mjs
       - name: Verify all 144 draft wrong-choice reasons map to the current 48 held MCQs
