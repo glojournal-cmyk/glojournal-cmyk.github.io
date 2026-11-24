@@ -1,0 +1,679 @@
+{
+  "kind": "MATHS_V325_GRAPHS_12_REASONING_CANDIDATES_QA_ONLY",
+  "date": "2026-11-24",
+  "branch": "feature/daily-tasks-v3-20261122",
+  "pr": 306,
+  "sourceBankPath": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "priorV323Register": "qa-staging/math-v323-canonical200-all-topics-hold-dispositions-source-exact-20261124.json",
+  "priorV324Pack": "qa-staging/math-v324-four-source-linked-multiconstraint-reasoning-candidates-20261124.json",
+  "status": "STAGING_ONLY_NOT_APPROVED_NOT_IMPORTED",
+  "count": 12,
+  "optionsCount": 72,
+  "wrongOptionExplanationsCount": 60,
+  "academicApprovals": 0,
+  "dailyEligible": 0,
+  "masteryEligible": 0,
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-001",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-001-V325-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-001-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "coordinate-reflection-perpendicular-foot",
+      "stem": "Point $P(1,8)$ is reflected in the line $y=2x+1$. What are the coordinates of its image?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "(3,7)",
+          "errorPath": "Report the perpendicular foot (3,7) instead of continuing the same distance to the image."
+        },
+        {
+          "id": "B",
+          "latex": "(5,6)"
+        },
+        {
+          "id": "C",
+          "latex": "(5,10)",
+          "errorPath": "Double the horizontal displacement but reverse the sign of the vertical displacement: (1+4,8+2)."
+        },
+        {
+          "id": "D",
+          "latex": "(-1,9)",
+          "errorPath": "Move from P by the negative of the displacement to the foot, giving (1-2,8+1)."
+        },
+        {
+          "id": "E",
+          "latex": "(1,-2)",
+          "errorPath": "Reflect vertically at x=1 instead of perpendicularly: the mirror has y=3 there, so 2(3)-8=-2."
+        },
+        {
+          "id": "F",
+          "latex": "(5,8)",
+          "errorPath": "Double the horizontal displacement but retain the original y-coordinate."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "(5,6)",
+      "workedSolutionSteps": [
+        "The perpendicular through P has equation $y-8=-\\frac12(x-1)$.",
+        "Intersect with $y=2x+1$ to obtain the midpoint $M=(3,7)$.",
+        "The reflected point is $2M-P=(5,6)$. The midpoint lies on the mirror and the joining gradient is $-1/2$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate",
+      "unverifiedTaughtSubskill": "Reflection across a non-axis line using perpendicular gradient and midpoint.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-002",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-002-V325-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-002-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "right-angle-coordinate-area",
+      "stem": "Points $A(1,2)$, $B(5,4)$ and $C(k,8)$ form a triangle with a right angle at B. Find the area of the triangle.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "20",
+          "errorPath": "Find the product of the two perpendicular side lengths, but omit the factor 1/2."
+        },
+        {
+          "id": "B",
+          "latex": "\\sqrt{20}",
+          "errorPath": "Compute the length of AB or BC correctly but report a side length rather than the area."
+        },
+        {
+          "id": "C",
+          "latex": "8",
+          "errorPath": "Use only horizontal and vertical coordinate changes of 4 and 4: half their product is 8."
+        },
+        {
+          "id": "D",
+          "latex": "10"
+        },
+        {
+          "id": "E",
+          "latex": "16",
+          "errorPath": "Use horizontal and vertical changes of 4 and 4 and omit the triangle factor 1/2."
+        },
+        {
+          "id": "F",
+          "latex": "4",
+          "errorPath": "Find the area using only the horizontal displacement from B to C, 2, and the vertical displacement 4: half the product is 4."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "10",
+      "workedSolutionSteps": [
+        "Gradient AB is $1/2$, so gradient BC is $-2$. From $4/(k-5)=-2$, obtain $k=3$.",
+        "Squared side lengths are $AB^2=4^2+2^2=20$ and $BC^2=(-2)^2+4^2=20$.",
+        "The sides meet at a right angle, so area is $\\frac12\\sqrt{20}\\sqrt{20}=10$ square units."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate",
+      "unverifiedTaughtSubskill": "Perpendicular gradients, distance formula or Pythagoras, area of right triangle.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-003",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-003-V325-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-003-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "parameter-in-both-coordinates",
+      "stem": "The line through $(k,2k+1)$ and $(3,5)$ is perpendicular to $y=2x+7$. Find $k$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac53",
+          "errorPath": "Use positive reciprocal gradient 1/2, leading to 3k=5."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{13}{5}",
+          "errorPath": "Omit +1 in the first point's y-coordinate, giving numerator 2k-5 and 5k=13."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac52",
+          "errorPath": "Use negative gradient -2 instead of negative reciprocal, giving 4k=10."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac85",
+          "errorPath": "Forget to subtract 3 in the denominator; 2k-4=-k/2 gives 5k=8."
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{11}{5}"
+        },
+        {
+          "id": "F",
+          "latex": "\\frac73",
+          "errorPath": "Use gradient -1, giving 2k-4=-(k-3) and 3k=7."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "\\frac{11}{5}",
+      "workedSolutionSteps": [
+        "The gradient between the points is $(2k-4)/(k-3)$, with $k\\ne3$.",
+        "A perpendicular line has gradient $-1/2$. Thus $4k-8=-k+3$, giving $5k=11$.",
+        "$k=11/5$ is allowed, and substitution gives gradient $-1/2$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate",
+      "unverifiedTaughtSubskill": "Linear equations with variable coordinates and perpendicular gradients.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-004",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-004-V325-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-004-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "gradient-inequality-integer-range",
+      "stem": "For integers $k$ with $2\\le k\\le9$, the line through $(1,2)$ and $(k,k+4)$ has gradient m. Find the sum of all k satisfying $1<m<2$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "39",
+          "errorPath": "Include k=4 although its gradient equals 2, so add 4 to 35."
+        },
+        {
+          "id": "B",
+          "latex": "26",
+          "errorPath": "Omit k=9 despite the inclusive upper limit, leaving 5+6+7+8=26."
+        },
+        {
+          "id": "C",
+          "latex": "5",
+          "errorPath": "Report the number of valid integers instead of their sum."
+        },
+        {
+          "id": "D",
+          "latex": "44",
+          "errorPath": "Ignore the gradient condition and add every integer from 2 to 9."
+        },
+        {
+          "id": "E",
+          "latex": "9",
+          "errorPath": "Report the largest valid integer rather than their sum."
+        },
+        {
+          "id": "F",
+          "latex": "35"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "35",
+      "workedSolutionSteps": [
+        "Gradient $m=(k+2)/(k-1)=1+3/(k-1)$. The denominator is positive.",
+        "$1<m<2$ requires $3/(k-1)<1$, hence $k>4$.",
+        "The valid integers are 5,6,7,8,9; their sum is 35."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate",
+      "unverifiedTaughtSubskill": "Inequalities involving positive variable denominators and discrete bounds.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-005",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-005-V325-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-005-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "equal-distance-axis-squared",
+      "stem": "Point $P$ lies on the y-axis and is equally distant from $A(-2,1)$ and $B(4,5)$. Find the square of the distance $PA$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac{65}{4}"
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{49}{4}",
+          "errorPath": "Find y=9/2 but omit the horizontal distance squared: (7/2)^2=49/4."
+        },
+        {
+          "id": "C",
+          "latex": "13",
+          "errorPath": "Use y=4 instead of 9/2 by rounding the coordinate: 4+3^2=13."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{81}{4}",
+          "errorPath": "Report the square of P's y-coordinate, (9/2)^2, instead of PA squared."
+        },
+        {
+          "id": "E",
+          "latex": "25",
+          "errorPath": "Use the full 4-unit vertical separation and the 3-unit half horizontal separation: 16+9=25."
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{33}{4}",
+          "errorPath": "Use the correct vertical separation 7/2 but subtract 4 rather than adding it: 49/4-4=33/4."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "\\frac{65}{4}",
+      "workedSolutionSteps": [
+        "Let $P=(0,t)$. Equality of squared distances gives $4+(t-1)^2=16+(t-5)^2$.",
+        "Expand and cancel $t^2$: $8t=36$, so $t=9/2$.",
+        "$PA^2=4+(7/2)^2=65/4$; substitution into $PB^2$ gives the same result."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate",
+      "unverifiedTaughtSubskill": "Perpendicular-bisector/equidistance reasoning and squared distances.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-006",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-006-V325-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-006-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "circumcentre-two-bisectors",
+      "stem": "A circle passes through $A(0,0)$, $B(6,0)$ and $C(2,4)$. Find the square of the radius of the circle.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "9",
+          "errorPath": "Find the correct centre (3,1) but use only its horizontal distance from A."
+        },
+        {
+          "id": "B",
+          "latex": "1",
+          "errorPath": "Find the correct centre but use only its vertical distance from A."
+        },
+        {
+          "id": "C",
+          "latex": "10"
+        },
+        {
+          "id": "D",
+          "latex": "13",
+          "errorPath": "Use the centre (3,2), confusing the midpoint height of AC with the centre height."
+        },
+        {
+          "id": "E",
+          "latex": "20",
+          "errorPath": "Add the squared distances from the centre to A and B, rather than using just one radius squared."
+        },
+        {
+          "id": "F",
+          "latex": "100",
+          "errorPath": "Find the radius squared 10 and square it again."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "10",
+      "workedSolutionSteps": [
+        "The centre is equally distant from A and B, so it has x-coordinate 3. Write it as $(3,t)$.",
+        "Equate squared distances to A and C: $9+t^2=1+(t-4)^2$. Hence $8t=8$ and $t=1$.",
+        "The radius squared is $3^2+1^2=10$. All three given points are distance $\\sqrt{10}$ from (3,1)."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate",
+      "unverifiedTaughtSubskill": "Intersection of perpendicular bisectors and circle-centre reasoning.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-007",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-007-V325-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-007-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "distance-constraint-two-parameter-roots",
+      "stem": "Points $P(2,3)$ and $A(5,7)$ are fixed. Point $B(k,0)$ is such that $PA=PB$. Find the product of all possible values of k.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "12",
+          "errorPath": "Find the two values but ignore the negative sign when multiplying."
+        },
+        {
+          "id": "B",
+          "latex": "4",
+          "errorPath": "Add the two values, -2+6, instead of multiplying."
+        },
+        {
+          "id": "C",
+          "latex": "-21",
+          "errorPath": "Ignore the vertical distance from P to the x-axis, giving (k-2)^2=25, roots 7 and -3."
+        },
+        {
+          "id": "D",
+          "latex": "-12"
+        },
+        {
+          "id": "E",
+          "latex": "36",
+          "errorPath": "Keep only k=6 and square it instead of using both roots."
+        },
+        {
+          "id": "F",
+          "latex": "-16",
+          "errorPath": "Find k-2=±4 but multiply these shifted values instead of the actual k values."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "-12",
+      "workedSolutionSteps": [
+        "$PA^2=(5-2)^2+(7-3)^2=25$.",
+        "$PB^2=(k-2)^2+9$, hence $(k-2)^2=16$. Both $k=6$ and $k=-2$ are possible.",
+        "Their product is $-12$; both values give squared distance 25."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate",
+      "unverifiedTaughtSubskill": "Squared-distance equations and both square-root branches.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-008",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-008-V325-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-008-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "nearest-point-interval",
+      "stem": "Two stations are located at $A(0,2)$ and $B(6,4)$. A straight road is the x-axis from $x=0$ to $x=10$. How many units of the road are strictly closer to B than to A?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "4",
+          "errorPath": "Find the equality boundary x=4, but report the boundary coordinate instead of the remaining length."
+        },
+        {
+          "id": "B",
+          "latex": "7",
+          "errorPath": "Ignore the stations' different vertical distances, using the horizontal midpoint x=3 and length 7."
+        },
+        {
+          "id": "C",
+          "latex": "3",
+          "errorPath": "Ignore vertical distances and report the horizontal midpoint x=3."
+        },
+        {
+          "id": "D",
+          "latex": "10",
+          "errorPath": "Assume every point on the road is closer to B."
+        },
+        {
+          "id": "E",
+          "latex": "8",
+          "errorPath": "Reverse the sign of the difference in vertical squares, placing the boundary at x=2 and giving length 8."
+        },
+        {
+          "id": "F",
+          "latex": "6"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "6",
+      "workedSolutionSteps": [
+        "For $(x,0)$, squared distances to A and B are $x^2+4$ and $(x-6)^2+16$.",
+        "B is closer when $(x-6)^2+16<x^2+4$, giving $x>4$.",
+        "The part of the road is $4<x\\le10$, of length 6 units. Excluding one endpoint does not change its length."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate",
+      "unverifiedTaughtSubskill": "Distance comparison, inequalities and interval length.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-010",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-010-V325-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-010-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "linear-model-two-constraints",
+      "stem": "Plan A costs £12 plus £3 per unit and plan B costs £4 plus £5 per unit. A customer buys a whole number of units from 0 to 15 inclusive. For how many possible quantities is A at least £10 cheaper than B and A costs no more than £48?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3",
+          "errorPath": "Exclude one equality endpoint from 9,10,11,12."
+        },
+        {
+          "id": "B",
+          "latex": "4"
+        },
+        {
+          "id": "C",
+          "latex": "7",
+          "errorPath": "Apply the savings condition only; 9 to 15 inclusive gives 7."
+        },
+        {
+          "id": "D",
+          "latex": "8",
+          "errorPath": "Require merely that A is cheaper, not £10 cheaper; 5 to 12 inclusive gives 8."
+        },
+        {
+          "id": "E",
+          "latex": "12",
+          "errorPath": "Report the largest affordable quantity instead of the number of feasible quantities."
+        },
+        {
+          "id": "F",
+          "latex": "13",
+          "errorPath": "Apply the affordability constraint only; 0 to 12 inclusive gives 13."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "4",
+      "workedSolutionSteps": [
+        "Let quantity be n. The savings from A are $(4+5n)-(12+3n)=2n-8$. At least £10 requires $n\\ge9$.",
+        "Affordability requires $12+3n\\le48$, hence $n\\le12$.",
+        "The whole numbers 9,10,11,12 meet both constraints; there are 4."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate",
+      "unverifiedTaughtSubskill": "Interpret and compare linear models with simultaneous integer constraints.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-011",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-011-V325-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-011-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "linear-calibration-relative-error",
+      "stem": "An instrument has a linear calibration: true value 8 gives displayed value 20, and true value 24 gives displayed value 40. For what positive true value is the display exactly 50% greater than the true value?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "20",
+          "errorPath": "Use only the fixed offset 10, solving 10=0.5T and ignoring the extra proportional error."
+        },
+        {
+          "id": "B",
+          "latex": "60",
+          "errorPath": "Find T=40 but report displayed value 60."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{40}{3}",
+          "errorPath": "Interpret the excess as 50% of the displayed value rather than the true value, making the display twice the true value."
+        },
+        {
+          "id": "D",
+          "latex": "-40",
+          "errorPath": "Move the offset to the wrong side of 1.25T+10=1.5T."
+        },
+        {
+          "id": "E",
+          "latex": "40"
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{20}{3}",
+          "errorPath": "Treat the fixed offset 10 as the entire displayed reading and solve 10=1.5T."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "40",
+      "workedSolutionSteps": [
+        "The calibration gradient is $(40-20)/(24-8)=5/4$ and the intercept is 10.",
+        "Displayed value $D=1.25T+10$. The condition is $D=1.5T$.",
+        "Thus $0.25T=10$ and $T=40$; the display is 60, exactly 50% higher."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate",
+      "unverifiedTaughtSubskill": "Construct and interpret a linear model with relative percentage error.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-012",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-012-V325-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-012-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "piecewise-linear-valid-branch",
+      "stem": "Two cyclists travel along the same route from the same starting point. A starts at time $t=0$, cycling at 4 km/h for 3 hours and then at 2 km/h. B starts at $t=1$ hour and cycles at 5 km/h. How far from the starting point do they first meet after B starts cycling?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac{11}{3}",
+          "errorPath": "Find the correct meeting time but report it instead of the distance."
+        },
+        {
+          "id": "B",
+          "latex": "20",
+          "errorPath": "Extend A's initial 4 km/h segment beyond its valid domain, finding t=5 and distance 20."
+        },
+        {
+          "id": "C",
+          "latex": "10",
+          "errorPath": "Report B's distance at the time A changes speed, t=3."
+        },
+        {
+          "id": "D",
+          "latex": "12",
+          "errorPath": "Report A's distance at the speed change, rather than the meeting distance."
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{40}{3}"
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{10}{3}",
+          "errorPath": "Use A=2t after the speed change, forgetting A's earlier distance; the invalid model gives t=5/3 and B distance 10/3."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "\\frac{40}{3}",
+      "workedSolutionSteps": [
+        "For $1\\le t\\le3$, distances are $4t$ and $5(t-1)$. Equality would require t=5, outside this interval.",
+        "For $t\\ge3$, A travels $12+2(t-3)=2t+6$ and B travels $5t-5$. Equating gives $t=11/3$, which is in this interval.",
+        "Their common distance is $2(11/3)+6=40/3$ km."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate",
+      "unverifiedTaughtSubskill": "Piecewise linear distance-time models and checking segment domains.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-013",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-013-V325-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-013-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "line-divides-rectangle-equal-area",
+      "stem": "A rectangle has vertices $(0,0),(8,0),(8,6),(0,6)$. A line perpendicular to $y=-2x+7$ crosses the rectangle's left and right vertical sides, dividing the rectangle into two equal areas. Find its y-intercept.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3",
+          "errorPath": "Use half the rectangle height as the intercept, ignoring the slope."
+        },
+        {
+          "id": "B",
+          "latex": "5",
+          "errorPath": "Use the wrong sign when calculating the intercept from the centre: 3+2=5."
+        },
+        {
+          "id": "C",
+          "latex": "11",
+          "errorPath": "Use slope -2 rather than its negative reciprocal and calculate 3-(-2)(4)=11."
+        },
+        {
+          "id": "D",
+          "latex": "-5",
+          "errorPath": "Use slope +2 rather than its reciprocal, giving 3-8=-5."
+        },
+        {
+          "id": "E",
+          "latex": "1"
+        },
+        {
+          "id": "F",
+          "latex": "2",
+          "errorPath": "Use a quarter of the width instead of its midpoint, giving 3-(1/2)(2)=2."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "1",
+      "workedSolutionSteps": [
+        "The line has gradient $1/2$; write $y=x/2+c$. The heights at the two vertical sides are c and c+4.",
+        "The area below the line inside the rectangle is the trapezium area $8(2c+4)/2=8c+16$. Half the rectangle area is 24.",
+        "Solve $8c+16=24$ to get $c=1$. Side heights 1 and 5 are within the rectangle, so the line satisfies the stated crossing condition."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate",
+      "unverifiedTaughtSubskill": "Perpendicular gradient, trapezium area and geometric linear constraints.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    }
+  ]
+}
