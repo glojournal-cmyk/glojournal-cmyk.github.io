@@ -1012,7 +1012,7 @@
       "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-034-REVIEW-2",
       "topicId": "math-y9-straight-line-graphs",
       "provisionalConceptFamily": "concurrent-lines-perpendicular-intercept",
-      "stem": "The three lines $y=2x+1$, $y=10-x$ and $y=(k-1)x+2k$ meet at P. A fourth line through P is perpendicular to the third line and meets the x-axis at $(a,0)$. Find $(k,a)$.",
+      "stem": "The three lines $y=2x+1$, $y=10-x$ and $y=(k-1)x+2k$ meet at P. The line through P perpendicular to the third line meets the x-axis at $(a,0)$. Find $(k,a)$.",
       "options": [
         {
           "id": "A",
@@ -1041,7 +1041,7 @@
         {
           "id": "F",
           "latex": "(2,3)",
-          "errorPath": "Report P's x-coordinate instead of the fourth line's x-intercept."
+          "errorPath": "Report P's x-coordinate instead of the perpendicular line's x-intercept."
         }
       ],
       "correctOptionId": "D",
@@ -1049,7 +1049,7 @@
       "workedSolutionSteps": [
         "The first two lines meet at $(3,7)$, since $2x+1=10-x$.",
         "The third passes through P: $7=3(k-1)+2k$, hence $k=2$ and its gradient is 1.",
-        "The fourth line has gradient -1 and equation $y=10-x$, so $a=10$."
+        "The perpendicular line has gradient -1 and equation $y=10-x$, so $a=10$."
       ],
       "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
       "unverifiedTaughtSubskill": "Concurrency, parameter inference and perpendicular intercept.",
