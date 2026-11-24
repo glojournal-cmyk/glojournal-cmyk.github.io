@@ -19,7 +19,8 @@
     "No candidate has independent sole-key and distractor signoff",
     "No live Daily mapping for any of the 48 replacements",
     "No automatic deletion, replacement or formal credit for overlapping questions",
-    "F3-07 and F4-11 were redesigned previously and are not designated high-confidence direct overlap here"
+    "F3-07 and F4-11 were redesigned previously and are not designated high-confidence direct overlap here",
+    "F4-01 revised storage scenario rechecked against points 36 and 93; broad related hazard retained, direct open-flame action duplication removed."
   ],
   "overlapRows": [
     {
@@ -383,7 +384,7 @@
     },
     {
       "replacementId": "bio-y8-food-tests-case-20261025-4-1",
-      "replacementPrompt": "What should a pupil do before opening ethanol for a lipid emulsion test at a bench with a lit Bunsen burner?",
+      "replacementPrompt": "After an ethanol emulsion test, a pupil leaves a working ethanol bottle uncapped beside a warm water bath, although the Bunsen flame has been extinguished. What should the pupil do next?",
       "sourcePointIndices": [
         36,
         93
@@ -396,9 +397,9 @@
         "keep ethanol away from naked flames because it is flammable",
         "an open flame can ignite the ethanol causing fire"
       ],
-      "overlapSkill": "ETHANOL_IGNITION_SOURCE",
+      "overlapSkill": "ETHANOL_STORAGE_RELATED_TO_IGNITION_HAZARD",
       "classification": "PROVISIONAL_CROSS_POOL_SIMILAR_KNOWLEDGE_OR_PROCEDURE",
-      "rationale": "The replacement question exercises the same observation, procedural variable or laboratory-safety decision as the listed proposed 99-point question(s); separate Daily mastery evidence may therefore double-count the same skill.",
+      "rationale": "Revised key specifically assesses capping and safe storage after use, not extinguishing a burner. Points 36 and 93 concern the related flammability/ignition hazard; retain as a broad related-skill flag only, not a direct duplicate or a decision to combine marks.",
       "dailyConceptGroup": null,
       "previewMappingStatus": "PENDING_NEW_SKILL_GROUP_REVIEW",
       "qualifiedIndependentSignoff": false,
