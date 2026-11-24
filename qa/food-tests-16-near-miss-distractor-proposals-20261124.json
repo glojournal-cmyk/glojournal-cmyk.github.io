@@ -7,8 +7,9 @@
     "cases": 16,
     "options": 64,
     "keys": 16,
-    "singleIndicatorFoils": 48,
-    "approved": 0
+    "singleIndicatorFoils": 32,
+    "approved": 0,
+    "twoIndicatorFoils": 16
   },
   "keyPositionCounts": [
     4,
@@ -22,7 +23,8 @@
     "AI-authored replacement foils require independent science/assessment review",
     "Fixed key order is non-cyclic but does not replace tested per-session shuffling",
     "Four indicator interpretations recur across cases and cannot imply 16 independent mastered skills",
-    "Do not mutate old answers, question IDs, runtime bank or learner history"
+    "Do not mutate old answers, question IDs, runtime bank or learner history",
+    "Use two one-indicator and one two-indicator foil so majority-voting every nutrient cannot uniquely recover the key; one indicator has a 2–2 split in every item. This does not establish observed distractor performance."
   ],
   "items": [
     {
@@ -40,16 +42,20 @@
       "newOptions": [
         "reducing sugar, protein, lipid",
         "starch, reducing sugar, protein, lipid",
-        "starch, reducing sugar, lipid",
-        "starch, reducing sugar, protein"
+        "starch, protein, lipid",
+        "reducing sugar, lipid"
       ],
       "keyIndex": 1,
       "optionReasons": [
         {
           "text": "reducing sugar, protein, lipid",
           "kind": "single-indicator misconception",
-          "indicator": "iodine",
-          "nutrient": "starch",
+          "indicators": [
+            "iodine"
+          ],
+          "nutrients": [
+            "starch"
+          ],
           "reason": "Incorrectly omits starch, which the stated iodine result detects."
         },
         {
@@ -58,18 +64,28 @@
           "reason": "Includes all and only the nutrient groups detected by the four stated observations."
         },
         {
-          "text": "starch, reducing sugar, lipid",
+          "text": "starch, protein, lipid",
           "kind": "single-indicator misconception",
-          "indicator": "Biuret",
-          "nutrient": "protein",
-          "reason": "Incorrectly omits protein, which the stated Biuret result detects."
+          "indicators": [
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects."
         },
         {
-          "text": "starch, reducing sugar, protein",
-          "kind": "single-indicator misconception",
-          "indicator": "ethanol emulsion",
-          "nutrient": "lipid",
-          "reason": "Incorrectly omits lipid, which the stated ethanol emulsion result detects."
+          "text": "reducing sugar, lipid",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "iodine",
+            "Biuret"
+          ],
+          "nutrients": [
+            "starch",
+            "protein"
+          ],
+          "reason": "Incorrectly omits starch, which the stated iodine result detects. Incorrectly omits protein, which the stated Biuret result detects."
         }
       ],
       "sourceEdited": false,
@@ -89,33 +105,47 @@
         "starch"
       ],
       "newOptions": [
-        "protein, lipid",
+        "protein",
         "reducing sugar, lipid",
-        "reducing sugar, protein",
+        "protein, lipid",
         "reducing sugar, protein, lipid"
       ],
       "keyIndex": 3,
       "optionReasons": [
         {
-          "text": "protein, lipid",
-          "kind": "single-indicator misconception",
-          "indicator": "heated Benedict's",
-          "nutrient": "reducing sugar",
-          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects."
+          "text": "protein",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "heated Benedict's",
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "reducing sugar",
+            "lipid"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects. Incorrectly omits lipid, which the stated ethanol emulsion result detects."
         },
         {
           "text": "reducing sugar, lipid",
           "kind": "single-indicator misconception",
-          "indicator": "Biuret",
-          "nutrient": "protein",
+          "indicators": [
+            "Biuret"
+          ],
+          "nutrients": [
+            "protein"
+          ],
           "reason": "Incorrectly omits protein, which the stated Biuret result detects."
         },
         {
-          "text": "reducing sugar, protein",
+          "text": "protein, lipid",
           "kind": "single-indicator misconception",
-          "indicator": "ethanol emulsion",
-          "nutrient": "lipid",
-          "reason": "Incorrectly omits lipid, which the stated ethanol emulsion result detects."
+          "indicators": [
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects."
         },
         {
           "text": "reducing sugar, protein, lipid",
@@ -141,9 +171,9 @@
       ],
       "newOptions": [
         "starch, protein, lipid",
-        "protein, lipid",
-        "starch, reducing sugar, protein, lipid",
-        "starch, lipid"
+        "starch, lipid",
+        "starch, protein",
+        "lipid"
       ],
       "keyIndex": 0,
       "optionReasons": [
@@ -153,25 +183,39 @@
           "reason": "Includes all and only the nutrient groups detected by the four stated observations."
         },
         {
-          "text": "protein, lipid",
-          "kind": "single-indicator misconception",
-          "indicator": "iodine",
-          "nutrient": "starch",
-          "reason": "Incorrectly omits starch, which the stated iodine result detects."
-        },
-        {
-          "text": "starch, reducing sugar, protein, lipid",
-          "kind": "single-indicator misconception",
-          "indicator": "heated Benedict's",
-          "nutrient": "reducing sugar",
-          "reason": "Incorrectly includes reducing sugar, which the stated heated Benedict's result does not detect."
-        },
-        {
           "text": "starch, lipid",
           "kind": "single-indicator misconception",
-          "indicator": "Biuret",
-          "nutrient": "protein",
+          "indicators": [
+            "Biuret"
+          ],
+          "nutrients": [
+            "protein"
+          ],
           "reason": "Incorrectly omits protein, which the stated Biuret result detects."
+        },
+        {
+          "text": "starch, protein",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "lipid"
+          ],
+          "reason": "Incorrectly omits lipid, which the stated ethanol emulsion result detects."
+        },
+        {
+          "text": "lipid",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "Biuret",
+            "iodine"
+          ],
+          "nutrients": [
+            "protein",
+            "starch"
+          ],
+          "reason": "Incorrectly omits protein, which the stated Biuret result detects. Incorrectly omits starch, which the stated iodine result detects."
         }
       ],
       "sourceEdited": false,
@@ -191,26 +235,36 @@
         "reducing sugar"
       ],
       "newOptions": [
+        "reducing sugar, protein",
         "starch, protein, lipid",
-        "reducing sugar, protein, lipid",
         "protein, lipid",
         "protein"
       ],
       "keyIndex": 2,
       "optionReasons": [
         {
-          "text": "starch, protein, lipid",
-          "kind": "single-indicator misconception",
-          "indicator": "iodine",
-          "nutrient": "starch",
-          "reason": "Incorrectly includes starch, which the stated iodine result does not detect."
+          "text": "reducing sugar, protein",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "ethanol emulsion",
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "lipid",
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly omits lipid, which the stated ethanol emulsion result detects. Incorrectly includes reducing sugar, which the stated heated Benedict's result does not detect."
         },
         {
-          "text": "reducing sugar, protein, lipid",
+          "text": "starch, protein, lipid",
           "kind": "single-indicator misconception",
-          "indicator": "heated Benedict's",
-          "nutrient": "reducing sugar",
-          "reason": "Incorrectly includes reducing sugar, which the stated heated Benedict's result does not detect."
+          "indicators": [
+            "iodine"
+          ],
+          "nutrients": [
+            "starch"
+          ],
+          "reason": "Incorrectly includes starch, which the stated iodine result does not detect."
         },
         {
           "text": "protein, lipid",
@@ -220,8 +274,12 @@
         {
           "text": "protein",
           "kind": "single-indicator misconception",
-          "indicator": "ethanol emulsion",
-          "nutrient": "lipid",
+          "indicators": [
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "lipid"
+          ],
           "reason": "Incorrectly omits lipid, which the stated ethanol emulsion result detects."
         }
       ],
@@ -243,25 +301,33 @@
       ],
       "newOptions": [
         "reducing sugar, lipid",
-        "starch, reducing sugar, protein, lipid",
+        "starch, lipid",
         "starch, reducing sugar, lipid",
-        "starch, reducing sugar"
+        "reducing sugar, protein, lipid"
       ],
       "keyIndex": 2,
       "optionReasons": [
         {
           "text": "reducing sugar, lipid",
           "kind": "single-indicator misconception",
-          "indicator": "iodine",
-          "nutrient": "starch",
+          "indicators": [
+            "iodine"
+          ],
+          "nutrients": [
+            "starch"
+          ],
           "reason": "Incorrectly omits starch, which the stated iodine result detects."
         },
         {
-          "text": "starch, reducing sugar, protein, lipid",
+          "text": "starch, lipid",
           "kind": "single-indicator misconception",
-          "indicator": "Biuret",
-          "nutrient": "protein",
-          "reason": "Incorrectly includes protein, which the stated Biuret result does not detect."
+          "indicators": [
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects."
         },
         {
           "text": "starch, reducing sugar, lipid",
@@ -269,11 +335,17 @@
           "reason": "Includes all and only the nutrient groups detected by the four stated observations."
         },
         {
-          "text": "starch, reducing sugar",
-          "kind": "single-indicator misconception",
-          "indicator": "ethanol emulsion",
-          "nutrient": "lipid",
-          "reason": "Incorrectly omits lipid, which the stated ethanol emulsion result detects."
+          "text": "reducing sugar, protein, lipid",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "iodine",
+            "Biuret"
+          ],
+          "nutrients": [
+            "starch",
+            "protein"
+          ],
+          "reason": "Incorrectly omits starch, which the stated iodine result detects. Incorrectly includes protein, which the stated Biuret result does not detect."
         }
       ],
       "sourceEdited": false,
@@ -294,9 +366,9 @@
       ],
       "newOptions": [
         "reducing sugar, lipid",
-        "lipid",
+        "none of these four nutrients",
         "reducing sugar, protein, lipid",
-        "reducing sugar"
+        "lipid"
       ],
       "keyIndex": 0,
       "optionReasons": [
@@ -306,25 +378,39 @@
           "reason": "Includes all and only the nutrient groups detected by the four stated observations."
         },
         {
-          "text": "lipid",
-          "kind": "single-indicator misconception",
-          "indicator": "heated Benedict's",
-          "nutrient": "reducing sugar",
-          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects."
+          "text": "none of these four nutrients",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "heated Benedict's",
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "reducing sugar",
+            "lipid"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects. Incorrectly omits lipid, which the stated ethanol emulsion result detects."
         },
         {
           "text": "reducing sugar, protein, lipid",
           "kind": "single-indicator misconception",
-          "indicator": "Biuret",
-          "nutrient": "protein",
+          "indicators": [
+            "Biuret"
+          ],
+          "nutrients": [
+            "protein"
+          ],
           "reason": "Incorrectly includes protein, which the stated Biuret result does not detect."
         },
         {
-          "text": "reducing sugar",
+          "text": "lipid",
           "kind": "single-indicator misconception",
-          "indicator": "ethanol emulsion",
-          "nutrient": "lipid",
-          "reason": "Incorrectly omits lipid, which the stated ethanol emulsion result detects."
+          "indicators": [
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects."
         }
       ],
       "sourceEdited": false,
@@ -344,33 +430,47 @@
         "reducing sugar"
       ],
       "newOptions": [
-        "lipid",
-        "starch, reducing sugar, lipid",
         "starch, protein, lipid",
+        "starch",
+        "protein, lipid",
         "starch, lipid"
       ],
       "keyIndex": 3,
       "optionReasons": [
         {
-          "text": "lipid",
-          "kind": "single-indicator misconception",
-          "indicator": "iodine",
-          "nutrient": "starch",
-          "reason": "Incorrectly omits starch, which the stated iodine result detects."
-        },
-        {
-          "text": "starch, reducing sugar, lipid",
-          "kind": "single-indicator misconception",
-          "indicator": "heated Benedict's",
-          "nutrient": "reducing sugar",
-          "reason": "Incorrectly includes reducing sugar, which the stated heated Benedict's result does not detect."
-        },
-        {
           "text": "starch, protein, lipid",
           "kind": "single-indicator misconception",
-          "indicator": "Biuret",
-          "nutrient": "protein",
+          "indicators": [
+            "Biuret"
+          ],
+          "nutrients": [
+            "protein"
+          ],
           "reason": "Incorrectly includes protein, which the stated Biuret result does not detect."
+        },
+        {
+          "text": "starch",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "lipid"
+          ],
+          "reason": "Incorrectly omits lipid, which the stated ethanol emulsion result detects."
+        },
+        {
+          "text": "protein, lipid",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "Biuret",
+            "iodine"
+          ],
+          "nutrients": [
+            "protein",
+            "starch"
+          ],
+          "reason": "Incorrectly includes protein, which the stated Biuret result does not detect. Incorrectly omits starch, which the stated iodine result detects."
         },
         {
           "text": "starch, lipid",
@@ -395,19 +495,25 @@
         "reducing sugar, protein"
       ],
       "newOptions": [
-        "starch, lipid",
+        "reducing sugar",
         "lipid",
-        "reducing sugar, lipid",
+        "starch, lipid",
         "none of these four nutrients"
       ],
       "keyIndex": 1,
       "optionReasons": [
         {
-          "text": "starch, lipid",
-          "kind": "single-indicator misconception",
-          "indicator": "iodine",
-          "nutrient": "starch",
-          "reason": "Incorrectly includes starch, which the stated iodine result does not detect."
+          "text": "reducing sugar",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "ethanol emulsion",
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "lipid",
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly omits lipid, which the stated ethanol emulsion result detects. Incorrectly includes reducing sugar, which the stated heated Benedict's result does not detect."
         },
         {
           "text": "lipid",
@@ -415,17 +521,25 @@
           "reason": "Includes all and only the nutrient groups detected by the four stated observations."
         },
         {
-          "text": "reducing sugar, lipid",
+          "text": "starch, lipid",
           "kind": "single-indicator misconception",
-          "indicator": "heated Benedict's",
-          "nutrient": "reducing sugar",
-          "reason": "Incorrectly includes reducing sugar, which the stated heated Benedict's result does not detect."
+          "indicators": [
+            "iodine"
+          ],
+          "nutrients": [
+            "starch"
+          ],
+          "reason": "Incorrectly includes starch, which the stated iodine result does not detect."
         },
         {
           "text": "none of these four nutrients",
           "kind": "single-indicator misconception",
-          "indicator": "ethanol emulsion",
-          "nutrient": "lipid",
+          "indicators": [
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "lipid"
+          ],
           "reason": "Incorrectly omits lipid, which the stated ethanol emulsion result detects."
         }
       ],
@@ -448,8 +562,8 @@
       "newOptions": [
         "starch, reducing sugar, protein",
         "reducing sugar, protein",
-        "starch, reducing sugar",
-        "starch, reducing sugar, protein, lipid"
+        "starch, protein",
+        "reducing sugar"
       ],
       "keyIndex": 0,
       "optionReasons": [
@@ -461,23 +575,37 @@
         {
           "text": "reducing sugar, protein",
           "kind": "single-indicator misconception",
-          "indicator": "iodine",
-          "nutrient": "starch",
+          "indicators": [
+            "iodine"
+          ],
+          "nutrients": [
+            "starch"
+          ],
           "reason": "Incorrectly omits starch, which the stated iodine result detects."
         },
         {
-          "text": "starch, reducing sugar",
+          "text": "starch, protein",
           "kind": "single-indicator misconception",
-          "indicator": "Biuret",
-          "nutrient": "protein",
-          "reason": "Incorrectly omits protein, which the stated Biuret result detects."
+          "indicators": [
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects."
         },
         {
-          "text": "starch, reducing sugar, protein, lipid",
-          "kind": "single-indicator misconception",
-          "indicator": "ethanol emulsion",
-          "nutrient": "lipid",
-          "reason": "Incorrectly includes lipid, which the stated ethanol emulsion result does not detect."
+          "text": "reducing sugar",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "iodine",
+            "Biuret"
+          ],
+          "nutrients": [
+            "starch",
+            "protein"
+          ],
+          "reason": "Incorrectly omits starch, which the stated iodine result detects. Incorrectly omits protein, which the stated Biuret result detects."
         }
       ],
       "sourceEdited": false,
@@ -497,19 +625,25 @@
         "starch, lipid"
       ],
       "newOptions": [
-        "protein",
+        "protein, lipid",
         "reducing sugar, protein",
         "reducing sugar",
-        "reducing sugar, protein, lipid"
+        "protein"
       ],
       "keyIndex": 1,
       "optionReasons": [
         {
-          "text": "protein",
-          "kind": "single-indicator misconception",
-          "indicator": "heated Benedict's",
-          "nutrient": "reducing sugar",
-          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects."
+          "text": "protein, lipid",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "heated Benedict's",
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "reducing sugar",
+            "lipid"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects. Incorrectly includes lipid, which the stated ethanol emulsion result does not detect."
         },
         {
           "text": "reducing sugar, protein",
@@ -519,16 +653,24 @@
         {
           "text": "reducing sugar",
           "kind": "single-indicator misconception",
-          "indicator": "Biuret",
-          "nutrient": "protein",
+          "indicators": [
+            "Biuret"
+          ],
+          "nutrients": [
+            "protein"
+          ],
           "reason": "Incorrectly omits protein, which the stated Biuret result detects."
         },
         {
-          "text": "reducing sugar, protein, lipid",
+          "text": "protein",
           "kind": "single-indicator misconception",
-          "indicator": "ethanol emulsion",
-          "nutrient": "lipid",
-          "reason": "Incorrectly includes lipid, which the stated ethanol emulsion result does not detect."
+          "indicators": [
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects."
         }
       ],
       "sourceEdited": false,
@@ -548,26 +690,34 @@
         "reducing sugar, protein, lipid"
       ],
       "newOptions": [
-        "protein",
-        "starch, reducing sugar, protein",
+        "starch",
+        "starch, protein, lipid",
         "starch, protein",
-        "starch"
+        "none of these four nutrients"
       ],
       "keyIndex": 2,
       "optionReasons": [
         {
-          "text": "protein",
+          "text": "starch",
           "kind": "single-indicator misconception",
-          "indicator": "iodine",
-          "nutrient": "starch",
-          "reason": "Incorrectly omits starch, which the stated iodine result detects."
+          "indicators": [
+            "Biuret"
+          ],
+          "nutrients": [
+            "protein"
+          ],
+          "reason": "Incorrectly omits protein, which the stated Biuret result detects."
         },
         {
-          "text": "starch, reducing sugar, protein",
+          "text": "starch, protein, lipid",
           "kind": "single-indicator misconception",
-          "indicator": "heated Benedict's",
-          "nutrient": "reducing sugar",
-          "reason": "Incorrectly includes reducing sugar, which the stated heated Benedict's result does not detect."
+          "indicators": [
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "lipid"
+          ],
+          "reason": "Incorrectly includes lipid, which the stated ethanol emulsion result does not detect."
         },
         {
           "text": "starch, protein",
@@ -575,11 +725,17 @@
           "reason": "Includes all and only the nutrient groups detected by the four stated observations."
         },
         {
-          "text": "starch",
-          "kind": "single-indicator misconception",
-          "indicator": "Biuret",
-          "nutrient": "protein",
-          "reason": "Incorrectly omits protein, which the stated Biuret result detects."
+          "text": "none of these four nutrients",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "Biuret",
+            "iodine"
+          ],
+          "nutrients": [
+            "protein",
+            "starch"
+          ],
+          "reason": "Incorrectly omits protein, which the stated Biuret result detects. Incorrectly omits starch, which the stated iodine result detects."
         }
       ],
       "sourceEdited": false,
@@ -599,32 +755,46 @@
         "reducing sugar, lipid"
       ],
       "newOptions": [
+        "reducing sugar, protein, lipid",
         "starch, protein",
-        "reducing sugar, protein",
         "protein, lipid",
         "protein"
       ],
       "keyIndex": 3,
       "optionReasons": [
         {
-          "text": "starch, protein",
-          "kind": "single-indicator misconception",
-          "indicator": "iodine",
-          "nutrient": "starch",
-          "reason": "Incorrectly includes starch, which the stated iodine result does not detect."
+          "text": "reducing sugar, protein, lipid",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "ethanol emulsion",
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "lipid",
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly includes lipid, which the stated ethanol emulsion result does not detect. Incorrectly includes reducing sugar, which the stated heated Benedict's result does not detect."
         },
         {
-          "text": "reducing sugar, protein",
+          "text": "starch, protein",
           "kind": "single-indicator misconception",
-          "indicator": "heated Benedict's",
-          "nutrient": "reducing sugar",
-          "reason": "Incorrectly includes reducing sugar, which the stated heated Benedict's result does not detect."
+          "indicators": [
+            "iodine"
+          ],
+          "nutrients": [
+            "starch"
+          ],
+          "reason": "Incorrectly includes starch, which the stated iodine result does not detect."
         },
         {
           "text": "protein, lipid",
           "kind": "single-indicator misconception",
-          "indicator": "ethanol emulsion",
-          "nutrient": "lipid",
+          "indicators": [
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "lipid"
+          ],
           "reason": "Incorrectly includes lipid, which the stated ethanol emulsion result does not detect."
         },
         {
@@ -652,16 +822,20 @@
       "newOptions": [
         "reducing sugar",
         "starch, reducing sugar",
-        "starch, reducing sugar, protein",
-        "starch, reducing sugar, lipid"
+        "starch",
+        "reducing sugar, protein"
       ],
       "keyIndex": 1,
       "optionReasons": [
         {
           "text": "reducing sugar",
           "kind": "single-indicator misconception",
-          "indicator": "iodine",
-          "nutrient": "starch",
+          "indicators": [
+            "iodine"
+          ],
+          "nutrients": [
+            "starch"
+          ],
           "reason": "Incorrectly omits starch, which the stated iodine result detects."
         },
         {
@@ -670,18 +844,28 @@
           "reason": "Includes all and only the nutrient groups detected by the four stated observations."
         },
         {
-          "text": "starch, reducing sugar, protein",
+          "text": "starch",
           "kind": "single-indicator misconception",
-          "indicator": "Biuret",
-          "nutrient": "protein",
-          "reason": "Incorrectly includes protein, which the stated Biuret result does not detect."
+          "indicators": [
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects."
         },
         {
-          "text": "starch, reducing sugar, lipid",
-          "kind": "single-indicator misconception",
-          "indicator": "ethanol emulsion",
-          "nutrient": "lipid",
-          "reason": "Incorrectly includes lipid, which the stated ethanol emulsion result does not detect."
+          "text": "reducing sugar, protein",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "iodine",
+            "Biuret"
+          ],
+          "nutrients": [
+            "starch",
+            "protein"
+          ],
+          "reason": "Incorrectly omits starch, which the stated iodine result detects. Incorrectly includes protein, which the stated Biuret result does not detect."
         }
       ],
       "sourceEdited": false,
@@ -701,25 +885,35 @@
         "starch, protein, lipid"
       ],
       "newOptions": [
-        "none of these four nutrients",
+        "lipid",
         "reducing sugar, protein",
         "reducing sugar",
-        "reducing sugar, lipid"
+        "none of these four nutrients"
       ],
       "keyIndex": 2,
       "optionReasons": [
         {
-          "text": "none of these four nutrients",
-          "kind": "single-indicator misconception",
-          "indicator": "heated Benedict's",
-          "nutrient": "reducing sugar",
-          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects."
+          "text": "lipid",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "heated Benedict's",
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "reducing sugar",
+            "lipid"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects. Incorrectly includes lipid, which the stated ethanol emulsion result does not detect."
         },
         {
           "text": "reducing sugar, protein",
           "kind": "single-indicator misconception",
-          "indicator": "Biuret",
-          "nutrient": "protein",
+          "indicators": [
+            "Biuret"
+          ],
+          "nutrients": [
+            "protein"
+          ],
           "reason": "Incorrectly includes protein, which the stated Biuret result does not detect."
         },
         {
@@ -728,11 +922,15 @@
           "reason": "Includes all and only the nutrient groups detected by the four stated observations."
         },
         {
-          "text": "reducing sugar, lipid",
+          "text": "none of these four nutrients",
           "kind": "single-indicator misconception",
-          "indicator": "ethanol emulsion",
-          "nutrient": "lipid",
-          "reason": "Incorrectly includes lipid, which the stated ethanol emulsion result does not detect."
+          "indicators": [
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly omits reducing sugar, which the stated heated Benedict's result detects."
         }
       ],
       "sourceEdited": false,
@@ -752,33 +950,47 @@
         "reducing sugar, lipid"
       ],
       "newOptions": [
-        "none of these four nutrients",
-        "starch, reducing sugar",
         "starch, protein",
+        "starch, lipid",
+        "protein",
         "starch"
       ],
       "keyIndex": 3,
       "optionReasons": [
         {
-          "text": "none of these four nutrients",
-          "kind": "single-indicator misconception",
-          "indicator": "iodine",
-          "nutrient": "starch",
-          "reason": "Incorrectly omits starch, which the stated iodine result detects."
-        },
-        {
-          "text": "starch, reducing sugar",
-          "kind": "single-indicator misconception",
-          "indicator": "heated Benedict's",
-          "nutrient": "reducing sugar",
-          "reason": "Incorrectly includes reducing sugar, which the stated heated Benedict's result does not detect."
-        },
-        {
           "text": "starch, protein",
           "kind": "single-indicator misconception",
-          "indicator": "Biuret",
-          "nutrient": "protein",
+          "indicators": [
+            "Biuret"
+          ],
+          "nutrients": [
+            "protein"
+          ],
           "reason": "Incorrectly includes protein, which the stated Biuret result does not detect."
+        },
+        {
+          "text": "starch, lipid",
+          "kind": "single-indicator misconception",
+          "indicators": [
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "lipid"
+          ],
+          "reason": "Incorrectly includes lipid, which the stated ethanol emulsion result does not detect."
+        },
+        {
+          "text": "protein",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "Biuret",
+            "iodine"
+          ],
+          "nutrients": [
+            "protein",
+            "starch"
+          ],
+          "reason": "Incorrectly includes protein, which the stated Biuret result does not detect. Incorrectly omits starch, which the stated iodine result detects."
         },
         {
           "text": "starch",
@@ -804,8 +1016,8 @@
       ],
       "newOptions": [
         "none of these four nutrients",
+        "reducing sugar, lipid",
         "starch",
-        "reducing sugar",
         "lipid"
       ],
       "keyIndex": 0,
@@ -816,24 +1028,38 @@
           "reason": "Includes all and only the nutrient groups detected by the four stated observations."
         },
         {
-          "text": "starch",
-          "kind": "single-indicator misconception",
-          "indicator": "iodine",
-          "nutrient": "starch",
-          "reason": "Incorrectly includes starch, which the stated iodine result does not detect."
+          "text": "reducing sugar, lipid",
+          "kind": "two-indicator misconception",
+          "indicators": [
+            "ethanol emulsion",
+            "heated Benedict's"
+          ],
+          "nutrients": [
+            "lipid",
+            "reducing sugar"
+          ],
+          "reason": "Incorrectly includes lipid, which the stated ethanol emulsion result does not detect. Incorrectly includes reducing sugar, which the stated heated Benedict's result does not detect."
         },
         {
-          "text": "reducing sugar",
+          "text": "starch",
           "kind": "single-indicator misconception",
-          "indicator": "heated Benedict's",
-          "nutrient": "reducing sugar",
-          "reason": "Incorrectly includes reducing sugar, which the stated heated Benedict's result does not detect."
+          "indicators": [
+            "iodine"
+          ],
+          "nutrients": [
+            "starch"
+          ],
+          "reason": "Incorrectly includes starch, which the stated iodine result does not detect."
         },
         {
           "text": "lipid",
           "kind": "single-indicator misconception",
-          "indicator": "ethanol emulsion",
-          "nutrient": "lipid",
+          "indicators": [
+            "ethanol emulsion"
+          ],
+          "nutrients": [
+            "lipid"
+          ],
           "reason": "Incorrectly includes lipid, which the stated ethanol emulsion result does not detect."
         }
       ],
