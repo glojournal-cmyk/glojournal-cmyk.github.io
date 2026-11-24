@@ -34,3 +34,12 @@ The official [AQA GCSE Biology Practical Handbook, Food tests, printed pp. 40–
 4. Real iPad PWA and Daily skill-selection/credit-path acceptance is not completed. Existing zero-credit gates stay closed.
 
 **Decision:** PR #308 remains **Draft / DO NOT MERGE / DO NOT DEPLOY**, no Daily/MP/Mastery credit or alteration of learner records.
+
+## Later same-day cross-pool continuation (24 Nov 2026)
+
+- **F4-01** was substantively redundant with structured **point #93**: both asked for extinguishing a lit Bunsen burner before opening ethanol. The held F4-01 draft and 143-row QA preview now instead ask about a **still-uncapped ethanol bottle beside a warm water bath after the flame is already off**. Correct choice **B** requires capping and moving the bottle away from heat and ignition sources, not merely repeating flame extinction. This tests a distinct practical safety decision. It remains **unapproved**.
+- Created [48 × 99 cross-pool skill-overlap review](food-tests-48x99-cross-pool-skill-overlap-second-pass-20261124.json): **17 candidate-to-structured-point overlap flags**, of which **13 HIGH_OVERLAP** and **4 RELATED**. These are preliminary concept-level duplicate/rotation flags, not proof that all flagged source marks should be deleted; no Daily selector was changed and no candidate has been released.
+- In total **six** held replacement candidates received a scientific clarity or overlap-focused correction in this continuation: F3-04, F2-07, F3-13, F4-14, F4-02 and F4-01. All candidate keys and source identifiers are preserved; **48 draft-to-preview QA entries align** at the latest source-level preflight.
+- The Node regression file includes five additional targeted tests for fixed-time Benedict's, ethanol protocol wording, 64 original result key derivations, the revised ethanol-storage decision, and the 17 flagged cross-pool references. **Source-level checks passed; GitHub Actions on the final head were queued/pending when this note was updated.** CI success is not claimed here.
+
+**Still blocked:** 0/143 source approvals, 0/99 structured approvals, 0/48 duplicate-replacement approvals. No merge, deployment or saved-score changes.
