@@ -70,6 +70,9 @@ jobs:
       - name: Verify 147 held candidate skill mappings and rotation conflicts
         if: always()
         run: node --test tests/food-tests-147-skill-crosswalk-20261124.test.mjs
+      - name: Verify all 143 consolidated source groups and 190 held rotation units
+        if: always()
+        run: node --test tests/food-tests-143-consolidated-held-20261124.test.mjs
       - name: Upload QA evidence
         if: always()
         uses: actions/upload-artifact@v4
