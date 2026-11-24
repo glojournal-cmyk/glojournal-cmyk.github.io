@@ -4,12 +4,21 @@ import { readFileSync } from 'node:fs';
 const root = new URL('../',import.meta.url);
 const read = p => readFileSync(new URL(p,root),'utf8');
 const catalog=JSON.parse(read('notes/catalog.json'));
-test('96 unique, dated, expected PDF references',()=>{
- assert.equal(catalog.notes.length,96);
- assert.equal(new Set(catalog.notes.map(n=>n.key)).size,96);
- assert.equal(catalog.notes.reduce((sum,n)=>sum+n.sizeBytes,0),706594613);
+test('96 PDFs and one separate HTML reading edition have unique dated references',()=>{
+ assert.equal(catalog.notes.length,97);
+ assert.equal(new Set(catalog.notes.map(n=>n.key)).size,97);
+ const pdf=catalog.notes.filter(n=>n.format!=='HTML');
+ assert.equal(pdf.length,96);
+ assert.equal(pdf.reduce((sum,n)=>sum+n.sizeBytes,0),706594613);
+ const html=catalog.notes.filter(n=>n.format==='HTML');
+ assert.equal(html.length,1);
+ assert.equal(html[0].key,'year9/latin/Year_9_Latin_10_Page_Key_Revision_Notes_Reading_Edition.html');
+ assert.equal(html[0].url,'/notes/year9-latin-key-revision-20261120/');
+ assert.equal(html[0].validation.sourcePages,10);
+ assert.equal(html[0].validation.binaryPdfUploaded,false);
+ assert.match(read('notes/year9-latin-key-revision-20261120/index.html'),/Year 9 Latin/);
  for(const n of catalog.notes){
-  assert.match(n.filename,/\.pdf$/i);
+  assert.match(n.filename,n.format==='HTML'?/\.html$/i:/\.pdf$/i);
   assert.match(n.key,/^(summer|year9)\/(latin|french|biology|chemistry|english|maths|mixed)\//);
   assert.equal(n.status,n.delivery==='site'?'ready':'pending');
   assert.ok(n.dateAdded>='2026-07-01');
@@ -91,7 +100,7 @@ test('original ImageGen photo banners replace vector placeholders in Design C wi
 });
 
 test('six Year 9 Latin vocabulary image PDFs have dedicated chapter buttons and same-site reader paths',()=>{
- const latin=catalog.notes.filter(n=>n.period==='year9'&&n.subject==='latin'&&n.delivery==='site');
+ const latin=catalog.notes.filter(n=>n.period==='year9'&&n.subject==='latin'&&n.delivery==='site'&&n.format!=='HTML');
  assert.equal(latin.length,6);
  for(let i=1;i<=6;i++){
   const note=latin.find(n=>n.title==='Latin Vocabulary — Chapter '+i);
@@ -148,8 +157,8 @@ test('Year 9 Maths Topic 5 and 2 Nov Biology illustrated PDF notes have exact up
 });
 
 
-test('all 96 PDF Notes have meaningful topic labels while preserving original R2 object keys',()=>{
- assert.equal(catalog.notes.length,96);
+test('all 97 Notes have meaningful topic labels while preserving original R2 object keys',()=>{
+ assert.equal(catalog.notes.length,97);
  for(const n of catalog.notes){
   assert.equal(typeof n.topicLabel,'string');
   assert.equal(typeof n.displayTitle,'string');
