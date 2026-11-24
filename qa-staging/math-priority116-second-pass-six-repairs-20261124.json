@@ -1,0 +1,449 @@
+{
+  "kind": "PRIORITY116_SECOND_PASS_SIX_REPAIRS_NO_RELEASE",
+  "date": "2026-11-24",
+  "sourceRegister": "qa-staging/math-priority116-second-pass-academic-qa-20261124.json",
+  "sourceRegisterBlobSha": "d986294efb9deddc0a5a3617c279e03bb9128633",
+  "sourceCommit": "fb8cb13b1ebd0acc0757a3f24ea9d1bd472c77d8",
+  "counts": {
+    "repaired": 6,
+    "distractorOnly": 2,
+    "topicRedesign": 4,
+    "authorChecked": 6,
+    "formalApproved": 0
+  },
+  "limitations": "Source-preserving staging overlay. Four redesigned stems change answer semantics and must be independently reviewed, including school scope and grade demand. Two distractor-only changes retain keys. No technical/deployment work.",
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-019",
+      "priorRevisionId": "LUX-MATH-Y9-INDICES-019-V327-REASONING-QA-ONLY",
+      "priorRecordPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "priorRecordBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "previousIssue": "DISTRACTOR_TRACEABILITY: F=0 lacks reproducible reasoning; vague cancel-exponents claim.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-INDICES-019",
+        "revisionId": "LUX-MATH-Y9-INDICES-019-SECOND-PASS-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-019-REVIEW-2",
+        "topicId": "math-y9-indices",
+        "provisionalConceptFamily": "exponential-quadratic-two-roots",
+        "stem": "For integer n, solve $2^{2n}-6\\cdot2^n+8=0$. Find the sum of all possible n.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "6",
+            "errorPath": "Add the roots 2 and 4 of the substituted quadratic rather than their exponents."
+          },
+          {
+            "id": "B",
+            "latex": "3"
+          },
+          {
+            "id": "C",
+            "latex": "2",
+            "errorPath": "Keep only n=2."
+          },
+          {
+            "id": "D",
+            "latex": "1",
+            "errorPath": "Keep only n=1."
+          },
+          {
+            "id": "E",
+            "latex": "8",
+            "errorPath": "Multiply the roots of the substituted quadratic instead of adding n."
+          },
+          {
+            "id": "F",
+            "latex": "-3",
+            "errorPath": "After solving t=2 or 4, incorrectly set 2^(−n)=t instead of 2^n=t. This gives n=−1,−2 and sum −3."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "3",
+        "workedSolutionSteps": [
+          "Set t=2^n>0. The equation becomes $t^2-6t+8=0$.",
+          "Factor $(t-2)(t-4)=0$, so t=2 or 4 and n=1 or 2.",
+          "Both satisfy the original equation; the sum is 3."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+        "unverifiedTaughtSubskill": "Substitution into a quadratic and checking exponential roots.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-INDICES-019-V327-REASONING-QA-ONLY",
+        "importAllowed": false
+      },
+      "authorVerification": "t²−6t+8=(t−2)(t−4); n=1,2; sum3. New wrong route yields −1−2=−3.",
+      "provisionalMasteryExclusionGroup": "QUADRATIC_AND_BRANCH_REASONING",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-021",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-021-V316-HIGHER-REASONING-QA-ONLY",
+      "priorRecordPath": "qa-staging/math-v316-indices009-037-standard029-021-four-distinct-reasoning-candidates-20261123.json",
+      "priorRecordBlobSha": "edabd5df1666732ae7315222d14d45b50431b2cc",
+      "previousIssue": "TOPIC_ALIGNMENT: common 10^5 cancels; percentage and inequality reasoning dominates.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-021",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-021-SECOND-PASS-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-021-REVIEW-2",
+        "originalSourceTemplateGroup": "S-CALIBRATED-PERCENT",
+        "proposedDistinctReasoningDemand": "Convert between units using powers of ten, bound integer correction and express removed quantity in normalized standard form.",
+        "topicId": "math-y9-standard-form",
+        "stem": "An instrument's earlier reading was $4\\times10^5$ units. Its newer reading is $6\\times10^8$ milliunits, where 1000 milliunits = 1 unit. The newer reading is reduced by an integer percentage $p$ with $0\\le p\\le20$. The corrected reading must be between 25% and 35% greater than the earlier reading, including both boundaries. Find the greatest possible amount removed from the newer reading, in units, giving your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "6\\times10^4",
+            "errorPath": "Use p=10, the smallest permitted correction."
+          },
+          {
+            "id": "B",
+            "latex": "9.6\\times10^4"
+          },
+          {
+            "id": "C",
+            "latex": "1.02\\times10^5",
+            "errorPath": "Round the upper bound 50/3 upward to 17."
+          },
+          {
+            "id": "D",
+            "latex": "1.2\\times10^5",
+            "errorPath": "Use p=20 without checking the comparison bound."
+          },
+          {
+            "id": "E",
+            "latex": "5.04\\times10^5",
+            "errorPath": "Report the corrected reading at p=16, not the amount removed."
+          },
+          {
+            "id": "F",
+            "latex": "9.6\\times10^7",
+            "errorPath": "Calculate the removed amount in milliunits and omit conversion to units."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "9.6\\times10^4",
+        "workedSolutionSteps": [
+          "Convert the newer reading: (6×10^8)/(10^3)=6×10^5 units. The corrected reading must lie between 5×10^5 and 5.4×10^5 units inclusive.",
+          "Thus 10≤p≤50/3; the greatest integer p is 16. The amount removed is 0.16×6×10^8=9.6×10^7 milliunits.",
+          "Convert to units: (9.6×10^7)/(10^3)=9.6×10^4 units. The corrected reading is 5.04×10^5 units, within the interval; p=17 gives 4.98×10^5 and fails."
+        ],
+        "intendedAODemand": "AO2/AO3 reasoning: translate relative percentage requirement to a double inequality and count integer solutions.",
+        "exactTaughtScopeUnverified": "Actual class coverage of percentage modelling with compound inequalities is unverified.",
+        "conceptDistinctnessFromPriorCandidatesUnverified": true,
+        "empiricalDistractorVerification": false,
+        "independentGrade7PlusCertification": false,
+        "teacherTaughtConfirmed": false,
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-021-V316-HIGHER-REASONING-QA-ONLY",
+        "importAllowed": false,
+        "independentGradeCalibrated": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "provisionalConceptFamily": "standard-form-unit-conversion-bounded-percentage",
+        "unverifiedTaughtSubskill": "Standard-form multiplication/division, metric conversion with supplied factor, reverse percentage and inclusive integer inequality."
+      },
+      "authorVerification": "p=10..16, max16; 6e8×.16/1e3=9.6e4. Every other option rederived from stated route.",
+      "provisionalMasteryExclusionGroup": "PERCENTAGE_REVERSE_GROWTH",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-031",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-031-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-standard-form8-20261124.json",
+      "priorRecordBlobSha": "d207e930bdb10acd7d63d1162b4900cf5fae30c9",
+      "previousIssue": "DISTRACTOR_TRACEABILITY: F=1500 is an arbitrary half-count instead of the stated quarter; replace with a derived misconception.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-031",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-031-SECOND-PASS-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-031-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-031-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+        "topicId": "math-y9-standard-form",
+        "provisionalConceptFamily": "discrete-capacity-and-optimisation",
+        "stem": "A data link has capacity $7.5\\times10^8$ bytes per session, including a fixed overhead of $1.5\\times10^8$ bytes. A large file uses $2.4\\times10^5$ bytes and a small file uses $1.2\\times10^5$ bytes. Exactly $3\\times10^3$ complete files must be sent, with at least one quarter large. Find the greatest number of large files that can be sent. Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "2.5\\times10^{3}",
+            "errorPath": "Divide the payload capacity by the large-file size, without reserving room for the other required files: 600000000/240000."
+          },
+          {
+            "id": "B",
+            "latex": "3\\times10^{3}",
+            "errorPath": "Omit the fixed overhead; the resulting model allows all 3000 files to be large because 3000×240000≤750000000."
+          },
+          {
+            "id": "C",
+            "latex": "2\\times10^{3}"
+          },
+          {
+            "id": "D",
+            "latex": "1\\times10^{3}",
+            "errorPath": "Divide the headroom after the all-small baseline by the full large-file size rather than the difference: 240000000/240000."
+          },
+          {
+            "id": "E",
+            "latex": "7.5\\times10^{2}",
+            "errorPath": "Deduct the fixed overhead twice, so remaining headroom is 750000000−300000000−360000000=90000000; divide by 120000."
+          },
+          {
+            "id": "F",
+            "latex": "6.66\\times10^2",
+            "errorPath": "Add the two file sizes rather than subtracting them to find the extra storage for a large file: 240000000/(240000+120000)=666.666...; round down to 666, also overlooking the minimum 750."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "2\\times10^{3}",
+        "workedSolutionSteps": [
+          "All 3000 files treated as small would use 3.6×10^8 bytes. The available capacity after overhead is 6×10^8.",
+          "Each large file adds 1.2×10^5 bytes. Thus the number L of large files obeys 1.2×10^5 L≤2.4×10^8, or L≤2000.",
+          "The minimum is 750. Taking L=2000 and 1000 small files exactly meets capacity and all constraints."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Optimise a two-size allocation under a fixed total and capacity.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-031-DISTRACTOR-REPAIR-20261124",
+        "provisionalCrossTopicMasteryHold": "Shared linear allocation under fixed total and capacity with Q31, Q32 and Q40; do not award separate concept credit until independently reviewed.",
+        "importAllowed": false
+      },
+      "authorVerification": "Payload600000000, baseline360000000, marginal120000, max2000. Wrong marginal360000 gives floor666 (below required minimum).",
+      "provisionalMasteryExclusionGroup": "FIXED_TOTAL_RESOURCE_ALLOCATION",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-010",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-010-DEMAND-UPGRADE-20261124",
+      "priorRecordPath": "qa-staging/math-demand-upgrade-straight-line-graphs20-20261124.json",
+      "priorRecordBlobSha": "b910883f51fe859e0606715f6b4835315cf57541",
+      "previousIssue": "TOPIC_ALIGNMENT: can be solved using inequalities without slope/intercept or graph interpretation.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-010",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-010-SECOND-PASS-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-010-REVIEW-2",
+        "topicId": "math-y9-straight-line-graphs",
+        "provisionalConceptFamily": "intersection-perpendicular-third-line",
+        "stem": "Line A passes through (1,15) and (5,27). Line B passes through (1,9) and (5,29). Their intersection is P. A third line, C, has equation $y=2x+24$. The line through P perpendicular to A meets C at Q. Find the exact x-coordinate of Q.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "-\\frac45",
+            "errorPath": "Use positive reciprocal slope 1/3 instead of −1/3; intersect C."
+          },
+          {
+            "id": "B",
+            "latex": "\\frac{12}{5}",
+            "errorPath": "Use negative gradient −3 instead of negative reciprocal; intersect C."
+          },
+          {
+            "id": "C",
+            "latex": "12",
+            "errorPath": "Use a parallel line with slope 3 rather than perpendicular; intersect C."
+          },
+          {
+            "id": "D",
+            "latex": "0",
+            "errorPath": "Mistake P's y-coordinate for the new y-intercept."
+          },
+          {
+            "id": "E",
+            "latex": "\\frac4{11}",
+            "errorPath": "Use the negative reciprocal of B's gradient (−1/5) instead of A's."
+          },
+          {
+            "id": "F",
+            "latex": "\\frac47"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "\\frac47",
+        "workedSolutionSteps": [
+          "A has gradient 3 and equation y=3x+12. B has gradient 5 and equation y=5x+4.",
+          "At their intersection, 3x+12=5x+4, so P=(4,24). A perpendicular to A has gradient −1/3; through P its equation is y=−x/3+76/3.",
+          "Equate with C: −x/3+76/3=2x+24, so 7x=4 and x=4/7."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Derive line equations from coordinates, solve line intersections and use negative reciprocal gradient.",
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-010-DEMAND-UPGRADE-20261124",
+        "provisionalCrossTopicMasteryHold": "Check overlap with perpendicular-gradient and line-intersection families before independent mastery credit.",
+        "importAllowed": false
+      },
+      "authorVerification": "A slope3, B slope5, P(4,24); for slope m through P crossing C, x=4m/(m−2). m=−1/3,+1/3,−3,3,−1/5 produce 4/7,−4/5,12/5,12,4/11 respectively; intercept error x0.",
+      "provisionalMasteryExclusionGroup": "PERPENDICULAR_GRADIENT_AND_INTERSECTION",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-023",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-simultaneous8-20261124.json",
+      "priorRecordBlobSha": "cc509c9112c9304cb461cc7af250637a6e49988a",
+      "previousIssue": "TOPIC_ALIGNMENT: symmetric polynomial identity, not direct simultaneous-equation evidence.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-023",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-SECOND-PASS-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-REVIEW-2",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "linear-quadratic-simultaneous-two-pairs",
+        "stem": "Real x and y satisfy $2x+y=9$ and $x^2+y^2=29$. Which is the complete set of ordered pairs $(x,y)$ satisfying both equations?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\{(2,5)\\}",
+            "errorPath": "Discard the solution with negative y despite no positivity restriction."
+          },
+          {
+            "id": "B",
+            "latex": "\\{(2,5),(\\frac{26}{5},\\frac75)\\}",
+            "errorPath": "Lose the negative sign when evaluating the second y."
+          },
+          {
+            "id": "C",
+            "latex": "\\{(2,5),(\\frac{26}{5},-\\frac75)\\}"
+          },
+          {
+            "id": "D",
+            "latex": "\\{(5,2),(-\\frac75,\\frac{26}{5})\\}",
+            "errorPath": "Reverse the coordinates of both correct ordered pairs."
+          },
+          {
+            "id": "E",
+            "latex": "\\{(-2,13),(-\\frac{26}{5},\\frac{97}{5})\\}",
+            "errorPath": "Expand (9−2x)^2 using +36x instead of −36x, then substitute the resulting negative x roots into y=9−2x."
+          },
+          {
+            "id": "F",
+            "latex": "\\{(\\frac{26}{5},-\\frac75)\\}",
+            "errorPath": "Keep only the larger x root."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "\\{(2,5),(\\frac{26}{5},-\\frac75)\\}",
+        "workedSolutionSteps": [
+          "Substitute y=9−2x into the second equation: x²+(9−2x)²=29, so 5x²−36x+52=0.",
+          "Factor (x−2)(5x−26)=0, giving x=2 or 26/5. The respective y values are 5 and −7/5.",
+          "Both pairs satisfy the linear equation and x²+y²=29. The quadratic gives no other possibilities."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Non-linear simultaneous equations, quadratic factorisation and verifying both real solutions.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-DISTRACTOR-REPAIR-20261124",
+        "provisionalCrossTopicMasteryHold": "Group with quadratic branch reasoning until independent mastery taxonomy review.",
+        "importAllowed": false
+      },
+      "authorVerification": "(2,5): 4+25=29, 4+5=9; (26/5,−7/5): (676+49)/25=29, (52−7)/5=9. Wrong sign polynomial has roots −2,−26/5.",
+      "provisionalMasteryExclusionGroup": "QUADRATIC_AND_BRANCH_REASONING",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-024",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-DEMAND-UPGRADE-20261124",
+      "priorRecordPath": "qa-staging/math-demand-upgrade-simultaneous26-20261124.json",
+      "priorRecordBlobSha": "e8983bdc7519f2d42fbfcb926982a00f2b654884",
+      "previousIssue": "TOPIC_ALIGNMENT: difference of squares and ratio scaling dominate; cross-topic rather than standalone mastery.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-024",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-SECOND-PASS-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "two-linear-systems-percentage-comparison",
+        "stem": "At a shop, 3 notebooks and 2 pens cost £21, while 2 notebooks and 5 pens cost £25. After both individual prices increase, the same two bundles cost £24.60 and £28.50 respectively. Each notebook has the same price as every other notebook, and each pen has the same price as every other pen, at each stage. Find the ratio of the percentage increase in the notebook price to the percentage increase in the pen price, in simplest form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "1:2",
+            "errorPath": "Reverse the required ratio."
+          },
+          {
+            "id": "B",
+            "latex": "10:3",
+            "errorPath": "Compare absolute price increases £1 and £0.30 rather than percentages."
+          },
+          {
+            "id": "C",
+            "latex": "5:3",
+            "errorPath": "Compare original prices £5 and £3."
+          },
+          {
+            "id": "D",
+            "latex": "2:1"
+          },
+          {
+            "id": "E",
+            "latex": "20:11",
+            "errorPath": "Compare new prices £6 and £3.30."
+          },
+          {
+            "id": "F",
+            "latex": "1:1",
+            "errorPath": "Assume both prices increased by the same percentage."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "2:1",
+        "workedSolutionSteps": [
+          "Original prices n and p satisfy 3n+2p=21 and 2n+5p=25. Elimination gives n=5,p=3.",
+          "New prices N and P satisfy 3N+2P=24.60 and 2N+5P=28.50. Elimination gives N=6,P=3.30.",
+          "Notebook increase is (6−5)/5×100=20%; pen increase is (3.30−3)/3×100=10%. Ratio 20:10=2:1."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Solve two independent linear simultaneous systems with decimal coefficients on right-hand sides; compare percentage increases.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-DEMAND-UPGRADE-20261124",
+        "provisionalCrossTopicMasteryHold": "Treat as overlapping linear-system transfer evidence, not separate mastery credit.",
+        "importAllowed": false
+      },
+      "authorVerification": "Original pairs (5,3) give21,25; new (6,3.3) give24.6,28.5. Percentage ratio20:10; absolute changes10:3, old5:3, new20:11.",
+      "provisionalMasteryExclusionGroup": "LINEAR_SYSTEM_TRANSFER",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ]
+}
