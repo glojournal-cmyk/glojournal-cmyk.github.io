@@ -79,7 +79,7 @@ const found=[];
 for(const f of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-rWAnuDVj.js']){
  const s=read(f),at=s.indexOf('function B(e,t,n,r)');
  if(at<0||!s.includes("import {scoreFoodTestsEthanolSafety}"))throw Error('missing scorer integration '+f);
- const B=new Function('scoreFoodTestsEthanolSafety','L','I',s.slice(at,endOf(s,at))+'\nreturn B;')(score,()=>'',()=>[]);
+ const B=new Function('scoreFoodTestsEthanolSafety','L','I',s.slice(s.indexOf('function reviewedMark('),at)+s.slice(at,endOf(s,at))+'\nreturn B;')(score,()=>'',()=>[]);
  const q=bank.questions.find(q=>q.id==='bio-y8-app-ethanol-safety');
  for(const [answer,expected] of cases){const got=B(q,answer,'biology',{});if(got.score!==expected||got.total!==2||got.ok!==(expected===2))throw Error(f+': '+answer+': '+JSON.stringify(got));}
  const critical=[
@@ -94,12 +94,16 @@ for(const f of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-rWA
 }
 const source=read('assets/daily-curriculum-20261004.js'),at=source.indexOf('export function selectProgressionQuestions(');
 if(at<0)throw Error('selector absent');
-const selector=new Function(source.slice(at,endOf(source,at)).replace('export ','')+'\nreturn selectProgressionQuestions')();
+const hold=new Function(read('assets/food-tests-qa-credit-gate-20261122.js').replace(/export /g,'')+'\nreturn isFoodTestsQaHeld;')();
+const selector=new Function('isFoodTestsQaHeld',source.slice(at,endOf(source,at)).replace('export ','')+'\nreturn selectProgressionQuestions')(hold);
 const cases64=bank.questions.filter(q=>q.id.startsWith('bio-y8-food-tests-case-20261025-'));
 const groupCounts={};for(const q of cases64)groupCounts[q.dailyConceptGroup]=(groupCounts[q.dailyConceptGroup]||0)+1;
 if(cases64.length!==64||Object.keys(groupCounts).length!==16||Object.values(groupCounts).some(n=>n!==4))throw Error('invalid 16x4 case grouping');
 const sampled=selector(cases64,'standard',64);
-if(sampled.length!==16||new Set(sampled.map(q=>q.dailyConceptGroup)).size!==16)throw Error('duplicate concepts served within session');
+if(sampled.length!==0)throw Error('held Food Tests selected for formal session');
+const fixture=cases64.map((q,i)=>({...q,id:'unrelated-fixture-'+i,topicId:'unrelated-topic'}));
+const grouped=selector(fixture,'standard',64);
+if(grouped.length!==16||new Set(grouped.map(q=>q.dailyConceptGroup)).size!==16)throw Error('duplicate concepts served in unrelated control fixture');
 const mc=bank.questions.filter(q=>q.format==='mc_single'&&!q.id.includes('case-'));
 if(mc.length!==9||mc.some(q=>q.options.length!==4||q.options.filter(x=>q.answer.accepted.includes(x)).length!==1||new Set(q.options).size!==4))throw Error('MCQ bad options');
 if(bank.questions.length!==143||bank.questions.some(q=>q.status!=='enabled'))throw Error('changed bank count or status');
