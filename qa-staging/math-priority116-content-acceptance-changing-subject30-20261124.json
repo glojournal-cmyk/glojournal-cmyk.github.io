@@ -1,0 +1,1004 @@
+{
+  "kind": "PRIORITY116_CONTENT_ACCEPTANCE_CHANGING_SUBJECT30_NO_RELEASE",
+  "date": "2026-11-24",
+  "sourceScreen": "qa-staging/math-all200-external-benchmark-demand-screen-and-mastery-holds-20261124.json",
+  "sourceScreenBlobSha": "59153d137693c7899415dc13a78da06ded87f1e6",
+  "counts": {
+    "reviewed": 30,
+    "authorMathContentPass": 30,
+    "corrected": 8,
+    "distractorStrengthHold": 8,
+    "formalApprovals": 0
+  },
+  "limitations": "Author reviewed all 30 current stems, choices and worked solutions using exact rearrangements, domain/range reasoning, forward substitutions and bounded integer search. Numeric alternatives checked for equivalence, compound symbolic alternatives inspected individually rather than by a general CAS. Some distractors remain weak diagnostic evidence. No independent grade certification, taught-scope approval or learner credit. Corrections staging only.",
+  "rows": [
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-001",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-001-V313-AO2-AO3-REDESIGN-DRAFT",
+      "recordPath": "qa-staging/math-v313-eight-grade-demand-redesign-candidates-20261123.json",
+      "recordBlobSha": "85ae5991c94fadfb09489dcdd8ef9f3f0a2b91a1",
+      "reviewedKey": "x=\\frac{3y-7}{4-y},N=5",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Inverse algebra and strict integer interval verified; each alternative differs by formula or count.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "CALIBRATION_AND_INVERSE",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-001-V313-AO2-AO3-REDESIGN-DRAFT",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-003",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-003-V313-AO2-AO3-REDESIGN-DRAFT",
+      "recordPath": "qa-staging/math-v313-eight-grade-demand-redesign-candidates-20261123.json",
+      "recordBlobSha": "85ae5991c94fadfb09489dcdd8ef9f3f0a2b91a1",
+      "reviewedKey": "x=\\frac{(1-y^2)^2}{4y^2},0<y\\le1,x(1/3)=\\frac{16}{9}",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Conjugate product, positive radical, exact range and evaluation verified; converse added.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "RADICAL_RECIPROCAL_INVERSE",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-003-PRIORITY-CONTENT-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-005",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-005-ACADEMIC-REVIEW-20261124",
+      "recordPath": "qa-staging/math-final-academic-review-changing-subject40-20261124.json",
+      "recordBlobSha": "6181830c46fe390adc7c26ee79d27a1aa228bed5",
+      "reviewedKey": "x=\\frac{(y^2-4)^2}{4y^2}, y\\ge2",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Principal root, both directions of exact range and formula alternatives verified.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "RADICAL_RECIPROCAL_INVERSE",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-005-ACADEMIC-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-006",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-006-ACADEMIC-REVIEW-20261124",
+      "recordPath": "qa-staging/math-final-academic-review-changing-subject40-20261124.json",
+      "recordBlobSha": "6181830c46fe390adc7c26ee79d27a1aa228bed5",
+      "reviewedKey": "x=\\frac{(y+\\sqrt{y^2-16})^2}{4}-1, y\\ge4",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Quadratic roots and t≥2 branch verified, including equal boundary roots.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "QUADRATIC_AND_BRANCH_REASONING",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-006-ACADEMIC-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-007",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-007-V312-MULTI-RADICAL-INVERSE-REASONING-CANDIDATE",
+      "recordPath": "qa-staging/math-v312-rearranging005-008-radical-inverse-reasoning-candidates-20261123.json",
+      "recordBlobSha": "a7e364ba138edb9be86c96d463d4ae955e777f49",
+      "reviewedKey": "x=\\frac{(1+y)^2}{(1-y)^2}-2, 0\\le y<1",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Fractional radical inverse, endpoint and excluded upper limit verified; converse added.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "RADICAL_RECIPROCAL_INVERSE",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-007-PRIORITY-CONTENT-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-009",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-009-ACADEMIC-REVIEW-20261124",
+      "recordPath": "qa-staging/math-final-academic-review-changing-subject40-20261124.json",
+      "recordBlobSha": "6181830c46fe390adc7c26ee79d27a1aa228bed5",
+      "reviewedKey": "k=3,x=\\frac{5y-4}{3-2y},\\frac{4}{5}\\le y<\\frac{3}{2}",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Calibration, rational inverse and exact range verified.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "CALIBRATION_AND_INVERSE",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-009-ACADEMIC-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-010",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-010-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-changing-subject18-20261124.json",
+      "recordBlobSha": "5957b3e75623229e27827073ff7760eda933b2a6",
+      "reviewedKey": "\\frac{15}{4}",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Both quadratic roots checked; wrong outputs strengthened with sign and factor errors.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "RATIONAL_DIFFERENCE_OR_COMPOSITION",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-010-PRIORITY-CONTENT-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-011",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-011-ACADEMIC-REVIEW-20261124",
+      "recordPath": "qa-staging/math-final-academic-review-changing-subject40-20261124.json",
+      "recordBlobSha": "6181830c46fe390adc7c26ee79d27a1aa228bed5",
+      "reviewedKey": "k=\\pm3\\sqrt{2}",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Proportionality necessary and sufficient; both signed surds distinct from all alternatives.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "DEGENERATE_SYSTEM_PARAMETER",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-011-ACADEMIC-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-012",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-012-V313-AO2-AO3-REDESIGN-DRAFT",
+      "recordPath": "qa-staging/math-v313-eight-grade-demand-redesign-candidates-20261123.json",
+      "recordBlobSha": "85ae5991c94fadfb09489dcdd8ef9f3f0a2b91a1",
+      "reviewedKey": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{34}}{3},2<y\\le5",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Fixed-point quadratic and inverse range verified; converse made explicit.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "LOCAL_changing-subject_fixed-point-quadratic",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-012-PRIORITY-CONTENT-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-013",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-013-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-changing-subject18-20261124.json",
+      "recordBlobSha": "5957b3e75623229e27827073ff7760eda933b2a6",
+      "reviewedKey": "2",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Calibration and two positive quadratic roots verified; alternate quantities remain weak diagnostics.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "RATIONAL_DIFFERENCE_OR_COMPOSITION",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-013-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-014",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-014-V313-AO2-AO3-REDESIGN-DRAFT",
+      "recordPath": "qa-staging/math-v313-eight-grade-demand-redesign-candidates-20261123.json",
+      "recordBlobSha": "85ae5991c94fadfb09489dcdd8ef9f3f0a2b91a1",
+      "reviewedKey": "x=3\\pm\\sqrt{y-4},4<y\\le13",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Both inverse branches, distinctness and inclusive domain endpoints verified.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "QUADRATIC_AND_BRANCH_REASONING",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-014-V313-AO2-AO3-REDESIGN-DRAFT",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-016",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-016-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-changing-subject18-20261124.json",
+      "recordBlobSha": "5957b3e75623229e27827073ff7760eda933b2a6",
+      "reviewedKey": "4<a<6",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Both inverse constraints and strict endpoints verified; exact-set wording distinguishes subsets.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "LINEAR_INEQUALITY_CONSTRAINTS",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-016-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-017",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-017-ACADEMIC-REVIEW-20261124",
+      "recordPath": "qa-staging/math-final-academic-review-changing-subject40-20261124.json",
+      "recordBlobSha": "6181830c46fe390adc7c26ee79d27a1aa228bed5",
+      "reviewedKey": "N=1,(x,y)=(-1,4)",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Both algebraic intersections checked against original denominator; only (-1,4).",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "QUADRATIC_AND_BRANCH_REASONING",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-017-ACADEMIC-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-018",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-018-V312-INVERSE_FIXEDPOINT_OR_QUADRATIC_DOMAIN-DRAFT",
+      "recordPath": "qa-staging/math-v312-rearranging018-024-fixedpoint-quadratic-domain-candidates-20261123.json",
+      "recordBlobSha": "4524722d3b4588fe0b722c871dce74ed4b2795d8",
+      "reviewedKey": "x=\\frac{2y-5}{4-y};x_{\\mathrm{fixed}}=1+\\sqrt{6}",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Inverse and nonnegative fixed point verified; inverse domain made explicit in solution.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "LOCAL_changing-subject_fixed-point-quadratic",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-018-PRIORITY-CONTENT-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-019",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-019-V313-AO2-AO3-REDESIGN-DRAFT",
+      "recordPath": "qa-staging/math-v313-eight-grade-demand-redesign-candidates-20261123.json",
+      "recordBlobSha": "85ae5991c94fadfb09489dcdd8ef9f3f0a2b91a1",
+      "reviewedKey": "\\frac{3}{65}",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Difference formula and decreasing positive increments verified.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "RATIONAL_DIFFERENCE_OR_COMPOSITION",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-019-V313-AO2-AO3-REDESIGN-DRAFT",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-020",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-020-ACADEMIC-REVIEW-20261124",
+      "recordPath": "qa-staging/math-final-academic-review-changing-subject40-20261124.json",
+      "recordBlobSha": "6181830c46fe390adc7c26ee79d27a1aa228bed5",
+      "reviewedKey": "x=\\frac{105z-39}{40-104z},\\frac{13}{35}\\le z<\\frac{5}{13}",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Composition and range verified; inverse recovers all permitted outputs.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "RATIONAL_DIFFERENCE_OR_COMPOSITION",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-020-ACADEMIC-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-021",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-021-ACADEMIC-REVIEW-20261124",
+      "recordPath": "qa-staging/math-final-academic-review-changing-subject40-20261124.json",
+      "recordBlobSha": "6181830c46fe390adc7c26ee79d27a1aa228bed5",
+      "reviewedKey": "k=2;x=\\frac{4(3y-1)}{5(1-2y)},\\frac{1}{3}\\le y<\\frac{1}{2}",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Limit, reciprocal calibration and exact range verified.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "CALIBRATION_AND_INVERSE",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-021-ACADEMIC-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-022",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-022-V312-COMPOSITE-RECIPROCAL-REASONING-CANDIDATE",
+      "recordPath": "qa-staging/math-v312-rearranging019-022-composite-reciprocal-reasoning-candidates-20261123.json",
+      "recordBlobSha": "090992de266fb4d5b482f6527d5298cd57659986",
+      "reviewedKey": "x=\\sqrt{\\frac{9y-4}{1-y}},\\frac{4}{9}\\le y<1",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Positive radical inverse and limiting output checked; converse added.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "RADICAL_RECIPROCAL_INVERSE",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-022-PRIORITY-CONTENT-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-024",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-024-V312-INVERSE_FIXEDPOINT_OR_QUADRATIC_DOMAIN-DRAFT",
+      "recordPath": "qa-staging/math-v312-rearranging018-024-fixedpoint-quadratic-domain-candidates-20261123.json",
+      "recordBlobSha": "4524722d3b4588fe0b722c871dce74ed4b2795d8",
+      "reviewedKey": "t=\\frac{\\sqrt{u^2+2as}-u}{a},s\\ge0",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Positive-time branch and range for positive parameters verified.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "QUADRATIC_AND_BRANCH_REASONING",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-024-V312-INVERSE_FIXEDPOINT_OR_QUADRATIC_DOMAIN-DRAFT",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-026",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-026-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-changing-subject18-20261124.json",
+      "recordBlobSha": "5957b3e75623229e27827073ff7760eda933b2a6",
+      "reviewedKey": "11",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Finite perfect-square radicand list and exact interval verified.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "PRIME_POWER_DIVISIBILITY",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-026-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-028",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-028-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-changing-subject18-20261124.json",
+      "recordBlobSha": "5957b3e75623229e27827073ff7760eda933b2a6",
+      "reviewedKey": "3",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "All four integer inverse candidates and extraneous two checked.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "QUADRATIC_AND_BRANCH_REASONING",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-028-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-029",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-029-V313-CONCEPT-ANCHOR-DRAFT",
+      "recordPath": "qa-staging/math-v313-rearranging029-033-037-distinct-anchor-candidates-20261123.json",
+      "recordBlobSha": "7b3635eddbd4df63319a11147065f86409ea70dc",
+      "reviewedKey": "M=3,x=1",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Exact positive-denominator square identity and unique minimum verified.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "RATIONAL_DIFFERENCE_OR_COMPOSITION",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-029-V313-CONCEPT-ANCHOR-DRAFT",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-030",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-030-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-changing-subject18-20261124.json",
+      "recordBlobSha": "5957b3e75623229e27827073ff7760eda933b2a6",
+      "reviewedKey": "2",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Calibration and shifted difference give roots 2,-6; positive-domain root only; distractors mostly alternate quantities.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "RATIONAL_DIFFERENCE_OR_COMPOSITION",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-030-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-033",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-033-V313-CONCEPT-ANCHOR-DRAFT",
+      "recordPath": "qa-staging/math-v313-rearranging029-033-037-distinct-anchor-candidates-20261123.json",
+      "recordBlobSha": "7b3635eddbd4df63319a11147065f86409ea70dc",
+      "reviewedKey": "x=\\frac{5y-7}{4-2y},y\\ne1,y\\ne2",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Both nested domain holes and inverse output exclusions verified; converse added.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "LOCAL_changing-subject_cancelled-domain-hole",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-033-PRIORITY-CONTENT-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-034",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-034-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-changing-subject18-20261124.json",
+      "recordBlobSha": "5957b3e75623229e27827073ff7760eda933b2a6",
+      "reviewedKey": "8",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Divisibility and original hole checked; three integral outputs.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "LOCAL_changing-subject_cancelled-domain-hole",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-034-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-035",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-035-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-changing-subject18-20261124.json",
+      "recordBlobSha": "5957b3e75623229e27827073ff7760eda933b2a6",
+      "reviewedKey": "12",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Calibration, odd divisors and original hole checked; three integral outputs.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "LOCAL_changing-subject_calibrate-then-invert",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-035-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-036",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-036-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-changing-subject18-20261124.json",
+      "recordBlobSha": "5957b3e75623229e27827073ff7760eda933b2a6",
+      "reviewedKey": "-18",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Quadratic and original exclusions verified; wrong choices mainly alternate quantities.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "RATIONAL_DIFFERENCE_OR_COMPOSITION",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-036-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-037",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-037-V313-CONCEPT-ANCHOR-DRAFT",
+      "recordPath": "qa-staging/math-v313-rearranging029-033-037-distinct-anchor-candidates-20261123.json",
+      "recordBlobSha": "7b3635eddbd4df63319a11147065f86409ea70dc",
+      "reviewedKey": "x=\\frac{3-4(y-1)^2}{(y-1)^2-2},y\\ge1,y\\ne1+\\sqrt{2}",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Both disjoint input intervals and missing output verified; converse added.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "RADICAL_RECIPROCAL_INVERSE",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-037-PRIORITY-CONTENT-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-038",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-038-V329-REASONING-QA-ONLY",
+      "recordPath": "qa-staging/math-v329-changing-subject15-reasoning-replacements-20261124.json",
+      "recordBlobSha": "05caa700d99bca4cecefe007fe978737775e7a94",
+      "reviewedKey": "x=\\frac{6-2(y-1)^2}{(y-1)^2-1},\\quad y\\ge1,\\ y\\ne2",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Exact range proof via inverse and nonzero denominator verified.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "RADICAL_RECIPROCAL_INVERSE",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-038-V329-REASONING-QA-ONLY",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-039",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-039-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-changing-subject18-20261124.json",
+      "recordBlobSha": "5957b3e75623229e27827073ff7760eda933b2a6",
+      "reviewedKey": "-8",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "All signed divisors and radicands verified; wrong choices mainly partial outputs.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "PRIME_POWER_DIVISIBILITY",
+      "proposedRevisionId": "LUX-MATH-Y9-REARRANGING-039-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ],
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-003",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-003",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-003-PRIORITY-CONTENT-REVIEW-20261124",
+        "supersedesCandidateRevisionId": "LUX-MATH-Y9-REARRANGING-003-V312-DISTINCT-INVERSE-MODELLING-CANDIDATE",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-003-REVIEW-2",
+        "topicId": "math-y9-changing-subject",
+        "sourceDisposition": "QA_ONLY_REDRAFT_NOT_RELEASED",
+        "stem": "For $x\\ge0$, define $y=\\sqrt{x+1}-\\sqrt{x}$. Which option makes $x$ the subject, gives the **full possible range** of $y$, and calculates $x$ when $y=\\frac{1}{3}$?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=\\frac{(1-y^2)^2}{4y^2},0<y\\le1,x(1/3)=\\frac{16}{9}"
+          },
+          {
+            "id": "B",
+            "latex": "x=\\frac{(1-y^2)^2}{4y^2},0<y\\le1,x(1/3)=\\frac{64}{9}",
+            "errorPath": "Rationalise correctly but omit the factor of 2 before squaring to evaluate x at y=1/3."
+          },
+          {
+            "id": "C",
+            "latex": "x=\\frac{(1+y^2)^2}{4y^2},0<y\\le1,x(1/3)=\\frac{25}{9}",
+            "errorPath": "Reverse the sign of the y^2 term when isolating the positive square root."
+          },
+          {
+            "id": "D",
+            "latex": "x=\\frac{(1-y^2)^2}{4y^2},0\\le y\\le1,x(1/3)=\\frac{16}{9}",
+            "errorPath": "Allow y=0 although the positive difference of these roots never reaches zero at finite x."
+          },
+          {
+            "id": "E",
+            "latex": "x=\\frac{(1-y^2)^2}{4y^2},0<y<1,x(1/3)=\\frac{16}{9}",
+            "errorPath": "Exclude y=1 even though it occurs at the permitted input x=0."
+          },
+          {
+            "id": "F",
+            "latex": "x=\\frac{(1-y^2)^2}{4y^2},0<y\\le1,x(1/3)=\\frac{1}{9}",
+            "errorPath": "Mistake the measured output y for sqrt(x), so x=y^2=1/9 instead of substituting into the derived inverse."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "x=\\frac{(1-y^2)^2}{4y^2},0<y\\le1,x(1/3)=\\frac{16}{9}",
+        "workedSolutionSteps": [
+          "Rationalise: $y(\\sqrt{x+1}+\\sqrt{x})=1$. Subtract the original difference to get $2\\sqrt{x}=\\frac{1}{y}-y$, where $y>0$.",
+          "Hence x=(1−y²)²/(4y²). Since y=1/(√(x+1)+√x), 0<y≤1. Conversely for every 0<y≤1, put t=(1/y−y)/2≥0. Then √(t²+1)=(1/y+y)/2, so √(t²+1)−t=y. Thus every value in the range is attained.",
+          "At $y=\\frac{1}{3}$, $\\sqrt{x}=\\frac{3-1/3}{2}=\\frac{4}{3}$, giving $x=\\frac{16}{9}$."
+        ],
+        "provisionalAOFocus": "AO2 candidate: conjugate-root identity, inverse-square derivation, endpoint analysis and exact substitution.",
+        "unverifiedTaughtSubskill": "Surd rationalisation and inverse/domain work need exact classroom confirmation; check conceptual distinctness from two-radical Q005.",
+        "conceptOverlapReviewRequired": [
+          "REARRANGING-005_RADICAL_DIFFERENCE_SUM"
+        ],
+        "academicQA": "pending",
+        "gradeStatus": "PROVISIONAL_AO2_AO3_DEMAND_NOT_INDEPENDENT_GRADE7_CERTIFIED",
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "independentStudentMisconceptionCertified": false,
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-003-V313-AO2-AO3-REDESIGN-DRAFT"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-007",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-007",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-007-PRIORITY-CONTENT-REVIEW-20261124",
+        "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-007-REVIEW-2",
+        "topicId": "math-y9-changing-subject",
+        "sourceDisposition": "STANDALONE_REDESIGNED_RADICAL_REASONING_CANDIDATE_NOT_LIVE",
+        "stem": "For real $x\\ge-1$, let $y=\\frac{\\sqrt{x+2}-1}{\\sqrt{x+2}+1}$. Which choice makes $x$ the subject and gives the exact possible values of $y$?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=\\frac{(1-y)^2}{(1+y)^2}-2, 0\\le y<1",
+            "errorPath": "Invert the ratio while solving for sqrt(x+2), obtaining (1-y)/(1+y) instead of (1+y)/(1-y)."
+          },
+          {
+            "id": "B",
+            "latex": "x=\\frac{(1+y)^2}{(1-y)^2}-2, 0<y<1",
+            "errorPath": "Exclude the allowed endpoint x=-1, where sqrt(x+2)=1 and y=0."
+          },
+          {
+            "id": "C",
+            "latex": "x=\\frac{(1+y)^2}{(1-y)^2}-2, 0\\le y\\le1",
+            "errorPath": "Include y=1 even though the original denominator stays positive and y approaches one only as x tends to infinity."
+          },
+          {
+            "id": "D",
+            "latex": "x=\\frac{(1+y)^2}{(1-y)^2}+2, 0\\le y<1",
+            "errorPath": "Move the original +2 inside sqrt(x+2) to the other side with the wrong sign."
+          },
+          {
+            "id": "E",
+            "latex": "x=\\frac{1+y}{1-y}-2, 0\\le y<1",
+            "errorPath": "Forget to square the recovered value of sqrt(x+2) before subtracting two."
+          },
+          {
+            "id": "F",
+            "latex": "x=\\frac{(1+y)^2}{(1-y)^2}-2, 0\\le y<1"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "x=\\frac{(1+y)^2}{(1-y)^2}-2, 0\\le y<1",
+        "workedSolutionSteps": [
+          "Set $u=\\sqrt{x+2}\\ge1$. Multiply $y=\\frac{u-1}{u+1}$ to obtain $y(u+1)=u-1$, hence $(1-y)u=1+y$.",
+          "So $u=\\frac{1+y}{1-y}$. Since $x+2=u^2$, the inverse formula is $x=\\frac{(1+y)^2}{(1-y)^2}-2$.",
+          "Because $u\\ge1$, the output is non-negative, taking y=0 when u=1; for every finite u the ratio is less than 1. The exact image is $0\\le y<1$. Conversely for every 0≤y<1, u=(1+y)/(1−y)≥1, so x=u²−2≥−1 and substitution returns y."
+        ],
+        "provisionalAOFocus": "Couple a fractional-linear inverse with a nested square root and preserve the half-open image after squaring.",
+        "academicQA": "pending",
+        "independentGradeCalibrated": false,
+        "independentStudentMisconceptionCertified": false,
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-007-V312-MULTI-RADICAL-INVERSE-REASONING-CANDIDATE"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-010",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-010",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-010-PRIORITY-CONTENT-REVIEW-20261124",
+        "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-010-REVIEW-2",
+        "topicId": "math-y9-changing-subject",
+        "sourceDisposition": "SEPARATE_REASONING_REDESIGN_CANDIDATE_ORIGINAL_NUMERIC_TEMPLATE_RETAINED",
+        "stem": "For positive real p, let $t(p)=\\frac{3p+12}{p+2}$. It is known that $t(p)+t(2p)=\\frac{17}{2}$. Find $t(3p)$.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "2",
+            "errorPath": "Report p rather than t(3p)."
+          },
+          {
+            "id": "B",
+            "latex": "\\frac{9}{2}",
+            "errorPath": "Report t(p) rather than t(3p)."
+          },
+          {
+            "id": "C",
+            "latex": "4",
+            "errorPath": "Report t(2p) rather than t(3p)."
+          },
+          {
+            "id": "D",
+            "latex": "\\frac{3}{4}",
+            "errorPath": "At the correct input p=2, report only the reciprocal contribution 6/(3p+2), omitting the constant 3."
+          },
+          {
+            "id": "E",
+            "latex": "\\frac{9}{4}",
+            "errorPath": "At p=2, use 3p+12 instead of 9p+12 in the numerator of t(3p): 18/8=9/4."
+          },
+          {
+            "id": "F",
+            "latex": "\\frac{15}{4}"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "\\frac{15}{4}",
+        "workedSolutionSteps": [
+          "Rewrite t(p)=3+6/(p+2). Then 6/(p+2)+3/(p+1)=5/2.",
+          "Multiply by 2(p+2)(p+1), which is positive, to obtain 5p²−3p−14=0=(p−2)(5p+7).",
+          "Only p=2 is positive. Hence t(6)=3+6/8=15/4."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "academicQA": "pending",
+        "independentGradeCalibrated": false,
+        "independentStudentMisconceptionCertified": false,
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "domainReasoningQA": "PENDING_INDEPENDENT_DOMAIN_AND_MISCONCEPTION_REVIEW",
+        "gradeStatus": "POTENTIAL_AO2_AO3_UNBENCHMARKED",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-010-DEMAND-UPGRADE-20261124",
+        "provisionalConceptFamily": "rational-inverse-domain-range",
+        "unverifiedTaughtSubskill": "Combine two rational evaluations, derive a quadratic and reject a nonpermitted root.",
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "provisionalCrossTopicMasteryHold": "Rational two-input constraint and quadratic reduction; overlaps other inverse and simultaneous-equation reasoning; no independent concept credit without review."
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-012",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-012",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-012-PRIORITY-CONTENT-REVIEW-20261124",
+        "supersedesCandidateRevisionId": "LUX-MATH-Y9-REARRANGING-012-V312-REASONING-CANDIDATE",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-012-REVIEW-2",
+        "topicId": "math-y9-changing-subject",
+        "sourceDisposition": "QA_ONLY_REDRAFT_NOT_RELEASED",
+        "stem": "For $x\\ge0$, let $y=2+\\frac{6}{3x+2}$. Which option both makes $x$ the subject, finds the **non-negative fixed point** (where $y=x$), and gives the exact possible values of $y$?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2-\\sqrt{34}}{3},2<y\\le5",
+            "errorPath": "Select the negative root from the fixed-point quadratic despite x being non-negative."
+          },
+          {
+            "id": "B",
+            "latex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{34}}{3},2\\le y\\le5",
+            "errorPath": "Include the unattainable limiting output y=2 in the range."
+          },
+          {
+            "id": "C",
+            "latex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{34}}{3},2<y<5",
+            "errorPath": "Exclude y=5 even though x=0 is an admissible input."
+          },
+          {
+            "id": "D",
+            "latex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{34}}{3},2<y\\le5"
+          },
+          {
+            "id": "E",
+            "latex": "x=\\frac{10+2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{34}}{3},2<y\\le5",
+            "errorPath": "Move the 2y constant across the equality without changing its sign."
+          },
+          {
+            "id": "F",
+            "latex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{30}}{3},2<y\\le5",
+            "errorPath": "Calculate the quadratic discriminant as 120 instead of 136."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{34}}{3},2<y\\le5",
+        "workedSolutionSteps": [
+          "Multiply out $(y-2)(3x+2)=6$, giving $3x(y-2)=10-2y$ and $x=\\frac{10-2y}{3(y-2)}$. From x≥0, the image is $2<y\\le5$. For any 2<y≤5, the inverse numerator is nonnegative and denominator positive, so the recovered x≥0 and gives that y.",
+          "At a fixed point y=x, multiply $x=2+\\frac{6}{3x+2}$ to obtain $3x^2-4x-10=0$.",
+          "The roots are $x=\\frac{2\\pm\\sqrt{34}}{3}$. The negative branch is excluded by x≥0, so the unique fixed point is $x=\\frac{2+\\sqrt{34}}{3}$."
+        ],
+        "provisionalAOFocus": "AO2 candidate: connect inverse rational formula to a quadratic fixed-point equation with branch and endpoint decisions.",
+        "unverifiedTaughtSubskill": "Quadratic formula with surd discriminant, functional fixed-point concept and reciprocal inversion require taught-subskill confirmation.",
+        "conceptOverlapReviewRequired": [
+          "REARRANGING-018_FIXED_POINT"
+        ],
+        "academicQA": "pending",
+        "gradeStatus": "PROVISIONAL_AO2_AO3_DEMAND_NOT_INDEPENDENT_GRADE7_CERTIFIED",
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "independentStudentMisconceptionCertified": false,
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-012-V313-AO2-AO3-REDESIGN-DRAFT"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-018",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-018",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-018-PRIORITY-CONTENT-REVIEW-20261124",
+        "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-018-REVIEW-2",
+        "topicId": "math-y9-changing-subject",
+        "sourceDisposition": "SEPARATE_REASONING_REPLACEMENT_CANDIDATE_UNAPPROVED",
+        "stem": "For $x\\ge0$, let $y=\\dfrac{4x+5}{x+2}$. Which option correctly makes $x$ the subject and gives the **non-negative fixed point** (a value for which $y=x$)?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=\\frac{2y-5}{4-y};x_{\\mathrm{fixed}}=1-\\sqrt{6}",
+            "errorPath": "Use the negative root of the fixed-point quadratic even though the given input requires x to be non-negative."
+          },
+          {
+            "id": "B",
+            "latex": "x=\\frac{2y+5}{4-y};x_{\\mathrm{fixed}}=1+\\sqrt{6}",
+            "errorPath": "Move the +5 term in the numerator to the other side with the wrong sign when isolating x."
+          },
+          {
+            "id": "C",
+            "latex": "x=\\frac{4-y}{2y-5};x_{\\mathrm{fixed}}=1+\\sqrt{6}",
+            "errorPath": "Reverse numerator and denominator of the inverse expression after collecting the x terms."
+          },
+          {
+            "id": "D",
+            "latex": "x=\\frac{2y-5}{4-y};x_{\\mathrm{fixed}}=1+\\sqrt{6}"
+          },
+          {
+            "id": "E",
+            "latex": "x=\\frac{2y-5}{4-y};x_{\\mathrm{fixed}}=-1+\\sqrt{6}",
+            "errorPath": "Change the sign of the linear coefficient in the fixed-point equation, solving x squared +2x−5=0 instead of x squared −2x−5=0."
+          },
+          {
+            "id": "F",
+            "latex": "x=\\frac{2y-5}{4-y};x_{\\mathrm{fixed}}=1+\\sqrt{5}",
+            "errorPath": "Replace the constant 5 by 4 in the fixed-point quadratic, leading to x squared −2x−4=0."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "x=\\frac{2y-5}{4-y};x_{\\mathrm{fixed}}=1+\\sqrt{6}",
+        "workedSolutionSteps": [
+          "Cross-multiply $y(x+2)=4x+5$ and collect terms: $(4-y)x=2y-5$, so $x=\\dfrac{2y-5}{4-y}$. For the original domain x≥0 the inverse is used only for 5/2≤y<4; in particular y=4 is never attained.",
+          "For a fixed point, set $y=x$ in the original formula. Then $x(x+2)=4x+5$, giving $x^2-2x-5=0$.",
+          "Solving gives $x=1+\\sqrt{6}$ or $x=1-\\sqrt{6}$. Since $x\\ge0$, the only admissible fixed point is $1+\\sqrt{6}$."
+        ],
+        "provisionalAOFocus": "Invert a Möbius transformation and connect its fixed points to a quadratic; distinguish the positive branch from an inadmissible root.",
+        "independentGradeCalibrated": false,
+        "independentStudentMisconceptionCertified": false,
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-018-V312-INVERSE_FIXEDPOINT_OR_QUADRATIC_DOMAIN-DRAFT"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-022",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-022",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-022-PRIORITY-CONTENT-REVIEW-20261124",
+        "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-022-REVIEW-2",
+        "topicId": "math-y9-changing-subject",
+        "sourceDisposition": "NEW_STANDALONE_DIAGNOSTIC_REASONING_CANDIDATE_ORIGINAL_RETAINED",
+        "stem": "For real $x\\ge0$, let $\\frac{1}{y}=1+\\frac{5}{x^2+4}$. Which option makes $x$ the subject and states the exact possible values of $y$?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=\\sqrt{\\frac{9y+4}{1-y}},\\frac{4}{9}\\le y<1",
+            "errorPath": "Move the constant 4 across with the wrong sign when isolating x squared."
+          },
+          {
+            "id": "B",
+            "latex": "x=\\sqrt{\\frac{9y-4}{y-1}},\\frac{4}{9}\\le y<1",
+            "errorPath": "Reverse the sign of 1-y in the denominator, producing an invalid negative radicand for interior values."
+          },
+          {
+            "id": "C",
+            "latex": "x=\\sqrt{\\frac{9y-4}{1-y}},\\frac{4}{9}<y<1",
+            "errorPath": "Exclude the valid endpoint y=4/9 obtained at x=0."
+          },
+          {
+            "id": "D",
+            "latex": "x=\\sqrt{\\frac{9y-4}{1-y}},\\frac{4}{9}\\le y\\le1",
+            "errorPath": "Include y=1, a never-attained limit at which the inverse denominator is zero."
+          },
+          {
+            "id": "E",
+            "latex": "x=\\frac{9y-4}{1-y},\\frac{4}{9}\\le y<1",
+            "errorPath": "Solve for x squared and forget to take the non-negative square root to recover x."
+          },
+          {
+            "id": "F",
+            "latex": "x=\\sqrt{\\frac{9y-4}{1-y}},\\frac{4}{9}\\le y<1"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "x=\\sqrt{\\frac{9y-4}{1-y}},\\frac{4}{9}\\le y<1",
+        "workedSolutionSteps": [
+          "Subtract 1: $\\frac{1}{y}-1=\\frac{5}{x^2+4}$. Multiplying across gives $(1-y)(x^2+4)=5y$.",
+          "Expand and collect the squared variable: $(1-y)x^2=9y-4$. Since x≥0, take $x=\\sqrt{\\frac{9y-4}{1-y}}$.",
+          "At x=0, $y=\\frac{4}{9}$. For increasing non-negative x, y increases towards but never reaches 1. Hence the permissible range is $\\frac{4}{9}\\le y<1$. Conversely every 4/9≤y<1 gives a nonnegative radicand in the inverse, and substitution recovers y."
+        ],
+        "provisionalAOFocus": "Invert a rational reciprocal relation containing a quadratic denominator, justify the positive square-root branch and check both image endpoints.",
+        "academicQA": "pending",
+        "independentGradeCalibrated": false,
+        "independentStudentMisconceptionCertified": false,
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-022-V312-COMPOSITE-RECIPROCAL-REASONING-CANDIDATE"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-033",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-033",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-033-PRIORITY-CONTENT-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-033-REVIEW-2",
+        "topicId": "math-y9-changing-subject",
+        "provisionalConceptFamily": "CANDIDATE_CONCEPT_NESTED_RECIPROCAL_WITH_HOLES",
+        "stem": "The original nested relation is $y=1+\\frac{2}{2+\\frac{3}{x+1}}$, wherever **every original denominator is non-zero**. Which choice makes $x$ the subject and states **all excluded real values of $y$**?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=\\frac{5y-7}{4-2y},y\\ne2",
+            "errorPath": "Cancel x+1 and forget the source domain hole x=-1, which creates a missing output y=1."
+          },
+          {
+            "id": "B",
+            "latex": "x=\\frac{5y-7}{4-2y},y\\ne1,y\\ne2"
+          },
+          {
+            "id": "C",
+            "latex": "x=\\frac{5y-7}{4-2y},y\\ne1",
+            "errorPath": "Record the removed y=1 output but allow the impossible asymptotic value y=2."
+          },
+          {
+            "id": "D",
+            "latex": "x=\\frac{5y+7}{4-2y},y\\ne1,y\\ne2",
+            "errorPath": "Move the numerator constant to the other side with the wrong sign."
+          },
+          {
+            "id": "E",
+            "latex": "x=\\frac{5y-7}{2y-4},y\\ne1,y\\ne2",
+            "errorPath": "Reverse the sign of the denominator during the last division."
+          },
+          {
+            "id": "F",
+            "latex": "x=\\frac{5y-7}{4-2y},y\\ne0,y\\ne2",
+            "errorPath": "Reject output y=0 instead of y=1 despite the original nested source restriction."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "x=\\frac{5y-7}{4-2y},y\\ne1,y\\ne2",
+        "workedSolutionSteps": [
+          "The source prohibits $x=-1$ and $x=-\\frac{5}{2}$, because its original denominators must stay non-zero.",
+          "On the domain, simplify to $y=\\frac{4x+7}{2x+5}$ and solve $x=\\frac{5y-7}{4-2y}$.",
+          "The inverse pole forbids $y=2$. The source hole at $x=-1$ additionally forbids $y=1$. Every other real output is attainable. Indeed, for y≠1,2 the inverse has x+1=3(y−1)/(4−2y)≠0 and 2x+5=6/(4−2y)≠0, so every such y gives a permitted x."
+        ],
+        "provisionalAOFocus": "AO2 candidate: nested rational cancellation, inverse pole and removable source hole.",
+        "unverifiedTaughtSubskill": "Nested fractions, inversion, cancelled-domain restrictions need evidence of classroom coverage.",
+        "conceptCollisionReviewRequired": true,
+        "academicQA": "pending",
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "independentStudentMisconceptionCertified": false,
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-033-V313-CONCEPT-ANCHOR-DRAFT"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-037",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-037",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-037-PRIORITY-CONTENT-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-037-REVIEW-2",
+        "topicId": "math-y9-changing-subject",
+        "provisionalConceptFamily": "CANDIDATE_CONCEPT_RADICAL_RATIONAL_DOMAIN_BRANCHES",
+        "stem": "Let $y=1+\\sqrt{\\frac{2x+3}{x+4}}$ for **every real $x$ where the original square root is defined**. Which choice makes $x$ the subject and states the **complete set of possible values of $y$**?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=\\frac{3-4(y-1)^2}{(y-1)^2-2},y\\ge1",
+            "errorPath": "Take y≥1 from the square root, but forget the unattained asymptotic output y=1+sqrt2."
+          },
+          {
+            "id": "B",
+            "latex": "x=\\frac{3-4(y-1)^2}{(y-1)^2-2},y>1,y\\ne1+\\sqrt{2}",
+            "errorPath": "Exclude the attained value y=1 at x=-3/2, where the original radicand equals zero."
+          },
+          {
+            "id": "C",
+            "latex": "x=\\frac{3-4(y-1)^2}{(y-1)^2-2},y\\ge1,y\\ne1+\\sqrt{2}"
+          },
+          {
+            "id": "D",
+            "latex": "x=\\frac{3+4(y-1)^2}{(y-1)^2-2},y\\ge1,y\\ne1+\\sqrt{2}",
+            "errorPath": "Collect the squared terms with the wrong sign in the inverse formula."
+          },
+          {
+            "id": "E",
+            "latex": "x=\\frac{3-4(y-1)^2}{2-(y-1)^2},y\\ge1,y\\ne1+\\sqrt{2}",
+            "errorPath": "Reverse the sign of the denominator after collecting the terms containing x."
+          },
+          {
+            "id": "F",
+            "latex": "x=\\frac{3-4(y-1)^2}{(y-1)^2-2},y\\ge1,y\\ne1-\\sqrt{2}",
+            "errorPath": "Exclude the negative radical value which is impossible anyway, while allowing the actual missing positive output."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "x=\\frac{3-4(y-1)^2}{(y-1)^2-2},y\\ge1,y\\ne1+\\sqrt{2}",
+        "workedSolutionSteps": [
+          "The radicand is $\\frac{2x+3}{x+4}=2-\\frac{5}{x+4}$, non-negative exactly for $x<-4$ or $x\\ge-\\frac{3}{2}$.",
+          "Put $t=(y-1)^2$ and rearrange $t(x+4)=2x+3$ to find $x=\\frac{3-4(y-1)^2}{(y-1)^2-2}$.",
+          "The square root gives y≥1, with y=1 attained. Output $y=1+\\sqrt{2}$ is impossible, since radicand 2 would force $2x+3=2x+8$. All other y≥1 occur. For any remaining y, t=(y−1)²≥0 and t≠2. The inverse gives x+4=−5/(t−2)≠0, and (2x+3)/(x+4)=t, proving attainability."
+        ],
+        "provisionalAOFocus": "AO2/3 candidate: radical-rational sign analysis plus inverse and missing output.",
+        "unverifiedTaughtSubskill": "Rational sign charts, radical inversion, disconnected real domains not confirmed taught.",
+        "conceptCollisionReviewRequired": true,
+        "academicQA": "pending",
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "independentStudentMisconceptionCertified": false,
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-037-V313-CONCEPT-ANCHOR-DRAFT"
+      }
+    }
+  ]
+}
