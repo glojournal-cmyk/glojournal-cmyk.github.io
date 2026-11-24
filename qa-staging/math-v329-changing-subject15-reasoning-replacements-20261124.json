@@ -259,7 +259,7 @@
         {
           "id": "D",
           "latex": "2",
-          "errorPath": "Report the change in the square-root denominator, from 2 to 4, rather than the input change."
+          "errorPath": "Report the increase in the square-root denominator, from 2 to 4, rather than the increase in x."
         },
         {
           "id": "E",
@@ -355,7 +355,7 @@
         {
           "id": "A",
           "latex": "0",
-          "errorPath": "Omit the +1 in 6x+9=10x+10 by incorrectly treating the constants as equal, giving x=0."
+          "errorPath": "Round the negative fractional solution −1/4 to a whole number even though an exact input is required."
         },
         {
           "id": "B",
@@ -680,47 +680,47 @@
       "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-038-REVIEW-2",
       "topicId": "math-y9-changing-subject",
       "provisionalConceptFamily": "radical-rational-inverse-two-candidates",
-      "stem": "For real x with x≠−2 and $(x+6)/(x+2)\\ge0$, let $y=1+\\sqrt{\\frac{x+6}{x+2}}$. Which real x produces y=3?",
+      "stem": "For real x with $x\\ne-2$ and $(x+6)/(x+2)\\ge0$, let $y=1+\\sqrt{\\frac{x+6}{x+2}}$. Which pair gives the correct rearrangement for x and the exact restriction on y?",
       "options": [
         {
           "id": "A",
-          "latex": "2",
-          "errorPath": "Replace (x+6)/(x+2)=4 with equality to 2, forgetting to square."
+          "latex": "x=\\frac{6-2(y-1)^2}{(y-1)^2-1},\\quad y\\ne2",
+          "errorPath": "Correct algebra but omits the principal square-root condition y≥1."
         },
         {
           "id": "B",
-          "latex": "-\\frac{14}{3}",
-          "errorPath": "Use x+6=4x−8, losing the sign of the constant when expanding 4(x+2)."
+          "latex": "x=\\frac{6-2(y-1)^2}{(y-1)^2-1},\\quad y>2",
+          "errorPath": "Rejects valid outputs from 1 up to but not including 2, such as y=1 at x=−6."
         },
         {
           "id": "C",
-          "latex": "-\\frac{2}{3}"
+          "latex": "x=\\frac{6-2(y-1)^2}{(y-1)^2-1},\\quad y\\ge1,\\ y\\ne2"
         },
         {
           "id": "D",
-          "latex": "-2",
-          "errorPath": "Choose the excluded denominator zero."
+          "latex": "x=\\frac{6-2(y-1)^2}{(y-1)^2-1},\\quad y\\ge1",
+          "errorPath": "Omits the impossible output y=2, where the inverse denominator is zero."
         },
         {
           "id": "E",
-          "latex": "10",
-          "errorPath": "Treat the required radicand 4 as x−6, giving x=10, instead of forming the rational equation."
+          "latex": "x=\\frac{6-2(y-1)}{y-2},\\quad y\\ge1,\\ y\\ne2",
+          "errorPath": "Fails to square the isolated radical before solving."
         },
         {
           "id": "F",
-          "latex": "\\frac{2}{3}",
-          "errorPath": "Lose the negative sign when solving 3x=−2."
+          "latex": "x=\\frac{2(y-1)^2-6}{(y-1)^2-1},\\quad y\\ge1,\\ y\\ne2",
+          "errorPath": "Reverses the numerator sign when collecting the x terms."
         }
       ],
       "correctOptionId": "C",
-      "correctAnswerLatex": "-\\frac{2}{3}",
+      "correctAnswerLatex": "x=\\frac{6-2(y-1)^2}{(y-1)^2-1},\\quad y\\ge1,\\ y\\ne2",
       "workedSolutionSteps": [
-        "The required principal square root is 3−1=2.",
-        "Square: (x+6)/(x+2)=4. Thus x+6=4x+8 and 3x=−2.",
-        "At x=−2/3 the denominator is nonzero and the radicand is 4, so the original output is 3."
+        "The principal radical requires y≥1. Isolate and square: (y−1)²=(x+6)/(x+2).",
+        "Collect x terms: [(y−1)²−1]x=6−2(y−1)². The denominator vanishes at y=2 within y≥1; the original equation then requires 0=4.",
+        "For any y≥1 except 2, set t=(y−1)². The inverse x=(6−2t)/(t−1) gives x+2=4/(t−1)≠0 and radicand t≥0. Thus every such y is attained."
       ],
       "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
-      "unverifiedTaughtSubskill": "Radical of rational expression; invert and check domain.",
+      "unverifiedTaughtSubskill": "Symbolic inverse of rational radical and exact output domain, including excluded values.",
       "academicQA": "pending",
       "dailyEligible": false,
       "masteryEligible": false,
