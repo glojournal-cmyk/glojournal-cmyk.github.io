@@ -17,6 +17,10 @@ catalog.push(...[
  ['latin','la-y8-nouns-and-dictionary-entries'],
  ['latin','la-y8-nouns-with-genitives'],
  ['french','fr-y8-s02-weather-activities-and-opinions'],
+ ['french','fr-y8-s03-home-family-and-descriptions'],
+ ['french','fr-y8-s07-passe-compose'],
+ ['french','fr-y8-s25-classroom-objects'],
+ ['latin','la-y8-core-verbs'],
  ['biology','bio-y8-food-tests'],
  ['chemistry','chem-y8-working-scientifically']
 ].map(([subject,topicId])=>({subject,year:8,topicId,title:topicId,
@@ -86,6 +90,7 @@ test('a new learner has ten reachable tasks and one answer credits only its assi
   assert.ok(plan.every(t=>t.href&&t.target>0));
   const mastery=plan.find(t=>t.id==='y8-mastery-a');
   assert.ok(mastery.assignedTopic&&mastery.href.includes('/practise'));
+  assert.ok(!plan.some(t=>t.assignedTopic==='bio-y8-food-tests'),'held bank never assigned to a new learner');
   const standard=plan.find(t=>t.id==='y8-standard-a');
   const answer={day:base.today,topicId:standard.assignedTopic,questionId:'q1',attemptId:'attempt1',
     dailyTaskId:standard.id,mode:'standard',formal:true,correct:true};
