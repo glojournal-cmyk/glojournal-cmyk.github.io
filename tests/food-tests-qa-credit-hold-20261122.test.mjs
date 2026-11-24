@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {FOOD_TESTS_QA_HOLD_IDS,FOOD_TESTS_QA_TOPIC,isFoodTestsQaHeld,canEarnFormalCredit,foodTestsPupilVerdict} from '../assets/food-tests-qa-credit-gate-20261122.js';
 import {verifiedQuizSlots,reconcileDailySession} from '../assets/daily-session-credit-20261021.js';
-import {saveVerifiedBiologyAnswerSync} from '../assets/daily-completed-session-receipts-20261024.js';
+import {saveVerifiedBiologyAnswerSync,saveCompletedDailyReceipt} from '../assets/daily-completed-session-receipts-20261024.js';
 import {addMasteryEvidence} from '../assets/mastery-v2-20261018.js';
 import {scoreConceptChoices,validateConceptChoiceItem} from '../assets/food-tests-structured-concept-checks-20261122.js';
 const read=p=>JSON.parse(fs.readFileSync(new URL('../'+p,import.meta.url),'utf8'));
@@ -187,4 +187,26 @@ test('hidden Food Tests source in answer or journal event never raises a separat
   answers:[{questionId:alias,correct:true,formal:true,sourceId:'other-biology-source'}]});
  assert.equal(unrelated.changed,true,'unrelated Biology Daily answer should not be overblocked');
  assert.equal(unrelated.progress,1);
+});
+
+test('Safari receipt must reject unapproved Food Tests source metadata before compacting',async()=>{
+ const day='2026-11-24',alias='display-wrapper-id',task={id:'year9-light',
+  assignedSubject:'biology',assignedYear:9,assignedTopic:'other-biology-topic',
+  planDate:day,target:10,progress:0,done:false,
+  href:'/study/biology/practise?daily=1&locked=1&task=year9-light&topic=other-biology-topic&mode=standard&year=9'};
+ const state={today:day,daily:[task],dailyLog:{}};
+ const source={day,taskId:task.id,subject:'biology',year:9,mode:'standard'};
+ const original={id:alias,topicId:task.assignedTopic,formal:true};
+ const result={questionId:alias,correct:true,formal:true};
+ const badCases=[
+  {questions:[original],answers:[{...result,sourceId:'bio-y8-app-ethanol-safety'}]},
+  {questions:[original],answers:[{...result,pointId:'bio-y8-app-benedicts-method::p1'}]},
+  {questions:[{...original,sourceId:'bio-y8-app-benedicts-method'}],answers:[result]}
+ ];
+ for(const data of badCases){
+  const submission={...source,...data};
+  assert.equal(saveVerifiedBiologyAnswerSync(state,submission),false);
+  assert.equal(await saveCompletedDailyReceipt(state,submission),false);
+  assert.equal(task.progress,0);
+ }
 });
