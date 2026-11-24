@@ -188,7 +188,17 @@
       "status": "AI_SCIENCE_CONTENT_ADJUDICATED__INDEPENDENT_APPROVAL_NOT_OBTAINED",
       "qaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json"
     },
-    "lastContentAdjudication": "2026-11-24 first 25/143 original source question science keys independently cross-referenced to published food-test knowledge in an AI-led content second pass; teacher/TGS/PWA gates remain."
+    "lastContentAdjudication": "2026-11-24 first 25/143 original source question science keys independently cross-referenced to published food-test knowledge in an AI-led content second pass; teacher/TGS/PWA gates remain.",
+    "aiReplacementAcademicContentReview": {
+      "reviewedDraftMCQs": 48,
+      "draftScienceKeyVerdictsPass": 48,
+      "individuallyExplainedDistractors": 144,
+      "distinctSourceOriginalsStillRequireReplacement": 48,
+      "possibleCrossPoolSkillOverlapReplacements": 27,
+      "independentTeacherApprovals": 0,
+      "status": "AI_CONTENT_PASS__SOURCE_REPLACEMENT_AND_TEACHER_SIGNOFF_PENDING",
+      "evidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json"
+    }
   },
   "unresolvedFormalScoringEvidence": [
     {
@@ -2054,7 +2064,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-2-1",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 51,
@@ -2090,7 +2107,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-2-2",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 52,
@@ -2126,7 +2150,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-2-3",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 53,
@@ -2162,7 +2193,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-2-4",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 54,
@@ -2198,7 +2236,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-2-5",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 55,
@@ -2234,7 +2279,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-2-6",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 56,
@@ -2270,7 +2322,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-2-7",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 57,
@@ -2306,7 +2365,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-2-8",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 58,
@@ -2342,7 +2408,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-2-9",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 59,
@@ -2378,7 +2451,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-2-10",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 60,
@@ -2414,7 +2494,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-2-11",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 61,
@@ -2450,7 +2537,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-2-12",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 62,
@@ -2486,7 +2580,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-2-13",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 63,
@@ -2522,7 +2623,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-2-14",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 64,
@@ -2558,7 +2666,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-2-15",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 65,
@@ -2594,7 +2709,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-2-16",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 66,
@@ -2631,7 +2753,14 @@
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-3-1",
       "replacementApproved": false,
-      "replacementStemAmbiguity": "Corrected in unapproved QA-only 48-question candidate; no change to original source question; independent review pending"
+      "replacementStemAmbiguity": "Corrected in unapproved QA-only 48-question candidate; no change to original source question; independent review pending",
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 67,
@@ -2667,7 +2796,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-3-2",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 68,
@@ -2703,7 +2839,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-3-3",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 69,
@@ -2739,7 +2882,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-3-4",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 70,
@@ -2775,7 +2925,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-3-5",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 71,
@@ -2811,7 +2968,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-3-6",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 72,
@@ -2847,7 +3011,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-3-7",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 73,
@@ -2883,7 +3054,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-3-8",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 74,
@@ -2919,7 +3097,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-3-9",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 75,
@@ -2955,7 +3140,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-3-10",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 76,
@@ -2991,7 +3183,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-3-11",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 77,
@@ -3027,7 +3226,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-3-12",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 78,
@@ -3063,7 +3269,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-3-13",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 79,
@@ -3099,7 +3312,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-3-14",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 80,
@@ -3135,7 +3355,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-3-15",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 81,
@@ -3171,7 +3398,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-3-16",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 82,
@@ -3207,7 +3441,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-4-1",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 83,
@@ -3243,7 +3484,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-4-2",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 84,
@@ -3279,7 +3527,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-4-3",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 85,
@@ -3315,7 +3570,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-4-4",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 86,
@@ -3351,7 +3613,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-4-5",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 87,
@@ -3387,7 +3656,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-4-6",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 88,
@@ -3423,7 +3699,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-4-7",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 89,
@@ -3459,7 +3742,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-4-8",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 90,
@@ -3495,7 +3785,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-4-9",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 91,
@@ -3531,7 +3828,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-4-10",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 92,
@@ -3567,7 +3871,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-4-11",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 93,
@@ -3603,7 +3914,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-4-12",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 94,
@@ -3640,7 +3958,14 @@
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-4-13",
       "replacementApproved": false,
-      "replacementStemAmbiguity": "Corrected in unapproved QA-only 48-question candidate; no change to original source question; independent review pending"
+      "replacementStemAmbiguity": "Corrected in unapproved QA-only 48-question candidate; no change to original source question; independent review pending",
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 95,
@@ -3676,7 +4001,14 @@
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-4-14",
-      "replacementApproved": false
+      "replacementApproved": false,
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 96,
@@ -3713,7 +4045,14 @@
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-4-15",
       "replacementApproved": false,
-      "replacementStemAmbiguity": "Corrected in unapproved QA-only 48-question candidate; no change to original source question; independent review pending"
+      "replacementStemAmbiguity": "Corrected in unapproved QA-only 48-question candidate; no change to original source question; independent review pending",
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 97,
@@ -3750,7 +4089,14 @@
       "replacementCandidatePath": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
       "replacementDraftQuestionId": "bio-y8-food-tests-case-20261025-4-16",
       "replacementApproved": false,
-      "replacementStemAmbiguity": "Corrected in unapproved QA-only 48-question candidate; no change to original source question; independent review pending"
+      "replacementStemAmbiguity": "Corrected in unapproved QA-only 48-question candidate; no change to original source question; independent review pending",
+      "aiReplacementContentScienceKey": "PASS",
+      "aiReplacementSoleCorrectInRevisedDraft": "PASS",
+      "aiReplacementEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
+      "sourceOriginalContentApproved": false,
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 98,
