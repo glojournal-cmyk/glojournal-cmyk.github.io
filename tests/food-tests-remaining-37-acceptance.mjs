@@ -24,7 +24,7 @@ function entrypoint(file){
   throw Error("Not using the actual patched QuizSession: "+file);
  const R=new Function(src.slice(f,endOf(src,r))+"\nreturn R;")();
  const B=new Function("L","I","R","scoreFoodTestsGuarded","scoreFoodTestsEthanolSafety","scoreFoodTestsRemaining37",
- src.slice(a,endOf(src,a))+"\nreturn B;")(q=>q.answer.modelAnswer||"",()=>[],R,module6,ethanol,module37);
+ src.slice(src.indexOf('function reviewedMark('),a)+src.slice(a,endOf(src,a))+"\nreturn B;")(q=>q.answer.modelAnswer||"",()=>[],R,module6,ethanol,module37);
  return {B,R};
 }
 const reports=[];
