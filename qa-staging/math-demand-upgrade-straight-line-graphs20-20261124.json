@@ -59,7 +59,8 @@
       "academicQA": "pending",
       "dailyEligible": false,
       "masteryEligible": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-003-ACADEMIC-REVIEW-20261124"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-003-ACADEMIC-REVIEW-20261124",
+      "provisionalCrossTopicMasteryHold": "Line construction and coordinate area; shared steps do not establish independent mastery."
     },
     {
       "sourceId": "LUX-MATH-Y9-GRAPHS-004",
@@ -91,8 +92,8 @@
         },
         {
           "id": "E",
-          "latex": "50",
-          "errorPath": "Include k=5 twice when summing the permitted integers."
+          "latex": "40",
+          "errorPath": "Treat m≤7/4 as m<7/4, omitting valid k=5."
         },
         {
           "id": "F",
@@ -171,7 +172,8 @@
       "academicQA": "pending",
       "dailyEligible": false,
       "masteryEligible": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-005-ACADEMIC-REVIEW-20261124"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-005-ACADEMIC-REVIEW-20261124",
+      "provisionalCrossTopicMasteryHold": "Coordinate squared-distance equality or difference: shared reasoning family; no independent concept credit."
     },
     {
       "sourceId": "LUX-MATH-Y9-GRAPHS-010",
@@ -219,7 +221,7 @@
         "Thus n=9,10,11 and the sum is 30."
       ],
       "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
-      "unverifiedTaughtSubskill": "Intersect two competing tariffs with a strict boundary; budget duplicates one boundary but is explicit.",
+      "unverifiedTaughtSubskill": "Intersect linear price inequalities; strict versus inclusive boundaries. Budget cap coincides with one bound.",
       "independentGradeCalibrated": false,
       "teacherTaughtConfirmed": false,
       "studentMisconceptionsEmpiricallyVerified": false,
@@ -227,7 +229,8 @@
       "academicQA": "pending",
       "dailyEligible": false,
       "masteryEligible": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-010-V325-REASONING-QA-ONLY"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-010-V325-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Linear/piecewise inequalities and feasible integer ranges; related to allocation and parameter inequalities in other topics."
     },
     {
       "sourceId": "LUX-MATH-Y9-GRAPHS-011",
@@ -295,36 +298,36 @@
       "options": [
         {
           "id": "A",
-          "latex": "\\frac29",
-          "errorPath": "Treat one ninth of the remainder as one ninth of the original and report the original width divided by nine."
+          "latex": "\\frac{16}{9}",
+          "errorPath": "Use smaller-to-remainder area ratio 1/9 as smaller-to-original length ratio: k=2−2/9."
         },
         {
           "id": "B",
-          "latex": "2-\\frac{\\sqrt{10}}5"
+          "latex": "2-\\frac{\\sqrt{10}}{5}"
         },
         {
           "id": "C",
-          "latex": "\\frac43",
+          "latex": "\\frac{4}{3}",
           "errorPath": "Use smaller-to-original area ratio 1/9, giving k=4/3."
         },
         {
           "id": "D",
-          "latex": "\\frac95",
+          "latex": "\\frac{9}{5}",
           "errorPath": "Use smaller-to-original area ratio 1/10 as a linear ratio."
         },
         {
           "id": "E",
-          "latex": "\\frac{\\sqrt{10}}5",
+          "latex": "\\frac{\\sqrt{10}}{5}",
           "errorPath": "Report the width of the smaller triangle, rather than k."
         },
         {
           "id": "F",
-          "latex": "2-\\frac29",
-          "errorPath": "Treat smaller-to-remaining area ratio 1/9 as smaller-to-original length ratio."
+          "latex": "\\frac{2\\sqrt{10}}{5}",
+          "errorPath": "Double the correct small-triangle horizontal width instead of subtracting it from 2."
         }
       ],
       "correctOptionId": "B",
-      "correctAnswerLatex": "2-\\frac{\\sqrt{10}}5",
+      "correctAnswerLatex": "2-\\frac{\\sqrt{10}}{5}",
       "workedSolutionSteps": [
         "P=(2,5); the smaller triangle is similar to the original, with width ratio (2−k)/2.",
         "If its area is one ninth of the remainder, its fraction of the original area is 1/10. Hence ((2−k)/2)²=1/10.",
@@ -395,7 +398,8 @@
       "academicQA": "pending",
       "dailyEligible": false,
       "masteryEligible": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-015-V326-REASONING-QA-ONLY"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-015-V326-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Finite integer enumeration under geometry constraints; cross-topic review required."
     },
     {
       "sourceId": "LUX-MATH-Y9-GRAPHS-017",
@@ -412,7 +416,7 @@
         },
         {
           "id": "B",
-          "latex": "-\\frac94",
+          "latex": "-\\frac{9}{4}",
           "errorPath": "Reflect P's x-coordinate in zero instead of using the symmetry of the quadratic."
         },
         {
@@ -422,7 +426,7 @@
         },
         {
           "id": "D",
-          "latex": "-\\frac12",
+          "latex": "-\\frac{1}{2}",
           "errorPath": "Report the midpoint of the two x-coordinates."
         },
         {
@@ -451,7 +455,8 @@
       "academicQA": "pending",
       "dailyEligible": false,
       "masteryEligible": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-017-V326-REASONING-QA-ONLY"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-017-V326-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Coordinate squared-distance equality or difference: shared reasoning family; no independent concept credit."
     },
     {
       "sourceId": "LUX-MATH-Y9-GRAPHS-019",
@@ -507,7 +512,8 @@
       "academicQA": "pending",
       "dailyEligible": false,
       "masteryEligible": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-019-V326-REASONING-QA-ONLY"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-019-V326-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Finite integer enumeration under geometry constraints; cross-topic review required."
     },
     {
       "sourceId": "LUX-MATH-Y9-GRAPHS-020",
@@ -675,7 +681,8 @@
       "academicQA": "pending",
       "dailyEligible": false,
       "masteryEligible": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-025-V326-REASONING-QA-ONLY"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-025-V326-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Linear/piecewise inequalities and feasible integer ranges; related to allocation and parameter inequalities in other topics."
     },
     {
       "sourceId": "LUX-MATH-Y9-GRAPHS-028",
@@ -731,7 +738,8 @@
       "academicQA": "pending",
       "dailyEligible": false,
       "masteryEligible": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-028-V326-REASONING-QA-ONLY"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-028-V326-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Line construction and coordinate area; shared steps do not establish independent mastery."
     },
     {
       "sourceId": "LUX-MATH-Y9-GRAPHS-033",
@@ -899,7 +907,8 @@
       "academicQA": "pending",
       "dailyEligible": false,
       "masteryEligible": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-036-ACADEMIC-REVIEW-20261124"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-036-ACADEMIC-REVIEW-20261124",
+      "provisionalCrossTopicMasteryHold": "Linear/piecewise inequalities and feasible integer ranges; related to allocation and parameter inequalities in other topics."
     },
     {
       "sourceId": "LUX-MATH-Y9-GRAPHS-037",
@@ -955,7 +964,8 @@
       "academicQA": "pending",
       "dailyEligible": false,
       "masteryEligible": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-037-V326-REASONING-QA-ONLY"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-037-V326-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Coordinate squared-distance equality or difference: shared reasoning family; no independent concept credit."
     },
     {
       "sourceId": "LUX-MATH-Y9-GRAPHS-038",
@@ -986,7 +996,7 @@
         },
         {
           "id": "E",
-          "latex": "-\\frac34",
+          "latex": "-\\frac{3}{4}",
           "errorPath": "Use 24 rather than 12 as the horizontal separation."
         },
         {
@@ -1067,7 +1077,8 @@
       "academicQA": "pending",
       "dailyEligible": false,
       "masteryEligible": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-039-V326-REASONING-QA-ONLY"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-039-V326-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Line construction and coordinate area; shared steps do not establish independent mastery."
     },
     {
       "sourceId": "LUX-MATH-Y9-GRAPHS-040",
@@ -1126,7 +1137,7 @@
       "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-040-V326-REASONING-QA-ONLY"
     }
   ],
-  "verification": "Author algebra and bounded enumeration; 20 keys checked and 120 option strings, 100 explanations structurally checked. Separate reread required; grade and taught scope pending. No student credit.",
+  "verification": "Author review plus separate arithmetic, geometry, bounded enumeration and numerical option-equivalence recheck of 20 records. Independent difficulty, taught scope and empirical distractor evidence pending. No student credit.",
   "academicApprovals": 0,
   "dailyEligible": 0,
   "masteryEligible": 0
