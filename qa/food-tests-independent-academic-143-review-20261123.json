@@ -209,6 +209,17 @@
       "matchingMarks": 12,
       "independentAcademicApprovals": 0,
       "evidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json"
+    },
+    "ai99StructuredAcademicContentReview": {
+      "sourceFreeEnglishQuestions": 52,
+      "sourceMarkPoints": 99,
+      "mcqCandidatePartsScienceContentReviewed": 99,
+      "mcqCandidateContextualKeyPass": 99,
+      "nonKeyExplanations": 297,
+      "unionOfMasteryOverlapRiskPoints": 79,
+      "independentQualifiedApprovals": 0,
+      "formalScoringStillBlocked": true,
+      "reviewSource": "qa/food-tests-99-structured-content-adjudication-20261124.json"
     }
   },
   "unresolvedFormalScoringEvidence": [
@@ -344,7 +355,14 @@
           "pointCount": 1
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_1_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-iodine-solution-explain::p1"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 4,
@@ -467,7 +485,14 @@
           "pointCount": 1
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_1_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-benedict-s-solution-explain::p1"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 7,
@@ -588,7 +613,14 @@
           "pointCount": 1
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_1_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-biuret-solution-explain::p1"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 10,
@@ -708,7 +740,14 @@
           "pointCount": 1
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_1_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-ethanol-emulsion-test-explain::p1"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 13,
@@ -822,7 +861,14 @@
           "pointCount": 1
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_1_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-blue-black-explain::p1"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 16,
@@ -940,7 +986,14 @@
           "pointCount": 1
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_1_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-brick-red-explain::p1"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 19,
@@ -1061,7 +1114,14 @@
           "pointCount": 1
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_1_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-lilac-or-purple-explain::p1"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 22,
@@ -1184,7 +1244,14 @@
           "pointCount": 1
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_1_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-cloudy-white-emulsion-explain::p1"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 25,
@@ -1306,7 +1373,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-water-bath-explain::p1",
+        "bio-y8-food-tests-water-bath-explain::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 28,
@@ -1412,7 +1487,16 @@
           "pointCount": 3
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_3_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-app-benedicts-method::p1",
+        "bio-y8-app-benedicts-method::p2",
+        "bio-y8-app-benedicts-method::p3"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 31,
@@ -1563,7 +1647,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-app-ethanol-safety::p1",
+        "bio-y8-app-ethanol-safety::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 34,
@@ -4195,7 +4287,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-sample-separation::p1",
+        "bio-y8-food-tests-application-20261025-sample-separation::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 99,
@@ -4231,7 +4331,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-iodine-repeat::p1",
+        "bio-y8-food-tests-application-20261025-iodine-repeat::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 100,
@@ -4267,7 +4375,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-benedict-no-heat::p1",
+        "bio-y8-food-tests-application-20261025-benedict-no-heat::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 101,
@@ -4303,7 +4419,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-negative-sugar::p1",
+        "bio-y8-food-tests-application-20261025-negative-sugar::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 102,
@@ -4339,7 +4463,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-positive-sugar::p1",
+        "bio-y8-food-tests-application-20261025-positive-sugar::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 103,
@@ -4375,7 +4507,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-biuret-control::p1",
+        "bio-y8-food-tests-application-20261025-biuret-control::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 104,
@@ -4411,7 +4551,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-iodine-control::p1",
+        "bio-y8-food-tests-application-20261025-iodine-control::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 105,
@@ -4447,7 +4595,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-repeatability::p1",
+        "bio-y8-food-tests-application-20261025-repeatability::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 106,
@@ -4483,7 +4639,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-cross-contamination::p1",
+        "bio-y8-food-tests-application-20261025-cross-contamination::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 107,
@@ -4519,7 +4683,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p1",
+        "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 108,
@@ -4555,7 +4727,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-ethanol-ventilation::p1",
+        "bio-y8-food-tests-application-20261025-ethanol-ventilation::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 109,
@@ -4591,7 +4771,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-benedict-hot-tube::p1",
+        "bio-y8-food-tests-application-20261025-benedict-hot-tube::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 110,
@@ -4627,7 +4815,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-protein-extraction::p1",
+        "bio-y8-food-tests-application-20261025-protein-extraction::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 111,
@@ -4663,7 +4859,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-starch-extraction::p1",
+        "bio-y8-food-tests-application-20261025-starch-extraction::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 112,
@@ -4699,7 +4903,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-fair-amount::p1",
+        "bio-y8-food-tests-application-20261025-fair-amount::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 113,
@@ -4735,7 +4947,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-fair-reagent::p1",
+        "bio-y8-food-tests-application-20261025-fair-reagent::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 114,
@@ -4790,7 +5010,15 @@
       ],
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "currentQAStatus": "REVISED_IN_DRAFT_BRANCH_AWAITING_INDEPENDENT_SCORER_AND_CURRICULUM_REVIEW",
-      "fixAppliedInQAOnly": true
+      "fixAppliedInQAOnly": true,
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-sugar-strength::p1",
+        "bio-y8-food-tests-application-20261025-sugar-strength::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 115,
@@ -4826,7 +5054,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-cloudy-not-protein::p1",
+        "bio-y8-food-tests-application-20261025-cloudy-not-protein::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 116,
@@ -4862,7 +5098,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-starch-vs-glucose::p1",
+        "bio-y8-food-tests-application-20261025-starch-vs-glucose::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 117,
@@ -4898,7 +5142,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-sugar-vs-starch::p1",
+        "bio-y8-food-tests-application-20261025-sugar-vs-starch::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 118,
@@ -4934,7 +5186,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p1",
+        "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 119,
@@ -4970,7 +5230,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-lipid-vs-starch::p1",
+        "bio-y8-food-tests-application-20261025-lipid-vs-starch::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 120,
@@ -5025,7 +5293,15 @@
       ],
       "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
       "currentQAStatus": "REVISED_IN_DRAFT_BRANCH_AWAITING_INDEPENDENT_SCORER_AND_CURRICULUM_REVIEW",
-      "fixAppliedInQAOnly": true
+      "fixAppliedInQAOnly": true,
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-all-negative::p1",
+        "bio-y8-food-tests-application-20261025-all-negative::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 121,
@@ -5061,7 +5337,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-retest-ethanol::p1",
+        "bio-y8-food-tests-application-20261025-retest-ethanol::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 122,
@@ -5097,7 +5381,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-glassware::p1",
+        "bio-y8-food-tests-application-20261025-glassware::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 123,
@@ -5133,7 +5425,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-eyes::p1",
+        "bio-y8-food-tests-application-20261025-eyes::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 124,
@@ -5169,7 +5469,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-heat-variable::p1",
+        "bio-y8-food-tests-application-20261025-heat-variable::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 125,
@@ -5205,7 +5513,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-no-taste::p1",
+        "bio-y8-food-tests-application-20261025-no-taste::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 126,
@@ -5241,7 +5557,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-recording::p1",
+        "bio-y8-food-tests-application-20261025-recording::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 127,
@@ -5277,7 +5601,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-inference::p1",
+        "bio-y8-food-tests-application-20261025-inference::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 128,
@@ -5313,7 +5645,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-weak-blueblack::p1",
+        "bio-y8-food-tests-application-20261025-weak-blueblack::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 129,
@@ -5349,7 +5689,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-temperature-safety::p1",
+        "bio-y8-food-tests-application-20261025-temperature-safety::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 130,
@@ -5385,7 +5733,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-test-plan::p1",
+        "bio-y8-food-tests-application-20261025-test-plan::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 131,
@@ -5421,7 +5777,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p1",
+        "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 132,
@@ -5457,7 +5821,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-result-not-proof::p1",
+        "bio-y8-food-tests-application-20261025-result-not-proof::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 133,
@@ -5493,7 +5865,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-wrong-reagent::p1",
+        "bio-y8-food-tests-application-20261025-wrong-reagent::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 134,
@@ -5529,7 +5909,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-uncertain-emulsion::p1",
+        "bio-y8-food-tests-application-20261025-uncertain-emulsion::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 135,
@@ -5565,7 +5953,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-iodine-no-heat::p1",
+        "bio-y8-food-tests-application-20261025-iodine-no-heat::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 136,
@@ -5601,7 +5997,15 @@
           "pointCount": 2
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_2_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-safe-bunsen::p1",
+        "bio-y8-food-tests-application-20261025-safe-bunsen::p2"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 137,
@@ -5639,7 +6043,16 @@
           "pointCount": 3
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_3_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-unknown-analysis::p1",
+        "bio-y8-food-tests-application-20261025-unknown-analysis::p2",
+        "bio-y8-food-tests-application-20261025-unknown-analysis::p3"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 138,
@@ -5677,7 +6090,16 @@
           "pointCount": 3
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiReplacementStructuredScienceContent": "PASS_PROVISIONAL_3_POINTS",
+      "aiReplacementStructuredPointIds": [
+        "bio-y8-food-tests-application-20261025-sugar-analysis::p1",
+        "bio-y8-food-tests-application-20261025-sugar-analysis::p2",
+        "bio-y8-food-tests-application-20261025-sugar-analysis::p3"
+      ],
+      "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
+      "independentQualifiedTeacherApproval": false
     },
     {
       "ordinal": 139,
