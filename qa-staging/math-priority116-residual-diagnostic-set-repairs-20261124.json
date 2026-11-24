@@ -1,0 +1,281 @@
+{
+  "kind": "PRIORITY116_RESIDUAL_DIAGNOSTIC_SET_REPAIRS_NO_RELEASE",
+  "date": "2026-11-24",
+  "sourceRegister": "qa-staging/math-priority116-post-distractor-repair-register-20261124.json",
+  "sourceRegisterBlobSha": "1b579eae1b74ef2f396f09d11fced153e2599538",
+  "sourceCommit": "3387ea6",
+  "counts": {
+    "residualDesignDefectsAddressedByAuthor": 3,
+    "options": 18,
+    "wrongOptions": 15,
+    "independentDiagnosticApprovals": 0,
+    "formalApprovals": 0,
+    "scopeChecksOutstanding": 116
+  },
+  "limitations": "Overlay supersedes only the three prior selected records. Answer values intentionally change from sums to sets; correct option IDs retained. Author verified signed integer inverse pairs and both inconsistent singular cases; no independent review, empirical calibration, taught-scope confirmation or CI established. All release flags remain false. Prior register is immutable historical evidence.",
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-034",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-034-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-changing-subject8-20261124.json",
+      "priorRecordBlobSha": "3b1ea6bb4368f3c180d03e74277ef542e0659f76",
+      "priorAnswer": "8",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-034",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-034-DIAGNOSTIC-SET-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-034-REVIEW-2",
+        "topicId": "math-y9-changing-subject",
+        "provisionalConceptFamily": "cancelled-domain-hole",
+        "stem": "For real x≠−1,−2, let $y=\\frac{2}{1+\\frac{1}{x+1}}$. Which is the complete set of integer outputs y in the interval −5≤y≤5 for which the original formula has an integer input?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\{0,1,3,4\\}",
+            "errorPath": "Cancel x+1 and fail to exclude x=−1, incorrectly retaining y=0."
+          },
+          {
+            "id": "B",
+            "latex": "\\{1,2,3,4\\}",
+            "errorPath": "Include the unavailable output y=2, although the inverse denominator vanishes."
+          },
+          {
+            "id": "C",
+            "latex": "\\{1\\}",
+            "errorPath": "Use only positive divisors of 2−y; reject the domain hole y=0."
+          },
+          {
+            "id": "D",
+            "latex": "\\{3,4\\}",
+            "errorPath": "Use only negative divisors of 2−y."
+          },
+          {
+            "id": "E",
+            "latex": "\\{0,1,3\\}",
+            "errorPath": "Reverse the sign in the inverse x=−2+2/(2−y); the resulting excluded input x=−1 occurs at y=4 instead of y=0."
+          },
+          {
+            "id": "F",
+            "latex": "\\{1,3,4\\}"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "\\{1,3,4\\}",
+        "workedSolutionSteps": [
+          "Rearrange the original equation to x=−2+2/(2−y), where y≠2 and x≠−1,−2.",
+          "For integer x, 2−y must be a signed divisor of 2, so y=0,1,3,4. The corresponding inputs are −1,0,−4,−3 respectively.",
+          "Reject y=0 because x=−1 is not in the original domain. The other three inputs satisfy the original equation. The complete set is {1,3,4}."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Preserve nested denominator exclusions while enumerating integer inverse pairs.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-034-DISTRACTOR-REPAIR-20261124",
+        "provisionalCrossTopicMasteryHold": "Q34 and Q35 share integer-inverse enumeration and original-domain exclusion; do not award separate mastery credit until independently reviewed.",
+        "difficultyResidualNote": "Specific sum-invariance defect addressed by selecting the complete set. Independent academic, scope and diagnostic review remain pending."
+      },
+      "authorEvidence": {
+        "candidateOutputs": [
+          0,
+          1,
+          3,
+          4
+        ],
+        "excludedOutput": 0,
+        "excludedInput": -1,
+        "validPairs": [
+          [
+            0,
+            1
+          ],
+          [
+            -4,
+            3
+          ],
+          [
+            -3,
+            4
+          ]
+        ]
+      },
+      "diagnosticDisposition": "AUTHOR_REPAIR_PENDING_INDEPENDENT_REVIEW",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-035",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-035-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-changing-subject8-20261124.json",
+      "priorRecordBlobSha": "3b1ea6bb4368f3c180d03e74277ef542e0659f76",
+      "priorAnswer": "12",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-035",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-035-DIAGNOSTIC-SET-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-035-REVIEW-2",
+        "topicId": "math-y9-changing-subject",
+        "provisionalConceptFamily": "calibrate-then-invert",
+        "stem": "Let $y=\\frac{6}{2+\\frac{k}{x+1}}$, with every denominator nonzero. Given x=2 produces y=2, which is the complete set of integer outputs y from −4 to 8 inclusive for which the original formula has an integer input?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\{0,2,4,6\\}",
+            "errorPath": "Cancel x+1 and fail to reject the original domain hole x=−1, retaining y=0."
+          },
+          {
+            "id": "B",
+            "latex": "\\{2,3,4,6\\}",
+            "errorPath": "Include the unavailable output y=3, for which the inverse denominator vanishes."
+          },
+          {
+            "id": "C",
+            "latex": "\\{4,6\\}",
+            "errorPath": "Use only positive signed divisors of y−3."
+          },
+          {
+            "id": "D",
+            "latex": "\\{2\\}",
+            "errorPath": "Use only negative signed divisors of y−3 and reject y=0."
+          },
+          {
+            "id": "E",
+            "latex": "\\{2,4,6\\}"
+          },
+          {
+            "id": "F",
+            "latex": "\\{2,4\\}",
+            "errorPath": "Use only the divisors ±1 of y−3, omitting ±3."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "\\{2,4,6\\}",
+        "workedSolutionSteps": [
+          "Calibration: 3=2+k/3, so k=3. Simplify to y=6(x+1)/(2x+5), keeping x≠−1,−5/2.",
+          "For y≠3, rearrange to 2x=−5−9/(y−3). The signed divisors of 9 within the given output interval are ±1 and ±3, each with odd quotient. They yield y=0,2,4,6.",
+          "The corresponding inputs are −1,2,−7,−4. Reject y=0 because x=−1 is excluded; the remaining pairs satisfy the original formula. The complete set is {2,4,6}."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Calibrate a nested reciprocal then enumerate integer inverses and reject a domain hole.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-035-DISTRACTOR-REPAIR-20261124",
+        "provisionalCrossTopicMasteryHold": "Q34 and Q35 share integer-inverse enumeration and original-domain exclusion; do not award separate mastery credit until independently reviewed.",
+        "difficultyResidualNote": "Specific sum-invariance defect addressed by selecting the complete set. Independent academic, scope and diagnostic review remain pending."
+      },
+      "authorEvidence": {
+        "candidateOutputs": [
+          0,
+          2,
+          4,
+          6
+        ],
+        "excludedOutput": 0,
+        "excludedInput": -1,
+        "validPairs": [
+          [
+            2,
+            2
+          ],
+          [
+            -7,
+            4
+          ],
+          [
+            -4,
+            6
+          ]
+        ]
+      },
+      "diagnosticDisposition": "AUTHOR_REPAIR_PENDING_INDEPENDENT_REVIEW",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-036",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-simultaneous8-20261124.json",
+      "priorRecordBlobSha": "cc509c9112c9304cb461cc7af250637a6e49988a",
+      "priorAnswer": "4",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-036",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-DIAGNOSTIC-SET-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "two-singular-parameter-cases",
+        "stem": "For real k, consider $(k-2)x+3y=9$ and $6x+(k-2)y=12$. Which is the complete set of real values of k for which the system has no solution?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\{-2-3\\sqrt{2},-2+3\\sqrt{2}\\}",
+            "errorPath": "Recover k as u−2 rather than u+2 after solving u²=18."
+          },
+          {
+            "id": "B",
+            "latex": "\\{-3\\sqrt{2},3\\sqrt{2}\\}",
+            "errorPath": "Report the roots of u=k−2 without converting to k."
+          },
+          {
+            "id": "C",
+            "latex": "\\{2-3\\sqrt{2},2+3\\sqrt{2}\\}"
+          },
+          {
+            "id": "D",
+            "latex": "\\{2+3\\sqrt{2}\\}",
+            "errorPath": "Retain only the positive-u root."
+          },
+          {
+            "id": "E",
+            "latex": "\\{-16,20\\}",
+            "errorPath": "Treat u²=18 as u=±18, omitting the square root."
+          },
+          {
+            "id": "F",
+            "latex": "\\varnothing",
+            "errorPath": "Assume a zero elimination coefficient always means infinitely many solutions, without testing the constant term."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "\\{2-3\\sqrt{2},2+3\\sqrt{2}\\}",
+        "workedSolutionSteps": [
+          "Let u=k−2. Multiply the first equation by 6 and the second by u, and subtract: (18−u²)y=54−12u.",
+          "If u²≠18, the system has a unique solution. If u²=18, then u=±3√2. In both cases 54−12u≠0 (zero would require u=9/2, whose square is not 18), so neither system has a solution.",
+          "Therefore the complete set is {2−3√2,2+3√2}."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+        "unverifiedTaughtSubskill": "Parameter elimination, quadratic roots and checking inconsistent cases without determinants.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-DISTRACTOR-REPAIR-20261124",
+        "difficultyResidualNote": "Specific sum-invariance defect addressed by selecting the complete set. Independent academic, scope and diagnostic review remain pending."
+      },
+      "authorEvidence": {
+        "singularCondition": "u²=18",
+        "inconsistentCondition": "54−12u≠0 for both roots",
+        "bothRootsRequired": true
+      },
+      "diagnosticDisposition": "AUTHOR_REPAIR_PENDING_INDEPENDENT_REVIEW",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ]
+}
