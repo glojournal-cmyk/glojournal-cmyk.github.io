@@ -1,0 +1,605 @@
+{
+  "kind": "QA release base drift checkpoint; no release",
+  "date": "2026-11-24",
+  "inputs": {
+    "oldMain": {
+      "ref": "2e556ffcb48f6c7346b3b663f8058f57271b643d",
+      "blob": "d2e056a585e311fb6b75bcdea51ce90519dff4be",
+      "count": 143
+    },
+    "currentMain": {
+      "ref": "3e4065c645d85836413e5ce9a88e8798be240134",
+      "blob": "d2e056a585e311fb6b75bcdea51ce90519dff4be",
+      "count": 143
+    },
+    "qa": {
+      "ref": "cecac542877756b20dd9ef98d553e90fcc8492a1",
+      "blob": "5638c927319c4ea7f73b636006bdee70220533cd",
+      "count": 143
+    }
+  },
+  "mainChange": "PR #312 merged independently; this QA turn did not modify main.",
+  "mainToMainChanged": 0,
+  "qaToCurrentMainChanged": 93,
+  "mainToMainChanges": [],
+  "qaToCurrentMainDifferences": [
+    {
+      "id": "bio-y8-food-tests-iodine-solution-mc",
+      "fields": [
+        "options"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-iodine-solution-name",
+      "fields": [
+        "answer"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-benedict-s-solution-mc",
+      "fields": [
+        "options"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-benedict-s-solution-name",
+      "fields": [
+        "answer"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-biuret-solution-mc",
+      "fields": [
+        "options"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-biuret-solution-name",
+      "fields": [
+        "answer"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-ethanol-emulsion-test-mc",
+      "fields": [
+        "options"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-ethanol-emulsion-test-name",
+      "fields": [
+        "answer"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-blue-black-mc",
+      "fields": [
+        "options"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-blue-black-name",
+      "fields": [
+        "answer"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-brick-red-mc",
+      "fields": [
+        "options"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-brick-red-name",
+      "fields": [
+        "answer",
+        "feedback"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-lilac-or-purple-mc",
+      "fields": [
+        "options"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-lilac-or-purple-name",
+      "fields": [
+        "answer"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-cloudy-white-emulsion-mc",
+      "fields": [
+        "options"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-cloudy-white-emulsion-name",
+      "fields": [
+        "answer"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-water-bath-mc",
+      "fields": [
+        "prompt",
+        "options",
+        "stimulus",
+        "feedback"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-water-bath-name",
+      "fields": [
+        "prompt",
+        "answer",
+        "stimulus",
+        "feedback"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-water-bath-explain",
+      "fields": [
+        "prompt",
+        "answer",
+        "feedback"
+      ]
+    },
+    {
+      "id": "bio-y8-app-food-test-match",
+      "fields": [
+        "prompt",
+        "answer",
+        "task"
+      ]
+    },
+    {
+      "id": "bio-y8-app-iodine-negative",
+      "fields": [
+        "answer"
+      ]
+    },
+    {
+      "id": "bio-y8-app-ethanol-safety",
+      "fields": [
+        "prompt",
+        "answer",
+        "feedback"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-1",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-2",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-3",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-4",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-5",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-6",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-7",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-8",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-9",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-10",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-11",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-12",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-13",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-14",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-15",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-16",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-1",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-2",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-3",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-4",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-5",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-6",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-7",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-8",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-9",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-10",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-11",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-12",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-13",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-14",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-15",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-16",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-1",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-2",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-3",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-4",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-5",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-6",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-7",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-8",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-9",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-10",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-11",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-12",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-13",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-14",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-15",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-16",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-1",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-2",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-3",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-4",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-5",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-6",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-7",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-8",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-9",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-10",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-11",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-12",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-13",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-14",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-15",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-16",
+      "fields": [
+        "dailyConceptGroup"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-sugar-strength",
+      "fields": [
+        "prompt",
+        "answer",
+        "feedback"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-all-negative",
+      "fields": [
+        "prompt",
+        "answer",
+        "feedback"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-negative-biuret",
+      "fields": [
+        "answer"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-negative-emulsion",
+      "fields": [
+        "answer"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-positive-benedict",
+      "fields": [
+        "answer"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-starch-negative-colour",
+      "fields": [
+        "answer"
+      ]
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-heating-method",
+      "fields": [
+        "answer"
+      ]
+    }
+  ],
+  "release": "BLOCKED",
+  "required": "Reconcile current main and QA versions item-by-item, preserve both audit histories, rerun source-bound checks on reconciled branch; do not blindly overwrite either bank. Verify water-bath/ethanol wording, four-pair mark total, and typed acceptance with actual scorer.",
+  "formalCreditEligible": false
+}
