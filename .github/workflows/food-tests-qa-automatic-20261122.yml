@@ -73,6 +73,9 @@ jobs:
       - name: Verify all 143 consolidated source groups and 190 held rotation units
         if: always()
         run: node --test tests/food-tests-143-consolidated-held-20261124.test.mjs
+      - name: Execute consolidated candidate scoring and verify all credit holds
+        if: always()
+        run: node --test tests/food-tests-consolidated-actual-scoring-20261124.test.mjs
       - name: Upload QA evidence
         if: always()
         uses: actions/upload-artifact@v4
