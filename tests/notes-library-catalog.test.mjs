@@ -115,7 +115,7 @@ test('six Year 9 Latin vocabulary image PDFs have dedicated chapter buttons and 
  assert.match(reader,/isSiteNote/);
  assert.match(reader,/isSiteNote\(note\)\?note\.url/);
  assert.match(reader,/workerReady&&available\.has\(n\.key\)/);
- assert.match(read('notes/index.html'),/20261023-latinvocab1/);
+ assert.match(read('notes/index.html'),/library\.js\?v=20261120-latin10notes1/);
 });
 
 test('R2 screenshot confirms Latin Topic 1–6 object names, not necessarily public reader success',()=>{
@@ -180,5 +180,7 @@ test('all 97 Notes have meaningful topic labels while preserving original R2 obj
  assert.match(js,/note\.displayTitle\|\|note\.title/);
  assert.match(js,/topic-section/);
  assert.match(js,/topicGroup/);
- assert.match(read('notes/index.html'),/20261023-latinvocab1-generatede2-r2topics1-topicnames1/);
+ const html=read('notes/index.html');
+ assert.match(html,/library\.css\?v=20261023-generatede2-r2topics1-topicnames1/);
+ assert.match(html,/library\.js\?v=20261120-latin10notes1/);
 });
