@@ -10,7 +10,7 @@ test('all 15 typed questions, 88 explicit strings and 3 matching four-pair maps 
  assert.equal(bank.questions.length,143);
  assert.equal(review.typed.length,15);
  assert.equal(review.matching.length,3);
- assert.deepEqual(review.counts,{typedSourceQuestions:15,typedSourceStrings:88,typedScienceTargetsPass:15,typedAcceptedListContentPass:14,typedNeedsQualifiedAdjudication:1,acceptedNegativeStarchOverclaims:4,matchingSourceQuestions:3,matchingSciencePairMapsPass:3,matchingPairsChecked:12,independentQualifiedApproved:0});
+ assert.deepEqual(review.counts,{typedSourceQuestions:15,typedSourceStrings:88,typedScienceTargetsPass:15,typedAcceptedListContentPass:14,typedNeedsQualifiedAdjudication:1,acceptedNegativeStarchOverclaims:4,matchingSourceQuestions:3,matchingSciencePairMapsPass:3,matchingPairsChecked:12,independentQualifiedApproved:0,matchingScoringItemsDirectlyVerified:3,bothBundlesIndividualScoringCasesVerified:30});
  assert.equal(review.formalCreditEligible,false);
  assert.equal(review.independentQualifiedTeacherSignedOff,false);
  assert.equal(review.sourceEdited,false);
@@ -35,6 +35,7 @@ test('all 15 typed questions, 88 explicit strings and 3 matching four-pair maps 
   assert.deepEqual(row.pairs,q.answer.pairs);
   assert.equal(row.independentQualifiedApproval,false);
   assert.equal(row.pairwiseScoringReleaseApproved,false);
+  assert.equal(row.knownScoringEvidence,'BOTH_REAL_QUIZ_BUNDLE_SCORERS_VERIFIED_0_TO_4_PAIRWISE_MARKS');
   assert.equal(canEarnFormalCredit(q),false);
  }
 });
