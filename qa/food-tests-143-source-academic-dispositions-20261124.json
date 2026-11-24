@@ -1,0 +1,2626 @@
+{
+  "kind": "Full source Food Tests 143-question Academic Content QA disposition register; self/AI adjudication, no qualified independent signoff",
+  "date": "2026-11-24",
+  "sourcePath": "content/topics/bio-y8-food-tests.json",
+  "sourceGitBlob": "5638c927319c4ea7f73b636006bdee70220533cd",
+  "branch": "qa/p0-eligibility-2e556ff",
+  "headAtReview": "615e817290d70094e43dd7fe6fe57ab1a771e814",
+  "method": "Second-pass per-source assessment of science target, actual options, accepted strings and mark-point meaning. Separate candidate MCQ pools examined with contextual reasons. Human-independent assessment not pretended.",
+  "counts": {
+    "sourceOriginalQuestions": 143,
+    "aiSourceQuestionDispositionCompleted": 143,
+    "SOURCE_CONTENT_PASS": 25,
+    "REVISE_ORIGINAL_STEM": 17,
+    "REVISE_ORIGINAL_ACCEPTED_MARK_SCHEME": 1,
+    "REPLACE_DUPLICATE_RESULT_MCQS": 48,
+    "REPLACE_UNRELIABLE_FREE_TEXT_SCORING": 52,
+    "originalSourceSafeToLeaveContentUnchanged": 25,
+    "originalContentRequiresEditorialCorrection": 18,
+    "originalGradingDesignNeedsReplacement": 100,
+    "provisionalReplacementMCQCandidateQuestions": 48,
+    "provisionalStructuredMarkPointMCQs": 99,
+    "qualifiedIndependentAcademicApproved": 0
+  },
+  "sourceEvidence": [
+    "content/topics/bio-y8-food-tests.json",
+    "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+    "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+    "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+    "qa/food-tests-99-structured-content-adjudication-20261124.json"
+  ],
+  "releaseApproval": "BLOCKED",
+  "qualityGates": {
+    "aiScienceContentQA": "143_143_SOURCE_DISPOSITIONS_MADE",
+    "originalSourceReleaseReady": false,
+    "independentTeacherScopeAndMarkReview": false,
+    "tgsYear8LessonCoverage": false,
+    "dailyMasterySkillDedup": false,
+    "realIpadPwa": false,
+    "academicSignedOff": false
+  },
+  "notes": [
+    "Source content PASS does not mean syllabus fit, real-player scoring, independent sole-key signoff or permission to grade.",
+    "AI revised exemplar stems and 48/99 candidate alternatives are still QA-only unimported; 100 source items should not receive formal marks through unreliable original questions.",
+    "Original 9 basic recall, 16 retained F1 result cases, 15 typed, 3 matching, 48 repeated cases and 52 original prose sources total exactly 143.",
+    "TGS Year 8 taught protocol, especially emulsion lipid test, is not verified by AQA practical sources.",
+    "P0 holds must remain on all 143 original and all 99 structured IDs, including Safari receipt and Daily/Mastery aliases."
+  ],
+  "items": [
+    {
+      "ordinal": 1,
+      "sourceId": "bio-y8-food-tests-iodine-solution-mc",
+      "format": "mc_single",
+      "sourceStem": "Which scientific term matches this description: the reagent used to test for starch?",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "scienceKey": "PASS",
+        "oneBestAnswer": "PASS",
+        "revisedStem": null
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 2,
+      "sourceId": "bio-y8-food-tests-iodine-solution-name",
+      "format": "typed_exact",
+      "sourceStem": "Name the scientific term: the reagent used to test for starch.",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "details": {
+        "scienceTarget": "PASS",
+        "acceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+        "overAbsoluteNegativeVariants": []
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 3,
+      "sourceId": "bio-y8-food-tests-iodine-solution-explain",
+      "format": "mark_points",
+      "sourceStem": "In Food tests and laboratory safety, state the precise Year 8 meaning, role or function of iodine solution.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 1,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 4,
+      "sourceId": "bio-y8-food-tests-benedict-s-solution-mc",
+      "format": "mc_single",
+      "sourceStem": "Which scientific term matches this description: the reagent heated in a water bath to test for reducing sugar?",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "scienceKey": "PASS",
+        "oneBestAnswer": "PASS",
+        "revisedStem": null
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 5,
+      "sourceId": "bio-y8-food-tests-benedict-s-solution-name",
+      "format": "typed_exact",
+      "sourceStem": "Name the scientific term: the reagent heated in a water bath to test for reducing sugar.",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "details": {
+        "scienceTarget": "PASS",
+        "acceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+        "overAbsoluteNegativeVariants": []
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 6,
+      "sourceId": "bio-y8-food-tests-benedict-s-solution-explain",
+      "format": "mark_points",
+      "sourceStem": "In Food tests and laboratory safety, state the precise Year 8 meaning, role or function of Benedict's solution.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 1,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 7,
+      "sourceId": "bio-y8-food-tests-biuret-solution-mc",
+      "format": "mc_single",
+      "sourceStem": "Which scientific term matches this description: the reagent used to test for protein?",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "scienceKey": "PASS",
+        "oneBestAnswer": "PASS",
+        "revisedStem": null
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 8,
+      "sourceId": "bio-y8-food-tests-biuret-solution-name",
+      "format": "typed_exact",
+      "sourceStem": "Name the scientific term: the reagent used to test for protein.",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "details": {
+        "scienceTarget": "PASS",
+        "acceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+        "overAbsoluteNegativeVariants": []
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 9,
+      "sourceId": "bio-y8-food-tests-biuret-solution-explain",
+      "format": "mark_points",
+      "sourceStem": "In Food tests and laboratory safety, state the precise Year 8 meaning, role or function of Biuret solution.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 1,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 10,
+      "sourceId": "bio-y8-food-tests-ethanol-emulsion-test-mc",
+      "format": "mc_single",
+      "sourceStem": "Which scientific term matches this description: the lipid test in which ethanol is shaken with the sample before water is added?",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "scienceKey": "PASS",
+        "oneBestAnswer": "PASS",
+        "revisedStem": null
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 11,
+      "sourceId": "bio-y8-food-tests-ethanol-emulsion-test-name",
+      "format": "typed_exact",
+      "sourceStem": "Name the scientific term: the lipid test in which ethanol is shaken with the sample before water is added.",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "details": {
+        "scienceTarget": "PASS",
+        "acceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+        "overAbsoluteNegativeVariants": []
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 12,
+      "sourceId": "bio-y8-food-tests-ethanol-emulsion-test-explain",
+      "format": "mark_points",
+      "sourceStem": "In Food tests and laboratory safety, state the precise Year 8 meaning, role or function of ethanol emulsion test.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 1,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 13,
+      "sourceId": "bio-y8-food-tests-blue-black-mc",
+      "format": "mc_single",
+      "sourceStem": "Which scientific term matches this description: the positive colour for starch after iodine is added?",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "scienceKey": "PASS",
+        "oneBestAnswer": "PASS",
+        "revisedStem": null
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 14,
+      "sourceId": "bio-y8-food-tests-blue-black-name",
+      "format": "typed_exact",
+      "sourceStem": "Name the scientific term: the positive colour for starch after iodine is added.",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "details": {
+        "scienceTarget": "PASS",
+        "acceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+        "overAbsoluteNegativeVariants": []
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 15,
+      "sourceId": "bio-y8-food-tests-blue-black-explain",
+      "format": "mark_points",
+      "sourceStem": "In Food tests and laboratory safety, state the precise Year 8 meaning, role or function of blue-black.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 1,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 16,
+      "sourceId": "bio-y8-food-tests-brick-red-mc",
+      "format": "mc_single",
+      "sourceStem": "Which scientific term matches this description: a strong positive Benedict's result for reducing sugar after heating?",
+      "originalContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "scienceKey": "PASS",
+        "oneBestAnswer": "NEEDS_SPECIFIC_STRENGTH_WORDING",
+        "revisedStem": "Which colour is the strongest commonly described positive result in a heated Benedict's test for reducing sugar?"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 17,
+      "sourceId": "bio-y8-food-tests-brick-red-name",
+      "format": "typed_exact",
+      "sourceStem": "Name the scientific term: a strong positive Benedict's result for reducing sugar after heating.",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "details": {
+        "scienceTarget": "PASS",
+        "acceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+        "overAbsoluteNegativeVariants": []
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 18,
+      "sourceId": "bio-y8-food-tests-brick-red-explain",
+      "format": "mark_points",
+      "sourceStem": "In Food tests and laboratory safety, state the precise Year 8 meaning, role or function of brick-red.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 1,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 19,
+      "sourceId": "bio-y8-food-tests-lilac-or-purple-mc",
+      "format": "mc_single",
+      "sourceStem": "Which scientific term matches this description: the positive colour produced by protein in the Biuret test?",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "scienceKey": "PASS",
+        "oneBestAnswer": "PASS",
+        "revisedStem": null
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 20,
+      "sourceId": "bio-y8-food-tests-lilac-or-purple-name",
+      "format": "typed_exact",
+      "sourceStem": "Name the scientific term: the positive colour produced by protein in the Biuret test.",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "details": {
+        "scienceTarget": "PASS",
+        "acceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+        "overAbsoluteNegativeVariants": []
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 21,
+      "sourceId": "bio-y8-food-tests-lilac-or-purple-explain",
+      "format": "mark_points",
+      "sourceStem": "In Food tests and laboratory safety, state the precise Year 8 meaning, role or function of lilac or purple.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 1,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 22,
+      "sourceId": "bio-y8-food-tests-cloudy-white-emulsion-mc",
+      "format": "mc_single",
+      "sourceStem": "Which scientific term matches this description: the positive result for lipid in the ethanol emulsion test?",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "scienceKey": "PASS",
+        "oneBestAnswer": "PASS",
+        "revisedStem": null
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 23,
+      "sourceId": "bio-y8-food-tests-cloudy-white-emulsion-name",
+      "format": "typed_exact",
+      "sourceStem": "Name the scientific term: the positive result for lipid in the ethanol emulsion test.",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "details": {
+        "scienceTarget": "PASS",
+        "acceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+        "overAbsoluteNegativeVariants": []
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 24,
+      "sourceId": "bio-y8-food-tests-cloudy-white-emulsion-explain",
+      "format": "mark_points",
+      "sourceStem": "In Food tests and laboratory safety, state the precise Year 8 meaning, role or function of cloudy white emulsion.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 1,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 25,
+      "sourceId": "bio-y8-food-tests-water-bath-mc",
+      "format": "mc_single",
+      "sourceStem": "Which scientific term matches this description: a container of hot water used to heat Benedict's test evenly and safely.",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "scienceKey": "PASS",
+        "oneBestAnswer": "PASS",
+        "revisedStem": null
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 26,
+      "sourceId": "bio-y8-food-tests-water-bath-name",
+      "format": "typed_exact",
+      "sourceStem": "Name the scientific term: a container of hot water used to heat Benedict's test evenly and safely.",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "details": {
+        "scienceTarget": "PASS",
+        "acceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+        "overAbsoluteNegativeVariants": []
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 27,
+      "sourceId": "bio-y8-food-tests-water-bath-explain",
+      "format": "mark_points",
+      "sourceStem": "State two points about a water bath in food tests: what it is used for, and whether the ethanol emulsion test heats ethanol.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 28,
+      "sourceId": "bio-y8-match-food-tests-food-test-reagents-1",
+      "format": "matching",
+      "sourceStem": "Match each food test reagents term to its precise meaning or role.",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "details": {
+        "sciencePairMaps": "4_OF_4_PASS",
+        "actualPairwiseScoringStatus": "MATCHING_SCORER_MUST_BE_VERIFIED_ON_THIS_SOURCE_ID"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 29,
+      "sourceId": "bio-y8-match-food-tests-food-test-results-1",
+      "format": "matching",
+      "sourceStem": "Match each food test results term to its precise meaning or role.",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "details": {
+        "sciencePairMaps": "4_OF_4_PASS",
+        "actualPairwiseScoringStatus": "MATCHING_SCORER_MUST_BE_VERIFIED_ON_THIS_SOURCE_ID"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 30,
+      "sourceId": "bio-y8-app-benedicts-method",
+      "format": "mark_points",
+      "sourceStem": "Describe the Benedict's test for reducing sugar, including the positive result.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 3,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 31,
+      "sourceId": "bio-y8-app-food-test-match",
+      "format": "matching",
+      "sourceStem": "Match each nutrient to its food-test reagent and positive result. Award one mark for each complete pairing (4 marks).",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "details": {
+        "sciencePairMaps": "4_OF_4_PASS",
+        "actualPairwiseScoringStatus": "0_TO_4_SCORE_VERIFIED_IN_BOTH_QUIZ_BUNDLES"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 32,
+      "sourceId": "bio-y8-app-iodine-negative",
+      "format": "typed_short",
+      "sourceStem": "A food sample stays orange-brown after iodine is added. State the conclusion.",
+      "originalContentDisposition": "REVISE_ORIGINAL_ACCEPTED_MARK_SCHEME",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "details": {
+        "scienceTarget": "PASS",
+        "acceptedListVerdict": "REVISE_OVERABSOLUTE_NEGATIVE_WORDING",
+        "overAbsoluteNegativeVariants": [
+          "no starch is present",
+          "starch is not present",
+          "starch is absent",
+          "no starch present"
+        ]
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 33,
+      "sourceId": "bio-y8-app-ethanol-safety",
+      "format": "mark_points",
+      "sourceStem": "Explain why ethanol must not be heated over a naked flame, and state how the ethanol emulsion test is carried out.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 34,
+      "sourceId": "bio-y8-food-tests-case-20261025-1-1",
+      "format": "mc_single",
+      "sourceStem": "During a practical, Sample F1-01 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "sourceResultKey": "SCIENCE_PASS",
+        "proposedStemVerdict": "AI_QA_REVISED_CONTENT_PASS",
+        "proposedStem": "During a practical, Sample F1-01 has these results: iodine blue-black; heated Benedict's green precipitate; Biuret lilac; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 35,
+      "sourceId": "bio-y8-food-tests-case-20261025-1-2",
+      "format": "mc_single",
+      "sourceStem": "During a practical, Sample F1-02 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "sourceResultKey": "SCIENCE_PASS",
+        "proposedStemVerdict": "AI_QA_REVISED_CONTENT_PASS",
+        "proposedStem": "During a practical, Sample F1-02 has these results: iodine orange-brown; heated Benedict's yellow precipitate; Biuret purple; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 36,
+      "sourceId": "bio-y8-food-tests-case-20261025-1-3",
+      "format": "mc_single",
+      "sourceStem": "During a practical, Sample F1-03 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "sourceResultKey": "SCIENCE_PASS",
+        "proposedStemVerdict": "AI_QA_REVISED_CONTENT_PASS",
+        "proposedStem": "During a practical, Sample F1-03 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 37,
+      "sourceId": "bio-y8-food-tests-case-20261025-1-4",
+      "format": "mc_single",
+      "sourceStem": "During a practical, Sample F1-04 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "sourceResultKey": "SCIENCE_PASS",
+        "proposedStemVerdict": "AI_QA_REVISED_CONTENT_PASS",
+        "proposedStem": "During a practical, Sample F1-04 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret purple; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 38,
+      "sourceId": "bio-y8-food-tests-case-20261025-1-5",
+      "format": "mc_single",
+      "sourceStem": "During a practical, Sample F1-05 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "sourceResultKey": "SCIENCE_PASS",
+        "proposedStemVerdict": "AI_QA_REVISED_CONTENT_PASS",
+        "proposedStem": "During a practical, Sample F1-05 has these results: iodine blue-black; heated Benedict's orange precipitate; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 39,
+      "sourceId": "bio-y8-food-tests-case-20261025-1-6",
+      "format": "mc_single",
+      "sourceStem": "During a practical, Sample F1-06 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "sourceResultKey": "SCIENCE_PASS",
+        "proposedStemVerdict": "AI_QA_REVISED_CONTENT_PASS",
+        "proposedStem": "During a practical, Sample F1-06 has these results: iodine orange-brown; heated Benedict's brick-red precipitate; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 40,
+      "sourceId": "bio-y8-food-tests-case-20261025-1-7",
+      "format": "mc_single",
+      "sourceStem": "During a practical, Sample F1-07 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "sourceResultKey": "SCIENCE_PASS",
+        "proposedStemVerdict": "AI_QA_REVISED_CONTENT_PASS",
+        "proposedStem": "During a practical, Sample F1-07 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 41,
+      "sourceId": "bio-y8-food-tests-case-20261025-1-8",
+      "format": "mc_single",
+      "sourceStem": "During a practical, Sample F1-08 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "sourceResultKey": "SCIENCE_PASS",
+        "proposedStemVerdict": "AI_QA_REVISED_CONTENT_PASS",
+        "proposedStem": "During a practical, Sample F1-08 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 42,
+      "sourceId": "bio-y8-food-tests-case-20261025-1-9",
+      "format": "mc_single",
+      "sourceStem": "During a practical, Sample F1-09 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "sourceResultKey": "SCIENCE_PASS",
+        "proposedStemVerdict": "AI_QA_REVISED_CONTENT_PASS",
+        "proposedStem": "During a practical, Sample F1-09 has these results: iodine blue-black; heated Benedict's green precipitate; Biuret lilac; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 43,
+      "sourceId": "bio-y8-food-tests-case-20261025-1-10",
+      "format": "mc_single",
+      "sourceStem": "During a practical, Sample F1-10 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "sourceResultKey": "SCIENCE_PASS",
+        "proposedStemVerdict": "AI_QA_REVISED_CONTENT_PASS",
+        "proposedStem": "During a practical, Sample F1-10 has these results: iodine orange-brown; heated Benedict's yellow precipitate; Biuret purple; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 44,
+      "sourceId": "bio-y8-food-tests-case-20261025-1-11",
+      "format": "mc_single",
+      "sourceStem": "During a practical, Sample F1-11 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "sourceResultKey": "SCIENCE_PASS",
+        "proposedStemVerdict": "AI_QA_REVISED_CONTENT_PASS",
+        "proposedStem": "During a practical, Sample F1-11 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 45,
+      "sourceId": "bio-y8-food-tests-case-20261025-1-12",
+      "format": "mc_single",
+      "sourceStem": "During a practical, Sample F1-12 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "sourceResultKey": "SCIENCE_PASS",
+        "proposedStemVerdict": "AI_QA_REVISED_CONTENT_PASS",
+        "proposedStem": "During a practical, Sample F1-12 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret purple; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 46,
+      "sourceId": "bio-y8-food-tests-case-20261025-1-13",
+      "format": "mc_single",
+      "sourceStem": "During a practical, Sample F1-13 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "sourceResultKey": "SCIENCE_PASS",
+        "proposedStemVerdict": "AI_QA_REVISED_CONTENT_PASS",
+        "proposedStem": "During a practical, Sample F1-13 has these results: iodine blue-black; heated Benedict's orange precipitate; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 47,
+      "sourceId": "bio-y8-food-tests-case-20261025-1-14",
+      "format": "mc_single",
+      "sourceStem": "During a practical, Sample F1-14 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "sourceResultKey": "SCIENCE_PASS",
+        "proposedStemVerdict": "AI_QA_REVISED_CONTENT_PASS",
+        "proposedStem": "During a practical, Sample F1-14 has these results: iodine orange-brown; heated Benedict's brick-red precipitate; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 48,
+      "sourceId": "bio-y8-food-tests-case-20261025-1-15",
+      "format": "mc_single",
+      "sourceStem": "During a practical, Sample F1-15 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "sourceResultKey": "SCIENCE_PASS",
+        "proposedStemVerdict": "AI_QA_REVISED_CONTENT_PASS",
+        "proposedStem": "During a practical, Sample F1-15 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 49,
+      "sourceId": "bio-y8-food-tests-case-20261025-1-16",
+      "format": "mc_single",
+      "sourceStem": "During a practical, Sample F1-16 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "details": {
+        "sourceResultKey": "SCIENCE_PASS",
+        "proposedStemVerdict": "AI_QA_REVISED_CONTENT_PASS",
+        "proposedStem": "During a practical, Sample F1-16 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 50,
+      "sourceId": "bio-y8-food-tests-case-20261025-2-1",
+      "format": "mc_single",
+      "sourceStem": "In an independent food-sample assessment, Sample F2-01 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "Iodine remains orange-brown in one fresh portion of a drink, but a separate portion gives an orange precipitate after heating with Benedict's. Which conclusion is justified?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 51,
+      "sourceId": "bio-y8-food-tests-case-20261025-2-2",
+      "format": "mc_single",
+      "sourceStem": "In an independent food-sample assessment, Sample F2-02 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "Biuret reagent turns lilac in a sample, while heated Benedict's solution stays blue. Which statement is supported?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 52,
+      "sourceId": "bio-y8-food-tests-case-20261025-2-3",
+      "format": "mc_single",
+      "sourceStem": "In an independent food-sample assessment, Sample F2-03 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "An extract is tested with iodine and Biuret: iodine becomes blue-black and Biuret turns lilac. No other tests are done. What can be concluded?",
+        "crossPoolOverlapPresent": false
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 53,
+      "sourceId": "bio-y8-food-tests-case-20261025-2-4",
+      "format": "mc_single",
+      "sourceStem": "In an independent food-sample assessment, Sample F2-04 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "A food extract gives a green Benedict's result after the prescribed water-bath heating; the water blank remains blue. How should this be recorded?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 54,
+      "sourceId": "bio-y8-food-tests-case-20261025-2-5",
+      "format": "mc_single",
+      "sourceStem": "In an independent food-sample assessment, Sample F2-05 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "A known glucose positive-control sample remains blue with Benedict's solution after the heating stage. Which is the safest scientific interpretation?",
+        "crossPoolOverlapPresent": false
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 55,
+      "sourceId": "bio-y8-food-tests-case-20261025-2-6",
+      "format": "mc_single",
+      "sourceStem": "In an independent food-sample assessment, Sample F2-06 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "Distilled water turns lilac with Biuret reagent in the same batch used to test a food. What should happen before trusting the food result?",
+        "crossPoolOverlapPresent": false
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 56,
+      "sourceId": "bio-y8-food-tests-case-20261025-2-7",
+      "format": "mc_single",
+      "sourceStem": "In an independent food-sample assessment, Sample F2-07 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "In a two-stage ethanol-then-water emulsion test, a seed's ethanol extract is already cloudy before it is added to water. What does that observation establish?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 57,
+      "sourceId": "bio-y8-food-tests-case-20261025-2-8",
+      "format": "mc_single",
+      "sourceStem": "In an independent food-sample assessment, Sample F2-08 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "A clear ethanol extract becomes cloudy white when added to water, while a correctly prepared ethanol-water blank stays clear. What is supported?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 58,
+      "sourceId": "bio-y8-food-tests-case-20261025-2-9",
+      "format": "mc_single",
+      "sourceStem": "In an independent food-sample assessment, Sample F2-09 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "A purple Biuret result is seen, but the pupil never performs an iodine test. Which statement would overreach the evidence?",
+        "crossPoolOverlapPresent": false
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 59,
+      "sourceId": "bio-y8-food-tests-case-20261025-2-10",
+      "format": "mc_single",
+      "sourceStem": "In an independent food-sample assessment, Sample F2-10 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "A clean water blank unexpectedly becomes blue-black when iodine is added. What is the best response?",
+        "crossPoolOverlapPresent": false
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 60,
+      "sourceId": "bio-y8-food-tests-case-20261025-2-11",
+      "format": "mc_single",
+      "sourceStem": "In an independent food-sample assessment, Sample F2-11 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "Iodine stays orange-brown in a known starch positive-control solution. What can the pupil conclude about unknown negative-looking tubes?",
+        "crossPoolOverlapPresent": false
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 61,
+      "sourceId": "bio-y8-food-tests-case-20261025-2-12",
+      "format": "mc_single",
+      "sourceStem": "In an independent food-sample assessment, Sample F2-12 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "A food remains blue in the Biuret test, while an egg-white positive control turns purple. What is the cautious conclusion?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 62,
+      "sourceId": "bio-y8-food-tests-case-20261025-2-13",
+      "format": "mc_single",
+      "sourceStem": "In an independent food-sample assessment, Sample F2-13 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "After suitable heating, the distilled-water Benedict's blank turns orange. Why is interpreting the food tubes risky?",
+        "crossPoolOverlapPresent": false
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 63,
+      "sourceId": "bio-y8-food-tests-case-20261025-2-14",
+      "format": "mc_single",
+      "sourceStem": "In an independent food-sample assessment, Sample F2-14 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "A pupil heats a Benedict's tube for much less time than the working glucose control and it stays blue. Which conclusion is justified?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 64,
+      "sourceId": "bio-y8-food-tests-case-20261025-2-15",
+      "format": "mc_single",
+      "sourceStem": "In an independent food-sample assessment, Sample F2-15 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "A properly heated Benedict's test gives yellow precipitate. A separate, correctly performed emulsion test stays clear. Which statement is supported?",
+        "crossPoolOverlapPresent": false
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 65,
+      "sourceId": "bio-y8-food-tests-case-20261025-2-16",
+      "format": "mc_single",
+      "sourceStem": "In an independent food-sample assessment, Sample F2-16 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "Iodine, heated Benedict's and Biuret tests are negative. The ethanol emulsion test is not performed. Which conclusion is NOT justified?",
+        "crossPoolOverlapPresent": false
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 66,
+      "sourceId": "bio-y8-food-tests-case-20261025-3-1",
+      "format": "mc_single",
+      "sourceStem": "A pupil checks four substances in an unknown extract. Sample F3-01 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "When comparing iodine tests on samples taken from two different bread types, which control makes the comparison fairer?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 67,
+      "sourceId": "bio-y8-food-tests-case-20261025-3-2",
+      "format": "mc_single",
+      "sourceStem": "A pupil checks four substances in an unknown extract. Sample F3-02 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "Two food extracts are compared by heating each with Benedict's solution. Which reagent condition should be controlled?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 68,
+      "sourceId": "bio-y8-food-tests-case-20261025-3-3",
+      "format": "mc_single",
+      "sourceStem": "A pupil checks four substances in an unknown extract. Sample F3-03 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "Two equal-volume portions of the same glucose solution are heated with equal Benedict's reagent in water baths at different temperatures. Which adjustment gives the fairest comparison of reducing-sugar results?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 69,
+      "sourceId": "bio-y8-food-tests-case-20261025-3-4",
+      "format": "mc_single",
+      "sourceStem": "A pupil checks four substances in an unknown extract. Sample F3-04 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "Two equal-volume food extracts are compared using the final colour after five minutes in the same Benedict's water bath. One tube was removed after 30 seconds and the other after five minutes. What should the pupil change for a fair comparison of final colours?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 70,
+      "sourceId": "bio-y8-food-tests-case-20261025-3-5",
+      "format": "mc_single",
+      "sourceStem": "A pupil checks four substances in an unknown extract. Sample F3-05 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "A technician compares two fruit juices for reducing sugar. Which volume should be kept equal when loading the test tubes?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 71,
+      "sourceId": "bio-y8-food-tests-case-20261025-3-6",
+      "format": "mc_single",
+      "sourceStem": "A pupil checks four substances in an unknown extract. Sample F3-06 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "A food gives a faint starch colour in one iodine trial. Which design best tests repeatability?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 72,
+      "sourceId": "bio-y8-food-tests-case-20261025-3-7",
+      "format": "mc_single",
+      "sourceStem": "A pupil checks four substances in an unknown extract. Sample F3-07 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "A purple berry extract is already purple before Biuret reagent is added. It stays purple after the reagent is mixed in. What is the most justified interpretation?",
+        "crossPoolOverlapPresent": false
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 73,
+      "sourceId": "bio-y8-food-tests-case-20261025-3-8",
+      "format": "mc_single",
+      "sourceStem": "A pupil checks four substances in an unknown extract. Sample F3-08 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "Which material is the most useful positive control for testing whether Biuret reagent works?",
+        "crossPoolOverlapPresent": false
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 74,
+      "sourceId": "bio-y8-food-tests-case-20261025-3-9",
+      "format": "mc_single",
+      "sourceStem": "A pupil checks four substances in an unknown extract. Sample F3-09 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "To confirm that iodine reagent can detect starch, which positive-control sample should be used?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 75,
+      "sourceId": "bio-y8-food-tests-case-20261025-3-10",
+      "format": "mc_single",
+      "sourceStem": "A pupil checks four substances in an unknown extract. Sample F3-10 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "Which negative control should remain orange-brown when iodine is added?",
+        "crossPoolOverlapPresent": false
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 76,
+      "sourceId": "bio-y8-food-tests-case-20261025-3-11",
+      "format": "mc_single",
+      "sourceStem": "A pupil checks four substances in an unknown extract. Sample F3-11 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "To check that the heated Benedict's test is working, what makes a good positive control?",
+        "crossPoolOverlapPresent": false
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 77,
+      "sourceId": "bio-y8-food-tests-case-20261025-3-12",
+      "format": "mc_single",
+      "sourceStem": "A pupil checks four substances in an unknown extract. Sample F3-12 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "Which negative control should normally remain blue after suitable heating with Benedict's solution?",
+        "crossPoolOverlapPresent": false
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 78,
+      "sourceId": "bio-y8-food-tests-case-20261025-3-13",
+      "format": "mc_single",
+      "sourceStem": "A pupil checks four substances in an unknown extract. Sample F3-13 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "For a two-stage ethanol-extraction-then-water emulsion test, which material can serve as a positive lipid control?",
+        "crossPoolOverlapPresent": false
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 79,
+      "sourceId": "bio-y8-food-tests-case-20261025-3-14",
+      "format": "mc_single",
+      "sourceStem": "A pupil checks four substances in an unknown extract. Sample F3-14 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "Which properly prepared negative control is most appropriate for the ethanol emulsion test?",
+        "crossPoolOverlapPresent": false
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 80,
+      "sourceId": "bio-y8-food-tests-case-20261025-3-15",
+      "format": "mc_single",
+      "sourceStem": "A pupil checks four substances in an unknown extract. Sample F3-15 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "The teacher labels four clear sample extracts A–D before adding reagents. Why is this especially important?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 81,
+      "sourceId": "bio-y8-food-tests-case-20261025-3-16",
+      "format": "mc_single",
+      "sourceStem": "A pupil checks four substances in an unknown extract. Sample F3-16 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "A pipette has just transferred a glucose solution. Why use a clean pipette for a supposed sugar-free sample?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 82,
+      "sourceId": "bio-y8-food-tests-case-20261025-4-1",
+      "format": "mc_single",
+      "sourceStem": "A laboratory technician checks an unknown food mixture. Sample F4-01 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "After an ethanol emulsion test, a pupil leaves a working ethanol bottle uncapped beside a warm water bath, although the Bunsen flame has been extinguished. What should the pupil do next?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 83,
+      "sourceId": "bio-y8-food-tests-case-20261025-4-2",
+      "format": "mc_single",
+      "sourceStem": "A laboratory technician checks an unknown food mixture. Sample F4-02 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "A pupil proposes heating an ethanol-food mixture to make the emulsion form faster. Which correction is best?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 84,
+      "sourceId": "bio-y8-food-tests-case-20261025-4-3",
+      "format": "mc_single",
+      "sourceStem": "A laboratory technician checks an unknown food mixture. Sample F4-03 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "For Benedict's test, why use a hot-water bath rather than heating the bottom of a test tube over a direct flame?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 85,
+      "sourceId": "bio-y8-food-tests-case-20261025-4-4",
+      "format": "mc_single",
+      "sourceStem": "A laboratory technician checks an unknown food mixture. Sample F4-04 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "A pupil needs to remove a tube after heating Benedict's reagent. Which action reduces burn risk?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 86,
+      "sourceId": "bio-y8-food-tests-case-20261025-4-5",
+      "format": "mc_single",
+      "sourceStem": "A laboratory technician checks an unknown food mixture. Sample F4-05 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "Which direction should the open end of a heated Benedict's test tube face?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 87,
+      "sourceId": "bio-y8-food-tests-case-20261025-4-6",
+      "format": "mc_single",
+      "sourceStem": "A laboratory technician checks an unknown food mixture. Sample F4-06 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "What PPE protects the eyes when working with Benedict's, Biuret and ethanol reagents?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 88,
+      "sourceId": "bio-y8-food-tests-case-20261025-4-7",
+      "format": "mc_single",
+      "sourceStem": "A laboratory technician checks an unknown food mixture. Sample F4-07 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "An unknown food extract has just been tested with laboratory reagents. Why must it never be tasted?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 89,
+      "sourceId": "bio-y8-food-tests-case-20261025-4-8",
+      "format": "mc_single",
+      "sourceStem": "A laboratory technician checks an unknown food mixture. Sample F4-08 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "How should a pupil transfer reagent into a tube during a food-test practical?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 90,
+      "sourceId": "bio-y8-food-tests-case-20261025-4-9",
+      "format": "mc_single",
+      "sourceStem": "A laboratory technician checks an unknown food mixture. Sample F4-09 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "Ethanol is spilled near the bench during the emulsion test. What is the safest immediate response?",
+        "crossPoolOverlapPresent": false
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 91,
+      "sourceId": "bio-y8-food-tests-case-20261025-4-10",
+      "format": "mc_single",
+      "sourceStem": "A laboratory technician checks an unknown food mixture. Sample F4-10 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "A properly heated Benedict's test remains blue. What conclusion would be too strong even with good controls?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 92,
+      "sourceId": "bio-y8-food-tests-case-20261025-4-11",
+      "format": "mc_single",
+      "sourceStem": "A laboratory technician checks an unknown food mixture. Sample F4-11 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "A pupil repeats a heated Benedict's test on three equal portions of the same well-mixed juice using identical reagent volumes, bath temperature and heating time. Two tubes turn orange, but one remains blue. What should the pupil do?",
+        "crossPoolOverlapPresent": false
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 93,
+      "sourceId": "bio-y8-food-tests-case-20261025-4-12",
+      "format": "mc_single",
+      "sourceStem": "A laboratory technician checks an unknown food mixture. Sample F4-12 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "An unknown sample gives four negative food tests while positive and negative controls behave correctly. Which conclusion is justified?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 94,
+      "sourceId": "bio-y8-food-tests-case-20261025-4-13",
+      "format": "mc_single",
+      "sourceStem": "A laboratory technician checks an unknown food mixture. Sample F4-13 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "A snack tests positive for protein and reducing sugar. Why is this insufficient to conclude that including it automatically makes someone's diet balanced?",
+        "crossPoolOverlapPresent": true
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 95,
+      "sourceId": "bio-y8-food-tests-case-20261025-4-14",
+      "format": "mc_single",
+      "sourceStem": "A laboratory technician checks an unknown food mixture. Sample F4-14 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "Using a two-stage ethanol-then-water emulsion test, a pupil compares lipid-test cloudiness from two seed extracts prepared in the same way. One clear ethanol extract is added to 2 mL of water and the other to 10 mL. Which criticism is most valid?",
+        "crossPoolOverlapPresent": false
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 96,
+      "sourceId": "bio-y8-food-tests-case-20261025-4-15",
+      "format": "mc_single",
+      "sourceStem": "A laboratory technician checks an unknown food mixture. Sample F4-15 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "A packaged drink is advertised as sweet, but the iodine test stays orange-brown. Which statement is justified?",
+        "crossPoolOverlapPresent": false
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 97,
+      "sourceId": "bio-y8-food-tests-case-20261025-4-16",
+      "format": "mc_single",
+      "sourceStem": "A laboratory technician checks an unknown food mixture. Sample F4-16 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "originalContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "details": {
+        "replacementScienceKey": "AI_CONTENT_PASS",
+        "candidateStem": "Biuret reagent turns lilac when added to a food extract. Which claim goes beyond what this one test can establish?",
+        "crossPoolOverlapPresent": false
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 98,
+      "sourceId": "bio-y8-food-tests-application-20261025-sample-separation",
+      "format": "mark_points",
+      "sourceStem": "A pupil plans to test a drink for starch and reducing sugar. Explain why two separate portions of the drink should be used.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 99,
+      "sourceId": "bio-y8-food-tests-application-20261025-iodine-repeat",
+      "format": "mark_points",
+      "sourceStem": "Two iodine tests on the same food disagree. Suggest two actions to improve the reliability of the results.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 100,
+      "sourceId": "bio-y8-food-tests-application-20261025-benedict-no-heat",
+      "format": "mark_points",
+      "sourceStem": "A pupil adds Benedict's reagent to a glucose solution but leaves it cold. Explain why the result cannot be considered a valid negative.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 101,
+      "sourceId": "bio-y8-food-tests-application-20261025-negative-sugar",
+      "format": "mark_points",
+      "sourceStem": "After heating with Benedict's reagent, a drink remains blue. State the observation and what it means.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 102,
+      "sourceId": "bio-y8-food-tests-application-20261025-positive-sugar",
+      "format": "mark_points",
+      "sourceStem": "A heated food mixture changes Benedict's solution from blue to orange. Explain the conclusion.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 103,
+      "sourceId": "bio-y8-food-tests-application-20261025-biuret-control",
+      "format": "mark_points",
+      "sourceStem": "A pupil tests an unknown food extract with Biuret reagent. What control sample could they use and why?",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 104,
+      "sourceId": "bio-y8-food-tests-application-20261025-iodine-control",
+      "format": "mark_points",
+      "sourceStem": "Describe a suitable positive control for an iodine test and explain the expected colour.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 105,
+      "sourceId": "bio-y8-food-tests-application-20261025-repeatability",
+      "format": "mark_points",
+      "sourceStem": "The same food sample is tested three times for reducing sugar. Give two conditions that must remain the same.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 106,
+      "sourceId": "bio-y8-food-tests-application-20261025-cross-contamination",
+      "format": "mark_points",
+      "sourceStem": "A pupil uses the same unwashed pipette in all four food tests. Explain two ways this could affect their conclusions.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 107,
+      "sourceId": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages",
+      "format": "mark_points",
+      "sourceStem": "Explain the correct sequence for testing an unknown food for lipids using ethanol.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 108,
+      "sourceId": "bio-y8-food-tests-application-20261025-ethanol-ventilation",
+      "format": "mark_points",
+      "sourceStem": "State two safety precautions when carrying out an ethanol emulsion test.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 109,
+      "sourceId": "bio-y8-food-tests-application-20261025-benedict-hot-tube",
+      "format": "mark_points",
+      "sourceStem": "Explain why a pupil should use a test-tube holder and point the tube away from others when heating Benedict's test.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 110,
+      "sourceId": "bio-y8-food-tests-application-20261025-protein-extraction",
+      "format": "mark_points",
+      "sourceStem": "Before using Biuret reagent on a solid food, explain why the food may need to be crushed and mixed with water.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 111,
+      "sourceId": "bio-y8-food-tests-application-20261025-starch-extraction",
+      "format": "mark_points",
+      "sourceStem": "A pupil crushes a potato sample before adding iodine. Explain how this makes the test more effective.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 112,
+      "sourceId": "bio-y8-food-tests-application-20261025-fair-amount",
+      "format": "mark_points",
+      "sourceStem": "Two bread samples are compared using iodine. Explain why equal masses of each sample should be tested.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 113,
+      "sourceId": "bio-y8-food-tests-application-20261025-fair-reagent",
+      "format": "mark_points",
+      "sourceStem": "Two food extracts receive different volumes of Benedict's solution. Explain why this is a problem.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 114,
+      "sourceId": "bio-y8-food-tests-application-20261025-sugar-strength",
+      "format": "mark_points",
+      "sourceStem": "Two equal volumes of food extract are mixed with equal volumes of fresh Benedict's solution and heated for the same time in the same hot-water bath. One gives a green precipitate and the other a brick-red precipitate. Explain what this suggests about the relative reducing-sugar concentrations and one limitation of the comparison.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 115,
+      "sourceId": "bio-y8-food-tests-application-20261025-cloudy-not-protein",
+      "format": "mark_points",
+      "sourceStem": "After an emulsion test, the liquid becomes cloudy white. Explain why the pupil should not conclude the sample contains protein.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 116,
+      "sourceId": "bio-y8-food-tests-application-20261025-starch-vs-glucose",
+      "format": "mark_points",
+      "sourceStem": "A sample tests positive with iodine but negative with heated Benedict's. What two conclusions are supported?",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 117,
+      "sourceId": "bio-y8-food-tests-application-20261025-sugar-vs-starch",
+      "format": "mark_points",
+      "sourceStem": "A sample tests positive with Benedict's but iodine remains orange-brown. State two conclusions.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 118,
+      "sourceId": "bio-y8-food-tests-application-20261025-biuret-vs-sugar",
+      "format": "mark_points",
+      "sourceStem": "Biuret turns purple and heated Benedict's remains blue. State two justified conclusions.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 119,
+      "sourceId": "bio-y8-food-tests-application-20261025-lipid-vs-starch",
+      "format": "mark_points",
+      "sourceStem": "An emulsion turns cloudy white but iodine stays orange-brown. State two justified conclusions.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 120,
+      "sourceId": "bio-y8-food-tests-application-20261025-all-negative",
+      "format": "mark_points",
+      "sourceStem": "Positive and negative controls work correctly. An unknown sample gives negative results in the iodine, heated Benedict's, Biuret and ethanol emulsion tests. Explain what these results show and one limitation.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 121,
+      "sourceId": "bio-y8-food-tests-application-20261025-retest-ethanol",
+      "format": "mark_points",
+      "sourceStem": "The ethanol emulsion test is cloudy before water is added. Explain two reasons to repeat the test.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 122,
+      "sourceId": "bio-y8-food-tests-application-20261025-glassware",
+      "format": "mark_points",
+      "sourceStem": "Give two reasons to use clean labelled test tubes for four different food samples.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 123,
+      "sourceId": "bio-y8-food-tests-application-20261025-eyes",
+      "format": "mark_points",
+      "sourceStem": "A student splashes an unknown reagent near their eyes while testing food. Explain the role of two safety precautions.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 124,
+      "sourceId": "bio-y8-food-tests-application-20261025-heat-variable",
+      "format": "mark_points",
+      "sourceStem": "A pupil compares two sugar samples, heating one for 20 seconds and the other for 3 minutes. Why is the comparison unreliable?",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 125,
+      "sourceId": "bio-y8-food-tests-application-20261025-no-taste",
+      "format": "mark_points",
+      "sourceStem": "Explain why a pupil must not taste an unknown food sample during a food-test practical.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 126,
+      "sourceId": "bio-y8-food-tests-application-20261025-recording",
+      "format": "mark_points",
+      "sourceStem": "Describe two useful pieces of information to record in a results table for each food test.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 127,
+      "sourceId": "bio-y8-food-tests-application-20261025-inference",
+      "format": "mark_points",
+      "sourceStem": "A pupil writes 'this snack is healthy' after finding proteins and sugars. Explain why the claim is not supported by the tests alone.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 128,
+      "sourceId": "bio-y8-food-tests-application-20261025-weak-blueblack",
+      "format": "mark_points",
+      "sourceStem": "A pupil sees a faint blue-black colour with iodine. Suggest two scientifically sound actions before reporting the result.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 129,
+      "sourceId": "bio-y8-food-tests-application-20261025-temperature-safety",
+      "format": "mark_points",
+      "sourceStem": "Give two reasons for heating Benedict's mixture in a water bath instead of holding a test tube in a direct flame.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 130,
+      "sourceId": "bio-y8-food-tests-application-20261025-test-plan",
+      "format": "mark_points",
+      "sourceStem": "A food manufacturer wants to check whether a biscuit contains starch and fat. Name the two tests and a positive observation for each.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 131,
+      "sourceId": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat",
+      "format": "mark_points",
+      "sourceStem": "A sample turns Biuret reagent purple but produces no white emulsion. Explain both observations.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 132,
+      "sourceId": "bio-y8-food-tests-application-20261025-result-not-proof",
+      "format": "mark_points",
+      "sourceStem": "A reducing sugar test remains blue despite a pupil thinking the drink tastes sweet. Explain why the pupil should trust the chemical result cautiously.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 133,
+      "sourceId": "bio-y8-food-tests-application-20261025-wrong-reagent",
+      "format": "mark_points",
+      "sourceStem": "A pupil uses iodine to test an unknown drink for protein. Explain why this method cannot support the claim.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 134,
+      "sourceId": "bio-y8-food-tests-application-20261025-uncertain-emulsion",
+      "format": "mark_points",
+      "sourceStem": "A tube goes cloudy after ethanol and water, but the clean water control also goes cloudy. Explain the concern and a remedy.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 135,
+      "sourceId": "bio-y8-food-tests-application-20261025-iodine-no-heat",
+      "format": "mark_points",
+      "sourceStem": "A student heats iodine solution with the food sample before observing it. Explain why this step is unnecessary and suggest the correct method.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 136,
+      "sourceId": "bio-y8-food-tests-application-20261025-safe-bunsen",
+      "format": "mark_points",
+      "sourceStem": "Why should a Bunsen burner be extinguished before an ethanol emulsion test begins?",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 2,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 137,
+      "sourceId": "bio-y8-food-tests-application-20261025-unknown-analysis",
+      "format": "mark_points",
+      "sourceStem": "An unknown food gives a blue-black iodine test, purple Biuret, and a clear ethanol emulsion. State the three conclusions.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 3,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 138,
+      "sourceId": "bio-y8-food-tests-application-20261025-sugar-analysis",
+      "format": "mark_points",
+      "sourceStem": "Heated Benedict's turns orange but iodine remains orange-brown, and Biuret is blue. State all three conclusions.",
+      "originalContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "details": {
+        "proposedMCQPoints": 3,
+        "candidateContentScienceVerdict": "AI_CONTENT_PASS_PROVISIONAL",
+        "originalFreeEnglishMarking": "FAIL_104_CASE_FAIRNESS_DIAGNOSTIC"
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 139,
+      "sourceId": "bio-y8-food-tests-application-20261025-negative-biuret",
+      "format": "typed_short",
+      "sourceStem": "What colour is Biuret reagent when the test is negative for protein?",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "details": {
+        "scienceTarget": "PASS",
+        "acceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+        "overAbsoluteNegativeVariants": []
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 140,
+      "sourceId": "bio-y8-food-tests-application-20261025-negative-emulsion",
+      "format": "typed_short",
+      "sourceStem": "What does a clear ethanol-water mixture indicate in a properly performed emulsion test?",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "details": {
+        "scienceTarget": "PASS",
+        "acceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+        "overAbsoluteNegativeVariants": []
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 141,
+      "sourceId": "bio-y8-food-tests-application-20261025-positive-benedict",
+      "format": "typed_short",
+      "sourceStem": "Name a colour that shows a positive heated Benedict's test.",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "details": {
+        "scienceTarget": "PASS",
+        "acceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+        "overAbsoluteNegativeVariants": []
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 142,
+      "sourceId": "bio-y8-food-tests-application-20261025-starch-negative-colour",
+      "format": "typed_short",
+      "sourceStem": "In a negative iodine starch test, what colour should remain?",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "details": {
+        "scienceTarget": "PASS",
+        "acceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+        "overAbsoluteNegativeVariants": []
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    },
+    {
+      "ordinal": 143,
+      "sourceId": "bio-y8-food-tests-application-20261025-heating-method",
+      "format": "typed_short",
+      "sourceStem": "Which piece of laboratory equipment provides indirect heating for Benedict's test?",
+      "originalContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentReviewCompleted": true,
+      "scienceQaEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "details": {
+        "scienceTarget": "PASS",
+        "acceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
+        "overAbsoluteNegativeVariants": []
+      },
+      "independentQualifiedAcademicApproved": false,
+      "tgsYear8CurriculumApproved": false,
+      "technicalPlayerApproved": false,
+      "formalDailyMasteryCreditAllowed": false
+    }
+  ]
+}
