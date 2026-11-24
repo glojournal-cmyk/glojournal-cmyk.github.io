@@ -19,6 +19,9 @@ test('All 143 food test questions are held even when enabled',()=>{
  assert.equal(register.questionsRegister.filter(x=>x.approved||x.independentReviewerDecision!=='pending').length,0);
  for(const x of bank.questions){assert.equal(isFoodTestsQaHeld(x),true,x.id);assert.equal(canEarnFormalCredit(x),false,x.id);}
  assert.equal(isFoodTestsQaHeld({id:'future-food',topicId:FOOD_TESTS_QA_TOPIC}),true);
+ assert.equal(isFoodTestsQaHeld(FOOD_TESTS_QA_TOPIC),true);
+ assert.equal(canEarnFormalCredit(FOOD_TESTS_QA_TOPIC),false);
+ assert.equal(isFoodTestsQaHeld(FOOD_TESTS_QA_TOPIC+'::p1'),true);
  assert.equal(isFoodTestsQaHeld('unrelated-maths-item'),false);
 });
 test('Correct answer cannot create verified Food Tests Daily slot',()=>{
