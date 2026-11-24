@@ -3,14 +3,14 @@
   "date": "2026-11-24",
   "branch": "qa/p0-eligibility-2e556ff",
   "source": "content/topics/bio-y8-food-tests.json",
-  "status": "NO_IMPORT_INDEPENDENT_REVIEW_PENDING",
+  "status": "QA_DRAFT_CORRECTED_SINGLE_OBSERVATION_AND_COMPLETE_SET_UNAPPROVED",
   "originalSourceQuestions": 143,
   "retainedExampleCases": 16,
   "proposalCount": 16,
-  "changedStems": 12,
+  "changedStems": 16,
   "positiveBenedictObservationSamples": 8,
   "positiveBiuretObservationSamples": 8,
-  "reason": "A real individual sample has a single observed final Benedict colour and single observed Biuret colour. The original slash-delimited alternative colour strings are scientifically a set of possible positives, not one real observation.",
+  "reason": "A real individual sample has a single observed final Benedict colour and single observed Biuret colour. The original slash-delimited alternative colour strings are scientifically a set of possible positives, not one real observation. Also revised question demand from an ambiguous subset-compatible request to explicitly require the complete set of groups detected.",
   "methodNote": "Use suitable heated Benedict conditions; no exact nutrient concentration or quantitative ranking should be inferred from these colours. AQA examples are suggested methods, not TGS-specific evidence.",
   "sourceReference": "https://filestore.aqa.org.uk/resources/biology/AQA-8461-PRACTICALS-HB.PDF",
   "cannotBeImportOrCredit": true,
@@ -22,7 +22,7 @@
     {
       "sourceId": "bio-y8-food-tests-case-20261025-1-1",
       "sourcePrompt": "During a practical, Sample F1-01 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
-      "proposedPrompt": "During a practical, Sample F1-01 has these results: iodine blue-black; heated Benedict's green precipitate; Biuret lilac; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "proposedPrompt": "During a practical, Sample F1-01 has these results: iodine blue-black; heated Benedict's green precipitate; Biuret lilac; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
       "sourceAnswer": [
         "starch, reducing sugar, protein, lipid"
       ],
@@ -36,15 +36,17 @@
       "benedictObservation": "green",
       "biuretObservation": "lilac",
       "promptsEdited": true,
-      "academicReview": "PENDING",
+      "academicReview": "AI_CONTENT_QA_PENDING_FULL_OPTION_AUDIT",
       "scientificSoleKeyApproval": false,
       "tgsTaughtProtocolApproval": false,
-      "formalCreditEligible": false
+      "formalCreditEligible": false,
+      "uniquenessCorrection": "Ask for all-and-only detected groups; individual detected nutrient subsets cannot be counted as the fully correct answer.",
+      "questionDemand": "COMPLETE_DETECTED_SET"
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-1-2",
       "sourcePrompt": "During a practical, Sample F1-02 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
-      "proposedPrompt": "During a practical, Sample F1-02 has these results: iodine orange-brown; heated Benedict's yellow precipitate; Biuret purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "proposedPrompt": "During a practical, Sample F1-02 has these results: iodine orange-brown; heated Benedict's yellow precipitate; Biuret purple; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
       "sourceAnswer": [
         "reducing sugar, protein, lipid"
       ],
@@ -58,15 +60,17 @@
       "benedictObservation": "yellow",
       "biuretObservation": "purple",
       "promptsEdited": true,
-      "academicReview": "PENDING",
+      "academicReview": "AI_CONTENT_QA_PENDING_FULL_OPTION_AUDIT",
       "scientificSoleKeyApproval": false,
       "tgsTaughtProtocolApproval": false,
-      "formalCreditEligible": false
+      "formalCreditEligible": false,
+      "uniquenessCorrection": "Ask for all-and-only detected groups; individual detected nutrient subsets cannot be counted as the fully correct answer.",
+      "questionDemand": "COMPLETE_DETECTED_SET"
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-1-3",
       "sourcePrompt": "During a practical, Sample F1-03 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
-      "proposedPrompt": "During a practical, Sample F1-03 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "proposedPrompt": "During a practical, Sample F1-03 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
       "sourceAnswer": [
         "starch, protein, lipid"
       ],
@@ -80,15 +84,17 @@
       "benedictObservation": "remains blue",
       "biuretObservation": "lilac",
       "promptsEdited": true,
-      "academicReview": "PENDING",
+      "academicReview": "AI_CONTENT_QA_PENDING_FULL_OPTION_AUDIT",
       "scientificSoleKeyApproval": false,
       "tgsTaughtProtocolApproval": false,
-      "formalCreditEligible": false
+      "formalCreditEligible": false,
+      "uniquenessCorrection": "Ask for all-and-only detected groups; individual detected nutrient subsets cannot be counted as the fully correct answer.",
+      "questionDemand": "COMPLETE_DETECTED_SET"
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-1-4",
       "sourcePrompt": "During a practical, Sample F1-04 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
-      "proposedPrompt": "During a practical, Sample F1-04 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "proposedPrompt": "During a practical, Sample F1-04 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret purple; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
       "sourceAnswer": [
         "protein, lipid"
       ],
@@ -102,15 +108,17 @@
       "benedictObservation": "remains blue",
       "biuretObservation": "purple",
       "promptsEdited": true,
-      "academicReview": "PENDING",
+      "academicReview": "AI_CONTENT_QA_PENDING_FULL_OPTION_AUDIT",
       "scientificSoleKeyApproval": false,
       "tgsTaughtProtocolApproval": false,
-      "formalCreditEligible": false
+      "formalCreditEligible": false,
+      "uniquenessCorrection": "Ask for all-and-only detected groups; individual detected nutrient subsets cannot be counted as the fully correct answer.",
+      "questionDemand": "COMPLETE_DETECTED_SET"
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-1-5",
       "sourcePrompt": "During a practical, Sample F1-05 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
-      "proposedPrompt": "During a practical, Sample F1-05 has these results: iodine blue-black; heated Benedict's orange precipitate; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "proposedPrompt": "During a practical, Sample F1-05 has these results: iodine blue-black; heated Benedict's orange precipitate; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
       "sourceAnswer": [
         "starch, reducing sugar, lipid"
       ],
@@ -124,15 +132,17 @@
       "benedictObservation": "orange",
       "biuretObservation": "remains blue",
       "promptsEdited": true,
-      "academicReview": "PENDING",
+      "academicReview": "AI_CONTENT_QA_PENDING_FULL_OPTION_AUDIT",
       "scientificSoleKeyApproval": false,
       "tgsTaughtProtocolApproval": false,
-      "formalCreditEligible": false
+      "formalCreditEligible": false,
+      "uniquenessCorrection": "Ask for all-and-only detected groups; individual detected nutrient subsets cannot be counted as the fully correct answer.",
+      "questionDemand": "COMPLETE_DETECTED_SET"
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-1-6",
       "sourcePrompt": "During a practical, Sample F1-06 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
-      "proposedPrompt": "During a practical, Sample F1-06 has these results: iodine orange-brown; heated Benedict's brick-red precipitate; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "proposedPrompt": "During a practical, Sample F1-06 has these results: iodine orange-brown; heated Benedict's brick-red precipitate; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
       "sourceAnswer": [
         "reducing sugar, lipid"
       ],
@@ -146,15 +156,17 @@
       "benedictObservation": "brick-red",
       "biuretObservation": "remains blue",
       "promptsEdited": true,
-      "academicReview": "PENDING",
+      "academicReview": "AI_CONTENT_QA_PENDING_FULL_OPTION_AUDIT",
       "scientificSoleKeyApproval": false,
       "tgsTaughtProtocolApproval": false,
-      "formalCreditEligible": false
+      "formalCreditEligible": false,
+      "uniquenessCorrection": "Ask for all-and-only detected groups; individual detected nutrient subsets cannot be counted as the fully correct answer.",
+      "questionDemand": "COMPLETE_DETECTED_SET"
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-1-7",
       "sourcePrompt": "During a practical, Sample F1-07 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
-      "proposedPrompt": "During a practical, Sample F1-07 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "proposedPrompt": "During a practical, Sample F1-07 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
       "sourceAnswer": [
         "starch, lipid"
       ],
@@ -168,15 +180,17 @@
       "benedictObservation": "remains blue",
       "biuretObservation": "remains blue",
       "promptsEdited": false,
-      "academicReview": "PENDING",
+      "academicReview": "AI_CONTENT_QA_PENDING_FULL_OPTION_AUDIT",
       "scientificSoleKeyApproval": false,
       "tgsTaughtProtocolApproval": false,
-      "formalCreditEligible": false
+      "formalCreditEligible": false,
+      "uniquenessCorrection": "Ask for all-and-only detected groups; individual detected nutrient subsets cannot be counted as the fully correct answer.",
+      "questionDemand": "COMPLETE_DETECTED_SET"
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-1-8",
       "sourcePrompt": "During a practical, Sample F1-08 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
-      "proposedPrompt": "During a practical, Sample F1-08 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "proposedPrompt": "During a practical, Sample F1-08 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
       "sourceAnswer": [
         "lipid"
       ],
@@ -190,15 +204,17 @@
       "benedictObservation": "remains blue",
       "biuretObservation": "remains blue",
       "promptsEdited": false,
-      "academicReview": "PENDING",
+      "academicReview": "AI_CONTENT_QA_PENDING_FULL_OPTION_AUDIT",
       "scientificSoleKeyApproval": false,
       "tgsTaughtProtocolApproval": false,
-      "formalCreditEligible": false
+      "formalCreditEligible": false,
+      "uniquenessCorrection": "Ask for all-and-only detected groups; individual detected nutrient subsets cannot be counted as the fully correct answer.",
+      "questionDemand": "COMPLETE_DETECTED_SET"
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-1-9",
       "sourcePrompt": "During a practical, Sample F1-09 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
-      "proposedPrompt": "During a practical, Sample F1-09 has these results: iodine blue-black; heated Benedict's green precipitate; Biuret lilac; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "proposedPrompt": "During a practical, Sample F1-09 has these results: iodine blue-black; heated Benedict's green precipitate; Biuret lilac; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
       "sourceAnswer": [
         "starch, reducing sugar, protein"
       ],
@@ -212,15 +228,17 @@
       "benedictObservation": "green",
       "biuretObservation": "lilac",
       "promptsEdited": true,
-      "academicReview": "PENDING",
+      "academicReview": "AI_CONTENT_QA_PENDING_FULL_OPTION_AUDIT",
       "scientificSoleKeyApproval": false,
       "tgsTaughtProtocolApproval": false,
-      "formalCreditEligible": false
+      "formalCreditEligible": false,
+      "uniquenessCorrection": "Ask for all-and-only detected groups; individual detected nutrient subsets cannot be counted as the fully correct answer.",
+      "questionDemand": "COMPLETE_DETECTED_SET"
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-1-10",
       "sourcePrompt": "During a practical, Sample F1-10 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
-      "proposedPrompt": "During a practical, Sample F1-10 has these results: iodine orange-brown; heated Benedict's yellow precipitate; Biuret purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "proposedPrompt": "During a practical, Sample F1-10 has these results: iodine orange-brown; heated Benedict's yellow precipitate; Biuret purple; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
       "sourceAnswer": [
         "reducing sugar, protein"
       ],
@@ -234,15 +252,17 @@
       "benedictObservation": "yellow",
       "biuretObservation": "purple",
       "promptsEdited": true,
-      "academicReview": "PENDING",
+      "academicReview": "AI_CONTENT_QA_PENDING_FULL_OPTION_AUDIT",
       "scientificSoleKeyApproval": false,
       "tgsTaughtProtocolApproval": false,
-      "formalCreditEligible": false
+      "formalCreditEligible": false,
+      "uniquenessCorrection": "Ask for all-and-only detected groups; individual detected nutrient subsets cannot be counted as the fully correct answer.",
+      "questionDemand": "COMPLETE_DETECTED_SET"
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-1-11",
       "sourcePrompt": "During a practical, Sample F1-11 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
-      "proposedPrompt": "During a practical, Sample F1-11 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "proposedPrompt": "During a practical, Sample F1-11 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
       "sourceAnswer": [
         "starch, protein"
       ],
@@ -256,15 +276,17 @@
       "benedictObservation": "remains blue",
       "biuretObservation": "lilac",
       "promptsEdited": true,
-      "academicReview": "PENDING",
+      "academicReview": "AI_CONTENT_QA_PENDING_FULL_OPTION_AUDIT",
       "scientificSoleKeyApproval": false,
       "tgsTaughtProtocolApproval": false,
-      "formalCreditEligible": false
+      "formalCreditEligible": false,
+      "uniquenessCorrection": "Ask for all-and-only detected groups; individual detected nutrient subsets cannot be counted as the fully correct answer.",
+      "questionDemand": "COMPLETE_DETECTED_SET"
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-1-12",
       "sourcePrompt": "During a practical, Sample F1-12 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
-      "proposedPrompt": "During a practical, Sample F1-12 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "proposedPrompt": "During a practical, Sample F1-12 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret purple; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
       "sourceAnswer": [
         "protein"
       ],
@@ -278,15 +300,17 @@
       "benedictObservation": "remains blue",
       "biuretObservation": "purple",
       "promptsEdited": true,
-      "academicReview": "PENDING",
+      "academicReview": "AI_CONTENT_QA_PENDING_FULL_OPTION_AUDIT",
       "scientificSoleKeyApproval": false,
       "tgsTaughtProtocolApproval": false,
-      "formalCreditEligible": false
+      "formalCreditEligible": false,
+      "uniquenessCorrection": "Ask for all-and-only detected groups; individual detected nutrient subsets cannot be counted as the fully correct answer.",
+      "questionDemand": "COMPLETE_DETECTED_SET"
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-1-13",
       "sourcePrompt": "During a practical, Sample F1-13 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
-      "proposedPrompt": "During a practical, Sample F1-13 has these results: iodine blue-black; heated Benedict's orange precipitate; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "proposedPrompt": "During a practical, Sample F1-13 has these results: iodine blue-black; heated Benedict's orange precipitate; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
       "sourceAnswer": [
         "starch, reducing sugar"
       ],
@@ -300,15 +324,17 @@
       "benedictObservation": "orange",
       "biuretObservation": "remains blue",
       "promptsEdited": true,
-      "academicReview": "PENDING",
+      "academicReview": "AI_CONTENT_QA_PENDING_FULL_OPTION_AUDIT",
       "scientificSoleKeyApproval": false,
       "tgsTaughtProtocolApproval": false,
-      "formalCreditEligible": false
+      "formalCreditEligible": false,
+      "uniquenessCorrection": "Ask for all-and-only detected groups; individual detected nutrient subsets cannot be counted as the fully correct answer.",
+      "questionDemand": "COMPLETE_DETECTED_SET"
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-1-14",
       "sourcePrompt": "During a practical, Sample F1-14 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
-      "proposedPrompt": "During a practical, Sample F1-14 has these results: iodine orange-brown; heated Benedict's brick-red precipitate; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "proposedPrompt": "During a practical, Sample F1-14 has these results: iodine orange-brown; heated Benedict's brick-red precipitate; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
       "sourceAnswer": [
         "reducing sugar"
       ],
@@ -322,15 +348,17 @@
       "benedictObservation": "brick-red",
       "biuretObservation": "remains blue",
       "promptsEdited": true,
-      "academicReview": "PENDING",
+      "academicReview": "AI_CONTENT_QA_PENDING_FULL_OPTION_AUDIT",
       "scientificSoleKeyApproval": false,
       "tgsTaughtProtocolApproval": false,
-      "formalCreditEligible": false
+      "formalCreditEligible": false,
+      "uniquenessCorrection": "Ask for all-and-only detected groups; individual detected nutrient subsets cannot be counted as the fully correct answer.",
+      "questionDemand": "COMPLETE_DETECTED_SET"
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-1-15",
       "sourcePrompt": "During a practical, Sample F1-15 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
-      "proposedPrompt": "During a practical, Sample F1-15 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "proposedPrompt": "During a practical, Sample F1-15 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
       "sourceAnswer": [
         "starch"
       ],
@@ -344,15 +372,17 @@
       "benedictObservation": "remains blue",
       "biuretObservation": "remains blue",
       "promptsEdited": false,
-      "academicReview": "PENDING",
+      "academicReview": "AI_CONTENT_QA_PENDING_FULL_OPTION_AUDIT",
       "scientificSoleKeyApproval": false,
       "tgsTaughtProtocolApproval": false,
-      "formalCreditEligible": false
+      "formalCreditEligible": false,
+      "uniquenessCorrection": "Ask for all-and-only detected groups; individual detected nutrient subsets cannot be counted as the fully correct answer.",
+      "questionDemand": "COMPLETE_DETECTED_SET"
     },
     {
       "sourceId": "bio-y8-food-tests-case-20261025-1-16",
       "sourcePrompt": "During a practical, Sample F1-16 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
-      "proposedPrompt": "During a practical, Sample F1-16 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "proposedPrompt": "During a practical, Sample F1-16 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
       "sourceAnswer": [
         "none of these four nutrients"
       ],
@@ -366,10 +396,13 @@
       "benedictObservation": "remains blue",
       "biuretObservation": "remains blue",
       "promptsEdited": false,
-      "academicReview": "PENDING",
+      "academicReview": "AI_CONTENT_QA_PENDING_FULL_OPTION_AUDIT",
       "scientificSoleKeyApproval": false,
       "tgsTaughtProtocolApproval": false,
-      "formalCreditEligible": false
+      "formalCreditEligible": false,
+      "uniquenessCorrection": "Ask for all-and-only detected groups; individual detected nutrient subsets cannot be counted as the fully correct answer.",
+      "questionDemand": "COMPLETE_DETECTED_SET"
     }
-  ]
+  ],
+  "questionDemandClarifications": 16
 }
