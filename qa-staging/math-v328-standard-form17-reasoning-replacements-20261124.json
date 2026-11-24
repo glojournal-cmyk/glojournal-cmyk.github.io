@@ -34,8 +34,8 @@
         },
         {
           "id": "C",
-          "latex": "6\\times10^{1}",
-          "errorPath": "Calculate the conserved salt mass in grams rather than a volume."
+          "latex": "9.5\\times10^{5}",
+          "errorPath": "Add the original volume to the calculated final volume instead of subtracting it."
         },
         {
           "id": "D",
@@ -269,8 +269,8 @@
         },
         {
           "id": "F",
-          "latex": "4\\times10^{9}",
-          "errorPath": "Use the remaining record count but divide by 1500 seconds, shifting the full time budget exponent down by one and omitting elapsed time."
+          "latex": "1.5\\times10^{9}",
+          "errorPath": "Use the entire initial record count instead of the remaining count, dividing 9×10^12 by the correct remaining 6000 seconds."
         }
       ],
       "correctOptionId": "B",
@@ -874,8 +874,8 @@
         },
         {
           "id": "F",
-          "latex": "4.16\\times10^{8}",
-          "errorPath": "Subtract the fixed 4×10^7 from the total and then subtract a fixed 8×10^7 twice, instead of undoing compound growth."
+          "latex": "4.4\\times10^{8}",
+          "errorPath": "Undo both increases as a single 40% rise but forget to remove the fixed addition: 6.16×10^8/1.4."
         }
       ],
       "correctOptionId": "E",
@@ -910,8 +910,8 @@
         },
         {
           "id": "B",
-          "latex": "2.5\\times10^{4}",
-          "errorPath": "Ignore B's reserve and use its initial capacity; also overlook A's 24000 limit."
+          "latex": "1.92\\times10^{4}",
+          "errorPath": "Apply B's 20% reserve to A as well after deducting A's fixed reserve: 0.8×24000=19200; incorrectly make that the tighter limit."
         },
         {
           "id": "C",
@@ -929,8 +929,8 @@
         },
         {
           "id": "F",
-          "latex": "3.6\\times10^{4}",
-          "errorPath": "Use 10^4 instead of 1.8×10^4 as B's consumption, and ignore A's limit."
+          "latex": "1.8\\times10^{4}",
+          "errorPath": "Round the B consumption per test to 2×10^4 instead of using 1.8×10^4, making B's capacity 18000."
         }
       ],
       "correctOptionId": "D",
