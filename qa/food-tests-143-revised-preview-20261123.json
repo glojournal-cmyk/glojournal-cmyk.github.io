@@ -2497,7 +2497,7 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mc_single",
-      "prompt": "A seed's ethanol extract is already cloudy before it is added to water. What does that observation establish?",
+      "prompt": "In a two-stage ethanol-then-water emulsion test, a seed's ethanol extract is already cloudy before it is added to water. What does that observation establish?",
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
@@ -3226,7 +3226,7 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mc_single",
-      "prompt": "One Benedict's tube is heated for 30 seconds and another for five minutes. What should the pupil change for a fair test?",
+      "prompt": "Two equal-volume food extracts are compared using the final colour after five minutes in the same Benedict's water bath. One tube was removed after 30 seconds and the other after five minutes. What should the pupil change for a fair comparison of final colours?",
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
@@ -3244,14 +3244,14 @@
       },
       "stimulus": {},
       "feedback": {
-        "short": "Reaction duration affects the observed Benedict's colour.",
+        "short": "For a comparison of final Benedict's colours after a fixed period, both extracts must receive the same water-bath heating time, alongside other matched conditions.",
         "steps": [
           "Check reagent and experimental controls.",
           "Use observations rather than assumptions.",
-          "Reaction duration affects the observed Benedict's colour."
+          "For a comparison of final Benedict's colours after a fixed period, both extracts must receive the same water-bath heating time, alongside other matched conditions."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
-        "remember": "Reaction duration affects the observed Benedict's colour."
+        "remember": "For a comparison of final Benedict's colours after a fixed period, both extracts must receive the same water-bath heating time, alongside other matched conditions."
       },
       "task": {
         "label": "ANALYSE THE EXPERIMENT",
@@ -3267,7 +3267,7 @@
         "sourceOriginalPrompt": "A pupil checks four substances in an unknown extract. Sample F3-04 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
         "originalSourceKey": "protein, lipid",
         "candidateId": "bio-y8-food-tests-case-20261025-3-4",
-        "rationale": "Reaction duration affects the observed Benedict's colour.",
+        "rationale": "For a comparison of final Benedict's colours after a fixed period, both extracts must receive the same water-bath heating time, alongside other matched conditions.",
         "distractorReview": "pending",
         "teacherReview": "pending",
         "release": "not-authorised",
@@ -3731,7 +3731,7 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mc_single",
-      "prompt": "Which sample can serve as a positive lipid control for the ethanol emulsion method?",
+      "prompt": "For a two-stage ethanol-extraction-then-water emulsion test, which material can serve as a positive lipid control?",
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
@@ -4015,7 +4015,7 @@
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
-        "Do not heat the ethanol; shake with food, then add the clear extract to water.",
+        "Do not heat ethanol; follow the instructed ethanol-and-water emulsion method away from ignition sources.",
         "Warming ethanol gently in an open tube is needed before water can produce an emulsion.",
         "Add water first and then heat the ethanol-water mixture to obtain a stronger white emulsion.",
         "Replace ethanol with hot water because the same lipid test result will form."
@@ -4023,20 +4023,20 @@
       "answer": {
         "mode": "choice",
         "accepted": [
-          "Do not heat the ethanol; shake with food, then add the clear extract to water."
+          "Do not heat ethanol; follow the instructed ethanol-and-water emulsion method away from ignition sources."
         ],
         "totalMarks": 1
       },
       "stimulus": {},
       "feedback": {
-        "short": "No heating of ethanol is required; avoid fire risk.",
+        "short": "Ethanol is highly flammable and should not be heated or handled near an ignition source. The order in a valid emulsion-test protocol must follow the method taught; AQA's practical handbook and the two-stage ethanol-extract method differ in the order of water and ethanol.",
         "steps": [
           "Check reagent and experimental controls.",
           "Use observations rather than assumptions.",
-          "No heating of ethanol is required; avoid fire risk."
+          "Ethanol is highly flammable and should not be heated or handled near an ignition source. The order in a valid emulsion-test protocol must follow the method taught; AQA's practical handbook and the two-stage ethanol-extract method differ in the order of water and ethanol."
         ],
         "commonError": "Reaching a conclusion without controlling the experimental conditions or considering negative controls.",
-        "remember": "No heating of ethanol is required; avoid fire risk."
+        "remember": "Ethanol is highly flammable and should not be heated or handled near an ignition source. The order in a valid emulsion-test protocol must follow the method taught; AQA's practical handbook and the two-stage ethanol-extract method differ in the order of water and ethanol."
       },
       "task": {
         "label": "ANALYSE THE EXPERIMENT",
@@ -4052,7 +4052,7 @@
         "sourceOriginalPrompt": "A laboratory technician checks an unknown food mixture. Sample F4-02 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
         "originalSourceKey": "reducing sugar, protein, lipid",
         "candidateId": "bio-y8-food-tests-case-20261025-4-2",
-        "rationale": "No heating of ethanol is required; avoid fire risk.",
+        "rationale": "Ethanol is highly flammable and should not be heated or handled near an ignition source. The order in a valid emulsion-test protocol must follow the method taught; AQA's practical handbook and the two-stage ethanol-extract method differ in the order of water and ethanol.",
         "distractorReview": "pending",
         "teacherReview": "pending",
         "release": "not-authorised",
@@ -4685,7 +4685,7 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mc_single",
-      "prompt": "A pupil compares lipid-test cloudiness from two seed extracts prepared in the same way. One clear ethanol extract is added to 2 mL of water and the other to 10 mL. Which criticism is most valid?",
+      "prompt": "Using a two-stage ethanol-then-water emulsion test, a pupil compares lipid-test cloudiness from two seed extracts prepared in the same way. One clear ethanol extract is added to 2 mL of water and the other to 10 mL. Which criticism is most valid?",
       "difficulty": 3,
       "status": "qa-pending",
       "options": [
