@@ -1,0 +1,56 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import {canEarnFormalCredit} from '../assets/food-tests-qa-credit-gate-20261122.js';
+const read=p=>JSON.parse(readFileSync(new URL('../'+p,import.meta.url),'utf8'));
+const bank=read('content/topics/bio-y8-food-tests.json');
+const rollup=read('qa/food-tests-143-source-academic-dispositions-20261124.json');
+const qa=read('qa/food-tests-independent-academic-143-review-20261123.json');
+const allowed=new Set(['SOURCE_CONTENT_PASS','REVISE_ORIGINAL_STEM','REVISE_ORIGINAL_ACCEPTED_MARK_SCHEME','REPLACE_DUPLICATE_RESULT_MCQS','REPLACE_UNRELIABLE_FREE_TEXT_SCORING']);
+test('every one of 143 original Food Tests question IDs has an actual content QA disposition and evidence',()=>{
+ assert.equal(bank.questions.length,143);
+ assert.equal(rollup.items.length,143);
+ assert.equal(rollup.counts.aiSourceQuestionDispositionCompleted,143);
+ assert.equal(rollup.counts.sourceOriginalQuestions,143);
+ assert.equal(rollup.counts.SOURCE_CONTENT_PASS,25);
+ assert.equal(rollup.counts.REVISE_ORIGINAL_STEM,17);
+ assert.equal(rollup.counts.REVISE_ORIGINAL_ACCEPTED_MARK_SCHEME,1);
+ assert.equal(rollup.counts.REPLACE_DUPLICATE_RESULT_MCQS,48);
+ assert.equal(rollup.counts.REPLACE_UNRELIABLE_FREE_TEXT_SCORING,52);
+ assert.equal(rollup.counts.originalContentRequiresEditorialCorrection,18);
+ assert.equal(rollup.counts.originalGradingDesignNeedsReplacement,100);
+ assert.equal(rollup.releaseApproval,'BLOCKED');
+ assert.equal(rollup.qualityGates.academicSignedOff,false);
+ assert.equal(qa.academicApproved,0);
+ assert.equal(qa.formalCreditEligible,0);
+ const observed={SOURCE_CONTENT_PASS:0,REVISE_ORIGINAL_STEM:0,REVISE_ORIGINAL_ACCEPTED_MARK_SCHEME:0,REPLACE_DUPLICATE_RESULT_MCQS:0,REPLACE_UNRELIABLE_FREE_TEXT_SCORING:0};
+ for(let i=0;i<143;i++){
+  const x=rollup.items[i],q=bank.questions[i];
+  assert.equal(x.ordinal,i+1);
+  assert.equal(x.sourceId,q.id);
+  assert.equal(x.sourceStem,q.prompt);
+  assert.equal(x.format,q.format);
+  assert.ok(allowed.has(x.originalContentDisposition));
+  assert.equal(x.aiAcademicContentReviewCompleted,true);
+  assert.ok(rollup.sourceEvidence.includes(x.scienceQaEvidence));
+  assert.equal(x.independentQualifiedAcademicApproved,false);
+  assert.equal(x.tgsYear8CurriculumApproved,false);
+  assert.equal(x.technicalPlayerApproved,false);
+  assert.equal(x.formalDailyMasteryCreditAllowed,false);
+  assert.equal(canEarnFormalCredit(q),false);
+  observed[x.originalContentDisposition]++;
+ }
+ assert.deepEqual(observed,Object.fromEntries(Object.keys(observed).map(k=>[k,rollup.counts[k]])));
+ assert.equal(new Set(rollup.items.map(x=>x.sourceId)).size,143);
+});
+test('AI-approved original science content cannot be silently promoted to independently approved grading',()=>{
+ const pass=rollup.items.filter(x=>x.originalContentDisposition==='SOURCE_CONTENT_PASS');
+ assert.equal(pass.length,25);
+ assert.ok(pass.every(x=>x.independentQualifiedAcademicApproved===false));
+ const revised=rollup.items.filter(x=>x.originalContentDisposition==='REVISE_ORIGINAL_STEM');
+ assert.equal(revised.length,17);
+ assert.ok(revised.some(x=>x.sourceId==='bio-y8-food-tests-brick-red-mc'));
+ assert.ok(revised.filter(x=>x.sourceId.includes('-case-20261025-1-')).length===16);
+ assert.equal(rollup.qualityGates.originalSourceReleaseReady,false);
+ assert.equal(rollup.qualityGates.realIpadPwa,false);
+});
