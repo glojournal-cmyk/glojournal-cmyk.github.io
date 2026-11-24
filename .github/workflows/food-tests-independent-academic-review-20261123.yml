@@ -106,7 +106,7 @@ jobs:
         run: node --test tests/food-tests-297-distractor-first-pass-20261123.test.mjs
       - name: Check cross-answer semantic overlap families and prevent duplicate-mastery claims in held QA pool
         run: node --test tests/food-tests-99-semantic-overlap-20261123.test.mjs
-      - name: Academic content QA: validate 143 original source dispositions plus 48 and 99 unapproved candidate science reviews
+      - name: "Academic content QA: validate 143 original source dispositions plus 48 and 99 unapproved candidate science reviews"
         run: |
           node --test tests/food-tests-25-mcq-content-adjudication-20261124.test.mjs
           node --test tests/food-tests-15-typed-3-matching-content-20261124.test.mjs
