@@ -105,7 +105,12 @@
           "how quickly reactants are used up or products are formed"
         ],
         "totalMarks": 1,
-        "modelAnswer": "how quickly reactants are used up or products are formed"
+        "modelAnswer": "how quickly reactants are used up or products are formed",
+        "reviewedEquivalents": [
+          "change in quantity of a reactant or product per unit time",
+          "amount of reactant used up per unit time",
+          "amount of product formed per unit time"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -182,7 +187,12 @@
           "how quickly reactants are used up or products are formed"
         ],
         "totalMarks": 1,
-        "modelAnswer": "how quickly reactants are used up or products are formed"
+        "modelAnswer": "how quickly reactants are used up or products are formed",
+        "reviewedEquivalents": [
+          "change in quantity of a reactant or product per unit time",
+          "amount of reactant used up per unit time",
+          "amount of product formed per unit time"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -306,7 +316,11 @@
           "quantity of reactant used or product formed divided by time"
         ],
         "totalMarks": 1,
-        "modelAnswer": "quantity of reactant used or product formed divided by time"
+        "modelAnswer": "quantity of reactant used or product formed divided by time",
+        "reviewedEquivalents": [
+          "mean rate = quantity of product formed / time taken",
+          "mean rate = quantity of reactant used / time taken"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -383,7 +397,11 @@
           "quantity of reactant used or product formed divided by time"
         ],
         "totalMarks": 1,
-        "modelAnswer": "quantity of reactant used or product formed divided by time"
+        "modelAnswer": "quantity of reactant used or product formed divided by time",
+        "reviewedEquivalents": [
+          "mean rate = quantity of product formed / time taken",
+          "mean rate = quantity of reactant used / time taken"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -507,7 +525,12 @@
           "grams per second for a suitable mass-change experiment"
         ],
         "totalMarks": 1,
-        "modelAnswer": "grams per second for a suitable mass-change experiment"
+        "modelAnswer": "grams per second for a suitable mass-change experiment",
+        "reviewedEquivalents": [
+          "g/s",
+          "g s-1",
+          "grams per second"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -585,7 +608,12 @@
           "grams per second for a suitable mass-change experiment"
         ],
         "totalMarks": 1,
-        "modelAnswer": "grams per second for a suitable mass-change experiment"
+        "modelAnswer": "grams per second for a suitable mass-change experiment",
+        "reviewedEquivalents": [
+          "g/s",
+          "g s-1",
+          "grams per second"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -709,7 +737,14 @@
           "cubic centimetres per second for a suitable gas-volume experiment"
         ],
         "totalMarks": 1,
-        "modelAnswer": "cubic centimetres per second for a suitable gas-volume experiment"
+        "modelAnswer": "cubic centimetres per second for a suitable gas-volume experiment",
+        "reviewedEquivalents": [
+          "cm³/s",
+          "cm^3/s",
+          "cm3/s",
+          "cm³ s⁻¹",
+          "cubic centimetres per second"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -788,7 +823,14 @@
           "cubic centimetres per second for a suitable gas-volume experiment"
         ],
         "totalMarks": 1,
-        "modelAnswer": "cubic centimetres per second for a suitable gas-volume experiment"
+        "modelAnswer": "cubic centimetres per second for a suitable gas-volume experiment",
+        "reviewedEquivalents": [
+          "cm³/s",
+          "cm^3/s",
+          "cm3/s",
+          "cm³ s⁻¹",
+          "cubic centimetres per second"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -912,7 +954,10 @@
           "a particle collision with enough energy to overcome activation energy"
         ],
         "totalMarks": 1,
-        "modelAnswer": "a particle collision with enough energy to overcome activation energy"
+        "modelAnswer": "a particle collision with enough energy to overcome activation energy",
+        "reviewedEquivalents": [
+          "particles collide with energy at least equal to the activation energy"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -989,7 +1034,10 @@
           "a particle collision with enough energy to overcome activation energy"
         ],
         "totalMarks": 1,
-        "modelAnswer": "a particle collision with enough energy to overcome activation energy"
+        "modelAnswer": "a particle collision with enough energy to overcome activation energy",
+        "reviewedEquivalents": [
+          "particles collide with energy at least equal to the activation energy"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -1111,6 +1159,10 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "activation energy"
+        ],
+        "reviewedEquivalents": [
+          "Ea",
+          "Eₐ"
         ]
       },
       "stimulus": {
@@ -1148,6 +1200,10 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "activation energy"
+        ],
+        "reviewedEquivalents": [
+          "Ea",
+          "Eₐ"
         ]
       },
       "stimulus": {
@@ -1943,34 +1999,28 @@
       "conceptId": "chem-y9-c13-temperature-effect-a0988aa7cd-concept",
       "topicId": "chem-y9-c13",
       "topic": "Rates of reaction and collision theory",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Increasing temperature increases the fraction of reactant particles with at least which minimum energy?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "temperature effect"
+          "activation energy"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "activation energy. Particles moving faster, colliding more often and a greater proportion exceeding activation energy.",
+        "steps": [
+          "activation energy. Particles moving faster, colliding more often and a greater proportion exceeding activation energy."
         ]
       },
-      "stimulus": {
-        "masked": "t__p___t___ e___c_"
-      },
-      "feedback": {
-        "short": "particles moving faster, colliding more often and a greater proportion exceeding activation energy",
-        "steps": [
-          "Key idea: temperature effect.",
-          "particles moving faster, colliding more often and a greater proportion exceeding activation energy",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: temperature effect"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "temperature effect → particles moving faster, colliding more often and a greater proportion exceeding activation energy"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -2603,7 +2653,7 @@
       "topicId": "chem-y9-c13",
       "topic": "Rates of reaction and collision theory",
       "format": "calculation",
-      "prompt": "A reaction produces 72 cm³ of gas in 24 s. Calculate the mean rate.",
+      "prompt": "A reaction produces 72 cm³ of gas in 24 s. Calculate the mean rate. A number on its own will be read in cm³/s.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
@@ -2617,7 +2667,9 @@
         ],
         "working": "72 cm³ ÷ 24 s = 3 cm³/s",
         "tolerance": 0,
-        "modelAnswer": "3 cm³/s"
+        "modelAnswer": "3 cm³/s",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {

@@ -1898,13 +1898,25 @@
       "conceptId": "bio-y8-concept-diagram-bio-digestive-system",
       "topicId": "bio-y8-digestion-absorption",
       "topic": "Digestive system and absorption",
-      "format": "typed_short",
+      "format": "diagram_label",
       "prompt": "Label the digestive system using every required term.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "required_groups",
+        "mode": "diagram_labels",
+        "labelMap": {
+          "a": "mouth",
+          "b": "oesophagus",
+          "c": "stomach",
+          "d": "liver",
+          "e": "gall bladder",
+          "f": "pancreas",
+          "g": "small intestine",
+          "h": "large intestine",
+          "i": "rectum",
+          "j": "anus"
+        },
         "requiredLabels": [
           "mouth",
           "oesophagus",
@@ -1916,88 +1928,44 @@
           "large intestine",
           "rectum",
           "anus"
-        ],
-        "requiredGroups": [
-          {
-            "label": "mouth",
-            "alternatives": [
-              "mouth"
-            ]
-          },
-          {
-            "label": "oesophagus",
-            "alternatives": [
-              "oesophagus"
-            ]
-          },
-          {
-            "label": "stomach",
-            "alternatives": [
-              "stomach"
-            ]
-          },
-          {
-            "label": "liver",
-            "alternatives": [
-              "liver"
-            ]
-          },
-          {
-            "label": "gall bladder",
-            "alternatives": [
-              "gall bladder"
-            ]
-          },
-          {
-            "label": "pancreas",
-            "alternatives": [
-              "pancreas"
-            ]
-          },
-          {
-            "label": "small intestine",
-            "alternatives": [
-              "small intestine"
-            ]
-          },
-          {
-            "label": "large intestine",
-            "alternatives": [
-              "large intestine"
-            ]
-          },
-          {
-            "label": "rectum",
-            "alternatives": [
-              "rectum"
-            ]
-          },
-          {
-            "label": "anus",
-            "alternatives": [
-              "anus"
-            ]
-          }
-        ],
-        "modelAnswer": "mouth, oesophagus, stomach, liver, gall bladder, pancreas, small intestine, large intestine, rectum, anus"
+        ]
       },
       "stimulus": {
-        "diagramId": "bio-digestive-system"
+        "diagramId": "bio-digestive-system",
+        "anchors": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e",
+          "f",
+          "g",
+          "h",
+          "i",
+          "j"
+        ],
+        "labels": [
+          "rectum",
+          "pancreas",
+          "oesophagus",
+          "liver",
+          "stomach",
+          "small intestine",
+          "mouth",
+          "large intestine",
+          "anus",
+          "gall bladder"
+        ],
+        "image": "/content/diagrams/question-review/bio-digestive-system.svg",
+        "imageAlt": "Lettered figure for Digestive system and absorption."
       },
       "feedback": {
-        "short": "The complete label set is: mouth, oesophagus, stomach, liver, gall bladder, pancreas, small intestine, large intestine, rectum, anus.",
-        "steps": [
-          "Locate the overall structure first.",
-          "Use position and biological function together.",
-          "Check every required label once.",
-          "Use the exact scientific label for each anchor. A correct term at the wrong structure does not earn the mark."
-        ],
-        "commonError": "Recognising the name but placing it on a neighbouring structure.",
-        "remember": "clean unlabelled scientific line diagram with separate label-anchor coordinates"
+        "short": "A: mouth · B: oesophagus · C: stomach · D: liver · E: gall bladder · F: pancreas · G: small intestine · H: large intestine · I: rectum · J: anus",
+        "steps": []
       },
       "task": {
-        "label": "LABEL CHECK",
-        "instruction": "Type all required labels, separated by commas. This self-check does not affect formal Mastery until diagram anchors are mapped."
+        "label": "LABEL THE FIGURE",
+        "instruction": "Choose the correct label for each letter."
       },
       "preview": false,
       "ordinary": true,

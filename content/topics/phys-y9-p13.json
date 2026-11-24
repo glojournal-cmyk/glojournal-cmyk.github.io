@@ -3145,37 +3145,46 @@
       "conceptId": "phys-y9-p13-app-used-up-error-concept",
       "topicId": "phys-y9-p13",
       "topic": "Energy stores and transfer pathways",
-      "format": "mark_points",
-      "prompt": "Correct the statement: ‘The energy is used up by the machine.’",
+      "format": "extended_response",
+      "prompt": "Answer each numbered part on a separate line, in order.\n1. In the machine and its surroundings together, which quantity is conserved?\n2. What happens to energy as the machine operates: is it destroyed or transferred?\n3. Which energy store of the surroundings increases as a working motor warms the room?",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "mark_points",
-        "markPoints": [
-          "energy is conserved",
-          "it is transferred between stores",
-          "some becomes dissipated to surrounding thermal stores and is less useful"
+        "mode": "ordered_parts",
+        "reviewedParts": [
+          [
+            "energy",
+            "total energy"
+          ],
+          [
+            "transferred",
+            "transferred between stores",
+            "transferred to other stores"
+          ],
+          [
+            "thermal",
+            "thermal energy store",
+            "thermal store",
+            "internal energy",
+            "internal energy store"
+          ]
         ],
         "totalMarks": 3,
-        "modelAnswer": "energy is conserved it is transferred between stores some becomes dissipated to surrounding thermal stores and is less useful"
+        "modelAnswer": "energy\ntransferred\nthermal"
       },
-      "stimulus": {
-        "marks": 3
-      },
+      "stimulus": {},
       "feedback": {
-        "short": "energy is conserved it is transferred between stores some becomes dissipated to surrounding thermal stores and is less useful",
+        "short": "energy\ntransferred\nthermal",
         "steps": [
-          "energy is conserved it is transferred between stores some becomes dissipated to surrounding thermal stores and is less useful",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
-          "Suggested answer: energy is conserved it is transferred between stores some becomes dissipated to surrounding thermal stores and is less useful"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "energy is conserved it is transferred between stores some becomes dissipated to surrounding thermal stores and is less useful"
+          "1. energy",
+          "2. transferred",
+          "3. thermal"
+        ]
       },
       "task": {
-        "label": "EXPLAIN",
-        "instruction": "Write one distinct scientific idea for each available mark."
+        "label": "SHORT ANSWERS",
+        "instruction": "One response per line, in the order shown."
       },
       "preview": true,
       "ordinary": true
@@ -3218,7 +3227,9 @@
           "starting store",
           "dissipated thermal store"
         ],
-        "diagramId": "phys-energy-stores"
+        "diagramId": "phys-energy-stores",
+        "image": "/content/diagrams/question-review/phys-energy-stores.svg",
+        "imageAlt": "Lettered figure for Energy stores and transfer pathways."
       },
       "feedback": {
         "short": "Place every scientific label at its correct anchor.",

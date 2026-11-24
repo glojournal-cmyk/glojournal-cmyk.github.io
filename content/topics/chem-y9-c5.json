@@ -697,6 +697,10 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "atomic number"
+        ],
+        "reviewedEquivalents": [
+          "proton number",
+          "number of protons"
         ]
       },
       "stimulus": {
@@ -734,6 +738,10 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "atomic number"
+        ],
+        "reviewedEquivalents": [
+          "proton number",
+          "number of protons"
         ]
       },
       "stimulus": {
@@ -1093,6 +1101,10 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "mass number"
+        ],
+        "reviewedEquivalents": [
+          "nucleon number",
+          "total number of protons and neutrons"
         ]
       },
       "stimulus": {
@@ -1130,6 +1142,10 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "mass number"
+        ],
+        "reviewedEquivalents": [
+          "nucleon number",
+          "total number of protons and neutrons"
         ]
       },
       "stimulus": {
@@ -2084,33 +2100,28 @@
       "topicId": "chem-y9-c5",
       "topic": "Atomic structure, isotopes and electron arrangement",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Lithium and sodium are both in Group 1. How many electrons are in the outer shell of each neutral atom?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "group outer electrons"
+          "one",
+          "1"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "one. Elements in the same periodic-table group having the same number of outer-shell electrons.",
+        "steps": [
+          "one. Elements in the same periodic-table group having the same number of outer-shell electrons."
         ]
       },
-      "stimulus": {
-        "text": "elements in the same periodic-table group having the same number of outer-shell electrons"
-      },
-      "feedback": {
-        "short": "elements in the same periodic-table group having the same number of outer-shell electrons",
-        "steps": [
-          "Key idea: group outer electrons.",
-          "elements in the same periodic-table group having the same number of outer-shell electrons",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: group outer electrons"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "group outer electrons → elements in the same periodic-table group having the same number of outer-shell electrons"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -2120,34 +2131,29 @@
       "conceptId": "chem-y9-c5-group-outer-electrons-8d40fd478b-concept",
       "topicId": "chem-y9-c5",
       "topic": "Atomic structure, isotopes and electron arrangement",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Lithium and sodium are both in Group 1. How many electrons are in the outer shell of each neutral atom?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "group outer electrons"
+          "one",
+          "1"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "one. Elements in the same periodic-table group having the same number of outer-shell electrons.",
+        "steps": [
+          "one. Elements in the same periodic-table group having the same number of outer-shell electrons."
         ]
       },
-      "stimulus": {
-        "masked": "g__u_ __t__ _l___r___"
-      },
-      "feedback": {
-        "short": "elements in the same periodic-table group having the same number of outer-shell electrons",
-        "steps": [
-          "Key idea: group outer electrons.",
-          "elements in the same periodic-table group having the same number of outer-shell electrons",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: group outer electrons"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "group outer electrons → elements in the same periodic-table group having the same number of outer-shell electrons"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -2729,8 +2735,10 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "2,8,7",
-          "2, 8, 7"
-        ]
+          "2, 8, 7",
+          "2.8.7"
+        ],
+        "exactScienceResponse": true
       },
       "stimulus": {},
       "feedback": {
@@ -2792,7 +2800,9 @@
           "neutron",
           "proton"
         ],
-        "diagramId": "chem-atom"
+        "diagramId": "chem-atom",
+        "image": "/content/diagrams/question-review/chem-atom.svg",
+        "imageAlt": "Lettered figure for Atomic structure, isotopes and electron arrangement."
       },
       "feedback": {
         "short": "Place every scientific label at its correct anchor.",
@@ -2828,6 +2838,10 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "12"
+        ],
+        "numericFinalForms": [
+          "12",
+          "12 neutrons"
         ]
       },
       "stimulus": {},
@@ -2863,6 +2877,10 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "18"
+        ],
+        "numericFinalForms": [
+          "18",
+          "18 neutrons"
         ]
       },
       "stimulus": {},
@@ -2898,6 +2916,10 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "13"
+        ],
+        "numericFinalForms": [
+          "13",
+          "13 protons"
         ]
       },
       "stimulus": {},
@@ -2933,6 +2955,10 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "20"
+        ],
+        "numericFinalForms": [
+          "20",
+          "20 neutrons"
         ]
       },
       "stimulus": {},
@@ -2968,6 +2994,10 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "20"
+        ],
+        "numericFinalForms": [
+          "20",
+          "20 electrons"
         ]
       },
       "stimulus": {},
@@ -3003,6 +3033,10 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "10"
+        ],
+        "numericFinalForms": [
+          "10",
+          "10 neutrons"
         ]
       },
       "stimulus": {},
@@ -3037,8 +3071,10 @@
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "2,8,2"
-        ]
+          "2,8,2",
+          "2.8.2"
+        ],
+        "exactScienceResponse": true
       },
       "stimulus": {},
       "feedback": {
@@ -3072,8 +3108,10 @@
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "2,8,6"
-        ]
+          "2,8,6",
+          "2.8.6"
+        ],
+        "exactScienceResponse": true
       },
       "stimulus": {},
       "feedback": {
@@ -3107,8 +3145,10 @@
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "2,8,8,1"
-        ]
+          "2,8,8,1",
+          "2.8.8.1"
+        ],
+        "exactScienceResponse": true
       },
       "stimulus": {},
       "feedback": {
@@ -3142,8 +3182,10 @@
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "2,8,3"
-        ]
+          "2,8,3",
+          "2.8.3"
+        ],
+        "exactScienceResponse": true
       },
       "stimulus": {},
       "feedback": {

@@ -1096,6 +1096,10 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "carbon-carbon double bond"
+        ],
+        "reviewedEquivalents": [
+          "C=C",
+          "carbon–carbon double bond"
         ]
       },
       "stimulus": {
@@ -1133,6 +1137,10 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "carbon-carbon double bond"
+        ],
+        "reviewedEquivalents": [
+          "C=C",
+          "carbon–carbon double bond"
         ]
       },
       "stimulus": {
@@ -1325,34 +1333,30 @@
       "conceptId": "chem-y9-c10-alkene-general-formula-2cd16ac20d-concept",
       "topicId": "chem-y9-c10",
       "topic": "Cracking and production of alkenes",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry answer.",
+      "format": "typed_exact",
+      "prompt": "For an acyclic alkene with one double bond, write the general molecular formula using n for the number of carbon atoms.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "CₙH₂ₙ"
+          "CnH2n",
+          "CₙH₂ₙ",
+          "C(n)H(2n)"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "The general formula is CₙH₂ₙ.",
+        "steps": [
+          "The general formula is CₙH₂ₙ."
         ]
       },
-      "stimulus": {
-        "masked": "C__₂ₙ"
-      },
-      "feedback": {
-        "short": "CₙH₂ₙ",
-        "steps": [
-          "Key idea: alkene general formula.",
-          "CₙH₂ₙ",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: CₙH₂ₙ"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "alkene general formula → CₙH₂ₙ"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -2393,7 +2397,8 @@
         "accepted": [
           "C5H10",
           "C₅H₁₀"
-        ]
+        ],
+        "chemicalNotation": true
       },
       "stimulus": {},
       "feedback": {
@@ -2428,7 +2433,8 @@
         "accepted": [
           "C2H4",
           "C₂H₄"
-        ]
+        ],
+        "chemicalNotation": true
       },
       "stimulus": {},
       "feedback": {
@@ -2453,37 +2459,49 @@
       "conceptId": "chem-y9-c10-app-bromine-observation-concept",
       "topicId": "chem-y9-c10",
       "topic": "Cracking and production of alkenes",
-      "format": "mark_points",
-      "prompt": "State and explain the bromine-water result for an alkene.",
+      "format": "extended_response",
+      "prompt": "State and explain the bromine-water result for an alkene.\nAnswer each numbered part on a separate line, in order.\n1. What colour is fresh bromine water before it is added to an alkene?\n2. What is the final appearance when excess alkene has reacted with it?\n3. Which bond in the alkene reacts with bromine?",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "mark_points",
-        "markPoints": [
-          "bromine water changes from orange to colourless",
-          "the alkene has a C=C double bond",
-          "bromine adds across the double bond"
+        "mode": "ordered_parts",
+        "reviewedParts": [
+          [
+            "orange",
+            "orange-brown",
+            "orange brown",
+            "brownish orange"
+          ],
+          [
+            "colourless",
+            "colorless",
+            "decolourised",
+            "decolorized",
+            "decolourized"
+          ],
+          [
+            "C=C",
+            "carbon-carbon double bond",
+            "carbon to carbon double bond",
+            "double bond"
+          ]
         ],
         "totalMarks": 3,
-        "modelAnswer": "bromine water changes from orange to colourless the alkene has a C=C double bond bromine adds across the double bond"
+        "modelAnswer": "orange\ncolourless\nC=C"
       },
-      "stimulus": {
-        "marks": 3
-      },
+      "stimulus": {},
       "feedback": {
-        "short": "bromine water changes from orange to colourless the alkene has a C=C double bond bromine adds across the double bond",
+        "short": "orange\ncolourless\nC=C",
         "steps": [
-          "bromine water changes from orange to colourless the alkene has a C=C double bond bromine adds across the double bond",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
-          "Suggested answer: bromine water changes from orange to colourless the alkene has a C=C double bond bromine adds across the double bond"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "bromine water changes from orange to colourless the alkene has a C=C double bond bromine adds across the double bond"
+          "1. orange",
+          "2. colourless",
+          "3. C=C"
+        ]
       },
       "task": {
-        "label": "EXPLAIN",
-        "instruction": "Write one distinct scientific idea for each available mark."
+        "label": "SHORT ANSWERS",
+        "instruction": "One response per line, in the order shown."
       },
       "preview": true,
       "ordinary": true

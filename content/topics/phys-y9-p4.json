@@ -293,73 +293,67 @@
       "topicId": "phys-y9-p4",
       "topic": "Conduction and thermal insulation — Required Practical 2",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "In a non-metal solid, energy passes between neighbouring particles by increased ___.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "solid-lattice conduction"
+          "vibration",
+          "vibrations",
+          "vibrational motion"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "vibration. More energetic particle vibrations transferring energy to neighbouring particles.",
+        "steps": [
+          "vibration. More energetic particle vibrations transferring energy to neighbouring particles."
         ]
       },
-      "stimulus": {
-        "text": "more energetic particle vibrations transferring energy to neighbouring particles"
-      },
-      "feedback": {
-        "short": "more energetic particle vibrations transferring energy to neighbouring particles",
-        "steps": [
-          "Key idea: solid-lattice conduction.",
-          "more energetic particle vibrations transferring energy to neighbouring particles",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: solid-lattice conduction"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "solid-lattice conduction → more energetic particle vibrations transferring energy to neighbouring particles"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p4-solid-lattice-conduction-793b1cbb2d-restore",
       "conceptId": "phys-y9-p4-solid-lattice-conduction-793b1cbb2d-concept",
       "topicId": "phys-y9-p4",
       "topic": "Conduction and thermal insulation — Required Practical 2",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of solid-lattice conduction: “more energetic particle vibrations transferring ___ to neighbouring particles”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "solid-lattice conduction"
+          "energy"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "energy. More energetic particle vibrations transferring energy to neighbouring particles.",
+        "steps": [
+          "energy. More energetic particle vibrations transferring energy to neighbouring particles."
         ]
       },
-      "stimulus": {
-        "masked": "s__i_-__t___e ___d___i__"
-      },
-      "feedback": {
-        "short": "more energetic particle vibrations transferring energy to neighbouring particles",
-        "steps": [
-          "Key idea: solid-lattice conduction.",
-          "more energetic particle vibrations transferring energy to neighbouring particles",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: solid-lattice conduction"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "solid-lattice conduction → more energetic particle vibrations transferring energy to neighbouring particles"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p4-solid-lattice-conduction-793b1cbb2d-explain",
@@ -491,33 +485,30 @@
       "topicId": "phys-y9-p4",
       "topic": "Conduction and thermal insulation — Required Practical 2",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "Which mobile charge carriers help transfer thermal energy through a metal?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "metal free electrons"
+          "electrons",
+          "free electrons",
+          "delocalised electrons",
+          "delocalized electrons"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "electrons. Mobile electrons transferring thermal energy rapidly through a metal.",
+        "steps": [
+          "electrons. Mobile electrons transferring thermal energy rapidly through a metal."
         ]
       },
-      "stimulus": {
-        "text": "mobile electrons transferring thermal energy rapidly through a metal"
-      },
-      "feedback": {
-        "short": "mobile electrons transferring thermal energy rapidly through a metal",
-        "steps": [
-          "Key idea: metal free electrons.",
-          "mobile electrons transferring thermal energy rapidly through a metal",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: metal free electrons"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "metal free electrons → mobile electrons transferring thermal energy rapidly through a metal"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -527,37 +518,33 @@
       "conceptId": "phys-y9-p4-metal-free-electrons-3fd9b2428e-concept",
       "topicId": "phys-y9-p4",
       "topic": "Conduction and thermal insulation — Required Practical 2",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of metal free electrons: “mobile electrons transferring thermal ___ rapidly through a metal”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "metal free electrons"
+          "energy"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "energy. Mobile electrons transferring thermal energy rapidly through a metal.",
+        "steps": [
+          "energy. Mobile electrons transferring thermal energy rapidly through a metal."
         ]
       },
-      "stimulus": {
-        "masked": "m__a_ __e_ __e___o__"
-      },
-      "feedback": {
-        "short": "mobile electrons transferring thermal energy rapidly through a metal",
-        "steps": [
-          "Key idea: metal free electrons.",
-          "mobile electrons transferring thermal energy rapidly through a metal",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: metal free electrons"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "metal free electrons → mobile electrons transferring thermal energy rapidly through a metal"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p4-metal-free-electrons-3fd9b2428e-explain",
@@ -1085,33 +1072,28 @@
       "topicId": "phys-y9-p4",
       "topic": "Conduction and thermal insulation — Required Practical 2",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "Trapping air in small pockets prevents which form of bulk energy transfer in the air?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "trapped-air insulation"
+          "convection",
+          "convection currents"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "convection. Poorly conducting gas unable to circulate freely, reducing energy transfer.",
+        "steps": [
+          "convection. Poorly conducting gas unable to circulate freely, reducing energy transfer."
         ]
       },
-      "stimulus": {
-        "text": "poorly conducting gas unable to circulate freely, reducing energy transfer"
-      },
-      "feedback": {
-        "short": "poorly conducting gas unable to circulate freely, reducing energy transfer",
-        "steps": [
-          "Key idea: trapped-air insulation.",
-          "poorly conducting gas unable to circulate freely, reducing energy transfer",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: trapped-air insulation"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "trapped-air insulation → poorly conducting gas unable to circulate freely, reducing energy transfer"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1121,37 +1103,33 @@
       "conceptId": "phys-y9-p4-trapped-air-insulation-dc1c10c376-concept",
       "topicId": "phys-y9-p4",
       "topic": "Conduction and thermal insulation — Required Practical 2",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of trapped-air insulation: “poorly conducting gas unable to circulate freely, reducing ___ transfer”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "trapped-air insulation"
+          "energy"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "energy. Poorly conducting gas unable to circulate freely, reducing energy transfer.",
+        "steps": [
+          "energy. Poorly conducting gas unable to circulate freely, reducing energy transfer."
         ]
       },
-      "stimulus": {
-        "masked": "t__p___-a__ _n___a___n"
-      },
-      "feedback": {
-        "short": "poorly conducting gas unable to circulate freely, reducing energy transfer",
-        "steps": [
-          "Key idea: trapped-air insulation.",
-          "poorly conducting gas unable to circulate freely, reducing energy transfer",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: trapped-air insulation"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "trapped-air insulation → poorly conducting gas unable to circulate freely, reducing energy transfer"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p4-trapped-air-insulation-dc1c10c376-explain",
@@ -1724,37 +1702,35 @@
       "conceptId": "phys-y9-p4-insulation-controls-41a1331148-concept",
       "topicId": "phys-y9-p4",
       "topic": "Conduction and thermal insulation — Required Practical 2",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "When comparing the insulating materials around identical beakers, should the starting water temperature be kept constant or varied?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "insulation controls"
+          "constant",
+          "kept constant",
+          "kept the same"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "constant. Starting temperature, water mass, container, exposed area, non-tested thickness, room conditions and time.",
+        "steps": [
+          "constant. Starting temperature, water mass, container, exposed area, non-tested thickness, room conditions and time."
         ]
       },
-      "stimulus": {
-        "masked": "i__u___i__ _o___o__"
-      },
-      "feedback": {
-        "short": "starting temperature, water mass, container, exposed area, non-tested thickness, room conditions and time",
-        "steps": [
-          "Key idea: insulation controls.",
-          "starting temperature, water mass, container, exposed area, non-tested thickness, room conditions and time",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: insulation controls"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "insulation controls → starting temperature, water mass, container, exposed area, non-tested thickness, room conditions and time"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p4-insulation-controls-41a1331148-explain",
@@ -1886,33 +1862,29 @@
       "topicId": "phys-y9-p4",
       "topic": "Conduction and thermal insulation — Required Practical 2",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "Three temperature falls are 5, 7 and 6 °C. Give their arithmetic mean in °C.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "insulation repeat"
+          "6",
+          "6 °C",
+          "6 degrees Celsius"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "6.",
+        "steps": [
+          "6."
         ]
       },
-      "stimulus": {
-        "text": "repeating each condition and calculating a mean to improve confidence"
-      },
-      "feedback": {
-        "short": "repeating each condition and calculating a mean to improve confidence",
-        "steps": [
-          "Key idea: insulation repeat.",
-          "repeating each condition and calculating a mean to improve confidence",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: insulation repeat"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "insulation repeat → repeating each condition and calculating a mean to improve confidence"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1922,34 +1894,30 @@
       "conceptId": "phys-y9-p4-insulation-repeat-32f70f4bb4-concept",
       "topicId": "phys-y9-p4",
       "topic": "Conduction and thermal insulation — Required Practical 2",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Three temperature falls are 5, 7 and 6 °C. Give their arithmetic mean in °C.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "insulation repeat"
+          "6",
+          "6 °C",
+          "6 degrees Celsius"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "6.",
+        "steps": [
+          "6."
         ]
       },
-      "stimulus": {
-        "masked": "i__u___i__ _e___t"
-      },
-      "feedback": {
-        "short": "repeating each condition and calculating a mean to improve confidence",
-        "steps": [
-          "Key idea: insulation repeat.",
-          "repeating each condition and calculating a mean to improve confidence",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: insulation repeat"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "insulation repeat → repeating each condition and calculating a mean to improve confidence"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -2281,7 +2249,9 @@
           "container",
           "hot water"
         ],
-        "diagramId": "phys-insulation"
+        "diagramId": "phys-insulation",
+        "image": "/content/diagrams/question-review/phys-insulation.svg",
+        "imageAlt": "Lettered figure for Conduction and thermal insulation — Required Practical 2."
       },
       "feedback": {
         "short": "Place every scientific label at its correct anchor.",
@@ -2791,7 +2761,7 @@
       "topicId": "phys-y9-p4",
       "topic": "Conduction and thermal insulation — Required Practical 2",
       "format": "calculation",
-      "prompt": "A beaker of hot water cools from 74 °C to 62 °C in 6 minutes. Calculate its mean cooling rate in °C per minute. (3 marks)",
+      "prompt": "A beaker of hot water cools from 74 °C to 62 °C in 6 minutes. Calculate its mean cooling rate in °C per minute. (3 marks) A number on its own will be read in °C/min.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -2803,7 +2773,9 @@
         ],
         "working": "Temperature fall = 74 − 62 = 12 °C; Rate = 12 ÷ 6; Mean cooling rate = 2 °C/min",
         "tolerance": 0,
-        "modelAnswer": "2 °C/min"
+        "modelAnswer": "2 °C/min",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {
         "marks": 3
@@ -2831,7 +2803,7 @@
       "topicId": "phys-y9-p4",
       "topic": "Conduction and thermal insulation — Required Practical 2",
       "format": "calculation",
-      "prompt": "Cup A cools by 24 °C in 12 minutes. Calculate its average temperature fall per minute. (3 marks)",
+      "prompt": "Cup A cools by 24 °C in 12 minutes. Calculate its average temperature fall per minute. (3 marks) A number on its own will be read in °C/min.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
@@ -2843,7 +2815,9 @@
         ],
         "working": "Rate = temperature drop ÷ time; 24 ÷ 12 = 2; Answer 2 °C/min",
         "tolerance": 0,
-        "modelAnswer": "2 °C/min"
+        "modelAnswer": "2 °C/min",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {
         "marks": 3

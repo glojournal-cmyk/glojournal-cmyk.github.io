@@ -491,33 +491,29 @@
       "topicId": "chem-y9-c8",
       "topic": "Crude oil, fractional distillation and alkanes",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Which end of a crude-oil fractionating column is hottest?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "fractionating-column gradient"
+          "bottom",
+          "base",
+          "the bottom"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "bottom. A column that is hot at the bottom and cooler higher up.",
+        "steps": [
+          "bottom. A column that is hot at the bottom and cooler higher up."
         ]
       },
-      "stimulus": {
-        "text": "a column that is hot at the bottom and cooler higher up"
-      },
-      "feedback": {
-        "short": "a column that is hot at the bottom and cooler higher up",
-        "steps": [
-          "Key idea: fractionating-column gradient.",
-          "a column that is hot at the bottom and cooler higher up",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: fractionating-column gradient"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "fractionating-column gradient → a column that is hot at the bottom and cooler higher up"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -527,37 +523,33 @@
       "conceptId": "chem-y9-c8-fractionating-column-gradient-75761cf39f-concept",
       "topicId": "chem-y9-c8",
       "topic": "Crude oil, fractional distillation and alkanes",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of fractionating-column gradient: “a column that is hot at the bottom and cooler ___ up”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "fractionating-column gradient"
+          "higher"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "higher. A column that is hot at the bottom and cooler higher up.",
+        "steps": [
+          "higher. A column that is hot at the bottom and cooler higher up."
         ]
       },
-      "stimulus": {
-        "masked": "f__c___n___n_-__l___ g___i___"
-      },
-      "feedback": {
-        "short": "a column that is hot at the bottom and cooler higher up",
-        "steps": [
-          "Key idea: fractionating-column gradient.",
-          "a column that is hot at the bottom and cooler higher up",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: fractionating-column gradient"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "fractionating-column gradient → a column that is hot at the bottom and cooler higher up"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c8-fractionating-column-gradient-75761cf39f-explain",
@@ -689,33 +681,28 @@
       "topicId": "chem-y9-c8",
       "topic": "Crude oil, fractional distillation and alkanes",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "A fraction from crude oil is a mixture of hydrocarbons with similar ranges of which temperature property?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "crude-oil fraction"
+          "boiling point",
+          "boiling points"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "boiling point. A mixture of hydrocarbons with similar numbers of carbon atoms and similar boiling points.",
+        "steps": [
+          "boiling point. A mixture of hydrocarbons with similar numbers of carbon atoms and similar boiling points."
         ]
       },
-      "stimulus": {
-        "text": "a mixture of hydrocarbons with similar numbers of carbon atoms and similar boiling points"
-      },
-      "feedback": {
-        "short": "a mixture of hydrocarbons with similar numbers of carbon atoms and similar boiling points",
-        "steps": [
-          "Key idea: crude-oil fraction.",
-          "a mixture of hydrocarbons with similar numbers of carbon atoms and similar boiling points",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: crude-oil fraction"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "crude-oil fraction → a mixture of hydrocarbons with similar numbers of carbon atoms and similar boiling points"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -725,37 +712,33 @@
       "conceptId": "chem-y9-c8-crude-oil-fraction-28bc9109cc-concept",
       "topicId": "chem-y9-c8",
       "topic": "Crude oil, fractional distillation and alkanes",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of crude-oil fraction: “a mixture of hydrocarbons with similar numbers of ___ and similar boiling points”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "crude-oil fraction"
+          "carbon atoms"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "carbon atoms. A mixture of hydrocarbons with similar numbers of carbon atoms and similar boiling points.",
+        "steps": [
+          "carbon atoms. A mixture of hydrocarbons with similar numbers of carbon atoms and similar boiling points."
         ]
       },
-      "stimulus": {
-        "masked": "c__d_-__l ___c___n"
-      },
-      "feedback": {
-        "short": "a mixture of hydrocarbons with similar numbers of carbon atoms and similar boiling points",
-        "steps": [
-          "Key idea: crude-oil fraction.",
-          "a mixture of hydrocarbons with similar numbers of carbon atoms and similar boiling points",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: crude-oil fraction"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "crude-oil fraction → a mixture of hydrocarbons with similar numbers of carbon atoms and similar boiling points"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c8-crude-oil-fraction-28bc9109cc-explain",
@@ -887,33 +870,29 @@
       "topicId": "chem-y9-c8",
       "topic": "Crude oil, fractional distillation and alkanes",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "As the carbon chain of an alkane gets longer, what happens to its boiling point?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "longer-chain boiling point"
+          "increases",
+          "rises",
+          "it increases"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "increases. An increase in boiling point as hydrocarbon chain length increases.",
+        "steps": [
+          "increases. An increase in boiling point as hydrocarbon chain length increases."
         ]
       },
-      "stimulus": {
-        "text": "an increase in boiling point as hydrocarbon chain length increases"
-      },
-      "feedback": {
-        "short": "an increase in boiling point as hydrocarbon chain length increases",
-        "steps": [
-          "Key idea: longer-chain boiling point.",
-          "an increase in boiling point as hydrocarbon chain length increases",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: longer-chain boiling point"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "longer-chain boiling point → an increase in boiling point as hydrocarbon chain length increases"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -923,37 +902,34 @@
       "conceptId": "chem-y9-c8-longer-chain-boiling-point-c6d0a2ec5a-concept",
       "topicId": "chem-y9-c8",
       "topic": "Crude oil, fractional distillation and alkanes",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of longer-chain boiling point: “an increase in boiling point as hydrocarbon chain length ___”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "longer-chain boiling point"
+          "increases",
+          "rises"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "increases. An increase in boiling point as hydrocarbon chain length increases.",
+        "steps": [
+          "increases. An increase in boiling point as hydrocarbon chain length increases."
         ]
       },
-      "stimulus": {
-        "masked": "l__g__-_h___ b___i__ _o___"
-      },
-      "feedback": {
-        "short": "an increase in boiling point as hydrocarbon chain length increases",
-        "steps": [
-          "Key idea: longer-chain boiling point.",
-          "an increase in boiling point as hydrocarbon chain length increases",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: longer-chain boiling point"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "longer-chain boiling point → an increase in boiling point as hydrocarbon chain length increases"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c8-longer-chain-boiling-point-c6d0a2ec5a-explain",
@@ -1085,73 +1061,67 @@
       "topicId": "chem-y9-c8",
       "topic": "Crude oil, fractional distillation and alkanes",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "At comparable temperatures, are longer-chain liquid hydrocarbons generally more or less viscous?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "longer-chain viscosity"
+          "more",
+          "more viscous"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "more. An increase in viscosity as hydrocarbon chain length increases.",
+        "steps": [
+          "more. An increase in viscosity as hydrocarbon chain length increases."
         ]
       },
-      "stimulus": {
-        "text": "an increase in viscosity as hydrocarbon chain length increases"
-      },
-      "feedback": {
-        "short": "an increase in viscosity as hydrocarbon chain length increases",
-        "steps": [
-          "Key idea: longer-chain viscosity.",
-          "an increase in viscosity as hydrocarbon chain length increases",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: longer-chain viscosity"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "longer-chain viscosity → an increase in viscosity as hydrocarbon chain length increases"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c8-longer-chain-viscosity-5a88a5ede7-restore",
       "conceptId": "chem-y9-c8-longer-chain-viscosity-5a88a5ede7-concept",
       "topicId": "chem-y9-c8",
       "topic": "Crude oil, fractional distillation and alkanes",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of longer-chain viscosity: “an increase in viscosity as hydrocarbon chain length ___”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "longer-chain viscosity"
+          "increases",
+          "rises"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "increases. An increase in viscosity as hydrocarbon chain length increases.",
+        "steps": [
+          "increases. An increase in viscosity as hydrocarbon chain length increases."
         ]
       },
-      "stimulus": {
-        "masked": "l__g__-_h___ v___o___y"
-      },
-      "feedback": {
-        "short": "an increase in viscosity as hydrocarbon chain length increases",
-        "steps": [
-          "Key idea: longer-chain viscosity.",
-          "an increase in viscosity as hydrocarbon chain length increases",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: longer-chain viscosity"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "longer-chain viscosity → an increase in viscosity as hydrocarbon chain length increases"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c8-longer-chain-viscosity-5a88a5ede7-explain",
@@ -1283,73 +1253,68 @@
       "topicId": "chem-y9-c8",
       "topic": "Crude oil, fractional distillation and alkanes",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Are longer-chain alkanes generally easier or harder to ignite?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "longer-chain flammability"
+          "harder",
+          "harder to ignite",
+          "more difficult"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "harder. A decrease in ease of ignition as hydrocarbon chain length increases.",
+        "steps": [
+          "harder. A decrease in ease of ignition as hydrocarbon chain length increases."
         ]
       },
-      "stimulus": {
-        "text": "a decrease in ease of ignition as hydrocarbon chain length increases"
-      },
-      "feedback": {
-        "short": "a decrease in ease of ignition as hydrocarbon chain length increases",
-        "steps": [
-          "Key idea: longer-chain flammability.",
-          "a decrease in ease of ignition as hydrocarbon chain length increases",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: longer-chain flammability"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "longer-chain flammability → a decrease in ease of ignition as hydrocarbon chain length increases"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c8-longer-chain-flammability-86bf47dc36-restore",
       "conceptId": "chem-y9-c8-longer-chain-flammability-86bf47dc36-concept",
       "topicId": "chem-y9-c8",
       "topic": "Crude oil, fractional distillation and alkanes",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of longer-chain flammability: “a decrease in ease of ignition as hydrocarbon chain length ___”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "longer-chain flammability"
+          "increases",
+          "rises"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "increases. A decrease in ease of ignition as hydrocarbon chain length increases.",
+        "steps": [
+          "increases. A decrease in ease of ignition as hydrocarbon chain length increases."
         ]
       },
-      "stimulus": {
-        "masked": "l__g__-_h___ f___m___l___"
-      },
-      "feedback": {
-        "short": "a decrease in ease of ignition as hydrocarbon chain length increases",
-        "steps": [
-          "Key idea: longer-chain flammability.",
-          "a decrease in ease of ignition as hydrocarbon chain length increases",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: longer-chain flammability"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "longer-chain flammability → a decrease in ease of ignition as hydrocarbon chain length increases"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c8-longer-chain-flammability-86bf47dc36-explain",
@@ -1481,73 +1446,67 @@
       "topicId": "chem-y9-c8",
       "topic": "Crude oil, fractional distillation and alkanes",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Are longer-chain liquid hydrocarbons generally more or less volatile?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "longer-chain volatility"
+          "less",
+          "less volatile"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "less. A decrease in volatility as hydrocarbon chain length increases.",
+        "steps": [
+          "less. A decrease in volatility as hydrocarbon chain length increases."
         ]
       },
-      "stimulus": {
-        "text": "a decrease in volatility as hydrocarbon chain length increases"
-      },
-      "feedback": {
-        "short": "a decrease in volatility as hydrocarbon chain length increases",
-        "steps": [
-          "Key idea: longer-chain volatility.",
-          "a decrease in volatility as hydrocarbon chain length increases",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: longer-chain volatility"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "longer-chain volatility → a decrease in volatility as hydrocarbon chain length increases"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c8-longer-chain-volatility-c801221efc-restore",
       "conceptId": "chem-y9-c8-longer-chain-volatility-c801221efc-concept",
       "topicId": "chem-y9-c8",
       "topic": "Crude oil, fractional distillation and alkanes",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of longer-chain volatility: “a decrease in volatility as hydrocarbon chain length ___”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "longer-chain volatility"
+          "increases",
+          "rises"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "increases. A decrease in volatility as hydrocarbon chain length increases.",
+        "steps": [
+          "increases. A decrease in volatility as hydrocarbon chain length increases."
         ]
       },
-      "stimulus": {
-        "masked": "l__g__-_h___ v___t___t_"
-      },
-      "feedback": {
-        "short": "a decrease in volatility as hydrocarbon chain length increases",
-        "steps": [
-          "Key idea: longer-chain volatility.",
-          "a decrease in volatility as hydrocarbon chain length increases",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: longer-chain volatility"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "longer-chain volatility → a decrease in volatility as hydrocarbon chain length increases"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c8-longer-chain-volatility-c801221efc-explain",
@@ -2591,7 +2550,8 @@
         "accepted": [
           "C6H14",
           "C₆H₁₄"
-        ]
+        ],
+        "chemicalNotation": true
       },
       "stimulus": {},
       "feedback": {
@@ -2787,7 +2747,9 @@
           "long-chain fraction",
           "temperature gradient"
         ],
-        "diagramId": "chem-fractionating-column"
+        "diagramId": "chem-fractionating-column",
+        "image": "/content/diagrams/question-review/chem-fractionating-column.svg",
+        "imageAlt": "Lettered figure for Crude oil, fractional distillation and alkanes."
       },
       "feedback": {
         "short": "Place every scientific label at its correct anchor.",

@@ -301,6 +301,11 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "partially permeable membrane"
+        ],
+        "reviewedEquivalents": [
+          "selectively permeable membrane",
+          "semipermeable membrane",
+          "semi-permeable membrane"
         ]
       },
       "stimulus": {
@@ -338,6 +343,11 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "partially permeable membrane"
+        ],
+        "reviewedEquivalents": [
+          "selectively permeable membrane",
+          "semipermeable membrane",
+          "semi-permeable membrane"
         ]
       },
       "stimulus": {
@@ -491,33 +501,27 @@
       "topicId": "bio-y9-b9",
       "topic": "Osmosis and Required Practical 3",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Potato tissue gains mass in dilute solution. Which substance has entered the cells by osmosis?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "water gain in plant tissue"
+          "water"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "water. The likely mass increase when tissue is placed in a more dilute solution.",
+        "steps": [
+          "water. The likely mass increase when tissue is placed in a more dilute solution."
         ]
       },
-      "stimulus": {
-        "text": "the likely mass increase when tissue is placed in a more dilute solution"
-      },
-      "feedback": {
-        "short": "the likely mass increase when tissue is placed in a more dilute solution",
-        "steps": [
-          "Key idea: water gain in plant tissue.",
-          "the likely mass increase when tissue is placed in a more dilute solution",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: water gain in plant tissue"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "water gain in plant tissue → the likely mass increase when tissue is placed in a more dilute solution"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -527,37 +531,33 @@
       "conceptId": "bio-y9-b9-water-gain-in-plant-tissue-82b0afce9e-concept",
       "topicId": "bio-y9-b9",
       "topic": "Osmosis and Required Practical 3",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of water gain in plant tissue: “the likely ___ increase when tissue is placed in a more dilute solution”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "water gain in plant tissue"
+          "mass"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "mass. The likely mass increase when tissue is placed in a more dilute solution.",
+        "steps": [
+          "mass. The likely mass increase when tissue is placed in a more dilute solution."
         ]
       },
-      "stimulus": {
-        "masked": "w__e_ __i_ __ p___t ___s__"
-      },
-      "feedback": {
-        "short": "the likely mass increase when tissue is placed in a more dilute solution",
-        "steps": [
-          "Key idea: water gain in plant tissue.",
-          "the likely mass increase when tissue is placed in a more dilute solution",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: water gain in plant tissue"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "water gain in plant tissue → the likely mass increase when tissue is placed in a more dilute solution"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b9-water-gain-in-plant-tissue-82b0afce9e-explain",
@@ -689,73 +689,67 @@
       "topicId": "bio-y9-b9",
       "topic": "Osmosis and Required Practical 3",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Potato tissue loses mass in concentrated sugar solution. Did water move into or out of the tissue overall?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "water loss from plant tissue"
+          "out",
+          "out of the tissue",
+          "out of the cells"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "out. The likely mass decrease when tissue is placed in a more concentrated solution.",
+        "steps": [
+          "out. The likely mass decrease when tissue is placed in a more concentrated solution."
         ]
       },
-      "stimulus": {
-        "text": "the likely mass decrease when tissue is placed in a more concentrated solution"
-      },
-      "feedback": {
-        "short": "the likely mass decrease when tissue is placed in a more concentrated solution",
-        "steps": [
-          "Key idea: water loss from plant tissue.",
-          "the likely mass decrease when tissue is placed in a more concentrated solution",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: water loss from plant tissue"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "water loss from plant tissue → the likely mass decrease when tissue is placed in a more concentrated solution"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b9-water-loss-from-plant-tissue-7321007fd8-restore",
       "conceptId": "bio-y9-b9-water-loss-from-plant-tissue-7321007fd8-concept",
       "topicId": "bio-y9-b9",
       "topic": "Osmosis and Required Practical 3",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of water loss from plant tissue: “the likely ___ decrease when tissue is placed in a more concentrated solution”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "water loss from plant tissue"
+          "mass"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "mass. The likely mass decrease when tissue is placed in a more concentrated solution.",
+        "steps": [
+          "mass. The likely mass decrease when tissue is placed in a more concentrated solution."
         ]
       },
-      "stimulus": {
-        "masked": "w__e_ __s_ __o_ __a__ _i___e"
-      },
-      "feedback": {
-        "short": "the likely mass decrease when tissue is placed in a more concentrated solution",
-        "steps": [
-          "Key idea: water loss from plant tissue.",
-          "the likely mass decrease when tissue is placed in a more concentrated solution",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: water loss from plant tissue"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "water loss from plant tissue → the likely mass decrease when tissue is placed in a more concentrated solution"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b9-water-loss-from-plant-tissue-7321007fd8-explain",
@@ -897,7 +891,11 @@
           "final mass minus initial mass, divided by initial mass, multiplied by 100"
         ],
         "totalMarks": 1,
-        "modelAnswer": "final mass minus initial mass, divided by initial mass, multiplied by 100"
+        "modelAnswer": "final mass minus initial mass, divided by initial mass, multiplied by 100",
+        "reviewedEquivalents": [
+          "(final mass - initial mass) / initial mass × 100",
+          "change in mass / initial mass × 100"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -975,7 +973,11 @@
           "final mass minus initial mass, divided by initial mass, multiplied by 100"
         ],
         "totalMarks": 1,
-        "modelAnswer": "final mass minus initial mass, divided by initial mass, multiplied by 100"
+        "modelAnswer": "final mass minus initial mass, divided by initial mass, multiplied by 100",
+        "reviewedEquivalents": [
+          "(final mass - initial mass) / initial mass × 100",
+          "change in mass / initial mass × 100"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -1287,73 +1289,67 @@
       "topicId": "bio-y9-b9",
       "topic": "Osmosis and Required Practical 3",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Before reweighing a potato cylinder, which liquid should be blotted away: surface liquid or cell sap?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "blotting tissue"
+          "surface liquid",
+          "surface water",
+          "surface solution"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "surface liquid. Removing surface liquid before reweighing so it does not distort mass change.",
+        "steps": [
+          "surface liquid. Removing surface liquid before reweighing so it does not distort mass change."
         ]
       },
-      "stimulus": {
-        "text": "removing surface liquid before reweighing so it does not distort mass change"
-      },
-      "feedback": {
-        "short": "removing surface liquid before reweighing so it does not distort mass change",
-        "steps": [
-          "Key idea: blotting tissue.",
-          "removing surface liquid before reweighing so it does not distort mass change",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: blotting tissue"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "blotting tissue → removing surface liquid before reweighing so it does not distort mass change"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b9-blotting-tissue-e8d5bb6f86-restore",
       "conceptId": "bio-y9-b9-blotting-tissue-e8d5bb6f86-concept",
       "topicId": "bio-y9-b9",
       "topic": "Osmosis and Required Practical 3",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of blotting tissue: “removing surface liquid before reweighing so it does not distort ___ change”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "blotting tissue"
+          "mass"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "mass. Removing surface liquid before reweighing so it does not distort mass change.",
+        "steps": [
+          "mass. Removing surface liquid before reweighing so it does not distort mass change."
         ]
       },
-      "stimulus": {
-        "masked": "b__t___g ___s__"
-      },
-      "feedback": {
-        "short": "removing surface liquid before reweighing so it does not distort mass change",
-        "steps": [
-          "Key idea: blotting tissue.",
-          "removing surface liquid before reweighing so it does not distort mass change",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: blotting tissue"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "blotting tissue → removing surface liquid before reweighing so it does not distort mass change"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b9-blotting-tissue-e8d5bb6f86-explain",
@@ -1524,37 +1520,34 @@
       "conceptId": "bio-y9-b9-osmosis-independent-variable-87774a3311-concept",
       "topicId": "bio-y9-b9",
       "topic": "Osmosis and Required Practical 3",
-      "format": "spelling_restore",
-      "prompt": "Restore the complete answer for this science cue.",
+      "format": "typed_exact",
+      "prompt": "A pupil deliberately changes salt concentration and measures the mass change in potato strips. Is salt concentration independent or dependent?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "the salt or sugar solution concentration"
+          "independent",
+          "independent variable"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "independent. The salt or sugar solution concentration.",
+        "steps": [
+          "independent. The salt or sugar solution concentration."
         ]
       },
-      "stimulus": {
-        "masked": "t__ s___ o_ __g__ _o___i__ _o___n___t___"
-      },
-      "feedback": {
-        "short": "the salt or sugar solution concentration",
-        "steps": [
-          "Key idea: osmosis independent variable.",
-          "the salt or sugar solution concentration",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: the salt or sugar solution concentration"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "osmosis independent variable → the salt or sugar solution concentration"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b9-osmosis-independent-variable-87774a3311-explain",
@@ -1725,37 +1718,34 @@
       "conceptId": "bio-y9-b9-osmosis-dependent-variable-b18d361093-concept",
       "topicId": "bio-y9-b9",
       "topic": "Osmosis and Required Practical 3",
-      "format": "spelling_restore",
-      "prompt": "Restore the complete answer for this science cue.",
+      "format": "typed_exact",
+      "prompt": "A pupil varies salt concentration and records the percentage mass change of potato strips. Is the recorded mass change independent or dependent?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "change or percentage change in plant-tissue mass"
+          "dependent",
+          "dependent variable"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "dependent. Change or percentage change in plant-tissue mass.",
+        "steps": [
+          "dependent. Change or percentage change in plant-tissue mass."
         ]
       },
-      "stimulus": {
-        "masked": "c__n__ _r ___c___a__ _h___e __ _l___-t___u_ __s_"
-      },
-      "feedback": {
-        "short": "change or percentage change in plant-tissue mass",
-        "steps": [
-          "Key idea: osmosis dependent variable.",
-          "change or percentage change in plant-tissue mass",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: change or percentage change in plant-tissue mass"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "osmosis dependent variable → change or percentage change in plant-tissue mass"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b9-osmosis-dependent-variable-b18d361093-explain",
@@ -2382,7 +2372,7 @@
       "topicId": "bio-y9-b9",
       "topic": "Osmosis and Required Practical 3",
       "format": "calculation",
-      "prompt": "A potato cylinder changes from 4.00 g to 4.60 g. Calculate the percentage change in mass.",
+      "prompt": "A potato cylinder changes from 4.00 g to 4.60 g. Calculate the percentage change in mass. A number on its own will be read in %.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
@@ -2395,7 +2385,9 @@
         ],
         "working": "(4.60 − 4.00) ÷ 4.00 × 100 = 15%",
         "tolerance": 0,
-        "modelAnswer": "15 %"
+        "modelAnswer": "15 %",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -2422,7 +2414,7 @@
       "topicId": "bio-y9-b9",
       "topic": "Osmosis and Required Practical 3",
       "format": "calculation",
-      "prompt": "A plant cylinder changes from 5.00 g to 4.25 g. Calculate the percentage change in mass.",
+      "prompt": "A plant cylinder changes from 5.00 g to 4.25 g. Calculate the percentage change in mass. A number on its own will be read in %.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -2435,7 +2427,9 @@
         ],
         "working": "(4.25 − 5.00) ÷ 5.00 × 100 = −15%",
         "tolerance": 0,
-        "modelAnswer": "-15 %"
+        "modelAnswer": "-15 %",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {

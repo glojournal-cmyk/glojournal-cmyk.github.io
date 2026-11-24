@@ -42,6 +42,14 @@ for(const q of questions){
   if(q.format==="word_tiles") stats.wordTiles++;
   if(q.format==="sequence") stats.sequence++;
   const accepted=[...(q.answer?.accepted||[])].filter(v=>typeof v==="string"&&v.trim());
+  if(q.answer?.reviewOnly){
+    for(const input of [...accepted,"a different answer"]){
+      const r=B(q,input,q.__subject,{});
+      if(!r.reviewOnly || r.score!==0 || r.total!==0 || !r.model)
+        failures.push({type:"ungraded-writing-feedback",id:q.id,result:r});
+    }
+    continue;
+  }
   for(const ans of accepted){
     stats.acceptedVariants++;
     if(isTextual(q)){

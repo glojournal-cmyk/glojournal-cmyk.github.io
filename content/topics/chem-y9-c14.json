@@ -134,37 +134,34 @@
       "conceptId": "chem-y9-c14-rates-practical-hypothesis-620da1a8c9-concept",
       "topicId": "chem-y9-c14",
       "topic": "Rates practical and graphical analysis — Required Practical 5",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "With other conditions constant, does increasing the concentration of a reacting solution generally increase or decrease its initial reaction rate?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "rates-practical hypothesis"
+          "increase",
+          "increases"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "increase. A testable prediction about concentration and rate explained using collision theory.",
+        "steps": [
+          "increase. A testable prediction about concentration and rate explained using collision theory."
         ]
       },
-      "stimulus": {
-        "masked": "r__e_-__a___c__ _y___h___s"
-      },
-      "feedback": {
-        "short": "a testable prediction about concentration and rate explained using collision theory",
-        "steps": [
-          "Key idea: rates-practical hypothesis.",
-          "a testable prediction about concentration and rate explained using collision theory",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: rates-practical hypothesis"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "rates-practical hypothesis → a testable prediction about concentration and rate explained using collision theory"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c14-rates-practical-hypothesis-620da1a8c9-explain",
@@ -1139,37 +1136,35 @@
       "conceptId": "chem-y9-c14-rates-control-variables-025b956969-concept",
       "topicId": "chem-y9-c14",
       "topic": "Rates practical and graphical analysis — Required Practical 5",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "When testing how concentration affects a reaction rate, should the starting temperature be kept constant or varied?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "rates control variables"
+          "constant",
+          "kept constant",
+          "kept the same"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "constant. Temperature, total volume where appropriate, other reactant amounts, apparatus and endpoint method.",
+        "steps": [
+          "constant. Temperature, total volume where appropriate, other reactant amounts, apparatus and endpoint method."
         ]
       },
-      "stimulus": {
-        "masked": "r__e_ __n___l ___i___e_"
-      },
-      "feedback": {
-        "short": "temperature, total volume where appropriate, other reactant amounts, apparatus and endpoint method",
-        "steps": [
-          "Key idea: rates control variables.",
-          "temperature, total volume where appropriate, other reactant amounts, apparatus and endpoint method",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: rates control variables"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "rates control variables → temperature, total volume where appropriate, other reactant amounts, apparatus and endpoint method"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c14-rates-control-variables-025b956969-explain",
@@ -2102,73 +2097,67 @@
       "topicId": "chem-y9-c14",
       "topic": "Rates practical and graphical analysis — Required Practical 5",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Some reaction gas escapes before entering the gas syringe. Is the measured volume too high or too low?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "gas leak"
+          "too low",
+          "low",
+          "underestimated"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "too low. A limitation causing measured gas volume to be lower than the amount produced.",
+        "steps": [
+          "too low. A limitation causing measured gas volume to be lower than the amount produced."
         ]
       },
-      "stimulus": {
-        "text": "a limitation causing measured gas volume to be lower than the amount produced"
-      },
-      "feedback": {
-        "short": "a limitation causing measured gas volume to be lower than the amount produced",
-        "steps": [
-          "Key idea: gas leak.",
-          "a limitation causing measured gas volume to be lower than the amount produced",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: gas leak"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "gas leak → a limitation causing measured gas volume to be lower than the amount produced"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c14-gas-leak-84dbc62f22-restore",
       "conceptId": "chem-y9-c14-gas-leak-84dbc62f22-concept",
       "topicId": "chem-y9-c14",
       "topic": "Rates practical and graphical analysis — Required Practical 5",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of gas leak: “a limitation causing measured gas ___ to be lower than the amount produced”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "gas leak"
+          "volume"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "volume. A limitation causing measured gas volume to be lower than the amount produced.",
+        "steps": [
+          "volume. A limitation causing measured gas volume to be lower than the amount produced."
         ]
       },
-      "stimulus": {
-        "masked": "g__ l___"
-      },
-      "feedback": {
-        "short": "a limitation causing measured gas volume to be lower than the amount produced",
-        "steps": [
-          "Key idea: gas leak.",
-          "a limitation causing measured gas volume to be lower than the amount produced",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: gas leak"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "gas leak → a limitation causing measured gas volume to be lower than the amount produced"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c14-gas-leak-84dbc62f22-explain",
@@ -2300,73 +2289,67 @@
       "topicId": "chem-y9-c14",
       "topic": "Rates practical and graphical analysis — Required Practical 5",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Two observers disagree about when a cross disappears. Is this endpoint judged subjectively or objectively?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "subjective endpoint"
+          "subjectively",
+          "subjective"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "subjectively. A limitation when different observers judge a cross disappearing at different times.",
+        "steps": [
+          "subjectively. A limitation when different observers judge a cross disappearing at different times."
         ]
       },
-      "stimulus": {
-        "text": "a limitation when different observers judge a cross disappearing at different times"
-      },
-      "feedback": {
-        "short": "a limitation when different observers judge a cross disappearing at different times",
-        "steps": [
-          "Key idea: subjective endpoint.",
-          "a limitation when different observers judge a cross disappearing at different times",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: subjective endpoint"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "subjective endpoint → a limitation when different observers judge a cross disappearing at different times"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c14-subjective-endpoint-e9443d7f43-restore",
       "conceptId": "chem-y9-c14-subjective-endpoint-e9443d7f43-concept",
       "topicId": "chem-y9-c14",
       "topic": "Rates practical and graphical analysis — Required Practical 5",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Two observers disagree about when a cross disappears. Is this endpoint judged subjectively or objectively?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "subjective endpoint"
+          "subjectively",
+          "subjective"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "subjectively. A limitation when different observers judge a cross disappearing at different times.",
+        "steps": [
+          "subjectively. A limitation when different observers judge a cross disappearing at different times."
         ]
       },
-      "stimulus": {
-        "masked": "s__j___i__ _n___i__"
-      },
-      "feedback": {
-        "short": "a limitation when different observers judge a cross disappearing at different times",
-        "steps": [
-          "Key idea: subjective endpoint.",
-          "a limitation when different observers judge a cross disappearing at different times",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: subjective endpoint"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "subjective endpoint → a limitation when different observers judge a cross disappearing at different times"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c14-subjective-endpoint-e9443d7f43-explain",
@@ -2686,7 +2669,7 @@
       "topicId": "chem-y9-c14",
       "topic": "Rates practical and graphical analysis — Required Practical 5",
       "format": "calculation",
-      "prompt": "A tangent on a gas-volume graph rises by 48 cm³ over a run of 16 s. Calculate the instantaneous rate.",
+      "prompt": "A tangent on a gas-volume graph rises by 48 cm³ over a run of 16 s. Calculate the instantaneous rate. A number on its own will be read in cm³/s.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -2699,7 +2682,9 @@
         ],
         "working": "gradient = 48 cm³ ÷ 16 s = 3 cm³/s",
         "tolerance": 0,
-        "modelAnswer": "3 cm³/s"
+        "modelAnswer": "3 cm³/s",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -2725,38 +2710,53 @@
       "conceptId": "chem-y9-c14-app-endpoint-improve-concept",
       "topicId": "chem-y9-c14",
       "topic": "Rates practical and graphical analysis — Required Practical 5",
-      "format": "mark_points",
-      "prompt": "The cross-disappearing endpoint is judged differently by two students. Suggest and explain an improvement.",
+      "format": "extended_response",
+      "prompt": "Answer each numbered part on a separate line, in order.\n1. Name the instrument that can measure transmitted light without relying on when an observer loses sight of a cross.\n2. Across trials, should the chosen endpoint light reading be fixed or changed?\n3. To estimate random variation, should the reaction be repeated or measured only once?\n4. Which single measure of central tendency is obtained by adding the repeat times and dividing by their number?",
       "difficulty": 4,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "mark_points",
-        "markPoints": [
-          "use the same observer or an objective light sensor",
-          "apply a fixed endpoint criterion",
-          "repeat measurements and calculate a mean",
-          "this reduces subjective variation and improves repeatability"
+        "mode": "ordered_parts",
+        "reviewedParts": [
+          [
+            "light sensor",
+            "light meter",
+            "colorimeter",
+            "photometer",
+            "light detector"
+          ],
+          [
+            "fixed",
+            "constant",
+            "the same"
+          ],
+          [
+            "repeated",
+            "repeat",
+            "repeated measurements"
+          ],
+          [
+            "mean",
+            "arithmetic mean",
+            "average"
+          ]
         ],
         "totalMarks": 4,
-        "modelAnswer": "use the same observer or an objective light sensor apply a fixed endpoint criterion repeat measurements and calculate a mean this reduces subjective variation and improves repeatability"
+        "modelAnswer": "light sensor\nfixed\nrepeated\nmean"
       },
-      "stimulus": {
-        "marks": 4
-      },
+      "stimulus": {},
       "feedback": {
-        "short": "use the same observer or an objective light sensor apply a fixed endpoint criterion repeat measurements and calculate a mean this reduces subjective variation and improves repeatability",
+        "short": "light sensor\nfixed\nrepeated\nmean",
         "steps": [
-          "use the same observer or an objective light sensor apply a fixed endpoint criterion repeat measurements and calculate a mean this reduces subjective variation and improves repeatability",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
-          "Suggested answer: use the same observer or an objective light sensor apply a fixed endpoint criterion repeat measurements and calculate a mean this reduces subjective variation and improves repeatability"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "use the same observer or an objective light sensor apply a fixed endpoint criterion repeat measurements and calculate a mean this reduces subjective variation and improves repeatability"
+          "1. light sensor",
+          "2. fixed",
+          "3. repeated",
+          "4. mean"
+        ]
       },
       "task": {
-        "label": "EXPLAIN",
-        "instruction": "Write one distinct scientific idea for each available mark."
+        "label": "SHORT ANSWERS",
+        "instruction": "One response per line, in the order shown."
       },
       "preview": true,
       "ordinary": true
@@ -2803,7 +2803,9 @@
           "plateau",
           "product volume"
         ],
-        "diagramId": "chem-rate-graph"
+        "diagramId": "chem-rate-graph",
+        "image": "/content/diagrams/question-review/chem-rate-graph.svg",
+        "imageAlt": "Lettered figure for Rates practical and graphical analysis — Required Practical 5."
       },
       "feedback": {
         "short": "Place every scientific label at its correct anchor.",

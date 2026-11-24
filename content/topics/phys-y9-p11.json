@@ -494,33 +494,30 @@
       "topicId": "phys-y9-p11",
       "topic": "Gas pressure and Boyle’s law",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "What event produces a force on a container wall when gas particles move inside it?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "wall collision"
+          "collision",
+          "collisions",
+          "particles colliding with the wall",
+          "collisions with the wall"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "collision. An event exerting force on the container wall.",
+        "steps": [
+          "collision. An event exerting force on the container wall."
         ]
       },
-      "stimulus": {
-        "text": "an event exerting force on the container wall"
-      },
-      "feedback": {
-        "short": "an event exerting force on the container wall",
-        "steps": [
-          "Key idea: wall collision.",
-          "an event exerting force on the container wall",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: wall collision"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "wall collision → an event exerting force on the container wall"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -530,37 +527,33 @@
       "conceptId": "phys-y9-p11-wall-collision-e765d71657-concept",
       "topicId": "phys-y9-p11",
       "topic": "Gas pressure and Boyle’s law",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of wall collision: “an event exerting ___ on the container wall”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "wall collision"
+          "force"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "force. An event exerting force on the container wall.",
+        "steps": [
+          "force. An event exerting force on the container wall."
         ]
       },
-      "stimulus": {
-        "masked": "w__l ___l___o_"
-      },
-      "feedback": {
-        "short": "an event exerting force on the container wall",
-        "steps": [
-          "Key idea: wall collision.",
-          "an event exerting force on the container wall",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: wall collision"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "wall collision → an event exerting force on the container wall"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p11-wall-collision-e765d71657-explain",
@@ -701,6 +694,10 @@
         "accepted": [
           "Boyle's law",
           "pV = constant"
+        ],
+        "reviewedEquivalents": [
+          "pV=constant",
+          "p₁V₁=p₂V₂"
         ]
       },
       "stimulus": {
@@ -739,6 +736,10 @@
         "accepted": [
           "Boyle's law",
           "pV = constant"
+        ],
+        "reviewedEquivalents": [
+          "pV=constant",
+          "p₁V₁=p₂V₂"
         ]
       },
       "stimulus": {
@@ -778,7 +779,11 @@
           "for a fixed mass of gas at constant temperature, pressure multiplied by volume is constant"
         ],
         "totalMarks": 1,
-        "modelAnswer": "for a fixed mass of gas at constant temperature, pressure multiplied by volume is constant"
+        "modelAnswer": "for a fixed mass of gas at constant temperature, pressure multiplied by volume is constant",
+        "reviewedEquivalents": [
+          "for a fixed mass of gas at constant temperature pressure is inversely proportional to volume",
+          "for a fixed mass of gas at constant temperature pV is constant"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -1294,73 +1299,67 @@
       "topicId": "phys-y9-p11",
       "topic": "Gas pressure and Boyle’s law",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "At constant temperature, compressing a fixed mass of gas makes its particles hit the walls more or less frequently per unit area?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "smaller gas volume"
+          "more frequently",
+          "more",
+          "more often"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "more frequently. Less distance between wall collisions and therefore higher collision frequency.",
+        "steps": [
+          "more frequently. Less distance between wall collisions and therefore higher collision frequency."
         ]
       },
-      "stimulus": {
-        "text": "less distance between wall collisions and therefore higher collision frequency"
-      },
-      "feedback": {
-        "short": "less distance between wall collisions and therefore higher collision frequency",
-        "steps": [
-          "Key idea: smaller gas volume.",
-          "less distance between wall collisions and therefore higher collision frequency",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: smaller gas volume"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "smaller gas volume → less distance between wall collisions and therefore higher collision frequency"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p11-smaller-gas-volume-1e2108dd4b-restore",
       "conceptId": "phys-y9-p11-smaller-gas-volume-1e2108dd4b-concept",
       "topicId": "phys-y9-p11",
       "topic": "Gas pressure and Boyle’s law",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of smaller gas volume: “less ___ between wall collisions and therefore higher collision frequency”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "smaller gas volume"
+          "distance"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "distance. Less distance between wall collisions and therefore higher collision frequency.",
+        "steps": [
+          "distance. Less distance between wall collisions and therefore higher collision frequency."
         ]
       },
-      "stimulus": {
-        "masked": "s__l___ g__ _o___e"
-      },
-      "feedback": {
-        "short": "less distance between wall collisions and therefore higher collision frequency",
-        "steps": [
-          "Key idea: smaller gas volume.",
-          "less distance between wall collisions and therefore higher collision frequency",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: smaller gas volume"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "smaller gas volume → less distance between wall collisions and therefore higher collision frequency"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p11-smaller-gas-volume-1e2108dd4b-explain",
@@ -1693,33 +1692,27 @@
       "topicId": "phys-y9-p11",
       "topic": "Gas pressure and Boyle’s law",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "In a Boyle's law experiment with a fixed mass of gas, which thermal quantity must remain constant?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "pressure-volume experiment"
+          "temperature"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "temperature. Collecting paired pressure and volume data while keeping temperature and gas mass constant.",
+        "steps": [
+          "temperature. Collecting paired pressure and volume data while keeping temperature and gas mass constant."
         ]
       },
-      "stimulus": {
-        "text": "collecting paired pressure and volume data while keeping temperature and gas mass constant"
-      },
-      "feedback": {
-        "short": "collecting paired pressure and volume data while keeping temperature and gas mass constant",
-        "steps": [
-          "Key idea: pressure-volume experiment.",
-          "collecting paired pressure and volume data while keeping temperature and gas mass constant",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: pressure-volume experiment"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "pressure-volume experiment → collecting paired pressure and volume data while keeping temperature and gas mass constant"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1729,37 +1722,33 @@
       "conceptId": "phys-y9-p11-pressure-volume-experiment-5756602838-concept",
       "topicId": "phys-y9-p11",
       "topic": "Gas pressure and Boyle’s law",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of pressure-volume experiment: “collecting paired pressure and volume data while keeping ___ and gas mass constant”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "pressure-volume experiment"
+          "temperature"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "temperature. Collecting paired pressure and volume data while keeping temperature and gas mass constant.",
+        "steps": [
+          "temperature. Collecting paired pressure and volume data while keeping temperature and gas mass constant."
         ]
       },
-      "stimulus": {
-        "masked": "p__s___e-___u__ _x___i___t"
-      },
-      "feedback": {
-        "short": "collecting paired pressure and volume data while keeping temperature and gas mass constant",
-        "steps": [
-          "Key idea: pressure-volume experiment.",
-          "collecting paired pressure and volume data while keeping temperature and gas mass constant",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: pressure-volume experiment"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "pressure-volume experiment → collecting paired pressure and volume data while keeping temperature and gas mass constant"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p11-pressure-volume-experiment-5756602838-explain",
@@ -1931,7 +1920,7 @@
       "topicId": "phys-y9-p11",
       "topic": "Gas pressure and Boyle’s law",
       "format": "calculation",
-      "prompt": "A gas has pressure 100 kPa at 60 cm³. It is compressed to 40 cm³ at constant temperature. Calculate the new pressure.",
+      "prompt": "A gas has pressure 100 kPa at 60 cm³. It is compressed to 40 cm³ at constant temperature. Calculate the new pressure. A number on its own will be read in kPa.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -1943,7 +1932,9 @@
         ],
         "working": "p₂ = p₁V₁/V₂ = 100 × 60 ÷ 40 = 150 kPa",
         "tolerance": 0,
-        "modelAnswer": "150 kPa"
+        "modelAnswer": "150 kPa",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -1970,7 +1961,7 @@
       "topicId": "phys-y9-p11",
       "topic": "Gas pressure and Boyle’s law",
       "format": "calculation",
-      "prompt": "A fixed gas occupies 80 cm³ at 120 kPa. Its pressure becomes 160 kPa at constant temperature. Calculate its volume.",
+      "prompt": "A fixed gas occupies 80 cm³ at 120 kPa. Its pressure becomes 160 kPa at constant temperature. Calculate its volume. A number on its own will be read in cm³.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -1983,7 +1974,9 @@
         ],
         "working": "V₂ = p₁V₁/p₂ = 120 × 80 ÷ 160 = 60 cm³",
         "tolerance": 0,
-        "modelAnswer": "60 cm³"
+        "modelAnswer": "60 cm³",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -2130,7 +2123,9 @@
           "pressure",
           "constant temperature"
         ],
-        "diagramId": "phys-boyles-law"
+        "diagramId": "phys-boyles-law",
+        "image": "/content/diagrams/question-review/phys-boyles-law.svg",
+        "imageAlt": "Lettered figure for Gas pressure and Boyle’s law."
       },
       "feedback": {
         "short": "Place every scientific label at its correct anchor.",

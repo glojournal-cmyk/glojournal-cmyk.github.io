@@ -293,73 +293,67 @@
       "topicId": "phys-y9-p10",
       "topic": "Evaporation",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "During evaporation, which surface particles are most likely to escape: those with higher or lower kinetic energy?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "fastest-particle escape"
+          "higher",
+          "higher kinetic energy",
+          "higher-energy particles"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "higher. The highest-energy surface particles being most likely to leave a liquid.",
+        "steps": [
+          "higher. The highest-energy surface particles being most likely to leave a liquid."
         ]
       },
-      "stimulus": {
-        "text": "the highest-energy surface particles being most likely to leave a liquid"
-      },
-      "feedback": {
-        "short": "the highest-energy surface particles being most likely to leave a liquid",
-        "steps": [
-          "Key idea: fastest-particle escape.",
-          "the highest-energy surface particles being most likely to leave a liquid",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: fastest-particle escape"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "fastest-particle escape → the highest-energy surface particles being most likely to leave a liquid"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p10-fastest-particle-escape-6546a0b88e-restore",
       "conceptId": "phys-y9-p10-fastest-particle-escape-6546a0b88e-concept",
       "topicId": "phys-y9-p10",
       "topic": "Evaporation",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of fastest-particle escape: “the highest-___ surface particles being most likely to leave a liquid”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "fastest-particle escape"
+          "energy"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "energy. The highest-energy surface particles being most likely to leave a liquid.",
+        "steps": [
+          "energy. The highest-energy surface particles being most likely to leave a liquid."
         ]
       },
-      "stimulus": {
-        "masked": "f__t___-p___i___ e___p_"
-      },
-      "feedback": {
-        "short": "the highest-energy surface particles being most likely to leave a liquid",
-        "steps": [
-          "Key idea: fastest-particle escape.",
-          "the highest-energy surface particles being most likely to leave a liquid",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: fastest-particle escape"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "fastest-particle escape → the highest-energy surface particles being most likely to leave a liquid"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p10-fastest-particle-escape-6546a0b88e-explain",
@@ -1771,38 +1765,58 @@
       "conceptId": "phys-y9-p10-app-drying-factors-concept",
       "topicId": "phys-y9-p10",
       "topic": "Evaporation",
-      "format": "mark_points",
-      "prompt": "Give three changes that would make wet clothes dry faster and explain one using particles.",
+      "format": "extended_response",
+      "prompt": "Answer each numbered part on a separate line, in order.\n1. With other conditions fixed, would raising or lowering the air temperature dry wet clothes faster?\n2. Would spreading a wet garment out or folding it tightly expose more water to air?\n3. Apart from temperature and exposed area, name one change in the surrounding air that speeds evaporation.\n4. Which water molecules are most likely to escape from the surface: those with higher or lower kinetic energy?",
       "difficulty": 4,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "mark_points",
-        "markPoints": [
-          "increase temperature",
-          "increase exposed surface area",
-          "increase air movement or reduce humidity",
-          "a correct particle explanation linked to one change"
+        "mode": "ordered_parts",
+        "reviewedParts": [
+          [
+            "raising",
+            "raising the temperature",
+            "raise",
+            "higher"
+          ],
+          [
+            "spreading it out",
+            "spreading",
+            "spread it out",
+            "spreading out"
+          ],
+          [
+            "increase airflow",
+            "increase air movement",
+            "more air movement",
+            "wind",
+            "lower humidity",
+            "reduce humidity",
+            "drier air",
+            "increase wind speed"
+          ],
+          [
+            "higher",
+            "higher kinetic energy",
+            "higher-energy molecules"
+          ]
         ],
         "totalMarks": 4,
-        "modelAnswer": "increase temperature increase exposed surface area increase air movement or reduce humidity a correct particle explanation linked to one change"
+        "modelAnswer": "raising\nspreading it out\nincrease airflow\nhigher"
       },
-      "stimulus": {
-        "marks": 4
-      },
+      "stimulus": {},
       "feedback": {
-        "short": "increase temperature increase exposed surface area increase air movement or reduce humidity a correct particle explanation linked to one change",
+        "short": "raising\nspreading it out\nincrease airflow\nhigher",
         "steps": [
-          "increase temperature increase exposed surface area increase air movement or reduce humidity a correct particle explanation linked to one change",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
-          "Suggested answer: increase temperature increase exposed surface area increase air movement or reduce humidity a correct particle explanation linked to one change"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "increase temperature increase exposed surface area increase air movement or reduce humidity a correct particle explanation linked to one change"
+          "1. raising",
+          "2. spreading it out",
+          "3. increase airflow",
+          "4. higher"
+        ]
       },
       "task": {
-        "label": "EXPLAIN",
-        "instruction": "Write one distinct scientific idea for each available mark."
+        "label": "SHORT ANSWERS",
+        "instruction": "One response per line, in the order shown."
       },
       "preview": true,
       "ordinary": true
@@ -2294,7 +2308,7 @@
       "topicId": "phys-y9-p10",
       "topic": "Evaporation",
       "format": "calculation",
-      "prompt": "A shallow dish loses 18 g of water over 3 hours. Calculate its mean rate of evaporation in g per hour. (3 marks)",
+      "prompt": "A shallow dish loses 18 g of water over 3 hours. Calculate its mean rate of evaporation in g per hour. (3 marks) A number on its own will be read in g/h.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -2306,7 +2320,9 @@
         ],
         "working": "Rate = mass lost ÷ time; 18 ÷ 3 = 6; Answer 6 g/h",
         "tolerance": 0,
-        "modelAnswer": "6 g/h"
+        "modelAnswer": "6 g/h",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {
         "marks": 3
@@ -2334,7 +2350,7 @@
       "topicId": "phys-y9-p10",
       "topic": "Evaporation",
       "format": "calculation",
-      "prompt": "A dish and its water have mass 152 g at the start and 140 g after 4 hours. Calculate the mean mass-loss rate. (4 marks)",
+      "prompt": "A dish and its water have mass 152 g at the start and 140 g after 4 hours. Calculate the mean mass-loss rate. (4 marks) A number on its own will be read in g/h.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -2346,7 +2362,9 @@
         ],
         "working": "Mass lost = 152 − 140 = 12 g; Rate = loss ÷ time; 12 ÷ 4 = 3; Answer 3 g/h",
         "tolerance": 0,
-        "modelAnswer": "3 g/h"
+        "modelAnswer": "3 g/h",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {
         "marks": 4

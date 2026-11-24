@@ -105,7 +105,10 @@
           "movement from a more dilute region to a more concentrated region against the concentration gradient using energy transferred by respiration"
         ],
         "totalMarks": 1,
-        "modelAnswer": "movement from a more dilute region to a more concentrated region against the concentration gradient using energy transferred by respiration"
+        "modelAnswer": "movement from a more dilute region to a more concentrated region against the concentration gradient using energy transferred by respiration",
+        "reviewedEquivalents": [
+          "movement of substances against their concentration gradient using energy from respiration"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -134,37 +137,33 @@
       "conceptId": "bio-y9-b10-active-transport-7347b48de2-concept",
       "topicId": "bio-y9-b10",
       "topic": "Active transport",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of active transport: “movement from a more dilute region to a more concentrated region against the ___ using energy transferred by respiration”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "active transport"
+          "concentration gradient"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "concentration gradient. Movement from a more dilute region to a more concentrated region against the concentration gradient using energy transferred by respiration.",
+        "steps": [
+          "concentration gradient. Movement from a more dilute region to a more concentrated region against the concentration gradient using energy transferred by respiration."
         ]
       },
-      "stimulus": {
-        "masked": "a__i__ _r___p___"
-      },
-      "feedback": {
-        "short": "movement from a more dilute region to a more concentrated region against the concentration gradient using energy transferred by respiration",
-        "steps": [
-          "Key idea: active transport.",
-          "movement from a more dilute region to a more concentrated region against the concentration gradient using energy transferred by respiration",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: active transport"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "active transport → movement from a more dilute region to a more concentrated region against the concentration gradient using energy transferred by respiration"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b10-active-transport-7347b48de2-explain",
@@ -182,7 +181,10 @@
           "movement from a more dilute region to a more concentrated region against the concentration gradient using energy transferred by respiration"
         ],
         "totalMarks": 1,
-        "modelAnswer": "movement from a more dilute region to a more concentrated region against the concentration gradient using energy transferred by respiration"
+        "modelAnswer": "movement from a more dilute region to a more concentrated region against the concentration gradient using energy transferred by respiration",
+        "reviewedEquivalents": [
+          "movement of substances against their concentration gradient using energy from respiration"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -494,33 +496,28 @@
       "topicId": "bio-y9-b10",
       "topic": "Active transport",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Which cellular process supplies energy for active transport?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "respiration energy"
+          "respiration",
+          "cellular respiration"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "respiration. The energy source required for active transport.",
+        "steps": [
+          "respiration. The energy source required for active transport."
         ]
       },
-      "stimulus": {
-        "text": "the energy source required for active transport"
-      },
-      "feedback": {
-        "short": "the energy source required for active transport",
-        "steps": [
-          "Key idea: respiration energy.",
-          "the energy source required for active transport",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: respiration energy"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "respiration energy → the energy source required for active transport"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -530,37 +527,34 @@
       "conceptId": "bio-y9-b10-respiration-energy-171463f941-concept",
       "topicId": "bio-y9-b10",
       "topic": "Active transport",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Which cellular process supplies energy for active transport?",
       "difficulty": 2,
-      "status": "enabled",
+      "status": "disabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "respiration energy"
+          "respiration",
+          "cellular respiration"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "respiration. The energy source required for active transport.",
+        "steps": [
+          "respiration. The energy source required for active transport."
         ]
       },
-      "stimulus": {
-        "masked": "r__p___t___ e___g_"
-      },
-      "feedback": {
-        "short": "the energy source required for active transport",
-        "steps": [
-          "Key idea: respiration energy.",
-          "the energy source required for active transport",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: respiration energy"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "respiration energy → the energy source required for active transport"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "duplicateOf": "bio-y9-b10-respiration-energy-171463f941-typed",
+      "formal": false
     },
     {
       "id": "bio-y9-b10-respiration-energy-171463f941-explain",
@@ -932,37 +926,33 @@
       "conceptId": "bio-y9-b10-intestinal-glucose-uptake-3f0e8e16c6-concept",
       "topicId": "bio-y9-b10",
       "topic": "Active transport",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Glucose moves into an intestinal cell from a lower to a higher concentration. Is the mechanism diffusion or active transport?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "intestinal glucose uptake"
+          "active transport"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "active transport. Active transport that can absorb glucose when gut concentration is lower than blood concentration.",
+        "steps": [
+          "active transport. Active transport that can absorb glucose when gut concentration is lower than blood concentration."
         ]
       },
-      "stimulus": {
-        "masked": "i__e___n__ _l___s_ __t___"
-      },
-      "feedback": {
-        "short": "active transport that can absorb glucose when gut concentration is lower than blood concentration",
-        "steps": [
-          "Key idea: intestinal glucose uptake.",
-          "active transport that can absorb glucose when gut concentration is lower than blood concentration",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: intestinal glucose uptake"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "intestinal glucose uptake → active transport that can absorb glucose when gut concentration is lower than blood concentration"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b10-intestinal-glucose-uptake-3f0e8e16c6-explain",
@@ -1133,37 +1123,35 @@
       "conceptId": "bio-y9-b10-diffusion-direction-fa9085dae4-concept",
       "topicId": "bio-y9-b10",
       "topic": "Active transport",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "In net diffusion, do particles move down or against their concentration gradient?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "diffusion direction"
+          "down",
+          "down the gradient",
+          "down the concentration gradient"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "down. Net particle movement from higher to lower concentration without respiration energy.",
+        "steps": [
+          "down. Net particle movement from higher to lower concentration without respiration energy."
         ]
       },
-      "stimulus": {
-        "masked": "d__f___o_ __r___i__"
-      },
-      "feedback": {
-        "short": "net particle movement from higher to lower concentration without respiration energy",
-        "steps": [
-          "Key idea: diffusion direction.",
-          "net particle movement from higher to lower concentration without respiration energy",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: diffusion direction"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "diffusion direction → net particle movement from higher to lower concentration without respiration energy"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b10-diffusion-direction-fa9085dae4-explain",
@@ -1295,33 +1283,28 @@
       "topicId": "bio-y9-b10",
       "topic": "Active transport",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Which substance moves by osmosis across a partially permeable membrane?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "osmosis restriction"
+          "water",
+          "water molecules"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "water. Movement of water only through a partially permeable membrane.",
+        "steps": [
+          "water. Movement of water only through a partially permeable membrane."
         ]
       },
-      "stimulus": {
-        "text": "movement of water only through a partially permeable membrane"
-      },
-      "feedback": {
-        "short": "movement of water only through a partially permeable membrane",
-        "steps": [
-          "Key idea: osmosis restriction.",
-          "movement of water only through a partially permeable membrane",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: osmosis restriction"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "osmosis restriction → movement of water only through a partially permeable membrane"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1331,37 +1314,34 @@
       "conceptId": "bio-y9-b10-osmosis-restriction-8681ae3acf-concept",
       "topicId": "bio-y9-b10",
       "topic": "Active transport",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of osmosis restriction: “movement of water only through a partially permeable ___”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "osmosis restriction"
+          "membrane",
+          "cell membrane"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "membrane. Movement of water only through a partially permeable membrane.",
+        "steps": [
+          "membrane. Movement of water only through a partially permeable membrane."
         ]
       },
-      "stimulus": {
-        "masked": "o__o___ r___r___i__"
-      },
-      "feedback": {
-        "short": "movement of water only through a partially permeable membrane",
-        "steps": [
-          "Key idea: osmosis restriction.",
-          "movement of water only through a partially permeable membrane",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: osmosis restriction"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "osmosis restriction → movement of water only through a partially permeable membrane"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b10-osmosis-restriction-8681ae3acf-explain",
@@ -1532,34 +1512,29 @@
       "conceptId": "bio-y9-b10-active-transport-need-890b1c103a-concept",
       "topicId": "bio-y9-b10",
       "topic": "Active transport",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "When a solute accumulates against its concentration gradient, does its transport require an energy supply?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "active-transport need"
+          "yes",
+          "yes it does"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "yes. Accumulating a substance where its concentration is already higher inside a cell than outside.",
+        "steps": [
+          "yes. Accumulating a substance where its concentration is already higher inside a cell than outside."
         ]
       },
-      "stimulus": {
-        "masked": "a__i__-_r___p___ n___"
-      },
-      "feedback": {
-        "short": "accumulating a substance where its concentration is already higher inside a cell than outside",
-        "steps": [
-          "Key idea: active-transport need.",
-          "accumulating a substance where its concentration is already higher inside a cell than outside",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: active-transport need"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "active-transport need → accumulating a substance where its concentration is already higher inside a cell than outside"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1790,37 +1765,47 @@
       "conceptId": "bio-y9-b10-app-root-minerals-concept",
       "topicId": "bio-y9-b10",
       "topic": "Active transport",
-      "format": "mark_points",
-      "prompt": "Explain why root hair cells may need active transport to absorb mineral ions.",
+      "format": "extended_response",
+      "prompt": "Answer each numbered part on a separate line, in order.\n1. When root hair cells take up mineral ions with energy, is ion concentration higher in the cell or the soil?\n2. In which direction do the ions move relative to their concentration gradient?\n3. Which cellular process supplies the energy?",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "mark_points",
-        "markPoints": [
-          "mineral-ion concentration can be lower in soil than inside the root cell",
-          "uptake is against the concentration gradient",
-          "energy transferred by respiration is required"
+        "mode": "ordered_parts",
+        "reviewedParts": [
+          [
+            "cell",
+            "inside the cell",
+            "root hair cell",
+            "in the cell"
+          ],
+          [
+            "against",
+            "against the gradient",
+            "up the gradient",
+            "up",
+            "against the concentration gradient"
+          ],
+          [
+            "respiration",
+            "cellular respiration"
+          ]
         ],
         "totalMarks": 3,
-        "modelAnswer": "mineral-ion concentration can be lower in soil than inside the root cell uptake is against the concentration gradient energy transferred by respiration is required"
+        "modelAnswer": "cell\nagainst\nrespiration"
       },
-      "stimulus": {
-        "marks": 3
-      },
+      "stimulus": {},
       "feedback": {
-        "short": "mineral-ion concentration can be lower in soil than inside the root cell uptake is against the concentration gradient energy transferred by respiration is required",
+        "short": "cell\nagainst\nrespiration",
         "steps": [
-          "mineral-ion concentration can be lower in soil than inside the root cell uptake is against the concentration gradient energy transferred by respiration is required",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
-          "Suggested answer: mineral-ion concentration can be lower in soil than inside the root cell uptake is against the concentration gradient energy transferred by respiration is required"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "mineral-ion concentration can be lower in soil than inside the root cell uptake is against the concentration gradient energy transferred by respiration is required"
+          "1. cell",
+          "2. against",
+          "3. respiration"
+        ]
       },
       "task": {
-        "label": "EXPLAIN",
-        "instruction": "Write one distinct scientific idea for each available mark."
+        "label": "SHORT ANSWERS",
+        "instruction": "One response per line, in the order shown."
       },
       "preview": true,
       "ordinary": true
@@ -1865,17 +1850,18 @@
       "ordinary": true
     }
   ],
-  "enabled": 45,
+  "enabled": 44,
   "preview": 0,
-  "disabled": 0,
+  "disabled": 1,
   "formats": {
     "mc_single": 16,
     "typed_short": 5,
-    "spelling_restore": 8,
-    "mark_points": 10,
-    "typed_exact": 3,
+    "typed_exact": 9,
+    "mark_points": 9,
+    "spelling_restore": 2,
     "matching": 2,
-    "sorting": 1
+    "sorting": 1,
+    "extended_response": 1
   },
   "gated": false,
   "note": {

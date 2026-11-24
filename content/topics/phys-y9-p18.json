@@ -1694,33 +1694,28 @@
       "topicId": "phys-y9-p18",
       "topic": "Efficiency",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "Lubricating a bearing reduces the force opposing its motion. What is that force called?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "efficient design"
+          "friction",
+          "frictional force"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "friction. A change reducing a specific resistive or unwanted energy transfer.",
+        "steps": [
+          "friction. A change reducing a specific resistive or unwanted energy transfer."
         ]
       },
-      "stimulus": {
-        "text": "a change reducing a specific resistive or unwanted energy transfer"
-      },
-      "feedback": {
-        "short": "a change reducing a specific resistive or unwanted energy transfer",
-        "steps": [
-          "Key idea: efficient design.",
-          "a change reducing a specific resistive or unwanted energy transfer",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: efficient design"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "efficient design → a change reducing a specific resistive or unwanted energy transfer"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1730,37 +1725,33 @@
       "conceptId": "phys-y9-p18-efficient-design-9310002de7-concept",
       "topicId": "phys-y9-p18",
       "topic": "Efficiency",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of efficient design: “a change reducing a specific resistive or unwanted ___ transfer”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "efficient design"
+          "energy"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "energy. A change reducing a specific resistive or unwanted energy transfer.",
+        "steps": [
+          "energy. A change reducing a specific resistive or unwanted energy transfer."
         ]
       },
-      "stimulus": {
-        "masked": "e__i___n_ __s___"
-      },
-      "feedback": {
-        "short": "a change reducing a specific resistive or unwanted energy transfer",
-        "steps": [
-          "Key idea: efficient design.",
-          "a change reducing a specific resistive or unwanted energy transfer",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: efficient design"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "efficient design → a change reducing a specific resistive or unwanted energy transfer"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p18-efficient-design-9310002de7-explain",
@@ -1932,7 +1923,7 @@
       "topicId": "phys-y9-p18",
       "topic": "Efficiency",
       "format": "calculation",
-      "prompt": "A machine receives 800 J and transfers 600 J usefully. Calculate its percentage efficiency.",
+      "prompt": "A machine receives 800 J and transfers 600 J usefully. Calculate its percentage efficiency. A number on its own will be read in %.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
@@ -1945,7 +1936,9 @@
         ],
         "working": "efficiency = 600 ÷ 800 × 100 = 75%",
         "tolerance": 0,
-        "modelAnswer": "75 %"
+        "modelAnswer": "75 %",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -1982,7 +1975,8 @@
         "working": "efficiency = 350 ÷ 500 = 0.70",
         "tolerance": 0,
         "units": [],
-        "modelAnswer": "0.7"
+        "modelAnswer": "0.7",
+        "checkFinalQuantity": true
       },
       "stimulus": {},
       "feedback": {
@@ -2170,7 +2164,9 @@
           "wasted output",
           "total input"
         ],
-        "diagramId": "phys-sankey"
+        "diagramId": "phys-sankey",
+        "image": "/content/diagrams/question-review/phys-sankey.svg",
+        "imageAlt": "Lettered figure for Efficiency."
       },
       "feedback": {
         "short": "Place every scientific label at its correct anchor.",
