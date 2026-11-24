@@ -1,0 +1,613 @@
+{
+  "kind": "PRIORITY116_CONTENT_ACCEPTANCE_GRAPHS21_NO_RELEASE",
+  "date": "2026-11-24",
+  "sourceScreen": "qa-staging/math-all200-external-benchmark-demand-screen-and-mastery-holds-20261124.json",
+  "sourceScreenBlobSha": "59153d137693c7899415dc13a78da06ded87f1e6",
+  "counts": {
+    "reviewed": 21,
+    "authorMathContentPass": 21,
+    "corrected": 4,
+    "distractorStrengthHold": 8,
+    "formalApprovals": 0
+  },
+  "limitations": "Author review of all 21 current stems, six choices and worked solutions with algebra, geometry and arithmetic checks. Numeric options checked for equivalence; Q030 symbolic solution sets inspected directly. Circle, quadratic and other taught prerequisites remain unconfirmed; diagnostic strength holds retained. No independent grade certification or learner credit.",
+  "rows": [
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-003",
+      "reviewedRevisionId": "LUX-MATH-Y9-GRAPHS-003-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-straight-line-graphs20-20261124.json",
+      "recordBlobSha": "b910883f51fe859e0606715f6b4835315cf57541",
+      "reviewedKey": "\\frac{13}{5}",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Perpendicular line and non-axis triangle area verified; vertical case excluded explicitly.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "LOCAL_straight-line-graphs_perpendicular-gradient-parameter",
+      "proposedRevisionId": "LUX-MATH-Y9-GRAPHS-003-PRIORITY-CONTENT-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-004",
+      "reviewedRevisionId": "LUX-MATH-Y9-GRAPHS-004-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-straight-line-graphs20-20261124.json",
+      "recordBlobSha": "b910883f51fe859e0606715f6b4835315cf57541",
+      "reviewedKey": "45",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Gradient and intercept bounds give inclusive 5..10; each endpoint distractor verified.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "LINEAR_INEQUALITY_CONSTRAINTS",
+      "proposedRevisionId": "LUX-MATH-Y9-GRAPHS-004-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-005",
+      "reviewedRevisionId": "LUX-MATH-Y9-GRAPHS-005-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-straight-line-graphs20-20261124.json",
+      "recordBlobSha": "b910883f51fe859e0606715f6b4835315cf57541",
+      "reviewedKey": "89",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Equidistance, positive intercept and squared length verified.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "COORDINATE_EQUIDISTANCE",
+      "proposedRevisionId": "LUX-MATH-Y9-GRAPHS-005-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-006",
+      "reviewedRevisionId": "LUX-MATH-Y9-GRAPHS-006-V325-REASONING-QA-ONLY",
+      "recordPath": "qa-staging/math-v325-graphs12-reasoning-replacements-20261124.json",
+      "recordBlobSha": "04d947ab851069de61245fab2e7f6577ab4f2147",
+      "reviewedKey": "10",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Unique circumcentre from noncollinear points; all three squared radii equal ten.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "COORDINATE_EQUIDISTANCE",
+      "proposedRevisionId": "LUX-MATH-Y9-GRAPHS-006-PRIORITY-CONTENT-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-009",
+      "reviewedRevisionId": "LUX-MATH-Y9-GRAPHS-009-V324-REASONING_REDESIGN_QA_ONLY",
+      "recordPath": "qa-staging/math-v324-four-source-linked-multiconstraint-reasoning-candidates-20261124.json",
+      "recordBlobSha": "9eeab6a50c05876420ffb910676e26922f629b44",
+      "reviewedKey": "-10",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Two negative gradients and positive intercepts verified; both solutions exhaustive.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "INTERCEPT_AREA",
+      "proposedRevisionId": "LUX-MATH-Y9-GRAPHS-009-V324-REASONING_REDESIGN_QA_ONLY",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-013",
+      "reviewedRevisionId": "LUX-MATH-Y9-GRAPHS-013-V325-REASONING-QA-ONLY",
+      "recordPath": "qa-staging/math-v325-graphs12-reasoning-replacements-20261124.json",
+      "recordBlobSha": "04d947ab851069de61245fab2e7f6577ab4f2147",
+      "reviewedKey": "1",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Trapezium area and both side heights verified.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "LOCAL_straight-line-graphs_perpendicular-triangle-and-area",
+      "proposedRevisionId": "LUX-MATH-Y9-GRAPHS-013-V325-REASONING-QA-ONLY",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-014",
+      "reviewedRevisionId": "LUX-MATH-Y9-GRAPHS-014-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-straight-line-graphs20-20261124.json",
+      "recordBlobSha": "b910883f51fe859e0606715f6b4835315cf57541",
+      "reviewedKey": "2-\\frac{\\sqrt{10}}{5}",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Part-to-remainder conversion, positive width and both endpoints checked.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "GEOMETRIC_SCALE",
+      "proposedRevisionId": "LUX-MATH-Y9-GRAPHS-014-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-015",
+      "reviewedRevisionId": "LUX-MATH-Y9-GRAPHS-015-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-straight-line-graphs20-20261124.json",
+      "recordBlobSha": "b910883f51fe859e0606715f6b4835315cf57541",
+      "reviewedKey": "19",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Count by columns and parity; total 19, all 35 before parity.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "INTEGER_FEASIBILITY",
+      "proposedRevisionId": "LUX-MATH-Y9-GRAPHS-015-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-017",
+      "reviewedRevisionId": "LUX-MATH-Y9-GRAPHS-017-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-straight-line-graphs20-20261124.json",
+      "recordBlobSha": "b910883f51fe859e0606715f6b4835315cf57541",
+      "reviewedKey": "-\\frac{13}{4}",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Quadratic symmetry and both points verified; several distractors report intermediates.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "QUADRATIC_AND_BRANCH_REASONING",
+      "proposedRevisionId": "LUX-MATH-Y9-GRAPHS-017-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-019",
+      "reviewedRevisionId": "LUX-MATH-Y9-GRAPHS-019-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-straight-line-graphs20-20261124.json",
+      "recordBlobSha": "b910883f51fe859e0606715f6b4835315cf57541",
+      "reviewedKey": "12",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Signed square decomposition exhaustive; only positive k=1,5,6.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "INTEGER_FEASIBILITY",
+      "proposedRevisionId": "LUX-MATH-Y9-GRAPHS-019-PRIORITY-CONTENT-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-020",
+      "reviewedRevisionId": "LUX-MATH-Y9-GRAPHS-020-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-straight-line-graphs20-20261124.json",
+      "recordBlobSha": "b910883f51fe859e0606715f6b4835315cf57541",
+      "reviewedKey": "2",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Both exact closed intervals and their intersection verified.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "COORDINATE_EQUIDISTANCE",
+      "proposedRevisionId": "LUX-MATH-Y9-GRAPHS-020-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-023",
+      "reviewedRevisionId": "LUX-MATH-Y9-GRAPHS-023-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-straight-line-graphs20-20261124.json",
+      "recordBlobSha": "b910883f51fe859e0606715f6b4835315cf57541",
+      "reviewedKey": "18",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Both positive intercept pairs satisfy area and point; sum 18.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "INTERCEPT_AREA",
+      "proposedRevisionId": "LUX-MATH-Y9-GRAPHS-023-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-024",
+      "reviewedRevisionId": "LUX-MATH-Y9-GRAPHS-024-V326-REASONING-QA-ONLY",
+      "recordPath": "qa-staging/math-v326-graphs25-reasoning-replacements-20261124.json",
+      "recordBlobSha": "55884c165762b559276dfe901f78f4af65d557b7",
+      "reviewedKey": "-\\frac{5}{2}",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Two possible ordered intercept pairs, both negative slopes verified.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "INTERCEPT_AREA",
+      "proposedRevisionId": "LUX-MATH-Y9-GRAPHS-024-V326-REASONING-QA-ONLY",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-025",
+      "reviewedRevisionId": "LUX-MATH-Y9-GRAPHS-025-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-straight-line-graphs20-20261124.json",
+      "recordBlobSha": "b910883f51fe859e0606715f6b4835315cf57541",
+      "reviewedKey": "11",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "All pairwise range constraints and excluded largest tie checked.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "LINEAR_INEQUALITY_CONSTRAINTS",
+      "proposedRevisionId": "LUX-MATH-Y9-GRAPHS-025-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-027",
+      "reviewedRevisionId": "LUX-MATH-Y9-GRAPHS-027-ACADEMIC-REVIEW-20261124",
+      "recordPath": "qa-staging/math-final-academic-review-straight-line-graphs40-20261124.json",
+      "recordBlobSha": "5bf403e274905c98ae668662a2d3ab0bbe5ed93d",
+      "reviewedKey": "\\frac{36}{5}",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Slope, perpendicular construction and square of separation verified; radical distractor distinct.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "LOCAL_straight-line-graphs_perpendicular-projection-reflection",
+      "proposedRevisionId": "LUX-MATH-Y9-GRAPHS-027-ACADEMIC-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-029",
+      "reviewedRevisionId": "LUX-MATH-Y9-GRAPHS-029-V314-DISTINCT_REDESIGN_QA_ONLY",
+      "recordPath": "qa-staging/math-v314-graphs029-030-sim005-013-four-distinct-reasoning-drafts-20261123.json",
+      "recordBlobSha": "32bf1de7e46e9ff6e2917e9666f9385d92dc246a",
+      "reviewedKey": "\\frac{625}{12}",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Intersection, parallel slope, intercepts and area verified.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "INTERCEPT_AREA",
+      "proposedRevisionId": "LUX-MATH-Y9-GRAPHS-029-V314-DISTINCT_REDESIGN_QA_ONLY",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-030",
+      "reviewedRevisionId": "LUX-MATH-Y9-GRAPHS-030-V314-DISTINCT_REDESIGN_QA_ONLY",
+      "recordPath": "qa-staging/math-v314-graphs029-030-sim005-013-four-distinct-reasoning-drafts-20261123.json",
+      "recordBlobSha": "32bf1de7e46e9ff6e2917e9666f9385d92dc246a",
+      "reviewedKey": "k=-1\\pm\\sqrt{5}",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Two positive auxiliary roots and corresponding k<2 verified; all set options distinct.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "INTERCEPT_AREA",
+      "proposedRevisionId": "LUX-MATH-Y9-GRAPHS-030-V314-DISTINCT_REDESIGN_QA_ONLY",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-032",
+      "reviewedRevisionId": "LUX-MATH-Y9-GRAPHS-032-ACADEMIC-REVIEW-20261124",
+      "recordPath": "qa-staging/math-final-academic-review-straight-line-graphs40-20261124.json",
+      "recordBlobSha": "5bf403e274905c98ae668662a2d3ab0bbe5ed93d",
+      "reviewedKey": "-12",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Nonzero horizontal differences and perpendicular slopes; both roots verified.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "QUADRATIC_AND_BRANCH_REASONING",
+      "proposedRevisionId": "LUX-MATH-Y9-GRAPHS-032-ACADEMIC-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-035",
+      "reviewedRevisionId": "LUX-MATH-Y9-GRAPHS-035-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-straight-line-graphs20-20261124.json",
+      "recordBlobSha": "b910883f51fe859e0606715f6b4835315cf57541",
+      "reviewedKey": "18:55",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Both points inside segment, exact horizontal ratio verified; clarify a distractor.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "LOCAL_straight-line-graphs_axis-distance-ratio",
+      "proposedRevisionId": "LUX-MATH-Y9-GRAPHS-035-PRIORITY-CONTENT-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-037",
+      "reviewedRevisionId": "LUX-MATH-Y9-GRAPHS-037-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-straight-line-graphs20-20261124.json",
+      "recordBlobSha": "b910883f51fe859e0606715f6b4835315cf57541",
+      "reviewedKey": "80",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Signed distance differences at both points verified.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "COORDINATE_EQUIDISTANCE",
+      "proposedRevisionId": "LUX-MATH-Y9-GRAPHS-037-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-038",
+      "reviewedRevisionId": "LUX-MATH-Y9-GRAPHS-038-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-straight-line-graphs20-20261124.json",
+      "recordBlobSha": "b910883f51fe859e0606715f6b4835315cf57541",
+      "reviewedKey": "-\\frac{3}{2}",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Equal absolute heights, side conditions, ratio of x coordinates and signed gradient verified.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "INTERCEPT_AREA",
+      "proposedRevisionId": "LUX-MATH-Y9-GRAPHS-038-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ],
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-003",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-003",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-003-PRIORITY-CONTENT-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-003-REVIEW-2",
+        "topicId": "math-y9-straight-line-graphs",
+        "provisionalConceptFamily": "perpendicular-gradient-parameter",
+        "stem": "The line through $A=(k,2k+1)$ and $B=(3,5)$ is perpendicular to $y=2x+7$. Find the exact area of the triangle whose vertices are O=(0,0), A and B.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\frac{13}{5}"
+          },
+          {
+            "id": "B",
+            "latex": "\\frac{26}{5}",
+            "errorPath": "Omit the triangle factor 1/2."
+          },
+          {
+            "id": "C",
+            "latex": "\\frac{11}{5}",
+            "errorPath": "Report k instead of the area."
+          },
+          {
+            "id": "D",
+            "latex": "\\frac{27}{5}",
+            "errorPath": "Report the y-coordinate of A."
+          },
+          {
+            "id": "E",
+            "latex": "\\frac{2}{5}",
+            "errorPath": "Report the vertical separation of A and B."
+          },
+          {
+            "id": "F",
+            "latex": "\\frac{4}{5}",
+            "errorPath": "Report the horizontal separation of A and B."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "\\frac{13}{5}",
+        "workedSolutionSteps": [
+          "Since the given line has gradient 2, its perpendicular has finite gradient −1/2. Thus A and B cannot have equal x-coordinates (k≠3). The line through B is y=−x/2+13/2. Equate y=2k+1 at x=k to get k=11/5 and A=(11/5,27/5).",
+          "At x=11/5 the line OB, whose equation is y=5x/3, has height 11/3. The vertical separation from A is 27/5−11/3=26/15.",
+          "Split triangle OAB at this vertical segment: its two triangle areas add to half the segment length times the total horizontal width 3. Thus area=(26/15)×3/2=13/5."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Find a perpendicular intersection and calculate area by splitting into triangles.",
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-003-DEMAND-UPGRADE-20261124",
+        "provisionalCrossTopicMasteryHold": "Line construction and coordinate area; shared steps do not establish independent mastery."
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-006",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-006",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-006-PRIORITY-CONTENT-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-006-REVIEW-2",
+        "topicId": "math-y9-straight-line-graphs",
+        "provisionalConceptFamily": "circumcentre-two-bisectors",
+        "stem": "A circle passes through $A(0,0)$, $B(6,0)$ and $C(2,4)$. Find the square of the radius of the circle.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "9",
+            "errorPath": "Find the correct centre (3,1) but use only its horizontal distance from A."
+          },
+          {
+            "id": "B",
+            "latex": "1",
+            "errorPath": "Find the correct centre but use only its vertical distance from A."
+          },
+          {
+            "id": "C",
+            "latex": "10"
+          },
+          {
+            "id": "D",
+            "latex": "13",
+            "errorPath": "Use the centre (3,2), confusing the midpoint height of AC with the centre height."
+          },
+          {
+            "id": "E",
+            "latex": "20",
+            "errorPath": "Add the squared distances from the centre to A and B, rather than using just one radius squared."
+          },
+          {
+            "id": "F",
+            "latex": "100",
+            "errorPath": "Find the radius squared 10 and square it again."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "10",
+        "workedSolutionSteps": [
+          "The three points are noncollinear, so there is exactly one circle through them. Its centre lies on the perpendicular bisector of AB, at (3,t).",
+          "Equate squared distances to A and C: $9+t^2=1+(t-4)^2$. Hence $8t=8$ and $t=1$.",
+          "The radius squared is $3^2+1^2=10$. All three given points are distance $\\sqrt{10}$ from (3,1)."
+        ],
+        "provisionalAOFocus": "AO2/AO3 reasoning candidate",
+        "unverifiedTaughtSubskill": "Intersection of perpendicular bisectors and circle-centre reasoning.",
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-006-V325-REASONING-QA-ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-019",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-019",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-019-PRIORITY-CONTENT-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-019-REVIEW-2",
+        "topicId": "math-y9-straight-line-graphs",
+        "provisionalConceptFamily": "two-distance-constraint-roots",
+        "stem": "A circle has centre (2,3) and passes through O=(0,0). A horizontal line $y=k$ intersects the circle at two distinct points A and B with integer x-coordinates and integer k. Find the sum of all possible positive integer k.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "6",
+            "errorPath": "Report only the greatest eligible positive k."
+          },
+          {
+            "id": "B",
+            "latex": "3",
+            "errorPath": "Report the number of eligible positive k."
+          },
+          {
+            "id": "C",
+            "latex": "12"
+          },
+          {
+            "id": "D",
+            "latex": "15",
+            "errorPath": "Include k=3 even though the intersections are not integral."
+          },
+          {
+            "id": "E",
+            "latex": "11",
+            "errorPath": "Omit the eligible value k=1."
+          },
+          {
+            "id": "F",
+            "latex": "7",
+            "errorPath": "Omit the eligible value k=5."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "12",
+        "workedSolutionSteps": [
+          "The radius squared is 13, so (x−2)²=13−(k−3)².",
+          "For two distinct integral x-values, 13−(k−3)² must be a positive integer square. The only possible squares at most 13 are 0,1,4,9, and only 4+9 or 9+4 total 13.",
+          "Thus k=3±2 or 3±3, giving 0,1,5,6. The positive values 1,5,6 sum to 12."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Recover circle intersections using integer square decompositions; taught circle scope pending.",
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-019-DEMAND-UPGRADE-20261124",
+        "provisionalCrossTopicMasteryHold": "Finite integer enumeration under geometry constraints; cross-topic review required."
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-035",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-035",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-035-PRIORITY-CONTENT-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-035-REVIEW-2",
+        "topicId": "math-y9-straight-line-graphs",
+        "provisionalConceptFamily": "axis-distance-ratio",
+        "stem": "A line segment joins (0,6) to (8,0). Points P and Q on the segment have positive coordinates. At P, the distance from the y-axis is twice the distance from the x-axis. At Q, the distance from the x-axis is twice the distance from the y-axis. Find the ratio $PQ:AB$, where A=(0,6), B=(8,0).",
+        "options": [
+          {
+            "id": "A",
+            "latex": "3:5",
+            "errorPath": "Use AP:AB instead of PQ:AB."
+          },
+          {
+            "id": "B",
+            "latex": "3:11",
+            "errorPath": "Use AQ:AB instead of PQ:AB."
+          },
+          {
+            "id": "C",
+            "latex": "11:5",
+            "errorPath": "Compare the x-coordinates of P and Q, (24/5):(24/11)=11:5, instead of comparing the distance PQ with the entire segment length."
+          },
+          {
+            "id": "D",
+            "latex": "37:55",
+            "errorPath": "Report the complement of the required fraction."
+          },
+          {
+            "id": "E",
+            "latex": "18:55"
+          },
+          {
+            "id": "F",
+            "latex": "9:55",
+            "errorPath": "Halve the correct ratio."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "18:55",
+        "workedSolutionSteps": [
+          "The segment equation is y=6−3x/4. At P, x=2y, giving x=24/5. At Q, y=2x, giving x=24/11.",
+          "The horizontal distance between P and Q is 24/5−24/11=144/55. Both points are on the same segment, so length ratios equal horizontal distance ratios.",
+          "Divide by the full horizontal length 8: PQ:AB=18:55."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Compare two axis-distance constraints on a segment and derive a segment fraction.",
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-035-DEMAND-UPGRADE-20261124"
+      }
+    }
+  ]
+}
