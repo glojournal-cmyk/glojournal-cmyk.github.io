@@ -1,0 +1,3346 @@
+{
+  "kind": "143-source item reconciliation against exact current main and held consolidated draft",
+  "date": "2026-11-24",
+  "main": {
+    "ref": "3e4065c645d85836413e5ce9a88e8798be240134",
+    "path": "content/topics/bio-y8-food-tests.json",
+    "blob": "d2e056a585e311fb6b75bcdea51ce90519dff4be"
+  },
+  "qa": {
+    "ref": "41741d748b33e385e7aed227af90af3f251a5eb2",
+    "path": "content/topics/bio-y8-food-tests.json",
+    "blob": "5638c927319c4ea7f73b636006bdee70220533cd"
+  },
+  "consolidated": {
+    "ref": "41741d748b33e385e7aed227af90af3f251a5eb2",
+    "path": "qa/food-tests-143-consolidated-held-candidate-20261124.json",
+    "blob": "3da6d1067c9fab8f085c65504c30eb029adc86c2"
+  },
+  "counts": {
+    "all": 143,
+    "changed": 93,
+    "unchanged": 50,
+    "actions": {
+      "RETAIN_CONTEXTUAL_DISTRACTORS": 8,
+      "RETAIN_VALID_ALTERNATIVES": 12,
+      "NO_SOURCE_DRIFT": 50,
+      "RETAIN_PRECISE_STRONGEST_ENDPOINT": 1,
+      "RETAIN_CORRECT_HEATING_DEFINITION": 2,
+      "RETAIN_STRUCTURED_REDESIGN": 4,
+      "RETAIN_FOUR_PAIR_MARKS": 1,
+      "RETAIN_BOUNDED_DETECTION_ANSWERS": 1,
+      "RETAIN_CORRECTED_COMPLETE_SET": 16,
+      "REPLACE_AND_REMAP_SKILL": 48
+    }
+  },
+  "release": "BLOCKED",
+  "formalCreditEligible": false,
+  "notes": [
+    "All 93 source differences have a specific disposition; 50 unchanged source IDs still have candidate QA decisions.",
+    "This is a reconciliation of question content, not a git merge or a change to original source. Current main bank equals old main bank; no main Food Tests change caused by PR312.",
+    "Three overlapping repository paths require separate code merge validation: both quiz-session bundles and content/catalog.json. Do not overwrite PR312 changes."
+  ],
+  "rows": [
+    {
+      "id": "bio-y8-food-tests-iodine-solution-mc",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "options",
+          "main": [
+            "lilac or purple",
+            "persistent pollutant",
+            "iodine solution",
+            "autotroph"
+          ],
+          "qa": [
+            "Benedict's solution",
+            "Biuret solution",
+            "iodine solution",
+            "ethanol"
+          ]
+        }
+      ],
+      "action": "RETAIN_CONTEXTUAL_DISTRACTORS",
+      "reason": "Retain food-test-specific distractors, not irrelevant terms from another topic; sole correct answer kept.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-iodine-solution-mc"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-iodine-solution-name",
+      "format": "typed_exact",
+      "changed": true,
+      "fields": [
+        {
+          "field": "answer",
+          "main": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "iodine solution",
+              "iodine"
+            ]
+          },
+          "qa": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "iodine solution",
+              "iodine",
+              "iodine in potassium iodide solution",
+              "iodine-potassium iodide solution",
+              "Lugol's iodine solution"
+            ]
+          }
+        }
+      ],
+      "action": "RETAIN_VALID_ALTERNATIVES",
+      "reason": "Restore previously reviewed equivalent science terms and wording, rather than narrow exact-string marking.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-iodine-solution-name"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-iodine-solution-explain",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-iodine-solution-explain::p1"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-benedict-s-solution-mc",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "options",
+          "main": [
+            "phenotype probability",
+            "mercury",
+            "Benedict's solution",
+            "competition"
+          ],
+          "qa": [
+            "iodine solution",
+            "ethanol",
+            "Benedict's solution",
+            "Biuret solution"
+          ]
+        }
+      ],
+      "action": "RETAIN_CONTEXTUAL_DISTRACTORS",
+      "reason": "Retain food-test-specific distractors, not irrelevant terms from another topic; sole correct answer kept.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-benedict-s-solution-mc"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-benedict-s-solution-name",
+      "format": "typed_exact",
+      "changed": true,
+      "fields": [
+        {
+          "field": "answer",
+          "main": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "Benedict's solution",
+              "Benedict solution",
+              "Benedict's"
+            ]
+          },
+          "qa": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "Benedict's solution",
+              "Benedict solution",
+              "Benedict's",
+              "Benedict's reagent",
+              "Benedicts reagent",
+              "Benedict reagent"
+            ]
+          }
+        }
+      ],
+      "action": "RETAIN_VALID_ALTERNATIVES",
+      "reason": "Restore previously reviewed equivalent science terms and wording, rather than narrow exact-string marking.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-benedict-s-solution-name"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-benedict-s-solution-explain",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-benedict-s-solution-explain::p1"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-biuret-solution-mc",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "options",
+          "main": [
+            "amino acids",
+            "Biuret solution",
+            "Benedict's solution",
+            "exponential growth"
+          ],
+          "qa": [
+            "iodine solution",
+            "Biuret solution",
+            "Benedict's solution",
+            "ethanol"
+          ]
+        }
+      ],
+      "action": "RETAIN_CONTEXTUAL_DISTRACTORS",
+      "reason": "Retain food-test-specific distractors, not irrelevant terms from another topic; sole correct answer kept.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-biuret-solution-mc"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-biuret-solution-name",
+      "format": "typed_exact",
+      "changed": true,
+      "fields": [
+        {
+          "field": "answer",
+          "main": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "Biuret solution",
+              "Biuret reagent",
+              "Biuret"
+            ]
+          },
+          "qa": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "Biuret solution",
+              "Biuret reagent",
+              "Biuret",
+              "Biuret test reagent",
+              "Biuret test solution"
+            ]
+          }
+        }
+      ],
+      "action": "RETAIN_VALID_ALTERNATIVES",
+      "reason": "Restore previously reviewed equivalent science terms and wording, rather than narrow exact-string marking.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-biuret-solution-name"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-biuret-solution-explain",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-biuret-solution-explain::p1"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-ethanol-emulsion-test-mc",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "options",
+          "main": [
+            "gene",
+            "ethanol emulsion test",
+            "light colour",
+            "water"
+          ],
+          "qa": [
+            "Biuret test",
+            "ethanol emulsion test",
+            "Benedict's test",
+            "iodine test"
+          ]
+        }
+      ],
+      "action": "RETAIN_CONTEXTUAL_DISTRACTORS",
+      "reason": "Retain food-test-specific distractors, not irrelevant terms from another topic; sole correct answer kept.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-ethanol-emulsion-test-mc"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-ethanol-emulsion-test-name",
+      "format": "typed_exact",
+      "changed": true,
+      "fields": [
+        {
+          "field": "answer",
+          "main": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "ethanol emulsion test",
+              "emulsion test"
+            ]
+          },
+          "qa": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "ethanol emulsion test",
+              "emulsion test",
+              "ethanol-based emulsion test",
+              "lipid emulsion test",
+              "the emulsion test for lipids"
+            ]
+          }
+        }
+      ],
+      "action": "RETAIN_VALID_ALTERNATIVES",
+      "reason": "Restore previously reviewed equivalent science terms and wording, rather than narrow exact-string marking.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-ethanol-emulsion-test-name"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-ethanol-emulsion-test-explain",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-ethanol-emulsion-test-explain::p1"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-blue-black-mc",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "options",
+          "main": [
+            "spongy mesophyll",
+            "blue-black",
+            "fibre",
+            "uneaten material"
+          ],
+          "qa": [
+            "brick-red",
+            "blue-black",
+            "lilac or purple",
+            "orange-brown"
+          ]
+        }
+      ],
+      "action": "RETAIN_CONTEXTUAL_DISTRACTORS",
+      "reason": "Retain food-test-specific distractors, not irrelevant terms from another topic; sole correct answer kept.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-blue-black-mc"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-blue-black-name",
+      "format": "typed_exact",
+      "changed": true,
+      "fields": [
+        {
+          "field": "answer",
+          "main": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "blue-black"
+            ]
+          },
+          "qa": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "blue-black",
+              "dark blue-black",
+              "dark blue black colour"
+            ]
+          }
+        }
+      ],
+      "action": "RETAIN_VALID_ALTERNATIVES",
+      "reason": "Restore previously reviewed equivalent science terms and wording, rather than narrow exact-string marking.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-blue-black-name"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-blue-black-explain",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-blue-black-explain::p1"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-brick-red-mc",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "options",
+          "main": [
+            "brick-red",
+            "genotype",
+            "lilac or purple",
+            "nitrate ions"
+          ],
+          "qa": [
+            "brick-red",
+            "yellow",
+            "green",
+            "orange"
+          ]
+        }
+      ],
+      "action": "RETAIN_CONTEXTUAL_DISTRACTORS",
+      "reason": "Retain food-test-specific distractors, not irrelevant terms from another topic; sole correct answer kept.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-brick-red-mc"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-brick-red-name",
+      "format": "typed_exact",
+      "changed": true,
+      "fields": [
+        {
+          "field": "answer",
+          "main": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "brick-red",
+              "orange or brick-red",
+              "green yellow orange or brick-red"
+            ]
+          },
+          "qa": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "brick-red",
+              "brick red",
+              "brickred",
+              "brick-red precipitate",
+              "a brick red solid"
+            ]
+          }
+        },
+        {
+          "field": "feedback",
+          "main": {
+            "short": "brick-red: a strong positive Benedict's result for reducing sugar after heating.",
+            "steps": [
+              "Read the command word.",
+              "Retrieve the scientific term and its defining feature.",
+              "Check the precise source statement: a strong positive Benedict's result for reducing sugar after heating.",
+              "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail."
+            ],
+            "commonError": "Using an everyday description without the defining scientific feature.",
+            "remember": "brick-red = a strong positive Benedict's result for reducing sugar after heating"
+          },
+          "qa": {
+            "short": "brick-red: a strong positive Benedict's result for reducing sugar after heating.",
+            "steps": [
+              "Read the command word.",
+              "Retrieve the scientific term and its defining feature.",
+              "Check the precise source statement: a strong positive Benedict's result for reducing sugar after heating.",
+              "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail."
+            ],
+            "commonError": "Giving the whole positive colour range, such as green, yellow or orange, when the question asks for the strong positive result.",
+            "remember": "brick-red = a strong positive Benedict's result for reducing sugar after heating"
+          }
+        }
+      ],
+      "action": "RETAIN_PRECISE_STRONGEST_ENDPOINT",
+      "reason": "The revised demand is strongest typical endpoint under comparable heating; a range of all positive colours does not answer that demand.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-brick-red-name"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-brick-red-explain",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-brick-red-explain::p1"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-lilac-or-purple-mc",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "options",
+          "main": [
+            "egestion and excretion",
+            "lilac or purple",
+            "line graph",
+            "denaturation"
+          ],
+          "qa": [
+            "blue-black",
+            "lilac or purple",
+            "brick-red",
+            "orange-brown"
+          ]
+        }
+      ],
+      "action": "RETAIN_CONTEXTUAL_DISTRACTORS",
+      "reason": "Retain food-test-specific distractors, not irrelevant terms from another topic; sole correct answer kept.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-lilac-or-purple-mc"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-lilac-or-purple-name",
+      "format": "typed_exact",
+      "changed": true,
+      "fields": [
+        {
+          "field": "answer",
+          "main": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "lilac or purple",
+              "purple",
+              "lilac"
+            ]
+          },
+          "qa": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "lilac or purple",
+              "purple",
+              "lilac",
+              "violet",
+              "violet colour"
+            ]
+          }
+        }
+      ],
+      "action": "RETAIN_VALID_ALTERNATIVES",
+      "reason": "Restore previously reviewed equivalent science terms and wording, rather than narrow exact-string marking.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-lilac-or-purple-name"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-lilac-or-purple-explain",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-lilac-or-purple-explain::p1"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-cloudy-white-emulsion-mc",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "options",
+          "main": [
+            "fibre",
+            "omnivore",
+            "scatter graph",
+            "cloudy white emulsion"
+          ],
+          "qa": [
+            "blue-black",
+            "clear solution",
+            "brick-red precipitate",
+            "cloudy white emulsion"
+          ]
+        }
+      ],
+      "action": "RETAIN_CONTEXTUAL_DISTRACTORS",
+      "reason": "Retain food-test-specific distractors, not irrelevant terms from another topic; sole correct answer kept.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-cloudy-white-emulsion-mc"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-cloudy-white-emulsion-name",
+      "format": "typed_exact",
+      "changed": true,
+      "fields": [
+        {
+          "field": "answer",
+          "main": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "cloudy white emulsion",
+              "white emulsion",
+              "cloudy emulsion"
+            ]
+          },
+          "qa": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "cloudy white emulsion",
+              "white emulsion",
+              "cloudy emulsion",
+              "milky white emulsion",
+              "milky emulsion",
+              "a white cloudy emulsion"
+            ]
+          }
+        }
+      ],
+      "action": "RETAIN_VALID_ALTERNATIVES",
+      "reason": "Restore previously reviewed equivalent science terms and wording, rather than narrow exact-string marking.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-cloudy-white-emulsion-name"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-cloudy-white-emulsion-explain",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-cloudy-white-emulsion-explain::p1"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-water-bath-mc",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "prompt",
+          "main": "Which scientific term matches this description: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol?",
+          "qa": "Which scientific term matches this description: a container of hot water used to heat Benedict's test evenly and safely."
+        },
+        {
+          "field": "options",
+          "main": [
+            "lipid",
+            "biotic factor",
+            "water bath",
+            "validity"
+          ],
+          "qa": [
+            "Bunsen burner",
+            "test-tube rack",
+            "water bath",
+            "tripod"
+          ]
+        },
+        {
+          "field": "stimulus",
+          "main": {
+            "text": "a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+          },
+          "qa": {
+            "text": "a container of hot water used to heat Benedict's test evenly and safely"
+          }
+        },
+        {
+          "field": "feedback",
+          "main": {
+            "short": "water bath: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+            "steps": [
+              "Read the command word.",
+              "Retrieve the scientific term and its defining feature.",
+              "Check the precise source statement: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+              "Identify the defining feature before comparing the options. Select the one option that satisfies every part of the prompt."
+            ],
+            "commonError": "Using an everyday description without the defining scientific feature.",
+            "remember": "water bath = a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+          },
+          "qa": {
+            "short": "water bath: a container of hot water used to heat Benedict's test evenly and safely.",
+            "steps": [
+              "Read the command word.",
+              "Retrieve the scientific term and its defining feature.",
+              "Check the precise source statement: a container of hot water used to heat Benedict's test evenly and safely.",
+              "Identify the defining feature before comparing the options. Select the one option that satisfies every part of the prompt."
+            ],
+            "commonError": "Using an everyday description without the defining scientific feature.",
+            "remember": "water bath = a container of hot water used to heat Benedict's test evenly and safely. The ethanol emulsion test does not heat the ethanol."
+          }
+        }
+      ],
+      "action": "RETAIN_CORRECT_HEATING_DEFINITION",
+      "reason": "Water bath used for Benedict heating, not mandatory ethanol heating; accept defensible equivalent equipment wording.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-water-bath-mc"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-water-bath-name",
+      "format": "typed_exact",
+      "changed": true,
+      "fields": [
+        {
+          "field": "prompt",
+          "main": "Name the scientific term: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+          "qa": "Name the scientific term: a container of hot water used to heat Benedict's test evenly and safely."
+        },
+        {
+          "field": "answer",
+          "main": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "water bath"
+            ]
+          },
+          "qa": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "water bath",
+              "beaker of hot water",
+              "hot-water bath",
+              "beaker of heated water"
+            ]
+          }
+        },
+        {
+          "field": "stimulus",
+          "main": {
+            "text": "a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+          },
+          "qa": {
+            "text": "a container of hot water used to heat Benedict's test evenly and safely"
+          }
+        },
+        {
+          "field": "feedback",
+          "main": {
+            "short": "water bath: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+            "steps": [
+              "Read the command word.",
+              "Retrieve the scientific term and its defining feature.",
+              "Check the precise source statement: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+              "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail."
+            ],
+            "commonError": "Using an everyday description without the defining scientific feature.",
+            "remember": "water bath = a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+          },
+          "qa": {
+            "short": "water bath: a container of hot water used to heat Benedict's test evenly and safely.",
+            "steps": [
+              "Read the command word.",
+              "Retrieve the scientific term and its defining feature.",
+              "Check the precise source statement: a container of hot water used to heat Benedict's test evenly and safely.",
+              "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail."
+            ],
+            "commonError": "Using an everyday description without the defining scientific feature.",
+            "remember": "water bath = a container of hot water used to heat Benedict's test evenly and safely. The ethanol emulsion test does not heat the ethanol."
+          }
+        }
+      ],
+      "action": "RETAIN_CORRECT_HEATING_DEFINITION",
+      "reason": "Water bath used for Benedict heating, not mandatory ethanol heating; accept defensible equivalent equipment wording.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-water-bath-name"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-water-bath-explain",
+      "format": "mark_points",
+      "changed": true,
+      "fields": [
+        {
+          "field": "prompt",
+          "main": "In Food tests and laboratory safety, state the precise Year 8 meaning, role or function of water bath.",
+          "qa": "State two points about a water bath in food tests: what it is used for, and whether the ethanol emulsion test heats ethanol."
+        },
+        {
+          "field": "answer",
+          "main": {
+            "mode": "mark_points",
+            "markPoints": [
+              "a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+            ],
+            "modelAnswer": "a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+          },
+          "qa": {
+            "mode": "mark_points",
+            "totalMarks": 2,
+            "markPoints": [
+              "heats Benedict's test evenly in hot water",
+              "the ethanol emulsion test does not heat the ethanol"
+            ],
+            "modelAnswer": "A water bath heats Benedict's test evenly and safely. The ethanol emulsion test does not heat the ethanol."
+          }
+        },
+        {
+          "field": "feedback",
+          "main": {
+            "short": "water bath: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+            "steps": [
+              "Read the command word.",
+              "Retrieve the scientific term and its defining feature.",
+              "Check the precise source statement: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+              "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
+            ],
+            "commonError": "Using an everyday description without the defining scientific feature.",
+            "remember": "water bath = a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+          },
+          "qa": {
+            "short": "Heat Benedict's test in a water bath. Do not heat ethanol in the emulsion test.",
+            "steps": [
+              "Credit a point for heating Benedict's test evenly in hot water.",
+              "Credit a separate point for stating that the ethanol emulsion test does not heat the ethanol.",
+              "Do not accept heating ethanol as a required step of the emulsion test.",
+              "Both points are required."
+            ],
+            "commonError": "Describing a water bath as the required way to heat ethanol.",
+            "remember": "water bath = a container of hot water used to heat Benedict's test evenly and safely. The ethanol emulsion test does not heat the ethanol."
+          }
+        }
+      ],
+      "action": "RETAIN_STRUCTURED_REDESIGN",
+      "reason": "Remove incorrect ethanol-heating premise. Separate flammability and no-heating method or Benedict heating into bounded checks.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-water-bath-explain::p1",
+        "bio-y8-food-tests-water-bath-explain::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-match-food-tests-food-test-reagents-1",
+      "format": "matching",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-match-food-tests-food-test-reagents-1"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-match-food-tests-food-test-results-1",
+      "format": "matching",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-match-food-tests-food-test-results-1"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-app-benedicts-method",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-app-benedicts-method::p1",
+        "bio-y8-app-benedicts-method::p2",
+        "bio-y8-app-benedicts-method::p3"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-app-food-test-match",
+      "format": "matching",
+      "changed": true,
+      "fields": [
+        {
+          "field": "prompt",
+          "main": "Match each food substance to its reagent and positive result.",
+          "qa": "Match each nutrient to its food-test reagent and positive result. Award one mark for each complete pairing (4 marks)."
+        },
+        {
+          "field": "answer",
+          "main": {
+            "mode": "pair_map",
+            "totalMarks": 8,
+            "pairs": [
+              {
+                "left": "starch",
+                "right": "iodine; blue-black"
+              },
+              {
+                "left": "reducing sugar",
+                "right": "heated Benedict's; green/yellow/orange/brick-red"
+              },
+              {
+                "left": "protein",
+                "right": "Biuret; lilac/purple"
+              },
+              {
+                "left": "lipid",
+                "right": "ethanol then water; cloudy white emulsion"
+              }
+            ]
+          },
+          "qa": {
+            "mode": "pair_map",
+            "totalMarks": 4,
+            "pairs": [
+              {
+                "left": "starch",
+                "right": "iodine; blue-black"
+              },
+              {
+                "left": "reducing sugar",
+                "right": "heated Benedict's; green/yellow/orange/brick-red"
+              },
+              {
+                "left": "protein",
+                "right": "Biuret; lilac/purple"
+              },
+              {
+                "left": "lipid",
+                "right": "ethanol then water; cloudy white emulsion"
+              }
+            ]
+          }
+        },
+        {
+          "field": "task",
+          "main": {
+            "label": "MATCH THE PAIRS",
+            "instruction": "Match every item to its correct partner."
+          },
+          "qa": {
+            "label": "MATCH THE PAIRS",
+            "instruction": "Match all four nutrients to the correct combined reagent and positive observation; one mark per complete pair."
+          }
+        }
+      ],
+      "action": "RETAIN_FOUR_PAIR_MARKS",
+      "reason": "Four complete pairs, each earns one mark; do not advertise eight marks for four independently scored pairs.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-app-food-test-match"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-app-iodine-negative",
+      "format": "typed_short",
+      "changed": true,
+      "fields": [
+        {
+          "field": "answer",
+          "main": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "no starch was detected",
+              "no starch is present",
+              "starch was not detected",
+              "starch is not present",
+              "starch is absent",
+              "no starch present",
+              "no starch detected"
+            ],
+            "totalMarks": 1
+          },
+          "qa": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "no starch was detected",
+              "no starch is present",
+              "starch was not detected",
+              "starch is not present",
+              "starch is absent",
+              "no starch present",
+              "no starch detected",
+              "starch was not found in the iodine test",
+              "the iodine test did not detect starch",
+              "the iodine test did not show starch"
+            ],
+            "totalMarks": 1
+          }
+        }
+      ],
+      "action": "RETAIN_BOUNDED_DETECTION_ANSWERS",
+      "reason": "Accept scientifically correct non-detection formulations; absolute-absence shorthand remains pending school adjudication.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-app-iodine-negative"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-app-ethanol-safety",
+      "format": "mark_points",
+      "changed": true,
+      "fields": [
+        {
+          "field": "prompt",
+          "main": "Explain why ethanol must be heated in a water bath rather than over a naked flame.",
+          "qa": "Explain why ethanol must not be heated over a naked flame, and state how the ethanol emulsion test is carried out."
+        },
+        {
+          "field": "answer",
+          "main": {
+            "mode": "mark_points",
+            "markPoints": [
+              "ethanol is highly flammable",
+              "a water bath avoids direct ignition / is safer"
+            ],
+            "totalMarks": 2
+          },
+          "qa": {
+            "mode": "mark_points",
+            "totalMarks": 2,
+            "markPoints": [
+              "ethanol is highly flammable",
+              "shake the sample with ethanol, then add water, without heating the ethanol"
+            ],
+            "modelAnswer": "Ethanol is highly flammable, so it must not be heated over a naked flame. In the emulsion test, shake the sample with ethanol and then add water."
+          }
+        },
+        {
+          "field": "feedback",
+          "main": {
+            "short": "ethanol is highly flammable; a water bath avoids direct ignition / is safer",
+            "steps": [
+              "ethanol is highly flammable",
+              "a water bath avoids direct ignition / is safer",
+              "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
+              "Suggested answer: ethanol is highly flammable; a water bath avoids direct ignition / is safer"
+            ],
+            "commonError": "Answering generally without covering every requested part or mark point.",
+            "remember": "ethanol is highly flammable; a water bath avoids direct ignition / is safer"
+          },
+          "qa": {
+            "short": "Ethanol is highly flammable and is not heated. Shake the sample with ethanol, then add water.",
+            "steps": [
+              "ethanol is highly flammable, so do not heat it over a naked flame",
+              "the emulsion test shakes the sample with ethanol and then adds water",
+              "heating ethanol is not a required step",
+              "Both points are required."
+            ],
+            "commonError": "Saying that the emulsion test requires ethanol to be heated.",
+            "remember": "Ethanol is highly flammable. The emulsion test does not heat it: shake with ethanol, then add water."
+          }
+        }
+      ],
+      "action": "RETAIN_STRUCTURED_REDESIGN",
+      "reason": "Remove incorrect ethanol-heating premise. Separate flammability and no-heating method or Benedict heating into bounded checks.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-app-ethanol-safety::p1",
+        "bio-y8-app-ethanol-safety::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-1",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein-lipid"
+        }
+      ],
+      "action": "RETAIN_CORRECTED_COMPLETE_SET",
+      "reason": "Retained exemplar uses one actual observed colour and explicit complete detected set; shared four-test skill prevents duplicate rotation credit.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-1-1"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-2",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-reducing-sugar-protein-lipid"
+        }
+      ],
+      "action": "RETAIN_CORRECTED_COMPLETE_SET",
+      "reason": "Retained exemplar uses one actual observed colour and explicit complete detected set; shared four-test skill prevents duplicate rotation credit.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-1-2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-3",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-protein-lipid"
+        }
+      ],
+      "action": "RETAIN_CORRECTED_COMPLETE_SET",
+      "reason": "Retained exemplar uses one actual observed colour and explicit complete detected set; shared four-test skill prevents duplicate rotation credit.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-1-3"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-4",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-protein-lipid"
+        }
+      ],
+      "action": "RETAIN_CORRECTED_COMPLETE_SET",
+      "reason": "Retained exemplar uses one actual observed colour and explicit complete detected set; shared four-test skill prevents duplicate rotation credit.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-1-4"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-5",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-reducing-sugar-lipid"
+        }
+      ],
+      "action": "RETAIN_CORRECTED_COMPLETE_SET",
+      "reason": "Retained exemplar uses one actual observed colour and explicit complete detected set; shared four-test skill prevents duplicate rotation credit.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-1-5"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-6",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-reducing-sugar-lipid"
+        }
+      ],
+      "action": "RETAIN_CORRECTED_COMPLETE_SET",
+      "reason": "Retained exemplar uses one actual observed colour and explicit complete detected set; shared four-test skill prevents duplicate rotation credit.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-1-6"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-7",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-lipid"
+        }
+      ],
+      "action": "RETAIN_CORRECTED_COMPLETE_SET",
+      "reason": "Retained exemplar uses one actual observed colour and explicit complete detected set; shared four-test skill prevents duplicate rotation credit.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-1-7"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-8",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-lipid"
+        }
+      ],
+      "action": "RETAIN_CORRECTED_COMPLETE_SET",
+      "reason": "Retained exemplar uses one actual observed colour and explicit complete detected set; shared four-test skill prevents duplicate rotation credit.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-1-8"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-9",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein"
+        }
+      ],
+      "action": "RETAIN_CORRECTED_COMPLETE_SET",
+      "reason": "Retained exemplar uses one actual observed colour and explicit complete detected set; shared four-test skill prevents duplicate rotation credit.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-1-9"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-10",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-reducing-sugar-protein"
+        }
+      ],
+      "action": "RETAIN_CORRECTED_COMPLETE_SET",
+      "reason": "Retained exemplar uses one actual observed colour and explicit complete detected set; shared four-test skill prevents duplicate rotation credit.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-1-10"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-11",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-protein"
+        }
+      ],
+      "action": "RETAIN_CORRECTED_COMPLETE_SET",
+      "reason": "Retained exemplar uses one actual observed colour and explicit complete detected set; shared four-test skill prevents duplicate rotation credit.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-1-11"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-12",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-protein"
+        }
+      ],
+      "action": "RETAIN_CORRECTED_COMPLETE_SET",
+      "reason": "Retained exemplar uses one actual observed colour and explicit complete detected set; shared four-test skill prevents duplicate rotation credit.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-1-12"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-13",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-reducing-sugar"
+        }
+      ],
+      "action": "RETAIN_CORRECTED_COMPLETE_SET",
+      "reason": "Retained exemplar uses one actual observed colour and explicit complete detected set; shared four-test skill prevents duplicate rotation credit.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-1-13"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-14",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-reducing-sugar"
+        }
+      ],
+      "action": "RETAIN_CORRECTED_COMPLETE_SET",
+      "reason": "Retained exemplar uses one actual observed colour and explicit complete detected set; shared four-test skill prevents duplicate rotation credit.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-1-14"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-15",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch"
+        }
+      ],
+      "action": "RETAIN_CORRECTED_COMPLETE_SET",
+      "reason": "Retained exemplar uses one actual observed colour and explicit complete detected set; shared four-test skill prevents duplicate rotation credit.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-1-15"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-1-16",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-none-of-these-four-nutrients"
+        }
+      ],
+      "action": "RETAIN_CORRECTED_COMPLETE_SET",
+      "reason": "Retained exemplar uses one actual observed colour and explicit complete detected set; shared four-test skill prevents duplicate rotation credit.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-1-16"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-1",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-2-1"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-2",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-reducing-sugar-protein-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-2-2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-3",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-protein-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-2-3"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-4",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-protein-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-2-4"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-5",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-reducing-sugar-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-2-5"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-6",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-reducing-sugar-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-2-6"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-7",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-2-7"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-8",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-2-8"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-9",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-2-9"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-10",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-reducing-sugar-protein"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-2-10"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-11",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-protein"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-2-11"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-12",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-protein"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-2-12"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-13",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-reducing-sugar"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-2-13"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-14",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-reducing-sugar"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-2-14"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-15",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-2-15"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-2-16",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-none-of-these-four-nutrients"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-2-16"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-1",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-3-1"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-2",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-reducing-sugar-protein-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-3-2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-3",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-protein-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-3-3"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-4",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-protein-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-3-4"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-5",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-reducing-sugar-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-3-5"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-6",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-reducing-sugar-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-3-6"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-7",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-3-7"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-8",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-3-8"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-9",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-3-9"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-10",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-reducing-sugar-protein"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-3-10"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-11",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-protein"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-3-11"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-12",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-protein"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-3-12"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-13",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-reducing-sugar"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-3-13"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-14",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-reducing-sugar"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-3-14"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-15",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-3-15"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-3-16",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-none-of-these-four-nutrients"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-3-16"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-1",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-4-1"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-2",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-reducing-sugar-protein-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-4-2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-3",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-protein-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-4-3"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-4",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-protein-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-4-4"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-5",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-reducing-sugar-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-4-5"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-6",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-reducing-sugar-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-4-6"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-7",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-4-7"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-8",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-lipid"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-4-8"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-9",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-reducing-sugar-protein"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-4-9"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-10",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-reducing-sugar-protein"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-4-10"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-11",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-protein"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-4-11"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-12",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-protein"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-4-12"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-13",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch-reducing-sugar"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-4-13"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-14",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-reducing-sugar"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-4-14"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-15",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-starch"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-4-15"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-case-20261025-4-16",
+      "format": "mc_single",
+      "changed": true,
+      "fields": [
+        {
+          "field": "dailyConceptGroup",
+          "main": null,
+          "qa": "bio-y8-food-tests-indicators-none-of-these-four-nutrients"
+        }
+      ],
+      "action": "REPLACE_AND_REMAP_SKILL",
+      "reason": "Repeated four-test pattern is replaced with a distinct practical reasoning stem; legacy indicator tag cannot be reused. Use provisional integrated rotation constraints only, not a live mapping.",
+      "integratedKind": "replacement",
+      "integratedIds": [
+        "bio-y8-food-tests-case-20261025-4-16"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-sample-separation",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-sample-separation::p1",
+        "bio-y8-food-tests-application-20261025-sample-separation::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-iodine-repeat",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-iodine-repeat::p1",
+        "bio-y8-food-tests-application-20261025-iodine-repeat::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-benedict-no-heat",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-benedict-no-heat::p1",
+        "bio-y8-food-tests-application-20261025-benedict-no-heat::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-negative-sugar",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-negative-sugar::p1",
+        "bio-y8-food-tests-application-20261025-negative-sugar::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-positive-sugar",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-positive-sugar::p1",
+        "bio-y8-food-tests-application-20261025-positive-sugar::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-biuret-control",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-biuret-control::p1",
+        "bio-y8-food-tests-application-20261025-biuret-control::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-iodine-control",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-iodine-control::p1",
+        "bio-y8-food-tests-application-20261025-iodine-control::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-repeatability",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-repeatability::p1",
+        "bio-y8-food-tests-application-20261025-repeatability::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-cross-contamination",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-cross-contamination::p1",
+        "bio-y8-food-tests-application-20261025-cross-contamination::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p1",
+        "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-ethanol-ventilation",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-ethanol-ventilation::p1",
+        "bio-y8-food-tests-application-20261025-ethanol-ventilation::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-benedict-hot-tube",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-benedict-hot-tube::p1",
+        "bio-y8-food-tests-application-20261025-benedict-hot-tube::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-protein-extraction",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-protein-extraction::p1",
+        "bio-y8-food-tests-application-20261025-protein-extraction::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-starch-extraction",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-starch-extraction::p1",
+        "bio-y8-food-tests-application-20261025-starch-extraction::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-fair-amount",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-fair-amount::p1",
+        "bio-y8-food-tests-application-20261025-fair-amount::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-fair-reagent",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-fair-reagent::p1",
+        "bio-y8-food-tests-application-20261025-fair-reagent::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-sugar-strength",
+      "format": "mark_points",
+      "changed": true,
+      "fields": [
+        {
+          "field": "prompt",
+          "main": "A pupil obtains green with one heated Benedict's sample and brick-red with another. Explain what this suggests and one limitation.",
+          "qa": "Two equal volumes of food extract are mixed with equal volumes of fresh Benedict's solution and heated for the same time in the same hot-water bath. One gives a green precipitate and the other a brick-red precipitate. Explain what this suggests about the relative reducing-sugar concentrations and one limitation of the comparison."
+        },
+        {
+          "field": "answer",
+          "main": {
+            "mode": "mark_points",
+            "markPoints": [
+              "brick-red suggests a greater amount of reducing sugar than green",
+              "the colour test gives an approximate result rather than an exact concentration"
+            ],
+            "totalMarks": 2,
+            "modelAnswer": "brick-red suggests a greater amount of reducing sugar than green; the colour test gives an approximate result rather than an exact concentration"
+          },
+          "qa": {
+            "mode": "mark_points",
+            "markPoints": [
+              "With these controlled conditions, brick-red suggests a greater reducing-sugar concentration than green.",
+              "The colour result gives only a rough comparison, not an exact concentration."
+            ],
+            "totalMarks": 2,
+            "modelAnswer": "With these controlled conditions, brick-red suggests a greater reducing-sugar concentration than green. The colour result gives only a rough comparison, not an exact concentration."
+          }
+        },
+        {
+          "field": "feedback",
+          "main": {
+            "short": "brick-red suggests a greater amount of reducing sugar than green; the colour test gives an approximate result rather than an exact concentration",
+            "steps": [
+              "brick-red suggests a greater amount of reducing sugar than green",
+              "the colour test gives an approximate result rather than an exact concentration"
+            ],
+            "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+            "remember": "Use the observations, not guesses, to identify food groups."
+          },
+          "qa": {
+            "short": "With these controlled conditions, brick-red suggests a greater reducing-sugar concentration than green. The colour result gives only a rough comparison, not an exact concentration.",
+            "steps": [
+              "With these controlled conditions, brick-red suggests a greater reducing-sugar concentration than green.",
+              "The colour result gives only a rough comparison, not an exact concentration."
+            ],
+            "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+            "remember": "Use the observations, not guesses, to identify food groups."
+          }
+        }
+      ],
+      "action": "RETAIN_STRUCTURED_REDESIGN",
+      "reason": "Compare equal volumes, reagent and heating conditions; rough relative concentration only.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-sugar-strength::p1",
+        "bio-y8-food-tests-application-20261025-sugar-strength::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-cloudy-not-protein",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-cloudy-not-protein::p1",
+        "bio-y8-food-tests-application-20261025-cloudy-not-protein::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-starch-vs-glucose",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-starch-vs-glucose::p1",
+        "bio-y8-food-tests-application-20261025-starch-vs-glucose::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-sugar-vs-starch",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-sugar-vs-starch::p1",
+        "bio-y8-food-tests-application-20261025-sugar-vs-starch::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-biuret-vs-sugar",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p1",
+        "bio-y8-food-tests-application-20261025-biuret-vs-sugar::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-lipid-vs-starch",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-lipid-vs-starch::p1",
+        "bio-y8-food-tests-application-20261025-lipid-vs-starch::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-all-negative",
+      "format": "mark_points",
+      "changed": true,
+      "fields": [
+        {
+          "field": "prompt",
+          "main": "An unknown sample gives four negative food tests. Explain what can and cannot be concluded.",
+          "qa": "Positive and negative controls work correctly. An unknown sample gives negative results in the iodine, heated Benedict's, Biuret and ethanol emulsion tests. Explain what these results show and one limitation."
+        },
+        {
+          "field": "answer",
+          "main": {
+            "mode": "mark_points",
+            "markPoints": [
+              "none of starch reducing sugar protein or lipid were detected by these tests",
+              "a negative test does not prove the food contains no nutrients of any kind"
+            ],
+            "totalMarks": 2,
+            "modelAnswer": "none of starch reducing sugar protein or lipid were detected by these tests; a negative test does not prove the food contains no nutrients of any kind"
+          },
+          "qa": {
+            "mode": "mark_points",
+            "markPoints": [
+              "None of starch, reducing sugar, protein or lipid was detected under the test conditions.",
+              "The results do not prove that there are no nutrients: other nutrients or amounts below the detection limit may still be present."
+            ],
+            "totalMarks": 2,
+            "modelAnswer": "None of starch, reducing sugar, protein or lipid was detected under the test conditions. The results do not prove that there are no nutrients: other nutrients or amounts below the detection limit may still be present."
+          }
+        },
+        {
+          "field": "feedback",
+          "main": {
+            "short": "none of starch reducing sugar protein or lipid were detected by these tests; a negative test does not prove the food contains no nutrients of any kind",
+            "steps": [
+              "none of starch reducing sugar protein or lipid were detected by these tests",
+              "a negative test does not prove the food contains no nutrients of any kind"
+            ],
+            "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+            "remember": "Use the observations, not guesses, to identify food groups."
+          },
+          "qa": {
+            "short": "None of starch, reducing sugar, protein or lipid was detected under the test conditions. The results do not prove that there are no nutrients: other nutrients or amounts below the detection limit may still be present.",
+            "steps": [
+              "None of starch, reducing sugar, protein or lipid was detected under the test conditions.",
+              "The results do not prove that there are no nutrients: other nutrients or amounts below the detection limit may still be present."
+            ],
+            "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
+            "remember": "Use the observations, not guesses, to identify food groups."
+          }
+        }
+      ],
+      "action": "RETAIN_STRUCTURED_REDESIGN",
+      "reason": "Working controls and detection limits; negative results do not prove absence of all nutrients. Dead reckoning free prose scoring remains held.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-all-negative::p1",
+        "bio-y8-food-tests-application-20261025-all-negative::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-retest-ethanol",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-retest-ethanol::p1",
+        "bio-y8-food-tests-application-20261025-retest-ethanol::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-glassware",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-glassware::p1",
+        "bio-y8-food-tests-application-20261025-glassware::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-eyes",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-eyes::p1",
+        "bio-y8-food-tests-application-20261025-eyes::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-heat-variable",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-heat-variable::p1",
+        "bio-y8-food-tests-application-20261025-heat-variable::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-no-taste",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-no-taste::p1",
+        "bio-y8-food-tests-application-20261025-no-taste::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-recording",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-recording::p1",
+        "bio-y8-food-tests-application-20261025-recording::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-inference",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-inference::p1",
+        "bio-y8-food-tests-application-20261025-inference::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-weak-blueblack",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-weak-blueblack::p1",
+        "bio-y8-food-tests-application-20261025-weak-blueblack::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-temperature-safety",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-temperature-safety::p1",
+        "bio-y8-food-tests-application-20261025-temperature-safety::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-test-plan",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-test-plan::p1",
+        "bio-y8-food-tests-application-20261025-test-plan::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p1",
+        "bio-y8-food-tests-application-20261025-positive-protein-negative-fat::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-result-not-proof",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-result-not-proof::p1",
+        "bio-y8-food-tests-application-20261025-result-not-proof::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-wrong-reagent",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-wrong-reagent::p1",
+        "bio-y8-food-tests-application-20261025-wrong-reagent::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-uncertain-emulsion",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-uncertain-emulsion::p1",
+        "bio-y8-food-tests-application-20261025-uncertain-emulsion::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-iodine-no-heat",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-iodine-no-heat::p1",
+        "bio-y8-food-tests-application-20261025-iodine-no-heat::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-safe-bunsen",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-safe-bunsen::p1",
+        "bio-y8-food-tests-application-20261025-safe-bunsen::p2"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-unknown-analysis",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-unknown-analysis::p1",
+        "bio-y8-food-tests-application-20261025-unknown-analysis::p2",
+        "bio-y8-food-tests-application-20261025-unknown-analysis::p3"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-sugar-analysis",
+      "format": "mark_points",
+      "changed": false,
+      "fields": [],
+      "action": "NO_SOURCE_DRIFT",
+      "reason": "Main and QA source content are identical for this ID; consolidated candidate decision remains applicable.",
+      "integratedKind": "structured-candidate",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-sugar-analysis::p1",
+        "bio-y8-food-tests-application-20261025-sugar-analysis::p2",
+        "bio-y8-food-tests-application-20261025-sugar-analysis::p3"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-negative-biuret",
+      "format": "typed_short",
+      "changed": true,
+      "fields": [
+        {
+          "field": "answer",
+          "main": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "blue",
+              "remains blue",
+              "stays blue"
+            ],
+            "totalMarks": 1
+          },
+          "qa": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "blue",
+              "remains blue",
+              "stays blue",
+              "blue colour",
+              "the solution stays blue"
+            ],
+            "totalMarks": 1
+          }
+        }
+      ],
+      "action": "RETAIN_VALID_ALTERNATIVES",
+      "reason": "Restore previously reviewed equivalent science terms and wording, rather than narrow exact-string marking.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-negative-biuret"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-negative-emulsion",
+      "format": "typed_short",
+      "changed": true,
+      "fields": [
+        {
+          "field": "answer",
+          "main": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "no lipid detected",
+              "lipid not detected",
+              "no fat detected",
+              "fat not detected",
+              "no lipid was detected",
+              "no fat was detected"
+            ],
+            "totalMarks": 1
+          },
+          "qa": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "no lipid detected",
+              "lipid not detected",
+              "no fat detected",
+              "fat not detected",
+              "no lipid was detected",
+              "no fat was detected",
+              "no lipids were found",
+              "no fats detected",
+              "lipids were not detected"
+            ],
+            "totalMarks": 1
+          }
+        }
+      ],
+      "action": "RETAIN_VALID_ALTERNATIVES",
+      "reason": "Restore previously reviewed equivalent science terms and wording, rather than narrow exact-string marking.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-negative-emulsion"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-positive-benedict",
+      "format": "typed_short",
+      "changed": true,
+      "fields": [
+        {
+          "field": "answer",
+          "main": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "green",
+              "yellow",
+              "orange",
+              "brick red",
+              "brick-red"
+            ],
+            "totalMarks": 1
+          },
+          "qa": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "green",
+              "yellow",
+              "orange",
+              "brick red",
+              "brick-red",
+              "orange precipitate",
+              "red precipitate",
+              "yellow precipitate"
+            ],
+            "totalMarks": 1
+          }
+        }
+      ],
+      "action": "RETAIN_VALID_ALTERNATIVES",
+      "reason": "Restore previously reviewed equivalent science terms and wording, rather than narrow exact-string marking.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-positive-benedict"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-starch-negative-colour",
+      "format": "typed_short",
+      "changed": true,
+      "fields": [
+        {
+          "field": "answer",
+          "main": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "orange brown",
+              "orange-brown",
+              "brown",
+              "yellow brown",
+              "yellow-brown"
+            ],
+            "totalMarks": 1
+          },
+          "qa": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "orange brown",
+              "orange-brown",
+              "brown",
+              "yellow brown",
+              "yellow-brown",
+              "yellowish brown",
+              "iodine remains yellow-brown"
+            ],
+            "totalMarks": 1
+          }
+        }
+      ],
+      "action": "RETAIN_VALID_ALTERNATIVES",
+      "reason": "Restore previously reviewed equivalent science terms and wording, rather than narrow exact-string marking.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-starch-negative-colour"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    },
+    {
+      "id": "bio-y8-food-tests-application-20261025-heating-method",
+      "format": "typed_short",
+      "changed": true,
+      "fields": [
+        {
+          "field": "answer",
+          "main": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "water bath",
+              "a water bath",
+              "hot water bath"
+            ],
+            "totalMarks": 1
+          },
+          "qa": {
+            "mode": "exact_or_equivalent",
+            "accepted": [
+              "water bath",
+              "a water bath",
+              "hot water bath",
+              "a beaker containing hot water",
+              "a heated water bath"
+            ],
+            "totalMarks": 1
+          }
+        }
+      ],
+      "action": "RETAIN_VALID_ALTERNATIVES",
+      "reason": "Restore previously reviewed equivalent science terms and wording, rather than narrow exact-string marking.",
+      "integratedKind": "retained",
+      "integratedIds": [
+        "bio-y8-food-tests-application-20261025-heating-method"
+      ],
+      "formalCreditEligible": false,
+      "independentAcademicApproved": false
+    }
+  ]
+}
