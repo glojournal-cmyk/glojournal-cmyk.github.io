@@ -22,7 +22,7 @@ function functionAt(s,needle){
 function scorer(path){
  const s=read(path);
  const names=['function scienceProse(','function scienceConclusionEquivalent(',
-  'function scienceSymbolConflict(','function CY(','function I(e){','function B(e,t,n,r)'];
+  'function scienceSymbolConflict(','function CY(','function I(e){','function reviewedMark(','function B(e,t,n,r)'];
  const impl=names.map(n=>{
   const code=functionAt(s,n);
   if(code)return code;
