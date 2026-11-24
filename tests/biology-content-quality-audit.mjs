@@ -153,7 +153,7 @@ for(const [topicId,needle] of [["bio-y9-b7","complementary-base-pairing"],["bio-
 }
 {
   const b15=docs.get("bio-y9-b15"), q=b15?.questions.find(q=>q.id==="bio-y9-b15-app-gas-v-bubbles");
-  const pts=(q?.answer?.markPoints||[]).join(" ");
+  const pts=[...(q?.answer?.markPoints||[]),...(q?.answer?.reviewedParts||[]).flat()].join(" ");
   if(!/bubble/i.test(pts)||!/size/i.test(pts)) fail("bio-y9-b15.json",q?.id,"bubble-size-reliability-reason-missing",{pts});
 }
 {
