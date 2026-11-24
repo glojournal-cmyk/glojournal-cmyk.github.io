@@ -1,0 +1,241 @@
+{
+  "kind": "MATHS_V324_FOUR_NEW_DISTINCT_SOURCE_LINKED_REASONING_REPLACEMENTS_QA_ONLY",
+  "date": "2026-11-24",
+  "branch": "feature/daily-tasks-v3-20261122",
+  "pr": 306,
+  "sourceBankPath": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "v323AuditPath": "qa-staging/math-v323-canonical200-all-topics-hold-dispositions-source-exact-20261124.json",
+  "status": "STAGING_ONLY_NOT_IMPORTED_NOT_APPROVED",
+  "candidateVersionCount": 4,
+  "distinctSourceIDs": 4,
+  "optionsCount": 24,
+  "wrongOptionExplanationsCount": 20,
+  "independentGrade7Approved": 0,
+  "confirmedTaught": 0,
+  "dailyEligible": 0,
+  "masteryEligible": 0,
+  "releaseDecision": "BLOCKED_0_OF_200_NO_MERGE_NO_DEPLOY_NO_CREDIT",
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-013",
+      "revisionId": "LUX-MATH-Y9-INDICES-013-V324-REASONING_REDESIGN_QA_ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-013-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "stem": "For integer $n$, let $P(n)=\\dfrac{4^{n+2}8^{4-n}}{2^3}$ and $Q(n)=\\dfrac{16^{n-1}}{2^{2n-1}}$. Find the sum of all integer values of $n$ for which $P(n)$ is a perfect square, $2^5<P(n)<2^{11}$ and $P(n)>Q(n)$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3",
+          "errorPath": "Find the smallest valid value n=3 but omit the other valid value n=5."
+        },
+        {
+          "id": "B",
+          "latex": "8"
+        },
+        {
+          "id": "C",
+          "latex": "15",
+          "errorPath": "Use all n=3,5,7 that satisfy the strict bounds and square condition, but forget to test P(n)>Q(n), giving 15."
+        },
+        {
+          "id": "D",
+          "latex": "5",
+          "errorPath": "Impose the unnecessary stronger condition that the exponent of P(n) be divisible by 4, leaving n=5 alone."
+        },
+        {
+          "id": "E",
+          "latex": "7",
+          "errorPath": "Take the largest bound-eligible odd n=7 without testing the comparison P(7)>Q(7), which is false."
+        },
+        {
+          "id": "F",
+          "latex": "10",
+          "errorPath": "Test whether n is even rather than whether the base-two exponent 13-n is even, adding n=4 and n=6."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "8",
+      "workedSolutionSteps": [
+        "Rewrite both as base 2: $P(n)=2^{13-n}$ and $Q(n)=2^{2n-3}$.",
+        "Strict bounds give $5<13-n<11$, hence integer $n\\in\\{3,4,5,6,7\\}$. The exponent $13-n$ must be even for a perfect square, giving n=3,5,7.",
+        "Since $P(n)>Q(n)$, $13-n>2n-3$, or $n<16/3$. Only n=3,5 remain; sum $=8$."
+      ],
+      "provisionalAOFocus": "AO2 reasoning candidate: combine integer bounds, perfect-square exponent, and an independent inequality.",
+      "explicitDifferenceFromRoutineSource": "Replaces exponent matching alone with intersection of three constraints and multiple valid answers.",
+      "unverifiedTaughtSubskill": "Year 9 exposure to exponent inequalities and perfect-power reasoning remains unverified.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-001",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-001-V324-REASONING_REDESIGN_QA_ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-001-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "stem": "A container has $3\\times10^{11}$ identical grains, each with mass $4\\times10^{-10}$ g, occupying $2\\times10^{2}$ cm$^3$. A filter removes $25\\%$ of the mass and the bulk volume then shrinks by $20\\%$. For safe storage the final bulk density must be **at most** $5\\times10^{-1}$ g/cm$^3$. Empty buffer volume can be added without adding any mass. What is the **minimum additional volume** in cm$^3$, written in standard form?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2\\times10^{1}"
+        },
+        {
+          "id": "B",
+          "latex": "2\\times10^{2}",
+          "errorPath": "Find the correct numerical extra volume 20 but shift the standard-form exponent one place too high, reporting 200."
+        },
+        {
+          "id": "C",
+          "latex": "4\\times10^{1}",
+          "errorPath": "Ignore both the 25% mass removal and the 20% compaction: original mass 120 g needs 240 cm³, incorrectly subtract original 200 cm³ to get 40."
+        },
+        {
+          "id": "D",
+          "latex": "8\\times10^{1}",
+          "errorPath": "Apply compaction to volume but forget the removed mass: 120/0.5−160=80 cm³."
+        },
+        {
+          "id": "E",
+          "latex": "1.8\\times10^{2}",
+          "errorPath": "Find the required total final volume 90/0.5=180 cm³ but fail to subtract the already occupied 160 cm³."
+        },
+        {
+          "id": "F",
+          "latex": "0",
+          "errorPath": "Assume 90/160 is at most 0.5; actually the compacted density is 0.5625 g/cm³, so zero extra volume is unsafe."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "2\\times10^{1}",
+      "workedSolutionSteps": [
+        "Initial mass $=(3\\times10^{11})(4\\times10^{-10})=1.2\\times10^2=120$ g. Filtered mass $=0.75(120)=90$ g.",
+        "Compacted bulk volume $=0.8(2\\times10^{2})=160$ cm$^3$. To satisfy $\\rho\\le0.5$, total volume must be at least $90/0.5=180$ cm$^3$.",
+        "Minimum additional empty volume $=180-160=20=2\\times10^1$ cm$^3$. At that volume the density is exactly the safe limit."
+      ],
+      "provisionalAOFocus": "AO3 candidate: derive two changing physical quantities, enforce a safety inequality, optimize a positive extra volume.",
+      "explicitDifferenceFromRoutineSource": "Unlike original direct density arithmetic, determine a minimum buffer under independent mass and volume changes.",
+      "unverifiedTaughtSubskill": "Percentage changes, density constraints and optimization wording require classroom confirmation.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-009",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-009-V324-REASONING_REDESIGN_QA_ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-009-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "stem": "Lines $y=2x+1$ and $y=5-2x$ meet at $P$. A new straight line through $P$ crosses **both positive coordinate axes**. The triangle formed with the two axes has area $8$ square units. Find the **sum of the gradients of every possible new line**.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "-10"
+        },
+        {
+          "id": "B",
+          "latex": "-1",
+          "errorPath": "Find only the line with intercepts (4,0) and (0,4), omitting the second line."
+        },
+        {
+          "id": "C",
+          "latex": "-9",
+          "errorPath": "Find only the steeper line with intercepts (4/3,0) and (0,12), omitting the other line."
+        },
+        {
+          "id": "D",
+          "latex": "10",
+          "errorPath": "Use the absolute values of the two negative gradients, losing both signs."
+        },
+        {
+          "id": "E",
+          "latex": "-5",
+          "errorPath": "Find both gradients -1 and -9 correctly but compute their average rather than their sum."
+        },
+        {
+          "id": "F",
+          "latex": "-8",
+          "errorPath": "Find both gradients but subtract them as -9−(-1) rather than add them."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "-10",
+      "workedSolutionSteps": [
+        "The given lines intersect at $P=(1,3)$. Write a line through P as $y=m(x-1)+3$, where $m<0$ is necessary for both axis intercepts to be positive.",
+        "The y-intercept is $3-m$ and the x-intercept is $(m-3)/m$. Area $8$ gives $\\frac12(3-m)\\frac{m-3}{m}=8$, hence $(m-3)^2=-16m$.",
+        "Thus $m^2+10m+9=0$, giving $m=-1$ or $m=-9$. Both produce positive intercepts and area 8, so their sum is $-10$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate: parameterize a family of lines through an intersection, convert an area constraint to two permitted gradients, validate both branches.",
+      "explicitDifferenceFromRoutineSource": "Different from original single parallel-gradient y-intercept computation; tests nonunique geometric solutions.",
+      "unverifiedTaughtSubskill": "Quadratic factorization arising from coordinate-axis triangle area must be confirmed taught.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-014",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-014-V324-REASONING_REDESIGN_QA_ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-014-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "Consider the system $\\begin{cases}(k-1)x+(2k+3)y=7\\\\(2k+3)x+(k-1)y=14\\end{cases}$. Find the **sum of all real values of $k$** for which the system has **no solution**.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "-4",
+          "errorPath": "Recognise equal coefficient rows for k=-4 but omit the distinct case where the rows are negatives of each other."
+        },
+        {
+          "id": "B",
+          "latex": "-\\frac{2}{3}",
+          "errorPath": "Recognise opposite coefficient rows for k=-2/3 but omit the equal-row case k=-4."
+        },
+        {
+          "id": "C",
+          "latex": "-\\frac{14}{3}"
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{14}{3}",
+          "errorPath": "Calculate both values k=-4 and -2/3 but discard their negative signs when summing."
+        },
+        {
+          "id": "E",
+          "latex": "-6",
+          "errorPath": "Find the first root k=-4; solve 3k+2=0 wrongly as k=-2, forgetting division by 3."
+        },
+        {
+          "id": "F",
+          "latex": "0",
+          "errorPath": "Mistake the phrase 'system has no solution' for a claim that no parameter values can cause parallel distinct equations."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "-\\frac{14}{3}",
+      "workedSolutionSteps": [
+        "No unique solution requires the coefficient determinant $(k-1)^2-(2k+3)^2$ to vanish, or $(k+4)(3k+2)=0$.",
+        "When $k=-4$, the two left-hand sides are equal but constants are 7 and 14, so the equations are inconsistent. When $k=-2/3$, the left-hand sides are opposites but the constants are not, so they are inconsistent again.",
+        "Both values give no solution. Their sum is $-4-\\frac23=-\\frac{14}{3}$."
+      ],
+      "provisionalAOFocus": "AO2 reasoning candidate: identify two distinct singular parameter branches and prove both inconsistent rather than merely equating a single coefficient ratio.",
+      "explicitDifferenceFromRoutineSource": "Replaces a one-case parallel-line k question by exhaustive parameter-case reasoning.",
+      "unverifiedTaughtSubskill": "Determinant language is optional; equivalent elimination/parallel-coefficient reasoning can be used, subject to taught-skill verification.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    }
+  ]
+}
