@@ -60,7 +60,8 @@
       "teacherTaughtConfirmed": false,
       "studentMisconceptionsEmpiricallyVerified": false,
       "conceptFamilyIndependentlyApproved": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-002-V332-EDITORIAL-UPGRADE-QA-ONLY"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-002-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "difficultyResidualNote": "Correction system has a zero correction to one variable; retain benchmark hold if external Grade 7+ calibration is not supported."
     },
     {
       "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-003",
@@ -73,7 +74,7 @@
       "options": [
         {
           "id": "A",
-          "latex": "29:35"
+          "latex": "29:31"
         },
         {
           "id": "B",
@@ -82,12 +83,12 @@
         },
         {
           "id": "C",
-          "latex": "35:29",
+          "latex": "31:29",
           "errorPath": "Reverse B:C."
         },
         {
           "id": "D",
-          "latex": "19:35",
+          "latex": "19:31",
           "errorPath": "Compare A with C."
         },
         {
@@ -102,11 +103,11 @@
         }
       ],
       "correctOptionId": "A",
-      "correctAnswerLatex": "29:35",
+      "correctAnswerLatex": "29:31",
       "workedSolutionSteps": [
         "Subtract the pair sums to obtain C−A=6; then D=(A+C)/2=A+3.",
         "A+D=22 gives 2A+3=22, so A=19/2.",
-        "Then B=29/2 and C=35/2, so B:C=29:35."
+        "Then B=24−19/2=29/2 and C=30−29/2=31/2, giving B:C=29:31."
       ],
       "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
       "unverifiedTaughtSubskill": "Eliminate linked quantities and recover a ratio; exact rational inputs permitted.",
@@ -266,8 +267,8 @@
         },
         {
           "id": "F",
-          "latex": "72",
-          "errorPath": "Make only 12 exchanges, confusing the monetary difference with the number of exchanges."
+          "latex": "65",
+          "errorPath": "Divide the £18 extra budget by the full folder price £3.60 rather than the exchange price £1.20, allowing only five exchanges."
         }
       ],
       "correctOptionId": "B",
@@ -286,7 +287,8 @@
       "teacherTaughtConfirmed": false,
       "studentMisconceptionsEmpiricallyVerified": false,
       "conceptFamilyIndependentlyApproved": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-008-V330-REASONING-QA-ONLY"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-008-V330-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Recover two component values then optimise a discrete allocation under resource or count constraints; overlaps Standard Form allocation questions."
     },
     {
       "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-009",
@@ -343,7 +345,8 @@
       "teacherTaughtConfirmed": false,
       "studentMisconceptionsEmpiricallyVerified": false,
       "conceptFamilyIndependentlyApproved": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-ACADEMIC-REVIEW-20261124"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-ACADEMIC-REVIEW-20261124",
+      "provisionalCrossTopicMasteryHold": "Integer feasibility of a linear model or parameter; cross-topic grouping pending."
     },
     {
       "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-010",
@@ -400,7 +403,8 @@
       "teacherTaughtConfirmed": false,
       "studentMisconceptionsEmpiricallyVerified": false,
       "conceptFamilyIndependentlyApproved": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-ACADEMIC-REVIEW-20261124"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-ACADEMIC-REVIEW-20261124",
+      "provisionalCrossTopicMasteryHold": "Integer feasibility of a linear model or parameter; cross-topic grouping pending."
     },
     {
       "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-011",
@@ -514,7 +518,8 @@
       "teacherTaughtConfirmed": false,
       "studentMisconceptionsEmpiricallyVerified": false,
       "conceptFamilyIndependentlyApproved": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-012-V332-EDITORIAL-UPGRADE-QA-ONLY"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-012-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Use polynomial identities or symmetric sum/product constraints to recover variables or derived quantities; overlaps other algebra topics."
     },
     {
       "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-015",
@@ -570,7 +575,8 @@
       "teacherTaughtConfirmed": false,
       "studentMisconceptionsEmpiricallyVerified": false,
       "conceptFamilyIndependentlyApproved": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-015-ACADEMIC-REVIEW-20261124"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-015-ACADEMIC-REVIEW-20261124",
+      "provisionalCrossTopicMasteryHold": "Proportional equations and dependent systems; overlapping family, no independent credit without review."
     },
     {
       "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-016",
@@ -626,7 +632,8 @@
       "teacherTaughtConfirmed": false,
       "studentMisconceptionsEmpiricallyVerified": false,
       "conceptFamilyIndependentlyApproved": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-016-V330-REASONING-QA-ONLY"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-016-V330-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Integer feasibility of a linear model or parameter; cross-topic grouping pending."
     },
     {
       "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-017",
@@ -682,7 +689,8 @@
       "teacherTaughtConfirmed": false,
       "studentMisconceptionsEmpiricallyVerified": false,
       "conceptFamilyIndependentlyApproved": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-017-V330-REASONING-QA-ONLY"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-017-V330-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Recover two component values then optimise a discrete allocation under resource or count constraints; overlaps Standard Form allocation questions."
     },
     {
       "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-018",
@@ -738,7 +746,8 @@
       "teacherTaughtConfirmed": false,
       "studentMisconceptionsEmpiricallyVerified": false,
       "conceptFamilyIndependentlyApproved": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-018-ACADEMIC-REVIEW-20261124"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-018-ACADEMIC-REVIEW-20261124",
+      "provisionalCrossTopicMasteryHold": "Two-stage mixture conservation; related to Standard Form dilution and weighted allocations."
     },
     {
       "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-019",
@@ -794,7 +803,9 @@
       "teacherTaughtConfirmed": false,
       "studentMisconceptionsEmpiricallyVerified": false,
       "conceptFamilyIndependentlyApproved": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-019-V330-REASONING-QA-ONLY"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-019-V330-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Integer feasibility of a linear model or parameter; cross-topic grouping pending.",
+      "difficultyResidualNote": "Monotonic revenue model makes optimum at a supplied lower boundary; independent demand judgement remains necessary."
     },
     {
       "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-020",
@@ -850,7 +861,8 @@
       "teacherTaughtConfirmed": false,
       "studentMisconceptionsEmpiricallyVerified": false,
       "conceptFamilyIndependentlyApproved": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-020-V330-REASONING-QA-ONLY"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-020-V330-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Recover two component values then optimise a discrete allocation under resource or count constraints; overlaps Standard Form allocation questions."
     },
     {
       "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-023",
@@ -906,7 +918,8 @@
       "teacherTaughtConfirmed": false,
       "studentMisconceptionsEmpiricallyVerified": false,
       "conceptFamilyIndependentlyApproved": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-V330-REASONING-QA-ONLY"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-V330-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Use polynomial identities or symmetric sum/product constraints to recover variables or derived quantities; overlaps other algebra topics."
     },
     {
       "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-024",
@@ -963,7 +976,8 @@
       "teacherTaughtConfirmed": false,
       "studentMisconceptionsEmpiricallyVerified": false,
       "conceptFamilyIndependentlyApproved": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-V332-EDITORIAL-UPGRADE-QA-ONLY"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Use polynomial identities or symmetric sum/product constraints to recover variables or derived quantities; overlaps other algebra topics."
     },
     {
       "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-025",
@@ -1019,7 +1033,8 @@
       "teacherTaughtConfirmed": false,
       "studentMisconceptionsEmpiricallyVerified": false,
       "conceptFamilyIndependentlyApproved": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-025-V330-REASONING-QA-ONLY"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-025-V330-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Recover two component values then optimise a discrete allocation under resource or count constraints; overlaps Standard Form allocation questions."
     },
     {
       "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-026",
@@ -1076,7 +1091,8 @@
       "teacherTaughtConfirmed": false,
       "studentMisconceptionsEmpiricallyVerified": false,
       "conceptFamilyIndependentlyApproved": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-026-V332-EDITORIAL-UPGRADE-QA-ONLY"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-026-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Recover two component values then optimise a discrete allocation under resource or count constraints; overlaps Standard Form allocation questions."
     },
     {
       "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-027",
@@ -1190,7 +1206,8 @@
       "teacherTaughtConfirmed": false,
       "studentMisconceptionsEmpiricallyVerified": false,
       "conceptFamilyIndependentlyApproved": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-V332-EDITORIAL-UPGRADE-QA-ONLY"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Conserved ratio transfer model; related to Standard Form Q034."
     },
     {
       "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-030",
@@ -1247,7 +1264,8 @@
       "teacherTaughtConfirmed": false,
       "studentMisconceptionsEmpiricallyVerified": false,
       "conceptFamilyIndependentlyApproved": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-V332-EDITORIAL-UPGRADE-QA-ONLY"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Use polynomial identities or symmetric sum/product constraints to recover variables or derived quantities; overlaps other algebra topics."
     },
     {
       "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-033",
@@ -1274,8 +1292,8 @@
         },
         {
           "id": "D",
-          "latex": "-2",
-          "errorPath": "Report the product of the roots."
+          "latex": "-3",
+          "errorPath": "Take the coefficient of x in x²−3x+2=0 as the sum of the roots without reversing its sign."
         },
         {
           "id": "E",
@@ -1304,7 +1322,8 @@
       "teacherTaughtConfirmed": false,
       "studentMisconceptionsEmpiricallyVerified": false,
       "conceptFamilyIndependentlyApproved": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-033-V332-EDITORIAL-UPGRADE-QA-ONLY"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-033-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Proportional equations and dependent systems; overlapping family, no independent credit without review."
     },
     {
       "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-034",
@@ -1474,10 +1493,11 @@
       "teacherTaughtConfirmed": false,
       "studentMisconceptionsEmpiricallyVerified": false,
       "conceptFamilyIndependentlyApproved": false,
-      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-037-V330-REASONING-QA-ONLY"
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-037-V330-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Proportional equations and dependent systems; overlapping family, no independent credit without review."
     }
   ],
-  "verification": "Author algebra and constraint checks; 26 keys checked, 156 choices and 130 wrong explanations structurally checked. Separate read-back verification and difficulty/scope calibration pending. No student credit.",
+  "verification": "Author review and separate numerical rederivation, feasible integer enumeration, forward substitution and numerical equivalence checks on all 26 selected records. Q003 key and distractors corrected on read-back. Some questions still require external grade judgement. All release/credit gates closed.",
   "academicApprovals": 0,
   "dailyEligible": 0,
   "masteryEligible": 0
