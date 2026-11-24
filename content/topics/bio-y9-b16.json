@@ -95,33 +95,28 @@
       "topicId": "bio-y9-b16",
       "topic": "Uses of glucose from photosynthesis",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Which cellular process transfers energy from the glucose a plant has made?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "glucose for respiration"
+          "respiration",
+          "cellular respiration"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "respiration. Use of glucose to transfer energy for cell processes.",
+        "steps": [
+          "respiration. Use of glucose to transfer energy for cell processes."
         ]
       },
-      "stimulus": {
-        "text": "use of glucose to transfer energy for cell processes"
-      },
-      "feedback": {
-        "short": "use of glucose to transfer energy for cell processes",
-        "steps": [
-          "Key idea: glucose for respiration.",
-          "use of glucose to transfer energy for cell processes",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: glucose for respiration"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "glucose for respiration → use of glucose to transfer energy for cell processes"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -131,37 +126,33 @@
       "conceptId": "bio-y9-b16-glucose-for-respiration-b76c0a07b9-concept",
       "topicId": "bio-y9-b16",
       "topic": "Uses of glucose from photosynthesis",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of glucose for respiration: “use of glucose to transfer ___ for cell processes”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "glucose for respiration"
+          "energy"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "energy. Use of glucose to transfer energy for cell processes.",
+        "steps": [
+          "energy. Use of glucose to transfer energy for cell processes."
         ]
       },
-      "stimulus": {
-        "masked": "g__c___ f__ _e___r___o_"
-      },
-      "feedback": {
-        "short": "use of glucose to transfer energy for cell processes",
-        "steps": [
-          "Key idea: glucose for respiration.",
-          "use of glucose to transfer energy for cell processes",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: glucose for respiration"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "glucose for respiration → use of glucose to transfer energy for cell processes"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b16-glucose-for-respiration-b76c0a07b9-explain",
@@ -293,33 +284,27 @@
       "topicId": "bio-y9-b16",
       "topic": "Uses of glucose from photosynthesis",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Which storage polysaccharide can a plant make from glucose?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "glucose to starch"
+          "starch"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "starch. Conversion of glucose into an insoluble storage carbohydrate.",
+        "steps": [
+          "starch. Conversion of glucose into an insoluble storage carbohydrate."
         ]
       },
-      "stimulus": {
-        "text": "conversion of glucose into an insoluble storage carbohydrate"
-      },
-      "feedback": {
-        "short": "conversion of glucose into an insoluble storage carbohydrate",
-        "steps": [
-          "Key idea: glucose to starch.",
-          "conversion of glucose into an insoluble storage carbohydrate",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: glucose to starch"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "glucose to starch → conversion of glucose into an insoluble storage carbohydrate"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -329,37 +314,33 @@
       "conceptId": "bio-y9-b16-glucose-to-starch-bbb477519a-concept",
       "topicId": "bio-y9-b16",
       "topic": "Uses of glucose from photosynthesis",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of glucose to starch: “conversion of glucose into an insoluble storage ___”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "glucose to starch"
+          "carbohydrate"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "carbohydrate. Conversion of glucose into an insoluble storage carbohydrate.",
+        "steps": [
+          "carbohydrate. Conversion of glucose into an insoluble storage carbohydrate."
         ]
       },
-      "stimulus": {
-        "masked": "g__c___ t_ __a___"
-      },
-      "feedback": {
-        "short": "conversion of glucose into an insoluble storage carbohydrate",
-        "steps": [
-          "Key idea: glucose to starch.",
-          "conversion of glucose into an insoluble storage carbohydrate",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: glucose to starch"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "glucose to starch → conversion of glucose into an insoluble storage carbohydrate"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b16-glucose-to-starch-bbb477519a-explain",
@@ -491,33 +472,27 @@
       "topicId": "bio-y9-b16",
       "topic": "Uses of glucose from photosynthesis",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Which polysaccharide made from glucose strengthens plant cell walls?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "glucose to cellulose"
+          "cellulose"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "cellulose. Conversion of glucose into material for plant cell walls.",
+        "steps": [
+          "cellulose. Conversion of glucose into material for plant cell walls."
         ]
       },
-      "stimulus": {
-        "text": "conversion of glucose into material for plant cell walls"
-      },
-      "feedback": {
-        "short": "conversion of glucose into material for plant cell walls",
-        "steps": [
-          "Key idea: glucose to cellulose.",
-          "conversion of glucose into material for plant cell walls",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: glucose to cellulose"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "glucose to cellulose → conversion of glucose into material for plant cell walls"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -527,37 +502,33 @@
       "conceptId": "bio-y9-b16-glucose-to-cellulose-d9a9fed29c-concept",
       "topicId": "bio-y9-b16",
       "topic": "Uses of glucose from photosynthesis",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of glucose to cellulose: “conversion of glucose into material for plant ___”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "glucose to cellulose"
+          "cell walls"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "cell walls. Conversion of glucose into material for plant cell walls.",
+        "steps": [
+          "cell walls. Conversion of glucose into material for plant cell walls."
         ]
       },
-      "stimulus": {
-        "masked": "g__c___ t_ __l___o__"
-      },
-      "feedback": {
-        "short": "conversion of glucose into material for plant cell walls",
-        "steps": [
-          "Key idea: glucose to cellulose.",
-          "conversion of glucose into material for plant cell walls",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: glucose to cellulose"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "glucose to cellulose → conversion of glucose into material for plant cell walls"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b16-glucose-to-cellulose-d9a9fed29c-explain",
@@ -728,34 +699,30 @@
       "conceptId": "bio-y9-b16-glucose-plus-nitrate-ions-f7de40886e-concept",
       "topicId": "bio-y9-b16",
       "topic": "Uses of glucose from photosynthesis",
-      "format": "spelling_restore",
-      "prompt": "Restore the complete answer for this science cue.",
+      "format": "typed_exact",
+      "prompt": "Which mineral ions supply nitrogen for a plant to make amino acids from glucose?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "materials used to make amino acids"
+          "nitrate",
+          "nitrate ions",
+          "nitrates"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "nitrate. Materials used to make amino acids.",
+        "steps": [
+          "nitrate. Materials used to make amino acids."
         ]
       },
-      "stimulus": {
-        "masked": "m__e___l_ __e_ __ m___ a___o ___d_"
-      },
-      "feedback": {
-        "short": "materials used to make amino acids",
-        "steps": [
-          "Key idea: glucose plus nitrate ions.",
-          "materials used to make amino acids",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: materials used to make amino acids"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "glucose plus nitrate ions → materials used to make amino acids"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -890,33 +857,28 @@
       "topicId": "bio-y9-b16",
       "topic": "Uses of glucose from photosynthesis",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Which large biological molecules are made by linking amino acids together?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "amino acids to proteins"
+          "proteins",
+          "polypeptides"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "proteins. Joining the amino acids made by a plant to form proteins.",
+        "steps": [
+          "proteins. Joining the amino acids made by a plant to form proteins."
         ]
       },
-      "stimulus": {
-        "text": "joining the amino acids made by a plant to form proteins"
-      },
-      "feedback": {
-        "short": "joining the amino acids made by a plant to form proteins",
-        "steps": [
-          "Key idea: amino acids to proteins.",
-          "joining the amino acids made by a plant to form proteins",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: amino acids to proteins"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "amino acids to proteins → joining the amino acids made by a plant to form proteins"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -926,34 +888,29 @@
       "conceptId": "bio-y9-b16-amino-acids-to-proteins-e7cec6ca5f-concept",
       "topicId": "bio-y9-b16",
       "topic": "Uses of glucose from photosynthesis",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Which large biological molecules are made by linking amino acids together?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "amino acids to proteins"
+          "proteins",
+          "polypeptides"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "proteins. Joining the amino acids made by a plant to form proteins.",
+        "steps": [
+          "proteins. Joining the amino acids made by a plant to form proteins."
         ]
       },
-      "stimulus": {
-        "masked": "a__n_ __i__ _o ___t___s"
-      },
-      "feedback": {
-        "short": "joining the amino acids made by a plant to form proteins",
-        "steps": [
-          "Key idea: amino acids to proteins.",
-          "joining the amino acids made by a plant to form proteins",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: amino acids to proteins"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "amino acids to proteins → joining the amino acids made by a plant to form proteins"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1088,33 +1045,29 @@
       "topicId": "bio-y9-b16",
       "topic": "Uses of glucose from photosynthesis",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "A seed stores energy as oil. To which group of nutrients do oils belong?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "glucose to lipids"
+          "lipids",
+          "fats",
+          "lipid"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "lipids. Conversion into oils for storage, especially in seeds.",
+        "steps": [
+          "lipids. Conversion into oils for storage, especially in seeds."
         ]
       },
-      "stimulus": {
-        "text": "conversion into oils for storage, especially in seeds"
-      },
-      "feedback": {
-        "short": "conversion into oils for storage, especially in seeds",
-        "steps": [
-          "Key idea: glucose to lipids.",
-          "conversion into oils for storage, especially in seeds",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: glucose to lipids"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "glucose to lipids → conversion into oils for storage, especially in seeds"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1124,34 +1077,30 @@
       "conceptId": "bio-y9-b16-glucose-to-lipids-244465bb20-concept",
       "topicId": "bio-y9-b16",
       "topic": "Uses of glucose from photosynthesis",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "A seed stores energy as oil. To which group of nutrients do oils belong?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "glucose to lipids"
+          "lipids",
+          "fats",
+          "lipid"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "lipids. Conversion into oils for storage, especially in seeds.",
+        "steps": [
+          "lipids. Conversion into oils for storage, especially in seeds."
         ]
       },
-      "stimulus": {
-        "masked": "g__c___ t_ __p___"
-      },
-      "feedback": {
-        "short": "conversion into oils for storage, especially in seeds",
-        "steps": [
-          "Key idea: glucose to lipids.",
-          "conversion into oils for storage, especially in seeds",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: glucose to lipids"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "glucose to lipids → conversion into oils for storage, especially in seeds"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1286,33 +1235,28 @@
       "topicId": "bio-y9-b16",
       "topic": "Uses of glucose from photosynthesis",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Does starch dissolve readily in cold water? Give the scientific term for this property.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "insoluble starch"
+          "insoluble",
+          "insolubility"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "insoluble. A storage form that does not strongly affect water movement by osmosis.",
+        "steps": [
+          "insoluble. A storage form that does not strongly affect water movement by osmosis."
         ]
       },
-      "stimulus": {
-        "text": "a storage form that does not strongly affect water movement by osmosis"
-      },
-      "feedback": {
-        "short": "a storage form that does not strongly affect water movement by osmosis",
-        "steps": [
-          "Key idea: insoluble starch.",
-          "a storage form that does not strongly affect water movement by osmosis",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: insoluble starch"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "insoluble starch → a storage form that does not strongly affect water movement by osmosis"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1322,37 +1266,33 @@
       "conceptId": "bio-y9-b16-insoluble-starch-4e6074a99e-concept",
       "topicId": "bio-y9-b16",
       "topic": "Uses of glucose from photosynthesis",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of insoluble starch: “a storage form that does not strongly affect ___ movement by osmosis”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "insoluble starch"
+          "water"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "water. A storage form that does not strongly affect water movement by osmosis.",
+        "steps": [
+          "water. A storage form that does not strongly affect water movement by osmosis."
         ]
       },
-      "stimulus": {
-        "masked": "i__o___l_ __a___"
-      },
-      "feedback": {
-        "short": "a storage form that does not strongly affect water movement by osmosis",
-        "steps": [
-          "Key idea: insoluble starch.",
-          "a storage form that does not strongly affect water movement by osmosis",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: insoluble starch"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "insoluble starch → a storage form that does not strongly affect water movement by osmosis"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b16-insoluble-starch-4e6074a99e-explain",

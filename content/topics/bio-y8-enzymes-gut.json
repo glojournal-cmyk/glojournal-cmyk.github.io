@@ -1616,71 +1616,54 @@
       "conceptId": "bio-y8-concept-diagram-bio-enzyme-active-site",
       "topicId": "bio-y8-enzymes-gut",
       "topic": "Enzymes and gut bacteria",
-      "format": "typed_short",
+      "format": "diagram_label",
       "prompt": "Label the enzyme, substrate and active site using every required term.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "required_groups",
+        "mode": "diagram_labels",
+        "labelMap": {
+          "a": "enzyme",
+          "b": "active site",
+          "c": "substrate",
+          "d": "enzyme-substrate complex",
+          "e": "products"
+        },
         "requiredLabels": [
           "enzyme",
           "active site",
           "substrate",
           "enzyme-substrate complex",
           "products"
-        ],
-        "requiredGroups": [
-          {
-            "label": "enzyme",
-            "alternatives": [
-              "enzyme"
-            ]
-          },
-          {
-            "label": "active site",
-            "alternatives": [
-              "active site"
-            ]
-          },
-          {
-            "label": "substrate",
-            "alternatives": [
-              "substrate"
-            ]
-          },
-          {
-            "label": "enzyme-substrate complex",
-            "alternatives": [
-              "enzyme-substrate complex"
-            ]
-          },
-          {
-            "label": "products",
-            "alternatives": [
-              "products"
-            ]
-          }
-        ],
-        "modelAnswer": "enzyme, active site, substrate, enzyme-substrate complex, products"
+        ]
       },
       "stimulus": {
-        "diagramId": "bio-enzyme-active-site"
+        "diagramId": "bio-enzyme-active-site",
+        "anchors": [
+          "a",
+          "b",
+          "c",
+          "d",
+          "e"
+        ],
+        "labels": [
+          "products",
+          "substrate",
+          "enzyme-substrate complex",
+          "active site",
+          "enzyme"
+        ],
+        "image": "/content/diagrams/question-review/bio-enzyme-active-site.svg",
+        "imageAlt": "Lettered figure for Enzymes and gut bacteria."
       },
       "feedback": {
-        "short": "The complete label set is: enzyme, active site, substrate, enzyme-substrate complex, products.",
-        "steps": [
-          "Locate the overall structure first.",
-          "Use position and biological function together.",
-          "Check every required label once.",
-          "Use the exact scientific label for each anchor. A correct term at the wrong structure does not earn the mark."
-        ],
-        "commonError": "Recognising the name but placing it on a neighbouring structure.",
-        "remember": "three-stage lock-and-key sequence without decorative detail"
+        "short": "A: enzyme · B: active site · C: substrate · D: enzyme-substrate complex · E: products",
+        "steps": []
       },
       "task": {
-        "label": "LABEL CHECK",
-        "instruction": "Type all required labels, separated by commas. This self-check does not affect formal Mastery until diagram anchors are mapped."
+        "label": "LABEL THE FIGURE",
+        "instruction": "Choose the correct label for each letter."
       },
       "preview": false,
       "ordinary": true,

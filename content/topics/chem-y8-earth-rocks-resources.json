@@ -123,34 +123,29 @@
       "conceptId": "chem-y8-earth-rocks-resources-concept-earth-layers",
       "topicId": "chem-y8-earth-rocks-resources",
       "topic": "Earth structure, rocks, resources and carbon dioxide",
-      "format": "mark_points",
-      "prompt": "For Earth's layers, a student says: ‘core, crust, atmosphere’ Correct the statement and explain the science.",
+      "format": "typed_exact",
+      "prompt": "Which layer lies between Earth's crust and core?",
       "difficulty": 3,
       "status": "preview",
       "options": null,
       "answer": {
-        "mode": "mark_points",
-        "markPoints": [
-          "State that the claim is incorrect.",
-          "crust, mantle, core"
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "mantle",
+          "the mantle"
         ],
-        "totalMarks": 2
+        "exactScienceResponse": true
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. crust, mantle, core",
+        "short": "mantle. crust, mantle, core",
         "steps": [
-          "Read the command word and identify exactly what must be supplied.",
-          "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. crust, mantle, core",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
-        ],
-        "commonError": "core, crust, atmosphere",
-        "remember": "The claim is incorrect. crust, mantle, core"
+          "mantle. crust, mantle, core"
+        ]
       },
       "task": {
-        "label": "SHORT EXAM ANSWER",
-        "instruction": "Write enough distinct scientific points for the available marks."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": false
@@ -209,6 +204,10 @@
         "mode": "equivalent",
         "accepted": [
           "Molten rock cools and solidifies."
+        ],
+        "reviewedEquivalents": [
+          "magma or lava cools and solidifies",
+          "molten rock cools and crystallises"
         ]
       },
       "stimulus": {},
@@ -280,22 +279,22 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "State that the claim is incorrect.",
           "Molten rock cools and solidifies."
         ],
-        "totalMarks": 2
+        "totalMarks": 1,
+        "modelAnswer": "Molten rock cools and solidifies."
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. Molten rock cools and solidifies.",
+        "short": "Key answer: Molten rock cools and solidifies.",
         "steps": [
           "Read the command word and identify exactly what must be supplied.",
           "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. Molten rock cools and solidifies.",
+          "Check against the source-locked answer: Molten rock cools and solidifies.",
           "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
         ],
         "commonError": "Sediments are compacted only.",
-        "remember": "The claim is incorrect. Molten rock cools and solidifies."
+        "remember": "Molten rock cools and solidifies."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -429,22 +428,22 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "State that the claim is incorrect.",
           "Sediments are deposited, compacted and cemented into rock."
         ],
-        "totalMarks": 2
+        "totalMarks": 1,
+        "modelAnswer": "Sediments are deposited, compacted and cemented into rock."
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. Sediments are deposited, compacted and cemented into rock.",
+        "short": "Key answer: Sediments are deposited, compacted and cemented into rock.",
         "steps": [
           "Read the command word and identify exactly what must be supplied.",
           "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. Sediments are deposited, compacted and cemented into rock.",
+          "Check against the source-locked answer: Sediments are deposited, compacted and cemented into rock.",
           "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
         ],
         "commonError": "Magma freezes instantly in the core.",
-        "remember": "The claim is incorrect. Sediments are deposited, compacted and cemented into rock."
+        "remember": "Sediments are deposited, compacted and cemented into rock."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -578,22 +577,22 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "State that the claim is incorrect.",
           "Existing rock is changed by heat and pressure without melting."
         ],
-        "totalMarks": 2
+        "totalMarks": 1,
+        "modelAnswer": "Existing rock is changed by heat and pressure without melting."
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. Existing rock is changed by heat and pressure without melting.",
+        "short": "Key answer: Existing rock is changed by heat and pressure without melting.",
         "steps": [
           "Read the command word and identify exactly what must be supplied.",
           "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. Existing rock is changed by heat and pressure without melting.",
+          "Check against the source-locked answer: Existing rock is changed by heat and pressure without melting.",
           "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
         ],
         "commonError": "It always forms by evaporation of seawater.",
-        "remember": "The claim is incorrect. Existing rock is changed by heat and pressure without melting."
+        "remember": "Existing rock is changed by heat and pressure without melting."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -728,22 +727,22 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "State that the claim is incorrect.",
           "A set of processes that continually transforms rocks between igneous, sedimentary and metamorphic forms."
         ],
-        "totalMarks": 2
+        "totalMarks": 1,
+        "modelAnswer": "A set of processes that continually transforms rocks between igneous, sedimentary and metamorphic forms."
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. A set of processes that continually transforms rocks between igneous, sedimentary and metamorphic forms.",
+        "short": "Key answer: A set of processes that continually transforms rocks between igneous, sedimentary and metamorphic forms.",
         "steps": [
           "Read the command word and identify exactly what must be supplied.",
           "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. A set of processes that continually transforms rocks between igneous, sedimentary and metamorphic forms.",
+          "Check against the source-locked answer: A set of processes that continually transforms rocks between igneous, sedimentary and metamorphic forms.",
           "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
         ],
         "commonError": "A one-way path that ends permanently at sediment.",
-        "remember": "The claim is incorrect. A set of processes that continually transforms rocks between igneous, sedimentary and metamorphic forms."
+        "remember": "A set of processes that continually transforms rocks between igneous, sedimentary and metamorphic forms."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -877,22 +876,22 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "State that the claim is incorrect.",
           "A resource consumed faster than natural processes replace it on a human timescale."
         ],
-        "totalMarks": 2
+        "totalMarks": 1,
+        "modelAnswer": "A resource consumed faster than natural processes replace it on a human timescale."
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. A resource consumed faster than natural processes replace it on a human timescale.",
+        "short": "Key answer: A resource consumed faster than natural processes replace it on a human timescale.",
         "steps": [
           "Read the command word and identify exactly what must be supplied.",
           "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. A resource consumed faster than natural processes replace it on a human timescale.",
+          "Check against the source-locked answer: A resource consumed faster than natural processes replace it on a human timescale.",
           "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
         ],
         "commonError": "A resource that instantly regrows after use.",
-        "remember": "The claim is incorrect. A resource consumed faster than natural processes replace it on a human timescale."
+        "remember": "A resource consumed faster than natural processes replace it on a human timescale."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -1027,22 +1026,22 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "State that the claim is incorrect.",
           "It can reduce raw-material extraction, energy use and waste, although collection and processing also have impacts."
         ],
-        "totalMarks": 2
+        "totalMarks": 1,
+        "modelAnswer": "It can reduce raw-material extraction, energy use and waste, although collection and processing also have impacts."
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. It can reduce raw-material extraction, energy use and waste, although collection and processing also have impacts.",
+        "short": "Key answer: It can reduce raw-material extraction, energy use and waste, although collection and processing also have impacts.",
         "steps": [
           "Read the command word and identify exactly what must be supplied.",
           "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. It can reduce raw-material extraction, energy use and waste, although collection and processing also have impacts.",
+          "Check against the source-locked answer: It can reduce raw-material extraction, energy use and waste, although collection and processing also have impacts.",
           "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
         ],
         "commonError": "It creates unlimited matter.",
-        "remember": "The claim is incorrect. It can reduce raw-material extraction, energy use and waste, although collection and processing also have impacts."
+        "remember": "It can reduce raw-material extraction, energy use and waste, although collection and processing also have impacts."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -1177,22 +1176,22 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "State that the claim is incorrect.",
           "Fossil-fuel burning and land-use change raise CO2, strengthening the greenhouse effect and increasing average global temperature."
         ],
-        "totalMarks": 2
+        "totalMarks": 1,
+        "modelAnswer": "Fossil-fuel burning and land-use change raise CO2, strengthening the greenhouse effect and increasing average global temperature."
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. Fossil-fuel burning and land-use change raise CO2, strengthening the greenhouse effect and increasing average global temperature.",
+        "short": "Key answer: Fossil-fuel burning and land-use change raise CO2, strengthening the greenhouse effect and increasing average global temperature.",
         "steps": [
           "Read the command word and identify exactly what must be supplied.",
           "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. Fossil-fuel burning and land-use change raise CO2, strengthening the greenhouse effect and increasing average global temperature.",
+          "Check against the source-locked answer: Fossil-fuel burning and land-use change raise CO2, strengthening the greenhouse effect and increasing average global temperature.",
           "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
         ],
         "commonError": "CO2 removes all infrared radiation from Earth.",
-        "remember": "The claim is incorrect. Fossil-fuel burning and land-use change raise CO2, strengthening the greenhouse effect and increasing average global temperature."
+        "remember": "Fossil-fuel burning and land-use change raise CO2, strengthening the greenhouse effect and increasing average global temperature."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",

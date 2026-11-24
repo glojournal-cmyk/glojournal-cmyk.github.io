@@ -95,73 +95,71 @@
       "topicId": "chem-y9-c16",
       "topic": "Earth’s early atmosphere and how it changed",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Can scientists directly measure the composition of Earth's atmosphere four billion years ago, or must they infer it from evidence?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "early-atmosphere uncertainty"
+          "infer it from evidence",
+          "infer",
+          "inference",
+          "infer it"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "infer it from evidence. Limited evidence making explanations scientific theories rather than direct observations.",
+        "steps": [
+          "infer it from evidence. Limited evidence making explanations scientific theories rather than direct observations."
         ]
       },
-      "stimulus": {
-        "text": "limited evidence making explanations scientific theories rather than direct observations"
-      },
-      "feedback": {
-        "short": "limited evidence making explanations scientific theories rather than direct observations",
-        "steps": [
-          "Key idea: early-atmosphere uncertainty.",
-          "limited evidence making explanations scientific theories rather than direct observations",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: early-atmosphere uncertainty"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "early-atmosphere uncertainty → limited evidence making explanations scientific theories rather than direct observations"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c16-early-atmosphere-uncertainty-a4abfa2924-restore",
       "conceptId": "chem-y9-c16-early-atmosphere-uncertainty-a4abfa2924-concept",
       "topicId": "chem-y9-c16",
       "topic": "Earth’s early atmosphere and how it changed",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Can scientists directly measure the composition of Earth's atmosphere four billion years ago, or must they infer it from evidence?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "early-atmosphere uncertainty"
+          "infer it from evidence",
+          "infer",
+          "inference",
+          "infer it"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "infer it from evidence. Limited evidence making explanations scientific theories rather than direct observations.",
+        "steps": [
+          "infer it from evidence. Limited evidence making explanations scientific theories rather than direct observations."
         ]
       },
-      "stimulus": {
-        "masked": "e__l_-__m___h___ u___r___n__"
-      },
-      "feedback": {
-        "short": "limited evidence making explanations scientific theories rather than direct observations",
-        "steps": [
-          "Key idea: early-atmosphere uncertainty.",
-          "limited evidence making explanations scientific theories rather than direct observations",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: early-atmosphere uncertainty"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "early-atmosphere uncertainty → limited evidence making explanations scientific theories rather than direct observations"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c16-early-atmosphere-uncertainty-a4abfa2924-explain",
@@ -491,33 +489,28 @@
       "topicId": "chem-y9-c16",
       "topic": "Earth’s early atmosphere and how it changed",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Which gas, now about 0.04% of dry air, is thought to have been much more abundant in the early atmosphere?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "early carbon dioxide"
+          "carbon dioxide",
+          "CO2"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "carbon dioxide. The gas thought to have been abundant in Earth's early atmosphere.",
+        "steps": [
+          "carbon dioxide. The gas thought to have been abundant in Earth's early atmosphere."
         ]
       },
-      "stimulus": {
-        "text": "the gas thought to have been abundant in Earth's early atmosphere"
-      },
-      "feedback": {
-        "short": "the gas thought to have been abundant in Earth's early atmosphere",
-        "steps": [
-          "Key idea: early carbon dioxide.",
-          "the gas thought to have been abundant in Earth's early atmosphere",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: early carbon dioxide"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "early carbon dioxide → the gas thought to have been abundant in Earth's early atmosphere"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -527,37 +520,33 @@
       "conceptId": "chem-y9-c16-early-carbon-dioxide-3e5812dc5b-concept",
       "topicId": "chem-y9-c16",
       "topic": "Earth’s early atmosphere and how it changed",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of early carbon dioxide: “the ___ thought to have been abundant in Earth's early atmosphere”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "early carbon dioxide"
+          "gas"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "gas. The gas thought to have been abundant in Earth's early atmosphere.",
+        "steps": [
+          "gas. The gas thought to have been abundant in Earth's early atmosphere."
         ]
       },
-      "stimulus": {
-        "masked": "e__l_ __r___ d___i__"
-      },
-      "feedback": {
-        "short": "the gas thought to have been abundant in Earth's early atmosphere",
-        "steps": [
-          "Key idea: early carbon dioxide.",
-          "the gas thought to have been abundant in Earth's early atmosphere",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: early carbon dioxide"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "early carbon dioxide → the gas thought to have been abundant in Earth's early atmosphere"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c16-early-carbon-dioxide-3e5812dc5b-explain",
@@ -689,73 +678,71 @@
       "topicId": "chem-y9-c16",
       "topic": "Earth’s early atmosphere and how it changed",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Was free oxygen abundant or scarce in Earth's early atmosphere, before photosynthetic organisms evolved?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "early oxygen"
+          "scarce",
+          "very little",
+          "little or none",
+          "almost absent"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "scarce. Little or none in the early atmosphere.",
+        "steps": [
+          "scarce. Little or none in the early atmosphere."
         ]
       },
-      "stimulus": {
-        "text": "little or none in the early atmosphere"
-      },
-      "feedback": {
-        "short": "little or none in the early atmosphere",
-        "steps": [
-          "Key idea: early oxygen.",
-          "little or none in the early atmosphere",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: early oxygen"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "early oxygen → little or none in the early atmosphere"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c16-early-oxygen-bd2c1a7f8c-restore",
       "conceptId": "chem-y9-c16-early-oxygen-bd2c1a7f8c-concept",
       "topicId": "chem-y9-c16",
       "topic": "Earth’s early atmosphere and how it changed",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Was free oxygen abundant or scarce in Earth's early atmosphere, before photosynthetic organisms evolved?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "early oxygen"
+          "scarce",
+          "very little",
+          "little or none",
+          "almost absent"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "scarce. Little or none in the early atmosphere.",
+        "steps": [
+          "scarce. Little or none in the early atmosphere."
         ]
       },
-      "stimulus": {
-        "masked": "e__l_ __y___"
-      },
-      "feedback": {
-        "short": "little or none in the early atmosphere",
-        "steps": [
-          "Key idea: early oxygen.",
-          "little or none in the early atmosphere",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: early oxygen"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "early oxygen → little or none in the early atmosphere"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c16-early-oxygen-bd2c1a7f8c-explain",
@@ -887,33 +874,29 @@
       "topicId": "chem-y9-c16",
       "topic": "Earth’s early atmosphere and how it changed",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Which vapour released by volcanoes condensed to form the oceans as Earth cooled?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "other early gases"
+          "water vapour",
+          "water vapor",
+          "steam"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "water vapour. Nitrogen, water vapour and small amounts of methane and ammonia.",
+        "steps": [
+          "water vapour. Nitrogen, water vapour and small amounts of methane and ammonia."
         ]
       },
-      "stimulus": {
-        "text": "nitrogen, water vapour and small amounts of methane and ammonia"
-      },
-      "feedback": {
-        "short": "nitrogen, water vapour and small amounts of methane and ammonia",
-        "steps": [
-          "Key idea: other early gases.",
-          "nitrogen, water vapour and small amounts of methane and ammonia",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: other early gases"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "other early gases → nitrogen, water vapour and small amounts of methane and ammonia"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -923,37 +906,33 @@
       "conceptId": "chem-y9-c16-other-early-gases-6c49ebfe43-concept",
       "topicId": "chem-y9-c16",
       "topic": "Earth’s early atmosphere and how it changed",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of other early gases: “nitrogen, ___ vapour and small amounts of methane and ammonia”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "other early gases"
+          "water"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "water. Nitrogen, water vapour and small amounts of methane and ammonia.",
+        "steps": [
+          "water. Nitrogen, water vapour and small amounts of methane and ammonia."
         ]
       },
-      "stimulus": {
-        "masked": "o__e_ __r__ _a___"
-      },
-      "feedback": {
-        "short": "nitrogen, water vapour and small amounts of methane and ammonia",
-        "steps": [
-          "Key idea: other early gases.",
-          "nitrogen, water vapour and small amounts of methane and ammonia",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: other early gases"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "other early gases → nitrogen, water vapour and small amounts of methane and ammonia"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c16-other-early-gases-6c49ebfe43-explain",
@@ -1889,33 +1868,28 @@
       "topicId": "chem-y9-c16",
       "topic": "Earth’s early atmosphere and how it changed",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "As photosynthesis removed carbon dioxide, which gas increased in the atmosphere?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "photosynthetic change"
+          "oxygen",
+          "O2"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "oxygen. Algae and later plants removing carbon dioxide and releasing oxygen.",
+        "steps": [
+          "oxygen. Algae and later plants removing carbon dioxide and releasing oxygen."
         ]
       },
-      "stimulus": {
-        "text": "algae and later plants removing carbon dioxide and releasing oxygen"
-      },
-      "feedback": {
-        "short": "algae and later plants removing carbon dioxide and releasing oxygen",
-        "steps": [
-          "Key idea: photosynthetic change.",
-          "algae and later plants removing carbon dioxide and releasing oxygen",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: photosynthetic change"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "photosynthetic change → algae and later plants removing carbon dioxide and releasing oxygen"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1925,37 +1899,34 @@
       "conceptId": "chem-y9-c16-photosynthetic-change-8ae4a8e15d-concept",
       "topicId": "chem-y9-c16",
       "topic": "Earth’s early atmosphere and how it changed",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of photosynthetic change: “algae and later plants removing ___ and releasing oxygen”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "photosynthetic change"
+          "carbon dioxide",
+          "CO2"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "carbon dioxide. Algae and later plants removing carbon dioxide and releasing oxygen.",
+        "steps": [
+          "carbon dioxide. Algae and later plants removing carbon dioxide and releasing oxygen."
         ]
       },
-      "stimulus": {
-        "masked": "p__t___n___t__ _h___e"
-      },
-      "feedback": {
-        "short": "algae and later plants removing carbon dioxide and releasing oxygen",
-        "steps": [
-          "Key idea: photosynthetic change.",
-          "algae and later plants removing carbon dioxide and releasing oxygen",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: photosynthetic change"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "photosynthetic change → algae and later plants removing carbon dioxide and releasing oxygen"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c16-photosynthetic-change-8ae4a8e15d-explain",
@@ -2432,38 +2403,43 @@
       "conceptId": "chem-y9-c16-app-co2-fall-concept",
       "topicId": "chem-y9-c16",
       "topic": "Earth’s early atmosphere and how it changed",
-      "format": "mark_points",
-      "prompt": "Explain three processes that reduced atmospheric carbon dioxide over geological time.",
+      "format": "extended_response",
+      "prompt": "Answer each numbered part on a separate line, in order.\n1. Into which large bodies of liquid did atmospheric carbon dioxide dissolve as the Earth cooled?\n2. Which sedimentary rock formed from calcium carbonate acted as a long-term carbon store?\n3. Which process allowed algae and plants to take carbon dioxide out of the atmosphere?",
       "difficulty": 4,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "mark_points",
-        "markPoints": [
-          "carbon dioxide dissolved in oceans",
-          "carbon became locked in carbonate sediments or limestone",
-          "carbon became locked in fossil fuels",
-          "photosynthetic organisms removed carbon dioxide"
+        "mode": "ordered_parts",
+        "reviewedParts": [
+          [
+            "oceans",
+            "seas",
+            "the oceans",
+            "ocean"
+          ],
+          [
+            "limestone",
+            "chalk"
+          ],
+          [
+            "photosynthesis"
+          ]
         ],
-        "totalMarks": 4,
-        "modelAnswer": "carbon dioxide dissolved in oceans carbon became locked in carbonate sediments or limestone carbon became locked in fossil fuels photosynthetic organisms removed carbon dioxide"
+        "totalMarks": 3,
+        "modelAnswer": "oceans\nlimestone\nphotosynthesis"
       },
-      "stimulus": {
-        "marks": 4
-      },
+      "stimulus": {},
       "feedback": {
-        "short": "carbon dioxide dissolved in oceans carbon became locked in carbonate sediments or limestone carbon became locked in fossil fuels photosynthetic organisms removed carbon dioxide",
+        "short": "oceans\nlimestone\nphotosynthesis",
         "steps": [
-          "carbon dioxide dissolved in oceans carbon became locked in carbonate sediments or limestone carbon became locked in fossil fuels photosynthetic organisms removed carbon dioxide",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
-          "Suggested answer: carbon dioxide dissolved in oceans carbon became locked in carbonate sediments or limestone carbon became locked in fossil fuels photosynthetic organisms removed carbon dioxide"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "carbon dioxide dissolved in oceans carbon became locked in carbonate sediments or limestone carbon became locked in fossil fuels photosynthetic organisms removed carbon dioxide"
+          "1. oceans",
+          "2. limestone",
+          "3. photosynthesis"
+        ]
       },
       "task": {
-        "label": "EXPLAIN",
-        "instruction": "Write one distinct scientific idea for each available mark."
+        "label": "SHORT ANSWERS",
+        "instruction": "One response per line, in the order shown."
       },
       "preview": true,
       "ordinary": true

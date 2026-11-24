@@ -303,7 +303,13 @@
           "gravitational potential energy equals mass times gravitational field strength times height change"
         ],
         "totalMarks": 1,
-        "modelAnswer": "gravitational potential energy equals mass times gravitational field strength times height change"
+        "modelAnswer": "gravitational potential energy equals mass times gravitational field strength times height change",
+        "reviewedEquivalents": [
+          "Ep=mgh",
+          "Eₚ=mgΔh",
+          "GPE=mgh",
+          "change in GPE = mass × gravitational field strength × change in height"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -342,6 +348,12 @@
         "accepted": [
           "GPE equation",
           "Eₚ = mgh"
+        ],
+        "reviewedEquivalents": [
+          "Ep=mgh",
+          "Eₚ=mgΔh",
+          "GPE=mgh",
+          "change in GPE = mass × gravitational field strength × change in height"
         ]
       },
       "stimulus": {
@@ -381,7 +393,13 @@
           "gravitational potential energy equals mass times gravitational field strength times height change"
         ],
         "totalMarks": 1,
-        "modelAnswer": "gravitational potential energy equals mass times gravitational field strength times height change"
+        "modelAnswer": "gravitational potential energy equals mass times gravitational field strength times height change",
+        "reviewedEquivalents": [
+          "Ep=mgh",
+          "Eₚ=mgΔh",
+          "GPE=mgh",
+          "change in GPE = mass × gravitational field strength × change in height"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -583,7 +601,12 @@
           "force per unit mass measured in newtons per kilogram"
         ],
         "totalMarks": 1,
-        "modelAnswer": "force per unit mass measured in newtons per kilogram"
+        "modelAnswer": "force per unit mass measured in newtons per kilogram",
+        "reviewedEquivalents": [
+          "force per unit mass",
+          "gravitational force per unit mass",
+          "weight per unit mass"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -697,33 +720,31 @@
       "topicId": "phys-y9-p15",
       "topic": "Gravitational potential energy and conversion between GPE and KE",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "In ΔEₚ = mgΔh, which SI unit is used for the vertical height change?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "height change"
+          "metre",
+          "metres",
+          "meter",
+          "meters",
+          "m"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "metre. Vertical change in position measured in metres for Eₚ = mgh.",
+        "steps": [
+          "metre. Vertical change in position measured in metres for Eₚ = mgh."
         ]
       },
-      "stimulus": {
-        "text": "vertical change in position measured in metres for Eₚ = mgh"
-      },
-      "feedback": {
-        "short": "vertical change in position measured in metres for Eₚ = mgh",
-        "steps": [
-          "Key idea: height change.",
-          "vertical change in position measured in metres for Eₚ = mgh",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: height change"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "height change → vertical change in position measured in metres for Eₚ = mgh"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -733,34 +754,32 @@
       "conceptId": "phys-y9-p15-height-change-8c9c3dc72a-concept",
       "topicId": "phys-y9-p15",
       "topic": "Gravitational potential energy and conversion between GPE and KE",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "In ΔEₚ = mgΔh, which SI unit is used for the vertical height change?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "height change"
+          "metre",
+          "metres",
+          "meter",
+          "meters",
+          "m"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "metre. Vertical change in position measured in metres for Eₚ = mgh.",
+        "steps": [
+          "metre. Vertical change in position measured in metres for Eₚ = mgh."
         ]
       },
-      "stimulus": {
-        "masked": "h__g__ _h___e"
-      },
-      "feedback": {
-        "short": "vertical change in position measured in metres for Eₚ = mgh",
-        "steps": [
-          "Key idea: height change.",
-          "vertical change in position measured in metres for Eₚ = mgh",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: height change"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "height change → vertical change in position measured in metres for Eₚ = mgh"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1739,7 +1758,7 @@
       "topicId": "phys-y9-p15",
       "topic": "Gravitational potential energy and conversion between GPE and KE",
       "format": "calculation",
-      "prompt": "Calculate the GPE gained by a 6.0 kg object raised 5.0 m where g = 9.8 N/kg.",
+      "prompt": "Calculate the GPE gained by a 6.0 kg object raised 5.0 m where g = 9.8 N/kg. A number on its own will be read in J.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
@@ -1752,7 +1771,9 @@
         ],
         "working": "Eₚ = mgh = 6.0 × 9.8 × 5.0 = 294 J",
         "tolerance": 0,
-        "modelAnswer": "294 J"
+        "modelAnswer": "294 J",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -1779,7 +1800,7 @@
       "topicId": "phys-y9-p15",
       "topic": "Gravitational potential energy and conversion between GPE and KE",
       "format": "calculation",
-      "prompt": "A 10 kg object gains 490 J of GPE where g = 9.8 N/kg. Calculate the height change.",
+      "prompt": "A 10 kg object gains 490 J of GPE where g = 9.8 N/kg. Calculate the height change. A number on its own will be read in m.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -1793,7 +1814,9 @@
         ],
         "working": "h = Eₚ/(mg) = 490 ÷ (10 × 9.8) = 5 m",
         "tolerance": 0,
-        "modelAnswer": "5 m"
+        "modelAnswer": "5 m",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {

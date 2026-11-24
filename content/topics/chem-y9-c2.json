@@ -1091,73 +1091,69 @@
       "topicId": "chem-y9-c2",
       "topic": "Elements, compounds and mixtures",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Does splitting a compound into its elements require a physical change or a chemical change?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "chemical separation"
+          "chemical",
+          "chemical change",
+          "chemical reaction"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "chemical. The type of process required to split a compound into its elements.",
+        "steps": [
+          "chemical. The type of process required to split a compound into its elements."
         ]
       },
-      "stimulus": {
-        "text": "the type of process required to split a compound into its elements"
-      },
-      "feedback": {
-        "short": "the type of process required to split a compound into its elements",
-        "steps": [
-          "Key idea: chemical separation.",
-          "the type of process required to split a compound into its elements",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: chemical separation"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "chemical separation → the type of process required to split a compound into its elements"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c2-chemical-separation-1b93947e3c-restore",
       "conceptId": "chem-y9-c2-chemical-separation-1b93947e3c-concept",
       "topicId": "chem-y9-c2",
       "topic": "Elements, compounds and mixtures",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Does splitting a compound into its elements require a physical change or a chemical change?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "chemical separation"
+          "chemical",
+          "chemical change",
+          "chemical reaction"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "chemical. The type of process required to split a compound into its elements.",
+        "steps": [
+          "chemical. The type of process required to split a compound into its elements."
         ]
       },
-      "stimulus": {
-        "masked": "c__m___l ___a___i__"
-      },
-      "feedback": {
-        "short": "the type of process required to split a compound into its elements",
-        "steps": [
-          "Key idea: chemical separation.",
-          "the type of process required to split a compound into its elements",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: chemical separation"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "chemical separation → the type of process required to split a compound into its elements"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c2-chemical-separation-1b93947e3c-explain",
@@ -1289,73 +1285,66 @@
       "topicId": "chem-y9-c2",
       "topic": "Elements, compounds and mixtures",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Filtering insoluble sand from water is which type of separation: physical or chemical?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
+          "physical",
           "physical separation"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "physical. A process often able to separate mixture components without chemical reaction.",
+        "steps": [
+          "physical. A process often able to separate mixture components without chemical reaction."
         ]
       },
-      "stimulus": {
-        "text": "a process often able to separate mixture components without chemical reaction"
-      },
-      "feedback": {
-        "short": "a process often able to separate mixture components without chemical reaction",
-        "steps": [
-          "Key idea: physical separation.",
-          "a process often able to separate mixture components without chemical reaction",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: physical separation"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "physical separation → a process often able to separate mixture components without chemical reaction"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c2-physical-separation-e72af72eab-restore",
       "conceptId": "chem-y9-c2-physical-separation-e72af72eab-concept",
       "topicId": "chem-y9-c2",
       "topic": "Elements, compounds and mixtures",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of physical separation: “a process often able to separate mixture components without chemical ___”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "physical separation"
+          "reaction"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "reaction. A process often able to separate mixture components without chemical reaction.",
+        "steps": [
+          "reaction. A process often able to separate mixture components without chemical reaction."
         ]
       },
-      "stimulus": {
-        "masked": "p__s___l ___a___i__"
-      },
-      "feedback": {
-        "short": "a process often able to separate mixture components without chemical reaction",
-        "steps": [
-          "Key idea: physical separation.",
-          "a process often able to separate mixture components without chemical reaction",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: physical separation"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "physical separation → a process often able to separate mixture components without chemical reaction"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c2-physical-separation-e72af72eab-explain",
@@ -1487,33 +1476,28 @@
       "topicId": "chem-y9-c2",
       "topic": "Elements, compounds and mixtures",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Distillation separates miscible liquids using differences in which temperature characteristic?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "separation-property choice"
+          "boiling point",
+          "boiling points"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "boiling point. Selecting a method using differences such as particle size, solubility or boiling point.",
+        "steps": [
+          "boiling point. Selecting a method using differences such as particle size, solubility or boiling point."
         ]
       },
-      "stimulus": {
-        "text": "selecting a method using differences such as particle size, solubility or boiling point"
-      },
-      "feedback": {
-        "short": "selecting a method using differences such as particle size, solubility or boiling point",
-        "steps": [
-          "Key idea: separation-property choice.",
-          "selecting a method using differences such as particle size, solubility or boiling point",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: separation-property choice"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "separation-property choice → selecting a method using differences such as particle size, solubility or boiling point"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1523,37 +1507,33 @@
       "conceptId": "chem-y9-c2-separation-property-choice-0ecf07ee2e-concept",
       "topicId": "chem-y9-c2",
       "topic": "Elements, compounds and mixtures",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of separation-property choice: “selecting a method using differences such as particle size, solubility or ___”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "separation-property choice"
+          "boiling point"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "boiling point. Selecting a method using differences such as particle size, solubility or boiling point.",
+        "steps": [
+          "boiling point. Selecting a method using differences such as particle size, solubility or boiling point."
         ]
       },
-      "stimulus": {
-        "masked": "s__a___i__-_r___r__ _h___e"
-      },
-      "feedback": {
-        "short": "selecting a method using differences such as particle size, solubility or boiling point",
-        "steps": [
-          "Key idea: separation-property choice.",
-          "selecting a method using differences such as particle size, solubility or boiling point",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: separation-property choice"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "separation-property choice → selecting a method using differences such as particle size, solubility or boiling point"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c2-separation-property-choice-0ecf07ee2e-explain",

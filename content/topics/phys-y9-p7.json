@@ -1283,33 +1283,28 @@
       "topicId": "phys-y9-p7",
       "topic": "Changes of state",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "On a warming section of a heating curve, which average particle energy increases as temperature rises?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "heating-graph slope"
+          "kinetic",
+          "kinetic energy"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "kinetic. A section where temperature changes and average particle kinetic energy changes.",
+        "steps": [
+          "kinetic. A section where temperature changes and average particle kinetic energy changes."
         ]
       },
-      "stimulus": {
-        "text": "a section where temperature changes and average particle kinetic energy changes"
-      },
-      "feedback": {
-        "short": "a section where temperature changes and average particle kinetic energy changes",
-        "steps": [
-          "Key idea: heating-graph slope.",
-          "a section where temperature changes and average particle kinetic energy changes",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: heating-graph slope"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "heating-graph slope → a section where temperature changes and average particle kinetic energy changes"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1319,37 +1314,34 @@
       "conceptId": "phys-y9-p7-heating-graph-slope-34c9230c76-concept",
       "topicId": "phys-y9-p7",
       "topic": "Changes of state",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of heating-graph slope: “a section where temperature changes and average particle ___ changes”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "heating-graph slope"
+          "kinetic energy",
+          "average kinetic energy"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "kinetic energy. A section where temperature changes and average particle kinetic energy changes.",
+        "steps": [
+          "kinetic energy. A section where temperature changes and average particle kinetic energy changes."
         ]
       },
-      "stimulus": {
-        "masked": "h__t___-g___h ___p_"
-      },
-      "feedback": {
-        "short": "a section where temperature changes and average particle kinetic energy changes",
-        "steps": [
-          "Key idea: heating-graph slope.",
-          "a section where temperature changes and average particle kinetic energy changes",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: heating-graph slope"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "heating-graph slope → a section where temperature changes and average particle kinetic energy changes"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p7-heating-graph-slope-34c9230c76-explain",
@@ -1520,34 +1512,31 @@
       "conceptId": "phys-y9-p7-heating-graph-plateau-df7b542b08-concept",
       "topicId": "phys-y9-p7",
       "topic": "Changes of state",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "A horizontal section appears as a pure substance melts at constant pressure. What happens to its temperature on this section?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "heating-graph plateau"
+          "stays constant",
+          "remains constant",
+          "stays the same",
+          "constant"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "stays constant. A state-change section where temperature stays constant and particle potential energy changes.",
+        "steps": [
+          "stays constant. A state-change section where temperature stays constant and particle potential energy changes."
         ]
       },
-      "stimulus": {
-        "masked": "h__t___-g___h ___t___"
-      },
-      "feedback": {
-        "short": "a state-change section where temperature stays constant and particle potential energy changes",
-        "steps": [
-          "Key idea: heating-graph plateau.",
-          "a state-change section where temperature stays constant and particle potential energy changes",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: heating-graph plateau"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "heating-graph plateau → a state-change section where temperature stays constant and particle potential energy changes"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1946,7 +1935,9 @@
           "temperature-rise slope",
           "state-change plateau"
         ],
-        "diagramId": "phys-heating-curve"
+        "diagramId": "phys-heating-curve",
+        "image": "/content/diagrams/question-review/phys-heating-curve.svg",
+        "imageAlt": "Lettered figure for Changes of state."
       },
       "feedback": {
         "short": "Place every scientific label at its correct anchor.",

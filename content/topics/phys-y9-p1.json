@@ -2102,73 +2102,66 @@
       "topicId": "phys-y9-p1",
       "topic": "Kinetic theory and the particle model — solids, liquids and gases",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "Temperature in the particle model is related to the average ___ energy of the particles.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "temperature and particles"
+          "kinetic"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "kinetic. Temperature relating to the average kinetic energy of particles.",
+        "steps": [
+          "kinetic. Temperature relating to the average kinetic energy of particles."
         ]
       },
-      "stimulus": {
-        "text": "temperature relating to the average kinetic energy of particles"
-      },
-      "feedback": {
-        "short": "temperature relating to the average kinetic energy of particles",
-        "steps": [
-          "Key idea: temperature and particles.",
-          "temperature relating to the average kinetic energy of particles",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: temperature and particles"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "temperature and particles → temperature relating to the average kinetic energy of particles"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p1-temperature-and-particles-2500953b54-restore",
       "conceptId": "phys-y9-p1-temperature-and-particles-2500953b54-concept",
       "topicId": "phys-y9-p1",
       "topic": "Kinetic theory and the particle model — solids, liquids and gases",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of temperature and particles: “temperature relating to the average ___ of particles”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "temperature and particles"
+          "kinetic energy",
+          "average kinetic energy"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "kinetic energy. Temperature relating to the average kinetic energy of particles.",
+        "steps": [
+          "kinetic energy. Temperature relating to the average kinetic energy of particles."
         ]
       },
-      "stimulus": {
-        "masked": "t__p___t___ a__ _a___c___"
-      },
-      "feedback": {
-        "short": "temperature relating to the average kinetic energy of particles",
-        "steps": [
-          "Key idea: temperature and particles.",
-          "temperature relating to the average kinetic energy of particles",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: temperature and particles"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "temperature and particles → temperature relating to the average kinetic energy of particles"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p1-temperature-and-particles-2500953b54-explain",
@@ -2784,7 +2777,9 @@
           "solid",
           "rapid random motion"
         ],
-        "diagramId": "phys-particle-states"
+        "diagramId": "phys-particle-states",
+        "image": "/content/diagrams/question-review/phys-particle-states.svg",
+        "imageAlt": "Lettered figure for Kinetic theory and the particle model — solids, liquids and gases."
       },
       "feedback": {
         "short": "Place every scientific label at its correct anchor.",

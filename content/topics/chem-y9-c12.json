@@ -103,6 +103,9 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "addition polymerisation"
+        ],
+        "reviewedEquivalents": [
+          "addition polymerization"
         ]
       },
       "stimulus": {
@@ -140,6 +143,9 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "addition polymerisation"
+        ],
+        "reviewedEquivalents": [
+          "addition polymerization"
         ]
       },
       "stimulus": {
@@ -689,33 +695,30 @@
       "topicId": "chem-y9-c12",
       "topic": "Addition polymerisation",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "When ethene forms poly(ethene), what type of carbon–carbon bond replaces the double bond in the polymer backbone?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "opened double bond"
+          "single bond",
+          "single covalent bond",
+          "single",
+          "C–C"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "single bond. Conversion of each monomer's C=C into single bonds linking the chain.",
+        "steps": [
+          "single bond. Conversion of each monomer's C=C into single bonds linking the chain."
         ]
       },
-      "stimulus": {
-        "text": "conversion of each monomer's C=C into single bonds linking the chain"
-      },
-      "feedback": {
-        "short": "conversion of each monomer's C=C into single bonds linking the chain",
-        "steps": [
-          "Key idea: opened double bond.",
-          "conversion of each monomer's C=C into single bonds linking the chain",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: opened double bond"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "opened double bond → conversion of each monomer's C=C into single bonds linking the chain"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -725,37 +728,33 @@
       "conceptId": "chem-y9-c12-opened-double-bond-37aec7da0e-concept",
       "topicId": "chem-y9-c12",
       "topic": "Addition polymerisation",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of opened double bond: “conversion of each monomer's C=C into single bonds linking the ___”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "opened double bond"
+          "chain"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "chain. Conversion of each monomer's C=C into single bonds linking the chain.",
+        "steps": [
+          "chain. Conversion of each monomer's C=C into single bonds linking the chain."
         ]
       },
-      "stimulus": {
-        "masked": "o__n__ _o___e ___d"
-      },
-      "feedback": {
-        "short": "conversion of each monomer's C=C into single bonds linking the chain",
-        "steps": [
-          "Key idea: opened double bond.",
-          "conversion of each monomer's C=C into single bonds linking the chain",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: opened double bond"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "opened double bond → conversion of each monomer's C=C into single bonds linking the chain"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c12-opened-double-bond-37aec7da0e-explain",
@@ -1088,33 +1087,27 @@
       "topicId": "chem-y9-c12",
       "topic": "Addition polymerisation",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Which lower-case letter outside the brackets in a polymer formula represents the number of repeating units?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "polymer n"
+          "n"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "n. The symbol outside brackets showing that the repeat occurs many times.",
+        "steps": [
+          "n. The symbol outside brackets showing that the repeat occurs many times."
         ]
       },
-      "stimulus": {
-        "text": "the symbol outside brackets showing that the repeat occurs many times"
-      },
-      "feedback": {
-        "short": "the symbol outside brackets showing that the repeat occurs many times",
-        "steps": [
-          "Key idea: polymer n.",
-          "the symbol outside brackets showing that the repeat occurs many times",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: polymer n"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "polymer n → the symbol outside brackets showing that the repeat occurs many times"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1124,34 +1117,28 @@
       "conceptId": "chem-y9-c12-polymer-n-e45cfda035-concept",
       "topicId": "chem-y9-c12",
       "topic": "Addition polymerisation",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Which lower-case letter outside the brackets in a polymer formula represents the number of repeating units?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "polymer n"
+          "n"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "n. The symbol outside brackets showing that the repeat occurs many times.",
+        "steps": [
+          "n. The symbol outside brackets showing that the repeat occurs many times."
         ]
       },
-      "stimulus": {
-        "masked": "p__y___ n"
-      },
-      "feedback": {
-        "short": "the symbol outside brackets showing that the repeat occurs many times",
-        "steps": [
-          "Key idea: polymer n.",
-          "the symbol outside brackets showing that the repeat occurs many times",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: polymer n"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "polymer n → the symbol outside brackets showing that the repeat occurs many times"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1286,33 +1273,30 @@
       "topicId": "chem-y9-c12",
       "topic": "Addition polymerisation",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Propene is CH₂=CH–CH₃. Which side group is retained on alternate backbone carbons in poly(propene)?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "preserved side groups"
+          "methyl",
+          "methyl group",
+          "CH3",
+          "–CH3"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "methyl. Groups attached to the monomer carbons staying on the same carbons in the repeating unit.",
+        "steps": [
+          "methyl. Groups attached to the monomer carbons staying on the same carbons in the repeating unit."
         ]
       },
-      "stimulus": {
-        "text": "groups attached to the monomer carbons staying on the same carbons in the repeating unit"
-      },
-      "feedback": {
-        "short": "groups attached to the monomer carbons staying on the same carbons in the repeating unit",
-        "steps": [
-          "Key idea: preserved side groups.",
-          "groups attached to the monomer carbons staying on the same carbons in the repeating unit",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: preserved side groups"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "preserved side groups → groups attached to the monomer carbons staying on the same carbons in the repeating unit"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1322,34 +1306,31 @@
       "conceptId": "chem-y9-c12-preserved-side-groups-378f1f508f-concept",
       "topicId": "chem-y9-c12",
       "topic": "Addition polymerisation",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Propene is CH₂=CH–CH₃. Which side group is retained on alternate backbone carbons in poly(propene)?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "preserved side groups"
+          "methyl",
+          "methyl group",
+          "CH3",
+          "–CH3"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "methyl. Groups attached to the monomer carbons staying on the same carbons in the repeating unit.",
+        "steps": [
+          "methyl. Groups attached to the monomer carbons staying on the same carbons in the repeating unit."
         ]
       },
-      "stimulus": {
-        "masked": "p__s___e_ __d_ __o___"
-      },
-      "feedback": {
-        "short": "groups attached to the monomer carbons staying on the same carbons in the repeating unit",
-        "steps": [
-          "Key idea: preserved side groups.",
-          "groups attached to the monomer carbons staying on the same carbons in the repeating unit",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: preserved side groups"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "preserved side groups → groups attached to the monomer carbons staying on the same carbons in the repeating unit"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1484,33 +1465,28 @@
       "topicId": "chem-y9-c12",
       "topic": "Addition polymerisation",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "In a drawing of a linear addition-polymer repeating unit, how many backbone bonds extend through the brackets in total?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "bonds through brackets"
+          "2",
+          "two"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "2. The two backbone bonds extended through the sides of the repeating-unit brackets.",
+        "steps": [
+          "2. The two backbone bonds extended through the sides of the repeating-unit brackets."
         ]
       },
-      "stimulus": {
-        "text": "the two backbone bonds extended through the sides of the repeating-unit brackets"
-      },
-      "feedback": {
-        "short": "the two backbone bonds extended through the sides of the repeating-unit brackets",
-        "steps": [
-          "Key idea: bonds through brackets.",
-          "the two backbone bonds extended through the sides of the repeating-unit brackets",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: bonds through brackets"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "bonds through brackets → the two backbone bonds extended through the sides of the repeating-unit brackets"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1520,34 +1496,29 @@
       "conceptId": "chem-y9-c12-bonds-through-brackets-d5b7573d2e-concept",
       "topicId": "chem-y9-c12",
       "topic": "Addition polymerisation",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "In a drawing of a linear addition-polymer repeating unit, how many backbone bonds extend through the brackets in total?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "bonds through brackets"
+          "2",
+          "two"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "2. The two backbone bonds extended through the sides of the repeating-unit brackets.",
+        "steps": [
+          "2. The two backbone bonds extended through the sides of the repeating-unit brackets."
         ]
       },
-      "stimulus": {
-        "masked": "b__d_ __r___h ___c___s"
-      },
-      "feedback": {
-        "short": "the two backbone bonds extended through the sides of the repeating-unit brackets",
-        "steps": [
-          "Key idea: bonds through brackets.",
-          "the two backbone bonds extended through the sides of the repeating-unit brackets",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: bonds through brackets"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "bonds through brackets → the two backbone bonds extended through the sides of the repeating-unit brackets"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1883,7 +1854,9 @@
           "bond through bracket",
           "repeating unit"
         ],
-        "diagramId": "chem-polymer"
+        "diagramId": "chem-polymer",
+        "image": "/content/diagrams/question-review/chem-polymer.svg",
+        "imageAlt": "Lettered figure for Addition polymerisation."
       },
       "feedback": {
         "short": "Place every scientific label at its correct anchor.",

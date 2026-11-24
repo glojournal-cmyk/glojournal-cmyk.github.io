@@ -293,33 +293,28 @@
       "topicId": "chem-y9-c9",
       "topic": "Combustion of hydrocarbons and pollution from fossil fuels",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Complete the balanced equation with the missing coefficient: CH₄ + 2O₂ → CO₂ + ___H₂O.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "methane complete combustion"
+          "2",
+          "two"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "2. CH₄ + 2O₂ → CO₂ + 2H₂O.",
+        "steps": [
+          "2. CH₄ + 2O₂ → CO₂ + 2H₂O."
         ]
       },
-      "stimulus": {
-        "text": "CH₄ + 2O₂ → CO₂ + 2H₂O"
-      },
-      "feedback": {
-        "short": "CH₄ + 2O₂ → CO₂ + 2H₂O",
-        "steps": [
-          "Key idea: methane complete combustion.",
-          "CH₄ + 2O₂ → CO₂ + 2H₂O",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: methane complete combustion"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "methane complete combustion → CH₄ + 2O₂ → CO₂ + 2H₂O"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -329,34 +324,29 @@
       "conceptId": "chem-y9-c9-methane-complete-combustion-5a3dfe4829-concept",
       "topicId": "chem-y9-c9",
       "topic": "Combustion of hydrocarbons and pollution from fossil fuels",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Complete the balanced equation with the missing coefficient: CH₄ + 2O₂ → CO₂ + ___H₂O.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "methane complete combustion"
+          "2",
+          "two"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "2. CH₄ + 2O₂ → CO₂ + 2H₂O.",
+        "steps": [
+          "2. CH₄ + 2O₂ → CO₂ + 2H₂O."
         ]
       },
-      "stimulus": {
-        "masked": "m__h___ c___l___ c___u___o_"
-      },
-      "feedback": {
-        "short": "CH₄ + 2O₂ → CO₂ + 2H₂O",
-        "steps": [
-          "Key idea: methane complete combustion.",
-          "CH₄ + 2O₂ → CO₂ + 2H₂O",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: methane complete combustion"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "methane complete combustion → CH₄ + 2O₂ → CO₂ + 2H₂O"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -697,6 +687,9 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "carbon monoxide toxicity"
+        ],
+        "reviewedEquivalents": [
+          "carbon monoxide poisoning"
         ]
       },
       "stimulus": {
@@ -734,6 +727,9 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "carbon monoxide toxicity"
+        ],
+        "reviewedEquivalents": [
+          "carbon monoxide poisoning"
         ]
       },
       "stimulus": {
@@ -1095,7 +1091,11 @@
           "combustion of sulfur impurities in fuels"
         ],
         "totalMarks": 1,
-        "modelAnswer": "combustion of sulfur impurities in fuels"
+        "modelAnswer": "combustion of sulfur impurities in fuels",
+        "reviewedEquivalents": [
+          "burning fuels containing sulfur impurities",
+          "burning fuels containing sulphur impurities"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -1172,7 +1172,11 @@
           "combustion of sulfur impurities in fuels"
         ],
         "totalMarks": 1,
-        "modelAnswer": "combustion of sulfur impurities in fuels"
+        "modelAnswer": "combustion of sulfur impurities in fuels",
+        "reviewedEquivalents": [
+          "burning fuels containing sulfur impurities",
+          "burning fuels containing sulphur impurities"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -1497,7 +1501,10 @@
           "reaction of nitrogen and oxygen from air at high engine temperatures"
         ],
         "totalMarks": 1,
-        "modelAnswer": "reaction of nitrogen and oxygen from air at high engine temperatures"
+        "modelAnswer": "reaction of nitrogen and oxygen from air at high engine temperatures",
+        "reviewedEquivalents": [
+          "nitrogen and oxygen react at high temperatures in engines"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -1574,7 +1581,10 @@
           "reaction of nitrogen and oxygen from air at high engine temperatures"
         ],
         "totalMarks": 1,
-        "modelAnswer": "reaction of nitrogen and oxygen from air at high engine temperatures"
+        "modelAnswer": "reaction of nitrogen and oxygen from air at high engine temperatures",
+        "reviewedEquivalents": [
+          "nitrogen and oxygen react at high temperatures in engines"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -1889,73 +1899,67 @@
       "topicId": "chem-y9-c9",
       "topic": "Combustion of hydrocarbons and pollution from fossil fuels",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Which solid pollutant in smoke can lodge in the lungs: carbon particulates or carbon monoxide?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "particulate lung damage"
+          "carbon particulates",
+          "particulates",
+          "soot"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "carbon particulates. Harm caused when fine solid particles enter the respiratory system.",
+        "steps": [
+          "carbon particulates. Harm caused when fine solid particles enter the respiratory system."
         ]
       },
-      "stimulus": {
-        "text": "harm caused when fine solid particles enter the respiratory system"
-      },
-      "feedback": {
-        "short": "harm caused when fine solid particles enter the respiratory system",
-        "steps": [
-          "Key idea: particulate lung damage.",
-          "harm caused when fine solid particles enter the respiratory system",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: particulate lung damage"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "particulate lung damage → harm caused when fine solid particles enter the respiratory system"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c9-particulate-lung-damage-71bed7eee8-restore",
       "conceptId": "chem-y9-c9-particulate-lung-damage-71bed7eee8-concept",
       "topicId": "chem-y9-c9",
       "topic": "Combustion of hydrocarbons and pollution from fossil fuels",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of particulate lung damage: “harm caused when fine solid ___ enter the respiratory system”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "particulate lung damage"
+          "particles"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "particles. Harm caused when fine solid particles enter the respiratory system.",
+        "steps": [
+          "particles. Harm caused when fine solid particles enter the respiratory system."
         ]
       },
-      "stimulus": {
-        "masked": "p__t___l___ l___ d___g_"
-      },
-      "feedback": {
-        "short": "harm caused when fine solid particles enter the respiratory system",
-        "steps": [
-          "Key idea: particulate lung damage.",
-          "harm caused when fine solid particles enter the respiratory system",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: particulate lung damage"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "particulate lung damage → harm caused when fine solid particles enter the respiratory system"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c9-particulate-lung-damage-71bed7eee8-explain",
@@ -2285,33 +2289,28 @@
       "topicId": "chem-y9-c9",
       "topic": "Combustion of hydrocarbons and pollution from fossil fuels",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Which carbon-containing greenhouse gas is formed by complete combustion of methane?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "combustion carbon dioxide"
+          "carbon dioxide",
+          "CO2"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "carbon dioxide. A greenhouse-gas product whose increasing atmospheric concentration contributes to climate change.",
+        "steps": [
+          "carbon dioxide. A greenhouse-gas product whose increasing atmospheric concentration contributes to climate change."
         ]
       },
-      "stimulus": {
-        "text": "a greenhouse-gas product whose increasing atmospheric concentration contributes to climate change"
-      },
-      "feedback": {
-        "short": "a greenhouse-gas product whose increasing atmospheric concentration contributes to climate change",
-        "steps": [
-          "Key idea: combustion carbon dioxide.",
-          "a greenhouse-gas product whose increasing atmospheric concentration contributes to climate change",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: combustion carbon dioxide"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "combustion carbon dioxide → a greenhouse-gas product whose increasing atmospheric concentration contributes to climate change"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -2321,37 +2320,33 @@
       "conceptId": "chem-y9-c9-combustion-carbon-dioxide-25bc2a52de-concept",
       "topicId": "chem-y9-c9",
       "topic": "Combustion of hydrocarbons and pollution from fossil fuels",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of combustion carbon dioxide: “a greenhouse-___ product whose increasing atmospheric concentration contributes to climate change”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "combustion carbon dioxide"
+          "gas"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "gas. A greenhouse-gas product whose increasing atmospheric concentration contributes to climate change.",
+        "steps": [
+          "gas. A greenhouse-gas product whose increasing atmospheric concentration contributes to climate change."
         ]
       },
-      "stimulus": {
-        "masked": "c__b___i__ _a___n ___x___"
-      },
-      "feedback": {
-        "short": "a greenhouse-gas product whose increasing atmospheric concentration contributes to climate change",
-        "steps": [
-          "Key idea: combustion carbon dioxide.",
-          "a greenhouse-gas product whose increasing atmospheric concentration contributes to climate change",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: combustion carbon dioxide"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "combustion carbon dioxide → a greenhouse-gas product whose increasing atmospheric concentration contributes to climate change"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c9-combustion-carbon-dioxide-25bc2a52de-explain",
@@ -2594,7 +2589,8 @@
         "accepted": [
           "CH₄ + 2O₂ → CO₂ + 2H₂O",
           "CH4 + 2O2 -> CO2 + 2H2O"
-        ]
+        ],
+        "chemicalNotation": true
       },
       "stimulus": {},
       "feedback": {

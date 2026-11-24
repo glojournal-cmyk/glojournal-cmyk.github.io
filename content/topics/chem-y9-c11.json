@@ -887,33 +887,28 @@
       "topicId": "chem-y9-c11",
       "topic": "Reactions of alkenes — hydrogenation, hydration and halogenation",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Name the metal commonly used to catalyse hydrogenation of an alkene at GCSE.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "hydrogenation catalyst"
+          "nickel",
+          "Ni"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "nickel. A suitable catalyst used when hydrogen adds to an alkene.",
+        "steps": [
+          "nickel. A suitable catalyst used when hydrogen adds to an alkene."
         ]
       },
-      "stimulus": {
-        "text": "a suitable catalyst used when hydrogen adds to an alkene"
-      },
-      "feedback": {
-        "short": "a suitable catalyst used when hydrogen adds to an alkene",
-        "steps": [
-          "Key idea: hydrogenation catalyst.",
-          "a suitable catalyst used when hydrogen adds to an alkene",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: hydrogenation catalyst"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "hydrogenation catalyst → a suitable catalyst used when hydrogen adds to an alkene"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -923,37 +918,33 @@
       "conceptId": "chem-y9-c11-hydrogenation-catalyst-e4073e1033-concept",
       "topicId": "chem-y9-c11",
       "topic": "Reactions of alkenes — hydrogenation, hydration and halogenation",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of hydrogenation catalyst: “a suitable catalyst used when ___ adds to an alkene”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "hydrogenation catalyst"
+          "hydrogen"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "hydrogen. A suitable catalyst used when hydrogen adds to an alkene.",
+        "steps": [
+          "hydrogen. A suitable catalyst used when hydrogen adds to an alkene."
         ]
       },
-      "stimulus": {
-        "masked": "h__r___n___o_ __t___s_"
-      },
-      "feedback": {
-        "short": "a suitable catalyst used when hydrogen adds to an alkene",
-        "steps": [
-          "Key idea: hydrogenation catalyst.",
-          "a suitable catalyst used when hydrogen adds to an alkene",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: hydrogenation catalyst"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "hydrogenation catalyst → a suitable catalyst used when hydrogen adds to an alkene"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c11-hydrogenation-catalyst-e4073e1033-explain",
@@ -1085,33 +1076,29 @@
       "topicId": "chem-y9-c11",
       "topic": "Reactions of alkenes — hydrogenation, hydration and halogenation",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Name the acid commonly used to catalyse the hydration of ethene with steam.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "hydration catalyst"
+          "phosphoric acid",
+          "phosphoric(V) acid",
+          "H3PO4"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "phosphoric acid. A suitable catalyst used when steam adds to an alkene.",
+        "steps": [
+          "phosphoric acid. A suitable catalyst used when steam adds to an alkene."
         ]
       },
-      "stimulus": {
-        "text": "a suitable catalyst used when steam adds to an alkene"
-      },
-      "feedback": {
-        "short": "a suitable catalyst used when steam adds to an alkene",
-        "steps": [
-          "Key idea: hydration catalyst.",
-          "a suitable catalyst used when steam adds to an alkene",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: hydration catalyst"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "hydration catalyst → a suitable catalyst used when steam adds to an alkene"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1121,37 +1108,33 @@
       "conceptId": "chem-y9-c11-hydration-catalyst-bf6a2d2f28-concept",
       "topicId": "chem-y9-c11",
       "topic": "Reactions of alkenes — hydrogenation, hydration and halogenation",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of hydration catalyst: “a suitable catalyst used when ___ adds to an alkene”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "hydration catalyst"
+          "steam"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "steam. A suitable catalyst used when steam adds to an alkene.",
+        "steps": [
+          "steam. A suitable catalyst used when steam adds to an alkene."
         ]
       },
-      "stimulus": {
-        "masked": "h__r___o_ __t___s_"
-      },
-      "feedback": {
-        "short": "a suitable catalyst used when steam adds to an alkene",
-        "steps": [
-          "Key idea: hydration catalyst.",
-          "a suitable catalyst used when steam adds to an alkene",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: hydration catalyst"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "hydration catalyst → a suitable catalyst used when steam adds to an alkene"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c11-hydration-catalyst-bf6a2d2f28-explain",
@@ -1814,37 +1797,44 @@
       "conceptId": "chem-y9-c11-app-draw-rule-concept",
       "topicId": "chem-y9-c11",
       "topic": "Reactions of alkenes — hydrogenation, hydration and halogenation",
-      "format": "mark_points",
-      "prompt": "Describe how to draw the product of an addition reaction at C=C.",
+      "format": "extended_response",
+      "prompt": "Answer each numbered part on a separate line, in order.\n1. When bromine adds to ethene, what bond now joins the two carbon atoms?\n2. How many bromine atoms bond to each of the two carbon atoms?\n3. Give the molecular formula of the resulting compound.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "mark_points",
-        "markPoints": [
-          "change C=C to C–C",
-          "attach the incoming atoms or groups to the two original double-bonded carbons",
-          "do not leave the original double bond"
+        "mode": "ordered_parts",
+        "reviewedParts": [
+          [
+            "single bond",
+            "single",
+            "C–C",
+            "C-C"
+          ],
+          [
+            "one",
+            "1"
+          ],
+          [
+            "C2H4Br2",
+            "C₂H₄Br₂"
+          ]
         ],
         "totalMarks": 3,
-        "modelAnswer": "change C=C to C–C attach the incoming atoms or groups to the two original double-bonded carbons do not leave the original double bond"
+        "modelAnswer": "single bond\none\nC2H4Br2"
       },
-      "stimulus": {
-        "marks": 3
-      },
+      "stimulus": {},
       "feedback": {
-        "short": "change C=C to C–C attach the incoming atoms or groups to the two original double-bonded carbons do not leave the original double bond",
+        "short": "single bond\none\nC2H4Br2",
         "steps": [
-          "change C=C to C–C attach the incoming atoms or groups to the two original double-bonded carbons do not leave the original double bond",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
-          "Suggested answer: change C=C to C–C attach the incoming atoms or groups to the two original double-bonded carbons do not leave the original double bond"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "change C=C to C–C attach the incoming atoms or groups to the two original double-bonded carbons do not leave the original double bond"
+          "1. single bond",
+          "2. one",
+          "3. C2H4Br2"
+        ]
       },
       "task": {
-        "label": "EXPLAIN",
-        "instruction": "Write one distinct scientific idea for each available mark."
+        "label": "SHORT ANSWERS",
+        "instruction": "One response per line, in the order shown."
       },
       "preview": true,
       "ordinary": true
@@ -1887,7 +1877,9 @@
           "incoming group",
           "carbon-carbon single bond"
         ],
-        "diagramId": "chem-alkene-addition"
+        "diagramId": "chem-alkene-addition",
+        "image": "/content/diagrams/question-review/chem-alkene-addition.svg",
+        "imageAlt": "Lettered figure for Reactions of alkenes — hydrogenation, hydration and halogenation."
       },
       "feedback": {
         "short": "Place every scientific label at its correct anchor.",

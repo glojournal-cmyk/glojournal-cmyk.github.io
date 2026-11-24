@@ -59,6 +59,10 @@
         "mode": "equivalent",
         "accepted": [
           "It transfers energy from the reacting system to the surroundings."
+        ],
+        "reviewedEquivalents": [
+          "energy is transferred to the surroundings",
+          "energy is released to the surroundings"
         ]
       },
       "stimulus": {},
@@ -131,22 +135,22 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "State that the claim is incorrect.",
           "It transfers energy from the reacting system to the surroundings."
         ],
-        "totalMarks": 2
+        "totalMarks": 1,
+        "modelAnswer": "It transfers energy from the reacting system to the surroundings."
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. It transfers energy from the reacting system to the surroundings.",
+        "short": "Key answer: It transfers energy from the reacting system to the surroundings.",
         "steps": [
           "Read the command word and identify exactly what must be supplied.",
           "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. It transfers energy from the reacting system to the surroundings.",
+          "Check against the source-locked answer: It transfers energy from the reacting system to the surroundings.",
           "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
         ],
         "commonError": "It permanently destroys energy.",
-        "remember": "The claim is incorrect. It transfers energy from the reacting system to the surroundings."
+        "remember": "It transfers energy from the reacting system to the surroundings."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -209,6 +213,10 @@
         "mode": "equivalent",
         "accepted": [
           "It takes in energy from the surroundings."
+        ],
+        "reviewedEquivalents": [
+          "energy is taken in from the surroundings",
+          "energy is transferred from the surroundings to the system"
         ]
       },
       "stimulus": {},
@@ -273,37 +281,36 @@
       "conceptId": "chem-y8-energy-changes-concept-endothermic",
       "topicId": "chem-y8-energy-changes",
       "topic": "Energy changes in reactions",
-      "format": "mark_points",
-      "prompt": "For Endothermic reaction, a student says: ‘It transfers energy only as sound.’ Correct the statement and explain the science.",
+      "format": "typed_exact",
+      "prompt": "In an endothermic reaction, is energy transferred into or out of the reacting system?",
       "difficulty": 3,
       "status": "preview",
       "options": null,
       "answer": {
-        "mode": "mark_points",
-        "markPoints": [
-          "State that the claim is incorrect.",
-          "It takes in energy from the surroundings."
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "into",
+          "into the system",
+          "into the reacting system",
+          "in"
         ],
-        "totalMarks": 2
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. It takes in energy from the surroundings.",
+        "short": "into. It takes in energy from the surroundings.",
         "steps": [
-          "Read the command word and identify exactly what must be supplied.",
-          "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. It takes in energy from the surroundings.",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
-        ],
-        "commonError": "It transfers energy only as sound.",
-        "remember": "The claim is incorrect. It takes in energy from the surroundings."
+          "into. It takes in energy from the surroundings."
+        ]
       },
       "task": {
-        "label": "SHORT EXAM ANSWER",
-        "instruction": "Write enough distinct scientific points for the available marks."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": false
+      "ordinary": false,
+      "formal": false
     },
     {
       "id": "chem-y8-energy-changes-temperature-evidence-mc",
@@ -430,22 +437,22 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "State that the claim is incorrect.",
           "A rise usually indicates exothermic transfer; a fall usually indicates endothermic transfer under controlled conditions."
         ],
-        "totalMarks": 2
+        "totalMarks": 1,
+        "modelAnswer": "A rise usually indicates exothermic transfer; a fall usually indicates endothermic transfer under controlled conditions."
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. A rise usually indicates exothermic transfer; a fall usually indicates endothermic transfer under controlled conditions.",
+        "short": "Key answer: A rise usually indicates exothermic transfer; a fall usually indicates endothermic transfer under controlled conditions.",
         "steps": [
           "Read the command word and identify exactly what must be supplied.",
           "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. A rise usually indicates exothermic transfer; a fall usually indicates endothermic transfer under controlled conditions.",
+          "Check against the source-locked answer: A rise usually indicates exothermic transfer; a fall usually indicates endothermic transfer under controlled conditions.",
           "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
         ],
         "commonError": "Any temperature means the reaction is neutral.",
-        "remember": "The claim is incorrect. A rise usually indicates exothermic transfer; a fall usually indicates endothermic transfer under controlled conditions."
+        "remember": "A rise usually indicates exothermic transfer; a fall usually indicates endothermic transfer under controlled conditions."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -535,7 +542,7 @@
       "topicId": "chem-y8-energy-changes",
       "topic": "Energy changes in reactions",
       "format": "calculation",
-      "prompt": "A profile has reactants at 400 kJ and products at 250 kJ. Classify and calculate the change.",
+      "prompt": "A profile has reactants at 400 kJ and products at 250 kJ. Classify and calculate the change. A number on its own will be read in kJ.",
       "difficulty": 4,
       "status": "preview",
       "options": null,
@@ -551,7 +558,9 @@
         ],
         "value": -150,
         "tolerance": 0.001,
-        "modelAnswer": "-150 kJ"
+        "modelAnswer": "-150 kJ exothermic",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -585,22 +594,22 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "State that the claim is incorrect.",
           "Products are at a lower energy level than reactants."
         ],
-        "totalMarks": 2
+        "totalMarks": 1,
+        "modelAnswer": "Products are at a lower energy level than reactants."
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. Products are at a lower energy level than reactants.",
+        "short": "Key answer: Products are at a lower energy level than reactants.",
         "steps": [
           "Read the command word and identify exactly what must be supplied.",
           "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. Products are at a lower energy level than reactants.",
+          "Check against the source-locked answer: Products are at a lower energy level than reactants.",
           "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
         ],
         "commonError": "Products are always higher.",
-        "remember": "The claim is incorrect. Products are at a lower energy level than reactants."
+        "remember": "Products are at a lower energy level than reactants."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -734,22 +743,22 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "State that the claim is incorrect.",
           "Products are at a higher energy level than reactants."
         ],
-        "totalMarks": 2
+        "totalMarks": 1,
+        "modelAnswer": "Products are at a higher energy level than reactants."
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. Products are at a higher energy level than reactants.",
+        "short": "Key answer: Products are at a higher energy level than reactants.",
         "steps": [
           "Read the command word and identify exactly what must be supplied.",
           "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. Products are at a higher energy level than reactants.",
+          "Check against the source-locked answer: Products are at a higher energy level than reactants.",
           "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
         ],
         "commonError": "Products are always lower.",
-        "remember": "The claim is incorrect. Products are at a higher energy level than reactants."
+        "remember": "Products are at a higher energy level than reactants."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -812,6 +821,10 @@
         "mode": "equivalent",
         "accepted": [
           "Breaking bonds requires energy."
+        ],
+        "reviewedEquivalents": [
+          "energy is needed to break bonds",
+          "energy must be supplied to break bonds"
         ]
       },
       "stimulus": {},
@@ -875,37 +888,36 @@
       "conceptId": "chem-y8-energy-changes-concept-breaking-bonds",
       "topicId": "chem-y8-energy-changes",
       "topic": "Energy changes in reactions",
-      "format": "mark_points",
-      "prompt": "For Breaking bonds, a student says: ‘Breaking bonds always releases energy.’ Correct the statement and explain the science.",
+      "format": "typed_exact",
+      "prompt": "To break a chemical bond, must energy be supplied or released?",
       "difficulty": 5,
       "status": "preview",
       "options": null,
       "answer": {
-        "mode": "mark_points",
-        "markPoints": [
-          "State that the claim is incorrect.",
-          "Breaking bonds requires energy."
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "supplied",
+          "absorbed",
+          "required",
+          "energy must be supplied"
         ],
-        "totalMarks": 2
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. Breaking bonds requires energy.",
+        "short": "supplied. Breaking bonds requires energy.",
         "steps": [
-          "Read the command word and identify exactly what must be supplied.",
-          "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. Breaking bonds requires energy.",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
-        ],
-        "commonError": "Breaking bonds always releases energy.",
-        "remember": "The claim is incorrect. Breaking bonds requires energy."
+          "supplied. Breaking bonds requires energy."
+        ]
       },
       "task": {
-        "label": "SHORT EXAM ANSWER",
-        "instruction": "Write enough distinct scientific points for the available marks."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": false
+      "ordinary": false,
+      "formal": false
     },
     {
       "id": "chem-y8-energy-changes-making-bonds-mc",
@@ -961,6 +973,10 @@
         "mode": "equivalent",
         "accepted": [
           "Making bonds releases energy."
+        ],
+        "reviewedEquivalents": [
+          "energy is released when bonds form",
+          "bond formation releases energy"
         ]
       },
       "stimulus": {},
@@ -1024,37 +1040,34 @@
       "conceptId": "chem-y8-energy-changes-concept-making-bonds",
       "topicId": "chem-y8-energy-changes",
       "topic": "Energy changes in reactions",
-      "format": "mark_points",
-      "prompt": "For Making bonds, a student says: ‘Making bonds always requires all the output energy.’ Correct the statement and explain the science.",
+      "format": "typed_exact",
+      "prompt": "When a new chemical bond forms, is energy released or absorbed?",
       "difficulty": 5,
       "status": "preview",
       "options": null,
       "answer": {
-        "mode": "mark_points",
-        "markPoints": [
-          "State that the claim is incorrect.",
-          "Making bonds releases energy."
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "released",
+          "energy is released"
         ],
-        "totalMarks": 2
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. Making bonds releases energy.",
+        "short": "released. Making bonds releases energy.",
         "steps": [
-          "Read the command word and identify exactly what must be supplied.",
-          "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. Making bonds releases energy.",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
-        ],
-        "commonError": "Making bonds always requires all the output energy.",
-        "remember": "The claim is incorrect. Making bonds releases energy."
+          "released. Making bonds releases energy."
+        ]
       },
       "task": {
-        "label": "SHORT EXAM ANSWER",
-        "instruction": "Write enough distinct scientific points for the available marks."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": false
+      "ordinary": false,
+      "formal": false
     },
     {
       "id": "chem-y8-energy-changes-bond-calculation-mc",
@@ -1110,6 +1123,9 @@
         "mode": "equivalent",
         "accepted": [
           "energy to break bonds minus energy released making bonds"
+        ],
+        "reviewedEquivalents": [
+          "energy required to break bonds minus energy released when bonds form"
         ]
       },
       "stimulus": {},
@@ -1137,7 +1153,7 @@
       "topicId": "chem-y8-energy-changes",
       "topic": "Energy changes in reactions",
       "format": "calculation",
-      "prompt": "Breaking bonds needs 920 kJ and making bonds releases 1040 kJ. Calculate and classify.",
+      "prompt": "Breaking bonds needs 920 kJ and making bonds releases 1040 kJ. Calculate and classify. A number on its own will be read in kJ.",
       "difficulty": 5,
       "status": "preview",
       "options": null,
@@ -1153,7 +1169,9 @@
         ],
         "value": -120,
         "tolerance": 0.001,
-        "modelAnswer": "-120 kJ"
+        "modelAnswer": "-120 kJ exothermic",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -1187,22 +1205,22 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "State that the claim is incorrect.",
           "energy to break bonds minus energy released making bonds"
         ],
-        "totalMarks": 2
+        "totalMarks": 1,
+        "modelAnswer": "energy to break bonds minus energy released making bonds"
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. energy to break bonds minus energy released making bonds",
+        "short": "Key answer: energy to break bonds minus energy released making bonds",
         "steps": [
           "Read the command word and identify exactly what must be supplied.",
           "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. energy to break bonds minus energy released making bonds",
+          "Check against the source-locked answer: energy to break bonds minus energy released making bonds",
           "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
         ],
         "commonError": "energy made plus energy broken with no signs",
-        "remember": "The claim is incorrect. energy to break bonds minus energy released making bonds"
+        "remember": "energy to break bonds minus energy released making bonds"
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -1309,7 +1327,7 @@
       "topicId": "chem-y8-energy-changes",
       "topic": "Energy changes in reactions",
       "format": "calculation",
-      "prompt": "A reaction requires 1,250 kJ to break bonds and releases 1,470 kJ when new bonds form. Calculate the overall energy change and classify the reaction.",
+      "prompt": "A reaction requires 1,250 kJ to break bonds and releases 1,470 kJ when new bonds form. Calculate the overall energy change and classify the reaction. A number on its own will be read in kJ.",
       "difficulty": 4,
       "status": "preview",
       "options": null,
@@ -1323,7 +1341,9 @@
         ],
         "working": "1250 - 1470 = -220 kJ, so the reaction is exothermic",
         "tolerance": 0.01,
-        "modelAnswer": "-220 kJ"
+        "modelAnswer": "-220 kJ exothermic",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {

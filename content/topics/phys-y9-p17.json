@@ -303,7 +303,13 @@
           "elastic potential energy equals one half times spring constant times extension squared"
         ],
         "totalMarks": 1,
-        "modelAnswer": "elastic potential energy equals one half times spring constant times extension squared"
+        "modelAnswer": "elastic potential energy equals one half times spring constant times extension squared",
+        "reviewedEquivalents": [
+          "Ee=0.5ke^2",
+          "Ee=½ke²",
+          "Ee=0.5kx^2",
+          "elastic potential energy = 0.5 × spring constant × extension²"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -342,6 +348,12 @@
         "accepted": [
           "elastic-energy equation",
           "Eₑ = ½ke²"
+        ],
+        "reviewedEquivalents": [
+          "Ee=0.5ke^2",
+          "Ee=½ke²",
+          "Ee=0.5kx^2",
+          "elastic potential energy = 0.5 × spring constant × extension²"
         ]
       },
       "stimulus": {
@@ -381,7 +393,13 @@
           "elastic potential energy equals one half times spring constant times extension squared"
         ],
         "totalMarks": 1,
-        "modelAnswer": "elastic potential energy equals one half times spring constant times extension squared"
+        "modelAnswer": "elastic potential energy equals one half times spring constant times extension squared",
+        "reviewedEquivalents": [
+          "Ee=0.5ke^2",
+          "Ee=½ke²",
+          "Ee=0.5kx^2",
+          "elastic potential energy = 0.5 × spring constant × extension²"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -706,7 +724,12 @@
           "joules"
         ],
         "totalMarks": 1,
-        "modelAnswer": "joules"
+        "modelAnswer": "joules",
+        "reviewedEquivalents": [
+          "J",
+          "joule",
+          "joules"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -784,7 +807,12 @@
           "joules"
         ],
         "totalMarks": 1,
-        "modelAnswer": "joules"
+        "modelAnswer": "joules",
+        "reviewedEquivalents": [
+          "J",
+          "joule",
+          "joules"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -908,7 +936,12 @@
           "metres, with extension squared in the energy equation"
         ],
         "totalMarks": 1,
-        "modelAnswer": "metres, with extension squared in the energy equation"
+        "modelAnswer": "metres, with extension squared in the energy equation",
+        "reviewedEquivalents": [
+          "m",
+          "metres",
+          "meters"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -985,7 +1018,12 @@
           "metres, with extension squared in the energy equation"
         ],
         "totalMarks": 1,
-        "modelAnswer": "metres, with extension squared in the energy equation"
+        "modelAnswer": "metres, with extension squared in the energy equation",
+        "reviewedEquivalents": [
+          "m",
+          "metres",
+          "meters"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -1099,33 +1137,30 @@
       "topicId": "phys-y9-p17",
       "topic": "Elastic potential energy",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "A spring is stretched elastically. Into which energy store is work transferred?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "work into elastic store"
+          "elastic potential",
+          "elastic potential energy",
+          "elastic store",
+          "elastic potential energy store"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "elastic potential. Mechanical work transferring energy into an elastic potential store.",
+        "steps": [
+          "elastic potential. Mechanical work transferring energy into an elastic potential store."
         ]
       },
-      "stimulus": {
-        "text": "mechanical work transferring energy into an elastic potential store"
-      },
-      "feedback": {
-        "short": "mechanical work transferring energy into an elastic potential store",
-        "steps": [
-          "Key idea: work into elastic store.",
-          "mechanical work transferring energy into an elastic potential store",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: work into elastic store"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "work into elastic store → mechanical work transferring energy into an elastic potential store"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1135,37 +1170,33 @@
       "conceptId": "phys-y9-p17-work-into-elastic-store-9d2f05f7b5-concept",
       "topicId": "phys-y9-p17",
       "topic": "Elastic potential energy",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of work into elastic store: “mechanical work transferring ___ into an elastic potential store”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "work into elastic store"
+          "energy"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "energy. Mechanical work transferring energy into an elastic potential store.",
+        "steps": [
+          "energy. Mechanical work transferring energy into an elastic potential store."
         ]
       },
-      "stimulus": {
-        "masked": "w__k ___o ___s___ s___e"
-      },
-      "feedback": {
-        "short": "mechanical work transferring energy into an elastic potential store",
-        "steps": [
-          "Key idea: work into elastic store.",
-          "mechanical work transferring energy into an elastic potential store",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: work into elastic store"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "work into elastic store → mechanical work transferring energy into an elastic potential store"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p17-work-into-elastic-store-9d2f05f7b5-explain",
@@ -1297,73 +1328,67 @@
       "topicId": "phys-y9-p17",
       "topic": "Elastic potential energy",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "On a force–extension graph, does the area under the curve or the gradient measure work done?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "force-extension area"
+          "area",
+          "area under the curve",
+          "area under the graph"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "area. The area under a linear force-extension graph giving work done or energy transferred.",
+        "steps": [
+          "area. The area under a linear force-extension graph giving work done or energy transferred."
         ]
       },
-      "stimulus": {
-        "text": "the area under a linear force-extension graph giving work done or energy transferred"
-      },
-      "feedback": {
-        "short": "the area under a linear force-extension graph giving work done or energy transferred",
-        "steps": [
-          "Key idea: force-extension area.",
-          "the area under a linear force-extension graph giving work done or energy transferred",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: force-extension area"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "force-extension area → the area under a linear force-extension graph giving work done or energy transferred"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p17-force-extension-area-e4ae7cfdb3-restore",
       "conceptId": "phys-y9-p17-force-extension-area-e4ae7cfdb3-concept",
       "topicId": "phys-y9-p17",
       "topic": "Elastic potential energy",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of force-extension area: “the area under a linear force-extension graph giving work done or ___ transferred”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "force-extension area"
+          "energy"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "energy. The area under a linear force-extension graph giving work done or energy transferred.",
+        "steps": [
+          "energy. The area under a linear force-extension graph giving work done or energy transferred."
         ]
       },
-      "stimulus": {
-        "masked": "f__c_-__t___i__ _r__"
-      },
-      "feedback": {
-        "short": "the area under a linear force-extension graph giving work done or energy transferred",
-        "steps": [
-          "Key idea: force-extension area.",
-          "the area under a linear force-extension graph giving work done or energy transferred",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: force-extension area"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "force-extension area → the area under a linear force-extension graph giving work done or energy transferred"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p17-force-extension-area-e4ae7cfdb3-explain",
@@ -1529,7 +1554,7 @@
       "topicId": "phys-y9-p17",
       "topic": "Elastic potential energy",
       "format": "calculation",
-      "prompt": "Calculate the elastic potential energy in a spring with k = 200 N/m and extension 0.10 m.",
+      "prompt": "Calculate the elastic potential energy in a spring with k = 200 N/m and extension 0.10 m. A number on its own will be read in J.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
@@ -1542,7 +1567,9 @@
         ],
         "working": "Eₑ = ½ke² = 0.5 × 200 × 0.10² = 1.0 J",
         "tolerance": 0,
-        "modelAnswer": "1 J"
+        "modelAnswer": "1 J",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -1569,7 +1596,7 @@
       "topicId": "phys-y9-p17",
       "topic": "Elastic potential energy",
       "format": "calculation",
-      "prompt": "A spring stores 2.25 J at extension 0.15 m. Calculate its spring constant.",
+      "prompt": "A spring stores 2.25 J at extension 0.15 m. Calculate its spring constant. A number on its own will be read in N/m.",
       "difficulty": 4,
       "status": "enabled",
       "options": null,
@@ -1582,7 +1609,9 @@
         ],
         "working": "k = 2Eₑ/e² = 4.5 ÷ 0.0225 = 200 N/m",
         "tolerance": 0,
-        "modelAnswer": "200 N/m"
+        "modelAnswer": "200 N/m",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -1682,7 +1711,9 @@
           "triangular area",
           "elastic energy"
         ],
-        "diagramId": "phys-elastic-area"
+        "diagramId": "phys-elastic-area",
+        "image": "/content/diagrams/question-review/phys-elastic-area.svg",
+        "imageAlt": "Lettered figure for Elastic potential energy."
       },
       "feedback": {
         "short": "Place every scientific label at its correct anchor.",

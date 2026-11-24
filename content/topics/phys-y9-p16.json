@@ -497,73 +497,65 @@
       "topicId": "phys-y9-p16",
       "topic": "Springs, force and Hooke’s law — AQA Required Practical 6",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "A spring is stretched without accelerating as a whole. Are its end forces balanced or unbalanced?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "deforming forces"
+          "balanced"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "balanced. More than one force normally acting for a stationary object to change shape.",
+        "steps": [
+          "balanced. More than one force normally acting for a stationary object to change shape."
         ]
       },
-      "stimulus": {
-        "text": "more than one force normally acting for a stationary object to change shape"
-      },
-      "feedback": {
-        "short": "more than one force normally acting for a stationary object to change shape",
-        "steps": [
-          "Key idea: deforming forces.",
-          "more than one force normally acting for a stationary object to change shape",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: deforming forces"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "deforming forces → more than one force normally acting for a stationary object to change shape"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p16-deforming-forces-d328d64632-restore",
       "conceptId": "phys-y9-p16-deforming-forces-d328d64632-concept",
       "topicId": "phys-y9-p16",
       "topic": "Springs, force and Hooke’s law — AQA Required Practical 6",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of deforming forces: “more than one ___ normally acting for a stationary object to change shape”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "deforming forces"
+          "force"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "force. More than one force normally acting for a stationary object to change shape.",
+        "steps": [
+          "force. More than one force normally acting for a stationary object to change shape."
         ]
       },
-      "stimulus": {
-        "masked": "d__o___n_ __r___"
-      },
-      "feedback": {
-        "short": "more than one force normally acting for a stationary object to change shape",
-        "steps": [
-          "Key idea: deforming forces.",
-          "more than one force normally acting for a stationary object to change shape",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: deforming forces"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "deforming forces → more than one force normally acting for a stationary object to change shape"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p16-deforming-forces-d328d64632-explain",
@@ -704,6 +696,10 @@
         "accepted": [
           "Hooke's law",
           "F = ke"
+        ],
+        "reviewedEquivalents": [
+          "F=ke",
+          "F=kx"
         ]
       },
       "stimulus": {
@@ -742,6 +738,10 @@
         "accepted": [
           "Hooke's law",
           "F = ke"
+        ],
+        "reviewedEquivalents": [
+          "F=ke",
+          "F=kx"
         ]
       },
       "stimulus": {
@@ -781,7 +781,11 @@
           "force equals spring constant times extension below the limit of proportionality"
         ],
         "totalMarks": 1,
-        "modelAnswer": "force equals spring constant times extension below the limit of proportionality"
+        "modelAnswer": "force equals spring constant times extension below the limit of proportionality",
+        "reviewedEquivalents": [
+          "force is proportional to extension up to the limit of proportionality",
+          "extension is directly proportional to the applied force up to the limit of proportionality"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -1295,33 +1299,29 @@
       "topicId": "phys-y9-p16",
       "topic": "Springs, force and Hooke’s law — AQA Required Practical 6",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "For an ideal spring obeying Hooke's law, a graph of force against extension is a straight line through which point?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "linear force-extension graph"
+          "origin",
+          "the origin",
+          "(0,0)"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "origin. A straight line through the origin showing force proportional to extension.",
+        "steps": [
+          "origin. A straight line through the origin showing force proportional to extension."
         ]
       },
-      "stimulus": {
-        "text": "a straight line through the origin showing force proportional to extension"
-      },
-      "feedback": {
-        "short": "a straight line through the origin showing force proportional to extension",
-        "steps": [
-          "Key idea: linear force-extension graph.",
-          "a straight line through the origin showing force proportional to extension",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: linear force-extension graph"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "linear force-extension graph → a straight line through the origin showing force proportional to extension"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1331,37 +1331,33 @@
       "conceptId": "phys-y9-p16-linear-force-extension-graph-efb0151c96-concept",
       "topicId": "phys-y9-p16",
       "topic": "Springs, force and Hooke’s law — AQA Required Practical 6",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of linear force-extension graph: “a straight line through the ___ showing force proportional to extension”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "linear force-extension graph"
+          "origin"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "origin. A straight line through the origin showing force proportional to extension.",
+        "steps": [
+          "origin. A straight line through the origin showing force proportional to extension."
         ]
       },
-      "stimulus": {
-        "masked": "l__e__ _o___-e___n___n ___p_"
-      },
-      "feedback": {
-        "short": "a straight line through the origin showing force proportional to extension",
-        "steps": [
-          "Key idea: linear force-extension graph.",
-          "a straight line through the origin showing force proportional to extension",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: linear force-extension graph"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "linear force-extension graph → a straight line through the origin showing force proportional to extension"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p16-linear-force-extension-graph-efb0151c96-explain",
@@ -2333,34 +2329,29 @@
       "conceptId": "phys-y9-p16-spring-practical-quality-52a72c176d-concept",
       "topicId": "phys-y9-p16",
       "topic": "Springs, force and Hooke’s law — AQA Required Practical 6",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Which error occurs when a scale is read from an angle instead of at eye level?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "spring practical quality"
+          "parallax",
+          "parallax error"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "parallax. Eye-level reading, fixed reference point, stopped oscillations, safe loads and repeats.",
+        "steps": [
+          "parallax. Eye-level reading, fixed reference point, stopped oscillations, safe loads and repeats."
         ]
       },
-      "stimulus": {
-        "masked": "s__i__ _r___i___ q___i__"
-      },
-      "feedback": {
-        "short": "eye-level reading, fixed reference point, stopped oscillations, safe loads and repeats",
-        "steps": [
-          "Key idea: spring practical quality.",
-          "eye-level reading, fixed reference point, stopped oscillations, safe loads and repeats",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: spring practical quality"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "spring practical quality → eye-level reading, fixed reference point, stopped oscillations, safe loads and repeats"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -2597,7 +2588,7 @@
       "topicId": "phys-y9-p16",
       "topic": "Springs, force and Hooke’s law — AQA Required Practical 6",
       "format": "calculation",
-      "prompt": "A spring has k = 250 N/m and extension 0.040 m. Calculate the force.",
+      "prompt": "A spring has k = 250 N/m and extension 0.040 m. Calculate the force. A number on its own will be read in N.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
@@ -2610,7 +2601,9 @@
         ],
         "working": "F = ke = 250 × 0.040 = 10 N",
         "tolerance": 0,
-        "modelAnswer": "10 N"
+        "modelAnswer": "10 N",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -2637,7 +2630,7 @@
       "topicId": "phys-y9-p16",
       "topic": "Springs, force and Hooke’s law — AQA Required Practical 6",
       "format": "calculation",
-      "prompt": "A 12 N force acts on a spring with k = 300 N/m below the limit of proportionality. Calculate extension.",
+      "prompt": "A 12 N force acts on a spring with k = 300 N/m below the limit of proportionality. Calculate extension. A number on its own will be read in m.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -2651,7 +2644,9 @@
         ],
         "working": "e = F/k = 12 ÷ 300 = 0.040 m",
         "tolerance": 0,
-        "modelAnswer": "0.04 m"
+        "modelAnswer": "0.04 m",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -2724,37 +2719,41 @@
       "conceptId": "phys-y9-p16-app-limits-compare-concept",
       "topicId": "phys-y9-p16",
       "topic": "Springs, force and Hooke’s law — AQA Required Practical 6",
-      "format": "mark_points",
-      "prompt": "Distinguish the limit of proportionality from the elastic limit.",
+      "format": "extended_response",
+      "prompt": "Answer each numbered part on a separate line, in order.\n1. Beyond which limit does a spring's force–extension graph first cease to be a straight line through the origin?\n2. Beyond which limit is a spring permanently deformed when unloaded?\n3. Between these limits, will the unloaded spring recover its original length?",
       "difficulty": 4,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "mark_points",
-        "markPoints": [
-          "beyond the limit of proportionality force is no longer proportional to extension",
-          "beyond the elastic limit the spring does not fully return when unloaded",
-          "the two limits describe different behaviours"
+        "mode": "ordered_parts",
+        "reviewedParts": [
+          [
+            "limit of proportionality",
+            "proportional limit"
+          ],
+          [
+            "elastic limit",
+            "limit of elasticity"
+          ],
+          [
+            "yes"
+          ]
         ],
         "totalMarks": 3,
-        "modelAnswer": "beyond the limit of proportionality force is no longer proportional to extension beyond the elastic limit the spring does not fully return when unloaded the two limits describe different behaviours"
+        "modelAnswer": "limit of proportionality\nelastic limit\nyes"
       },
-      "stimulus": {
-        "marks": 3
-      },
+      "stimulus": {},
       "feedback": {
-        "short": "beyond the limit of proportionality force is no longer proportional to extension beyond the elastic limit the spring does not fully return when unloaded the two limits describe different behaviours",
+        "short": "limit of proportionality\nelastic limit\nyes",
         "steps": [
-          "beyond the limit of proportionality force is no longer proportional to extension beyond the elastic limit the spring does not fully return when unloaded the two limits describe different behaviours",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
-          "Suggested answer: beyond the limit of proportionality force is no longer proportional to extension beyond the elastic limit the spring does not fully return when unloaded the two limits describe different behaviours"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "beyond the limit of proportionality force is no longer proportional to extension beyond the elastic limit the spring does not fully return when unloaded the two limits describe different behaviours"
+          "1. limit of proportionality",
+          "2. elastic limit",
+          "3. yes"
+        ]
       },
       "task": {
-        "label": "EXPLAIN",
-        "instruction": "Write one distinct scientific idea for each available mark."
+        "label": "SHORT ANSWERS",
+        "instruction": "One response per line, in the order shown."
       },
       "preview": true,
       "ordinary": true
@@ -2797,7 +2796,9 @@
           "limit of proportionality",
           "force"
         ],
-        "diagramId": "phys-force-extension"
+        "diagramId": "phys-force-extension",
+        "image": "/content/diagrams/question-review/phys-force-extension.svg",
+        "imageAlt": "Lettered figure for Springs, force and Hooke’s law — AQA Required Practical 6."
       },
       "feedback": {
         "short": "Place every scientific label at its correct anchor.",

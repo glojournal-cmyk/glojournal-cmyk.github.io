@@ -628,6 +628,12 @@ function mark(q,value){
     return {credit,status:credit>=0.999?'Correct':credit>0?'Partly correct':'Incorrect',matched,total:groups.length||1};
   }
 
+  if (q.answer?.numericFinalForms) {
+    const final = String(value).split(/=|→/).pop().trim();
+    const quantity = s => String(s).normalize('NFKC').toLowerCase().replace(/[μµ]/g,'u').replace(/(?<=\d),(?=\d{3}(?:\D|$))/g,'').replace(/\s+/g,'').replace(/\.$/,'');
+    const ok = q.answer.numericFinalForms.some(form => quantity(form) === quantity(final));
+    return {credit:+ok,status:ok?'Correct':'Incorrect',matched:+ok,total:1};
+  }
   const exact=acceptedForMarking(q).some(a=>normal(a,rule)===normal(value,rule));
   const ok=exact||(flexible&&equivalentCreusa(q,value));
   return {credit:ok?1:0,status:ok?'Correct':'Incorrect',matched:ok?1:0,total:1};

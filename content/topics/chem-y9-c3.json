@@ -1883,33 +1883,28 @@
       "topicId": "chem-y9-c3",
       "topic": "Separation techniques — filtration and distillation",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Which method forms hydrated salt crystals from a concentrated solution as it cools?",
       "difficulty": 2,
       "status": "preview",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "avoiding complete dryness"
+          "crystallisation",
+          "crystallization"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Crystallisation allows crystals to form without heating the solution to dryness.",
+        "steps": [
+          "Crystallisation allows crystals to form without heating the solution to dryness."
         ]
       },
-      "stimulus": {
-        "text": "not heating some dissolved substances until all solvent is gone because heat may damage them"
-      },
-      "feedback": {
-        "short": "not heating some dissolved substances until all solvent is gone because heat may damage them",
-        "steps": [
-          "Key idea: avoiding complete dryness.",
-          "not heating some dissolved substances until all solvent is gone because heat may damage them",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: avoiding complete dryness"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "avoiding complete dryness → not heating some dissolved substances until all solvent is gone because heat may damage them"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": false
@@ -1919,37 +1914,36 @@
       "conceptId": "chem-y9-c3-avoiding-complete-dryness-d962a4d08c-concept",
       "topicId": "chem-y9-c3",
       "topic": "Separation techniques — filtration and distillation",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "After concentrating a salt solution by gentle heating, should you let it cool or continue heating it to dryness to obtain hydrated crystals?",
       "difficulty": 2,
       "status": "preview",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "avoiding complete dryness"
+          "let it cool",
+          "cool",
+          "cool it",
+          "allow it to cool"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "Hydrated crystals form as the concentrated solution cools.",
+        "steps": [
+          "Hydrated crystals form as the concentrated solution cools."
         ]
       },
-      "stimulus": {
-        "masked": "a__i___g ___p___e ___n___"
-      },
-      "feedback": {
-        "short": "not heating some dissolved substances until all solvent is gone because heat may damage them",
-        "steps": [
-          "Key idea: avoiding complete dryness.",
-          "not heating some dissolved substances until all solvent is gone because heat may damage them",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: avoiding complete dryness"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "avoiding complete dryness → not heating some dissolved substances until all solvent is gone because heat may damage them"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": false
+      "ordinary": false,
+      "formal": false
     },
     {
       "id": "chem-y9-c3-avoiding-complete-dryness-d962a4d08c-explain",
@@ -2291,7 +2285,9 @@
           "lower-boiling vapour",
           "condensed liquid"
         ],
-        "diagramId": "chem-distillation"
+        "diagramId": "chem-distillation",
+        "image": "/content/diagrams/question-review/chem-distillation.svg",
+        "imageAlt": "Lettered figure for Separation techniques — filtration and distillation."
       },
       "feedback": {
         "short": "Place every scientific label at its correct anchor.",

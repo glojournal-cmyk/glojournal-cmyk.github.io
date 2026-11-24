@@ -889,33 +889,27 @@
       "topicId": "bio-y9-b6",
       "topic": "Stem cells",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Which unspecialised cells can divide and differentiate to replace damaged specialised cells?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "cell-replacement therapy"
+          "stem cells"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "stem cells. A possible medical use in which stem cells replace damaged cells in conditions such as diabetes or paralysis.",
+        "steps": [
+          "stem cells. A possible medical use in which stem cells replace damaged cells in conditions such as diabetes or paralysis."
         ]
       },
-      "stimulus": {
-        "text": "a possible medical use in which stem cells replace damaged cells in conditions such as diabetes or paralysis"
-      },
-      "feedback": {
-        "short": "a possible medical use in which stem cells replace damaged cells in conditions such as diabetes or paralysis",
-        "steps": [
-          "Key idea: cell-replacement therapy.",
-          "a possible medical use in which stem cells replace damaged cells in conditions such as diabetes or paralysis",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: cell-replacement therapy"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "cell-replacement therapy → a possible medical use in which stem cells replace damaged cells in conditions such as diabetes or paralysis"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -925,34 +919,28 @@
       "conceptId": "bio-y9-b6-cell-replacement-therapy-448a3d65d3-concept",
       "topicId": "bio-y9-b6",
       "topic": "Stem cells",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Which unspecialised cells can divide and differentiate to replace damaged specialised cells?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "cell-replacement therapy"
+          "stem cells"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "stem cells. A possible medical use in which stem cells replace damaged cells in conditions such as diabetes or paralysis.",
+        "steps": [
+          "stem cells. A possible medical use in which stem cells replace damaged cells in conditions such as diabetes or paralysis."
         ]
       },
-      "stimulus": {
-        "masked": "c__l-___l___m___ t___a__"
-      },
-      "feedback": {
-        "short": "a possible medical use in which stem cells replace damaged cells in conditions such as diabetes or paralysis",
-        "steps": [
-          "Key idea: cell-replacement therapy.",
-          "a possible medical use in which stem cells replace damaged cells in conditions such as diabetes or paralysis",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: cell-replacement therapy"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "cell-replacement therapy → a possible medical use in which stem cells replace damaged cells in conditions such as diabetes or paralysis"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1285,33 +1273,29 @@
       "topicId": "bio-y9-b6",
       "topic": "Stem cells",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "A donor sample contains a virus. What type of infection could be transmitted to a transplant recipient?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "viral infection risk"
+          "viral",
+          "viral infection",
+          "virus infection"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "viral. A possible problem involving transfer of a viral infection with stem-cell treatment.",
+        "steps": [
+          "viral. A possible problem involving transfer of a viral infection with stem-cell treatment."
         ]
       },
-      "stimulus": {
-        "text": "a possible problem involving transfer of a viral infection with stem-cell treatment"
-      },
-      "feedback": {
-        "short": "a possible problem involving transfer of a viral infection with stem-cell treatment",
-        "steps": [
-          "Key idea: viral infection risk.",
-          "a possible problem involving transfer of a viral infection with stem-cell treatment",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: viral infection risk"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "viral infection risk → a possible problem involving transfer of a viral infection with stem-cell treatment"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1321,34 +1305,30 @@
       "conceptId": "bio-y9-b6-viral-infection-risk-68fbfd3d38-concept",
       "topicId": "bio-y9-b6",
       "topic": "Stem cells",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "A donor sample contains a virus. What type of infection could be transmitted to a transplant recipient?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "viral infection risk"
+          "viral",
+          "viral infection",
+          "virus infection"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "viral. A possible problem involving transfer of a viral infection with stem-cell treatment.",
+        "steps": [
+          "viral. A possible problem involving transfer of a viral infection with stem-cell treatment."
         ]
       },
-      "stimulus": {
-        "masked": "v__a_ __f___i__ _i__"
-      },
-      "feedback": {
-        "short": "a possible problem involving transfer of a viral infection with stem-cell treatment",
-        "steps": [
-          "Key idea: viral infection risk.",
-          "a possible problem involving transfer of a viral infection with stem-cell treatment",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: viral infection risk"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "viral infection risk → a possible problem involving transfer of a viral infection with stem-cell treatment"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1483,33 +1463,30 @@
       "topicId": "bio-y9-b6",
       "topic": "Stem cells",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Some people believe an embryo has moral status. What ethical objection can they raise to obtaining stem cells by destroying it?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "embryo ethical objection"
+          "destruction of an embryo",
+          "destroying an embryo",
+          "ending a potential human life",
+          "loss of potential human life"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "destruction of an embryo. An ethical or religious concern about using human embryos.",
+        "steps": [
+          "destruction of an embryo. An ethical or religious concern about using human embryos."
         ]
       },
-      "stimulus": {
-        "text": "an ethical or religious concern about using human embryos"
-      },
-      "feedback": {
-        "short": "an ethical or religious concern about using human embryos",
-        "steps": [
-          "Key idea: embryo ethical objection.",
-          "an ethical or religious concern about using human embryos",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: embryo ethical objection"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "embryo ethical objection → an ethical or religious concern about using human embryos"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1519,34 +1496,31 @@
       "conceptId": "bio-y9-b6-embryo-ethical-objection-de69a13289-concept",
       "topicId": "bio-y9-b6",
       "topic": "Stem cells",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Some people believe an embryo has moral status. What ethical objection can they raise to obtaining stem cells by destroying it?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "embryo ethical objection"
+          "destruction of an embryo",
+          "destroying an embryo",
+          "ending a potential human life",
+          "loss of potential human life"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "destruction of an embryo. An ethical or religious concern about using human embryos.",
+        "steps": [
+          "destruction of an embryo. An ethical or religious concern about using human embryos."
         ]
       },
-      "stimulus": {
-        "masked": "e__r__ _t___a_ __j___i__"
-      },
-      "feedback": {
-        "short": "an ethical or religious concern about using human embryos",
-        "steps": [
-          "Key idea: embryo ethical objection.",
-          "an ethical or religious concern about using human embryos",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: embryo ethical objection"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "embryo ethical objection → an ethical or religious concern about using human embryos"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1681,33 +1655,27 @@
       "topicId": "bio-y9-b6",
       "topic": "Stem cells",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Copies of a rare plant produced from the same meristem have the same genetic information. What are these copies called?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "rare-species cloning"
+          "clones"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "clones. Using plant meristem cells to produce copies and help preserve a rare plant.",
+        "steps": [
+          "clones. Using plant meristem cells to produce copies and help preserve a rare plant."
         ]
       },
-      "stimulus": {
-        "text": "using plant meristem cells to produce copies and help preserve a rare plant"
-      },
-      "feedback": {
-        "short": "using plant meristem cells to produce copies and help preserve a rare plant",
-        "steps": [
-          "Key idea: rare-species cloning.",
-          "using plant meristem cells to produce copies and help preserve a rare plant",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: rare-species cloning"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "rare-species cloning → using plant meristem cells to produce copies and help preserve a rare plant"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1717,34 +1685,28 @@
       "conceptId": "bio-y9-b6-rare-species-cloning-94d75e7571-concept",
       "topicId": "bio-y9-b6",
       "topic": "Stem cells",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Copies of a rare plant produced from the same meristem have the same genetic information. What are these copies called?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "rare-species cloning"
+          "clones"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "clones. Using plant meristem cells to produce copies and help preserve a rare plant.",
+        "steps": [
+          "clones. Using plant meristem cells to produce copies and help preserve a rare plant."
         ]
       },
-      "stimulus": {
-        "masked": "r__e-___c___ c___i__"
-      },
-      "feedback": {
-        "short": "using plant meristem cells to produce copies and help preserve a rare plant",
-        "steps": [
-          "Key idea: rare-species cloning.",
-          "using plant meristem cells to produce copies and help preserve a rare plant",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: rare-species cloning"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "rare-species cloning → using plant meristem cells to produce copies and help preserve a rare plant"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1918,34 +1880,29 @@
       "conceptId": "bio-y9-b6-crop-mass-production-06426f7b4d-concept",
       "topicId": "bio-y9-b6",
       "topic": "Stem cells",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Young plants produced by cloning from one parent are genetically identical unless which type of DNA change occurs?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "crop mass production"
+          "mutation",
+          "a mutation"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "mutation. Using plant meristem cells to make many plants with useful characteristics quickly.",
+        "steps": [
+          "mutation. Using plant meristem cells to make many plants with useful characteristics quickly."
         ]
       },
-      "stimulus": {
-        "masked": "c__p ___s ___d___i__"
-      },
-      "feedback": {
-        "short": "using plant meristem cells to make many plants with useful characteristics quickly",
-        "steps": [
-          "Key idea: crop mass production.",
-          "using plant meristem cells to make many plants with useful characteristics quickly",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: crop mass production"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "crop mass production → using plant meristem cells to make many plants with useful characteristics quickly"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
