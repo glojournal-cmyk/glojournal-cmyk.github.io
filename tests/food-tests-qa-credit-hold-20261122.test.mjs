@@ -122,3 +122,24 @@ test('candidate point IDs with truthful correct flags cannot create verified Dai
   assert.strictEqual(result,old,'Mastery moved for '+part.pointId);
  }
 });
+
+test('wrapped Mastery records with a harmless display ID still inherit held Food Tests sourceID and pointID',()=>{
+ const point=structuredCandidate.items.flatMap(x=>x.parts).find(p=>p.pointId==='bio-y8-app-ethanol-safety::p1');
+ assert.ok(point);
+ const original={stage:'learning',roundTarget:20,attempts:[]};
+ const common={questionId:'display-wrapper-id',year:8,mode:'mastery',day:'2026-11-24',
+  correct:true,formal:true,format:'mc_single'};
+ for(const entry of [
+  {...common,sourceId:'bio-y8-app-ethanol-safety'},
+  {...common,pointId:point.pointId},
+  {...common,id:'different-wrapper',sourceId:'bio-y8-app-ethanol-safety',pointId:point.pointId},
+  {...common,topicId:FOOD_TESTS_QA_TOPIC}
+ ]){
+  assert.equal(isFoodTestsQaHeld(entry),true);
+  const result=addMasteryEvidence({masteryV2:original},entry);
+  assert.strictEqual(result,original,'Mastery must not record wrapped Food Tests entry');
+  assert.deepEqual(original.attempts,[]);
+ }
+ const unrelated=addMasteryEvidence({masteryV2:original},{...common,questionId:'other-biology-question',sourceId:'other-biology-source'});
+ assert.notStrictEqual(unrelated,original,'Do not block unrelated source-based Mastery evidence');
+});
