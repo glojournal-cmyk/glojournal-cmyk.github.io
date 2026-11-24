@@ -60,3 +60,30 @@ test('all prior risk edges persist; verify every one of 17,955 new rotation pair
  for(const x of cases)assert.equal(x.skills.length,5);
  assert.equal(c.policy.matchingPairMarksAreNotIndependentDailyExposures,true);assert.equal(c.policy.multiSkillQuestionIsOneRotationExposure,true);
 });
+
+test('v2 pinned candidate incorporates exactly 64 verified option overlays without changing other content, rotation or credit policy',()=>{
+ const v2=read('qa/food-tests-143-consolidated-held-candidate-v2-20261124.json');
+ for(const f of v2.inputs){const b=raw(f.path);assert.equal(createHash('sha1').update('blob '+b.length+'\0').update(b).digest('hex'),f.blob);}
+ assert.equal(v2.inputs.length,c.inputs.length+3);
+ const near=read('qa/food-tests-16-near-miss-distractor-proposals-20261124.json');
+ const order=read('qa/food-tests-48-option-order-overlay-20261124.json');
+ const changes=new Map([...near.items.map(q=>[q.sourceId,q.newOptions]),...order.items.map(q=>[q.sourceId,q.options])]);
+ assert.equal(changes.size,64);
+ assert.deepEqual(v2.counts,{...c.counts,nearMissOverlayQuestions:16,optionOrderOverlayQuestions:48});
+ assert.deepEqual(v2.rotation,c.rotation);
+ assert.deepEqual(v2.additionalCorrections,c.additionalCorrections);
+ assert.deepEqual(v2.scoringFollowup,c.scoringFollowup);
+ assert.deepEqual({...v2.policy,notes:c.policy.notes},c.policy);
+ assert.equal(v2.release,'BLOCKED');assert.equal(v2.formalCreditEligible,false);
+ assert.equal(v2.groups.length,143);
+ let changed=0;
+ for(let i=0;i<c.groups.length;i++){
+  const before=c.groups[i],after=v2.groups[i],options=changes.get(before.sourceId);
+  if(options){assert.deepEqual(after,{...before,question:{...before.question,options}});assert.equal(options.filter(x=>x===after.question.answer.accepted[0]).length,1);changed++;}
+  else assert.deepEqual(after,before);
+  assert.equal(after.formalCreditEligible,false);assert.equal(after.academicApproved,false);
+  assert.equal(canEarnFormalCredit(after.sourceId),false);
+ }
+ assert.equal(changed,64);
+ for(const u of v2.rotation.units)assert.equal(canEarnFormalCredit(u.id),false);
+});
