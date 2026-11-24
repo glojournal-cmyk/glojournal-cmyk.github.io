@@ -21,7 +21,7 @@ for(const [name,engine,viewport] of [
    status:200,contentType:'application/pdf',body:'%PDF-1.4\n%%EOF\n',
    headers:{'Access-Control-Allow-Origin':'*'}}));
  await page.goto(BASE+'/notes/',{waitUntil:'domcontentloaded'});
- await page.waitForFunction(()=>document.querySelector('#status')?.textContent?.includes('7 / 96 Notes available'));
+ await page.waitForFunction(()=>document.querySelector('#status')?.textContent?.includes('8 / 97 Notes available'));
  assert.equal(await page.locator('#yearSelect').inputValue(),'year9');
  assert.equal(await page.locator('#subjectScreen').isVisible(),true);
  assert.equal(await page.locator('#detailScreen').isVisible(),false);
@@ -94,10 +94,17 @@ for(const [name,engine,viewport] of [
  await page.locator('.subject-card[data-subject="latin"]').click();
  await page.waitForURL(/#year9\/latin/);
  await page.locator('#detailScreen').waitFor({state:'visible'});
- assert.equal(await page.locator('.note-row').count(),13,'seven topical Latin notes plus six vocabulary chapters');
+ assert.equal(await page.locator('.note-row').count(),14,'seven topical Latin notes, six vocabulary chapters and one reading edition');
  assert.equal(await page.locator('.topic-section[data-group="Topics"] .note-row').count(),6);
  assert.equal(await page.locator('.topic-section[data-group="Vocabulary Chapters"] .note-row').count(),6);
  assert.equal(await page.locator('.topic-section[data-group="Named Topics"] .note-row').count(),1);
+ const reading=page.locator('.topic-section[data-group="Test Revision"] .note-row',{hasText:'10-page Key Revision Notes'});
+ assert.equal(await reading.count(),1);
+ assert.equal(await reading.isEnabled(),true);
+ await reading.click();
+ assert.equal(await page.locator('#viewer').isVisible(),true);
+ assert.equal(await page.locator('#openTab').getAttribute('href'),'/notes/year9-latin-key-revision-20261120/');
+ await page.locator('#closeReader').click();
  assert.equal(await page.locator('.topic-section[data-group="Topics"] .note-row').first().locator('.row-topic').textContent(),'Topic 1');
  assert.equal(await page.locator('.topic-section[data-group="Topics"] .note-row').first().locator('.row-name').textContent(),'Sum & Possum');
  assert.equal(await page.locator('.note-row .row-name').filter({hasText:'ImageGenerated'}).count(),0,'Raw production filenames must be hidden');
