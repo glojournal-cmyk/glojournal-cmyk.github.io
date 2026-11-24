@@ -28,7 +28,14 @@ test('all 143 source IDs appear exactly once, all 190 rotation units are held, e
 });
 test('18 editorial overlays and 48 replacement records survive integration; three additional wording edits only',()=>{
  const bySource=new Map(groups.map(g=>[g.sourceId,g]));
- for(const x of inputs.editorial.items)assert.deepEqual(bySource.get(x.sourceId).question,x.question);
+ for(const x of inputs.editorial.items){
+  const current=bySource.get(x.sourceId).question;
+  if(x.sourceId===c.scoringFollowup.sourceId){
+   assert.deepEqual(current,{...x.question,answer:{...x.question.answer,accepted:[...x.question.answer.accepted,...c.scoringFollowup.addedAccepted]}});
+   assert.equal(c.scoringFollowup.formalCreditEligible,false);
+   assert.equal(c.scoringFollowup.originalSourceEdited,false);
+  }else assert.deepEqual(current,x.question);
+ }
  for(const x of inputs.replacement.questions){const q=bySource.get(x.sourceId).question;assert.equal(q.prompt,x.prompt);assert.deepEqual(q.options,x.options);assert.deepEqual(q.answer,x.answer);}
  const originals=inputs.structured.items.flatMap(g=>g.parts), current=groups.filter(g=>g.kind==='structured-candidate').flatMap(g=>g.parts);
  assert.equal(current.length,99);
