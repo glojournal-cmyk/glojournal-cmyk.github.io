@@ -1,0 +1,830 @@
+{
+  "kind": "PRIORITY42_DISTRACTOR_REPAIR_SIMULTANEOUS8_NO_RELEASE",
+  "date": "2026-11-24",
+  "sourceRegister": "qa-staging/math-priority116-content-acceptance-consolidated-20261124.json",
+  "sourceRegisterBlobSha": "def5e88577208f21443e777ad7e28dc6772c63df",
+  "counts": {
+    "revised": 8,
+    "wrongOptionsDerived": 40,
+    "unchangedKeys": 8,
+    "residualDiagnosticHolds": 1,
+    "formalApprovals": 0
+  },
+  "limitations": "Arithmetic of alternative elimination, boundary, identity and ratio errors checked; some errors lead to impossible values and remain provisional diagnostic hypotheses. Q036 sum cannot diagnose symmetric root-magnitude errors. No empirical diagnostic validation, independent grade or taught-scope approval, import or credit.",
+  "rows": [
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-007",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-007-DEMAND-UPGRADE-20261124",
+      "sourceRecordPath": "qa-staging/math-demand-upgrade-simultaneous26-20261124.json",
+      "sourceRecordBlobSha": "e8983bdc7519f2d42fbfcb926982a00f2b654884",
+      "proposedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-007-DISTRACTOR-REPAIR-20261124",
+      "unchangedCorrectKey": "-\\frac{11}{3}",
+      "disposition": "REVISED_TRACEABLE_ERROR_PATHS_PENDING_INDEPENDENT_REVIEW",
+      "residualDiagnosticHold": false,
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-009",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-DEMAND-UPGRADE-20261124",
+      "sourceRecordPath": "qa-staging/math-demand-upgrade-simultaneous26-20261124.json",
+      "sourceRecordBlobSha": "e8983bdc7519f2d42fbfcb926982a00f2b654884",
+      "proposedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-DISTRACTOR-REPAIR-20261124",
+      "unchangedCorrectKey": "78",
+      "disposition": "REVISED_TRACEABLE_ERROR_PATHS_PENDING_INDEPENDENT_REVIEW",
+      "residualDiagnosticHold": false,
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-010",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-DEMAND-UPGRADE-20261124",
+      "sourceRecordPath": "qa-staging/math-demand-upgrade-simultaneous26-20261124.json",
+      "sourceRecordBlobSha": "e8983bdc7519f2d42fbfcb926982a00f2b654884",
+      "proposedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-DISTRACTOR-REPAIR-20261124",
+      "unchangedCorrectKey": "36",
+      "disposition": "REVISED_TRACEABLE_ERROR_PATHS_PENDING_INDEPENDENT_REVIEW",
+      "residualDiagnosticHold": false,
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-016",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-016-DEMAND-UPGRADE-20261124",
+      "sourceRecordPath": "qa-staging/math-demand-upgrade-simultaneous26-20261124.json",
+      "sourceRecordBlobSha": "e8983bdc7519f2d42fbfcb926982a00f2b654884",
+      "proposedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-016-DISTRACTOR-REPAIR-20261124",
+      "unchangedCorrectKey": "14",
+      "disposition": "REVISED_TRACEABLE_ERROR_PATHS_PENDING_INDEPENDENT_REVIEW",
+      "residualDiagnosticHold": false,
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-023",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-DEMAND-UPGRADE-20261124",
+      "sourceRecordPath": "qa-staging/math-demand-upgrade-simultaneous26-20261124.json",
+      "sourceRecordBlobSha": "e8983bdc7519f2d42fbfcb926982a00f2b654884",
+      "proposedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-DISTRACTOR-REPAIR-20261124",
+      "unchangedCorrectKey": "133",
+      "disposition": "REVISED_TRACEABLE_ERROR_PATHS_PENDING_INDEPENDENT_REVIEW",
+      "residualDiagnosticHold": false,
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-028",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-PRIORITY-CONTENT-REVIEW-20261124",
+      "sourceRecordPath": "qa-staging/math-priority116-content-acceptance-simultaneous15-20261124.json",
+      "sourceRecordBlobSha": "919945f5acb9cb7092e1043a94cdcc941a9b07e5",
+      "proposedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-DISTRACTOR-REPAIR-20261124",
+      "unchangedCorrectKey": "105",
+      "disposition": "REVISED_TRACEABLE_ERROR_PATHS_PENDING_INDEPENDENT_REVIEW",
+      "residualDiagnosticHold": false,
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-030",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-DEMAND-UPGRADE-20261124",
+      "sourceRecordPath": "qa-staging/math-demand-upgrade-simultaneous26-20261124.json",
+      "sourceRecordBlobSha": "e8983bdc7519f2d42fbfcb926982a00f2b654884",
+      "proposedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-DISTRACTOR-REPAIR-20261124",
+      "unchangedCorrectKey": "\\frac{349}{16}",
+      "disposition": "REVISED_TRACEABLE_ERROR_PATHS_PENDING_INDEPENDENT_REVIEW",
+      "residualDiagnosticHold": false,
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-036",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-PRIORITY-CONTENT-REVIEW-20261124",
+      "sourceRecordPath": "qa-staging/math-priority116-content-acceptance-simultaneous15-20261124.json",
+      "sourceRecordBlobSha": "919945f5acb9cb7092e1043a94cdcc941a9b07e5",
+      "proposedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-DISTRACTOR-REPAIR-20261124",
+      "unchangedCorrectKey": "4",
+      "disposition": "REVISED_TRACEABLE_ERROR_PATHS_PENDING_INDEPENDENT_REVIEW",
+      "residualDiagnosticHold": true,
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ],
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-007",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-007",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-007-DISTRACTOR-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-007-REVIEW-2",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "linear-combination-target",
+        "stem": "For real x,y, $7x+4y=31$ and $3x-2y=5$. Find the ratio of $23x+2y$ to $-x-8y$ in simplest signed fractional form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\frac{77}{41}",
+            "errorPath": "Add the first equation to twice the second instead of subtracting it when finding the denominator, obtaining 10+31=41."
+          },
+          {
+            "id": "B",
+            "latex": "-\\frac{47}{21}",
+            "errorPath": "Subtract three times the second equation when forming the numerator instead of adding it: 62−15=47."
+          },
+          {
+            "id": "C",
+            "latex": "-\\frac{11}{3}"
+          },
+          {
+            "id": "D",
+            "latex": "-\\frac{46}{21}",
+            "errorPath": "Omit the factor 2 on the first equation when forming the numerator: 31+15=46."
+          },
+          {
+            "id": "E",
+            "latex": "\\frac{11}{3}",
+            "errorPath": "Lose the sign of the denominator, using 77/21."
+          },
+          {
+            "id": "F",
+            "latex": "-\\frac{3}{11}",
+            "errorPath": "Reverse the ratio, dividing −21 by 77."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "-\\frac{11}{3}",
+        "workedSolutionSteps": [
+          "Notice that 23x+2y=2(7x+4y)+3(3x−2y), so its value is 77.",
+          "Also −x−8y=2(3x−2y)−(7x+4y), so its value is −21.",
+          "The quotient is 77/(−21)=−11/3."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Identify two independent linear combinations from their coefficients.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-007-DEMAND-UPGRADE-20261124"
+      },
+      "derivedWrongValues": [
+        {
+          "latex": "\\frac{77}{41}",
+          "derivation": "Add the first equation to twice the second instead of subtracting it when finding the denominator, obtaining 10+31=41.",
+          "derived": 1.8780487804878048
+        },
+        {
+          "latex": "-\\frac{47}{21}",
+          "derivation": "Subtract three times the second equation when forming the numerator instead of adding it: 62−15=47.",
+          "derived": -2.238095238095238
+        },
+        {
+          "latex": "-\\frac{46}{21}",
+          "derivation": "Omit the factor 2 on the first equation when forming the numerator: 31+15=46.",
+          "derived": -2.1904761904761907
+        },
+        {
+          "latex": "\\frac{11}{3}",
+          "derivation": "Lose the sign of the denominator, using 77/21.",
+          "derived": 3.6666666666666665
+        },
+        {
+          "latex": "-\\frac{3}{11}",
+          "derivation": "Reverse the ratio, dividing −21 by 77.",
+          "derived": -0.2727272727272727
+        }
+      ]
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-009",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-009",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-DISTRACTOR-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "ratio-and-domain",
+        "stem": "Real x,y satisfy $\\frac{x+y}{3}=\\frac{x-y}{2}$ and $2x+3y=k$. For positive integer k≤60, find the sum of all k for which both x and y are positive integers and x+y is divisible by 4.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "78"
+          },
+          {
+            "id": "B",
+            "latex": "130",
+            "errorPath": "Require positive integer solutions but ignore divisibility of x+y by 4; sum all multiples of 13 up to 60."
+          },
+          {
+            "id": "C",
+            "latex": "0",
+            "errorPath": "Reverse the cross-multiplication factors, writing 3(x+y)=2(x−y); this gives x=−5y, so no positive pair is found."
+          },
+          {
+            "id": "D",
+            "latex": "52",
+            "errorPath": "Require y itself to be divisible by 4 instead of x+y; only y=4 is counted."
+          },
+          {
+            "id": "E",
+            "latex": "189",
+            "errorPath": "Omit the 2y term when collecting y terms after cross-multiplication, obtaining x=3y. Then k=9y and x+y=4y, so all six values fit."
+          },
+          {
+            "id": "F",
+            "latex": "210",
+            "errorPath": "Subtract the y coefficients instead of adding them when rearranging, obtaining x=y. Then k=5y and y must be even, so sum k=10,20,…,60."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "78",
+        "workedSolutionSteps": [
+          "Cross-multiply: 2(x+y)=3(x−y), hence x=5y. Then k=13y.",
+          "For positive integer y, k≤60 implies y=1,2,3,4. The sum x+y=6y is divisible by 4 exactly when y is even.",
+          "Thus y=2,4, giving k=26,52, whose sum is 78."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Derive a ratio and combine integer feasibility with a divisibility constraint.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-DEMAND-UPGRADE-20261124",
+        "provisionalCrossTopicMasteryHold": "Integer feasibility of a linear model or parameter; cross-topic grouping pending."
+      },
+      "derivedWrongValues": [
+        {
+          "latex": "130",
+          "derivation": "Require positive integer solutions but ignore divisibility of x+y by 4; sum all multiples of 13 up to 60.",
+          "derived": 130
+        },
+        {
+          "latex": "0",
+          "derivation": "Reverse the cross-multiplication factors, writing 3(x+y)=2(x−y); this gives x=−5y, so no positive pair is found.",
+          "derived": 0
+        },
+        {
+          "latex": "52",
+          "derivation": "Require y itself to be divisible by 4 instead of x+y; only y=4 is counted.",
+          "derived": 52
+        },
+        {
+          "latex": "189",
+          "derivation": "Omit the 2y term when collecting y terms after cross-multiplication, obtaining x=3y. Then k=9y and x+y=4y, so all six values fit.",
+          "derived": 189
+        },
+        {
+          "latex": "210",
+          "derivation": "Subtract the y coefficients instead of adding them when rearranging, obtaining x=y. Then k=5y and y must be even, so sum k=10,20,…,60.",
+          "derived": 210
+        }
+      ]
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-010",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-010",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-DISTRACTOR-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "parameter-invariant",
+        "stem": "For integer c, the equations $x+2y=c$ and $3x-2y=12-c$ have a unique solution. Find the sum of all integers c for which both x,y are positive integers and $2< x+y\\le8$, and y is not a multiple of 3.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "45",
+            "errorPath": "Ignore the exclusion of multiples of 3 in y; sum c=5,7,9,11,13."
+          },
+          {
+            "id": "B",
+            "latex": "23",
+            "errorPath": "Misread x+y≤8 as x+y<8, excluding y=5 and c=13."
+          },
+          {
+            "id": "C",
+            "latex": "76",
+            "errorPath": "Require c to be an integer but permit fractional y: c=4,…,13, excluding c=9 where y=3."
+          },
+          {
+            "id": "D",
+            "latex": "60",
+            "errorPath": "Apply 2<y≤8 instead of 2<x+y≤8; the allowed y=4,5,7,8 give c=11,13,17,19."
+          },
+          {
+            "id": "E",
+            "latex": "27",
+            "errorPath": "Replace the exclusion of multiples of 3 with the requirement that y is odd, admitting y=1,3,5."
+          },
+          {
+            "id": "F",
+            "latex": "36"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "36",
+        "workedSolutionSteps": [
+          "Add the equations: 4x=12, so x=3. Hence y=(c−3)/2.",
+          "Positivity and 2<3+y≤8 give integer y=1,…,5. Exclude y=3.",
+          "The allowed y=1,2,4,5 give c=5,7,11,13. Their sum is 36."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Derive an invariant, then impose integer constraints on the remaining parameter.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-DEMAND-UPGRADE-20261124",
+        "provisionalCrossTopicMasteryHold": "Integer feasibility of a linear model or parameter; cross-topic grouping pending."
+      },
+      "derivedWrongValues": [
+        {
+          "latex": "45",
+          "derivation": "Ignore the exclusion of multiples of 3 in y; sum c=5,7,9,11,13.",
+          "derived": 45
+        },
+        {
+          "latex": "23",
+          "derivation": "Misread x+y≤8 as x+y<8, excluding y=5 and c=13.",
+          "derived": 23
+        },
+        {
+          "latex": "76",
+          "derivation": "Require c to be an integer but permit fractional y: c=4,…,13, excluding c=9 where y=3.",
+          "derived": 76
+        },
+        {
+          "latex": "60",
+          "derivation": "Apply 2<y≤8 instead of 2<x+y≤8; the allowed y=4,5,7,8 give c=11,13,17,19.",
+          "derived": 60
+        },
+        {
+          "latex": "27",
+          "derivation": "Replace the exclusion of multiples of 3 with the requirement that y is odd, admitting y=1,3,5.",
+          "derived": 27
+        }
+      ]
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-016",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-016",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-016-DISTRACTOR-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-016-REVIEW-2",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "coefficient-recovery",
+        "stem": "The equations $2x+y=9$ and $kx-y=3$ have a unique solution. For positive integer k, find the sum of all k for which x and y are positive integers and x<y.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "16",
+            "errorPath": "Allow x=y as well as x<y, so k=2 joins k=4,10."
+          },
+          {
+            "id": "B",
+            "latex": "17",
+            "errorPath": "Ignore the ordering condition x<y, admitting all positive integer pairs."
+          },
+          {
+            "id": "C",
+            "latex": "18",
+            "errorPath": "Drop the +2 from the coefficient of x after adding the equations, giving x=12/k, while retaining y=9−2x and the strict order."
+          },
+          {
+            "id": "D",
+            "latex": "10",
+            "errorPath": "Keep only the case x=1, missing the permitted case x=2."
+          },
+          {
+            "id": "E",
+            "latex": "1",
+            "errorPath": "Reverse x<y to x>y; the only positive integral case is k=1."
+          },
+          {
+            "id": "F",
+            "latex": "14"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "14",
+        "workedSolutionSteps": [
+          "Adding gives (k+2)x=12, hence x=12/(k+2) and y=9−2x.",
+          "Positive integer k means k+2≥3 and it must divide 12. Candidates k=1,2,4,10 give x=4,3,2,1.",
+          "The condition x<y requires x<3, leaving k=4,10. Their sum is 14."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Solve a parameterised system and impose divisibility, positivity and strict ordering.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-016-DEMAND-UPGRADE-20261124",
+        "provisionalCrossTopicMasteryHold": "Integer feasibility of a linear model or parameter; cross-topic grouping pending."
+      },
+      "derivedWrongValues": [
+        {
+          "latex": "16",
+          "derivation": "Allow x=y as well as x<y, so k=2 joins k=4,10.",
+          "derived": 16
+        },
+        {
+          "latex": "17",
+          "derivation": "Ignore the ordering condition x<y, admitting all positive integer pairs.",
+          "derived": 17
+        },
+        {
+          "latex": "18",
+          "derivation": "Drop the +2 from the coefficient of x after adding the equations, giving x=12/k, while retaining y=9−2x and the strict order.",
+          "derived": 18
+        },
+        {
+          "latex": "10",
+          "derivation": "Keep only the case x=1, missing the permitted case x=2.",
+          "derived": 10
+        },
+        {
+          "latex": "1",
+          "derivation": "Reverse x<y to x>y; the only positive integral case is k=1.",
+          "derived": 1
+        }
+      ]
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-023",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-023",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-DISTRACTOR-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-REVIEW-2",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "symmetric-square-identity",
+        "stem": "Real x,y satisfy $x+y=7$ and $x^2+y^2=29$. Find $x^3+y^3$ without assuming which of x,y is larger.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "343",
+            "errorPath": "Treat (x+y)³ as x³+y³, omitting all mixed terms."
+          },
+          {
+            "id": "B",
+            "latex": "273",
+            "errorPath": "Subtract one copy of xy(x+y), rather than three copies, from (x+y)³."
+          },
+          {
+            "id": "C",
+            "latex": "203",
+            "errorPath": "Use two copies instead of three in the cube expansion, equivalently reporting (x²+y²)(x+y)."
+          },
+          {
+            "id": "D",
+            "latex": "-77",
+            "errorPath": "Use xy=49−29=20, forgetting the coefficient 2 in the square identity."
+          },
+          {
+            "id": "E",
+            "latex": "133"
+          },
+          {
+            "id": "F",
+            "latex": "553",
+            "errorPath": "Reverse the subtraction when finding xy, using (29−49)/2=−10."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "133",
+        "workedSolutionSteps": [
+          "Use (x+y)²=x²+y²+2xy: 49=29+2xy, so xy=10.",
+          "The identity x³+y³=(x+y)³−3xy(x+y) applies regardless of the order of the roots.",
+          "Thus x³+y³=343−3×10×7=133."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Recover a symmetric invariant and transfer it to a cubic expression.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-DEMAND-UPGRADE-20261124",
+        "provisionalCrossTopicMasteryHold": "Use polynomial identities or symmetric sum/product constraints to recover variables or derived quantities; overlaps other algebra topics."
+      },
+      "derivedWrongValues": [
+        {
+          "latex": "343",
+          "derivation": "Treat (x+y)³ as x³+y³, omitting all mixed terms.",
+          "derived": 343
+        },
+        {
+          "latex": "273",
+          "derivation": "Subtract one copy of xy(x+y), rather than three copies, from (x+y)³.",
+          "derived": 273
+        },
+        {
+          "latex": "203",
+          "derivation": "Use two copies instead of three in the cube expansion, equivalently reporting (x²+y²)(x+y).",
+          "derived": 203
+        },
+        {
+          "latex": "-77",
+          "derivation": "Use xy=49−29=20, forgetting the coefficient 2 in the square identity.",
+          "derived": -77
+        },
+        {
+          "latex": "553",
+          "derivation": "Reverse the subtraction when finding xy, using (29−49)/2=−10.",
+          "derived": 553
+        }
+      ]
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-028",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-028",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-DISTRACTOR-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "ratio-transfer",
+        "stem": "Boxes A and B initially contain unknown positive whole numbers of counters. Moving 15 counters from A to B makes their counts have ratio 2:3. Instead, starting from the original counts, moving 6 counters from B to A makes the ratio 3:2. Find the original total number of counters.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "45",
+            "errorPath": "Treat both transfers as decreases of A: A−15=2T/5 and A−6=3T/5. Their difference gives 9=T/5."
+          },
+          {
+            "id": "B",
+            "latex": "75",
+            "errorPath": "Ignore the second transfer of six, treating A itself as 3T/5. The first transfer then gives 15=T/5."
+          },
+          {
+            "id": "C",
+            "latex": "30",
+            "errorPath": "Ignore the first transfer of fifteen, treating A itself as 2T/5. The second transfer then gives 6=T/5."
+          },
+          {
+            "id": "D",
+            "latex": "150",
+            "errorPath": "Assume equal original counts and use only the first observation, giving T/2−15=2T/5."
+          },
+          {
+            "id": "E",
+            "latex": "-105",
+            "errorPath": "Reverse both target ratio shares for A, so A−15=3T/5 and A+6=2T/5; subtract to obtain 21=−T/5."
+          },
+          {
+            "id": "F",
+            "latex": "105"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "105",
+        "workedSolutionSteps": [
+          "Let T=A+B. The first operation gives A−15=2T/5; the second gives A+6=3T/5.",
+          "Subtract: 21=T/5, so T=105.",
+          "Then A=57,B=48; both transfers are possible and the two ratios are satisfied."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Derive independent ratio observations and recover an unknown conserved total.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-PRIORITY-CONTENT-REVIEW-20261124",
+        "provisionalCrossTopicMasteryHold": "Conserved ratio transfer model; related to Standard Form Q034."
+      },
+      "derivedWrongValues": [
+        {
+          "latex": "45",
+          "derivation": "Treat both transfers as decreases of A: A−15=2T/5 and A−6=3T/5. Their difference gives 9=T/5.",
+          "derived": 45
+        },
+        {
+          "latex": "75",
+          "derivation": "Ignore the second transfer of six, treating A itself as 3T/5. The first transfer then gives 15=T/5.",
+          "derived": 75
+        },
+        {
+          "latex": "30",
+          "derivation": "Ignore the first transfer of fifteen, treating A itself as 2T/5. The second transfer then gives 6=T/5.",
+          "derived": 30
+        },
+        {
+          "latex": "150",
+          "derivation": "Assume equal original counts and use only the first observation, giving T/2−15=2T/5.",
+          "derived": 150.00000000000003
+        },
+        {
+          "latex": "-105",
+          "derivation": "Reverse both target ratio shares for A, so A−15=3T/5 and A+6=2T/5; subtract to obtain 21=−T/5.",
+          "derived": -105
+        }
+      ]
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-030",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-030",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-DISTRACTOR-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "linear-combination-target",
+        "stem": "Real x,y satisfy $3x+2y=a$ and $x-2y=b$. Also a+b=18 and ab=32, with a>b. Find $x^2+y^2$.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\frac{853}{16}",
+            "errorPath": "Swap the ordered constants, using a=2,b=16 despite a>b. Then x=9/2 and y=−23/4."
+          },
+          {
+            "id": "B",
+            "latex": "\\frac{493}{16}",
+            "errorPath": "Use y=(x+b)/2 rather than (x−b)/2, obtaining 13/4."
+          },
+          {
+            "id": "C",
+            "latex": "\\frac{53}{2}",
+            "errorPath": "Omit division by 2 when finding y, using y=x−b=5/2."
+          },
+          {
+            "id": "D",
+            "latex": "\\frac{349}{16}"
+          },
+          {
+            "id": "E",
+            "latex": "40",
+            "errorPath": "Add 3x+x as 3x instead of 4x, obtaining x=6 and y=2."
+          },
+          {
+            "id": "F",
+            "latex": "\\frac{529}{16}",
+            "errorPath": "Square the sum x+y rather than add the squares."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "\\frac{349}{16}",
+        "workedSolutionSteps": [
+          "The constants a,b are roots of z²−18z+32=0, so a=16,b=2 by a>b.",
+          "Add the linear equations: 4x=18, so x=9/2. Then x−2y=2 gives y=5/4.",
+          "Therefore x²+y²=81/4+25/16=349/16."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Recover ordered constants from sum and product before solving the linear system.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-DEMAND-UPGRADE-20261124",
+        "provisionalCrossTopicMasteryHold": "Use polynomial identities or symmetric sum/product constraints to recover variables or derived quantities; overlaps other algebra topics."
+      },
+      "derivedWrongValues": [
+        {
+          "latex": "\\frac{853}{16}",
+          "derivation": "Swap the ordered constants, using a=2,b=16 despite a>b. Then x=9/2 and y=−23/4.",
+          "derived": 53.3125
+        },
+        {
+          "latex": "\\frac{493}{16}",
+          "derivation": "Use y=(x+b)/2 rather than (x−b)/2, obtaining 13/4.",
+          "derived": 30.8125
+        },
+        {
+          "latex": "\\frac{53}{2}",
+          "derivation": "Omit division by 2 when finding y, using y=x−b=5/2.",
+          "derived": 26.5
+        },
+        {
+          "latex": "40",
+          "derivation": "Add 3x+x as 3x instead of 4x, obtaining x=6 and y=2.",
+          "derived": 40
+        },
+        {
+          "latex": "\\frac{529}{16}",
+          "derivation": "Square the sum x+y rather than add the squares.",
+          "derived": 33.0625
+        }
+      ]
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-036",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-036",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-DISTRACTOR-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "two-singular-parameter-cases",
+        "stem": "For real k, consider $(k-2)x+3y=9$ and $6x+(k-2)y=12$. Find the sum of all k for which there is no solution.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "-4",
+            "errorPath": "Recover k as u−2 rather than u+2, so the two shifted roots sum to −4."
+          },
+          {
+            "id": "B",
+            "latex": "0",
+            "errorPath": "Report the sum of the unshifted roots u=±3√2."
+          },
+          {
+            "id": "C",
+            "latex": "4"
+          },
+          {
+            "id": "D",
+            "latex": "2+3\\sqrt{2}",
+            "errorPath": "Retain only the positive-u branch of the equation u²=18."
+          },
+          {
+            "id": "E",
+            "latex": "2-3\\sqrt{2}",
+            "errorPath": "Retain only the negative-u branch of the equation u²=18."
+          },
+          {
+            "id": "F",
+            "latex": "-14",
+            "errorPath": "Multiply the two k values rather than add them: 2²−(3√2)²."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "4",
+        "workedSolutionSteps": [
+          "Let u=k−2. Multiply the first equation by 6 and the second by u, then subtract: (18−u²)y=54−12u.",
+          "If u²≠18, y is uniquely determined and the second equation 6x+uy=12 uniquely gives x. If u=±3√2, then 54−12u cannot equal zero: that would require u=9/2, whose square is 81/4≠18. Thus both singular cases are inconsistent.",
+          "Thus both and only k=2±3√2 make the system inconsistent; their sum is 4."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+        "unverifiedTaughtSubskill": "Parameter elimination, quadratic roots and checking inconsistent cases without determinants.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-PRIORITY-CONTENT-REVIEW-20261124",
+        "difficultyResidualNote": "The requested root sum is unchanged by symmetric errors in the root magnitudes; the item alone cannot diagnose correct recovery of both individual roots."
+      },
+      "derivedWrongValues": [
+        {
+          "latex": "-4",
+          "derivation": "Recover k as u−2 rather than u+2, so the two shifted roots sum to −4.",
+          "derived": -4
+        },
+        {
+          "latex": "0",
+          "derivation": "Report the sum of the unshifted roots u=±3√2.",
+          "derived": 0
+        },
+        {
+          "latex": "2+3\\sqrt{2}",
+          "derivation": "Retain only the positive-u branch of the equation u²=18.",
+          "derived": 6.242640687119286
+        },
+        {
+          "latex": "2-3\\sqrt{2}",
+          "derivation": "Retain only the negative-u branch of the equation u²=18.",
+          "derived": -2.2426406871192857
+        },
+        {
+          "latex": "-14",
+          "derivation": "Multiply the two k values rather than add them: 2²−(3√2)².",
+          "derived": -14
+        }
+      ]
+    }
+  ]
+}
