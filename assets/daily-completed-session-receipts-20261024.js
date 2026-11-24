@@ -99,6 +99,9 @@ async function all(){
 }
 function sanitized(source,task){
   if(!source||!task||!Array.isArray(source.questions)||!Array.isArray(source.answers))return null;
+  // Fail closed before dropping sourceId/pointId in a compact Safari receipt.
+  if(source.questions.some(q=>isFoodTestsQaHeld(q))||
+     source.answers.some(a=>isFoodTestsQaHeld(a)))return null;
   const receipt={
     key:'',day:source.day,taskId:source.taskId,subject:source.subject,
     topicId:task.assignedTopic,mode:source.mode,target:Number(task.target),
@@ -164,7 +167,7 @@ export function saveVerifiedBiologyAnswerSync(state,source){
      !Array.isArray(source.questions)||source.questions.length!==1||
      !Array.isArray(source.answers)||source.answers.length!==1)return false;
   const answer=source.answers[0],question=source.questions[0];
-  if(answer.correct!==true||answer.formal===false||answer.repair||
+  if(isFoodTestsQaHeld(answer)||answer.correct!==true||answer.formal===false||answer.repair||
      !question?.id||question.formal===false||question._repair||isFoodTestsQaHeld(question)||
      String(answer.questionId)!==String(question.id))return false;
   const candidate=[...(state.daily||[]),...(state.dailyLog?.[source.day]?.tasks||[])]
