@@ -143,3 +143,17 @@ test('wrapped Mastery records with a harmless display ID still inherit held Food
  const unrelated=addMasteryEvidence({masteryV2:original},{...common,questionId:'other-biology-question',sourceId:'other-biology-source'});
  assert.notStrictEqual(unrelated,original,'Do not block unrelated source-based Mastery evidence');
 });
+
+test('display wrapper Daily slot with sourceId or pointId cannot disguise held Food Tests evidence',()=>{
+ const alias='display-wrapper-id';
+ const answers=[{questionId:alias,correct:true,formal:true}];
+ const qs=[
+  {id:alias,sourceId:'bio-y8-app-ethanol-safety',formal:true,topicId:'unrelated'},
+  {id:alias,pointId:'bio-y8-app-benedicts-method::p1',formal:true,topicId:'unrelated'}
+ ];
+ for(const q of qs){
+  assert.equal(isFoodTestsQaHeld(q),true);
+  assert.deepEqual(verifiedQuizSlots([q],answers),[],'held alias should not create a Daily slot');
+ }
+ assert.equal(verifiedQuizSlots([{id:alias,sourceId:'unrelated-source'}],answers).length,1);
+});
