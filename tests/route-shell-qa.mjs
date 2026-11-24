@@ -14,12 +14,14 @@ function walk(dir){
 }
 const html=walk(root).filter(p=>p.endsWith(path.sep+"index.html")||p.endsWith(path.sep+"404.html"));
 const failures=[],rows=[];
-const standaloneShells=new Set(["study/maths/index.html","study/maths/learn/index.html","study/maths/practise/index.html","study/maths/progress/index.html","assessment/latin-oct17/practice/index.html","progress/weekly/index.html","pet/index.html","assessment/index.html","preview/index.html","study/biology/school-notes/index.html","study/physics/mastery/index.html","notes/index.html","study/exam-practice/index.html","study/chemistry/exam-revision/index.html","study/chemistry/exam-revision/mock/index.html","assessment/french-nov26/index.html","study/latin/november-2026/index.html","study/latin/november-2026/nov23/index.html","rescue.html","scholar-marking-v8/index.html","assessment/biology-cell-structure/index.html","assessment/biology-nov2/practice/index.html"]);
+const standaloneShells=new Set(["study/maths/index.html","study/maths/learn/index.html","study/maths/practise/index.html","study/maths/progress/index.html","assessment/latin-oct17/practice/index.html","progress/weekly/index.html","pet/index.html","assessment/index.html","preview/index.html","study/biology/school-notes/index.html","study/physics/mastery/index.html","notes/index.html","notes/year9-latin-key-revision-20261120/index.html","study/exam-practice/index.html","study/chemistry/exam-revision/index.html","study/chemistry/exam-revision/mock/index.html","assessment/french-nov26/index.html","study/latin/november-2026/index.html","study/latin/november-2026/nov23/index.html","rescue.html","scholar-marking-v8/index.html","assessment/biology-cell-structure/index.html","assessment/biology-nov2/practice/index.html"]);
 const mainModule="/assets/index-BLVOhKhN.js";
 for(const file of html){
   const rel=path.relative(root,file).replaceAll(path.sep,"/");
   const src=fs.readFileSync(file,"utf8");
   const standalone=standaloneShells.has(rel);
+  // The Latin reading edition is static and must not start a learner store.
+  if(rel==="notes/year9-latin-key-revision-20261120/index.html" && (/<script\b|<form\b/i.test(src)||src.includes(mainModule))) failures.push({type:"latin-reading-edition-not-static",file:rel});
   if(!standalone&&!src.includes(mainModule))failures.push({type:"missing-main-module",file:rel});
   // The November Latin exam has its own independent module and must not create a duplicate student-store instance.
   if(rel==="study/latin/november-2026/index.html" && !src.includes('type="module" src="./exam.js?v='))
