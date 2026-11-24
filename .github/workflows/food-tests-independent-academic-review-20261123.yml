@@ -22,6 +22,8 @@ on:
       - 'tests/food-tests-99-structured-content-adjudication-20261124.test.mjs'
       - 'tests/food-tests-143-academic-content-dispositions-20261124.test.mjs'
       - 'tests/food-tests-16-concrete-observation-proposals-20261124.test.mjs'
+      - 'tests/food-tests-16-near-miss-distractors-20261124.test.mjs'
+      - 'qa/food-tests-16-near-miss-distractor-proposals-20261124.json'
       - 'tests/food-tests-48-144-foil-reasons-20261124.test.mjs'
       - 'qa/food-tests-48-vs-99-skill-overlap-20261124.json'
       - 'qa/food-tests-143-revised-preview-20261123.json'
@@ -63,6 +65,8 @@ on:
       - 'tests/food-tests-99-structured-content-adjudication-20261124.test.mjs'
       - 'tests/food-tests-143-academic-content-dispositions-20261124.test.mjs'
       - 'tests/food-tests-16-concrete-observation-proposals-20261124.test.mjs'
+      - 'tests/food-tests-16-near-miss-distractors-20261124.test.mjs'
+      - 'qa/food-tests-16-near-miss-distractor-proposals-20261124.json'
       - 'tests/food-tests-48-144-foil-reasons-20261124.test.mjs'
       - 'qa/food-tests-48-vs-99-skill-overlap-20261124.json'
       - 'qa/food-tests-143-revised-preview-20261123.json'
@@ -115,6 +119,8 @@ jobs:
           node --test tests/food-tests-143-academic-content-dispositions-20261124.test.mjs
       - name: Verify 16 held original case prompts have realistic unimported observation revisions without altering science answers
         run: node --test tests/food-tests-16-concrete-observation-proposals-20261124.test.mjs
+      - name: Check 16 revised near-miss draft cases and preserve credit hold
+        run: node --test tests/food-tests-16-near-miss-distractors-20261124.test.mjs
       - name: Verify all 144 draft wrong-choice reasons map to the current 48 held MCQs
         run: node --test tests/food-tests-48-144-foil-reasons-20261124.test.mjs
       - name: Verify 48 QA-only duplicate replacements are unique and never formally credited
