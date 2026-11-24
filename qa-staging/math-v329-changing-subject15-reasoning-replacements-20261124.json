@@ -166,7 +166,7 @@
       "correctAnswerLatex": "\\frac{5}{2}",
       "workedSolutionSteps": [
         "Initially 2x+4=36, so y−1=1.",
-        "Doubling y−1 to 2 halves its reciprocal square-root denominator from 6 to 3, giving radicand 9.",
+        "Doubling y−1 to 2 halves the square-root denominator from 6 to 3, giving radicand 9.",
         "Solve 2x+4=9 to obtain x=5/2, in the allowed domain."
       ],
       "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
@@ -483,13 +483,13 @@
         },
         {
           "id": "E",
-          "latex": "-1",
-          "errorPath": "Choose an excluded input rather than solving the equation."
+          "latex": "5",
+          "errorPath": "Omit the −x term when expanding the left-hand product, giving x²−5x−10=0 and sum 5."
         },
         {
           "id": "F",
           "latex": "2",
-          "errorPath": "Report an excluded input instead of solving the equation."
+          "errorPath": "Omit 4x when expanding the right-hand product, giving x²−2x−10=0 and sum 2."
         }
       ],
       "correctOptionId": "C",
@@ -804,7 +804,7 @@
         {
           "id": "C",
           "latex": "4:5",
-          "errorPath": "Use the output ratio as if the formula were direct proportion."
+          "errorPath": "Use the reciprocal of the new-to-old output ratio without accounting for the squared terms or the offset."
         },
         {
           "id": "D",
