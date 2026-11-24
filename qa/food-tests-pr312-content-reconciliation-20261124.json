@@ -1,0 +1,52 @@
+{
+  "kind": "Three-file content reconciliation; not a git ancestry merge or release approval",
+  "date": "2026-11-24",
+  "base": "2e556ffcb48f6c7346b3b663f8058f57271b643d",
+  "main": "3e4065c645d85836413e5ce9a88e8798be240134",
+  "qaBefore": "b48cabf390c86d337ce3f10ab3d2079113e6e1c2",
+  "qaAfter": "4e6d4c36c557cf8f6fa95ca0639417e29cf7fc85",
+  "quizScorers": [
+    {
+      "path": "assets/quiz-session-y8fix-20260920.js",
+      "mainBlob": "bb038dce46cb26017d6296a52c2dbe37dd9db863",
+      "mergedBlob": "0f300a8a9a6859f9ed29486c4ace3497100d6949",
+      "reviewedMarkIdentical": true,
+      "tests": 12,
+      "failures": []
+    },
+    {
+      "path": "assets/quiz-session-rWAnuDVj.js",
+      "mainBlob": "64d872bac26c04b2494565aeef2f9060aa8e3d83",
+      "mergedBlob": "f2bacdf3ac588703e8ad0ae6a366684c3a08156c",
+      "reviewedMarkIdentical": true,
+      "tests": 12,
+      "failures": []
+    }
+  ],
+  "foodCandidateExtractedScorerChecks": {
+    "passed": 986,
+    "total": 986,
+    "fullBrowser": false
+  },
+  "catalog": {
+    "nonFoodRows": 280,
+    "unchanged": 280,
+    "totals": {
+      "topics": 282,
+      "questions": 16813,
+      "enabled": 15670,
+      "preview": 266,
+      "disabled": 877
+    },
+    "foodTestsQuestions": 143,
+    "foodTestsFormalCredit": false
+  },
+  "limitations": [
+    "The two reviewedMark functions are byte-identical to main; 12 representative synthetic controls per function do not certify all PR312 questions.",
+    "GitHub PR #308 remains mergeable=false; reconciling file contents did not update branch ancestry. A true merge/rebase against current main is required, with full repository regression.",
+    "Latest pull-request CI run not returned; do not claim complete CI or actual iPad test.",
+    "Independent academic approval remains 0/143; no live deployment."
+  ],
+  "release": "BLOCKED",
+  "formalCreditEligible": false
+}
