@@ -234,3 +234,32 @@ test('ethanol-storage safety scenario no longer duplicates the 99-point open-fla
  assert.equal(q.approved,false);
  assert.equal(q.formalCreditEligible,false);
 });
+
+
+test('cross-pool concept-overlap ledger names real candidate IDs and structured point IDs without approvals',()=>{
+ const ledger=read('qa/food-tests-48x99-cross-pool-skill-overlap-second-pass-20261124.json');
+ const points=read('qa/food-tests-structured-99-point-review-candidate-20261122.json').items.flatMap(x=>x.parts);
+ const c=new Map(replacements.map(x=>[x.sourceId,x]));
+ assert.equal(ledger.scope.reviewedPairUniverse,48*99);
+ assert.equal(ledger.issues.length,17);
+ assert.equal(ledger.issues.filter(x=>x.risk==='HIGH_OVERLAP').length,13);
+ assert.equal(ledger.issues.filter(x=>x.risk.startsWith('RELATED')).length,4);
+ assert.equal(ledger.sourceApprovals,0);
+ assert.equal(ledger.candidateApprovals,0);
+ assert.equal(ledger.replacementApprovals,0);
+ assert.equal(ledger.formalCreditEligible,false);
+ assert.equal(ledger.releaseApproval,'BLOCKED');
+ for(const issue of ledger.issues){
+  const candidate=c.get(issue.candidateId);
+  const part=points[issue.structuredPointOrdinal-1];
+  assert.ok(candidate,issue.candidateId);
+  assert.equal(issue.candidateStem,candidate.prompt);
+  assert.equal(issue.structuredPointId,part.pointId);
+  assert.equal(issue.structuredStem,part.stem);
+  assert.ok(issue.scienceSkillOverlapReason.length>25);
+  assert.equal(issue.automaticDailyRotationApproved,false);
+  assert.equal(issue.independentQualifiedApproval,false);
+ }
+ assert.ok(!ledger.issues.some(x=>x.candidateId.endsWith('-4-1')));
+ assert.equal(ledger.resolvedCandidateRewrites.length,3);
+});
