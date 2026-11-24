@@ -174,7 +174,21 @@
       94,
       97
     ],
-    "structured99PointReviewFullTextSynced": true
+    "structured99PointReviewFullTextSynced": true,
+    "aiSecondPassSourceMcqAcademicContentReview": {
+      "reviewedSourceItems": 25,
+      "scientificKeysMatched": 25,
+      "sourceRecallContentPass": 8,
+      "sourceRecallStemRevisionNeeded": 1,
+      "sourceF1CasesNeedingClarityFix": 16,
+      "correctedF1DraftSingleKeyPass": 16,
+      "independentQualifiedTeacherApprovals": 0,
+      "sourceEdited": false,
+      "formalCreditEligible": false,
+      "status": "AI_SCIENCE_CONTENT_ADJUDICATED__INDEPENDENT_APPROVAL_NOT_OBTAINED",
+      "qaEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json"
+    },
+    "lastContentAdjudication": "2026-11-24 first 25/143 original source question science keys independently cross-referenced to published food-test knowledge in an AI-led content second pass; teacher/TGS/PWA gates remain."
   },
   "unresolvedFormalScoringEvidence": [
     {
@@ -218,7 +232,12 @@
           "storedKey": "iodine solution"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "AI_CONTENT_QA_PASS",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 2,
@@ -326,7 +345,12 @@
           "storedKey": "Benedict's solution"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "AI_CONTENT_QA_PASS",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 5,
@@ -440,7 +464,12 @@
           "storedKey": "Biuret solution"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "AI_CONTENT_QA_PASS",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 8,
@@ -552,7 +581,12 @@
           "storedKey": "ethanol emulsion test"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "AI_CONTENT_QA_PASS",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 11,
@@ -663,7 +697,12 @@
           "storedKey": "blue-black"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "AI_CONTENT_QA_PASS",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 14,
@@ -768,7 +807,12 @@
           "storedKey": "brick-red"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "REVISE_STEM_THEN_RECHECK",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 17,
@@ -877,7 +921,12 @@
           "storedKey": "lilac or purple"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "AI_CONTENT_QA_PASS",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 20,
@@ -989,7 +1038,12 @@
           "storedKey": "cloudy white emulsion"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "AI_CONTENT_QA_PASS",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 23,
@@ -1103,7 +1157,12 @@
           "storedKey": "water bath"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "AI_CONTENT_QA_PASS",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 26,
@@ -1457,7 +1516,14 @@
           "storedKey": "starch, reducing sugar, protein, lipid"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "aiSecondPassCorrectedDraftVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-01 has these results: iodine blue-black; heated Benedict's green precipitate; Biuret lilac; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 35,
@@ -1483,7 +1549,14 @@
           "storedKey": "reducing sugar, protein, lipid"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "aiSecondPassCorrectedDraftVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-02 has these results: iodine orange-brown; heated Benedict's yellow precipitate; Biuret purple; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 36,
@@ -1509,7 +1582,14 @@
           "storedKey": "starch, protein, lipid"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "aiSecondPassCorrectedDraftVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-03 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 37,
@@ -1535,7 +1615,14 @@
           "storedKey": "protein, lipid"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "aiSecondPassCorrectedDraftVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-04 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret purple; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 38,
@@ -1561,7 +1648,14 @@
           "storedKey": "starch, reducing sugar, lipid"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "aiSecondPassCorrectedDraftVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-05 has these results: iodine blue-black; heated Benedict's orange precipitate; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 39,
@@ -1587,7 +1681,14 @@
           "storedKey": "reducing sugar, lipid"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "aiSecondPassCorrectedDraftVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-06 has these results: iodine orange-brown; heated Benedict's brick-red precipitate; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 40,
@@ -1613,7 +1714,14 @@
           "storedKey": "starch, lipid"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "aiSecondPassCorrectedDraftVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-07 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 41,
@@ -1639,7 +1747,14 @@
           "storedKey": "lipid"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "aiSecondPassCorrectedDraftVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-08 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 42,
@@ -1665,7 +1780,14 @@
           "storedKey": "starch, reducing sugar, protein"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "aiSecondPassCorrectedDraftVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-09 has these results: iodine blue-black; heated Benedict's green precipitate; Biuret lilac; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 43,
@@ -1691,7 +1813,14 @@
           "storedKey": "reducing sugar, protein"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "aiSecondPassCorrectedDraftVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-10 has these results: iodine orange-brown; heated Benedict's yellow precipitate; Biuret purple; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 44,
@@ -1717,7 +1846,14 @@
           "storedKey": "starch, protein"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "aiSecondPassCorrectedDraftVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-11 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 45,
@@ -1743,7 +1879,14 @@
           "storedKey": "protein"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "aiSecondPassCorrectedDraftVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-12 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret purple; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 46,
@@ -1769,7 +1912,14 @@
           "storedKey": "starch, reducing sugar"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "aiSecondPassCorrectedDraftVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-13 has these results: iodine blue-black; heated Benedict's orange precipitate; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 47,
@@ -1795,7 +1945,14 @@
           "storedKey": "reducing sugar"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "aiSecondPassCorrectedDraftVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-14 has these results: iodine orange-brown; heated Benedict's brick-red precipitate; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 48,
@@ -1821,7 +1978,14 @@
           "storedKey": "starch"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "aiSecondPassCorrectedDraftVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-15 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 49,
@@ -1847,7 +2011,14 @@
           "storedKey": "none of these four nutrients"
         }
       ],
-      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off"
+      "reviewerRole": "AI science/assessment review, not independent qualified teacher or TGS taught-course sign-off",
+      "aiSecondPassScienceKey": "PASS",
+      "aiSecondPassSoleCorrectInCurrentStem": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "aiSecondPassCorrectedDraftVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-16 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "independentAcademicSignoff": false,
+      "tgsYear8TaughtScopeApproval": false
     },
     {
       "ordinal": 50,
