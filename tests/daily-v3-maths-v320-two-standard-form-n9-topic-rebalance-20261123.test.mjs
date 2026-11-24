@@ -94,6 +94,9 @@ test('STANDARD_FORM-009 independent 2-type exact cost optimisation plus normaliz
   if(good)found.push(o.id);
  }
  assert.deepEqual(found,['D']);
+ const sharedModel=q.options.filter(o=>{const x=p009(o.latex);return x.a===3&&x.b===2&&x.cost===250;});
+ assert.deepEqual(sharedModel.map(x=>x.id),['C','D'],'Correct cost and mix cannot alone identify N9 answer');
+ assert.deepEqual(sharedModel.map(x=>p009(x.latex).unused),[6000,90000]);
 });
 test('STANDARD_FORM-025 independently enumerate maximum exact particle concentration and normalize total count for each option',()=>{
  const q=pack.questions.find(x=>x.sourceId.endsWith('STANDARD_FORM-025')),z=chamber(q.stem);
@@ -102,11 +105,15 @@ test('STANDARD_FORM-025 independently enumerate maximum exact particle concentra
  let found=[];for(const opt of q.options){
   const o=p025(opt.latex);
   assert.ok(o.mantissa>=1&&o.mantissa<10&&Number.isInteger(o.exponent),'Not normalized N9 '+opt.id);
-  assert.ok(near(o.total,z.retained+o.p*z.packSize),'Option particle count mismatch '+opt.id);
+  if(opt.id==='F')assert.ok(!near(o.total,z.retained+o.p*z.packSize),'Factor-ten N9 false normalization must be rejected');
+  else assert.ok(near(o.total,z.retained+o.p*z.packSize),'Option particle count mismatch '+opt.id);
   const matches=z.winners.some(x=>near(x.v,o.v)&&o.p===x.p&&near(x.total,o.total));
   if(matches)found.push(opt.id);
  }
  assert.deepEqual(found,['C']);
+ const matchingModel=q.options.filter(opt=>{const x=p025(opt.latex);return near(x.v,2)&&x.p===3;});
+ assert.deepEqual(matchingModel.map(x=>x.id),['C','F'],'Correct (v,p) alone must not reveal correct option');
+ assert.deepEqual(matchingModel.map(x=>p025(x.latex).total),[1.2e7,1.2e6]);
  assert.ok(near(p025(q.correctAnswerLatex).total,1.2e7));
 });
 test('mutating N9 final coefficient or physical constraints changes or invalidates the correct answer',()=>{
