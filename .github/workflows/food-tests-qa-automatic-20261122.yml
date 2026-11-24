@@ -67,6 +67,9 @@ jobs:
       - name: Check 18 held editorial correction candidates (no approval or import)
         if: always()
         run: node --test tests/food-tests-18-editorial-corrections-20261124.test.mjs
+      - name: Verify 147 held candidate skill mappings and rotation conflicts
+        if: always()
+        run: node --test tests/food-tests-147-skill-crosswalk-20261124.test.mjs
       - name: Upload QA evidence
         if: always()
         uses: actions/upload-artifact@v4
