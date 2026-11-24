@@ -1709,7 +1709,10 @@
             "the iodine test was negative for starch",
             "negative for starch",
             "the test did not detect starch",
-            "starch was not detected by the test"
+            "starch was not detected by the test",
+            "starch wasn't detected",
+            "the sample tested negative for starch",
+            "starch not detected under these conditions"
           ],
           "totalMarks": 1
         },
@@ -21005,5 +21008,19 @@
       ],
       "formalCreditEligible": false
     }
+  },
+  "scoringFollowup": {
+    "date": "2026-11-24",
+    "sourceId": "bio-y8-app-iodine-negative",
+    "addedAccepted": [
+      "starch wasn't detected",
+      "the sample tested negative for starch",
+      "starch not detected under these conditions"
+    ],
+    "previousAcceptedCount": 12,
+    "newAcceptedCount": 15,
+    "originalSourceEdited": false,
+    "formalCreditEligible": false,
+    "reason": "Both extracted actual B() scorer functions with actual core AS normalizer rejected these scientifically defensible negative-detection phrases. Bounded additions in consolidated draft only; no automatic qualified approval."
   }
 }
