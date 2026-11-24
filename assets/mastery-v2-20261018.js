@@ -22,7 +22,7 @@ export function masteryStage(stat = {}) {
 
 export function addMasteryEvidence(stat = {}, entry = {}) {
   const current = stat.masteryV2 || {};
-  if (!entry.questionId || isFoodTestsQaHeld(entry.questionId) || entry.formal === false || entry.repair || entry.recoveryFor ||
+  if (!entry.questionId || isFoodTestsQaHeld(entry) || entry.formal === false || entry.repair || entry.recoveryFor ||
       Number(entry.year) !== 8) return current;
   const day = entry.day;
   const mode = entry.mode;
