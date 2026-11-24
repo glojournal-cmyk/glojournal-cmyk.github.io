@@ -8,6 +8,8 @@ on:
       - 'qa/food-tests-independent-academic-143-review-20261123.json'
       - 'qa/food-tests-48-duplicate-replacements-draft-20261123.json'
       - 'qa/food-tests-48-144-foil-reasons-20261124.json'
+      - 'qa/food-tests-16-retained-case-concrete-observations-20261124.json'
+      - 'tests/food-tests-16-concrete-observation-proposals-20261124.test.mjs'
       - 'tests/food-tests-48-144-foil-reasons-20261124.test.mjs'
       - 'qa/food-tests-48-vs-99-skill-overlap-20261124.json'
       - 'qa/food-tests-143-revised-preview-20261123.json'
@@ -35,6 +37,8 @@ on:
       - 'qa/food-tests-independent-academic-143-review-20261123.json'
       - 'qa/food-tests-48-duplicate-replacements-draft-20261123.json'
       - 'qa/food-tests-48-144-foil-reasons-20261124.json'
+      - 'qa/food-tests-16-retained-case-concrete-observations-20261124.json'
+      - 'tests/food-tests-16-concrete-observation-proposals-20261124.test.mjs'
       - 'tests/food-tests-48-144-foil-reasons-20261124.test.mjs'
       - 'qa/food-tests-48-vs-99-skill-overlap-20261124.json'
       - 'qa/food-tests-143-revised-preview-20261123.json'
@@ -78,6 +82,8 @@ jobs:
         run: node --test tests/food-tests-297-distractor-first-pass-20261123.test.mjs
       - name: Check cross-answer semantic overlap families and prevent duplicate-mastery claims in held QA pool
         run: node --test tests/food-tests-99-semantic-overlap-20261123.test.mjs
+      - name: Verify 16 held original case prompts have realistic unimported observation revisions without altering science answers
+        run: node --test tests/food-tests-16-concrete-observation-proposals-20261124.test.mjs
       - name: Verify all 144 draft wrong-choice reasons map to the current 48 held MCQs
         run: node --test tests/food-tests-48-144-foil-reasons-20261124.test.mjs
       - name: Verify 48 QA-only duplicate replacements are unique and never formally credited
