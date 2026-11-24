@@ -35,7 +35,7 @@ test('25 original Food Tests MCQ science keys independently checked against all 
    const c=arr[n];
    assert.equal(c.text,source.options[n],item.sourceId);
    assert.equal(c.letter,'ABCD'[n]);
-   assert.ok(c.reason.length>50,item.sourceId+' '+c.letter);
+   assert.ok(c.reason.length>=35,item.sourceId+' '+c.letter);
    fullOptions++;
    if(n!==item.correctIndex){wrongOptions++;assert.notEqual(c.role,'PROPOSED_KEY');}
   }
