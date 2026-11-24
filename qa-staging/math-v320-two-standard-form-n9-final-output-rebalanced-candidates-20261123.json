@@ -119,8 +119,8 @@
         },
         {
           "id": "F",
-          "latex": "(1.5,3,1.2\\times10^7)",
-          "errorPath": "Three packs give exactly 12 million particles, but at 1500cm³ the concentration is 8000/cm³, not the stated 6000/cm³."
+          "latex": "(2,3,1.2\\times10^6)",
+          "errorPath": "Keep the correct largest-volume and three-pack decision, but incorrectly normalize 12×10^6 by reducing 12 to 1.2 without increasing the exponent from 6 to 7. This gives 1.2×10^6, ten times too small."
         }
       ],
       "correctOptionId": "C",
@@ -145,5 +145,6 @@
       "grade7PlusCertified": false,
       "empiricalWrongAnswerEvidence": false
     }
-  ]
+  ],
+  "qaEditorialCorrection": "STANDARD_FORM-025 now has two options with the identical correct (v,p)=(2,3) and different final T, so a solver must inspect scientific-notation calculation rather than select solely on v,p."
 }
