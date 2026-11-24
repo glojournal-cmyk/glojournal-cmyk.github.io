@@ -90,16 +90,19 @@ test('all 190 integrated rotation units refuse direct and wrapped verified Daily
  assert.equal(verifiedQuizSlots([{id:'unrelated-id'}],[{questionId:'unrelated-id',correct:true,formal:true}]).length,1);
 });
 
-// The latest near-miss overlay is deliberately separate from the prior pinned package.
+// Preserve the v1 reference tests and score the materialized v2 questions below.
+const v2=read('qa/food-tests-143-consolidated-held-candidate-v2-20261124.json');
+const v2ById=new Map(v2.groups.filter(g=>g.question).map(g=>[g.sourceId,g.question]));
 const nearMiss=read('qa/food-tests-16-near-miss-distractor-proposals-20261124.json');
 function permutations(a){return a.length===0?[[]]:a.flatMap((v,i)=>permutations(a.filter((_,j)=>j!==i)).map(rest=>[v,...rest]));}
 for(const path of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-rWAnuDVj.js']){
  test(path+': all 16 near-miss draft cases score by answer text under all 24 option orders, but remain held',()=>{
   const score=makeScore(path);let checked=0;
   for(const row of nearMiss.items){
-   const base=qs.find(q=>q.id===row.sourceId);assert.ok(base);
+   const base=v2ById.get(row.sourceId);assert.ok(base);
    assert.equal(base.prompt,row.prompt);assert.deepEqual(base.answer.accepted,row.sourceAnswer);
-   const orders=permutations(row.newOptions);assert.equal(orders.length,24);
+   assert.deepEqual(base.options,row.newOptions);
+   const orders=permutations(base.options);assert.equal(orders.length,24);
    for(const options of orders){
     const q={...base,options};
     for(const a of options){
@@ -140,8 +143,9 @@ for(const path of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-
  test(path+': all 48 held replacement questions and all option permutations preserve unique key and block credit',()=>{
   const score=makeScore(path);let checked=0;
   for(const row of optionOverlay.items){
-   const base=qs.find(q=>q.id===row.sourceId);
-   for(const options of permutations(row.options)){
+   const base=v2ById.get(row.sourceId);assert.ok(base);
+   assert.deepEqual(base.options,row.options);
+   for(const options of permutations(base.options)){
     const q={...base,options};
     for(const a of options){
      const expected=Number(a===row.accepted[0]),result=score(q,a,'biology',{});
