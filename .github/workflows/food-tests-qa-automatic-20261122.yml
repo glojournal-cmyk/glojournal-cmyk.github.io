@@ -45,6 +45,8 @@ jobs:
           node --check assets/daily-session-credit-20261021.js
           node --check assets/daily-completed-session-receipts-20261024.js
           node --check assets/mastery-v2-20261018.js
+          node --check assets/daily-curriculum-20261004.js
+          node --check assets/index-BLVOhKhN.js
       - name: No unapproved Food Tests Daily, MP or Mastery credit
         run: |
           node --test tests/food-tests-qa-credit-hold-20261122.test.mjs
@@ -76,6 +78,9 @@ jobs:
       - name: Execute consolidated candidate scoring and verify all credit holds
         if: always()
         run: node --test tests/food-tests-consolidated-actual-scoring-20261124.test.mjs
+      - name: Verify held candidate curriculum, store, reward and receipt ingress
+        if: always()
+        run: node --test tests/food-tests-consolidated-credit-ingress-20261124.test.mjs
       - name: Upload QA evidence
         if: always()
         uses: actions/upload-artifact@v4
