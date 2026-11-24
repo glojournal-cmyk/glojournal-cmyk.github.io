@@ -55,8 +55,9 @@ for(const path of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-
  test(path+': each original matching map can score independent 0,1,2,3,4 correct pairs',()=>{
   const src=readFileSync(new URL('../'+path,import.meta.url),'utf8');
   const a=src.indexOf('function B(e,t,n,r){'),b=src.indexOf('function ',a+30);
-  assert.ok(a>0&&b>a&&b-a<12000);
-  const score=new Function('L','I',src.slice(a,b)+'\nreturn B;')(
+  const reviewed=src.indexOf('function reviewedMark(');
+  assert.ok(reviewed>0&&reviewed<a&&b>a&&b-reviewed<22000);
+  const score=new Function('L','I',src.slice(reviewed,b)+'\nreturn B;')(
    q=>q.answer?.modelAnswer||'',q=>q.answer?.accepted||[]
   );
   for(const row of review.matching){
