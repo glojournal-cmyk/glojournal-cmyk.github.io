@@ -28,7 +28,7 @@ function scoreB(file){
  if(fam<0||r<0||b<0||!src.includes('scoreFoodTestsRemaining37'))throw new Error('Missing production scorer '+file);
  const R=new Function(src.slice(fam,endOf(src,r))+'\nreturn R;')();
  return new Function('L','I','R','scoreFoodTestsGuarded','scoreFoodTestsEthanolSafety','scoreFoodTestsRemaining37',
-  src.slice(b,endOf(src,b))+'\nreturn B;')(
+  src.slice(src.indexOf('function reviewedMark('),b)+src.slice(b,endOf(src,b))+'\nreturn B;')(
  q=>q.answer.modelAnswer||'',()=>[],R,six,ethanol,remaining);
 }
 if(bank.questions.length!==143||tests.cases.length!==8||heldout.rows.length!==37||new Set(tests.cases.map(x=>x.questionId)).size!==4)
