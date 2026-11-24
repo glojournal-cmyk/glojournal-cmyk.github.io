@@ -1,0 +1,1312 @@
+{
+  "kind": "Source-level Science Academic Content QA verdict, first 25 original Food Tests MCQs (9 recall + 16 result interpretation examples)",
+  "date": "2026-11-24",
+  "headAtReview": "4bc5b6a76d6c5acaf5e482700430c9a30e3c7408",
+  "scope": {
+    "originalQuestions": 143,
+    "originalRecallReviewed": 9,
+    "originalResultExamplesReviewed": 16,
+    "sourceAnswerKeysScienceCorrect": 25,
+    "recallOriginalContentPass": 8,
+    "recallOriginalNeedsWordingRevision": 1,
+    "resultSourceNeedsWordingRevision": 16,
+    "correctedResultDraftContentPass": 16,
+    "totalCorrectedDraftContentPass": 17,
+    "independentQualifiedApprovals": 0
+  },
+  "criteria": [
+    "stated positive/negative food-test signals fit reagent and nutrient",
+    "single best answer as actually worded, avoiding a partial true subset",
+    "every non-key choice has a specific contextual scientific reason",
+    "source and proposed corrections retain exactly one choice key",
+    "cannot mistake test detection for absolute proof of nutrient absence",
+    "age/course coverage is a separate prerequisite for release"
+  ],
+  "scientificReferences": [
+    "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+    "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+  ],
+  "mainBase": "2e556ffcb48f6c7346b3b663f8058f57271b643d",
+  "sourceBankEdited": false,
+  "reviewRole": "AI SCIENTIFIC CONTENT QA with explicit checked stems and options; NOT an external or independent qualified science educator",
+  "approvalState": "CONTENT_REVIEW_PERFORMED__FORMAL_APPROVAL_BLOCKED",
+  "independentAcademicSignoff": false,
+  "tgsYear8TeachingScopeVerified": false,
+  "pwaDeviceTestPassed": false,
+  "formalCreditEligible": false,
+  "release": "BLOCKED",
+  "recallQuestions": [
+    {
+      "sourceId": "bio-y8-food-tests-iodine-solution-mc",
+      "stem": "Which scientific term matches this description: the reagent used to test for starch?",
+      "optionTexts": [
+        "Benedict's solution",
+        "Biuret solution",
+        "iodine solution",
+        "ethanol"
+      ],
+      "correctIndex": 2,
+      "correctAnswer": "iodine solution",
+      "provisionalKeyScience": "PASS",
+      "provisionalSingleBestAnswer": "PASS",
+      "sourceItemContentVerdict": "AI_CONTENT_QA_PASS",
+      "revisedStemIfNeeded": null,
+      "revisionReason": null,
+      "choiceReasons": [
+        {
+          "letter": "A",
+          "text": "Benedict's solution",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "Benedict's reagent detects reducing sugar, not starch.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "Biuret solution",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "Biuret reagent detects protein, not starch.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "iodine solution",
+          "role": "PROPOSED_KEY",
+          "reason": "The keyed choice corresponds to the described test: iodine solution: the reagent used to test for starch.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "ethanol",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "Ethanol belongs to the lipid emulsion test, not the iodine starch test.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-benedict-s-solution-mc",
+      "stem": "Which scientific term matches this description: the reagent heated in a water bath to test for reducing sugar?",
+      "optionTexts": [
+        "iodine solution",
+        "ethanol",
+        "Benedict's solution",
+        "Biuret solution"
+      ],
+      "correctIndex": 2,
+      "correctAnswer": "Benedict's solution",
+      "provisionalKeyScience": "PASS",
+      "provisionalSingleBestAnswer": "PASS",
+      "sourceItemContentVerdict": "AI_CONTENT_QA_PASS",
+      "revisedStemIfNeeded": null,
+      "revisionReason": null,
+      "choiceReasons": [
+        {
+          "letter": "A",
+          "text": "iodine solution",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "Iodine indicates starch; heated Benedict's is used for reducing sugar.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "ethanol",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "Ethanol is a lipid-extraction solvent in the emulsion test, not the heated sugar reagent.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "Benedict's solution",
+          "role": "PROPOSED_KEY",
+          "reason": "The keyed choice corresponds to the described test: Benedict's solution: the reagent heated in a water bath to test for reducing sugar.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "Biuret solution",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "Biuret reagent detects protein rather than reducing sugar.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-biuret-solution-mc",
+      "stem": "Which scientific term matches this description: the reagent used to test for protein?",
+      "optionTexts": [
+        "iodine solution",
+        "Biuret solution",
+        "Benedict's solution",
+        "ethanol"
+      ],
+      "correctIndex": 1,
+      "correctAnswer": "Biuret solution",
+      "provisionalKeyScience": "PASS",
+      "provisionalSingleBestAnswer": "PASS",
+      "sourceItemContentVerdict": "AI_CONTENT_QA_PASS",
+      "revisedStemIfNeeded": null,
+      "revisionReason": null,
+      "choiceReasons": [
+        {
+          "letter": "A",
+          "text": "iodine solution",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "Iodine indicates starch, not protein.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "Biuret solution",
+          "role": "PROPOSED_KEY",
+          "reason": "The keyed choice corresponds to the described test: Biuret solution: the reagent used to test for protein.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "Benedict's solution",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "Benedict's is used for reducing sugar, not protein.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "ethanol",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "Ethanol emulsion detects lipid, not protein.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-ethanol-emulsion-test-mc",
+      "stem": "Which scientific term matches this description: the lipid test in which ethanol is shaken with the sample before water is added?",
+      "optionTexts": [
+        "Biuret test",
+        "ethanol emulsion test",
+        "Benedict's test",
+        "iodine test"
+      ],
+      "correctIndex": 1,
+      "correctAnswer": "ethanol emulsion test",
+      "provisionalKeyScience": "PASS",
+      "provisionalSingleBestAnswer": "PASS",
+      "sourceItemContentVerdict": "AI_CONTENT_QA_PASS",
+      "revisedStemIfNeeded": null,
+      "revisionReason": null,
+      "choiceReasons": [
+        {
+          "letter": "A",
+          "text": "Biuret test",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "Biuret is a protein test, not the named ethanol-water lipid method.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "ethanol emulsion test",
+          "role": "PROPOSED_KEY",
+          "reason": "The keyed choice corresponds to the described test: ethanol emulsion test: the lipid test in which ethanol is shaken with the sample before water is added.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "Benedict's test",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "Benedict's is used with heating to detect reducing sugar.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "iodine test",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "Iodine is used to detect starch, not lipid.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-blue-black-mc",
+      "stem": "Which scientific term matches this description: the positive colour for starch after iodine is added?",
+      "optionTexts": [
+        "brick-red",
+        "blue-black",
+        "lilac or purple",
+        "orange-brown"
+      ],
+      "correctIndex": 1,
+      "correctAnswer": "blue-black",
+      "provisionalKeyScience": "PASS",
+      "provisionalSingleBestAnswer": "PASS",
+      "sourceItemContentVerdict": "AI_CONTENT_QA_PASS",
+      "revisedStemIfNeeded": null,
+      "revisionReason": null,
+      "choiceReasons": [
+        {
+          "letter": "A",
+          "text": "brick-red",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "Brick-red indicates a heated Benedict's reducing-sugar reaction, not an iodine-starch positive.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "blue-black",
+          "role": "PROPOSED_KEY",
+          "reason": "The keyed choice corresponds to the described test: blue-black: the positive colour for starch after iodine is added.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "lilac or purple",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "Lilac or purple is the positive Biuret protein colour.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "orange-brown",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "Orange-brown is unchanged iodine and indicates starch was not detected.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-brick-red-mc",
+      "stem": "Which scientific term matches this description: a strong positive Benedict's result for reducing sugar after heating?",
+      "optionTexts": [
+        "brick-red",
+        "yellow",
+        "green",
+        "orange"
+      ],
+      "correctIndex": 0,
+      "correctAnswer": "brick-red",
+      "provisionalKeyScience": "PASS",
+      "provisionalSingleBestAnswer": "NEEDS_SPECIFIC_STRENGTH_WORDING",
+      "sourceItemContentVerdict": "REVISE_STEM_THEN_RECHECK",
+      "revisedStemIfNeeded": "Which colour is the strongest commonly described positive result in a heated Benedict's test for reducing sugar?",
+      "revisionReason": "All green, yellow, orange and brick-red can be positive; 'strong' is not an unambiguous threshold. Ask for the strongest typical endpoint.",
+      "choiceReasons": [
+        {
+          "letter": "A",
+          "text": "brick-red",
+          "role": "PROPOSED_KEY",
+          "reason": "The keyed choice corresponds to the described test: brick-red: a strong positive Benedict's result for reducing sugar after heating.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "yellow",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "Yellow can also be a positive reducing-sugar Benedict result but is not the canonical most intense brick-red endpoint.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "green",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "Green can also be a weak positive Benedict result; this option exposes why 'strong' should be specified more precisely.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "orange",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "Orange is also positive and can be read as a substantial positive result; the original phrase 'a strong positive' is too vague to rule this out categorically.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-lilac-or-purple-mc",
+      "stem": "Which scientific term matches this description: the positive colour produced by protein in the Biuret test?",
+      "optionTexts": [
+        "blue-black",
+        "lilac or purple",
+        "brick-red",
+        "orange-brown"
+      ],
+      "correctIndex": 1,
+      "correctAnswer": "lilac or purple",
+      "provisionalKeyScience": "PASS",
+      "provisionalSingleBestAnswer": "PASS",
+      "sourceItemContentVerdict": "AI_CONTENT_QA_PASS",
+      "revisedStemIfNeeded": null,
+      "revisionReason": null,
+      "choiceReasons": [
+        {
+          "letter": "A",
+          "text": "blue-black",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "Blue-black belongs to iodine and starch.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "lilac or purple",
+          "role": "PROPOSED_KEY",
+          "reason": "The keyed choice corresponds to the described test: lilac or purple: the positive colour produced by protein in the Biuret test.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "brick-red",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "Brick-red is a Benedict result for reducing sugar.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "orange-brown",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "Orange-brown is unchanged iodine and not a positive Biuret protein result.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-cloudy-white-emulsion-mc",
+      "stem": "Which scientific term matches this description: the positive result for lipid in the ethanol emulsion test?",
+      "optionTexts": [
+        "blue-black",
+        "clear solution",
+        "brick-red precipitate",
+        "cloudy white emulsion"
+      ],
+      "correctIndex": 3,
+      "correctAnswer": "cloudy white emulsion",
+      "provisionalKeyScience": "PASS",
+      "provisionalSingleBestAnswer": "PASS",
+      "sourceItemContentVerdict": "AI_CONTENT_QA_PASS",
+      "revisedStemIfNeeded": null,
+      "revisionReason": null,
+      "choiceReasons": [
+        {
+          "letter": "A",
+          "text": "blue-black",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "Blue-black is the iodine-starch result, not lipid emulsion.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "clear solution",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "A clear ethanol-water mixture is the negative, not positive, emulsion endpoint.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "brick-red precipitate",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "Brick-red precipitate is the heated Benedict reducing-sugar result.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "cloudy white emulsion",
+          "role": "PROPOSED_KEY",
+          "reason": "The keyed choice corresponds to the described test: cloudy white emulsion: the positive result for lipid in the ethanol emulsion test.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-water-bath-mc",
+      "stem": "Which scientific term matches this description: a container of hot water used to heat Benedict's test evenly and safely.",
+      "optionTexts": [
+        "Bunsen burner",
+        "test-tube rack",
+        "water bath",
+        "tripod"
+      ],
+      "correctIndex": 2,
+      "correctAnswer": "water bath",
+      "provisionalKeyScience": "PASS",
+      "provisionalSingleBestAnswer": "PASS",
+      "sourceItemContentVerdict": "AI_CONTENT_QA_PASS",
+      "revisedStemIfNeeded": null,
+      "revisionReason": null,
+      "choiceReasons": [
+        {
+          "letter": "A",
+          "text": "Bunsen burner",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "A Bunsen burner is a direct heating source, not a container of hot water.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "test-tube rack",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "A test-tube rack holds tubes and is not the hot-water bath.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "water bath",
+          "role": "PROPOSED_KEY",
+          "reason": "The keyed choice corresponds to the described test: water bath: a container of hot water used to heat Benedict's test evenly and safely.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "tripod",
+          "role": "NOT_BEST_ANSWER",
+          "reason": "A tripod supports equipment over a heat source but is not the container of hot water itself.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    }
+  ],
+  "retainedResultExamples": [
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-1",
+      "sourcePrompt": "During a practical, Sample F1-01 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "revisedStem": "During a practical, Sample F1-01 has these results: iodine blue-black; heated Benedict's green precipitate; Biuret lilac; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceCorrectAnswer": "starch, reducing sugar, protein, lipid",
+      "correctIndex": 3,
+      "originalQuestionClarity": "REQUIRES_COMPLETE_LIST_AND_CONCRETE_OBSERVATION_CORRECTION",
+      "revisedScienceKey": "PASS",
+      "revisedSingleCorrectOption": "PASS",
+      "revisedContentVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "sourceItemContentVerdict": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "options": [
+        {
+          "letter": "A",
+          "text": "none of these four nutrients",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: lipid, protein, reducing sugar, starch. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "starch",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: lipid, protein, reducing sugar. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "reducing sugar",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: lipid, protein, starch. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "starch, reducing sugar, protein, lipid",
+          "role": "PROPOSED_KEY",
+          "reason": "This choice lists exactly all nutrient groups detected by the four described test observations.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-2",
+      "sourcePrompt": "During a practical, Sample F1-02 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "revisedStem": "During a practical, Sample F1-02 has these results: iodine orange-brown; heated Benedict's yellow precipitate; Biuret purple; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceCorrectAnswer": "reducing sugar, protein, lipid",
+      "correctIndex": 2,
+      "originalQuestionClarity": "REQUIRES_COMPLETE_LIST_AND_CONCRETE_OBSERVATION_CORRECTION",
+      "revisedScienceKey": "PASS",
+      "revisedSingleCorrectOption": "PASS",
+      "revisedContentVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "sourceItemContentVerdict": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "options": [
+        {
+          "letter": "A",
+          "text": "starch, reducing sugar",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: lipid, protein. It claims detection of these groups without the supporting positive test: starch. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "starch, protein",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: lipid, reducing sugar. It claims detection of these groups without the supporting positive test: starch. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "reducing sugar, protein, lipid",
+          "role": "PROPOSED_KEY",
+          "reason": "This choice lists exactly all nutrient groups detected by the four described test observations.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "starch",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: lipid, protein, reducing sugar. It claims detection of these groups without the supporting positive test: starch. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-3",
+      "sourcePrompt": "During a practical, Sample F1-03 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "revisedStem": "During a practical, Sample F1-03 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceCorrectAnswer": "starch, protein, lipid",
+      "correctIndex": 1,
+      "originalQuestionClarity": "REQUIRES_COMPLETE_LIST_AND_CONCRETE_OBSERVATION_CORRECTION",
+      "revisedScienceKey": "PASS",
+      "revisedSingleCorrectOption": "PASS",
+      "revisedContentVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "sourceItemContentVerdict": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "options": [
+        {
+          "letter": "A",
+          "text": "reducing sugar, lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: protein, starch. It claims detection of these groups without the supporting positive test: reducing sugar. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "starch, protein, lipid",
+          "role": "PROPOSED_KEY",
+          "reason": "This choice lists exactly all nutrient groups detected by the four described test observations.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "reducing sugar",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: lipid, protein, starch. It claims detection of these groups without the supporting positive test: reducing sugar. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "reducing sugar, protein",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: lipid, starch. It claims detection of these groups without the supporting positive test: reducing sugar. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-4",
+      "sourcePrompt": "During a practical, Sample F1-04 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "revisedStem": "During a practical, Sample F1-04 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret purple; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceCorrectAnswer": "protein, lipid",
+      "correctIndex": 0,
+      "originalQuestionClarity": "REQUIRES_COMPLETE_LIST_AND_CONCRETE_OBSERVATION_CORRECTION",
+      "revisedScienceKey": "PASS",
+      "revisedSingleCorrectOption": "PASS",
+      "revisedContentVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "sourceItemContentVerdict": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "options": [
+        {
+          "letter": "A",
+          "text": "protein, lipid",
+          "role": "PROPOSED_KEY",
+          "reason": "This choice lists exactly all nutrient groups detected by the four described test observations.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "starch, reducing sugar",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: lipid, protein. It claims detection of these groups without the supporting positive test: reducing sugar, starch. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "starch, reducing sugar, lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: protein. It claims detection of these groups without the supporting positive test: reducing sugar, starch. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "reducing sugar",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: lipid, protein. It claims detection of these groups without the supporting positive test: reducing sugar. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-5",
+      "sourcePrompt": "During a practical, Sample F1-05 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "revisedStem": "During a practical, Sample F1-05 has these results: iodine blue-black; heated Benedict's orange precipitate; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceCorrectAnswer": "starch, reducing sugar, lipid",
+      "correctIndex": 3,
+      "originalQuestionClarity": "REQUIRES_COMPLETE_LIST_AND_CONCRETE_OBSERVATION_CORRECTION",
+      "revisedScienceKey": "PASS",
+      "revisedSingleCorrectOption": "PASS",
+      "revisedContentVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "sourceItemContentVerdict": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "options": [
+        {
+          "letter": "A",
+          "text": "protein",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: lipid, reducing sugar, starch. It claims detection of these groups without the supporting positive test: protein. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "starch, protein",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: lipid, reducing sugar. It claims detection of these groups without the supporting positive test: protein. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "reducing sugar, protein",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: lipid, starch. It claims detection of these groups without the supporting positive test: protein. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "starch, reducing sugar, lipid",
+          "role": "PROPOSED_KEY",
+          "reason": "This choice lists exactly all nutrient groups detected by the four described test observations.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-6",
+      "sourcePrompt": "During a practical, Sample F1-06 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "revisedStem": "During a practical, Sample F1-06 has these results: iodine orange-brown; heated Benedict's brick-red precipitate; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceCorrectAnswer": "reducing sugar, lipid",
+      "correctIndex": 2,
+      "originalQuestionClarity": "REQUIRES_COMPLETE_LIST_AND_CONCRETE_OBSERVATION_CORRECTION",
+      "revisedScienceKey": "PASS",
+      "revisedSingleCorrectOption": "PASS",
+      "revisedContentVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "sourceItemContentVerdict": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "options": [
+        {
+          "letter": "A",
+          "text": "starch, reducing sugar, protein",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: lipid. It claims detection of these groups without the supporting positive test: protein, starch. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "starch",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: lipid, reducing sugar. It claims detection of these groups without the supporting positive test: starch. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "reducing sugar, lipid",
+          "role": "PROPOSED_KEY",
+          "reason": "This choice lists exactly all nutrient groups detected by the four described test observations.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "starch, protein",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: lipid, reducing sugar. It claims detection of these groups without the supporting positive test: protein, starch. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-7",
+      "sourcePrompt": "During a practical, Sample F1-07 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "revisedStem": "During a practical, Sample F1-07 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceCorrectAnswer": "starch, lipid",
+      "correctIndex": 1,
+      "originalQuestionClarity": "REQUIRES_COMPLETE_LIST_AND_CONCRETE_OBSERVATION_CORRECTION",
+      "revisedScienceKey": "PASS",
+      "revisedSingleCorrectOption": "PASS",
+      "revisedContentVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "sourceItemContentVerdict": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "options": [
+        {
+          "letter": "A",
+          "text": "reducing sugar, protein, lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: starch. It claims detection of these groups without the supporting positive test: protein, reducing sugar. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "starch, lipid",
+          "role": "PROPOSED_KEY",
+          "reason": "This choice lists exactly all nutrient groups detected by the four described test observations.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "reducing sugar, protein",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: lipid, starch. It claims detection of these groups without the supporting positive test: protein, reducing sugar. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "reducing sugar",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: lipid, starch. It claims detection of these groups without the supporting positive test: reducing sugar. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-8",
+      "sourcePrompt": "During a practical, Sample F1-08 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which of these nutrients were detected?",
+      "revisedStem": "During a practical, Sample F1-08 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceCorrectAnswer": "lipid",
+      "correctIndex": 0,
+      "originalQuestionClarity": "REQUIRES_COMPLETE_LIST_AND_CONCRETE_OBSERVATION_CORRECTION",
+      "revisedScienceKey": "PASS",
+      "revisedSingleCorrectOption": "PASS",
+      "revisedContentVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "sourceItemContentVerdict": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "options": [
+        {
+          "letter": "A",
+          "text": "lipid",
+          "role": "PROPOSED_KEY",
+          "reason": "This choice lists exactly all nutrient groups detected by the four described test observations.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "starch, reducing sugar, protein",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: lipid. It claims detection of these groups without the supporting positive test: protein, reducing sugar, starch. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "starch, reducing sugar, protein, lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It claims detection of these groups without the supporting positive test: protein, reducing sugar, starch. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "reducing sugar, protein",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: lipid. It claims detection of these groups without the supporting positive test: protein, reducing sugar. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-9",
+      "sourcePrompt": "During a practical, Sample F1-09 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "revisedStem": "During a practical, Sample F1-09 has these results: iodine blue-black; heated Benedict's green precipitate; Biuret lilac; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceCorrectAnswer": "starch, reducing sugar, protein",
+      "correctIndex": 3,
+      "originalQuestionClarity": "REQUIRES_COMPLETE_LIST_AND_CONCRETE_OBSERVATION_CORRECTION",
+      "revisedScienceKey": "PASS",
+      "revisedSingleCorrectOption": "PASS",
+      "revisedContentVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "sourceItemContentVerdict": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "options": [
+        {
+          "letter": "A",
+          "text": "lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: protein, reducing sugar, starch. It claims detection of these groups without the supporting positive test: lipid. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "starch, lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: protein, reducing sugar. It claims detection of these groups without the supporting positive test: lipid. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "reducing sugar, lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: protein, starch. It claims detection of these groups without the supporting positive test: lipid. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "starch, reducing sugar, protein",
+          "role": "PROPOSED_KEY",
+          "reason": "This choice lists exactly all nutrient groups detected by the four described test observations.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-10",
+      "sourcePrompt": "During a practical, Sample F1-10 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "revisedStem": "During a practical, Sample F1-10 has these results: iodine orange-brown; heated Benedict's yellow precipitate; Biuret purple; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceCorrectAnswer": "reducing sugar, protein",
+      "correctIndex": 2,
+      "originalQuestionClarity": "REQUIRES_COMPLETE_LIST_AND_CONCRETE_OBSERVATION_CORRECTION",
+      "revisedScienceKey": "PASS",
+      "revisedSingleCorrectOption": "PASS",
+      "revisedContentVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "sourceItemContentVerdict": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "options": [
+        {
+          "letter": "A",
+          "text": "starch, reducing sugar, lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: protein. It claims detection of these groups without the supporting positive test: lipid, starch. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "starch, protein, lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: reducing sugar. It claims detection of these groups without the supporting positive test: lipid, starch. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "reducing sugar, protein",
+          "role": "PROPOSED_KEY",
+          "reason": "This choice lists exactly all nutrient groups detected by the four described test observations.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "starch, lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: protein, reducing sugar. It claims detection of these groups without the supporting positive test: lipid, starch. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-11",
+      "sourcePrompt": "During a practical, Sample F1-11 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "revisedStem": "During a practical, Sample F1-11 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceCorrectAnswer": "starch, protein",
+      "correctIndex": 1,
+      "originalQuestionClarity": "REQUIRES_COMPLETE_LIST_AND_CONCRETE_OBSERVATION_CORRECTION",
+      "revisedScienceKey": "PASS",
+      "revisedSingleCorrectOption": "PASS",
+      "revisedContentVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "sourceItemContentVerdict": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "options": [
+        {
+          "letter": "A",
+          "text": "reducing sugar",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: protein, starch. It claims detection of these groups without the supporting positive test: reducing sugar. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "starch, protein",
+          "role": "PROPOSED_KEY",
+          "reason": "This choice lists exactly all nutrient groups detected by the four described test observations.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "reducing sugar, lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: protein, starch. It claims detection of these groups without the supporting positive test: lipid, reducing sugar. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "reducing sugar, protein, lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: starch. It claims detection of these groups without the supporting positive test: lipid, reducing sugar. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-12",
+      "sourcePrompt": "During a practical, Sample F1-12 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret lilac / purple; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "revisedStem": "During a practical, Sample F1-12 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret purple; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceCorrectAnswer": "protein",
+      "correctIndex": 0,
+      "originalQuestionClarity": "REQUIRES_COMPLETE_LIST_AND_CONCRETE_OBSERVATION_CORRECTION",
+      "revisedScienceKey": "PASS",
+      "revisedSingleCorrectOption": "PASS",
+      "revisedContentVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "sourceItemContentVerdict": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "options": [
+        {
+          "letter": "A",
+          "text": "protein",
+          "role": "PROPOSED_KEY",
+          "reason": "This choice lists exactly all nutrient groups detected by the four described test observations.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "starch, reducing sugar, lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: protein. It claims detection of these groups without the supporting positive test: lipid, reducing sugar, starch. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "starch, reducing sugar",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: protein. It claims detection of these groups without the supporting positive test: reducing sugar, starch. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "reducing sugar, lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: protein. It claims detection of these groups without the supporting positive test: lipid, reducing sugar. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-13",
+      "sourcePrompt": "During a practical, Sample F1-13 has these results: iodine blue-black; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "revisedStem": "During a practical, Sample F1-13 has these results: iodine blue-black; heated Benedict's orange precipitate; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceCorrectAnswer": "starch, reducing sugar",
+      "correctIndex": 3,
+      "originalQuestionClarity": "REQUIRES_COMPLETE_LIST_AND_CONCRETE_OBSERVATION_CORRECTION",
+      "revisedScienceKey": "PASS",
+      "revisedSingleCorrectOption": "PASS",
+      "revisedContentVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "sourceItemContentVerdict": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "options": [
+        {
+          "letter": "A",
+          "text": "protein, lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: reducing sugar, starch. It claims detection of these groups without the supporting positive test: lipid, protein. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "starch, protein, lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: reducing sugar. It claims detection of these groups without the supporting positive test: lipid, protein. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "reducing sugar, protein, lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: starch. It claims detection of these groups without the supporting positive test: lipid, protein. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "starch, reducing sugar",
+          "role": "PROPOSED_KEY",
+          "reason": "This choice lists exactly all nutrient groups detected by the four described test observations.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-14",
+      "sourcePrompt": "During a practical, Sample F1-14 has these results: iodine orange-brown; heated Benedict's green / yellow / orange / brick-red; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "revisedStem": "During a practical, Sample F1-14 has these results: iodine orange-brown; heated Benedict's brick-red precipitate; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceCorrectAnswer": "reducing sugar",
+      "correctIndex": 2,
+      "originalQuestionClarity": "REQUIRES_COMPLETE_LIST_AND_CONCRETE_OBSERVATION_CORRECTION",
+      "revisedScienceKey": "PASS",
+      "revisedSingleCorrectOption": "PASS",
+      "revisedContentVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "sourceItemContentVerdict": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "options": [
+        {
+          "letter": "A",
+          "text": "starch, reducing sugar, protein, lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It claims detection of these groups without the supporting positive test: lipid, protein, starch. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "starch, lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: reducing sugar. It claims detection of these groups without the supporting positive test: lipid, starch. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "reducing sugar",
+          "role": "PROPOSED_KEY",
+          "reason": "This choice lists exactly all nutrient groups detected by the four described test observations.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "starch, protein, lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: reducing sugar. It claims detection of these groups without the supporting positive test: lipid, protein, starch. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-15",
+      "sourcePrompt": "During a practical, Sample F1-15 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "revisedStem": "During a practical, Sample F1-15 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceCorrectAnswer": "starch",
+      "correctIndex": 1,
+      "originalQuestionClarity": "REQUIRES_COMPLETE_LIST_AND_CONCRETE_OBSERVATION_CORRECTION",
+      "revisedScienceKey": "PASS",
+      "revisedSingleCorrectOption": "PASS",
+      "revisedContentVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "sourceItemContentVerdict": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "options": [
+        {
+          "letter": "A",
+          "text": "reducing sugar, protein",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: starch. It claims detection of these groups without the supporting positive test: protein, reducing sugar. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "starch",
+          "role": "PROPOSED_KEY",
+          "reason": "This choice lists exactly all nutrient groups detected by the four described test observations.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "reducing sugar, protein, lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: starch. It claims detection of these groups without the supporting positive test: lipid, protein, reducing sugar. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "reducing sugar, lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It omits these detected groups: starch. It claims detection of these groups without the supporting positive test: lipid, reducing sugar. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    },
+    {
+      "sourceId": "bio-y8-food-tests-case-20261025-1-16",
+      "sourcePrompt": "During a practical, Sample F1-16 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which of these nutrients were detected?",
+      "revisedStem": "During a practical, Sample F1-16 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
+      "sourceCorrectAnswer": "none of these four nutrients",
+      "correctIndex": 0,
+      "originalQuestionClarity": "REQUIRES_COMPLETE_LIST_AND_CONCRETE_OBSERVATION_CORRECTION",
+      "revisedScienceKey": "PASS",
+      "revisedSingleCorrectOption": "PASS",
+      "revisedContentVerdict": "AI_QA_REVISED_CONTENT_PASS",
+      "sourceItemContentVerdict": "REVISE_SOURCE_PROMPT_BEFORE_USE",
+      "options": [
+        {
+          "letter": "A",
+          "text": "none of these four nutrients",
+          "role": "PROPOSED_KEY",
+          "reason": "This choice lists exactly all nutrient groups detected by the four described test observations.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "B",
+          "text": "starch, reducing sugar, protein, lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It claims detection of these groups without the supporting positive test: lipid, protein, reducing sugar, starch. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "C",
+          "text": "starch, reducing sugar, protein",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It claims detection of these groups without the supporting positive test: protein, reducing sugar, starch. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        },
+        {
+          "letter": "D",
+          "text": "reducing sugar, protein, lipid",
+          "role": "NOT_COMPLETE_DETECTED_SET",
+          "reason": "It claims detection of these groups without the supporting positive test: lipid, protein, reducing sugar. This is not the complete detected set.",
+          "independentQualifiedSignoff": false
+        }
+      ],
+      "scienceEvidence": [
+        "https://www.sciencedepartment.co.uk/templates/practemplate.php?pagename=rp03food",
+        "https://www.savemyexams.com/gcse/biology/aqa/18/revision-notes/2-organisation/2-1-organisation-digestion/2-1-7-required-practical-food-tests/"
+      ],
+      "independentQualifiedApproval": false,
+      "tgsTeachingVerified": false,
+      "formalCreditEligible": false
+    }
+  ]
+}
