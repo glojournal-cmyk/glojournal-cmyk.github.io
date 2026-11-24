@@ -220,6 +220,27 @@
       "independentQualifiedApprovals": 0,
       "formalScoringStillBlocked": true,
       "reviewSource": "qa/food-tests-99-structured-content-adjudication-20261124.json"
+    },
+    "aiSource143SecondPassDispositions": {
+      "sourceOriginalQuestions": 143,
+      "aiSourceQuestionDispositionCompleted": 143,
+      "SOURCE_CONTENT_PASS": 25,
+      "REVISE_ORIGINAL_STEM": 17,
+      "REVISE_ORIGINAL_ACCEPTED_MARK_SCHEME": 1,
+      "REPLACE_DUPLICATE_RESULT_MCQS": 48,
+      "REPLACE_UNRELIABLE_FREE_TEXT_SCORING": 52,
+      "originalSourceSafeToLeaveContentUnchanged": 25,
+      "originalContentRequiresEditorialCorrection": 18,
+      "originalGradingDesignNeedsReplacement": 100,
+      "provisionalReplacementMCQCandidateQuestions": 48,
+      "provisionalStructuredMarkPointMCQs": 99,
+      "qualifiedIndependentAcademicApproved": 0,
+      "asOf": "2026-11-24",
+      "scienceContentReviewCompleted": true,
+      "teacherIndependentApprovals": 0,
+      "realIpadPass": false,
+      "releaseApproval": "BLOCKED",
+      "evidence": "qa/food-tests-143-source-academic-dispositions-20261124.json"
     }
   },
   "unresolvedFormalScoringEvidence": [
@@ -269,7 +290,11 @@
       "aiSecondPassSoleCorrectInCurrentStem": "AI_CONTENT_QA_PASS",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 2,
@@ -321,7 +346,11 @@
       "aiSecondPassScienceTarget": "PASS",
       "aiSecondPassAcceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
       "aiSecondPassContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 3,
@@ -362,7 +391,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 4,
@@ -393,7 +426,11 @@
       "aiSecondPassSoleCorrectInCurrentStem": "AI_CONTENT_QA_PASS",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 5,
@@ -451,7 +488,11 @@
       "aiSecondPassScienceTarget": "PASS",
       "aiSecondPassAcceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
       "aiSecondPassContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 6,
@@ -492,7 +533,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 7,
@@ -523,7 +568,11 @@
       "aiSecondPassSoleCorrectInCurrentStem": "AI_CONTENT_QA_PASS",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 8,
@@ -579,7 +628,11 @@
       "aiSecondPassScienceTarget": "PASS",
       "aiSecondPassAcceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
       "aiSecondPassContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 9,
@@ -620,7 +673,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 10,
@@ -651,7 +708,11 @@
       "aiSecondPassSoleCorrectInCurrentStem": "AI_CONTENT_QA_PASS",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 11,
@@ -706,7 +767,11 @@
       "aiSecondPassScienceTarget": "PASS",
       "aiSecondPassAcceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
       "aiSecondPassContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 12,
@@ -747,7 +812,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 13,
@@ -778,7 +847,11 @@
       "aiSecondPassSoleCorrectInCurrentStem": "AI_CONTENT_QA_PASS",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 14,
@@ -827,7 +900,11 @@
       "aiSecondPassScienceTarget": "PASS",
       "aiSecondPassAcceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
       "aiSecondPassContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 15,
@@ -868,7 +945,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 16,
@@ -899,7 +980,11 @@
       "aiSecondPassSoleCorrectInCurrentStem": "REVISE_STEM_THEN_RECHECK",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 17,
@@ -952,7 +1037,11 @@
       "aiSecondPassScienceTarget": "PASS",
       "aiSecondPassAcceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
       "aiSecondPassContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 18,
@@ -993,7 +1082,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 19,
@@ -1024,7 +1117,11 @@
       "aiSecondPassSoleCorrectInCurrentStem": "AI_CONTENT_QA_PASS",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 20,
@@ -1080,7 +1177,11 @@
       "aiSecondPassScienceTarget": "PASS",
       "aiSecondPassAcceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
       "aiSecondPassContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 21,
@@ -1121,7 +1222,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 22,
@@ -1152,7 +1257,11 @@
       "aiSecondPassSoleCorrectInCurrentStem": "AI_CONTENT_QA_PASS",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 23,
@@ -1210,7 +1319,11 @@
       "aiSecondPassScienceTarget": "PASS",
       "aiSecondPassAcceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
       "aiSecondPassContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 24,
@@ -1251,7 +1364,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 25,
@@ -1282,7 +1399,11 @@
       "aiSecondPassSoleCorrectInCurrentStem": "AI_CONTENT_QA_PASS",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 26,
@@ -1336,7 +1457,11 @@
       "aiSecondPassScienceTarget": "PASS",
       "aiSecondPassAcceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
       "aiSecondPassContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 27,
@@ -1381,7 +1506,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 28,
@@ -1415,7 +1544,11 @@
       "aiSecondPassSciencePairs": "PASS_4_OF_4",
       "aiSecondPassPartialCreditAcceptance": "PENDING_0_TO_4_PER_SOURCE_BUNDLE_TEST",
       "aiSecondPassContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 29,
@@ -1449,7 +1582,11 @@
       "aiSecondPassSciencePairs": "PASS_4_OF_4",
       "aiSecondPassPartialCreditAcceptance": "PENDING_0_TO_4_PER_SOURCE_BUNDLE_TEST",
       "aiSecondPassContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 30,
@@ -1496,7 +1633,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 31,
@@ -1545,7 +1686,11 @@
       "aiSecondPassSciencePairs": "PASS_4_OF_4",
       "aiSecondPassPartialCreditAcceptance": "PENDING_0_TO_4_PER_SOURCE_BUNDLE_TEST",
       "aiSecondPassContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 32,
@@ -1610,7 +1755,11 @@
       "aiSecondPassScienceTarget": "PASS",
       "aiSecondPassAcceptedListVerdict": "REVISE_OVERABSOLUTE_NEGATIVE_WORDING",
       "aiSecondPassContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REVISE_ORIGINAL_ACCEPTED_MARK_SCHEME",
+      "aiAcademicContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 33,
@@ -1655,7 +1804,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 34,
@@ -1688,7 +1841,11 @@
       "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-01 has these results: iodine blue-black; heated Benedict's green precipitate; Biuret lilac; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 35,
@@ -1721,7 +1878,11 @@
       "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-02 has these results: iodine orange-brown; heated Benedict's yellow precipitate; Biuret purple; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 36,
@@ -1754,7 +1915,11 @@
       "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-03 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 37,
@@ -1787,7 +1952,11 @@
       "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-04 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret purple; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 38,
@@ -1820,7 +1989,11 @@
       "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-05 has these results: iodine blue-black; heated Benedict's orange precipitate; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 39,
@@ -1853,7 +2026,11 @@
       "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-06 has these results: iodine orange-brown; heated Benedict's brick-red precipitate; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 40,
@@ -1886,7 +2063,11 @@
       "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-07 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 41,
@@ -1919,7 +2100,11 @@
       "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-08 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test cloudy white emulsion. Which option gives the complete list of nutrient groups detected by these four tests?",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 42,
@@ -1952,7 +2137,11 @@
       "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-09 has these results: iodine blue-black; heated Benedict's green precipitate; Biuret lilac; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 43,
@@ -1985,7 +2174,11 @@
       "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-10 has these results: iodine orange-brown; heated Benedict's yellow precipitate; Biuret purple; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 44,
@@ -2018,7 +2211,11 @@
       "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-11 has these results: iodine blue-black; heated Benedict's remains blue; Biuret lilac; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 45,
@@ -2051,7 +2248,11 @@
       "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-12 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret purple; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 46,
@@ -2084,7 +2285,11 @@
       "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-13 has these results: iodine blue-black; heated Benedict's orange precipitate; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 47,
@@ -2117,7 +2322,11 @@
       "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-14 has these results: iodine orange-brown; heated Benedict's brick-red precipitate; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 48,
@@ -2150,7 +2359,11 @@
       "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-15 has these results: iodine blue-black; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 49,
@@ -2183,7 +2396,11 @@
       "aiSecondPassCorrectedDraftStem": "During a practical, Sample F1-16 has these results: iodine orange-brown; heated Benedict's remains blue; Biuret remains blue; ethanol emulsion test remains clear. Which option gives the complete list of nutrient groups detected by these four tests?",
       "aiSecondPassReviewEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REVISE_ORIGINAL_STEM",
+      "aiAcademicContentEvidence": "qa/food-tests-25-source-mcq-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 50,
@@ -2226,7 +2443,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 51,
@@ -2269,7 +2490,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 52,
@@ -2312,7 +2537,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 53,
@@ -2355,7 +2584,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 54,
@@ -2398,7 +2631,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 55,
@@ -2441,7 +2678,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 56,
@@ -2484,7 +2725,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 57,
@@ -2527,7 +2772,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 58,
@@ -2570,7 +2819,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 59,
@@ -2613,7 +2866,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 60,
@@ -2656,7 +2913,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 61,
@@ -2699,7 +2960,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 62,
@@ -2742,7 +3007,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 63,
@@ -2785,7 +3054,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 64,
@@ -2828,7 +3101,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 65,
@@ -2871,7 +3148,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 66,
@@ -2915,7 +3196,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 67,
@@ -2958,7 +3243,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 68,
@@ -3001,7 +3290,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 69,
@@ -3044,7 +3337,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 70,
@@ -3087,7 +3384,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 71,
@@ -3130,7 +3431,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 72,
@@ -3173,7 +3478,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 73,
@@ -3216,7 +3525,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 74,
@@ -3259,7 +3572,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 75,
@@ -3302,7 +3619,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 76,
@@ -3345,7 +3666,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 77,
@@ -3388,7 +3713,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 78,
@@ -3431,7 +3760,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 79,
@@ -3474,7 +3807,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 80,
@@ -3517,7 +3854,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 81,
@@ -3560,7 +3901,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 82,
@@ -3603,7 +3948,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 83,
@@ -3646,7 +3995,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 84,
@@ -3689,7 +4042,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 85,
@@ -3732,7 +4089,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 86,
@@ -3775,7 +4136,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 87,
@@ -3818,7 +4183,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 88,
@@ -3861,7 +4230,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 89,
@@ -3904,7 +4277,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 90,
@@ -3947,7 +4324,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 91,
@@ -3990,7 +4371,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 92,
@@ -4033,7 +4418,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 93,
@@ -4076,7 +4465,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 94,
@@ -4120,7 +4513,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 95,
@@ -4163,7 +4560,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 96,
@@ -4207,7 +4608,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 97,
@@ -4251,7 +4656,11 @@
       "sourceOriginalDisposition": "REVISE_REDUNDANT_CASE_DO_NOT_REUSE",
       "sourceOriginalContentApproved": false,
       "independentAcademicSignoff": false,
-      "tgsYear8TaughtScopeApproval": false
+      "tgsYear8TaughtScopeApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_DUPLICATE_RESULT_MCQS",
+      "aiAcademicContentEvidence": "qa/food-tests-48-replacement-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 98,
@@ -4295,7 +4704,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 99,
@@ -4339,7 +4752,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 100,
@@ -4383,7 +4800,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 101,
@@ -4427,7 +4848,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 102,
@@ -4471,7 +4896,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 103,
@@ -4515,7 +4944,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 104,
@@ -4559,7 +4992,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 105,
@@ -4603,7 +5040,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 106,
@@ -4647,7 +5088,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 107,
@@ -4691,7 +5136,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 108,
@@ -4735,7 +5184,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 109,
@@ -4779,7 +5232,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 110,
@@ -4823,7 +5280,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 111,
@@ -4867,7 +5328,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 112,
@@ -4911,7 +5376,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 113,
@@ -4955,7 +5424,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 114,
@@ -5018,7 +5491,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 115,
@@ -5062,7 +5539,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 116,
@@ -5106,7 +5587,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 117,
@@ -5150,7 +5635,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 118,
@@ -5194,7 +5683,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 119,
@@ -5238,7 +5731,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 120,
@@ -5301,7 +5798,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 121,
@@ -5345,7 +5846,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 122,
@@ -5389,7 +5894,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 123,
@@ -5433,7 +5942,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 124,
@@ -5477,7 +5990,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 125,
@@ -5521,7 +6038,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 126,
@@ -5565,7 +6086,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 127,
@@ -5609,7 +6134,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 128,
@@ -5653,7 +6182,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 129,
@@ -5697,7 +6230,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 130,
@@ -5741,7 +6278,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 131,
@@ -5785,7 +6326,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 132,
@@ -5829,7 +6374,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 133,
@@ -5873,7 +6422,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 134,
@@ -5917,7 +6470,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 135,
@@ -5961,7 +6518,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 136,
@@ -6005,7 +6566,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 137,
@@ -6052,7 +6617,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 138,
@@ -6099,7 +6668,11 @@
       ],
       "aiReplacementEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
       "sourceFreeEnglishFormalScoringVerdict": "FAIL_UNRELIABLE_PROSE_MARKING__PRACTICE_ONLY",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "REPLACE_UNRELIABLE_FREE_TEXT_SCORING",
+      "aiAcademicContentEvidence": "qa/food-tests-99-structured-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 139,
@@ -6154,7 +6727,11 @@
       "aiSecondPassScienceTarget": "PASS",
       "aiSecondPassAcceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
       "aiSecondPassContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 140,
@@ -6217,7 +6794,11 @@
       "aiSecondPassScienceTarget": "PASS",
       "aiSecondPassAcceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
       "aiSecondPassContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 141,
@@ -6278,7 +6859,11 @@
       "aiSecondPassScienceTarget": "PASS",
       "aiSecondPassAcceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
       "aiSecondPassContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 142,
@@ -6338,7 +6923,11 @@
       "aiSecondPassScienceTarget": "PASS",
       "aiSecondPassAcceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
       "aiSecondPassContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     },
     {
       "ordinal": 143,
@@ -6394,7 +6983,11 @@
       "aiSecondPassScienceTarget": "PASS",
       "aiSecondPassAcceptedListVerdict": "AI_BOUNDED_EXPLICIT_RESPONSES_CONTENT_PASS__UNSEEN_PARAPHRASE_LIMITS",
       "aiSecondPassContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
-      "independentQualifiedTeacherApproval": false
+      "independentQualifiedTeacherApproval": false,
+      "aiAcademicContentDisposition": "SOURCE_CONTENT_PASS",
+      "aiAcademicContentEvidence": "qa/food-tests-15-typed-3-matching-content-adjudication-20261124.json",
+      "aiAcademicContentAssessed": true,
+      "teacherIndependentContentApproved": false
     }
   ],
   "structured99PointCandidateReview": [
