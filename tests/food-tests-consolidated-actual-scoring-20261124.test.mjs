@@ -89,3 +89,30 @@ test('all 190 integrated rotation units refuse direct and wrapped verified Daily
  assert.deepEqual(old.attempts,[]);
  assert.equal(verifiedQuizSlots([{id:'unrelated-id'}],[{questionId:'unrelated-id',correct:true,formal:true}]).length,1);
 });
+
+// The latest near-miss overlay is deliberately separate from the prior pinned package.
+const nearMiss=read('qa/food-tests-16-near-miss-distractor-proposals-20261124.json');
+function permutations(a){return a.length===0?[[]]:a.flatMap((v,i)=>permutations(a.filter((_,j)=>j!==i)).map(rest=>[v,...rest]));}
+for(const path of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-rWAnuDVj.js']){
+ test(path+': all 16 near-miss draft cases score by answer text under all 24 option orders, but remain held',()=>{
+  const score=makeScore(path);let checked=0;
+  for(const row of nearMiss.items){
+   const base=qs.find(q=>q.id===row.sourceId);assert.ok(base);
+   assert.equal(base.prompt,row.prompt);assert.deepEqual(base.answer.accepted,row.sourceAnswer);
+   const orders=permutations(row.newOptions);assert.equal(orders.length,24);
+   for(const options of orders){
+    const q={...base,options};
+    for(const a of options){
+     const expected=Number(a===row.sourceAnswer[0]),result=score(q,a,'biology',{});
+     assert.equal(result.score,expected,q.id+' '+a);assert.equal(result.total,1);
+     assert.equal(result.ok,expected===1);
+     assert.equal(canEarnFormalCredit(q),false);
+     assert.equal(foodTestsPupilVerdict(q).score,null);
+     assert.deepEqual(verifiedQuizSlots([q],[{questionId:q.id,correct:true,formal:true}]),[]);
+     checked++;
+    }
+   }
+  }
+  assert.equal(checked,16*24*4);
+ });
+}
