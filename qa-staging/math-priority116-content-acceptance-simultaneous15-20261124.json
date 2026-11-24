@@ -1,0 +1,575 @@
+{
+  "kind": "PRIORITY116_CONTENT_ACCEPTANCE_SIMULTANEOUS15_NO_RELEASE",
+  "date": "2026-11-24",
+  "sourceScreen": "qa-staging/math-all200-external-benchmark-demand-screen-and-mastery-holds-20261124.json",
+  "sourceScreenBlobSha": "59153d137693c7899415dc13a78da06ded87f1e6",
+  "counts": {
+    "reviewed": 15,
+    "authorMathContentPass": 15,
+    "corrected": 5,
+    "distractorStrengthHold": 8,
+    "formalApprovals": 0
+  },
+  "limitations": "Author reviewed all 15 stems, choices and worked solutions; numeric options checked for equivalence and symbolic parameter sets inspected individually. Exact algebra, substitutions and finite integer search used. Not independent grade calibration or taught-scope approval. No learner credit.",
+  "rows": [
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-007",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-007-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-simultaneous26-20261124.json",
+      "recordBlobSha": "e8983bdc7519f2d42fbfcb926982a00f2b654884",
+      "reviewedKey": "-\\frac{11}{3}",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Both linear combinations verified term by term; denominator −21 is nonzero.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "LINEAR_SYSTEM_TRANSFER",
+      "proposedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-007-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-009",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-simultaneous26-20261124.json",
+      "recordBlobSha": "e8983bdc7519f2d42fbfcb926982a00f2b654884",
+      "reviewedKey": "78",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Integer relation x=5y, k=13y and all allowed multiples checked.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "INTEGER_FEASIBILITY",
+      "proposedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-010",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-simultaneous26-20261124.json",
+      "recordBlobSha": "e8983bdc7519f2d42fbfcb926982a00f2b654884",
+      "reviewedKey": "36",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Invariant x=3, complete integer y interval and exclusion verified.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "INTEGER_FEASIBILITY",
+      "proposedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-013",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-013-ACADEMIC-REVIEW-20261124",
+      "recordPath": "qa-staging/math-final-academic-review-simultaneous-equations40-20261124.json",
+      "recordBlobSha": "6be6a2cb0f39d34ce9e059ccff70e236ae8bf5be",
+      "reviewedKey": "I:k=4,t=7;N:k=4,t\\ne7",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Elimination gives k−4 coefficient; proportional case and both consistency conditions exhaustive.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "DEGENERATE_SYSTEM_PARAMETER",
+      "proposedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-013-PRIORITY-CONTENT-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-014",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-014-ACADEMIC-REVIEW-20261124",
+      "recordPath": "qa-staging/math-final-academic-review-simultaneous-equations40-20261124.json",
+      "recordBlobSha": "6be6a2cb0f39d34ce9e059ccff70e236ae8bf5be",
+      "reviewedKey": "-\\frac{14}{3}",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Sum/difference equations give exactly two inconsistent values; uniqueness outside them proved.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "DEGENERATE_SYSTEM_PARAMETER",
+      "proposedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-014-ACADEMIC-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-015",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-015-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-simultaneous26-20261124.json",
+      "recordBlobSha": "e8983bdc7519f2d42fbfcb926982a00f2b654884",
+      "reviewedKey": "-3",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Both singular roots and RHS consistency checked; non-singular cases unique.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "DEGENERATE_SYSTEM_PARAMETER",
+      "proposedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-015-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-016",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-016-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-simultaneous26-20261124.json",
+      "recordBlobSha": "e8983bdc7519f2d42fbfcb926982a00f2b654884",
+      "reviewedKey": "14",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "All positive divisors of twelve meeting k>0 considered; strict order checked.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "INTEGER_FEASIBILITY",
+      "proposedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-016-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-018",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-018-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-simultaneous26-20261124.json",
+      "recordBlobSha": "e8983bdc7519f2d42fbfcb926982a00f2b654884",
+      "reviewedKey": "550",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Both salt balances and masses checked; explicit no-loss assumption added.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "WEIGHTED_MIXTURE_AND_RETENTION",
+      "proposedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-018-PRIORITY-CONTENT-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-023",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-simultaneous26-20261124.json",
+      "recordBlobSha": "e8983bdc7519f2d42fbfcb926982a00f2b654884",
+      "reviewedKey": "133",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Symmetric cubic identity and feasible roots 2 and 5 verified.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "QUADRATIC_AND_BRANCH_REASONING",
+      "proposedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-024",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-simultaneous26-20261124.json",
+      "recordBlobSha": "e8983bdc7519f2d42fbfcb926982a00f2b654884",
+      "reviewedKey": "20",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Positive scale and both sums/differences verified.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "QUADRATIC_AND_BRANCH_REASONING",
+      "proposedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-028",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-simultaneous26-20261124.json",
+      "recordBlobSha": "e8983bdc7519f2d42fbfcb926982a00f2b654884",
+      "reviewedKey": "105",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Two conservation equations uniquely determine total and feasible counts; arbitrary distractor replaced.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "CONSERVATION_RATIO_TRANSFER",
+      "proposedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-PRIORITY-CONTENT-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-030",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-simultaneous26-20261124.json",
+      "recordBlobSha": "e8983bdc7519f2d42fbfcb926982a00f2b654884",
+      "reviewedKey": "\\frac{349}{16}",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Ordered roots 16 and 2 verified, then unique x,y and squared sum.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "QUADRATIC_AND_BRANCH_REASONING",
+      "proposedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-DEMAND-UPGRADE-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-035",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-035-DEMAND-UPGRADE-20261124",
+      "recordPath": "qa-staging/math-demand-upgrade-simultaneous26-20261124.json",
+      "recordBlobSha": "e8983bdc7519f2d42fbfcb926982a00f2b654884",
+      "reviewedKey": "2:3",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Both systems solved and new-to-original ratio checked; make unchanged first equation explicit.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "LINEAR_SYSTEM_TRANSFER",
+      "proposedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-035-PRIORITY-CONTENT-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-036",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-ACADEMIC-REVIEW-20261124",
+      "recordPath": "qa-staging/math-final-academic-review-simultaneous-equations40-20261124.json",
+      "recordBlobSha": "6be6a2cb0f39d34ce9e059ccff70e236ae8bf5be",
+      "reviewedKey": "4",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Elimination valid even at u=0; two singular parameters both inconsistent.",
+      "distractorDisposition": "REVIEW_DIAGNOSTIC_STRENGTH",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "DEGENERATE_SYSTEM_PARAMETER",
+      "proposedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-PRIORITY-CONTENT-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-038",
+      "reviewedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-038-ACADEMIC-REVIEW-20261124",
+      "recordPath": "qa-staging/math-final-academic-review-simultaneous-equations40-20261124.json",
+      "recordBlobSha": "6be6a2cb0f39d34ce9e059ccff70e236ae8bf5be",
+      "reviewedKey": "k>\\frac{5}{3}",
+      "contentDecision": "AUTHOR_MATH_CONTENT_PASS",
+      "reviewNote": "Necessary and sufficient positivity interval, denominator sign and excluded equality checked.",
+      "distractorDisposition": "AUTHOR_REVIEW_ACCEPTABLE",
+      "scopeDisposition": "CHECK_SPECIFIC_ADDITIONAL_PREREQUISITE",
+      "creditExclusionGroup": "LINEAR_INEQUALITY_CONSTRAINTS",
+      "proposedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-038-ACADEMIC-REVIEW-20261124",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ],
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-013",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-013",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-013-PRIORITY-CONTENT-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-013-REVIEW-2",
+        "sourceTemplateId": "V2-SIMULTANEOUS-4",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "For real parameters $k$ and $t$, consider $\\begin{cases}2x+3y=7\\\\(k+2)x+(2k+1)y=14+t\\end{cases}$. In the options, $I$ states when the system has **infinitely many solutions**, and $N$ states when it has **no solution**. Which gives both conditions correctly?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "I:k=4,t\\ne7;N:k=4,t=7",
+            "errorPath": "Interchange the equal and unequal right-hand-side conditions: the consistent proportional case gives infinitely many, not none."
+          },
+          {
+            "id": "B",
+            "latex": "I:k=3,t=7;N:k=3,t\\ne7",
+            "errorPath": "Set the coefficient proportionality at k=3 even though it does not make both rows parallel."
+          },
+          {
+            "id": "C",
+            "latex": "I:k=4,t=7;N:k=4,t\\ne7"
+          },
+          {
+            "id": "D",
+            "latex": "I:k=4,t=21;N:k=4,t\\ne21",
+            "errorPath": "Forget the second constant is 14+t, not t, when matching the triple of the first right-hand side."
+          },
+          {
+            "id": "E",
+            "latex": "I:k=4,t=7;N:k\\ne4,t=7",
+            "errorPath": "Treat the nonsingular cases with k different from four as inconsistent, although they instead have one unique solution."
+          },
+          {
+            "id": "F",
+            "latex": "I:k=4,t=7;N:k=4,t>7",
+            "errorPath": "Exclude inconsistent cases with t below seven, despite every t different from seven producing parallel distinct lines."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "I:k=4,t=7;N:k=4,t\\ne7",
+        "workedSolutionSteps": [
+          "Multiply the first equation by 2k+1 and the second by 3, then subtract the second resulting equation from the first: (k−4)x=7(2k+1)−3(14+t)=14k−35−3t. If k≠4, x is uniquely determined and the first original equation uniquely determines y.",
+          "When k=4, the second left-hand side is 6x+9y=3(2x+3y). To describe the same line, its right-hand side 14+t must equal 21.",
+          "Therefore I is k=4,t=7 and N is k=4,t≠7. All remaining cases have one solution."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate: classify the full two-parameter set into unique, parallel-distinct and coincident systems.",
+        "explicitDifferenceFromRoutineSource": "Requires two independent parameter conditions and a three-way solution classification instead of finding k from one ratio.",
+        "unverifiedTaughtSubskill": "Parameter-dependent elimination and identical/distinct parallel equations.",
+        "sourceTriage": "UPGRADE_STEM_FOR_G7PLUS",
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-013-ACADEMIC-REVIEW-20261124"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-018",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-018",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-018-PRIORITY-CONTENT-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-018-REVIEW-2",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "weighted-mixture",
+        "stem": "A technician mixes 8% and 20% salt solutions by mass to make 750 g of 16% solution. She then removes 150 g of the well-mixed solution and replaces it with 150 g of a new mixture made from the same two original solutions. Assume no salt or solution is lost except for the stated removal. The final concentration is exactly 15.2%. How many grams of the 20% solution were used in total across both mixing stages?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "500",
+            "errorPath": "Ignore the replacement stage."
+          },
+          {
+            "id": "B",
+            "latex": "50",
+            "errorPath": "Report only the high-concentration solution used in the replacement."
+          },
+          {
+            "id": "C",
+            "latex": "600",
+            "errorPath": "Assume the replacement has the same concentration as the initial mixture."
+          },
+          {
+            "id": "D",
+            "latex": "550"
+          },
+          {
+            "id": "E",
+            "latex": "650",
+            "errorPath": "Assume all replacement mass is 20% solution."
+          },
+          {
+            "id": "F",
+            "latex": "114",
+            "errorPath": "Report the final salt mass rather than the total high-concentration solution."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "550",
+        "workedSolutionSteps": [
+          "First mix: 0.08(750−h)+0.20h=120, so h=500 g.",
+          "Removing 150 g removes 24 g of salt. Final salt is 0.152×750=114 g, so the replacement contributes 18 g.",
+          "Let H be the high-concentration mass in the 150 g replacement: 0.08(150−H)+0.20H=18 gives H=50. Total=550 g."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Use two successive mixture systems and account for removed salt.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-018-DEMAND-UPGRADE-20261124",
+        "provisionalCrossTopicMasteryHold": "Two-stage mixture conservation; related to Standard Form dilution and weighted allocations."
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-028",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-028",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-PRIORITY-CONTENT-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "ratio-transfer",
+        "stem": "Boxes A and B initially contain unknown positive whole numbers of counters. Moving 15 counters from A to B makes their counts have ratio 2:3. Instead, starting from the original counts, moving 6 counters from B to A makes the ratio 3:2. Find the original total number of counters.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "150",
+            "errorPath": "Incorrectly assume the original boxes held equal counts, then use only the first transfer: T/2−15=2T/5 gives T=150."
+          },
+          {
+            "id": "B",
+            "latex": "21",
+            "errorPath": "Report the difference between the two values of A after the transfers."
+          },
+          {
+            "id": "C",
+            "latex": "57",
+            "errorPath": "Report A's original count."
+          },
+          {
+            "id": "D",
+            "latex": "48",
+            "errorPath": "Report B's original count."
+          },
+          {
+            "id": "E",
+            "latex": "5",
+            "errorPath": "Report the sum of the ratio parts."
+          },
+          {
+            "id": "F",
+            "latex": "105"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "105",
+        "workedSolutionSteps": [
+          "Let T=A+B. The first operation gives A−15=2T/5; the second gives A+6=3T/5.",
+          "Subtract: 21=T/5, so T=105.",
+          "Then A=57,B=48; both transfers are possible and the two ratios are satisfied."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Derive independent ratio observations and recover an unknown conserved total.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-DEMAND-UPGRADE-20261124",
+        "provisionalCrossTopicMasteryHold": "Conserved ratio transfer model; related to Standard Form Q034."
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-035",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-035",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-035-PRIORITY-CONTENT-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-035-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-035-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "ratio-and-domain",
+        "stem": "The system $kx+y=18$, $x+2y=15$ has a positive solution with $x:y=3:2$. A second system keeps the first equation unchanged and replaces the second equation by $x+2y=22$. Find the ratio of the new x to the original x, in simplest form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "1:3",
+            "errorPath": "Compare the change in x with the original x, ignoring the negative sign."
+          },
+          {
+            "id": "B",
+            "latex": "22:15",
+            "errorPath": "Assume both variables scale with the second right-hand side alone."
+          },
+          {
+            "id": "C",
+            "latex": "3:2",
+            "errorPath": "Reverse the required ratio."
+          },
+          {
+            "id": "D",
+            "latex": "1:1",
+            "errorPath": "Assume x stays fixed when the second constant changes."
+          },
+          {
+            "id": "E",
+            "latex": "2:3"
+          },
+          {
+            "id": "F",
+            "latex": "7:15",
+            "errorPath": "Report the increase in the second constant relative to its original value."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "2:3",
+        "workedSolutionSteps": [
+          "Write x=3t,y=2t. Then 7t=15 so x=45/7,y=30/7, and k=(18−30/7)/(45/7)=32/15.",
+          "With the changed second equation, y=(22−x)/2. Substitute into the first: (32/15−1/2)x=7, so x=30/7.",
+          "The ratio new x:old x is (30/7):(45/7)=2:3."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Calibrate a parameter through a ratio and transfer it into a changed system.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-035-DEMAND-UPGRADE-20261124"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-036",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-036",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-PRIORITY-CONTENT-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "two-singular-parameter-cases",
+        "stem": "For real k, consider $(k-2)x+3y=9$ and $6x+(k-2)y=12$. Find the sum of all k for which there is no solution.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "0",
+            "errorPath": "Sum the shifted roots k−2."
+          },
+          {
+            "id": "B",
+            "latex": "2",
+            "errorPath": "Report the midpoint."
+          },
+          {
+            "id": "C",
+            "latex": "4"
+          },
+          {
+            "id": "D",
+            "latex": "18",
+            "errorPath": "Report 3×6."
+          },
+          {
+            "id": "E",
+            "latex": "-14",
+            "errorPath": "Report product of the two k values."
+          },
+          {
+            "id": "F",
+            "latex": "-4",
+            "errorPath": "Reverse the sum's sign."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "4",
+        "workedSolutionSteps": [
+          "Let u=k−2. Multiply the first equation by 6 and the second by u, then subtract: (18−u²)y=54−12u.",
+          "If u²≠18, y is uniquely determined and the second equation 6x+uy=12 uniquely gives x. If u=±3√2, then 54−12u cannot equal zero: that would require u=9/2, whose square is 81/4≠18. Thus both singular cases are inconsistent.",
+          "Thus both and only k=2±3√2 make the system inconsistent; their sum is 4."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+        "unverifiedTaughtSubskill": "Parameter elimination, quadratic roots and checking inconsistent cases without determinants.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-ACADEMIC-REVIEW-20261124"
+      }
+    }
+  ]
+}
