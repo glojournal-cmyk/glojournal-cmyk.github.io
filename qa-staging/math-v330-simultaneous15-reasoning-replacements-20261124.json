@@ -246,7 +246,7 @@
         {
           "id": "A",
           "latex": "-2",
-          "errorPath": "Lose the sign of k while collecting the second equation."
+          "errorPath": "Move both terms with opposite signs when isolating k, effectively using 3k=−6."
         },
         {
           "id": "B",
@@ -255,8 +255,8 @@
         },
         {
           "id": "C",
-          "latex": "4",
-          "errorPath": "Report the coefficient sum after adding the equations incorrectly."
+          "latex": "6",
+          "errorPath": "Reach 3k=6 correctly but forget to divide by 3."
         },
         {
           "id": "D",
@@ -270,7 +270,7 @@
         {
           "id": "F",
           "latex": "0",
-          "errorPath": "Equate kx−y to zero rather than to 3."
+          "errorPath": "Use kx=3−y instead of kx=3+y, giving k=0."
         }
       ],
       "correctOptionId": "D",
