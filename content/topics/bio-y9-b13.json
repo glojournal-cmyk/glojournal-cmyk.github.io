@@ -293,33 +293,27 @@
       "topicId": "bio-y9-b13",
       "topic": "Metabolism",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "What name is given to all the chemical reactions in a cell, including respiration?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "respiration as metabolism"
+          "metabolism"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "metabolism. An energy-transferring chemical reaction included in metabolism.",
+        "steps": [
+          "metabolism. An energy-transferring chemical reaction included in metabolism."
         ]
       },
-      "stimulus": {
-        "text": "an energy-transferring chemical reaction included in metabolism"
-      },
-      "feedback": {
-        "short": "an energy-transferring chemical reaction included in metabolism",
-        "steps": [
-          "Key idea: respiration as metabolism.",
-          "an energy-transferring chemical reaction included in metabolism",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: respiration as metabolism"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "respiration as metabolism → an energy-transferring chemical reaction included in metabolism"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -329,37 +323,33 @@
       "conceptId": "bio-y9-b13-respiration-as-metabolism-fc78be9568-concept",
       "topicId": "bio-y9-b13",
       "topic": "Metabolism",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of respiration as metabolism: “an ___-transferring chemical reaction included in metabolism”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "respiration as metabolism"
+          "energy"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "energy. An energy-transferring chemical reaction included in metabolism.",
+        "steps": [
+          "energy. An energy-transferring chemical reaction included in metabolism."
         ]
       },
-      "stimulus": {
-        "masked": "r__p___t___ a_ __t___l___"
-      },
-      "feedback": {
-        "short": "an energy-transferring chemical reaction included in metabolism",
-        "steps": [
-          "Key idea: respiration as metabolism.",
-          "an energy-transferring chemical reaction included in metabolism",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: respiration as metabolism"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "respiration as metabolism → an energy-transferring chemical reaction included in metabolism"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b13-respiration-as-metabolism-fc78be9568-explain",
@@ -530,34 +520,28 @@
       "conceptId": "bio-y9-b13-glucose-storage-conversion-69dc10f49c-concept",
       "topicId": "bio-y9-b13",
       "topic": "Metabolism",
-      "format": "spelling_restore",
-      "prompt": "Restore the complete answer for this science cue.",
+      "format": "typed_exact",
+      "prompt": "In animals, which storage polysaccharide can be made from glucose?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "a metabolic reaction converting glucose into storage molecules"
+          "glycogen"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "glycogen. A metabolic reaction converting glucose into storage molecules.",
+        "steps": [
+          "glycogen. A metabolic reaction converting glucose into storage molecules."
         ]
       },
-      "stimulus": {
-        "masked": "a __t___l__ _e___i__ _o___r___g ___c___ i___ s___a__ _o___u___"
-      },
-      "feedback": {
-        "short": "a metabolic reaction converting glucose into storage molecules",
-        "steps": [
-          "Key idea: glucose storage conversion.",
-          "a metabolic reaction converting glucose into storage molecules",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: a metabolic reaction converting glucose into storage molecules"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "glucose storage conversion → a metabolic reaction converting glucose into storage molecules"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1133,34 +1117,28 @@
       "conceptId": "bio-y9-b13-protein-formation-45fd54b2e0-concept",
       "topicId": "bio-y9-b13",
       "topic": "Metabolism",
-      "format": "spelling_restore",
-      "prompt": "Restore the complete answer for this science cue.",
+      "format": "typed_exact",
+      "prompt": "Which building blocks are joined to form a protein?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "joining amino acids to build proteins"
+          "amino acids"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "amino acids. Joining amino acids to build proteins.",
+        "steps": [
+          "amino acids. Joining amino acids to build proteins."
         ]
       },
-      "stimulus": {
-        "masked": "j__n___ a___o ___d_ __ b___d ___t___s"
-      },
-      "feedback": {
-        "short": "joining amino acids to build proteins",
-        "steps": [
-          "Key idea: protein formation.",
-          "joining amino acids to build proteins",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: joining amino acids to build proteins"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "protein formation → joining amino acids to build proteins"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true

@@ -731,34 +731,29 @@
       "conceptId": "bio-y9-b5-organelle-increase-efb6d9431d-concept",
       "topicId": "bio-y9-b5",
       "topic": "Chromosomes, the cell cycle and mitosis",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Before mitosis, the cell increases the number of mitochondria and ribosomes. What collective term describes structures such as mitochondria?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "organelle increase"
+          "organelles",
+          "cell organelles"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "organelles. Growth before division in which sub-cellular structures such as mitochondria and ribosomes increase.",
+        "steps": [
+          "organelles. Growth before division in which sub-cellular structures such as mitochondria and ribosomes increase."
         ]
       },
-      "stimulus": {
-        "masked": "o__a___l_ __c___s_"
-      },
-      "feedback": {
-        "short": "growth before division in which sub-cellular structures such as mitochondria and ribosomes increase",
-        "steps": [
-          "Key idea: organelle increase.",
-          "growth before division in which sub-cellular structures such as mitochondria and ribosomes increase",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: organelle increase"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "organelle increase → growth before division in which sub-cellular structures such as mitochondria and ribosomes increase"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1487,33 +1482,27 @@
       "topicId": "bio-y9-b5",
       "topic": "Chromosomes, the cell cycle and mitosis",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Which type of nuclear division produces genetically identical daughter nuclei for growth and repair?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "growth, repair and replacement"
+          "mitosis"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "mitosis. Three important uses of mitosis in multicellular organisms.",
+        "steps": [
+          "mitosis. Three important uses of mitosis in multicellular organisms."
         ]
       },
-      "stimulus": {
-        "text": "three important uses of mitosis in multicellular organisms"
-      },
-      "feedback": {
-        "short": "three important uses of mitosis in multicellular organisms",
-        "steps": [
-          "Key idea: growth, repair and replacement.",
-          "three important uses of mitosis in multicellular organisms",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: growth, repair and replacement"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "growth, repair and replacement → three important uses of mitosis in multicellular organisms"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1523,37 +1512,33 @@
       "conceptId": "bio-y9-b5-growth-repair-and-replacement-8cfaef2541-concept",
       "topicId": "bio-y9-b5",
       "topic": "Chromosomes, the cell cycle and mitosis",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of growth, repair and replacement: “three important uses of ___ in multicellular organisms”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "growth, repair and replacement"
+          "mitosis"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "mitosis. Three important uses of mitosis in multicellular organisms.",
+        "steps": [
+          "mitosis. Three important uses of mitosis in multicellular organisms."
         ]
       },
-      "stimulus": {
-        "masked": "g__w__, _e___r ___ r___a___e__"
-      },
-      "feedback": {
-        "short": "three important uses of mitosis in multicellular organisms",
-        "steps": [
-          "Key idea: growth, repair and replacement.",
-          "three important uses of mitosis in multicellular organisms",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: growth, repair and replacement"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "growth, repair and replacement → three important uses of mitosis in multicellular organisms"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b5-growth-repair-and-replacement-8cfaef2541-explain",

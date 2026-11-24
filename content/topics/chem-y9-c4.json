@@ -689,73 +689,71 @@
       "topicId": "chem-y9-c4",
       "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "During chromatography, a substance spends more time in the mobile phase. Will it travel farther or less far with the solvent?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "greater solvent movement"
+          "farther",
+          "further",
+          "farther with the solvent",
+          "further with the solvent"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "farther. The result for a component more soluble in the mobile phase and less attracted to the stationary phase.",
+        "steps": [
+          "farther. The result for a component more soluble in the mobile phase and less attracted to the stationary phase."
         ]
       },
-      "stimulus": {
-        "text": "the result for a component more soluble in the mobile phase and less attracted to the stationary phase"
-      },
-      "feedback": {
-        "short": "the result for a component more soluble in the mobile phase and less attracted to the stationary phase",
-        "steps": [
-          "Key idea: greater solvent movement.",
-          "the result for a component more soluble in the mobile phase and less attracted to the stationary phase",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: greater solvent movement"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "greater solvent movement → the result for a component more soluble in the mobile phase and less attracted to the stationary phase"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c4-greater-solvent-movement-ad8f51b068-restore",
       "conceptId": "chem-y9-c4-greater-solvent-movement-ad8f51b068-concept",
       "topicId": "chem-y9-c4",
       "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "During chromatography, a substance spends more time in the mobile phase. Will it travel farther or less far with the solvent?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "greater solvent movement"
+          "farther",
+          "further",
+          "farther with the solvent",
+          "further with the solvent"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "farther. The result for a component more soluble in the mobile phase and less attracted to the stationary phase.",
+        "steps": [
+          "farther. The result for a component more soluble in the mobile phase and less attracted to the stationary phase."
         ]
       },
-      "stimulus": {
-        "masked": "g__a___ s___e__ _o___e__"
-      },
-      "feedback": {
-        "short": "the result for a component more soluble in the mobile phase and less attracted to the stationary phase",
-        "steps": [
-          "Key idea: greater solvent movement.",
-          "the result for a component more soluble in the mobile phase and less attracted to the stationary phase",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: greater solvent movement"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "greater solvent movement → the result for a component more soluble in the mobile phase and less attracted to the stationary phase"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c4-greater-solvent-movement-ad8f51b068-explain",
@@ -887,33 +885,29 @@
       "topicId": "chem-y9-c4",
       "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Under one set of conditions, how many spots is a pure coloured dye expected to produce on a chromatogram?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "pure chromatogram spot"
+          "one",
+          "1",
+          "one spot"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "one. One spot produced by a pure substance under a given set of conditions.",
+        "steps": [
+          "one. One spot produced by a pure substance under a given set of conditions."
         ]
       },
-      "stimulus": {
-        "text": "one spot produced by a pure substance under a given set of conditions"
-      },
-      "feedback": {
-        "short": "one spot produced by a pure substance under a given set of conditions",
-        "steps": [
-          "Key idea: pure chromatogram spot.",
-          "one spot produced by a pure substance under a given set of conditions",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: pure chromatogram spot"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "pure chromatogram spot → one spot produced by a pure substance under a given set of conditions"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -923,34 +917,30 @@
       "conceptId": "chem-y9-c4-pure-chromatogram-spot-b8d7d70313-concept",
       "topicId": "chem-y9-c4",
       "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Under one set of conditions, how many spots is a pure coloured dye expected to produce on a chromatogram?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "pure chromatogram spot"
+          "one",
+          "1",
+          "one spot"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "one. One spot produced by a pure substance under a given set of conditions.",
+        "steps": [
+          "one. One spot produced by a pure substance under a given set of conditions."
         ]
       },
-      "stimulus": {
-        "masked": "p__e ___o___o___m ___t"
-      },
-      "feedback": {
-        "short": "one spot produced by a pure substance under a given set of conditions",
-        "steps": [
-          "Key idea: pure chromatogram spot.",
-          "one spot produced by a pure substance under a given set of conditions",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: pure chromatogram spot"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "pure chromatogram spot → one spot produced by a pure substance under a given set of conditions"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1085,73 +1075,67 @@
       "topicId": "chem-y9-c4",
       "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "One sample gives three distinct spots on a chromatogram. Is the sample pure or a mixture?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "mixture chromatogram"
+          "mixture",
+          "a mixture"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "mixture. A chromatogram that may show more than one spot.",
+        "steps": [
+          "mixture. A chromatogram that may show more than one spot."
         ]
       },
-      "stimulus": {
-        "text": "a chromatogram that may show more than one spot"
-      },
-      "feedback": {
-        "short": "a chromatogram that may show more than one spot",
-        "steps": [
-          "Key idea: mixture chromatogram.",
-          "a chromatogram that may show more than one spot",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: mixture chromatogram"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "mixture chromatogram → a chromatogram that may show more than one spot"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c4-mixture-chromatogram-8065d2f418-restore",
       "conceptId": "chem-y9-c4-mixture-chromatogram-8065d2f418-concept",
       "topicId": "chem-y9-c4",
       "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "One sample gives three distinct spots on a chromatogram. Is the sample pure or a mixture?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "mixture chromatogram"
+          "mixture",
+          "a mixture"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "mixture. A chromatogram that may show more than one spot.",
+        "steps": [
+          "mixture. A chromatogram that may show more than one spot."
         ]
       },
-      "stimulus": {
-        "masked": "m__t___ c___m___g___"
-      },
-      "feedback": {
-        "short": "a chromatogram that may show more than one spot",
-        "steps": [
-          "Key idea: mixture chromatogram.",
-          "a chromatogram that may show more than one spot",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: mixture chromatogram"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "mixture chromatogram → a chromatogram that may show more than one spot"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c4-mixture-chromatogram-8065d2f418-explain",
@@ -1889,73 +1873,66 @@
       "topicId": "chem-y9-c4",
       "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Which should be used to draw the chromatography baseline: pencil or soluble ink?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "pencil baseline"
+          "pencil",
+          "graphite pencil"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "pencil. A starting line that will not dissolve and travel with the solvent.",
+        "steps": [
+          "pencil. A starting line that will not dissolve and travel with the solvent."
         ]
       },
-      "stimulus": {
-        "text": "a starting line that will not dissolve and travel with the solvent"
-      },
-      "feedback": {
-        "short": "a starting line that will not dissolve and travel with the solvent",
-        "steps": [
-          "Key idea: pencil baseline.",
-          "a starting line that will not dissolve and travel with the solvent",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: pencil baseline"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "pencil baseline → a starting line that will not dissolve and travel with the solvent"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c4-pencil-baseline-d7ed644ae5-restore",
       "conceptId": "chem-y9-c4-pencil-baseline-d7ed644ae5-concept",
       "topicId": "chem-y9-c4",
       "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of pencil baseline: “a starting line that will not dissolve and travel with the ___”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "pencil baseline"
+          "solvent"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "solvent. A starting line that will not dissolve and travel with the solvent.",
+        "steps": [
+          "solvent. A starting line that will not dissolve and travel with the solvent."
         ]
       },
-      "stimulus": {
-        "masked": "p__c__ _a___i__"
-      },
-      "feedback": {
-        "short": "a starting line that will not dissolve and travel with the solvent",
-        "steps": [
-          "Key idea: pencil baseline.",
-          "a starting line that will not dissolve and travel with the solvent",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: pencil baseline"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "pencil baseline → a starting line that will not dissolve and travel with the solvent"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c4-pencil-baseline-d7ed644ae5-explain",
@@ -2087,73 +2064,67 @@
       "topicId": "chem-y9-c4",
       "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "At the start of paper chromatography, should the sample spots be above or below the solvent surface?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "spots above solvent"
+          "above",
+          "above the solvent"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "above. Placement preventing samples dissolving directly into the solvent reservoir.",
+        "steps": [
+          "above. Placement preventing samples dissolving directly into the solvent reservoir."
         ]
       },
-      "stimulus": {
-        "text": "placement preventing samples dissolving directly into the solvent reservoir"
-      },
-      "feedback": {
-        "short": "placement preventing samples dissolving directly into the solvent reservoir",
-        "steps": [
-          "Key idea: spots above solvent.",
-          "placement preventing samples dissolving directly into the solvent reservoir",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: spots above solvent"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "spots above solvent → placement preventing samples dissolving directly into the solvent reservoir"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c4-spots-above-solvent-f289574891-restore",
       "conceptId": "chem-y9-c4-spots-above-solvent-f289574891-concept",
       "topicId": "chem-y9-c4",
       "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "At the start of paper chromatography, should the sample spots be above or below the solvent surface?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "spots above solvent"
+          "above",
+          "above the solvent"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "above. Placement preventing samples dissolving directly into the solvent reservoir.",
+        "steps": [
+          "above. Placement preventing samples dissolving directly into the solvent reservoir."
         ]
       },
-      "stimulus": {
-        "masked": "s__t_ __o__ _o___n_"
-      },
-      "feedback": {
-        "short": "placement preventing samples dissolving directly into the solvent reservoir",
-        "steps": [
-          "Key idea: spots above solvent.",
-          "placement preventing samples dissolving directly into the solvent reservoir",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: spots above solvent"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "spots above solvent → placement preventing samples dissolving directly into the solvent reservoir"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c4-spots-above-solvent-f289574891-explain",
@@ -2285,33 +2256,28 @@
       "topicId": "chem-y9-c4",
       "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Which boundary should be marked immediately after removing a chromatogram, before the solvent evaporates?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "solvent-front mark"
+          "solvent front",
+          "the solvent front"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "solvent front. A line recorded promptly so the solvent distance can be measured.",
+        "steps": [
+          "solvent front. A line recorded promptly so the solvent distance can be measured."
         ]
       },
-      "stimulus": {
-        "text": "a line recorded promptly so the solvent distance can be measured"
-      },
-      "feedback": {
-        "short": "a line recorded promptly so the solvent distance can be measured",
-        "steps": [
-          "Key idea: solvent-front mark.",
-          "a line recorded promptly so the solvent distance can be measured",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: solvent-front mark"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "solvent-front mark → a line recorded promptly so the solvent distance can be measured"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -2321,37 +2287,33 @@
       "conceptId": "chem-y9-c4-solvent-front-mark-840703c72e-concept",
       "topicId": "chem-y9-c4",
       "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of solvent-front mark: “a line recorded promptly so the solvent ___ can be measured”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "solvent-front mark"
+          "distance"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "distance. A line recorded promptly so the solvent distance can be measured.",
+        "steps": [
+          "distance. A line recorded promptly so the solvent distance can be measured."
         ]
       },
-      "stimulus": {
-        "masked": "s__v___-f___t ___k"
-      },
-      "feedback": {
-        "short": "a line recorded promptly so the solvent distance can be measured",
-        "steps": [
-          "Key idea: solvent-front mark.",
-          "a line recorded promptly so the solvent distance can be measured",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: solvent-front mark"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "solvent-front mark → a line recorded promptly so the solvent distance can be measured"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c4-solvent-front-mark-840703c72e-explain",
@@ -2483,73 +2445,68 @@
       "topicId": "chem-y9-c4",
       "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "For Rf, measure from the baseline to which part of a broad spot: its centre or its leading edge?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "spot-centre measurement"
+          "centre",
+          "center",
+          "the centre",
+          "the center"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "centre. Measuring from the baseline to the centre of a separated spot.",
+        "steps": [
+          "centre. Measuring from the baseline to the centre of a separated spot."
         ]
       },
-      "stimulus": {
-        "text": "measuring from the baseline to the centre of a separated spot"
-      },
-      "feedback": {
-        "short": "measuring from the baseline to the centre of a separated spot",
-        "steps": [
-          "Key idea: spot-centre measurement.",
-          "measuring from the baseline to the centre of a separated spot",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: spot-centre measurement"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "spot-centre measurement → measuring from the baseline to the centre of a separated spot"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c4-spot-centre-measurement-a726c7cdec-restore",
       "conceptId": "chem-y9-c4-spot-centre-measurement-a726c7cdec-concept",
       "topicId": "chem-y9-c4",
       "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of spot-centre measurement: “measuring from the ___ to the centre of a separated spot”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "spot-centre measurement"
+          "baseline"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "baseline. Measuring from the baseline to the centre of a separated spot.",
+        "steps": [
+          "baseline. Measuring from the baseline to the centre of a separated spot."
         ]
       },
-      "stimulus": {
-        "masked": "s__t-___t__ _e___r___n_"
-      },
-      "feedback": {
-        "short": "measuring from the baseline to the centre of a separated spot",
-        "steps": [
-          "Key idea: spot-centre measurement.",
-          "measuring from the baseline to the centre of a separated spot",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: spot-centre measurement"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "spot-centre measurement → measuring from the baseline to the centre of a separated spot"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c4-spot-centre-measurement-a726c7cdec-explain",
@@ -2991,7 +2948,8 @@
         "working": "Rf = 4.8 ÷ 6.0 = 0.80",
         "tolerance": 0,
         "units": [],
-        "modelAnswer": "0.8"
+        "modelAnswer": "0.8",
+        "checkFinalQuantity": true
       },
       "stimulus": {},
       "feedback": {
@@ -3228,7 +3186,9 @@
           "pencil baseline",
           "sample spot"
         ],
-        "diagramId": "chem-chromatogram"
+        "diagramId": "chem-chromatogram",
+        "image": "/content/diagrams/question-review/chem-chromatogram.svg",
+        "imageAlt": "Lettered figure for Paper chromatography, Rf and reproducibility — Required Practical 6."
       },
       "feedback": {
         "short": "Place every scientific label at its correct anchor.",
@@ -4576,8 +4536,9 @@
         "value": 0.5,
         "units": [],
         "working": "Spot distance = 52 − 12 = 40 mm; front distance = 92 − 12 = 80 mm. Rf = 40 ÷ 80 = 0.50.",
-        "tolerance": 0.00001,
-        "modelAnswer": "0.5"
+        "tolerance": 1e-05,
+        "modelAnswer": "0.5",
+        "checkFinalQuantity": true
       },
       "stimulus": {
         "marks": 1
@@ -4630,8 +4591,9 @@
         "value": 0.45,
         "units": [],
         "working": "3.6 cm = 36 mm. Rf = 36 ÷ 80 = 0.45.",
-        "tolerance": 0.00001,
-        "modelAnswer": "0.45"
+        "tolerance": 1e-05,
+        "modelAnswer": "0.45",
+        "checkFinalQuantity": true
       },
       "stimulus": {
         "marks": 1
@@ -4675,7 +4637,7 @@
       "topicId": "chem-y9-c4",
       "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
       "format": "calculation",
-      "prompt": "A dye spot travels 42 mm and has Rf 0.60. Calculate the solvent-front travel distance. Show your rearrangement and give mm.",
+      "prompt": "A dye spot travels 42 mm and has Rf 0.60. Calculate the solvent-front travel distance. Show your rearrangement and give mm. A number on its own will be read in mm.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
@@ -4686,8 +4648,10 @@
           "mm"
         ],
         "working": "Front distance = spot distance ÷ Rf = 42 ÷ 0.60 = 70 mm.",
-        "tolerance": 0.00001,
-        "modelAnswer": "70 mm"
+        "tolerance": 1e-05,
+        "modelAnswer": "70 mm",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {
         "marks": 1
@@ -4731,7 +4695,7 @@
       "topicId": "chem-y9-c4",
       "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
       "format": "calculation",
-      "prompt": "A start line is at ruler reading 9 mm. The front travels 80 mm from that line and the dye has Rf 0.40. Calculate the ruler reading at the spot centre, in mm.",
+      "prompt": "A start line is at ruler reading 9 mm. The front travels 80 mm from that line and the dye has Rf 0.40. Calculate the ruler reading at the spot centre, in mm. A number on its own will be read in mm.",
       "difficulty": 4,
       "status": "enabled",
       "options": null,
@@ -4742,8 +4706,10 @@
           "mm"
         ],
         "working": "Dye travels 0.40 × 80 = 32 mm from the start line. Ruler reading = 9 + 32 = 41 mm.",
-        "tolerance": 0.00001,
-        "modelAnswer": "41 mm"
+        "tolerance": 1e-05,
+        "modelAnswer": "41 mm",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {
         "marks": 1
@@ -4796,8 +4762,9 @@
         "value": 0.42,
         "units": [],
         "working": "Mean = (0.41 + 0.42 + 0.43) ÷ 3 = 0.42.",
-        "tolerance": 0.00001,
-        "modelAnswer": "0.42"
+        "tolerance": 1e-05,
+        "modelAnswer": "0.42",
+        "checkFinalQuantity": true
       },
       "stimulus": {
         "marks": 1
@@ -4850,8 +4817,9 @@
         "value": 0.35,
         "units": [],
         "working": "Spot centre = (28 + 34) ÷ 2 = 31 mm. Dye distance = 31 − 10 = 21 mm; front distance = 70 − 10 = 60 mm. Rf = 21 ÷ 60 = 0.35.",
-        "tolerance": 0.00001,
-        "modelAnswer": "0.35"
+        "tolerance": 1e-05,
+        "modelAnswer": "0.35",
+        "checkFinalQuantity": true
       },
       "stimulus": {
         "marks": 1
@@ -4895,7 +4863,7 @@
       "topicId": "chem-y9-c4",
       "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
       "format": "calculation",
-      "prompt": "A dye travels 18 mm when the front travels 30 mm. In a new run under the same conditions the front travels 90 mm. Calculate the gap between the dye centre and the new solvent front, in mm.",
+      "prompt": "A dye travels 18 mm when the front travels 30 mm. In a new run under the same conditions the front travels 90 mm. Calculate the gap between the dye centre and the new solvent front, in mm. A number on its own will be read in mm.",
       "difficulty": 4,
       "status": "enabled",
       "options": null,
@@ -4906,8 +4874,10 @@
           "mm"
         ],
         "working": "Rf = 18 ÷ 30 = 0.60. New dye distance = 0.60 × 90 = 54 mm. Gap = 90 − 54 = 36 mm.",
-        "tolerance": 0.00001,
-        "modelAnswer": "36 mm"
+        "tolerance": 1e-05,
+        "modelAnswer": "36 mm",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {
         "marks": 1
@@ -4960,8 +4930,9 @@
         "value": 0.45,
         "units": [],
         "working": "Travel distances are 20 mm and 56 mm, with an 80 mm front. Rf(A) = 0.25; Rf(B) = 0.70. Difference = 0.70 − 0.25 = 0.45.",
-        "tolerance": 0.00001,
-        "modelAnswer": "0.45"
+        "tolerance": 1e-05,
+        "modelAnswer": "0.45",
+        "checkFinalQuantity": true
       },
       "stimulus": {
         "marks": 1
@@ -5005,7 +4976,7 @@
       "topicId": "chem-y9-c4",
       "topic": "Paper chromatography, Rf and reproducibility — Required Practical 6",
       "format": "calculation",
-      "prompt": "A spot travelled 4.8 cm and has Rf 0.80. Calculate the solvent-front distance in mm.",
+      "prompt": "A spot travelled 4.8 cm and has Rf 0.80. Calculate the solvent-front distance in mm. A number on its own will be read in mm.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -5016,8 +4987,10 @@
           "mm"
         ],
         "working": "Front distance = 4.8 ÷ 0.80 = 6.0 cm = 60 mm.",
-        "tolerance": 0.00001,
-        "modelAnswer": "60 mm"
+        "tolerance": 1e-05,
+        "modelAnswer": "60 mm",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {
         "marks": 1
@@ -5070,8 +5043,9 @@
         "value": 0.45,
         "units": [],
         "working": "Dye distance = 36 − 7 = 29 mm; front distance = 71 − 7 = 64 mm. Rf = 29 ÷ 64 = 0.453125, which rounds to 0.45.",
-        "tolerance": 0.00001,
-        "modelAnswer": "0.45"
+        "tolerance": 1e-05,
+        "modelAnswer": "0.45",
+        "checkFinalQuantity": true
       },
       "stimulus": {
         "marks": 1
@@ -5241,8 +5215,9 @@
         "value": 0.4,
         "units": [],
         "working": "Rf = dye distance / solvent-front distance = 24 / 60 = 0.40. Both distances are measured from the start line in mm; the units cancel.",
-        "tolerance": 0.00001,
-        "modelAnswer": "0.4"
+        "tolerance": 1e-05,
+        "modelAnswer": "0.4",
+        "checkFinalQuantity": true
       },
       "stimulus": {
         "marks": 1
@@ -5574,7 +5549,8 @@
         "units": [],
         "working": "Rf = 3.6 ÷ 4.5 = 0.80 (no unit).",
         "tolerance": 0,
-        "modelAnswer": "0.8"
+        "modelAnswer": "0.8",
+        "checkFinalQuantity": true
       },
       "stimulus": {},
       "feedback": {
@@ -5837,7 +5813,8 @@
         "working": "Rf = 6.4 / 8.0 = 0.80. Correct substitution (1); correct dimensionless answer (1).",
         "tolerance": 0,
         "units": [],
-        "modelAnswer": "0.8"
+        "modelAnswer": "0.8",
+        "checkFinalQuantity": true
       },
       "stimulus": {
         "marks": 2,
@@ -6115,7 +6092,8 @@
         "working": "Rf = 3.6 / 9.0 = 0.40. Substitution (1); correct answer (1).",
         "tolerance": 0,
         "units": [],
-        "modelAnswer": "0.4"
+        "modelAnswer": "0.4",
+        "checkFinalQuantity": true
       },
       "stimulus": {
         "marks": 2,
@@ -6159,7 +6137,7 @@
       "subject": "chemistry",
       "year": 9,
       "format": "calculation",
-      "prompt": "Dye D has an Rf value of 0.75. The solvent travelled 8.0 cm. Calculate the distance moved by Dye D.",
+      "prompt": "Dye D has an Rf value of 0.75. The solvent travelled 8.0 cm. Calculate the distance moved by Dye D. A number on its own will be read in cm.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -6171,7 +6149,9 @@
         "units": [
           "cm"
         ],
-        "modelAnswer": "6 cm"
+        "modelAnswer": "6 cm",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {
         "marks": 2,
@@ -6699,7 +6679,8 @@
         "working": "Rf = 7.5 / 10.0 = 0.75. Substitution (1); correct answer (1).",
         "tolerance": 0,
         "units": [],
-        "modelAnswer": "0.75"
+        "modelAnswer": "0.75",
+        "checkFinalQuantity": true
       },
       "stimulus": {
         "marks": 2,
@@ -6923,7 +6904,8 @@
         "working": "Rf = 4.2 / 7.0 = 0.60. Substitution (1); correct answer (1).",
         "tolerance": 0,
         "units": [],
-        "modelAnswer": "0.6"
+        "modelAnswer": "0.6",
+        "checkFinalQuantity": true
       },
       "stimulus": {
         "marks": 2,
@@ -6967,7 +6949,7 @@
       "subject": "chemistry",
       "year": 9,
       "format": "calculation",
-      "prompt": "A dye has an Rf value of 0.60 in a particular solvent. How far must the solvent front travel for the dye spot to move 5.1 cm? Show your working.",
+      "prompt": "A dye has an Rf value of 0.60 in a particular solvent. How far must the solvent front travel for the dye spot to move 5.1 cm? Show your working. A number on its own will be read in cm.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -6979,7 +6961,9 @@
         "units": [
           "cm"
         ],
-        "modelAnswer": "8.5 cm"
+        "modelAnswer": "8.5 cm",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {
         "marks": 2,

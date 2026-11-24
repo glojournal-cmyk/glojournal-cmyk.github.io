@@ -902,33 +902,29 @@
       "topicId": "phys-y9-p2",
       "topic": "Density and Required Practical 5",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "A cuboid is 2 cm by 3 cm by 4 cm. Give its volume in cm³.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "regular-solid volume"
+          "24",
+          "24 cm³",
+          "24 cm3"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "24. Volume calculated from measured dimensions.",
+        "steps": [
+          "24. Volume calculated from measured dimensions."
         ]
       },
-      "stimulus": {
-        "text": "volume calculated from measured dimensions"
-      },
-      "feedback": {
-        "short": "volume calculated from measured dimensions",
-        "steps": [
-          "Key idea: regular-solid volume.",
-          "volume calculated from measured dimensions",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: regular-solid volume"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "regular-solid volume → volume calculated from measured dimensions"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -938,34 +934,30 @@
       "conceptId": "phys-y9-p2-regular-solid-volume-e1026d5eb2-concept",
       "topicId": "phys-y9-p2",
       "topic": "Density and Required Practical 5",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "A cuboid is 2 cm by 3 cm by 4 cm. Give its volume in cm³.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "regular-solid volume"
+          "24",
+          "24 cm³",
+          "24 cm3"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "24. Volume calculated from measured dimensions.",
+        "steps": [
+          "24. Volume calculated from measured dimensions."
         ]
       },
-      "stimulus": {
-        "masked": "r__u___-s___d ___u__"
-      },
-      "feedback": {
-        "short": "volume calculated from measured dimensions",
-        "steps": [
-          "Key idea: regular-solid volume.",
-          "volume calculated from measured dimensions",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: regular-solid volume"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "regular-solid volume → volume calculated from measured dimensions"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1100,33 +1092,29 @@
       "topicId": "phys-y9-p2",
       "topic": "Density and Required Practical 5",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "A submerged stone raises a cylinder reading from 25 to 32 cm³. Give its volume in cm³.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "irregular-solid volume"
+          "7",
+          "7 cm³",
+          "7 cm3"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "7. Volume found from the water displaced by the object.",
+        "steps": [
+          "7. Volume found from the water displaced by the object."
         ]
       },
-      "stimulus": {
-        "text": "volume found from the water displaced by the object"
-      },
-      "feedback": {
-        "short": "volume found from the water displaced by the object",
-        "steps": [
-          "Key idea: irregular-solid volume.",
-          "volume found from the water displaced by the object",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: irregular-solid volume"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "irregular-solid volume → volume found from the water displaced by the object"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1136,37 +1124,33 @@
       "conceptId": "phys-y9-p2-irregular-solid-volume-73af562dd0-concept",
       "topicId": "phys-y9-p2",
       "topic": "Density and Required Practical 5",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of irregular-solid volume: “volume found from the ___ displaced by the object”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "irregular-solid volume"
+          "water"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "water. Volume found from the water displaced by the object.",
+        "steps": [
+          "water. Volume found from the water displaced by the object."
         ]
       },
-      "stimulus": {
-        "masked": "i__e___a_-__l__ _o___e"
-      },
-      "feedback": {
-        "short": "volume found from the water displaced by the object",
-        "steps": [
-          "Key idea: irregular-solid volume.",
-          "volume found from the water displaced by the object",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: irregular-solid volume"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "irregular-solid volume → volume found from the water displaced by the object"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p2-irregular-solid-volume-73af562dd0-explain",
@@ -1298,33 +1282,28 @@
       "topicId": "phys-y9-p2",
       "topic": "Density and Required Practical 5",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "An empty beaker has mass 40 g. Filled with a liquid, its mass is 95 g. Give the liquid's mass in grams.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "liquid mass"
+          "55",
+          "55 g"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "55. Filled-container mass minus empty-container mass.",
+        "steps": [
+          "55. Filled-container mass minus empty-container mass."
         ]
       },
-      "stimulus": {
-        "text": "filled-container mass minus empty-container mass"
-      },
-      "feedback": {
-        "short": "filled-container mass minus empty-container mass",
-        "steps": [
-          "Key idea: liquid mass.",
-          "filled-container mass minus empty-container mass",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: liquid mass"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "liquid mass → filled-container mass minus empty-container mass"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1334,34 +1313,29 @@
       "conceptId": "phys-y9-p2-liquid-mass-c32440d74c-concept",
       "topicId": "phys-y9-p2",
       "topic": "Density and Required Practical 5",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "An empty beaker has mass 40 g. Filled with a liquid, its mass is 95 g. Give the liquid's mass in grams.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "liquid mass"
+          "55",
+          "55 g"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "55. Filled-container mass minus empty-container mass.",
+        "steps": [
+          "55. Filled-container mass minus empty-container mass."
         ]
       },
-      "stimulus": {
-        "masked": "l__u__ _a__"
-      },
-      "feedback": {
-        "short": "filled-container mass minus empty-container mass",
-        "steps": [
-          "Key idea: liquid mass.",
-          "filled-container mass minus empty-container mass",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: liquid mass"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "liquid mass → filled-container mass minus empty-container mass"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1895,73 +1869,67 @@
       "topicId": "phys-y9-p2",
       "topic": "Density and Required Practical 5",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "At the same volume, which sample has the higher density: the one with greater mass or smaller mass?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "density particle explanation"
+          "greater mass",
+          "greater",
+          "the one with greater mass"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "greater mass. More mass packed into the same volume because of particle mass and spacing.",
+        "steps": [
+          "greater mass. More mass packed into the same volume because of particle mass and spacing."
         ]
       },
-      "stimulus": {
-        "text": "more mass packed into the same volume because of particle mass and spacing"
-      },
-      "feedback": {
-        "short": "more mass packed into the same volume because of particle mass and spacing",
-        "steps": [
-          "Key idea: density particle explanation.",
-          "more mass packed into the same volume because of particle mass and spacing",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: density particle explanation"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "density particle explanation → more mass packed into the same volume because of particle mass and spacing"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p2-density-particle-explanation-971c2e9b1c-restore",
       "conceptId": "phys-y9-p2-density-particle-explanation-971c2e9b1c-concept",
       "topicId": "phys-y9-p2",
       "topic": "Density and Required Practical 5",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of density particle explanation: “more mass packed into the same ___ because of particle mass and spacing”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "density particle explanation"
+          "volume"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "volume. More mass packed into the same volume because of particle mass and spacing.",
+        "steps": [
+          "volume. More mass packed into the same volume because of particle mass and spacing."
         ]
       },
-      "stimulus": {
-        "masked": "d__s___ p___i___ e___a___i__"
-      },
-      "feedback": {
-        "short": "more mass packed into the same volume because of particle mass and spacing",
-        "steps": [
-          "Key idea: density particle explanation.",
-          "more mass packed into the same volume because of particle mass and spacing",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: density particle explanation"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "density particle explanation → more mass packed into the same volume because of particle mass and spacing"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p2-density-particle-explanation-971c2e9b1c-explain",
@@ -2133,7 +2101,7 @@
       "topicId": "phys-y9-p2",
       "topic": "Density and Required Practical 5",
       "format": "calculation",
-      "prompt": "A metal block has mass 540 g and volume 200 cm³. Calculate its density.",
+      "prompt": "A metal block has mass 540 g and volume 200 cm³. Calculate its density. A number on its own will be read in g/cm³.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
@@ -2147,7 +2115,9 @@
         ],
         "working": "density = 540 g ÷ 200 cm³ = 2.7 g/cm³",
         "tolerance": 0,
-        "modelAnswer": "2.7 g/cm³"
+        "modelAnswer": "2.7 g/cm³",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -2174,7 +2144,7 @@
       "topicId": "phys-y9-p2",
       "topic": "Density and Required Practical 5",
       "format": "calculation",
-      "prompt": "A sample has mass 1.2 kg and volume 0.0005 m³. Calculate its density in SI units.",
+      "prompt": "A sample has mass 1.2 kg and volume 0.0005 m³. Calculate its density in SI units. A number on its own will be read in kg/m³.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -2188,7 +2158,9 @@
         ],
         "working": "density = 1.2 kg ÷ 0.0005 m³ = 2400 kg/m³",
         "tolerance": 0,
-        "modelAnswer": "2400 kg/m³"
+        "modelAnswer": "2400 kg/m³",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -2331,7 +2303,9 @@
           "irregular object",
           "initial water level"
         ],
-        "diagramId": "phys-displacement"
+        "diagramId": "phys-displacement",
+        "image": "/content/diagrams/question-review/phys-displacement.svg",
+        "imageAlt": "Lettered figure for Density and Required Practical 5."
       },
       "feedback": {
         "short": "Place every scientific label at its correct anchor.",
@@ -2357,7 +2331,7 @@
       "topicId": "phys-y9-p2",
       "topic": "Density and Required Practical 5",
       "format": "calculation",
-      "prompt": "An alloy sample has a mass of 156 g and volume of 20 cm³. Calculate its density. (3 marks)",
+      "prompt": "An alloy sample has a mass of 156 g and volume of 20 cm³. Calculate its density. (3 marks) A number on its own will be read in g/cm³.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -2371,7 +2345,9 @@
         ],
         "working": "ρ = m/V; 156 ÷ 20 = 7.8; Answer 7.8 g/cm³",
         "tolerance": 0,
-        "modelAnswer": "7.8 g/cm³"
+        "modelAnswer": "7.8 g/cm³",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -2397,7 +2373,7 @@
       "topicId": "phys-y9-p2",
       "topic": "Density and Required Practical 5",
       "format": "calculation",
-      "prompt": "A mineral has mass 0.600 kg and volume 0.00024 m³. Calculate its density in SI units. (3 marks)",
+      "prompt": "A mineral has mass 0.600 kg and volume 0.00024 m³. Calculate its density in SI units. (3 marks) A number on its own will be read in kg/m³.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -2411,7 +2387,9 @@
         ],
         "working": "ρ = m/V; 0.600 ÷ 0.00024 = 2500; Answer 2500 kg/m³",
         "tolerance": 0,
-        "modelAnswer": "2500 kg/m³"
+        "modelAnswer": "2500 kg/m³",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -2437,7 +2415,7 @@
       "topicId": "phys-y9-p2",
       "topic": "Density and Required Practical 5",
       "format": "calculation",
-      "prompt": "An irregular stone has mass 63 g. Water rises from 50 cm³ to 74 cm³ when it is submerged. Calculate the stone's density. (4 marks)",
+      "prompt": "An irregular stone has mass 63 g. Water rises from 50 cm³ to 74 cm³ when it is submerged. Calculate the stone's density. (4 marks) Give the exact density or round it to two or three significant figures. A number on its own will be read in g/cm³.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -2451,7 +2429,13 @@
         ],
         "working": "Displaced volume = 74 − 50 = 24 cm³; ρ = m/V; 63 ÷ 24 = 2.625; Answer 2.625 g/cm³",
         "tolerance": 0,
-        "modelAnswer": "2.625 g/cm³"
+        "modelAnswer": "2.625 g/cm³",
+        "roundedValues": [
+          2.6,
+          2.63
+        ],
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -2478,7 +2462,7 @@
       "topicId": "phys-y9-p2",
       "topic": "Density and Required Practical 5",
       "format": "calculation",
-      "prompt": "A bottle contains 250 cm³ of oil. The oil's density is 0.80 g/cm³. Calculate its mass. (3 marks)",
+      "prompt": "A bottle contains 250 cm³ of oil. The oil's density is 0.80 g/cm³. Calculate its mass. (3 marks) A number on its own will be read in g.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -2490,7 +2474,9 @@
         ],
         "working": "m = ρV; 0.80 × 250 = 200; Answer 200 g",
         "tolerance": 0,
-        "modelAnswer": "200 g"
+        "modelAnswer": "200 g",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -2516,7 +2502,7 @@
       "topicId": "phys-y9-p2",
       "topic": "Density and Required Practical 5",
       "format": "calculation",
-      "prompt": "A metal piece has mass 81 g and density 2.7 g/cm³. Calculate its volume. (3 marks)",
+      "prompt": "A metal piece has mass 81 g and density 2.7 g/cm³. Calculate its volume. (3 marks) A number on its own will be read in cm³.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -2529,7 +2515,9 @@
         ],
         "working": "V = m/ρ; 81 ÷ 2.7 = 30; Answer 30 cm³",
         "tolerance": 0,
-        "modelAnswer": "30 cm³"
+        "modelAnswer": "30 cm³",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -2555,7 +2543,7 @@
       "topicId": "phys-y9-p2",
       "topic": "Density and Required Practical 5",
       "format": "calculation",
-      "prompt": "Convert a density of 1.5 g/cm³ into kg/m³. (2 marks)",
+      "prompt": "Convert a density of 1.5 g/cm³ into kg/m³. (2 marks) A number on its own will be read in kg/m³.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -2569,7 +2557,10 @@
         ],
         "working": "1 g/cm³ = 1000 kg/m³; 1.5 × 1000 = 1500 kg/m³",
         "tolerance": 0,
-        "modelAnswer": "1500 kg/m³"
+        "modelAnswer": "1500 kg/m³",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true,
+        "requireRequestedUnit": true
       },
       "stimulus": {},
       "feedback": {
@@ -2594,7 +2585,7 @@
       "topicId": "phys-y9-p2",
       "topic": "Density and Required Practical 5",
       "format": "calculation",
-      "prompt": "A rectangular block is 5 cm long, 3 cm wide and 2 cm high. Its mass is 240 g. Calculate its density. (4 marks)",
+      "prompt": "A rectangular block is 5 cm long, 3 cm wide and 2 cm high. Its mass is 240 g. Calculate its density. (4 marks) A number on its own will be read in g/cm³.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -2608,7 +2599,9 @@
         ],
         "working": "Volume = 5 × 3 × 2 = 30 cm³; ρ = m/V; 240 ÷ 30 = 8; Answer 8 g/cm³",
         "tolerance": 0,
-        "modelAnswer": "8 g/cm³"
+        "modelAnswer": "8 g/cm³",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -2635,7 +2628,7 @@
       "topicId": "phys-y9-p2",
       "topic": "Density and Required Practical 5",
       "format": "calculation",
-      "prompt": "A measuring cylinder has mass 85 g empty and 325 g with 300 cm³ of liquid. Calculate the liquid's density. (4 marks)",
+      "prompt": "A measuring cylinder has mass 85 g empty and 325 g with 300 cm³ of liquid. Calculate the liquid's density. (4 marks) A number on its own will be read in g/cm³.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -2649,7 +2642,9 @@
         ],
         "working": "Liquid mass = 325 − 85 = 240 g; ρ = m/V; 240 ÷ 300 = 0.80; Answer 0.80 g/cm³",
         "tolerance": 0,
-        "modelAnswer": "0.8 g/cm³"
+        "modelAnswer": "0.8 g/cm³",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -3322,7 +3317,7 @@
       "topicId": "phys-y9-p2",
       "topic": "Density and Required Practical 5",
       "format": "calculation",
-      "prompt": "GCSE-style calculation: A metal object has mass 0.270 kg and volume 90 cm³. Give the density in kg/m³.",
+      "prompt": "GCSE-style calculation: A metal object has mass 0.270 kg and volume 90 cm³. Give the density in kg/m³. A number on its own will be read in kg/m³.",
       "difficulty": 4,
       "status": "enabled",
       "options": null,
@@ -3336,7 +3331,9 @@
         ],
         "working": "90 cm³ = 0.000090 m³; density = 0.270 kg ÷ 0.000090 m³ = 3000 kg/m³.",
         "tolerance": 0,
-        "modelAnswer": "3000 kg/m³"
+        "modelAnswer": "3000 kg/m³",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {

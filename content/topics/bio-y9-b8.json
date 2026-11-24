@@ -332,37 +332,35 @@
       "conceptId": "bio-y9-b8-random-particle-motion-6c2ebdbc67-concept",
       "topicId": "bio-y9-b8",
       "topic": "Diffusion",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Does diffusion stop at equilibrium, or do particles continue to move randomly?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "random particle motion"
+          "continue to move randomly",
+          "they continue to move randomly",
+          "continue moving randomly"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "continue to move randomly. The movement underlying diffusion even though the overall net movement is down a concentration gradient.",
+        "steps": [
+          "continue to move randomly. The movement underlying diffusion even though the overall net movement is down a concentration gradient."
         ]
       },
-      "stimulus": {
-        "masked": "r__d__ _a___c__ _o___n"
-      },
-      "feedback": {
-        "short": "the movement underlying diffusion even though the overall net movement is down a concentration gradient",
-        "steps": [
-          "Key idea: random particle motion.",
-          "the movement underlying diffusion even though the overall net movement is down a concentration gradient",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: random particle motion"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "random particle motion → the movement underlying diffusion even though the overall net movement is down a concentration gradient"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b8-random-particle-motion-6c2ebdbc67-explain",
@@ -692,33 +690,27 @@
       "topicId": "bio-y9-b8",
       "topic": "Diffusion",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Diffusion is faster when the difference in concentration across a fixed distance is larger. What is this difference per unit distance called?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "larger concentration gradient"
+          "concentration gradient"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "concentration gradient. A factor that increases diffusion rate.",
+        "steps": [
+          "concentration gradient. A factor that increases diffusion rate."
         ]
       },
-      "stimulus": {
-        "text": "a factor that increases diffusion rate"
-      },
-      "feedback": {
-        "short": "a factor that increases diffusion rate",
-        "steps": [
-          "Key idea: larger concentration gradient.",
-          "a factor that increases diffusion rate",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: larger concentration gradient"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "larger concentration gradient → a factor that increases diffusion rate"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -728,37 +720,34 @@
       "conceptId": "bio-y9-b8-larger-concentration-gradient-8c7bcc865c-concept",
       "topicId": "bio-y9-b8",
       "topic": "Diffusion",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of larger concentration gradient: “a factor that ___ diffusion rate”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "larger concentration gradient"
+          "increases",
+          "rises"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "increases. A factor that increases diffusion rate.",
+        "steps": [
+          "increases. A factor that increases diffusion rate."
         ]
       },
-      "stimulus": {
-        "masked": "l__g__ _o___n___t___ g___i___"
-      },
-      "feedback": {
-        "short": "a factor that increases diffusion rate",
-        "steps": [
-          "Key idea: larger concentration gradient.",
-          "a factor that increases diffusion rate",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: larger concentration gradient"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "larger concentration gradient → a factor that increases diffusion rate"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b8-larger-concentration-gradient-8c7bcc865c-explain",
@@ -1091,33 +1080,28 @@
       "topicId": "bio-y9-b8",
       "topic": "Diffusion",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Folding an exchange surface allows more particles to cross at once. Which property of the surface has increased?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "larger surface area"
+          "surface area",
+          "area"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "surface area. A factor increasing diffusion rate by providing more area for exchange.",
+        "steps": [
+          "surface area. A factor increasing diffusion rate by providing more area for exchange."
         ]
       },
-      "stimulus": {
-        "text": "a factor increasing diffusion rate by providing more area for exchange"
-      },
-      "feedback": {
-        "short": "a factor increasing diffusion rate by providing more area for exchange",
-        "steps": [
-          "Key idea: larger surface area.",
-          "a factor increasing diffusion rate by providing more area for exchange",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: larger surface area"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "larger surface area → a factor increasing diffusion rate by providing more area for exchange"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1127,37 +1111,34 @@
       "conceptId": "bio-y9-b8-larger-surface-area-cdba7cddae-concept",
       "topicId": "bio-y9-b8",
       "topic": "Diffusion",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Folding an exchange surface allows more particles to cross at once. Which property of the surface has increased?",
       "difficulty": 2,
-      "status": "enabled",
+      "status": "disabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "larger surface area"
+          "surface area",
+          "area"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "surface area. A factor increasing diffusion rate by providing more area for exchange.",
+        "steps": [
+          "surface area. A factor increasing diffusion rate by providing more area for exchange."
         ]
       },
-      "stimulus": {
-        "masked": "l__g__ _u___c_ __e_"
-      },
-      "feedback": {
-        "short": "a factor increasing diffusion rate by providing more area for exchange",
-        "steps": [
-          "Key idea: larger surface area.",
-          "a factor increasing diffusion rate by providing more area for exchange",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: larger surface area"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "larger surface area → a factor increasing diffusion rate by providing more area for exchange"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "duplicateOf": "bio-y9-b8-larger-surface-area-cdba7cddae-typed",
+      "formal": false
     },
     {
       "id": "bio-y9-b8-larger-surface-area-cdba7cddae-explain",
@@ -1289,33 +1270,30 @@
       "topicId": "bio-y9-b8",
       "topic": "Diffusion",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "A thinner exchange barrier reduces which distance for a diffusing particle?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "shorter diffusion distance"
+          "diffusion distance",
+          "diffusion path length",
+          "distance travelled",
+          "path length"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "diffusion distance. An exchange-surface feature increasing diffusion rate.",
+        "steps": [
+          "diffusion distance. An exchange-surface feature increasing diffusion rate."
         ]
       },
-      "stimulus": {
-        "text": "an exchange-surface feature increasing diffusion rate"
-      },
-      "feedback": {
-        "short": "an exchange-surface feature increasing diffusion rate",
-        "steps": [
-          "Key idea: shorter diffusion distance.",
-          "an exchange-surface feature increasing diffusion rate",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: shorter diffusion distance"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "shorter diffusion distance → an exchange-surface feature increasing diffusion rate"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1325,37 +1303,33 @@
       "conceptId": "bio-y9-b8-shorter-diffusion-distance-01313894f3-concept",
       "topicId": "bio-y9-b8",
       "topic": "Diffusion",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of shorter diffusion distance: “an exchange-___ feature increasing diffusion rate”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "shorter diffusion distance"
+          "surface"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "surface. An exchange-surface feature increasing diffusion rate.",
+        "steps": [
+          "surface. An exchange-surface feature increasing diffusion rate."
         ]
       },
-      "stimulus": {
-        "masked": "s__r___ d___u___n ___t___e"
-      },
-      "feedback": {
-        "short": "an exchange-surface feature increasing diffusion rate",
-        "steps": [
-          "Key idea: shorter diffusion distance.",
-          "an exchange-surface feature increasing diffusion rate",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: shorter diffusion distance"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "shorter diffusion distance → an exchange-surface feature increasing diffusion rate"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b8-shorter-diffusion-distance-01313894f3-explain",
@@ -1531,7 +1505,10 @@
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "surface-area-to-volume ratio"
+          "surface-area-to-volume ratio",
+          "surface area to volume ratio",
+          "SA:V",
+          "SA/V"
         ]
       },
       "stimulus": {
@@ -2418,37 +2395,43 @@
       "conceptId": "bio-y9-b8-app-oxygen-direction-concept",
       "topicId": "bio-y9-b8",
       "topic": "Diffusion",
-      "format": "mark_points",
-      "prompt": "Explain why oxygen diffuses from an alveolus into the blood.",
+      "format": "extended_response",
+      "prompt": "Answer each numbered part on a separate line, in order.\n1. At the alveolar surface, is oxygen concentration usually higher in incoming blood or in alveolar air?\n2. Is molecular motion random or solely towards the blood?\n3. What is the name of the net movement down a concentration gradient?",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "mark_points",
-        "markPoints": [
-          "oxygen concentration is higher in alveolar air than in incoming blood",
-          "particles move randomly",
-          "there is a net movement down the concentration gradient into blood"
+        "mode": "ordered_parts",
+        "reviewedParts": [
+          [
+            "alveolar air",
+            "air in the alveolus",
+            "alveoli",
+            "air"
+          ],
+          [
+            "random",
+            "random motion"
+          ],
+          [
+            "diffusion"
+          ]
         ],
         "totalMarks": 3,
-        "modelAnswer": "oxygen concentration is higher in alveolar air than in incoming blood particles move randomly there is a net movement down the concentration gradient into blood"
+        "modelAnswer": "alveolar air\nrandom\ndiffusion"
       },
-      "stimulus": {
-        "marks": 3
-      },
+      "stimulus": {},
       "feedback": {
-        "short": "oxygen concentration is higher in alveolar air than in incoming blood particles move randomly there is a net movement down the concentration gradient into blood",
+        "short": "alveolar air\nrandom\ndiffusion",
         "steps": [
-          "oxygen concentration is higher in alveolar air than in incoming blood particles move randomly there is a net movement down the concentration gradient into blood",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
-          "Suggested answer: oxygen concentration is higher in alveolar air than in incoming blood particles move randomly there is a net movement down the concentration gradient into blood"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "oxygen concentration is higher in alveolar air than in incoming blood particles move randomly there is a net movement down the concentration gradient into blood"
+          "1. alveolar air",
+          "2. random",
+          "3. diffusion"
+        ]
       },
       "task": {
-        "label": "EXPLAIN",
-        "instruction": "Write one distinct scientific idea for each available mark."
+        "label": "SHORT ANSWERS",
+        "instruction": "One response per line, in the order shown."
       },
       "preview": true,
       "ordinary": true
@@ -2458,38 +2441,53 @@
       "conceptId": "bio-y9-b8-app-size-exchange-concept",
       "topicId": "bio-y9-b8",
       "topic": "Diffusion",
-      "format": "mark_points",
-      "prompt": "Explain why a large multicellular organism needs specialised exchange surfaces and transport systems.",
+      "format": "extended_response",
+      "prompt": "Answer each numbered part on a separate line, in order.\n1. As similar-shaped organisms grow, does their surface-area-to-volume ratio increase or decrease?\n2. Does the diffusion distance from the outer surface to the centre increase or decrease?\n3. Name the gas that a human exchange surface supplies for aerobic respiration.\n4. Which body system carries that gas from the lungs to distant tissues?",
       "difficulty": 4,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "mark_points",
-        "markPoints": [
-          "surface-area-to-volume ratio decreases as size increases",
-          "diffusion distances are larger",
-          "direct exchange across the outer surface cannot meet demand",
-          "specialised surfaces and transport maintain rapid supply and removal"
+        "mode": "ordered_parts",
+        "reviewedParts": [
+          [
+            "decrease",
+            "decreases",
+            "fall",
+            "falls"
+          ],
+          [
+            "increase",
+            "increases",
+            "rise",
+            "rises"
+          ],
+          [
+            "oxygen",
+            "O2"
+          ],
+          [
+            "circulatory system",
+            "cardiovascular system",
+            "blood circulation",
+            "bloodstream"
+          ]
         ],
         "totalMarks": 4,
-        "modelAnswer": "surface-area-to-volume ratio decreases as size increases diffusion distances are larger direct exchange across the outer surface cannot meet demand specialised surfaces and transport maintain rapid supply and removal"
+        "modelAnswer": "decrease\nincrease\noxygen\ncirculatory system"
       },
-      "stimulus": {
-        "marks": 4
-      },
+      "stimulus": {},
       "feedback": {
-        "short": "surface-area-to-volume ratio decreases as size increases diffusion distances are larger direct exchange across the outer surface cannot meet demand specialised surfaces and transport maintain rapid supply and removal",
+        "short": "decrease\nincrease\noxygen\ncirculatory system",
         "steps": [
-          "surface-area-to-volume ratio decreases as size increases diffusion distances are larger direct exchange across the outer surface cannot meet demand specialised surfaces and transport maintain rapid supply and removal",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
-          "Suggested answer: surface-area-to-volume ratio decreases as size increases diffusion distances are larger direct exchange across the outer surface cannot meet demand specialised surfaces and transport maintain rapid supply and removal"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "surface-area-to-volume ratio decreases as size increases diffusion distances are larger direct exchange across the outer surface cannot meet demand specialised surfaces and transport maintain rapid supply and removal"
+          "1. decrease",
+          "2. increase",
+          "3. oxygen",
+          "4. circulatory system"
+        ]
       },
       "task": {
-        "label": "EXPLAIN",
-        "instruction": "Write one distinct scientific idea for each available mark."
+        "label": "SHORT ANSWERS",
+        "instruction": "One response per line, in the order shown."
       },
       "preview": true,
       "ordinary": true
@@ -2559,16 +2557,17 @@
       "ordinary": true
     }
   ],
-  "enabled": 62,
+  "enabled": 61,
   "preview": 0,
-  "disabled": 0,
+  "disabled": 1,
   "formats": {
     "mc_single": 22,
-    "typed_exact": 8,
-    "spelling_restore": 11,
-    "mark_points": 14,
+    "typed_exact": 12,
+    "spelling_restore": 7,
+    "mark_points": 12,
     "typed_short": 3,
     "matching": 3,
+    "extended_response": 2,
     "diagram_label": 1
   },
   "gated": false,

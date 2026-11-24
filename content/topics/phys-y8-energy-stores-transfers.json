@@ -131,22 +131,22 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "State that the claim is incorrect.",
           "Any four of kinetic, thermal, chemical, gravitational potential, elastic potential, magnetic, electrostatic and nuclear."
         ],
-        "totalMarks": 2
+        "totalMarks": 1,
+        "modelAnswer": "Any four of kinetic, thermal, chemical, gravitational potential, elastic potential, magnetic, electrostatic and nuclear."
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. Any four of kinetic, thermal, chemical, gravitational potential, elastic potential, magnetic, electrostatic and nuclear.",
+        "short": "Key answer: Any four of kinetic, thermal, chemical, gravitational potential, elastic potential, magnetic, electrostatic and nuclear.",
         "steps": [
           "Read the command word and identify exactly what must be supplied.",
           "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. Any four of kinetic, thermal, chemical, gravitational potential, elastic potential, magnetic, electrostatic and nuclear.",
+          "Check against the source-locked answer: Any four of kinetic, thermal, chemical, gravitational potential, elastic potential, magnetic, electrostatic and nuclear.",
           "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
         ],
         "commonError": "light, sound, electricity and force",
-        "remember": "The claim is incorrect. Any four of kinetic, thermal, chemical, gravitational potential, elastic potential, magnetic, electrostatic and nuclear."
+        "remember": "Any four of kinetic, thermal, chemical, gravitational potential, elastic potential, magnetic, electrostatic and nuclear."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -280,22 +280,22 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "State that the claim is incorrect.",
           "mechanically, electrically, by heating and by radiation"
         ],
-        "totalMarks": 2
+        "totalMarks": 1,
+        "modelAnswer": "mechanically, electrically, by heating and by radiation"
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. mechanically, electrically, by heating and by radiation",
+        "short": "Key answer: mechanically, electrically, by heating and by radiation",
         "steps": [
           "Read the command word and identify exactly what must be supplied.",
           "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. mechanically, electrically, by heating and by radiation",
+          "Check against the source-locked answer: mechanically, electrically, by heating and by radiation",
           "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
         ],
         "commonError": "kinetic, chemical, light and sound",
-        "remember": "The claim is incorrect. mechanically, electrically, by heating and by radiation"
+        "remember": "mechanically, electrically, by heating and by radiation"
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -385,7 +385,7 @@
       "topicId": "phys-y8-energy-stores-transfers",
       "topic": "Energy stores, transfers and dissipation",
       "format": "calculation",
-      "prompt": "A device receives 500 J and gives 320 J useful output. Account for the rest.",
+      "prompt": "A device receives 500 J and gives 320 J useful output. Account for the rest. A number on its own will be read in J.",
       "difficulty": 4,
       "status": "enabled",
       "options": null,
@@ -404,7 +404,9 @@
         ],
         "value": 180,
         "tolerance": 0.001,
-        "modelAnswer": "180 J"
+        "modelAnswer": "180 J",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -438,22 +440,22 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "State that the claim is incorrect.",
           "Energy cannot be created or destroyed; total energy is conserved in a closed system."
         ],
-        "totalMarks": 2
+        "totalMarks": 1,
+        "modelAnswer": "Energy cannot be created or destroyed; total energy is conserved in a closed system."
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. Energy cannot be created or destroyed; total energy is conserved in a closed system.",
+        "short": "Key answer: Energy cannot be created or destroyed; total energy is conserved in a closed system.",
         "steps": [
           "Read the command word and identify exactly what must be supplied.",
           "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. Energy cannot be created or destroyed; total energy is conserved in a closed system.",
+          "Check against the source-locked answer: Energy cannot be created or destroyed; total energy is conserved in a closed system.",
           "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
         ],
         "commonError": "Useful devices create extra energy.",
-        "remember": "The claim is incorrect. Energy cannot be created or destroyed; total energy is conserved in a closed system."
+        "remember": "Energy cannot be created or destroyed; total energy is conserved in a closed system."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -587,22 +589,22 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "State that the claim is incorrect.",
           "Its gravitational potential store decreases while its kinetic store increases."
         ],
-        "totalMarks": 2
+        "totalMarks": 1,
+        "modelAnswer": "Its gravitational potential store decreases while its kinetic store increases."
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. Its gravitational potential store decreases while its kinetic store increases.",
+        "short": "Key answer: Its gravitational potential store decreases while its kinetic store increases.",
         "steps": [
           "Read the command word and identify exactly what must be supplied.",
           "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. Its gravitational potential store decreases while its kinetic store increases.",
+          "Check against the source-locked answer: Its gravitational potential store decreases while its kinetic store increases.",
           "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
         ],
         "commonError": "Both stores always increase without input.",
-        "remember": "The claim is incorrect. Its gravitational potential store decreases while its kinetic store increases."
+        "remember": "Its gravitational potential store decreases while its kinetic store increases."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -737,22 +739,22 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "State that the claim is incorrect.",
           "In its elastic potential energy store."
         ],
-        "totalMarks": 2
+        "totalMarks": 1,
+        "modelAnswer": "In its elastic potential energy store."
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. In its elastic potential energy store.",
+        "short": "Key answer: In its elastic potential energy store.",
         "steps": [
           "Read the command word and identify exactly what must be supplied.",
           "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. In its elastic potential energy store.",
+          "Check against the source-locked answer: In its elastic potential energy store.",
           "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
         ],
         "commonError": "Only in a nuclear store.",
-        "remember": "The claim is incorrect. In its elastic potential energy store."
+        "remember": "In its elastic potential energy store."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -887,22 +889,22 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "State that the claim is incorrect.",
           "Fuels, foods and batteries are examples."
         ],
-        "totalMarks": 2
+        "totalMarks": 1,
+        "modelAnswer": "Fuels, foods and batteries are examples."
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. Fuels, foods and batteries are examples.",
+        "short": "Key answer: Fuels, foods and batteries are examples.",
         "steps": [
           "Read the command word and identify exactly what must be supplied.",
           "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. Fuels, foods and batteries are examples.",
+          "Check against the source-locked answer: Fuels, foods and batteries are examples.",
           "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
         ],
         "commonError": "Mirrors, prisms and empty rulers.",
-        "remember": "The claim is incorrect. Fuels, foods and batteries are examples."
+        "remember": "Fuels, foods and batteries are examples."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -1037,22 +1039,22 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "State that the claim is incorrect.",
           "Energy spreads to surrounding thermal stores and becomes less available for useful transfer."
         ],
-        "totalMarks": 2
+        "totalMarks": 1,
+        "modelAnswer": "Energy spreads to surrounding thermal stores and becomes less available for useful transfer."
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. Energy spreads to surrounding thermal stores and becomes less available for useful transfer.",
+        "short": "Key answer: Energy spreads to surrounding thermal stores and becomes less available for useful transfer.",
         "steps": [
           "Read the command word and identify exactly what must be supplied.",
           "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. Energy spreads to surrounding thermal stores and becomes less available for useful transfer.",
+          "Check against the source-locked answer: Energy spreads to surrounding thermal stores and becomes less available for useful transfer.",
           "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
         ],
         "commonError": "Energy is destroyed completely.",
-        "remember": "The claim is incorrect. Energy spreads to surrounding thermal stores and becomes less available for useful transfer."
+        "remember": "Energy spreads to surrounding thermal stores and becomes less available for useful transfer."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -1187,22 +1189,22 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "State that the claim is incorrect.",
           "Initial store, transfer pathway and final useful and dissipated stores."
         ],
-        "totalMarks": 2
+        "totalMarks": 1,
+        "modelAnswer": "Initial store, transfer pathway and final useful and dissipated stores."
       },
       "stimulus": {},
       "feedback": {
-        "short": "Key answer: The claim is incorrect. Initial store, transfer pathway and final useful and dissipated stores.",
+        "short": "Key answer: Initial store, transfer pathway and final useful and dissipated stores.",
         "steps": [
           "Read the command word and identify exactly what must be supplied.",
           "Recall the rule, equation or cause-and-effect link before answering.",
-          "Check against the source-locked answer: The claim is incorrect. Initial store, transfer pathway and final useful and dissipated stores.",
+          "Check against the source-locked answer: Initial store, transfer pathway and final useful and dissipated stores.",
           "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
         ],
         "commonError": "Only the device name.",
-        "remember": "The claim is incorrect. Initial store, transfer pathway and final useful and dissipated stores."
+        "remember": "Initial store, transfer pathway and final useful and dissipated stores."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -1311,7 +1313,7 @@
       "topicId": "phys-y8-energy-stores-transfers",
       "topic": "Energy stores, transfers and dissipation",
       "format": "calculation",
-      "prompt": "A device receives 750 J. It transfers 420 J usefully and 95 J as sound. Calculate the energy transferred to thermal stores.",
+      "prompt": "A device receives 750 J. It transfers 420 J usefully and 95 J as sound. Calculate the energy transferred to thermal stores. A number on its own will be read in J.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -1326,7 +1328,9 @@
         ],
         "working": "750 - 420 - 95 = 235 J",
         "tolerance": 0.01,
-        "modelAnswer": "235 J"
+        "modelAnswer": "235 J",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {

@@ -497,73 +497,65 @@
       "topicId": "phys-y9-p12",
       "topic": "Gas pressure and temperature",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "Heating a gas increases the average ___ energy of its particles.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "faster gas particles"
+          "kinetic"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "kinetic. Particles covering distance more quickly after a temperature rise.",
+        "steps": [
+          "kinetic. Particles covering distance more quickly after a temperature rise."
         ]
       },
-      "stimulus": {
-        "text": "particles covering distance more quickly after a temperature rise"
-      },
-      "feedback": {
-        "short": "particles covering distance more quickly after a temperature rise",
-        "steps": [
-          "Key idea: faster gas particles.",
-          "particles covering distance more quickly after a temperature rise",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: faster gas particles"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "faster gas particles → particles covering distance more quickly after a temperature rise"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p12-faster-gas-particles-5dc30098f2-restore",
       "conceptId": "phys-y9-p12-faster-gas-particles-5dc30098f2-concept",
       "topicId": "phys-y9-p12",
       "topic": "Gas pressure and temperature",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of faster gas particles: “particles covering distance more quickly after a ___ rise”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "faster gas particles"
+          "temperature"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "temperature. Particles covering distance more quickly after a temperature rise.",
+        "steps": [
+          "temperature. Particles covering distance more quickly after a temperature rise."
         ]
       },
-      "stimulus": {
-        "masked": "f__t__ _a_ __r___l__"
-      },
-      "feedback": {
-        "short": "particles covering distance more quickly after a temperature rise",
-        "steps": [
-          "Key idea: faster gas particles.",
-          "particles covering distance more quickly after a temperature rise",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: faster gas particles"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "faster gas particles → particles covering distance more quickly after a temperature rise"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p12-faster-gas-particles-5dc30098f2-explain",
@@ -695,73 +687,67 @@
       "topicId": "phys-y9-p12",
       "topic": "Gas pressure and temperature",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "In a rigid container, warming a fixed mass of gas changes the frequency of wall collisions. Does it rise or fall?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "more frequent wall collisions"
+          "rises",
+          "rise",
+          "increases"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "rises. One cause of greater gas pressure at higher temperature and constant volume.",
+        "steps": [
+          "rises. One cause of greater gas pressure at higher temperature and constant volume."
         ]
       },
-      "stimulus": {
-        "text": "one cause of greater gas pressure at higher temperature and constant volume"
-      },
-      "feedback": {
-        "short": "one cause of greater gas pressure at higher temperature and constant volume",
-        "steps": [
-          "Key idea: more frequent wall collisions.",
-          "one cause of greater gas pressure at higher temperature and constant volume",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: more frequent wall collisions"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "more frequent wall collisions → one cause of greater gas pressure at higher temperature and constant volume"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p12-more-frequent-wall-collisions-d32fe3ed85-restore",
       "conceptId": "phys-y9-p12-more-frequent-wall-collisions-d32fe3ed85-concept",
       "topicId": "phys-y9-p12",
       "topic": "Gas pressure and temperature",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of more frequent wall collisions: “one cause of greater gas pressure at higher ___ and constant volume”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "more frequent wall collisions"
+          "temperature"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "temperature. One cause of greater gas pressure at higher temperature and constant volume.",
+        "steps": [
+          "temperature. One cause of greater gas pressure at higher temperature and constant volume."
         ]
       },
-      "stimulus": {
-        "masked": "m__e ___q___t ___l ___l___o__"
-      },
-      "feedback": {
-        "short": "one cause of greater gas pressure at higher temperature and constant volume",
-        "steps": [
-          "Key idea: more frequent wall collisions.",
-          "one cause of greater gas pressure at higher temperature and constant volume",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: more frequent wall collisions"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "more frequent wall collisions → one cause of greater gas pressure at higher temperature and constant volume"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p12-more-frequent-wall-collisions-d32fe3ed85-explain",
@@ -893,33 +879,27 @@
       "topicId": "phys-y9-p12",
       "topic": "Gas pressure and temperature",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "Force is the rate of change of which quantity when a gas particle rebounds from a wall?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "greater momentum change"
+          "momentum"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "momentum. Stronger effect of each faster particle collision on a wall.",
+        "steps": [
+          "momentum. Stronger effect of each faster particle collision on a wall."
         ]
       },
-      "stimulus": {
-        "text": "stronger effect of each faster particle collision on a wall"
-      },
-      "feedback": {
-        "short": "stronger effect of each faster particle collision on a wall",
-        "steps": [
-          "Key idea: greater momentum change.",
-          "stronger effect of each faster particle collision on a wall",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: greater momentum change"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "greater momentum change → stronger effect of each faster particle collision on a wall"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -929,34 +909,28 @@
       "conceptId": "phys-y9-p12-greater-momentum-change-013b6763de-concept",
       "topicId": "phys-y9-p12",
       "topic": "Gas pressure and temperature",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Force is the rate of change of which quantity when a gas particle rebounds from a wall?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "greater momentum change"
+          "momentum"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "momentum. Stronger effect of each faster particle collision on a wall.",
+        "steps": [
+          "momentum. Stronger effect of each faster particle collision on a wall."
         ]
       },
-      "stimulus": {
-        "masked": "g__a___ m___n___ c___g_"
-      },
-      "feedback": {
-        "short": "stronger effect of each faster particle collision on a wall",
-        "steps": [
-          "Key idea: greater momentum change.",
-          "stronger effect of each faster particle collision on a wall",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: greater momentum change"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "greater momentum change → stronger effect of each faster particle collision on a wall"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true

@@ -105,7 +105,11 @@
           "gases including carbon dioxide, methane and water vapour that absorb and emit infrared radiation"
         ],
         "totalMarks": 1,
-        "modelAnswer": "gases including carbon dioxide, methane and water vapour that absorb and emit infrared radiation"
+        "modelAnswer": "gases including carbon dioxide, methane and water vapour that absorb and emit infrared radiation",
+        "reviewedEquivalents": [
+          "gases that absorb and emit infrared radiation",
+          "gases that absorb and re-emit infrared radiation"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -182,7 +186,11 @@
           "gases including carbon dioxide, methane and water vapour that absorb and emit infrared radiation"
         ],
         "totalMarks": 1,
-        "modelAnswer": "gases including carbon dioxide, methane and water vapour that absorb and emit infrared radiation"
+        "modelAnswer": "gases including carbon dioxide, methane and water vapour that absorb and emit infrared radiation",
+        "reviewedEquivalents": [
+          "gases that absorb and emit infrared radiation",
+          "gases that absorb and re-emit infrared radiation"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -731,34 +739,31 @@
       "conceptId": "chem-y9-c17-greenhouse-mechanism-e3e9ef1aac-concept",
       "topicId": "chem-y9-c17",
       "topic": "Greenhouse gases and climate change",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Which radiation emitted by Earth's surface is absorbed by greenhouse gases?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "greenhouse mechanism"
+          "infrared",
+          "infrared radiation",
+          "longwave infrared",
+          "long-wave infrared radiation"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "infrared. Absorption and re-emission of infrared radiation in all directions, reducing energy escape to space.",
+        "steps": [
+          "infrared. Absorption and re-emission of infrared radiation in all directions, reducing energy escape to space."
         ]
       },
-      "stimulus": {
-        "masked": "g__e___u__ _e___n___"
-      },
-      "feedback": {
-        "short": "absorption and re-emission of infrared radiation in all directions, reducing energy escape to space",
-        "steps": [
-          "Key idea: greenhouse mechanism.",
-          "absorption and re-emission of infrared radiation in all directions, reducing energy escape to space",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: greenhouse mechanism"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "greenhouse mechanism → absorption and re-emission of infrared radiation in all directions, reducing energy escape to space"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -903,7 +908,11 @@
           "fossil-fuel burning and deforestation or other land-use change"
         ],
         "totalMarks": 1,
-        "modelAnswer": "fossil-fuel burning and deforestation or other land-use change"
+        "modelAnswer": "fossil-fuel burning and deforestation or other land-use change",
+        "reviewedEquivalents": [
+          "burning fossil fuels and deforestation",
+          "deforestation and burning fossil fuels"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -980,7 +989,11 @@
           "fossil-fuel burning and deforestation or other land-use change"
         ],
         "totalMarks": 1,
-        "modelAnswer": "fossil-fuel burning and deforestation or other land-use change"
+        "modelAnswer": "fossil-fuel burning and deforestation or other land-use change",
+        "reviewedEquivalents": [
+          "burning fossil fuels and deforestation",
+          "deforestation and burning fossil fuels"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -2096,73 +2109,69 @@
       "topicId": "chem-y9-c17",
       "topic": "Greenhouse gases and climate change",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "Future greenhouse gas emissions depend on human choices. Does this increase or reduce uncertainty about the exact future temperature rise?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "climate uncertainty"
+          "increase",
+          "increase uncertainty",
+          "increases"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "increase. Uncertainty in exact predictions caused by system complexity and unknown future emissions, not absence of evidence.",
+        "steps": [
+          "increase. Uncertainty in exact predictions caused by system complexity and unknown future emissions, not absence of evidence."
         ]
       },
-      "stimulus": {
-        "text": "uncertainty in exact predictions caused by system complexity and unknown future emissions, not absence of evidence"
-      },
-      "feedback": {
-        "short": "uncertainty in exact predictions caused by system complexity and unknown future emissions, not absence of evidence",
-        "steps": [
-          "Key idea: climate uncertainty.",
-          "uncertainty in exact predictions caused by system complexity and unknown future emissions, not absence of evidence",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: climate uncertainty"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "climate uncertainty → uncertainty in exact predictions caused by system complexity and unknown future emissions, not absence of evidence"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c17-climate-uncertainty-aa0a5fc2e4-restore",
       "conceptId": "chem-y9-c17-climate-uncertainty-aa0a5fc2e4-concept",
       "topicId": "chem-y9-c17",
       "topic": "Greenhouse gases and climate change",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "Future greenhouse gas emissions depend on human choices. Does this increase or reduce uncertainty about the exact future temperature rise?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "climate uncertainty"
+          "increase",
+          "increase uncertainty",
+          "increases"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "increase. Uncertainty in exact predictions caused by system complexity and unknown future emissions, not absence of evidence.",
+        "steps": [
+          "increase. Uncertainty in exact predictions caused by system complexity and unknown future emissions, not absence of evidence."
         ]
       },
-      "stimulus": {
-        "masked": "c__m___ u___r___n__"
-      },
-      "feedback": {
-        "short": "uncertainty in exact predictions caused by system complexity and unknown future emissions, not absence of evidence",
-        "steps": [
-          "Key idea: climate uncertainty.",
-          "uncertainty in exact predictions caused by system complexity and unknown future emissions, not absence of evidence",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: climate uncertainty"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "climate uncertainty → uncertainty in exact predictions caused by system complexity and unknown future emissions, not absence of evidence"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "chem-y9-c17-climate-uncertainty-aa0a5fc2e4-explain",
@@ -2294,33 +2303,28 @@
       "topicId": "chem-y9-c17",
       "topic": "Greenhouse gases and climate change",
       "format": "typed_exact",
-      "prompt": "Name the chemistry term or rule described below.",
+      "prompt": "What process involves other specialists critically assessing a scientific paper before publication?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "climate peer review"
+          "peer review",
+          "peer-review"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "peer review. Scrutiny of observations, models, methods and interpretations by other scientists.",
+        "steps": [
+          "peer review. Scrutiny of observations, models, methods and interpretations by other scientists."
         ]
       },
-      "stimulus": {
-        "text": "scrutiny of observations, models, methods and interpretations by other scientists"
-      },
-      "feedback": {
-        "short": "scrutiny of observations, models, methods and interpretations by other scientists",
-        "steps": [
-          "Key idea: climate peer review.",
-          "scrutiny of observations, models, methods and interpretations by other scientists",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: climate peer review"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "climate peer review → scrutiny of observations, models, methods and interpretations by other scientists"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -2330,34 +2334,29 @@
       "conceptId": "chem-y9-c17-climate-peer-review-750abcb6ed-concept",
       "topicId": "chem-y9-c17",
       "topic": "Greenhouse gases and climate change",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing chemistry wording.",
+      "format": "typed_exact",
+      "prompt": "What process involves other specialists critically assessing a scientific paper before publication?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "climate peer review"
+          "peer review",
+          "peer-review"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "peer review. Scrutiny of observations, models, methods and interpretations by other scientists.",
+        "steps": [
+          "peer review. Scrutiny of observations, models, methods and interpretations by other scientists."
         ]
       },
-      "stimulus": {
-        "masked": "c__m___ p___ r___e_"
-      },
-      "feedback": {
-        "short": "scrutiny of observations, models, methods and interpretations by other scientists",
-        "steps": [
-          "Key idea: climate peer review.",
-          "scrutiny of observations, models, methods and interpretations by other scientists",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: climate peer review"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "climate peer review → scrutiny of observations, models, methods and interpretations by other scientists"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -2899,38 +2898,44 @@
       "conceptId": "chem-y9-c17-app-uncertainty-concept",
       "topicId": "chem-y9-c17",
       "topic": "Greenhouse gases and climate change",
-      "format": "mark_points",
-      "prompt": "Explain why uncertainty in exact climate predictions does not mean there is no evidence for greenhouse-gas warming.",
+      "format": "extended_response",
+      "prompt": "Answer each numbered part on a separate line, in order.\n1. Which range of radiation is absorbed and emitted by carbon dioxide?\n2. Which process involves specialists checking a climate study before publication?\n3. Which is uncertain: the exact size of future emissions or whether carbon dioxide absorbs infrared? Give the uncertain quantity.",
       "difficulty": 4,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "mark_points",
-        "markPoints": [
-          "observations and measurements provide evidence",
-          "physical mechanisms explain infrared absorption and emission",
-          "models are tested and peer reviewed",
-          "uncertainty concerns exact scale, timing or future emissions rather than whether evidence exists"
+        "mode": "ordered_parts",
+        "reviewedParts": [
+          [
+            "infrared",
+            "infrared radiation",
+            "longwave infrared"
+          ],
+          [
+            "peer review",
+            "peer-review"
+          ],
+          [
+            "future emissions",
+            "exact size of future emissions",
+            "the exact size of future emissions"
+          ]
         ],
-        "totalMarks": 4,
-        "modelAnswer": "observations and measurements provide evidence physical mechanisms explain infrared absorption and emission models are tested and peer reviewed uncertainty concerns exact scale, timing or future emissions rather than whether evidence exists"
+        "totalMarks": 3,
+        "modelAnswer": "infrared\npeer review\nfuture emissions"
       },
-      "stimulus": {
-        "marks": 4
-      },
+      "stimulus": {},
       "feedback": {
-        "short": "observations and measurements provide evidence physical mechanisms explain infrared absorption and emission models are tested and peer reviewed uncertainty concerns exact scale, timing or future emissions rather than whether evidence exists",
+        "short": "infrared\npeer review\nfuture emissions",
         "steps": [
-          "observations and measurements provide evidence physical mechanisms explain infrared absorption and emission models are tested and peer reviewed uncertainty concerns exact scale, timing or future emissions rather than whether evidence exists",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
-          "Suggested answer: observations and measurements provide evidence physical mechanisms explain infrared absorption and emission models are tested and peer reviewed uncertainty concerns exact scale, timing or future emissions rather than whether evidence exists"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "observations and measurements provide evidence physical mechanisms explain infrared absorption and emission models are tested and peer reviewed uncertainty concerns exact scale, timing or future emissions rather than whether evidence exists"
+          "1. infrared",
+          "2. peer review",
+          "3. future emissions"
+        ]
       },
       "task": {
-        "label": "EXPLAIN",
-        "instruction": "Write one distinct scientific idea for each available mark."
+        "label": "SHORT ANSWERS",
+        "instruction": "One response per line, in the order shown."
       },
       "preview": true,
       "ordinary": true
@@ -3021,7 +3026,9 @@
           "greenhouse gas",
           "re-emitted infrared"
         ],
-        "diagramId": "chem-greenhouse"
+        "diagramId": "chem-greenhouse",
+        "image": "/content/diagrams/question-review/chem-greenhouse.svg",
+        "imageAlt": "Lettered figure for Greenhouse gases and climate change."
       },
       "feedback": {
         "short": "Place every scientific label at its correct anchor.",

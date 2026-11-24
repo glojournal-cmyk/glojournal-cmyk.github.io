@@ -332,38 +332,33 @@
       "conceptId": "bio-y9-b14-photosynthesis-word-equation-8f528a451d-concept",
       "topicId": "bio-y9-b14",
       "topic": "Photosynthesis",
-      "format": "spelling_restore",
-      "prompt": "Restore the complete answer for this science cue.",
+      "format": "typed_exact",
+      "prompt": "Complete the word equation: carbon dioxide + water → glucose + ___.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "carbon dioxide plus water produces glucose and oxygen",
-          "carbon dioxide + water → glucose + oxygen"
+          "oxygen"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "oxygen. Carbon dioxide plus water produces glucose and oxygen.",
+        "steps": [
+          "oxygen. Carbon dioxide plus water produces glucose and oxygen."
         ]
       },
-      "stimulus": {
-        "masked": "c__b__ _i___d_ __u_ __t__ _r___c__ _l___s_ __d ___g__"
-      },
-      "feedback": {
-        "short": "carbon dioxide plus water produces glucose and oxygen",
-        "steps": [
-          "Key idea: photosynthesis word equation.",
-          "carbon dioxide plus water produces glucose and oxygen",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: carbon dioxide plus water produces glucose and oxygen"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "photosynthesis word equation → carbon dioxide plus water produces glucose and oxygen"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b14-photosynthesis-word-equation-8f528a451d-explain",
@@ -505,7 +500,11 @@
           "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂"
         ],
         "totalMarks": 1,
-        "modelAnswer": "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂"
+        "modelAnswer": "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂",
+        "chemicalNotation": true,
+        "accepted": [
+          "6CO2 + 6H2O → C6H12O6 + 6O2"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -534,34 +533,29 @@
       "conceptId": "bio-y9-b14-photosynthesis-symbol-equation-6c6e068d60-concept",
       "topicId": "bio-y9-b14",
       "topic": "Photosynthesis",
-      "format": "spelling_restore",
-      "prompt": "Restore the complete answer for this science cue.",
+      "format": "typed_exact",
+      "prompt": "Complete the balanced equation: 6CO₂ + 6H₂O → C₆H₁₂O₆ + ___O₂. Give the coefficient.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂"
+          "6",
+          "six"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "6. 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂.",
+        "steps": [
+          "6. 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂."
         ]
       },
-      "stimulus": {
-        "masked": "6C_₂ + 6_₂O → _₆_₁₂_₆ + 6O₂"
-      },
-      "feedback": {
-        "short": "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂",
-        "steps": [
-          "Key idea: photosynthesis symbol equation.",
-          "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "photosynthesis symbol equation → 6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -582,7 +576,11 @@
           "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂"
         ],
         "totalMarks": 1,
-        "modelAnswer": "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂"
+        "modelAnswer": "6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂",
+        "chemicalNotation": true,
+        "accepted": [
+          "6CO2 + 6H2O → C6H12O6 + 6O2"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -1329,34 +1327,29 @@
       "conceptId": "bio-y9-b14-photosynthesis-reactants-ab7401d706-concept",
       "topicId": "bio-y9-b14",
       "topic": "Photosynthesis",
-      "format": "spelling_restore",
-      "prompt": "Restore the complete answer for this science cue.",
+      "format": "typed_exact",
+      "prompt": "Apart from water, which reactant is needed for photosynthesis?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "carbon dioxide and water"
+          "carbon dioxide",
+          "CO2"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "carbon dioxide. Carbon dioxide and water.",
+        "steps": [
+          "carbon dioxide. Carbon dioxide and water."
         ]
       },
-      "stimulus": {
-        "masked": "c__b__ _i___d_ __d ___e_"
-      },
-      "feedback": {
-        "short": "carbon dioxide and water",
-        "steps": [
-          "Key idea: photosynthesis reactants.",
-          "carbon dioxide and water",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: carbon dioxide and water"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "photosynthesis reactants → carbon dioxide and water"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1530,34 +1523,28 @@
       "conceptId": "bio-y9-b14-photosynthesis-products-c04e5b8e5b-concept",
       "topicId": "bio-y9-b14",
       "topic": "Photosynthesis",
-      "format": "spelling_restore",
-      "prompt": "Restore the complete answer for this science cue.",
+      "format": "typed_exact",
+      "prompt": "Which six-carbon sugar is represented in the GCSE photosynthesis equation?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "glucose and oxygen"
+          "glucose"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "glucose. Glucose and oxygen.",
+        "steps": [
+          "glucose. Glucose and oxygen."
         ]
       },
-      "stimulus": {
-        "masked": "g__c___ a__ _x___n"
-      },
-      "feedback": {
-        "short": "glucose and oxygen",
-        "steps": [
-          "Key idea: photosynthesis products.",
-          "glucose and oxygen",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: glucose and oxygen"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "photosynthesis products → glucose and oxygen"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1731,34 +1718,28 @@
       "conceptId": "bio-y9-b14-food-chain-foundation-c8f89cb09c-concept",
       "topicId": "bio-y9-b14",
       "topic": "Photosynthesis",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "In most food chains, which process allows primary producers to use sunlight to make organic molecules?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "food-chain foundation"
+          "photosynthesis"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "photosynthesis. Photosynthesis providing chemical energy and carbon-containing molecules supporting most food chains.",
+        "steps": [
+          "photosynthesis. Photosynthesis providing chemical energy and carbon-containing molecules supporting most food chains."
         ]
       },
-      "stimulus": {
-        "masked": "f__d-___i_ __u___t___"
-      },
-      "feedback": {
-        "short": "photosynthesis providing chemical energy and carbon-containing molecules supporting most food chains",
-        "steps": [
-          "Key idea: food-chain foundation.",
-          "photosynthesis providing chemical energy and carbon-containing molecules supporting most food chains",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: food-chain foundation"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "food-chain foundation → photosynthesis providing chemical energy and carbon-containing molecules supporting most food chains"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -2015,37 +1996,42 @@
       "conceptId": "bio-y9-b14-app-soil-food-error-concept",
       "topicId": "bio-y9-b14",
       "topic": "Photosynthesis",
-      "format": "mark_points",
-      "prompt": "Correct the claim that plants obtain their food from soil.",
+      "format": "extended_response",
+      "prompt": "Answer each numbered part on a separate line, in order.\n1. Apart from water, what dissolved nutrients enter from the soil?\n2. Which process makes glucose in the leaf?\n3. Which gas supplies the carbon atoms in that glucose?",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "mark_points",
-        "markPoints": [
-          "plants absorb water and mineral ions from soil",
-          "they make glucose by photosynthesis",
-          "carbon dioxide and water are converted using light energy"
+        "mode": "ordered_parts",
+        "reviewedParts": [
+          [
+            "mineral ions",
+            "minerals",
+            "dissolved mineral ions"
+          ],
+          [
+            "photosynthesis"
+          ],
+          [
+            "carbon dioxide",
+            "CO2"
+          ]
         ],
         "totalMarks": 3,
-        "modelAnswer": "plants absorb water and mineral ions from soil they make glucose by photosynthesis carbon dioxide and water are converted using light energy"
+        "modelAnswer": "mineral ions\nphotosynthesis\ncarbon dioxide"
       },
-      "stimulus": {
-        "marks": 3
-      },
+      "stimulus": {},
       "feedback": {
-        "short": "plants absorb water and mineral ions from soil they make glucose by photosynthesis carbon dioxide and water are converted using light energy",
+        "short": "mineral ions\nphotosynthesis\ncarbon dioxide",
         "steps": [
-          "plants absorb water and mineral ions from soil they make glucose by photosynthesis carbon dioxide and water are converted using light energy",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
-          "Suggested answer: plants absorb water and mineral ions from soil they make glucose by photosynthesis carbon dioxide and water are converted using light energy"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "plants absorb water and mineral ions from soil they make glucose by photosynthesis carbon dioxide and water are converted using light energy"
+          "1. mineral ions",
+          "2. photosynthesis",
+          "3. carbon dioxide"
+        ]
       },
       "task": {
-        "label": "EXPLAIN",
-        "instruction": "Write one distinct scientific idea for each available mark."
+        "label": "SHORT ANSWERS",
+        "instruction": "One response per line, in the order shown."
       },
       "preview": true,
       "ordinary": true

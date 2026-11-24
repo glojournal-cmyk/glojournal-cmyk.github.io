@@ -1691,6 +1691,11 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "three-base code"
+        ],
+        "reviewedEquivalents": [
+          "triplet code",
+          "base triplet",
+          "triplet of bases"
         ]
       },
       "stimulus": {
@@ -1728,6 +1733,11 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "three-base code"
+        ],
+        "reviewedEquivalents": [
+          "triplet code",
+          "base triplet",
+          "triplet of bases"
         ]
       },
       "stimulus": {
@@ -1881,34 +1891,27 @@
       "topicId": "bio-y9-b7",
       "topic": "DNA and the genome; DNA structure",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "A chromosome contains DNA. What is the name for a section of DNA that codes for a functional product?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "genetic hierarchy",
-          "cell → nucleus → chromosome → DNA → gene"
+          "gene"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "gene. Cell to nucleus to chromosome to DNA to gene.",
+        "steps": [
+          "gene. Cell to nucleus to chromosome to DNA to gene."
         ]
       },
-      "stimulus": {
-        "text": "cell to nucleus to chromosome to DNA to gene"
-      },
-      "feedback": {
-        "short": "cell to nucleus to chromosome to DNA to gene",
-        "steps": [
-          "Key idea: genetic hierarchy.",
-          "cell to nucleus to chromosome to DNA to gene",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: genetic hierarchy"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "genetic hierarchy → cell to nucleus to chromosome to DNA to gene"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1918,38 +1921,33 @@
       "conceptId": "bio-y9-b7-genetic-hierarchy-aae118bc90-concept",
       "topicId": "bio-y9-b7",
       "topic": "DNA and the genome; DNA structure",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of genetic hierarchy: “cell to nucleus to ___ to DNA to gene”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "genetic hierarchy",
-          "cell → nucleus → chromosome → DNA → gene"
+          "chromosome"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "chromosome. Cell to nucleus to chromosome to DNA to gene.",
+        "steps": [
+          "chromosome. Cell to nucleus to chromosome to DNA to gene."
         ]
       },
-      "stimulus": {
-        "masked": "g__e___ h___a___y"
-      },
-      "feedback": {
-        "short": "cell to nucleus to chromosome to DNA to gene",
-        "steps": [
-          "Key idea: genetic hierarchy.",
-          "cell to nucleus to chromosome to DNA to gene",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: genetic hierarchy"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "genetic hierarchy → cell to nucleus to chromosome to DNA to gene"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b7-genetic-hierarchy-aae118bc90-explain",
@@ -2120,34 +2118,29 @@
       "conceptId": "bio-y9-b7-genome-research-0c85aa7463-concept",
       "topicId": "bio-y9-b7",
       "topic": "DNA and the genome; DNA structure",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "What name is given to all of an organism's genetic material?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "genome research"
+          "genome",
+          "the genome"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "genome. Work that can identify disease-linked genes, help understand inherited disorders and investigate human migration or evolution.",
+        "steps": [
+          "genome. Work that can identify disease-linked genes, help understand inherited disorders and investigate human migration or evolution."
         ]
       },
-      "stimulus": {
-        "masked": "g__o__ _e___r__"
-      },
-      "feedback": {
-        "short": "work that can identify disease-linked genes, help understand inherited disorders and investigate human migration or evolution",
-        "steps": [
-          "Key idea: genome research.",
-          "work that can identify disease-linked genes, help understand inherited disorders and investigate human migration or evolution",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: genome research"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "genome research → work that can identify disease-linked genes, help understand inherited disorders and investigate human migration or evolution"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -2366,7 +2359,8 @@
           "the rule that A pairs with T and C pairs with G"
         ],
         "totalMarks": 1,
-        "modelAnswer": "the rule that A pairs with T and C pairs with G"
+        "modelAnswer": "the rule that A pairs with T and C pairs with G",
+        "basePairing": true
       },
       "stimulus": {
         "marks": 1,
@@ -2635,19 +2629,23 @@
           {
             "label": "sugar",
             "alternatives": [
-              "sugar"
+              "deoxyribose sugar",
+              "sugar",
+              "deoxyribose"
             ]
           },
           {
             "label": "phosphate",
             "alternatives": [
-              "phosphate",
-              "phosphate group"
+              "phosphate group",
+              "phosphate"
             ]
           },
           {
             "label": "base",
             "alternatives": [
+              "nitrogenous base",
+              "organic base",
               "base"
             ]
           }

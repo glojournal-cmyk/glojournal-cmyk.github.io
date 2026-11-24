@@ -37,30 +37,48 @@ assert.ok(q73.solution.includes("6 + 2 − 3 = 5")&&q73.solution.includes("x⁵"
 assert.ok(q75.solution.includes("8 + 4 − 3 = 9")&&q75.solution.includes("x⁹"),"T1-075 method wrong");
 assert.ok(!q73.solution.includes("(2+1)")&&!q75.solution.includes("(2+1)"));
 
-const script=fs.readFileSync("assets/quiz-session-rWAnuDVj.js","utf8");
-const start=script.indexOf("function A(e){"),end=script.indexOf("function V(e){",start);
-assert.ok(start>=0&&end>start,"Cannot extract live quiz scorer");
-const as=s=>String(s??"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/æ/g,"ae").replace(/œ/g,"oe").toLowerCase().replace(/[^a-z0-9 ]/g,"").replace(/\s+/g," ").trim();
-const js=s=>String(s??"").normalize("NFC").trim().replace(/\s+/g," ");
-const ms=s=>String(s??"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9 ']/g,"").replace(/\s+/g," ").trim();
-const {B,NX}=new Function("a","d","x",script.slice(start,end)+";return {B,NX};")(ms,as,js);
+for (const bundle of ["assets/quiz-session-rWAnuDVj.js", "assets/quiz-session-y8fix-20260920.js"]) {
+  const script=fs.readFileSync(bundle,"utf8");
+  const start=script.indexOf("function A(e){"),end=script.indexOf("function V(e){",start);
+  assert.ok(start>=0&&end>start,"Cannot extract live quiz scorer");
+  const as=s=>String(s??"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/æ/g,"ae").replace(/œ/g,"oe").toLowerCase().replace(/[^a-z0-9 ]/g,"").replace(/\s+/g," ").trim();
+  const js=s=>String(s??"").normalize("NFC").trim().replace(/\s+/g," ");
+  const ms=s=>String(s??"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/[^a-z0-9 ']/g,"").replace(/\s+/g," ").trim();
+  const {B,NX}=new Function("a","d","x",script.slice(start,end)+";return {B,NX};")(ms,as,js);
 
-const bmi=readJson("content/topics/bio-y8-energy-bmi.json").questions.find(q=>q.id==="bio-y8-app-bmi-60-150");
-const chem=readJson("content/topics/chem-y8-energy-changes.json").questions.find(q=>q.id==="chem-y8-energy-changes-profile-exo-apply");
-assert.ok(bmi&&chem,"Known science calculations missing");
-function check(q,input,ok,label){
-  const output=B(q,input,q.topicId?.startsWith("bio-")?"biology":"chemistry",{});
-  assert.equal(output.ok,ok,label+": "+JSON.stringify(output));
+  const bmi=readJson("content/topics/bio-y8-energy-bmi.json").questions.find(q=>q.id==="bio-y8-app-bmi-60-150");
+  const chem=readJson("content/topics/chem-y8-energy-changes.json").questions.find(q=>q.id==="chem-y8-energy-changes-profile-exo-apply");
+  assert.ok(bmi&&chem,"Known science calculations missing");
+  function check(q,input,ok,label){
+    const output=B(q,input,q.topicId?.startsWith("bio-")?"biology":"chemistry",{});
+    assert.equal(output.ok,ok,label+": "+JSON.stringify(output));
+  }
+  assert.equal(NX("60 / (1.50 x 1.50) = 26.7 kg/m2").value,26.7,"Must not take first working number");
+  check(bmi,"60 / (1.50 x 1.50) = 26.7 kg/m2",true,"Working and final BMI");
+  check(bmi,"60 / (1.50 x 1.50) = 26.7 kg/m²",true,"Unicode squared");
+  check(bmi,"26.7 kg/m^2",true,"Caret squared");
+  check(bmi,"26.7 kg m-2",true,"Negative exponent unit");
+  check(bmi,"60 / (1.50 x 1.50) = 26.0 kg/m²",false,"Incorrect final BMI");
+  check(bmi,"26.7 kg/m3",false,"Incorrect dimensions");
+  check(chem,"250 - 400 = -150 kJ exothermic",true,"Correct numeric and exothermic classification");
+  check(chem,"-150 kJ endothermic",false,"Wrong classification must not count correct");
+  check(chem,"-140 kJ exothermic",false,"Incorrect energy change");
+
+
+  const english={id:"english-emotion",format:"typed_equivalent",answer:{accepted:["jealousy"]}};
+  for (const [input, expected] of [["Jealousy.",true],["The answer is jealousy",true],["his jealousy and pride are obvious",false],["not jealousy",false]]) {
+    assert.equal(B(english,input,"english",{}).ok,expected,input);
+  }
+  const hooke=readJson("content/topics/phys-y9-p16.json").questions.find(q=>q.id.endsWith("340f4d536f-typed"));
+  assert.equal(B(hooke,"F = kx","physics",{}).ok,true);
+  assert.equal(B(hooke,"F = -ke","physics",{}).ok,false);
+  const density=readJson("content/topics/phys-y9-p2.json").questions.find(q=>q.id==="phys-y9-p2-app-density-calc");
+  assert.equal(B(density,"540/200 = 2.7 g/cm^3","physics",{}).ok,true);
+  assert.equal(B(density,"2700 kg/m³","physics",{}).ok,true);
+  assert.equal(B(density,"3 g/cm³","physics",{}).ok,false);
+  const equation=readJson("content/topics/chem-y9-c7.json").questions.find(q=>q.id==="chem-y9-c7-app-balance-magnesium");
+  assert.equal(B(equation,"O2 + 2Mg -> 2MgO","chemistry",{}).ok,true);
+  assert.equal(B(equation,"O2 + Mg -> MgO","chemistry",{}).ok,false);
+  assert.equal(B(equation,"O2 + 2mg -> 2MgO","chemistry",{}).ok,false);
 }
-assert.equal(NX("60 / (1.50 x 1.50) = 26.7 kg/m2").value,26.7,"Must not take first working number");
-check(bmi,"60 / (1.50 x 1.50) = 26.7 kg/m2",true,"Working and final BMI");
-check(bmi,"60 / (1.50 x 1.50) = 26.7 kg/m²",true,"Unicode squared");
-check(bmi,"26.7 kg/m^2",true,"Caret squared");
-check(bmi,"26.7 kg m-2",true,"Negative exponent unit");
-check(bmi,"60 / (1.50 x 1.50) = 26.0 kg/m²",false,"Incorrect final BMI");
-check(bmi,"26.7 kg/m3",false,"Incorrect dimensions");
-check(chem,"250 - 400 = -150 kJ exothermic",true,"Correct numeric and exothermic classification");
-check(chem,"-150 kJ endothermic",false,"Wrong classification must not count correct");
-check(chem,"-140 kJ exothermic",false,"Incorrect energy change");
-
-console.log("PASS: 64 food-test cases and feedback, 2 indices workings, 9 numeric/units/classification checks");
+console.log("PASS: food tests, indices and both practice scorers including scientific notation, units and bounded English marking.");

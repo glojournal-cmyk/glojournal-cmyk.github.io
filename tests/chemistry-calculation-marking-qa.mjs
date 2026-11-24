@@ -19,14 +19,18 @@ for(const file of files){
 const failures=[];
 for(const q of calcs){
  const a=q.answer, unit=a.units?.[0]||"", value=a.value;
- const canonical=unit?value+" "+unit:String(value);
+ const classify = /classif/i.test(q.prompt);
+ const classification = classify ? (value<0 ? " exothermic" : " endothermic") : "";
+ const canonical=(unit?value+" "+unit:String(value))+classification;
+ if(classify && B(q,value+" "+unit,"chemistry",{}).ok)
+   failures.push({type:"missing-classification-accepted",id:q.id});
  let r=B(q,canonical,"chemistry",{});
  if(!r.ok) failures.push({type:"canonical-rejected",file:q.__file,id:q.id,input:canonical,answer:a,result:r});
  if(unit){
-   const noUnit=B(q,String(value),"chemistry",{});
-   if(noUnit.ok) failures.push({type:"missing-unit-accepted",file:q.__file,id:q.id,input:String(value),units:a.units,result:noUnit});
+   const noUnit=B(q,String(value)+classification,"chemistry",{});
+   if(noUnit.ok!==Boolean(a.unitInPrompt)) failures.push({type:"unit-expectation-mismatch",file:q.__file,id:q.id,input:String(value),units:a.units,result:noUnit});
    for(const alias of a.units||[]){
-     const ar=B(q,value+" "+alias,"chemistry",{});
+     const ar=B(q,value+" "+alias+classification,"chemistry",{});
      if(!ar.ok) failures.push({type:"listed-unit-alias-rejected",file:q.__file,id:q.id,input:value+" "+alias,alias,answer:a,result:ar});
    }
  }
