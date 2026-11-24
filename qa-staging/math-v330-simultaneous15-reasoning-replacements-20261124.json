@@ -1,0 +1,844 @@
+{
+  "kind": "MATHS_V330_SIMULTANEOUS_15_REASONING_CANDIDATES_QA_ONLY",
+  "date": "2026-11-24",
+  "branch": "feature/daily-tasks-v3-20261122",
+  "pr": 306,
+  "sourceBankPath": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "priorV323Register": "qa-staging/math-v323-canonical200-all-topics-hold-dispositions-source-exact-20261124.json",
+  "priorV324Pack": "qa-staging/math-v324-four-source-linked-multiconstraint-reasoning-candidates-20261124.json",
+  "status": "STAGING_ONLY_NOT_APPROVED_NOT_IMPORTED",
+  "count": 15,
+  "optionsCount": 90,
+  "wrongOptionExplanationsCount": 75,
+  "academicApprovals": 0,
+  "dailyEligible": 0,
+  "masteryEligible": 0,
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-006",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-006-V330-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-006-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "linear-model-reverse-discount",
+      "stem": "A venue sells adult and child tickets at fixed positive prices. Two adult and three child tickets cost £39. A purchase of three adult and two child tickets receives a 20% discount on the entire purchase, reducing its price to £36. What is the undiscounted cost of four adult tickets and one child ticket, in pounds?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "45",
+          "errorPath": "Report the undiscounted second purchase."
+        },
+        {
+          "id": "B",
+          "latex": "51"
+        },
+        {
+          "id": "C",
+          "latex": "39",
+          "errorPath": "Report the first purchase."
+        },
+        {
+          "id": "D",
+          "latex": "40.8",
+          "errorPath": "Apply a 20% discount to the requested purchase even though it is undiscounted."
+        },
+        {
+          "id": "E",
+          "latex": "33",
+          "errorPath": "Use the discounted £36 as the second equation's full cost, yielding a=6 and c=9, so 4a+c=33."
+        },
+        {
+          "id": "F",
+          "latex": "5.4",
+          "errorPath": "Report the child ticket price rather than the requested total."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "51",
+      "workedSolutionSteps": [
+        "Undo the discount: three adult and two child tickets cost 36/0.8=45.",
+        "Let adult price a, child price c. Solve 2a+3c=39 and 3a+2c=45; subtraction gives a−c=6, hence c=5.4 and a=11.4.",
+        "The required cost is 4a+c=45.6+5.4=51."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Reverse percentage before modelling simultaneous equations.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-007",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-007-V330-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-007-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "linear-combination-direct-target",
+      "stem": "For real x and y, $7x+4y=31$ and $3x-2y=5$. Without needing to find x and y separately, find $17x+6y$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "67"
+        },
+        {
+          "id": "B",
+          "latex": "36",
+          "errorPath": "Add the two equations once, giving 10x+2y=36."
+        },
+        {
+          "id": "C",
+          "latex": "62",
+          "errorPath": "Double the first equation without using the second."
+        },
+        {
+          "id": "D",
+          "latex": "57",
+          "errorPath": "Double the first equation and subtract 5 rather than adding it."
+        },
+        {
+          "id": "E",
+          "latex": "93",
+          "errorPath": "Triple the first equation, ignoring the second equation."
+        },
+        {
+          "id": "F",
+          "latex": "5",
+          "errorPath": "Report only the second equation's right-hand side."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "67",
+      "workedSolutionSteps": [
+        "The requested expression is 2(7x+4y)+(3x−2y).",
+        "Use the two given values directly: 2×31+5.",
+        "Thus 17x+6y=67."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Recognising a useful linear combination rather than solving each unknown.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-008",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-008-V330-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-008-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "integer-mixture-cost-and-count",
+      "stem": "A club buys exactly 120 items, each either a notebook costing £2.40 or a folder costing £3.60. The total cost is £360. The club then exchanges 10 notebooks for 10 folders at the stated prices, paying the difference. What is the final ratio of notebooks to folders?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "1:1",
+          "errorPath": "Use the original ratio without carrying out the exchange."
+        },
+        {
+          "id": "B",
+          "latex": "7:5",
+          "errorPath": "Reverse the final ratio."
+        },
+        {
+          "id": "C",
+          "latex": "6:7",
+          "errorPath": "Increase the folder count by 10 but fail to decrease notebooks."
+        },
+        {
+          "id": "D",
+          "latex": "5:6",
+          "errorPath": "Decrease the notebook count by 10 but fail to increase folders."
+        },
+        {
+          "id": "E",
+          "latex": "2:3",
+          "errorPath": "Report the ratio of the item prices instead of their quantities."
+        },
+        {
+          "id": "F",
+          "latex": "5:7"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "5:7",
+      "workedSolutionSteps": [
+        "Let n and f be the original quantities. n+f=120 and 2.4n+3.6f=360.",
+        "Substitute n=120−f: 288+1.2f=360, so f=60 and n=60.",
+        "After exchanging ten, n=50 and f=70, giving 5:7."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Model quantities and cost, then change both variables.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-015",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-015-V330-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-015-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "parameter-coincident-versus-parallel",
+      "stem": "For real k, consider $2x+3y=8$ and $kx+6y=16$. Which statement is true?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\text{No solution when }k=4",
+          "errorPath": "Recognise proportional coefficients but fail to check the proportional constants."
+        },
+        {
+          "id": "B",
+          "latex": "\\text{Infinitely many solutions for every }k",
+          "errorPath": "Assume the repeated y ratio makes the lines identical regardless of k."
+        },
+        {
+          "id": "C",
+          "latex": "\\text{Exactly one solution when }k=4",
+          "errorPath": "Treat the system as having a nonzero determinant when the coefficients are proportional."
+        },
+        {
+          "id": "D",
+          "latex": "\\text{No solution for every }k\\ne4",
+          "errorPath": "Mistake nonparallel lines for inconsistent equations."
+        },
+        {
+          "id": "E",
+          "latex": "\\text{Infinitely many solutions only when }k=4"
+        },
+        {
+          "id": "F",
+          "latex": "\\text{Infinitely many solutions only when }k=2",
+          "errorPath": "Match x coefficients directly instead of comparing with the factor 2 in the y coefficients."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "\\text{Infinitely many solutions only when }k=4",
+      "workedSolutionSteps": [
+        "Twice the first equation gives 4x+6y=16.",
+        "Subtract this from the second equation: (k−4)x=0.",
+        "At k=4 the equations are identical and describe infinitely many points. Otherwise x=0 and y=8/3 form the unique solution."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Classify systems by equality of all coefficients and constants.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-016",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-016-V330-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-016-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "parameter-for-prescribed-solution-expression",
+      "stem": "The simultaneous equations $2x+y=9$ and $kx-y=3$ have a solution with $x-y=0$. Find k.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "-2",
+          "errorPath": "Lose the sign of k while collecting the second equation."
+        },
+        {
+          "id": "B",
+          "latex": "1",
+          "errorPath": "Use x=y but mistakenly assume k must equal 1 for equal variables."
+        },
+        {
+          "id": "C",
+          "latex": "4",
+          "errorPath": "Report the coefficient sum after adding the equations incorrectly."
+        },
+        {
+          "id": "D",
+          "latex": "2"
+        },
+        {
+          "id": "E",
+          "latex": "3",
+          "errorPath": "Report the common solution x=y=3 rather than k."
+        },
+        {
+          "id": "F",
+          "latex": "0",
+          "errorPath": "Equate kx−y to zero rather than to 3."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "2",
+      "workedSolutionSteps": [
+        "Since x−y=0, x=y. Substitute into the first equation to get 3x=9, so x=y=3.",
+        "The second equation becomes 3k−3=3.",
+        "Hence k=2; the equations are independent and the solution satisfies both."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Determine a parameter from an extra linear condition.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-017",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-017-V330-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-017-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "two-rate-production-model",
+      "stem": "Two machines work at fixed positive rates a and b, in items per hour. Machine A runs for 3 hours and B for 2 hours, producing 740 items altogether. On another day A runs for 2 hours and B for 5 hours, producing 970 items. How many items do they produce when both run for 4 hours?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "290",
+          "errorPath": "Report the combined hourly rate but omit the four-hour duration."
+        },
+        {
+          "id": "B",
+          "latex": "740",
+          "errorPath": "Report the first day's output."
+        },
+        {
+          "id": "C",
+          "latex": "1160"
+        },
+        {
+          "id": "D",
+          "latex": "970",
+          "errorPath": "Report the second day's output."
+        },
+        {
+          "id": "E",
+          "latex": "1480",
+          "errorPath": "Double the first day's total rather than using four hours of both machines."
+        },
+        {
+          "id": "F",
+          "latex": "1710",
+          "errorPath": "Add the two observed totals rather than forming the requested combination."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "1160",
+      "workedSolutionSteps": [
+        "Set up 3a+2b=740 and 2a+5b=970.",
+        "Eliminate a: 6a+4b=1480 and 6a+15b=2910. Subtract to get 11b=1430, so b=130 and a=160.",
+        "Four hours of both machines produces 4(160+130)=1160 items."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Model rates using distinct duration combinations.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-018",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-018-V330-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-018-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "mixture-concentration-total-mass",
+      "stem": "A technician mixes two solutions containing 8% and 20% salt by mass. The mixture has mass 750 g and is 16% salt by mass. How many grams of the 20% solution are used?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "250",
+          "errorPath": "Report the weaker solution's mass."
+        },
+        {
+          "id": "B",
+          "latex": "500"
+        },
+        {
+          "id": "C",
+          "latex": "120",
+          "errorPath": "Report the total mass of salt."
+        },
+        {
+          "id": "D",
+          "latex": "375",
+          "errorPath": "Assume equal masses of the two solutions."
+        },
+        {
+          "id": "E",
+          "latex": "600",
+          "errorPath": "Use 16/20 of the mixture mass, ignoring salt contributed by the weaker solution."
+        },
+        {
+          "id": "F",
+          "latex": "300",
+          "errorPath": "Use the 8 percentage point increase over 8% as a fraction of the full 20% concentration rather than the 12 point difference."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "500",
+      "workedSolutionSteps": [
+        "Let a and b be the masses of the 8% and 20% solutions. a+b=750 and 0.08a+0.20b=120.",
+        "Substitute a=750−b to get 60+0.12b=120.",
+        "Hence b=500 g, and a=250 g. The resulting salt mass is 20+100=120 g."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Total mass and weighted concentration equations.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-019",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-019-V330-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-019-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "simultaneous-integer-feasibility",
+      "stem": "A stall sells badges for £3 each and keyrings for £5 each. It reports selling exactly 31 items for £118 in total. Which statement correctly describes the report?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\text{Impossible with whole-number quantities}"
+        },
+        {
+          "id": "B",
+          "latex": "\\text{19 badges and 12 keyrings}",
+          "errorPath": "Round the algebraic keyring count down to 12; the total would be £117."
+        },
+        {
+          "id": "C",
+          "latex": "\\text{18 badges and 13 keyrings}",
+          "errorPath": "Round the keyring count up to 13; the total would be £119."
+        },
+        {
+          "id": "D",
+          "latex": "\\text{12 badges and 19 keyrings}",
+          "errorPath": "Reverse the roles of the two item quantities after rounding."
+        },
+        {
+          "id": "E",
+          "latex": "\\text{All 31 items are badges}",
+          "errorPath": "Use the item count alone; £93 is not the reported revenue."
+        },
+        {
+          "id": "F",
+          "latex": "\\text{All 31 items are keyrings}",
+          "errorPath": "Use the item count alone; £155 is not the reported revenue."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "\\text{Impossible with whole-number quantities}",
+      "workedSolutionSteps": [
+        "Let b,k be nonnegative integers. b+k=31 and 3b+5k=118.",
+        "Substitute b=31−k: 93+2k=118, so k=12.5 and b=18.5.",
+        "The unique real solution is not an integer pair. Therefore the stated report is impossible."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Distinguish a real algebraic solution from contextual integer feasibility.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-020",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-020-V330-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-020-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "linear-model-two-stage-price-change",
+      "stem": "Two pens and three notebooks cost £17; four pens and one notebook cost £19. Later the pen price rises by 25% and the notebook price falls by 20%. What is the new total price of three pens and two notebooks, in pounds?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "18",
+          "errorPath": "Report the original total 3×4+2×3."
+        },
+        {
+          "id": "B",
+          "latex": "21",
+          "errorPath": "Apply the pen increase but omit the notebook reduction."
+        },
+        {
+          "id": "C",
+          "latex": "16.8",
+          "errorPath": "Apply the notebook reduction but omit the pen increase."
+        },
+        {
+          "id": "D",
+          "latex": "22.5",
+          "errorPath": "Increase the entire original total by 25%."
+        },
+        {
+          "id": "E",
+          "latex": "14.4",
+          "errorPath": "Decrease the entire original total by 20%."
+        },
+        {
+          "id": "F",
+          "latex": "19.8"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "19.8",
+      "workedSolutionSteps": [
+        "Let p and n be original prices. 2p+3n=17 and 4p+n=19.",
+        "Solve n=19−4p, giving 2p+57−12p=17, so p=4 and n=3.",
+        "New prices are £5 and £2.40. Three pens and two notebooks cost £19.80."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Solve for base prices then apply different percentage changes.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-023",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-V330-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "linear-and-quadratic-constraint",
+      "stem": "Real x and y satisfy $x+y=7$ and $x^2+y^2=29$. Find the value of $xy$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "20",
+          "errorPath": "Use (x+y)^2−(x^2+y^2) but omit division by 2."
+        },
+        {
+          "id": "B",
+          "latex": "78",
+          "errorPath": "Add the two squared expressions rather than subtracting."
+        },
+        {
+          "id": "C",
+          "latex": "10"
+        },
+        {
+          "id": "D",
+          "latex": "49",
+          "errorPath": "Square x+y without subtracting the individual squares."
+        },
+        {
+          "id": "E",
+          "latex": "29",
+          "errorPath": "Report the sum of the squares instead of the product."
+        },
+        {
+          "id": "F",
+          "latex": "-10",
+          "errorPath": "Reverse the subtraction when applying the squared-sum identity."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "10",
+      "workedSolutionSteps": [
+        "Square x+y=7 to obtain x²+2xy+y²=49.",
+        "Subtract the given x²+y²=29 to get 2xy=20.",
+        "Thus xy=10; for example x=2,y=5 satisfies both equations."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Use a symmetric identity to eliminate unknowns without selecting an ordering.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-025",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-025-V330-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-025-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "three-observations-mass-with-tare",
+      "stem": "Two identical boxes contain a total of 5 identical metal parts and have a combined mass of 37 kg, including the boxes. Three such boxes contain a total of 4 parts and have a combined mass of 38 kg. How many kilograms does one empty box and one part weigh together?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "11"
+        },
+        {
+          "id": "B",
+          "latex": "6",
+          "errorPath": "Report the empty box mass alone."
+        },
+        {
+          "id": "C",
+          "latex": "5",
+          "errorPath": "Report the part mass alone."
+        },
+        {
+          "id": "D",
+          "latex": "75",
+          "errorPath": "Add the two observed masses."
+        },
+        {
+          "id": "E",
+          "latex": "15",
+          "errorPath": "Report the mass of three parts instead of one box plus one part."
+        },
+        {
+          "id": "F",
+          "latex": "7",
+          "errorPath": "Subtract one part from twice the empty-box mass."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "11",
+      "workedSolutionSteps": [
+        "Let b be empty-box mass and p be part mass. 2b+5p=37 and 3b+4p=38.",
+        "Multiply the first by 3 and second by 2: 6b+15p=111 and 6b+8p=76, so p=5 and b=6.",
+        "Thus b+p=11 kg."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Separate container tare and contents in two linear observations.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-037",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-037-V330-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-037-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "singular-system-constant-parameter-pair",
+      "stem": "For real k and c, consider $3x+2y=12$ and $(k+1)x+6y=c$. For which ordered pair (k,c) does the system have infinitely many solutions?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "(8,36)"
+        },
+        {
+          "id": "B",
+          "latex": "(8,12)",
+          "errorPath": "Make coefficients proportional but fail to multiply the right-hand side by 3."
+        },
+        {
+          "id": "C",
+          "latex": "(9,36)",
+          "errorPath": "Set k itself to 9, forgetting the +1 in the x coefficient."
+        },
+        {
+          "id": "D",
+          "latex": "(2,36)",
+          "errorPath": "Match x coefficients directly instead of applying the y-coefficient scale factor."
+        },
+        {
+          "id": "E",
+          "latex": "(8,4)",
+          "errorPath": "Divide the right-hand side by 3 instead of multiplying."
+        },
+        {
+          "id": "F",
+          "latex": "(2,12)",
+          "errorPath": "Copy the original x coefficient and constant without scaling."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "(8,36)",
+      "workedSolutionSteps": [
+        "The y coefficient has been multiplied by 3.",
+        "For identical lines, every term including the constant must be multiplied by 3. Hence k+1=9 and c=36.",
+        "Therefore k=8 and c=36. The equations are equivalent, giving infinitely many solutions."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Two-parameter consistency conditions.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-038",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-038-V330-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-038-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "parameter-solution-sign-interval",
+      "stem": "For real k≠1, the equations $x+y=6$ and $kx+y=10$ have a unique solution. For which real k are both x and y strictly positive?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "k>1",
+          "errorPath": "Require x>0 but fail to impose y>0."
+        },
+        {
+          "id": "B",
+          "latex": "k\\ge\\frac{5}{3}",
+          "errorPath": "Include the equality boundary where y=0."
+        },
+        {
+          "id": "C",
+          "latex": "1<k<\\frac{5}{3}",
+          "errorPath": "Reverse the inequality for y>0."
+        },
+        {
+          "id": "D",
+          "latex": "k<1",
+          "errorPath": "Choose the denominator sign that makes x negative."
+        },
+        {
+          "id": "E",
+          "latex": "k>\\frac{3}{2}",
+          "errorPath": "Miscalculate the upper limit x<6 when solving 4/(k−1)<6."
+        },
+        {
+          "id": "F",
+          "latex": "k>\\frac{5}{3}"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "k>\\frac{5}{3}",
+      "workedSolutionSteps": [
+        "Subtract the equations: (k−1)x=4, so x=4/(k−1).",
+        "Positivity of x requires k>1. Positivity of y=6−x requires x<6.",
+        "With k−1 positive, 4/(k−1)<6 implies k−1>2/3, so k>5/3. At the boundary y=0."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Parameterised solution and strict inequalities.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-039",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-039-V330-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-039-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "nonlinear-system-two-branches",
+      "stem": "Real x and y satisfy $y=x+2$ and $xy=15$. Find the sum of the x-coordinates of all real solutions.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2",
+          "errorPath": "Lose the negative sign in the sum of the quadratic roots."
+        },
+        {
+          "id": "B",
+          "latex": "15",
+          "errorPath": "Report the product magnitude rather than the sum."
+        },
+        {
+          "id": "C",
+          "latex": "-15",
+          "errorPath": "Report the signed product of the x-roots."
+        },
+        {
+          "id": "D",
+          "latex": "3",
+          "errorPath": "Keep only the positive solution."
+        },
+        {
+          "id": "E",
+          "latex": "-2"
+        },
+        {
+          "id": "F",
+          "latex": "-5",
+          "errorPath": "Keep only the negative solution."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "-2",
+      "workedSolutionSteps": [
+        "Substitute y=x+2 into xy=15 to obtain x²+2x−15=0.",
+        "Factor (x+5)(x−3)=0, so x=−5 or 3.",
+        "Both give corresponding y values satisfying both equations: −3 and 5. The sum is −2."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Linear and quadratic simultaneous equations, all solution branches.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-040",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-040-V330-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-040-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "two-equations-absolute-value-cases",
+      "stem": "Real x and y satisfy $x+y=8$ and $|x-y|=2$. Find the sum of the squares of the x-values of all distinct solutions.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "25",
+          "errorPath": "Use only the case x−y=2, where x=5."
+        },
+        {
+          "id": "B",
+          "latex": "9",
+          "errorPath": "Use only the case x−y=−2, where x=3."
+        },
+        {
+          "id": "C",
+          "latex": "8",
+          "errorPath": "Add the two x-values without squaring."
+        },
+        {
+          "id": "D",
+          "latex": "34"
+        },
+        {
+          "id": "E",
+          "latex": "64",
+          "errorPath": "Square the sum of the two x-values instead of adding their squares."
+        },
+        {
+          "id": "F",
+          "latex": "16",
+          "errorPath": "Use x=4 from assuming x=y and square it, ignoring the second equation."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "34",
+      "workedSolutionSteps": [
+        "The absolute-value equation gives x−y=2 or x−y=−2.",
+        "Combine each with x+y=8 to obtain (x,y)=(5,3) or (3,5).",
+        "The required sum is 5²+3²=34."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Absolute-value branch splitting and simultaneous equations.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    }
+  ]
+}
