@@ -116,3 +116,43 @@ for(const path of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-
   assert.equal(checked,16*24*4);
  });
 }
+
+const optionOverlay=read('qa/food-tests-48-option-order-overlay-20261124.json');
+test('48 replacement overlays retain all science content and reject the old fixed key sequence',()=>{
+ assert.equal(optionOverlay.approved,0);assert.equal(optionOverlay.release,'BLOCKED');assert.equal(optionOverlay.formalCreditEligible,false);
+ assert.equal(optionOverlay.items.length,48);const positions=[0,0,0,0],ids=new Set();
+ for(const row of optionOverlay.items){
+  assert.ok(!ids.has(row.sourceId));ids.add(row.sourceId);
+  const original=qs.find(q=>q.id===row.sourceId);assert.ok(original);
+  assert.equal(row.prompt,original.prompt);
+  assert.deepEqual(row.oldOptions,original.options);
+  assert.deepEqual([...row.options].sort(),[...original.options].sort());
+  assert.deepEqual(row.accepted,original.answer.accepted);
+  assert.equal(row.options[row.correctIndex],row.accepted[0]);
+  assert.equal(row.oldOptions[row.oldCorrectIndex],row.accepted[0]);
+  assert.equal(row.formalCreditEligible,false);assert.equal(row.academicApproved,false);
+  assert.equal(canEarnFormalCredit(original),false);positions[row.correctIndex]++;
+ }
+ assert.deepEqual(positions,[12,12,12,12]);
+ assert.ok(optionOverlay.items.some((q,i)=>i>=4&&q.correctIndex!==optionOverlay.items[i-4].correctIndex));
+});
+for(const path of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-rWAnuDVj.js']){
+ test(path+': all 48 held replacement questions and all option permutations preserve unique key and block credit',()=>{
+  const score=makeScore(path);let checked=0;
+  for(const row of optionOverlay.items){
+   const base=qs.find(q=>q.id===row.sourceId);
+   for(const options of permutations(row.options)){
+    const q={...base,options};
+    for(const a of options){
+     const expected=Number(a===row.accepted[0]),result=score(q,a,'biology',{});
+     assert.equal(result.score,expected,q.id+' '+a);
+     assert.equal(result.total,1);assert.equal(result.ok,expected===1);
+     assert.equal(canEarnFormalCredit(q),false);
+     assert.equal(foodTestsPupilVerdict(q).score,null);
+     checked++;
+    }
+   }
+  }
+  assert.equal(checked,48*24*4);
+ });
+}
