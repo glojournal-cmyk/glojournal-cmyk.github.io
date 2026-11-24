@@ -1,0 +1,954 @@
+{
+  "kind": "MATHS_V328_STANDARD_FORM_17_REASONING_CANDIDATES_QA_ONLY",
+  "date": "2026-11-24",
+  "branch": "feature/daily-tasks-v3-20261122",
+  "pr": 306,
+  "sourceBankPath": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "priorV323Register": "qa-staging/math-v323-canonical200-all-topics-hold-dispositions-source-exact-20261124.json",
+  "priorV324Pack": "qa-staging/math-v324-four-source-linked-multiconstraint-reasoning-candidates-20261124.json",
+  "status": "STAGING_ONLY_NOT_APPROVED_NOT_IMPORTED",
+  "count": 17,
+  "optionsCount": 102,
+  "wrongOptionExplanationsCount": 85,
+  "academicApprovals": 0,
+  "dailyEligible": 0,
+  "masteryEligible": 0,
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-002",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-002-V328-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-002-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "weighted-concentration-mixture-inverse",
+      "stem": "A tank contains $2\\times10^5$ mL of solution, with $3\\times10^{-4}$ g of dissolved salt per mL. Pure water is added until the concentration becomes $8\\times10^{-5}$ g/mL. Assume volumes are additive and no salt is lost. How many mL of water must be added? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "7.5\\times10^{5}",
+          "errorPath": "Report the final total volume rather than the added volume."
+        },
+        {
+          "id": "B",
+          "latex": "5.5\\times10^{5}"
+        },
+        {
+          "id": "C",
+          "latex": "6\\times10^{1}",
+          "errorPath": "Calculate the conserved salt mass in grams rather than a volume."
+        },
+        {
+          "id": "D",
+          "latex": "2\\times10^{5}",
+          "errorPath": "Report the original volume rather than the addition."
+        },
+        {
+          "id": "E",
+          "latex": "5.5\\times10^{6}",
+          "errorPath": "Shift the correct exponent up by one."
+        },
+        {
+          "id": "F",
+          "latex": "5.5\\times10^{4}",
+          "errorPath": "Shift the correct standard-form exponent down by one."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "5.5\\times10^{5}",
+      "workedSolutionSteps": [
+        "Salt mass is (2×10^5)(3×10^-4)=60 g.",
+        "Final volume = 60/(8×10^-5)=7.5×10^5 mL.",
+        "Subtract the initial volume: 7.5×10^5−2×10^5=5.5×10^5 mL."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Conserved solute mass, dilution and reverse division.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-003",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-003-V328-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-003-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "data-compression-overhead",
+      "stem": "An archive contains $4\\times10^6$ files, each initially $2.5\\times10^5$ bytes. Compression reduces each file's size by 72%, then an index of $3\\times10^9$ bytes is added to the archive. What is the final archive size in bytes? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2.83\\times10^{11}"
+        },
+        {
+          "id": "B",
+          "latex": "7.23\\times10^{11}",
+          "errorPath": "Keep 72% of the original size instead of 28%, then add the index."
+        },
+        {
+          "id": "C",
+          "latex": "2.8\\times10^{11}",
+          "errorPath": "Omit the index after compression."
+        },
+        {
+          "id": "D",
+          "latex": "2.77\\times10^{11}",
+          "errorPath": "Subtract the index rather than adding it."
+        },
+        {
+          "id": "E",
+          "latex": "1.003\\times10^{12}",
+          "errorPath": "Ignore compression, then add the index."
+        },
+        {
+          "id": "F",
+          "latex": "2.83\\times10^{12}",
+          "errorPath": "Shift the correct standard-form exponent up by one."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "2.83\\times10^{11}",
+      "workedSolutionSteps": [
+        "Initial size is (4×10^6)(2.5×10^5)=10^12 bytes.",
+        "Compression leaves 28%, which is 2.8×10^11 bytes.",
+        "Add 3×10^9=0.03×10^11 bytes, yielding 2.83×10^11 bytes."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Percentage change followed by addition across different powers of ten.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-004",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-004-V328-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-004-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "reverse-sampling-count",
+      "stem": "A laboratory counts $3.6\\times10^5$ cells in a sample that represents exactly 0.024% of a culture. A treatment subsequently removes 35% of all cells. How many cells remain in the culture? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "1.5\\times10^{9}",
+          "errorPath": "Find the total culture size before treatment and stop."
+        },
+        {
+          "id": "B",
+          "latex": "5.25\\times10^{8}",
+          "errorPath": "Report the 35% removed instead of the 65% remaining."
+        },
+        {
+          "id": "C",
+          "latex": "9.75\\times10^{6}",
+          "errorPath": "Use 0.024 as the sampling fraction instead of 0.00024."
+        },
+        {
+          "id": "D",
+          "latex": "2.34\\times10^{5}",
+          "errorPath": "Apply the treatment to the sample count without scaling to the whole culture."
+        },
+        {
+          "id": "E",
+          "latex": "2.34\\times10^{9}",
+          "errorPath": "Treat 0.024% as 0.01% when reversing the sample calculation, then keep 65%."
+        },
+        {
+          "id": "F",
+          "latex": "9.75\\times10^{8}"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "9.75\\times10^{8}",
+      "workedSolutionSteps": [
+        "The sampling fraction is 0.024/100=2.4×10^-4.",
+        "Total before treatment is (3.6×10^5)/(2.4×10^-4)=1.5×10^9.",
+        "Remaining cells = 0.65(1.5×10^9)=9.75×10^8."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Small percentage as a fraction, reverse percentage and subsequent retention.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-005",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-005-V328-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-005-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "average-speed-stationary-time",
+      "stem": "A probe travels $1.8\\times10^6$ km at $6\\times10^3$ km/h, stops for $2\\times10^2$ hours, and then travels $1.2\\times10^6$ km at $4\\times10^3$ km/h. Find its average speed over the entire journey, including the stop, in km/h. Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "5\\times10^{3}",
+          "errorPath": "Ignore the stop: divide 3×10^6 by 600 hours."
+        },
+        {
+          "id": "B",
+          "latex": "2.25\\times10^{3}",
+          "errorPath": "Divide only the first leg distance by the entire elapsed time: 1.8×10^6/800."
+        },
+        {
+          "id": "C",
+          "latex": "6\\times10^{3}",
+          "errorPath": "Report the first leg speed."
+        },
+        {
+          "id": "D",
+          "latex": "4\\times10^{3}",
+          "errorPath": "Report the second leg speed."
+        },
+        {
+          "id": "E",
+          "latex": "3.75\\times10^{3}"
+        },
+        {
+          "id": "F",
+          "latex": "1.5\\times10^{4}",
+          "errorPath": "Divide the total distance by the stop duration alone."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "3.75\\times10^{3}",
+      "workedSolutionSteps": [
+        "The two travel times are 1.8×10^6/(6×10^3)=300 h and 1.2×10^6/(4×10^3)=300 h.",
+        "Total time is 300+200+300=800 h, and total distance is 3×10^6 km.",
+        "Average speed is 3×10^6/800=3.75×10^3 km/h."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Reconstruct total elapsed time and compute average rate.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-008",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-008-V328-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-008-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "time-budget-minimum-speed",
+      "stem": "A signal-processing system must process $9\\times10^{12}$ records in at most $1.5\\times10^4$ seconds. The first $3\\times10^{12}$ records are processed at $5\\times10^8$ records/s. A mandatory pause lasts $3\\times10^3$ seconds. What minimum constant rate in records/s is required for the remaining records? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "6\\times10^{8}",
+          "errorPath": "Divide the full record count by the full time budget."
+        },
+        {
+          "id": "B",
+          "latex": "1\\times10^{9}"
+        },
+        {
+          "id": "C",
+          "latex": "4\\times10^{8}",
+          "errorPath": "Divide the remaining records by the full time budget."
+        },
+        {
+          "id": "D",
+          "latex": "5\\times10^{8}",
+          "errorPath": "Use the original processing rate for the second stage."
+        },
+        {
+          "id": "E",
+          "latex": "2\\times10^{9}",
+          "errorPath": "Divide the remaining records by the pause duration instead of the remaining time."
+        },
+        {
+          "id": "F",
+          "latex": "4\\times10^{9}",
+          "errorPath": "Use the remaining record count but divide by 1500 seconds, shifting the full time budget exponent down by one and omitting elapsed time."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "1\\times10^{9}",
+      "workedSolutionSteps": [
+        "First stage takes 3×10^12/(5×10^8)=6×10^3 seconds.",
+        "After the pause the available time is 1.5×10^4−6×10^3−3×10^3=6×10^3 seconds.",
+        "The remaining 6×10^12 records require at least 6×10^12/(6×10^3)=10^9 records/s."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Time budget and minimum rate under sequential constraints.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-010",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-010-V328-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-010-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "capacity-ceiling-with-reserve",
+      "stem": "A machine produces $2.5301\\times10^8$ usable components. Each shipping crate may contain at most $4\\times10^4$ components. In addition to the minimum number of crates needed for shipping, the company must purchase spare empty crates equal to 8% of that minimum, rounded up to a whole crate. How many crates must be purchased in total? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "6.831\\times10^{3}",
+          "errorPath": "Round both shipping and spare requirements down: 6325+506."
+        },
+        {
+          "id": "B",
+          "latex": "6.326\\times10^{3}",
+          "errorPath": "Round the shipping requirement up correctly but omit the spare crates."
+        },
+        {
+          "id": "C",
+          "latex": "5.07\\times10^{2}",
+          "errorPath": "Report only the correctly rounded spare requirement."
+        },
+        {
+          "id": "D",
+          "latex": "6.832\\times10^{3}",
+          "errorPath": "Round shipping up, but round the 506.08 spare crates down to 506."
+        },
+        {
+          "id": "E",
+          "latex": "5.82\\times10^{3}",
+          "errorPath": "Subtract 506 from the shipping requirement 6326 instead of adding spares."
+        },
+        {
+          "id": "F",
+          "latex": "6.833\\times10^{3}"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "6.833\\times10^{3}",
+      "workedSolutionSteps": [
+        "Shipping requires ceil(2.5301×10^8/(4×10^4))=ceil(6325.25)=6326 crates.",
+        "Spare requirement = ceil(0.08×6326)=ceil(506.08)=507 crates.",
+        "Total is 6326+507=6833=6.833×10^3 crates."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Discrete capacity and reserve percentage.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-017",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-017-V328-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-017-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "rate-per-area-cancellation",
+      "stem": "A rectangular solar panel array measures $3\\times10^2$ m by $8\\times10^1$ m. Only 75% of its area is active. In one day the active area produces $5.4\\times10^7$ Wh. What is the mean energy produced per active square centimetre, in Wh/cm²? Use $1$ m²=$10^4$ cm². Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2.25\\times10^{-1}",
+          "errorPath": "Divide by the entire area, not the active area."
+        },
+        {
+          "id": "B",
+          "latex": "3\\times10^{3}",
+          "errorPath": "Calculate energy per active square metre instead."
+        },
+        {
+          "id": "C",
+          "latex": "3\\times10^{1}",
+          "errorPath": "Use 100 rather than 10^4 square centimetres per square metre."
+        },
+        {
+          "id": "D",
+          "latex": "4\\times10^{-1}",
+          "errorPath": "Apply the 75% active-area factor twice."
+        },
+        {
+          "id": "E",
+          "latex": "3\\times10^{-1}"
+        },
+        {
+          "id": "F",
+          "latex": "3\\times10^{-2}",
+          "errorPath": "Shift the correct exponent down by one."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "3\\times10^{-1}",
+      "workedSolutionSteps": [
+        "Total area is (3×10^2)(8×10^1)=2.4×10^4 m²; active area is 1.8×10^4 m².",
+        "Convert active area to 1.8×10^8 cm².",
+        "Energy per active cm² is 5.4×10^7/(1.8×10^8)=3×10^-1 Wh/cm²."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Area conversion and correct denominator.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-018",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-018-V328-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-018-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "proportional-weighted-mixture-target",
+      "stem": "Two solutions contain dissolved salt at concentrations $2\\times10^{-4}$ and $8\\times10^{-4}$ g/mL. Exactly $3\\times10^5$ mL of mixture is needed at concentration $6\\times10^{-4}$ g/mL. Assuming additive volumes, how many mL of the more concentrated solution are needed? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "1\\times10^{5}",
+          "errorPath": "Report the volume of the less concentrated solution."
+        },
+        {
+          "id": "B",
+          "latex": "1.5\\times10^{5}",
+          "errorPath": "Assume equal quantities of both solutions."
+        },
+        {
+          "id": "C",
+          "latex": "2.25\\times10^{5}",
+          "errorPath": "Use the target-to-high concentration ratio 6/8 without accounting for the low concentration."
+        },
+        {
+          "id": "D",
+          "latex": "2\\times10^{5}"
+        },
+        {
+          "id": "E",
+          "latex": "3\\times10^{5}",
+          "errorPath": "Use the whole required mixture volume as the high-concentration volume."
+        },
+        {
+          "id": "F",
+          "latex": "2\\times10^{4}",
+          "errorPath": "Shift the correct exponent down by one."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "2\\times10^{5}",
+      "workedSolutionSteps": [
+        "Let H be the volume of the stronger solution; the weaker volume is 3×10^5−H.",
+        "Total salt mass is (8×10^-4)H+(2×10^-4)(3×10^5−H), equal to (6×10^-4)(3×10^5)=180 g.",
+        "Thus (6×10^-4)H=120 g, giving H=2×10^5 mL."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Weighted concentrations and linear equation.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-019",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-019-V328-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-019-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "scale-model-volume-factor",
+      "stem": "A cubic model has volume $6.4\\times10^{-5}$ m³. A geometrically similar full-size object has every linear dimension 50 times that of the model. A hollow cavity occupies 12.5% of the full-size object's outer volume. Find the volume of solid material in m³. Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "8\\times10^{0}",
+          "errorPath": "Find the full-size outer volume but omit the cavity."
+        },
+        {
+          "id": "B",
+          "latex": "1\\times10^{0}",
+          "errorPath": "Report only the cavity volume."
+        },
+        {
+          "id": "C",
+          "latex": "7\\times10^{0}"
+        },
+        {
+          "id": "D",
+          "latex": "1.4\\times10^{-1}",
+          "errorPath": "Use an area scale factor 50² instead of volume scale 50³."
+        },
+        {
+          "id": "E",
+          "latex": "2.8\\times10^{-3}",
+          "errorPath": "Use a linear scale factor of 50 instead of 50³."
+        },
+        {
+          "id": "F",
+          "latex": "9\\times10^{0}",
+          "errorPath": "Add the cavity volume instead of subtracting it."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "7\\times10^{0}",
+      "workedSolutionSteps": [
+        "Volume scale factor is 50³=125000=1.25×10^5.",
+        "Outer volume is (6.4×10^-5)(1.25×10^5)=8 m³.",
+        "Solid fraction is 87.5%, so volume is 0.875×8=7 m³."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Geometric similarity in three dimensions and volume fraction.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-020",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-020-V328-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-020-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "repeated-loss-recovery",
+      "stem": "A reservoir initially contains $8\\times10^7$ litres. It loses 25% of its water on the first day and 20% of the remaining water on the second day. How many litres must be added to bring it back to 90% of its initial volume? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3.2\\times10^{7}",
+          "errorPath": "Restore to 100% rather than 90% of the initial volume."
+        },
+        {
+          "id": "B",
+          "latex": "2.4\\times10^{7}"
+        },
+        {
+          "id": "C",
+          "latex": "2.8\\times10^{7}",
+          "errorPath": "Add the two loss percentages as 45%, leaving 55% rather than 60%."
+        },
+        {
+          "id": "D",
+          "latex": "4.8\\times10^{7}",
+          "errorPath": "Report the retained volume instead of the required addition."
+        },
+        {
+          "id": "E",
+          "latex": "7.2\\times10^{7}",
+          "errorPath": "Report the target volume without subtracting the retained water."
+        },
+        {
+          "id": "F",
+          "latex": "8\\times10^{6}",
+          "errorPath": "Use only the 10% gap from the target to the original volume."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "2.4\\times10^{7}",
+      "workedSolutionSteps": [
+        "After both losses, volume is (8×10^7)(0.75)(0.8)=4.8×10^7 L.",
+        "Target volume is 0.9(8×10^7)=7.2×10^7 L.",
+        "Required addition is 7.2×10^7−4.8×10^7=2.4×10^7 L."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Sequential percentage change and target recovery.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-026-V328-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-026-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "cubic-unit-reverse-capacity",
+      "stem": "A container is a cube with internal side length $4\\times10^{-2}$ m. A coating inside the container occupies exactly 25% of its internal volume. The remaining space is filled with liquid. Find the liquid volume in mm³. Use $1$ m³=$10^9$ mm³. Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "6.4\\times10^{4}",
+          "errorPath": "Ignore the coating."
+        },
+        {
+          "id": "B",
+          "latex": "4.8\\times10^{4}"
+        },
+        {
+          "id": "C",
+          "latex": "1.6\\times10^{4}",
+          "errorPath": "Find the coating volume rather than the remaining liquid."
+        },
+        {
+          "id": "D",
+          "latex": "4.8\\times10^{1}",
+          "errorPath": "Use 10^6 rather than 10^9 to convert cubic metres to cubic millimetres."
+        },
+        {
+          "id": "E",
+          "latex": "4.8\\times10^{3}",
+          "errorPath": "Use 10^8 instead of 10^9 as the cubic-unit conversion."
+        },
+        {
+          "id": "F",
+          "latex": "4.8\\times10^{5}",
+          "errorPath": "Shift the correct exponent up one place."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "4.8\\times10^{4}",
+      "workedSolutionSteps": [
+        "Internal volume is (4×10^-2)^3=6.4×10^-5 m³.",
+        "The liquid occupies 0.75×6.4×10^-5=4.8×10^-5 m³.",
+        "Convert by multiplying by 10^9, giving 4.8×10^4 mm³."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Cube a length, apply volume proportion and convert cubic units.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-027",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-027-V328-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-027-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "concentration-unit-reverse-volume",
+      "stem": "A liquid contains $2.4\\times10^8$ particles per mL. A sample must contain at least $7.2\\times10^{10}$ particles after a process removes exactly 40% of the particles. What minimum initial volume in litres is needed? Use $1$ L=$10^3$ mL. Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "5\\times10^{-1}"
+        },
+        {
+          "id": "B",
+          "latex": "3\\times10^{-1}",
+          "errorPath": "Ignore the 40% loss."
+        },
+        {
+          "id": "C",
+          "latex": "7.5\\times10^{-1}",
+          "errorPath": "Use the 40% removed as the retained fraction."
+        },
+        {
+          "id": "D",
+          "latex": "5\\times10^{2}",
+          "errorPath": "Find the correct initial volume in mL but fail to convert it to litres."
+        },
+        {
+          "id": "E",
+          "latex": "1.8\\times10^{-1}",
+          "errorPath": "Multiply by 60% instead of dividing by 60% after finding 300 mL."
+        },
+        {
+          "id": "F",
+          "latex": "5\\times10^{-2}",
+          "errorPath": "Shift the correct exponent down one place."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "5\\times10^{-1}",
+      "workedSolutionSteps": [
+        "Each original mL contributes 0.6(2.4×10^8)=1.44×10^8 retained particles.",
+        "Required original volume is 7.2×10^10/(1.44×10^8)=500 mL.",
+        "Convert to litres: 500/10^3=5×10^-1 L."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Reverse retention and conversion from millilitres to litres.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-028",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-028-V328-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-028-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "area-thickness-mass-unit-chain",
+      "stem": "A thin rectangular metal sheet has area $2.4\\times10^3$ cm² and uniform thickness $5\\times10^{-2}$ mm. Its material density is $8\\times10^3$ kg/m³. Find the sheet's mass in kg. Use $1$ cm²=$10^{-4}$ m² and $1$ mm=$10^{-3}$ m. Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "9.6\\times10^{-1}",
+          "errorPath": "Convert thickness using 10^-2 m/mm instead of 10^-3."
+        },
+        {
+          "id": "B",
+          "latex": "9.6\\times10^{1}",
+          "errorPath": "Use thickness in mm as though it were in metres."
+        },
+        {
+          "id": "C",
+          "latex": "9.6\\times10^{2}",
+          "errorPath": "Use area in cm² as though it were in m²."
+        },
+        {
+          "id": "D",
+          "latex": "9.6\\times10^{-3}",
+          "errorPath": "Shift the correct exponent down one place."
+        },
+        {
+          "id": "E",
+          "latex": "9.6\\times10^{-5}",
+          "errorPath": "Divide the final mass by another 1000 despite already working in kg."
+        },
+        {
+          "id": "F",
+          "latex": "9.6\\times10^{-2}"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "9.6\\times10^{-2}",
+      "workedSolutionSteps": [
+        "Area is 2.4×10^3×10^-4=0.24 m²; thickness is 5×10^-2×10^-3=5×10^-5 m.",
+        "Volume is 0.24×5×10^-5=1.2×10^-5 m³.",
+        "Mass = (1.2×10^-5)(8×10^3)=9.6×10^-2 kg."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Independent area and length conversions in volume and mass.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-033",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-033-V328-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-033-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "rounded-input-upper-bound",
+      "stem": "A rectangle's length is recorded as $3.2\\times10^4$ m, correct to 2 significant figures. Its width is recorded as $1.5\\times10^3$ m, correct to 2 significant figures. Find the upper bound for its area in m². Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "5.0375\\times10^{7}"
+        },
+        {
+          "id": "B",
+          "latex": "4.8\\times10^{7}",
+          "errorPath": "Multiply the recorded values without considering rounding bounds."
+        },
+        {
+          "id": "C",
+          "latex": "4.5675\\times10^{7}",
+          "errorPath": "Multiply the lower bounds instead."
+        },
+        {
+          "id": "D",
+          "latex": "4.875\\times10^{7}",
+          "errorPath": "Use the upper length bound but the recorded width."
+        },
+        {
+          "id": "E",
+          "latex": "4.96\\times10^{7}",
+          "errorPath": "Use the recorded length but the upper width bound."
+        },
+        {
+          "id": "F",
+          "latex": "5.2\\times10^{7}",
+          "errorPath": "Round the upper length to 3.25×10^4 and the upper width up to 1.6×10^3, overshooting the actual bound."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "5.0375\\times10^{7}",
+      "workedSolutionSteps": [
+        "Length was rounded to nearest 1000 m, so its upper bound is 32500 m.",
+        "Width was rounded to nearest 100 m, so its upper bound is 1550 m.",
+        "Area upper bound is 32500×1550=50375000 m² (a limiting value, not necessarily attained)."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Significant-figure error intervals and product upper bound.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-034",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-034-V328-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-034-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "ratio-allocation-after-transfer",
+      "stem": "Two storage units A and B hold a combined $9\\times10^8$ bytes of data, initially in the ratio 7:2. An amount of data is transferred from A to B so their final ratio is 4:5. How many bytes are transferred? Assume none is lost. Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "4\\times10^{8}",
+          "errorPath": "Report A's final storage rather than the transferred amount."
+        },
+        {
+          "id": "B",
+          "latex": "5\\times10^{8}",
+          "errorPath": "Report B's final storage rather than the amount transferred."
+        },
+        {
+          "id": "C",
+          "latex": "7\\times10^{8}",
+          "errorPath": "Report A's initial storage."
+        },
+        {
+          "id": "D",
+          "latex": "6\\times10^{8}",
+          "errorPath": "Find the change in the signed difference between A and B, which is twice the amount transferred."
+        },
+        {
+          "id": "E",
+          "latex": "1\\times10^{8}",
+          "errorPath": "Report the final difference between the two stores."
+        },
+        {
+          "id": "F",
+          "latex": "3\\times10^{8}"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "3\\times10^{8}",
+      "workedSolutionSteps": [
+        "Initial A is (7/9)(9×10^8)=7×10^8 bytes.",
+        "Final A is (4/9)(9×10^8)=4×10^8 bytes.",
+        "Transferred amount is 7×10^8−4×10^8=3×10^8 bytes."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Ratio allocation, conservation and transfer.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-035",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-035-V328-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-035-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "reverse-compound-growth-and-fixed-addition",
+      "stem": "A data store grows by 20% in each of two successive months. At the end of the second month a fixed $4\\times10^7$ bytes is added. The resulting total is $6.16\\times10^8$ bytes. Find the original amount in bytes. Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3.6864\\times10^{8}",
+          "errorPath": "Multiply the post-addition-corrected 5.76×10^8 by 0.8 twice rather than dividing by 1.2 twice."
+        },
+        {
+          "id": "B",
+          "latex": "4.8\\times10^{8}",
+          "errorPath": "Undo only one 20% increase after removing the fixed addition."
+        },
+        {
+          "id": "C",
+          "latex": "5.76\\times10^{8}",
+          "errorPath": "Remove the fixed addition but do not undo growth."
+        },
+        {
+          "id": "D",
+          "latex": "3.84\\times10^{8}",
+          "errorPath": "Subtract 20% once from 4.8×10^8 after undoing the first growth, rather than dividing by 1.2 again."
+        },
+        {
+          "id": "E",
+          "latex": "4\\times10^{8}"
+        },
+        {
+          "id": "F",
+          "latex": "4.16\\times10^{8}",
+          "errorPath": "Subtract the fixed 4×10^7 from the total and then subtract a fixed 8×10^7 twice, instead of undoing compound growth."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "4\\times10^{8}",
+      "workedSolutionSteps": [
+        "Remove the final addition: 6.16×10^8−4×10^7=5.76×10^8.",
+        "Two 20% increases multiply the original by 1.2²=1.44.",
+        "Original = 5.76×10^8/1.44=4×10^8 bytes."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Reverse compound percentage and sequence of operations.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-036",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-036-V328-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-036-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "resource-two-constraints-maximum",
+      "stem": "A laboratory has $7.2\\times10^8$ units of material A and $4.5\\times10^8$ units of material B. It must reserve $1.2\\times10^8$ of A and 20% of B. Each complete test uses $2.5\\times10^4$ units of A and $1.8\\times10^4$ units of B. What is the maximum number of complete tests possible? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2.4\\times10^{4}",
+          "errorPath": "Consider only A's capacity and ignore B's tighter constraint."
+        },
+        {
+          "id": "B",
+          "latex": "2.5\\times10^{4}",
+          "errorPath": "Ignore B's reserve and use its initial capacity; also overlook A's 24000 limit."
+        },
+        {
+          "id": "C",
+          "latex": "4.4\\times10^{4}",
+          "errorPath": "Add the two available capacities rather than requiring both materials for each test."
+        },
+        {
+          "id": "D",
+          "latex": "2\\times10^{4}"
+        },
+        {
+          "id": "E",
+          "latex": "5\\times10^{3}",
+          "errorPath": "Use only the 20% reserved B rather than the 80% available."
+        },
+        {
+          "id": "F",
+          "latex": "3.6\\times10^{4}",
+          "errorPath": "Use 10^4 instead of 1.8×10^4 as B's consumption, and ignore A's limit."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "2\\times10^{4}",
+      "workedSolutionSteps": [
+        "Available A is 6×10^8, giving 6×10^8/(2.5×10^4)=24000 tests.",
+        "Available B is 0.8(4.5×10^8)=3.6×10^8, giving 3.6×10^8/(1.8×10^4)=20000 tests.",
+        "Both materials are required, so the maximum is min(24000,20000)=20000 complete tests."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Two simultaneous resource constraints and maximum feasible count.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    }
+  ]
+}
