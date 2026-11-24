@@ -1,0 +1,819 @@
+{
+  "kind": "PRIORITY42_DISTRACTOR_REPAIR_STANDARD_FORM8_NO_RELEASE",
+  "date": "2026-11-24",
+  "sourceRegister": "qa-staging/math-priority116-content-acceptance-consolidated-20261124.json",
+  "sourceRegisterBlobSha": "def5e88577208f21443e777ad7e28dc6772c63df",
+  "counts": {
+    "revised": 8,
+    "wrongOptionsDerived": 40,
+    "unchangedKeys": 8,
+    "formalApprovals": 0
+  },
+  "limitations": "Arithmetic paths checked, all options in normalized standard form. Some wrong choices diagnose target selection or compound errors. Not empirically validated misconceptions. Independent grade and curriculum approval pending; no import or credit.",
+  "rows": [
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-003",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-003-DEMAND-UPGRADE-20261124",
+      "sourceRecordPath": "qa-staging/math-demand-upgrade-standard-form16-20261124.json",
+      "sourceRecordBlobSha": "2864adb12ed72cc45bf6a2decb4e5c1b2b764504",
+      "proposedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-003-DISTRACTOR-REPAIR-20261124",
+      "unchangedCorrectKey": "2\\times10^{6}",
+      "disposition": "REVISED_TRACEABLE_ERROR_PATHS_PENDING_INDEPENDENT_REVIEW",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-011",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-011-PRIORITY-CONTENT-REVIEW-20261124",
+      "sourceRecordPath": "qa-staging/math-priority116-content-acceptance-standard-form18-20261124.json",
+      "sourceRecordBlobSha": "87a55441e7484611550734260dea9cda096b3808",
+      "proposedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-011-DISTRACTOR-REPAIR-20261124",
+      "unchangedCorrectKey": "1.1\\times10^{1}",
+      "disposition": "REVISED_TRACEABLE_ERROR_PATHS_PENDING_INDEPENDENT_REVIEW",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-019",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-019-DEMAND-UPGRADE-20261124",
+      "sourceRecordPath": "qa-staging/math-demand-upgrade-standard-form16-20261124.json",
+      "sourceRecordBlobSha": "2864adb12ed72cc45bf6a2decb4e5c1b2b764504",
+      "proposedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-019-DISTRACTOR-REPAIR-20261124",
+      "unchangedCorrectKey": "5\\times10^{1}",
+      "disposition": "REVISED_TRACEABLE_ERROR_PATHS_PENDING_INDEPENDENT_REVIEW",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-022",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-022-DEMAND-UPGRADE-20261124",
+      "sourceRecordPath": "qa-staging/math-demand-upgrade-standard-form16-20261124.json",
+      "sourceRecordBlobSha": "2864adb12ed72cc45bf6a2decb4e5c1b2b764504",
+      "proposedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-022-DISTRACTOR-REPAIR-20261124",
+      "unchangedCorrectKey": "1.2\\times10^{7}",
+      "disposition": "REVISED_TRACEABLE_ERROR_PATHS_PENDING_INDEPENDENT_REVIEW",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-031",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-031-DEMAND-UPGRADE-20261124",
+      "sourceRecordPath": "qa-staging/math-demand-upgrade-standard-form16-20261124.json",
+      "sourceRecordBlobSha": "2864adb12ed72cc45bf6a2decb4e5c1b2b764504",
+      "proposedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-031-DISTRACTOR-REPAIR-20261124",
+      "unchangedCorrectKey": "2\\times10^{3}",
+      "disposition": "REVISED_TRACEABLE_ERROR_PATHS_PENDING_INDEPENDENT_REVIEW",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-032",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-032-DEMAND-UPGRADE-20261124",
+      "sourceRecordPath": "qa-staging/math-demand-upgrade-standard-form16-20261124.json",
+      "sourceRecordBlobSha": "2864adb12ed72cc45bf6a2decb4e5c1b2b764504",
+      "proposedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-032-DISTRACTOR-REPAIR-20261124",
+      "unchangedCorrectKey": "3.6\\times10^{6}",
+      "disposition": "REVISED_TRACEABLE_ERROR_PATHS_PENDING_INDEPENDENT_REVIEW",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-034",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-034-DEMAND-UPGRADE-20261124",
+      "sourceRecordPath": "qa-staging/math-demand-upgrade-standard-form16-20261124.json",
+      "sourceRecordBlobSha": "2864adb12ed72cc45bf6a2decb4e5c1b2b764504",
+      "proposedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-034-DISTRACTOR-REPAIR-20261124",
+      "unchangedCorrectKey": "3.14\\times10^{8}",
+      "disposition": "REVISED_TRACEABLE_ERROR_PATHS_PENDING_INDEPENDENT_REVIEW",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-040",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-040-DEMAND-UPGRADE-20261124",
+      "sourceRecordPath": "qa-staging/math-demand-upgrade-standard-form16-20261124.json",
+      "sourceRecordBlobSha": "2864adb12ed72cc45bf6a2decb4e5c1b2b764504",
+      "proposedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-040-DISTRACTOR-REPAIR-20261124",
+      "unchangedCorrectKey": "3\\times10^{4}",
+      "disposition": "REVISED_TRACEABLE_ERROR_PATHS_PENDING_INDEPENDENT_REVIEW",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ],
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-003",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-003",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-003-DISTRACTOR-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-003-REVIEW-2",
+        "topicId": "math-y9-standard-form",
+        "provisionalConceptFamily": "percentage-change-with-offset",
+        "stem": "An archive originally contains $4\\times10^6$ files, each of size $2.5\\times10^5$ bytes. All files are compressed. There are two methods: A retains 20% of a file's original size and B retains 35%. Method B must be used for at least one quarter of the files. A fixed index adds $3\\times10^9$ bytes. Storage capacity is $2.78\\times10^{11}$ bytes. What is the greatest possible number of files compressed using B? Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "2\\times10^{6}"
+          },
+          {
+            "id": "B",
+            "latex": "2.08\\times10^{6}",
+            "errorPath": "Omit the fixed index: (278000000000−200000000000)/37500."
+          },
+          {
+            "id": "C",
+            "latex": "8.57142\\times10^{5}",
+            "errorPath": "Divide the headroom after the all-A baseline by the full B size rather than the additional size: floor(75×10^9/87500)."
+          },
+          {
+            "id": "D",
+            "latex": "3.142857\\times10^{6}",
+            "errorPath": "Allocate the entire capacity after the index to B files, failing to reserve space for the remaining A files: floor(275×10^9/87500)."
+          },
+          {
+            "id": "E",
+            "latex": "1.5\\times10^{6}",
+            "errorPath": "Use the A compressed size 50000 as the marginal extra per B file: 75×10^9/50000."
+          },
+          {
+            "id": "F",
+            "latex": "1\\times10^{6}",
+            "errorPath": "Use the minimum required number instead of optimising the storage constraint: 4000000/4."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "2\\times10^{6}",
+        "workedSolutionSteps": [
+          "If all use A, compressed size is 2×10^11 bytes; including index gives 2.03×10^11 bytes.",
+          "Each B file adds (0.35−0.20)(2.5×10^5)=37500 bytes. Capacity permits at most (2.78×10^11−2.03×10^11)/37500=2000000 B files.",
+          "The required minimum is 1000000. The maximum 2000000 is feasible, and any extra B file exceeds capacity."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Optimise an allocation subject to minimum usage and capacity.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-003-DEMAND-UPGRADE-20261124",
+        "provisionalCrossTopicMasteryHold": "Shared linear allocation under fixed total and capacity with Q31, Q32 and Q40; do not award separate concept credit until independently reviewed."
+      },
+      "derivedWrongValues": [
+        {
+          "latex": "2.08\\times10^{6}",
+          "derivation": "Omit the fixed index: (278000000000−200000000000)/37500.",
+          "derived": 2080000
+        },
+        {
+          "latex": "8.57142\\times10^{5}",
+          "derivation": "Divide the headroom after the all-A baseline by the full B size rather than the additional size: floor(75×10^9/87500).",
+          "derived": 857142
+        },
+        {
+          "latex": "3.142857\\times10^{6}",
+          "derivation": "Allocate the entire capacity after the index to B files, failing to reserve space for the remaining A files: floor(275×10^9/87500).",
+          "derived": 3142857
+        },
+        {
+          "latex": "1.5\\times10^{6}",
+          "derivation": "Use the A compressed size 50000 as the marginal extra per B file: 75×10^9/50000.",
+          "derived": 1500000
+        },
+        {
+          "latex": "1\\times10^{6}",
+          "derivation": "Use the minimum required number instead of optimising the storage constraint: 4000000/4.",
+          "derived": 1000000
+        }
+      ]
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-011",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-011",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-011-DISTRACTOR-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-011-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-011-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+        "topicId": "math-y9-standard-form",
+        "provisionalConceptFamily": "tare-and-unit-count",
+        "stem": "A shipment containing $2\\times10^2$ empty boxes and a separate load of identical unpacked items has total mass $9.6\\times10^5$ g. Each empty box weighs $8\\times10^2$ g. Each item weighs $4\\times10^1$ g. After removing 15% of the items, the remaining items must be packed into these boxes, each holding at most 90 items. The new shipment must weigh at most $8.4\\times10^5$ g. What is the maximum number of empty boxes that can also be included, beyond those needed to hold all the remaining items? Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "1.2\\times10^{1}",
+            "errorPath": "Round the necessary number of filled boxes down: 200−floor(17000/90)."
+          },
+          {
+            "id": "B",
+            "latex": "1.7\\times10^{1}",
+            "errorPath": "Apply the 15% reduction to the whole original shipment, including the unchanged box mass, then subtract 160000 g to infer 656000 g of items. This implies 16400 items and 183 filled boxes, leaving 17."
+          },
+          {
+            "id": "C",
+            "latex": "3\\times10^{1}",
+            "errorPath": "Use the original average of 100 items per available box as the permitted capacity instead of 90: 200−ceil(17000/100)."
+          },
+          {
+            "id": "D",
+            "latex": "1\\times10^{1}",
+            "errorPath": "Round the necessary filled-box count to 190 rather than use the exact ceiling 189."
+          },
+          {
+            "id": "E",
+            "latex": "1.1\\times10^{1}"
+          },
+          {
+            "id": "F",
+            "latex": "1.89\\times10^{2}",
+            "errorPath": "Calculate the minimum filled-box count correctly but confuse it with the extra empty-box count."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "1.1\\times10^{1}",
+        "workedSolutionSteps": [
+          "The original items weigh 800000 g, so there were 20000 items; 17000 remain, weighing 680000 g.",
+          "At least ceil(17000/90)=189 boxes are needed. The mass cap allows at most floor((840000−680000)/800)=200 boxes in total.",
+          "Therefore at most 200−189=11 empty boxes may also be included. This packing is attainable."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Combine a capacity ceiling and mass-budget floor.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-011-PRIORITY-CONTENT-REVIEW-20261124"
+      },
+      "derivedWrongValues": [
+        {
+          "latex": "1.2\\times10^{1}",
+          "derivation": "Round the necessary number of filled boxes down: 200−floor(17000/90).",
+          "derived": 12
+        },
+        {
+          "latex": "1.7\\times10^{1}",
+          "derivation": "Apply the 15% reduction to the whole original shipment, including the unchanged box mass, then subtract 160000 g to infer 656000 g of items. This implies 16400 items and 183 filled boxes, leaving 17.",
+          "derived": 17
+        },
+        {
+          "latex": "3\\times10^{1}",
+          "derivation": "Use the original average of 100 items per available box as the permitted capacity instead of 90: 200−ceil(17000/100).",
+          "derived": 30
+        },
+        {
+          "latex": "1\\times10^{1}",
+          "derivation": "Round the necessary filled-box count to 190 rather than use the exact ceiling 189.",
+          "derived": 10
+        },
+        {
+          "latex": "1.89\\times10^{2}",
+          "derivation": "Calculate the minimum filled-box count correctly but confuse it with the extra empty-box count.",
+          "derived": 189
+        }
+      ]
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-019",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-019",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-019-DISTRACTOR-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-019-REVIEW-2",
+        "topicId": "math-y9-standard-form",
+        "provisionalConceptFamily": "geometric-scaling-and-unit-conversion",
+        "stem": "A model has outer volume $6.4\\times10^{-5}$ m³. An object with a similar outer shape has every linear dimension multiplied by a positive integer k. A cavity occupies exactly 12.5% of its outer volume. The solid material has density $2.5\\times10^3$ kg/m³ and its mass must be at most $1.75\\times10^4$ kg. Which is the greatest possible integer k? Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "4.7\\times10^{1}",
+            "errorPath": "Ignore the cavity and use the full outer volume: floor(cube root(17500/0.16))."
+          },
+          {
+            "id": "B",
+            "latex": "9.5\\times10^{1}",
+            "errorPath": "Treat the cavity fraction 0.125 as the solid fraction: floor(cube root(17500/0.02))."
+          },
+          {
+            "id": "C",
+            "latex": "5\\times10^{1}"
+          },
+          {
+            "id": "D",
+            "latex": "3.53\\times10^{2}",
+            "errorPath": "Use an area scale factor k² instead of the volume scale factor k³: floor(sqrt(125000))."
+          },
+          {
+            "id": "E",
+            "latex": "1.25\\times10^{5}",
+            "errorPath": "Use linear scaling of mass rather than cubic scaling, so k≤17500/0.14."
+          },
+          {
+            "id": "F",
+            "latex": "4.5\\times10^{1}",
+            "errorPath": "Increase the mass by 12.5% instead of reducing it for the cavity: floor(cube root(17500/0.18))."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "5\\times10^{1}",
+        "workedSolutionSteps": [
+          "Solid volume equals 0.875×6.4×10^-5×k³ m³. Its mass is 0.14k³ kg.",
+          "The mass cap gives k³≤17500/0.14=125000.",
+          "Since 50³=125000 and 51³=132651, the greatest possible integer scale factor is 50."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Reverse cubic scaling with density and an integer mass cap.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-019-DEMAND-UPGRADE-20261124"
+      },
+      "derivedWrongValues": [
+        {
+          "latex": "4.7\\times10^{1}",
+          "derivation": "Ignore the cavity and use the full outer volume: floor(cube root(17500/0.16)).",
+          "derived": 47
+        },
+        {
+          "latex": "9.5\\times10^{1}",
+          "derivation": "Treat the cavity fraction 0.125 as the solid fraction: floor(cube root(17500/0.02)).",
+          "derived": 95
+        },
+        {
+          "latex": "3.53\\times10^{2}",
+          "derivation": "Use an area scale factor k² instead of the volume scale factor k³: floor(sqrt(125000)).",
+          "derived": 353
+        },
+        {
+          "latex": "1.25\\times10^{5}",
+          "derivation": "Use linear scaling of mass rather than cubic scaling, so k≤17500/0.14.",
+          "derived": 124999.99999999999
+        },
+        {
+          "latex": "4.5\\times10^{1}",
+          "derivation": "Increase the mass by 12.5% instead of reducing it for the cavity: floor(cube root(17500/0.18)).",
+          "derived": 45
+        }
+      ]
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-022",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-022",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-022-DISTRACTOR-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-022-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-022-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+        "topicId": "math-y9-standard-form",
+        "provisionalConceptFamily": "percentage-change-with-offset",
+        "stem": "A sensor displays $D=(1+p)T-C$, where T is the true reading, p is a constant fractional increase and C is a fixed positive offset. True readings $4\\times10^6$ and $8\\times10^6$ give displays $4.2\\times10^6$ and $8.6\\times10^6$ respectively. A third display is $1.3\\times10^7$. Find its true reading T, in units. Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "1.452\\times10^{7}",
+            "errorPath": "Correctly undo the offset by adding 200000, but multiply by 1.1 rather than divide: 13200000×1.1."
+          },
+          {
+            "id": "B",
+            "latex": "1.188\\times10^{7}",
+            "errorPath": "Reverse the 10% increase by subtracting 10% from the offset-corrected display instead of dividing by 1.1: 13200000×0.9."
+          },
+          {
+            "id": "C",
+            "latex": "1.32\\times10^{7}",
+            "errorPath": "Undo the offset but omit division by the calibration factor."
+          },
+          {
+            "id": "D",
+            "latex": "1.3\\times10^{7}",
+            "errorPath": "Treat the display as the true reading, ignoring both calibration changes."
+          },
+          {
+            "id": "E",
+            "latex": "1.28\\times10^{7}",
+            "errorPath": "Subtract the offset rather than add it, and omit reversing the proportional increase."
+          },
+          {
+            "id": "F",
+            "latex": "1.2\\times10^{7}"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "1.2\\times10^{7}",
+        "workedSolutionSteps": [
+          "The change in display is 4.4×10^6 for a true change of 4×10^6, so 1+p=1.1.",
+          "Use the first pair: C=1.1×4×10^6−4.2×10^6=2×10^5.",
+          "For the third display, T=(1.3×10^7+2×10^5)/1.1=1.2×10^7."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Recover an unknown proportional calibration and offset from two readings.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-022-DEMAND-UPGRADE-20261124"
+      },
+      "derivedWrongValues": [
+        {
+          "latex": "1.452\\times10^{7}",
+          "derivation": "Correctly undo the offset by adding 200000, but multiply by 1.1 rather than divide: 13200000×1.1.",
+          "derived": 14520000.000000002
+        },
+        {
+          "latex": "1.188\\times10^{7}",
+          "derivation": "Reverse the 10% increase by subtracting 10% from the offset-corrected display instead of dividing by 1.1: 13200000×0.9.",
+          "derived": 11880000
+        },
+        {
+          "latex": "1.32\\times10^{7}",
+          "derivation": "Undo the offset but omit division by the calibration factor.",
+          "derived": 13200000
+        },
+        {
+          "latex": "1.3\\times10^{7}",
+          "derivation": "Treat the display as the true reading, ignoring both calibration changes.",
+          "derived": 13000000
+        },
+        {
+          "latex": "1.28\\times10^{7}",
+          "derivation": "Subtract the offset rather than add it, and omit reversing the proportional increase.",
+          "derived": 12800000
+        }
+      ]
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-031",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-031",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-031-DISTRACTOR-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-031-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-031-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+        "topicId": "math-y9-standard-form",
+        "provisionalConceptFamily": "discrete-capacity-and-optimisation",
+        "stem": "A data link has capacity $7.5\\times10^8$ bytes per session, including a fixed overhead of $1.5\\times10^8$ bytes. A large file uses $2.4\\times10^5$ bytes and a small file uses $1.2\\times10^5$ bytes. Exactly $3\\times10^3$ complete files must be sent, with at least one quarter large. Find the greatest number of large files that can be sent. Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "2.5\\times10^{3}",
+            "errorPath": "Divide the payload capacity by the large-file size, without reserving room for the other required files: 600000000/240000."
+          },
+          {
+            "id": "B",
+            "latex": "3\\times10^{3}",
+            "errorPath": "Omit the fixed overhead; the resulting model allows all 3000 files to be large because 3000×240000≤750000000."
+          },
+          {
+            "id": "C",
+            "latex": "2\\times10^{3}"
+          },
+          {
+            "id": "D",
+            "latex": "1\\times10^{3}",
+            "errorPath": "Divide the headroom after the all-small baseline by the full large-file size rather than the difference: 240000000/240000."
+          },
+          {
+            "id": "E",
+            "latex": "7.5\\times10^{2}",
+            "errorPath": "Deduct the fixed overhead twice, so remaining headroom is 750000000−300000000−360000000=90000000; divide by 120000."
+          },
+          {
+            "id": "F",
+            "latex": "1.5\\times10^{3}",
+            "errorPath": "Assume the lower bound on the large-file proportion means exactly half of the files must be large."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "2\\times10^{3}",
+        "workedSolutionSteps": [
+          "All 3000 files treated as small would use 3.6×10^8 bytes. The available capacity after overhead is 6×10^8.",
+          "Each large file adds 1.2×10^5 bytes. Thus the number L of large files obeys 1.2×10^5 L≤2.4×10^8, or L≤2000.",
+          "The minimum is 750. Taking L=2000 and 1000 small files exactly meets capacity and all constraints."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Optimise a two-size allocation under a fixed total and capacity.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-031-DEMAND-UPGRADE-20261124",
+        "provisionalCrossTopicMasteryHold": "Shared linear allocation under fixed total and capacity with Q31, Q32 and Q40; do not award separate concept credit until independently reviewed."
+      },
+      "derivedWrongValues": [
+        {
+          "latex": "2.5\\times10^{3}",
+          "derivation": "Divide the payload capacity by the large-file size, without reserving room for the other required files: 600000000/240000.",
+          "derived": 2500
+        },
+        {
+          "latex": "3\\times10^{3}",
+          "derivation": "Omit the fixed overhead; the resulting model allows all 3000 files to be large because 3000×240000≤750000000.",
+          "derived": 3000
+        },
+        {
+          "latex": "1\\times10^{3}",
+          "derivation": "Divide the headroom after the all-small baseline by the full large-file size rather than the difference: 240000000/240000.",
+          "derived": 1000
+        },
+        {
+          "latex": "7.5\\times10^{2}",
+          "derivation": "Deduct the fixed overhead twice, so remaining headroom is 750000000−300000000−360000000=90000000; divide by 120000.",
+          "derived": 750
+        },
+        {
+          "latex": "1.5\\times10^{3}",
+          "derivation": "Assume the lower bound on the large-file proportion means exactly half of the files must be large.",
+          "derived": 1500
+        }
+      ]
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-032",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-032",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-032-DISTRACTOR-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-032-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-032-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+        "topicId": "math-y9-standard-form",
+        "provisionalConceptFamily": "discrete-capacity-and-optimisation",
+        "stem": "A square site has side length $3\\times10^3$ m. Exactly 20% of its area is reserved for paths. The remaining area may contain small plots of area $2\\times10^3$ m² and large plots of area $3\\times10^3$ m². There must be exactly $3\\times10^3$ plots, at least half of which are small. Ignoring layout restrictions, find the greatest possible total area occupied by large plots, in m², without exceeding usable area. Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "4.5\\times10^{6}",
+            "errorPath": "Use only the count restriction: at most 1500 large plots, each 3000 m²."
+          },
+          {
+            "id": "B",
+            "latex": "3.6\\times10^{6}"
+          },
+          {
+            "id": "C",
+            "latex": "1.2\\times10^{6}",
+            "errorPath": "Multiply the correct 1200 large plots by the incremental area 1000 instead of their full area."
+          },
+          {
+            "id": "D",
+            "latex": "2.4\\times10^{6}",
+            "errorPath": "Multiply the correct 1200 large plots by the small-plot area 2000 rather than the large-plot area."
+          },
+          {
+            "id": "E",
+            "latex": "1.8\\times10^{6}",
+            "errorPath": "Divide the additional usable area 1200000 by the small-plot area 2000 instead of the difference, then multiply the resulting 600 by 3000."
+          },
+          {
+            "id": "F",
+            "latex": "5.4\\times10^{6}",
+            "errorPath": "Use the count of small plots (1800) as the large-plot count, multiplying it by 3000."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "3.6\\times10^{6}",
+        "workedSolutionSteps": [
+          "Usable area is 0.8×3000²=7.2×10^6 m². If every plot were small, the total would be 6×10^6 m².",
+          "Each large plot adds 1000 m², so capacity permits at most 1200 large plots. At least half small separately requires at most 1500 large plots.",
+          "The binding limit is 1200 large plots, with 1800 small plots. The maximum large-plot area is 1200×3000=3.6×10^6 m²."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Compare a count cap and area budget to maximise the area of one plot type.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-032-DEMAND-UPGRADE-20261124",
+        "provisionalCrossTopicMasteryHold": "Shared linear allocation under fixed total and capacity with Q31, Q32 and Q40; do not award separate concept credit until independently reviewed."
+      },
+      "derivedWrongValues": [
+        {
+          "latex": "4.5\\times10^{6}",
+          "derivation": "Use only the count restriction: at most 1500 large plots, each 3000 m².",
+          "derived": 4500000
+        },
+        {
+          "latex": "1.2\\times10^{6}",
+          "derivation": "Multiply the correct 1200 large plots by the incremental area 1000 instead of their full area.",
+          "derived": 1200000
+        },
+        {
+          "latex": "2.4\\times10^{6}",
+          "derivation": "Multiply the correct 1200 large plots by the small-plot area 2000 rather than the large-plot area.",
+          "derived": 2400000
+        },
+        {
+          "latex": "1.8\\times10^{6}",
+          "derivation": "Divide the additional usable area 1200000 by the small-plot area 2000 instead of the difference, then multiply the resulting 600 by 3000.",
+          "derived": 1800000
+        },
+        {
+          "latex": "5.4\\times10^{6}",
+          "derivation": "Use the count of small plots (1800) as the large-plot count, multiplying it by 3000.",
+          "derived": 5400000
+        }
+      ]
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-034",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-034",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-034-DISTRACTOR-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-034-REVIEW-2",
+        "topicId": "math-y9-standard-form",
+        "provisionalConceptFamily": "ratio-transfer",
+        "stem": "Two storage units A and B initially hold data in ratio 7:2, with total $9\\times10^8$ bytes. Exactly 10% of the data originally in A is deleted and 20% of the data originally in B is deleted. Then data is transferred from A to B, with no further losses. The final ratio A:B is 2:3. How many bytes are transferred? Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "3.4\\times10^{8}",
+            "errorPath": "Ignore both deletions: 700000000−(2/5)×900000000."
+          },
+          {
+            "id": "B",
+            "latex": "2.98\\times10^{8}",
+            "errorPath": "Ignore deletion from B but apply the deletion from A: 630000000−(2/5)×830000000."
+          },
+          {
+            "id": "C",
+            "latex": "3.56\\times10^{8}",
+            "errorPath": "Ignore deletion from A but apply the deletion from B: 700000000−(2/5)×860000000."
+          },
+          {
+            "id": "D",
+            "latex": "3.06\\times10^{8}",
+            "errorPath": "Apply the 10% deletion to both units: 630000000−(2/5)×810000000."
+          },
+          {
+            "id": "E",
+            "latex": "1.56\\times10^{8}",
+            "errorPath": "Reverse the final ratio and use 3/5 for A's final share: 630000000−(3/5)×790000000."
+          },
+          {
+            "id": "F",
+            "latex": "3.14\\times10^{8}"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "3.14\\times10^{8}",
+        "workedSolutionSteps": [
+          "Initially A has 7×10^8 bytes and B has 2×10^8. After deletion they hold 6.3×10^8 and 1.6×10^8 respectively.",
+          "The remaining total is 7.9×10^8 bytes. The required final A share is 2/5 of this, namely 3.16×10^8.",
+          "The transferred amount is 6.3×10^8−3.16×10^8=3.14×10^8 bytes; the final B share is 4.74×10^8."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Recalculate conserved total after unequal losses, then invert a target ratio.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-034-DEMAND-UPGRADE-20261124",
+        "provisionalCrossTopicMasteryHold": "Ratio transfer and conservation, related to simultaneous equations Q28."
+      },
+      "derivedWrongValues": [
+        {
+          "latex": "3.4\\times10^{8}",
+          "derivation": "Ignore both deletions: 700000000−(2/5)×900000000.",
+          "derived": 340000000
+        },
+        {
+          "latex": "2.98\\times10^{8}",
+          "derivation": "Ignore deletion from B but apply the deletion from A: 630000000−(2/5)×830000000.",
+          "derived": 298000000
+        },
+        {
+          "latex": "3.56\\times10^{8}",
+          "derivation": "Ignore deletion from A but apply the deletion from B: 700000000−(2/5)×860000000.",
+          "derived": 356000000
+        },
+        {
+          "latex": "3.06\\times10^{8}",
+          "derivation": "Apply the 10% deletion to both units: 630000000−(2/5)×810000000.",
+          "derived": 306000000
+        },
+        {
+          "latex": "1.56\\times10^{8}",
+          "derivation": "Reverse the final ratio and use 3/5 for A's final share: 630000000−(3/5)×790000000.",
+          "derived": 156000000
+        }
+      ]
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-040",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-040",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-040-DISTRACTOR-REPAIR-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-040-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-040-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+        "topicId": "math-y9-standard-form",
+        "provisionalConceptFamily": "discrete-capacity-and-optimisation",
+        "stem": "A laboratory has $7.6\\times10^8$ units of a resource and must complete exactly $4\\times10^4$ tests. Method A uses $2\\times10^4$ units per test; method B uses 20% less. At least $1.5\\times10^4$ tests must use A. Find the greatest possible number of tests using A. Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "3.75\\times10^{4}",
+            "errorPath": "Treat B as using 20% of A rather than 20% less. With B=4000, the inequality is 160000000+16000A≤760000000."
+          },
+          {
+            "id": "B",
+            "latex": "3.2\\times10^{4}",
+            "errorPath": "Treat the 20% reduction as a 25% reduction, so B=15000 and A≤(760000000−600000000)/5000."
+          },
+          {
+            "id": "C",
+            "latex": "3.8\\times10^{4}",
+            "errorPath": "Divide the full resource by A's per-test cost, ignoring the requirement to perform the remaining tests."
+          },
+          {
+            "id": "D",
+            "latex": "1.8\\times10^{4}",
+            "errorPath": "Start at the minimum A count 15000 (700000000 units), then divide the remaining resource by full A cost rather than the replacement cost: 15000+60000000/20000."
+          },
+          {
+            "id": "E",
+            "latex": "1\\times10^{4}",
+            "errorPath": "Confuse the maximum A count with the corresponding number of B tests: 40000−30000."
+          },
+          {
+            "id": "F",
+            "latex": "3\\times10^{4}"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "3\\times10^{4}",
+        "workedSolutionSteps": [
+          "Method B consumes 16000 units per test. If A is the count using method A, B=40000−A.",
+          "Total use is 20000A+16000(40000−A)=6.4×10^8+4000A. The budget implies A≤(7.6×10^8−6.4×10^8)/4000=30000.",
+          "A=30000 meets the minimum and leaves 10000 B tests; resource use equals the cap, proving maximality."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Optimise a two-method allocation under a fixed total, minimum usage and binding resource cap.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-040-DEMAND-UPGRADE-20261124",
+        "provisionalCrossTopicMasteryHold": "Shared linear allocation under fixed total and capacity with Q31, Q32 and Q40; do not award separate concept credit until independently reviewed."
+      },
+      "derivedWrongValues": [
+        {
+          "latex": "3.75\\times10^{4}",
+          "derivation": "Treat B as using 20% of A rather than 20% less. With B=4000, the inequality is 160000000+16000A≤760000000.",
+          "derived": 37500
+        },
+        {
+          "latex": "3.2\\times10^{4}",
+          "derivation": "Treat the 20% reduction as a 25% reduction, so B=15000 and A≤(760000000−600000000)/5000.",
+          "derived": 32000
+        },
+        {
+          "latex": "3.8\\times10^{4}",
+          "derivation": "Divide the full resource by A's per-test cost, ignoring the requirement to perform the remaining tests.",
+          "derived": 38000
+        },
+        {
+          "latex": "1.8\\times10^{4}",
+          "derivation": "Start at the minimum A count 15000 (700000000 units), then divide the remaining resource by full A cost rather than the replacement cost: 15000+60000000/20000.",
+          "derived": 18000
+        },
+        {
+          "latex": "1\\times10^{4}",
+          "derivation": "Confuse the maximum A count with the corresponding number of B tests: 40000−30000.",
+          "derived": 10000
+        }
+      ]
+    }
+  ]
+}
