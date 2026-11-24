@@ -218,3 +218,19 @@ test('all 64 original four-test result rows agree with four reagent signals, but
  assert.equal(draft.approved,0);
  assert.equal(draft.formalCreditEligible,false);
 });
+
+
+test('ethanol-storage safety scenario no longer duplicates the 99-point open-flame action',()=>{
+ const q=replacements.find(x=>x.sourceId==='bio-y8-food-tests-case-20261025-4-1');
+ const structured=read('qa/food-tests-structured-99-point-review-candidate-20261122.json').items.flatMap(x=>x.parts);
+ const flame=structured.find(x=>x.pointId==='bio-y8-food-tests-application-20261025-safe-bunsen::p2');
+ assert.ok(flame);
+ assert.match(flame.stem,/lit Bunsen burner/i);
+ assert.match(q.prompt,/uncapped beside a warm water bath/i);
+ assert.match(q.prompt,/flame has been extinguished/i);
+ assert.match(q.answer.accepted[0],/Cap the ethanol promptly/i);
+ assert.doesNotMatch(q.answer.accepted[0],/extinguish the Bunsen burner/i);
+ assert.equal(q.correctIndex,1);
+ assert.equal(q.approved,false);
+ assert.equal(q.formalCreditEligible,false);
+});
