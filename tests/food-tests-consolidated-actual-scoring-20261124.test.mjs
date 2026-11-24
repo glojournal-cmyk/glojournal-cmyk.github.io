@@ -160,3 +160,39 @@ for(const path of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-
   assert.equal(checked,48*24*4);
  });
 }
+
+const feedbackReview=read('qa/food-tests-48-pupil-feedback-academic-review-20261124.json');
+test('48 pupil-facing feedback proposals are source-bound, preserve held status and change only two assessment fields',()=>{
+ assert.equal(feedbackReview.release,'BLOCKED');assert.equal(feedbackReview.approved,0);assert.equal(feedbackReview.formalCreditEligible,false);
+ assert.equal(feedbackReview.items.length,48);
+ const ids=new Set();let stems=0,keys=0;
+ for(const row of feedbackReview.items){
+  const q=v2ById.get(row.sourceId);assert.ok(q);assert.ok(!ids.has(row.sourceId));ids.add(row.sourceId);
+  assert.deepEqual(row.before,{prompt:q.prompt,options:q.options,answer:q.answer,feedback:q.feedback});
+  assert.equal(row.academicApproved,false);assert.equal(row.formalCreditEligible,false);
+  assert.equal(canEarnFormalCredit({...q,...row.after}),false);
+  assert.equal(row.after.options.length,4);assert.equal(new Set(row.after.options).size,4);
+  const oldIndex=q.options.indexOf(q.answer.accepted[0]),newIndex=row.after.options.indexOf(row.after.answer.accepted[0]);
+  assert.equal(oldIndex,newIndex);assert.ok(newIndex>=0);
+  assert.deepEqual(q.options.filter((_,i)=>i!==oldIndex),row.after.options.filter((_,i)=>i!==newIndex));
+  assert.ok(row.after.feedback.short.length>30);assert.ok(row.after.feedback.commonError.length>15);
+  assert.doesNotMatch(row.after.feedback.short,/original draft|the original|the old|source statement/i);
+  if(row.before.prompt!==row.after.prompt){stems++;assert.ok(row.sourceId.endsWith('-3-3'));}
+  if(row.before.answer.accepted[0]!==row.after.answer.accepted[0]){keys++;assert.ok(row.sourceId.endsWith('-4-13'));}
+ }
+ assert.equal(stems,1);assert.equal(keys,1);
+});
+for(const path of ['assets/quiz-session-y8fix-20260920.js','assets/quiz-session-rWAnuDVj.js']){
+ test(path+': all 48 pupil feedback overlay keys and foils score correctly, no formal credit',()=>{
+  const score=makeScore(path);let count=0;
+  for(const row of feedbackReview.items){
+   const q={...v2ById.get(row.sourceId),...row.after};
+   for(const answer of q.options){
+    const expected=Number(answer===q.answer.accepted[0]),result=score(q,answer,'biology',{});
+    assert.equal(result.score,expected,q.id);assert.equal(result.total,1);assert.equal(result.ok,expected===1);
+    assert.equal(canEarnFormalCredit(q),false);count++;
+   }
+  }
+  assert.equal(count,192);
+ });
+}
