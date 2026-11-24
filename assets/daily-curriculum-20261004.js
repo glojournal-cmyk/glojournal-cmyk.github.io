@@ -47,7 +47,8 @@ export function curriculumAssignment(state,seed,old,getCatalog,learning={}){
    const year=Number(old.assignedYear)||Number(old.assignedTopic.match(/-y(\d+)-/)?.[1])||8;
    const completed=Number(old.progress)>=Number(old.target||25);
    const topic=(getCatalog(subject,year)||[]).find(t=>t.topicId===old.assignedTopic)||{topicId:old.assignedTopic,title:old.assignedLabel};
-   if(topic&&(completed||(!isFoodTestsQaHeld(topic)&&(year===8?learning[topic.topicId]!==false:learning[topic.topicId]===true))))return {...topic,subject,year,topicLabel:topic.title||old.assignedLabel,phase:completed?'complete':frontier?.phase||'foundation',position:frontier?.position||1,total:frontier?.total||1,waitingForTaught:frontier?.waitingForTaught||false};
+   // Preserve an in-flight dated assignment and its earned progress; do not transfer its score to a new topic.
+   if(topic&&(completed||isFoodTestsQaHeld(topic)||(year===8?learning[topic.topicId]!==false:learning[topic.topicId]===true)))return {...topic,subject,year,topicLabel:topic.title||old.assignedLabel,phase:completed?'complete':frontier?.phase||'foundation',position:frontier?.position||1,total:frontier?.total||1,waitingForTaught:frontier?.waitingForTaught||false};
  }
  return frontier;
 }
