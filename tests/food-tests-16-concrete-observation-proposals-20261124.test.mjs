@@ -11,7 +11,7 @@ const byId=new Map(originals.map(x=>[x.id,x]));
 const byPreview=new Map(preview.questions.map(x=>[x.id,x]));
 test('all 16 retained Food Tests indicator cases have concrete colour QA proposals, with old source/marks untouched',()=>{
  assert.equal(bank.questions.length,143);
- assert.equal(review.status,'NO_IMPORT_INDEPENDENT_REVIEW_PENDING');
+ assert.equal(review.status,'QA_DRAFT_CORRECTED_SINGLE_OBSERVATION_AND_COMPLETE_SET_UNAPPROVED');
  assert.equal(review.approved,0);
  assert.equal(review.cannotBeImportOrCredit,true);
  assert.equal(review.sourceEdited,false);
@@ -19,7 +19,9 @@ test('all 16 retained Food Tests indicator cases have concrete colour QA proposa
  assert.equal(review.retainedExampleCases,16);
  assert.equal(review.items.length,16);
  assert.equal(originals.length,16);
- assert.equal(review.changedStems,12);
+ assert.equal(review.changedStems,16);
+ assert.equal(review.observationChanges,12);
+ assert.equal(review.questionDemandClarifications,16);
  assert.equal(review.positiveBenedictObservationSamples,8);
  assert.equal(review.positiveBiuretObservationSamples,8);
  let changed=0,positiveB=0,positiveBi=0;
@@ -35,6 +37,9 @@ test('all 16 retained Food Tests indicator cases have concrete colour QA proposa
   assert.ok(row.keySlot>=0&&row.keySlot<4);
   assert.equal(row.proposedPrompt.includes(' / '),false,row.sourceId);
   assert.equal(row.promptsEdited,row.proposedPrompt!==row.sourcePrompt);
+  assert.equal(row.questionDemand,'COMPLETE_DETECTED_SET');
+  assert.match(row.proposedPrompt,/complete list of nutrient groups detected by these four tests/);
+  assert.equal(row.originalObservationAlreadyConcrete,!row.sourcePrompt.includes(' / '));
   assert.equal(row.academicReview,'PENDING');
   assert.equal(row.scientificSoleKeyApproval,false);
   assert.equal(row.tgsTaughtProtocolApproval,false);
@@ -59,7 +64,7 @@ test('all 16 retained Food Tests indicator cases have concrete colour QA proposa
   const observed=source.answer.accepted[0]==='none of these four nutrients'?[]:source.answer.accepted[0].split(', ');
   assert.deepEqual(expected,observed,'proposed concrete observations changed nutrient conclusion '+row.sourceId);
  }
- assert.equal(changed,12);
+ assert.equal(changed,16);
  assert.equal(positiveB,8);
  assert.equal(positiveBi,8);
 });
