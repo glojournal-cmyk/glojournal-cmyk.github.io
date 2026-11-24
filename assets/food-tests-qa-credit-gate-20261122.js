@@ -1,5 +1,7 @@
 // QA-only fail-closed gate: all 143 enabled Food Tests questions are unapproved.
 // Never infer approval from 'enabled', a passing prose matcher or a stored correct flag.
+// Structured proposals may use sourceId::pN instead of the original 143-item ID.
+// Always reduce a structured point ID to its known held source ID before credit checks.
 export const FOOD_TESTS_QA_TOPIC='bio-y8-food-tests';
 export const FOOD_TESTS_QA_HOLD_IDS=Object.freeze([
   "bio-y8-food-tests-iodine-solution-mc",
@@ -150,7 +152,8 @@ const pending=new Set(FOOD_TESTS_QA_HOLD_IDS);
 export function isFoodTestsQaHeld(value){
  const id=typeof value==='string'?value:String(value?.id||value?.questionId||'');
  const topic=value&&typeof value==='object'?String(value.topicId||''):'';
- return pending.has(id)||id.startsWith('bio-y8-food-tests-')||topic===FOOD_TESTS_QA_TOPIC;
+ const sourceId=id.includes('::')?id.slice(0,id.indexOf('::')):id;
+ return pending.has(id)||pending.has(sourceId)||sourceId.startsWith('bio-y8-food-tests-')||topic===FOOD_TESTS_QA_TOPIC;
 }
 export function canEarnFormalCredit(value){return !isFoodTestsQaHeld(value);}
 // Pupil-facing result for an unapproved Food Tests answer. The prose matcher
