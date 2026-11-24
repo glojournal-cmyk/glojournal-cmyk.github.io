@@ -21,7 +21,7 @@ function extract(s,n){
 const d=extract(raw('assets/index-BLVOhKhN.core.js'),'function AS(');
 function makeScore(path){
  const s=raw(path);
- const names=['function scienceProse(','function scienceSymbolConflict(','function CY(','function I(e){','function L(e){','function B(e,t,n,r)'];
+ const names=['function scienceProse(','function scienceSymbolConflict(','function CY(','function I(e){','function L(e){','function reviewedMark(','function B(e,t,n,r)'];
  if(s.includes('function scienceConclusionEquivalent('))names.unshift('function scienceConclusionEquivalent(');
  return new Function('scoreFoodTestsGuarded','scoreFoodTestsEthanolSafety','scoreFoodTestsRemaining37',d+'\nconst d=AS;\n'+names.map(n=>extract(s,n)).join('\n')+'\nreturn B;')(()=>null,()=>null,()=>null);
 }
