@@ -89,12 +89,22 @@ test('every structured point ID from the full 99-candidate bank inherits its hel
   assert.equal(isFoodTestsQaHeld(part.pointId),true,'candidate mark-point ID escaped hold: '+part.pointId);
   assert.equal(isFoodTestsQaHeld({id:part.pointId}),true,part.pointId);
   assert.equal(isFoodTestsQaHeld({questionId:part.pointId}),true,part.pointId);
+  assert.equal(isFoodTestsQaHeld(part),true,'candidate point object escaped hold: '+part.pointId);
+  assert.equal(isFoodTestsQaHeld({sourceId,pointId:part.pointId}),true,part.pointId);
+  assert.equal(isFoodTestsQaHeld({id:'wrapper-id',pointId:part.pointId}),true,part.pointId);
+  assert.equal(isFoodTestsQaHeld({id:'wrapper-id',sourceId}),true,sourceId);
   assert.equal(canEarnFormalCredit(part.pointId),false,part.pointId);
   assert.equal(canEarnFormalCredit({id:part.pointId,topicId:''}),false,part.pointId);
   assert.equal(foodTestsPupilVerdict(part.pointId)?.score,null,part.pointId);
   if(!part.pointId.startsWith('bio-y8-food-tests-'))nonstandard++;
  }
  assert.equal(nonstandard,5,'all five bio-y8-app-... structured point IDs must be held');
+ for(const group of structuredCandidate.items){
+  assert.equal(isFoodTestsQaHeld(group),true,'QA candidate group sourceId escaped hold: '+group.sourceId);
+  assert.equal(canEarnFormalCredit(group),false,group.sourceId);
+ }
+ assert.equal(isFoodTestsQaHeld({id:'unrelated-id',sourceId:'unrelated-source'}),false);
+ assert.equal(isFoodTestsQaHeld({id:'unrelated-id',pointId:'unrelated-thing::p1'}),false);
  assert.equal(isFoodTestsQaHeld('unrelated-biology-question::p1'),false);
  assert.equal(canEarnFormalCredit('unrelated-maths-question::p1'),true);
 });
