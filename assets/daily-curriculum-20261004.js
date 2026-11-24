@@ -1,5 +1,6 @@
 // One curriculum policy for the daily planner and route guard. No reward writes.
 import {coveredTopic,masteryStage} from './mastery-v2-20261018.js';
+import {isFoodTestsQaHeld} from './food-tests-qa-credit-gate-20261122.js';
 export const progressionSubjects=['latin','french','biology','chemistry','physics'];
 const orders={
  latin:['stage-1-vocabulary','stage-2-vocabulary','stage-3-vocabulary','core-verbs','nouns-and-dictionary-entries','present-person-and-number','prepositions','stage-4-vocabulary','stage-5-vocabulary','stage-6-vocabulary','stage-7-vocabulary','stage-8-vocabulary','stage-9-vocabulary','stage-10-vocabulary','stage-11-vocabulary','stage-12-vocabulary','adjective-agreement','personal-pronouns','ille-singular','ille-plural','nouns-with-genitives','set-text-translation','perfect-cues'],
@@ -26,7 +27,7 @@ export function isCurriculumMastered(raw={}){
 }
 export const independentFormats=['typed_exact','typed_short','typed_equivalent','spelling_restore','controlled_translation','mark_points','extended_response','practical_design','calculation','unordered_set'];
 export function curriculumTopics(subject,year,getCatalog,learning={}){
- return (getCatalog(subject,year)||[]).filter(t=>t?.status==='enabled'&&Number(t.enabled??t.questions??0)>=15&&(!t.formats||independentFormats.some(f=>Number(t.formats[f])>0))&&(year===8?learning[t.topicId]!==false:learning[t.topicId]===true)).map(t=>({...t,subject,year,topicLabel:t.title||t.topicId})).sort((a,b)=>curriculumRank(a)-curriculumRank(b)||a.topicId.localeCompare(b.topicId));
+ return (getCatalog(subject,year)||[]).filter(t=>t?.status==='enabled'&&!isFoodTestsQaHeld(t)&&Number(t.enabled??t.questions??0)>=15&&(!t.formats||independentFormats.some(f=>Number(t.formats[f])>0))&&(year===8?learning[t.topicId]!==false:learning[t.topicId]===true)).map(t=>({...t,subject,year,topicLabel:t.title||t.topicId})).sort((a,b)=>curriculumRank(a)-curriculumRank(b)||a.topicId.localeCompare(b.topicId));
 }
 export function curriculumFrontier(state,subject,getCatalog,learning={}){
  const foundations=curriculumTopics(subject,8,getCatalog,learning),mastered=t=>isCurriculumMastered(state.topicStats?.[t.topicId]);
@@ -46,7 +47,7 @@ export function curriculumAssignment(state,seed,old,getCatalog,learning={}){
    const year=Number(old.assignedYear)||Number(old.assignedTopic.match(/-y(\d+)-/)?.[1])||8;
    const completed=Number(old.progress)>=Number(old.target||25);
    const topic=(getCatalog(subject,year)||[]).find(t=>t.topicId===old.assignedTopic)||{topicId:old.assignedTopic,title:old.assignedLabel};
-   if(topic&&(completed||(year===8?learning[topic.topicId]!==false:learning[topic.topicId]===true)))return {...topic,subject,year,topicLabel:topic.title||old.assignedLabel,phase:completed?'complete':frontier?.phase||'foundation',position:frontier?.position||1,total:frontier?.total||1,waitingForTaught:frontier?.waitingForTaught||false};
+   if(topic&&(completed||(!isFoodTestsQaHeld(topic)&&(year===8?learning[topic.topicId]!==false:learning[topic.topicId]===true))))return {...topic,subject,year,topicLabel:topic.title||old.assignedLabel,phase:completed?'complete':frontier?.phase||'foundation',position:frontier?.position||1,total:frontier?.total||1,waitingForTaught:frontier?.waitingForTaught||false};
  }
  return frontier;
 }
@@ -55,7 +56,7 @@ export function curriculumHref(pick,mode,task){
  return `/study/${pick?.subject||'latin'}/practise?${p}`;
 }
 export function selectProgressionQuestions(ranked,mode,size){
- const byId=[...new Map(ranked.filter(q=>q.formal!==false&&!q._repair&&q.status!=='preview').map(q=>[q.id,q])).values()];
+ const byId=[...new Map(ranked.filter(q=>!isFoodTestsQaHeld(q)&&q.formal!==false&&!q._repair&&q.status!=='preview').map(q=>[q.id,q])).values()];
  // QA Food Tests: each of the 16 four-indicator patterns has four wording variants.
  // Keep all question IDs for later sessions, but never give two of the same
  // dailyConceptGroup in one progression sitting. No historical IDs are changed.
@@ -81,7 +82,7 @@ const warmIds=new Set(warm.map(q=>q.id));
 }
 
 export function creditCurriculumAttempt(existing,attempt){
- if(!attempt.questionId||!attempt.topicId||attempt.formal===false||attempt.repair||!['y8-practise','y8-mastery','year8-long-review'].includes(attempt.task))return existing||{};
+ if(!attempt.questionId||!attempt.topicId||isFoodTestsQaHeld(attempt)||attempt.formal===false||attempt.repair||!['y8-practise','y8-mastery','year8-long-review'].includes(attempt.task))return existing||{};
  const day=attempt.day,phase=attempt.mode==='mastery'||attempt.mode==='year8long'?'mastery':'foundation';
  const ledger={...(existing||{})},days={...(ledger[day]||{})},topics={...(days[attempt.task]||{})},old=topics[attempt.topicId]||{},ids={...(old[phase]||{})};
  ids[attempt.questionId]=true;topics[attempt.topicId]={...old,[phase]:ids};days[attempt.task]=topics;ledger[day]=days;
