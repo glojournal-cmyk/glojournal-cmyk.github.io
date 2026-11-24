@@ -113,7 +113,7 @@ test('Simultaneous-014: both singular parameter values are genuinely inconsisten
   for(const k of roots){
     assert.ok(Math.abs(det(k))<1e-10);
     const a=k-1,b=2*k+3;
-    assert.ok(Math.abs(a)===Math.abs(b));
+    assert.ok(Math.abs(Math.abs(a)-Math.abs(b))<1e-10);
     if(Math.abs(a-b)<1e-10)assert.notEqual(7,14);
     else {assert.ok(Math.abs(a+b)<1e-10); assert.notEqual(7,-14);}
   }
