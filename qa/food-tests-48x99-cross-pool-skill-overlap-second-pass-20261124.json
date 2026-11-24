@@ -1,0 +1,247 @@
+{
+  "kind": "QA-only cross-pool conceptual overlap triage of 48 proposed replacement MCQs versus 99 structured MCQ points",
+  "date": "2026-11-24",
+  "sourceReplacement": "qa/food-tests-48-duplicate-replacements-draft-20261123.json",
+  "sourceStructured": "qa/food-tests-structured-99-point-review-candidate-20261122.json",
+  "reviewerRole": "AI second-pass content reviewer; not an independent qualified TGS science reviewer",
+  "scope": {
+    "replacementCandidates": 48,
+    "structuredPoints": 99,
+    "reviewedPairUniverse": 4752,
+    "flaggedPairs": 17,
+    "highOverlapPairs": 13,
+    "relatedPairs": 4
+  },
+  "status": "HOLD: semantic flags, not validated duplication deletions",
+  "sourceApprovals": 0,
+  "candidateApprovals": 0,
+  "replacementApprovals": 0,
+  "formalCreditEligible": false,
+  "releaseApproval": "BLOCKED",
+  "resolvedCandidateRewrites": [
+    {
+      "candidateId": "bio-y8-food-tests-case-20261025-3-7",
+      "reason": "Naturally purple berry extract now tests masking/controls, rather than a generic water-negative-control recall."
+    },
+    {
+      "candidateId": "bio-y8-food-tests-case-20261025-4-11",
+      "reason": "Inconsistent repeated Benedict results now tests investigation instead of green/brick-red ranking."
+    },
+    {
+      "candidateId": "bio-y8-food-tests-case-20261025-4-1",
+      "reason": "Bunsen burner extinction recall now replaced by post-use ethanol storage and vapour-risk judgement, distinct from structured point 93."
+    }
+  ],
+  "issues": [
+    {
+      "candidateId": "bio-y8-food-tests-case-20261025-3-2",
+      "structuredPointOrdinal": 47,
+      "structuredPointId": "bio-y8-food-tests-application-20261025-fair-reagent::p2",
+      "candidateStem": "Two food extracts are compared by heating each with Benedict's solution. Which reagent condition should be controlled?",
+      "structuredStem": "Why is a colour comparison difficult when different volumes of Benedict’s reagent were added?",
+      "risk": "HIGH_OVERLAP",
+      "scienceSkillOverlapReason": "Both assess the need for equal Benedict reagent volumes when comparing tubes.",
+      "automaticDailyRotationApproved": false,
+      "independentQualifiedApproval": false,
+      "disposition": "REWRITE_OR_ENFORCE_SHARED_SKILL_ROTATION_AFTER_TEACHER_REVIEW"
+    },
+    {
+      "candidateId": "bio-y8-food-tests-case-20261025-3-3",
+      "structuredPointOrdinal": 31,
+      "structuredPointId": "bio-y8-food-tests-application-20261025-repeatability::p2",
+      "candidateStem": "Two equal-volume portions of the same glucose solution are heated with equal Benedict's reagent in water baths at different temperatures. Which adjustment gives the fairest comparison of reducing-sugar results?",
+      "structuredStem": "A pupil compares the final Benedict's colours from equal samples after heating. Which conditions must be the same for those endpoint colours to be compared fairly?",
+      "risk": "RELATED_CONTROL_SUBSKILL",
+      "scienceSkillOverlapReason": "Both assess water-bath temperature control; structured point 31 additionally asks for matched time.",
+      "automaticDailyRotationApproved": false,
+      "independentQualifiedApproval": false,
+      "disposition": "REWRITE_OR_ENFORCE_SHARED_SKILL_ROTATION_AFTER_TEACHER_REVIEW"
+    },
+    {
+      "candidateId": "bio-y8-food-tests-case-20261025-3-4",
+      "structuredPointOrdinal": 31,
+      "structuredPointId": "bio-y8-food-tests-application-20261025-repeatability::p2",
+      "candidateStem": "Two equal-volume food extracts are compared using the final colour after five minutes in the same Benedict's water bath. One tube was removed after 30 seconds and the other after five minutes. What should the pupil change for a fair comparison of final colours?",
+      "structuredStem": "A pupil compares the final Benedict's colours from equal samples after heating. Which conditions must be the same for those endpoint colours to be compared fairly?",
+      "risk": "HIGH_OVERLAP",
+      "scienceSkillOverlapReason": "Both demand matched heating times when comparing final Benedict colours, even after the candidate ambiguity repair.",
+      "automaticDailyRotationApproved": false,
+      "independentQualifiedApproval": false,
+      "disposition": "REWRITE_OR_ENFORCE_SHARED_SKILL_ROTATION_AFTER_TEACHER_REVIEW"
+    },
+    {
+      "candidateId": "bio-y8-food-tests-case-20261025-3-5",
+      "structuredPointOrdinal": 30,
+      "structuredPointId": "bio-y8-food-tests-application-20261025-repeatability::p1",
+      "candidateStem": "A technician compares two fruit juices for reducing sugar. Which volume should be kept equal when loading the test tubes?",
+      "structuredStem": "When repeating a reducing-sugar test from one stock extract, what should be matched as the extract is dispensed?",
+      "risk": "HIGH_OVERLAP",
+      "scienceSkillOverlapReason": "Both ask for matched extract volumes before comparing a reducing-sugar test.",
+      "automaticDailyRotationApproved": false,
+      "independentQualifiedApproval": false,
+      "disposition": "REWRITE_OR_ENFORCE_SHARED_SKILL_ROTATION_AFTER_TEACHER_REVIEW"
+    },
+    {
+      "candidateId": "bio-y8-food-tests-case-20261025-3-6",
+      "structuredPointOrdinal": 76,
+      "structuredPointId": "bio-y8-food-tests-application-20261025-weak-blueblack::p1",
+      "candidateStem": "A food gives a faint starch colour in one iodine trial. Which design best tests repeatability?",
+      "structuredStem": "A food gives an unexpectedly faint blue-black iodine result. Which action checks whether it is reproducible?",
+      "risk": "HIGH_OVERLAP",
+      "scienceSkillOverlapReason": "Both require a fresh repeated iodine test for a faint or doubtful result.",
+      "automaticDailyRotationApproved": false,
+      "independentQualifiedApproval": false,
+      "disposition": "REWRITE_OR_ENFORCE_SHARED_SKILL_ROTATION_AFTER_TEACHER_REVIEW"
+    },
+    {
+      "candidateId": "bio-y8-food-tests-case-20261025-3-9",
+      "structuredPointOrdinal": 28,
+      "structuredPointId": "bio-y8-food-tests-application-20261025-iodine-control::p1",
+      "candidateStem": "To confirm that iodine reagent can detect starch, which positive-control sample should be used?",
+      "structuredStem": "Which material should be used as the known positive control for the iodine test?",
+      "risk": "HIGH_OVERLAP",
+      "scienceSkillOverlapReason": "Both ask for a known starch standard as the iodine positive control.",
+      "automaticDailyRotationApproved": false,
+      "independentQualifiedApproval": false,
+      "disposition": "REWRITE_OR_ENFORCE_SHARED_SKILL_ROTATION_AFTER_TEACHER_REVIEW"
+    },
+    {
+      "candidateId": "bio-y8-food-tests-case-20261025-3-15",
+      "structuredPointOrdinal": 64,
+      "structuredPointId": "bio-y8-food-tests-application-20261025-glassware::p1",
+      "candidateStem": "The teacher labels four clear sample extracts A–D before adding reagents. Why is this especially important?",
+      "structuredStem": "Why label each tube before dispensing visually similar food extracts?",
+      "risk": "HIGH_OVERLAP",
+      "scienceSkillOverlapReason": "Both assess labelling samples to preserve the identity of their results.",
+      "automaticDailyRotationApproved": false,
+      "independentQualifiedApproval": false,
+      "disposition": "REWRITE_OR_ENFORCE_SHARED_SKILL_ROTATION_AFTER_TEACHER_REVIEW"
+    },
+    {
+      "candidateId": "bio-y8-food-tests-case-20261025-3-16",
+      "structuredPointOrdinal": 33,
+      "structuredPointId": "bio-y8-food-tests-application-20261025-cross-contamination::p2",
+      "candidateStem": "A pipette has just transferred a glucose solution. Why use a clean pipette for a supposed sugar-free sample?",
+      "structuredStem": "A pipette carries glucose into a sugar-free sample. What error could follow in a heated Benedict’s test?",
+      "risk": "HIGH_OVERLAP",
+      "scienceSkillOverlapReason": "Both assess glucose carried by a reused pipette creating a false Benedict positive.",
+      "automaticDailyRotationApproved": false,
+      "independentQualifiedApproval": false,
+      "disposition": "REWRITE_OR_ENFORCE_SHARED_SKILL_ROTATION_AFTER_TEACHER_REVIEW"
+    },
+    {
+      "candidateId": "bio-y8-food-tests-case-20261025-4-2",
+      "structuredPointOrdinal": 10,
+      "structuredPointId": "bio-y8-food-tests-water-bath-explain::p2",
+      "candidateStem": "A pupil proposes heating an ethanol-food mixture to make the emulsion form faster. Which correction is best?",
+      "structuredStem": "At what stage is heating needed in the ethanol emulsion test?",
+      "risk": "RELATED_SAFETY_AND_METHOD",
+      "scienceSkillOverlapReason": "Both reject heating ethanol in an emulsion test, though the revised candidate asks for a safe correction.",
+      "automaticDailyRotationApproved": false,
+      "independentQualifiedApproval": false,
+      "disposition": "REWRITE_OR_ENFORCE_SHARED_SKILL_ROTATION_AFTER_TEACHER_REVIEW"
+    },
+    {
+      "candidateId": "bio-y8-food-tests-case-20261025-4-3",
+      "structuredPointOrdinal": 79,
+      "structuredPointId": "bio-y8-food-tests-application-20261025-temperature-safety::p2",
+      "candidateStem": "For Benedict's test, why use a hot-water bath rather than heating the bottom of a test tube over a direct flame?",
+      "structuredStem": "How does surrounding the lower part of a tube with hot water help during heating?",
+      "risk": "HIGH_OVERLAP",
+      "scienceSkillOverlapReason": "Both ask why a water bath prevents local overheating compared with direct flame.",
+      "automaticDailyRotationApproved": false,
+      "independentQualifiedApproval": false,
+      "disposition": "REWRITE_OR_ENFORCE_SHARED_SKILL_ROTATION_AFTER_TEACHER_REVIEW"
+    },
+    {
+      "candidateId": "bio-y8-food-tests-case-20261025-4-4",
+      "structuredPointOrdinal": 38,
+      "structuredPointId": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p1",
+      "candidateStem": "A pupil needs to remove a tube after heating Benedict's reagent. Which action reduces burn risk?",
+      "structuredStem": "Why use a holder to lift a heated Benedict’s tube?",
+      "risk": "HIGH_OVERLAP",
+      "scienceSkillOverlapReason": "Both ask pupils to handle hot glass with a tube holder to prevent burns.",
+      "automaticDailyRotationApproved": false,
+      "independentQualifiedApproval": false,
+      "disposition": "REWRITE_OR_ENFORCE_SHARED_SKILL_ROTATION_AFTER_TEACHER_REVIEW"
+    },
+    {
+      "candidateId": "bio-y8-food-tests-case-20261025-4-5",
+      "structuredPointOrdinal": 39,
+      "structuredPointId": "bio-y8-food-tests-application-20261025-benedict-hot-tube::p2",
+      "candidateStem": "Which direction should the open end of a heated Benedict's test tube face?",
+      "structuredStem": "Why point the mouth of a heated test tube away from people?",
+      "risk": "HIGH_OVERLAP",
+      "scienceSkillOverlapReason": "Both ask why a heated test-tube opening must face away from people.",
+      "automaticDailyRotationApproved": false,
+      "independentQualifiedApproval": false,
+      "disposition": "REWRITE_OR_ENFORCE_SHARED_SKILL_ROTATION_AFTER_TEACHER_REVIEW"
+    },
+    {
+      "candidateId": "bio-y8-food-tests-case-20261025-4-6",
+      "structuredPointOrdinal": 37,
+      "structuredPointId": "bio-y8-food-tests-application-20261025-ethanol-ventilation::p2",
+      "candidateStem": "What PPE protects the eyes when working with Benedict's, Biuret and ethanol reagents?",
+      "structuredStem": "Which item protects the eyes against splashes when mixing ethanol and water?",
+      "risk": "HIGH_OVERLAP",
+      "scienceSkillOverlapReason": "Both assess wearing splash goggles for food-test reagent eye protection.",
+      "automaticDailyRotationApproved": false,
+      "independentQualifiedApproval": false,
+      "disposition": "REWRITE_OR_ENFORCE_SHARED_SKILL_ROTATION_AFTER_TEACHER_REVIEW"
+    },
+    {
+      "candidateId": "bio-y8-food-tests-case-20261025-4-7",
+      "structuredPointOrdinal": 70,
+      "structuredPointId": "bio-y8-food-tests-application-20261025-no-taste::p1",
+      "candidateStem": "An unknown food extract has just been tested with laboratory reagents. Why must it never be tasted?",
+      "structuredStem": "Why might even familiar-looking food be hazardous after use in a practical?",
+      "risk": "HIGH_OVERLAP",
+      "scienceSkillOverlapReason": "Both reject tasting a chemically tested food due to reagent contamination.",
+      "automaticDailyRotationApproved": false,
+      "independentQualifiedApproval": false,
+      "disposition": "REWRITE_OR_ENFORCE_SHARED_SKILL_ROTATION_AFTER_TEACHER_REVIEW"
+    },
+    {
+      "candidateId": "bio-y8-food-tests-case-20261025-4-8",
+      "structuredPointOrdinal": 67,
+      "structuredPointId": "bio-y8-food-tests-application-20261025-eyes::p2",
+      "candidateStem": "How should a pupil transfer reagent into a tube during a food-test practical?",
+      "structuredStem": "Which way of dispensing reagent reduces the chance of a splash?",
+      "risk": "RELATED_PIPETTING_SAFETY",
+      "scienceSkillOverlapReason": "Both concern safer reagent delivery, although one tests avoiding mouth pipetting and the other wall-directed dispensing.",
+      "automaticDailyRotationApproved": false,
+      "independentQualifiedApproval": false,
+      "disposition": "REWRITE_OR_ENFORCE_SHARED_SKILL_ROTATION_AFTER_TEACHER_REVIEW"
+    },
+    {
+      "candidateId": "bio-y8-food-tests-case-20261025-4-13",
+      "structuredPointOrdinal": 74,
+      "structuredPointId": "bio-y8-food-tests-application-20261025-inference::p1",
+      "candidateStem": "A snack tests positive for protein and reducing sugar. Why is this insufficient to conclude that including it automatically makes someone's diet balanced?",
+      "structuredStem": "Why do positive protein and reducing-sugar tests fall short of evaluating the nutritional balance of a snack?",
+      "risk": "HIGH_OVERLAP",
+      "scienceSkillOverlapReason": "Both challenge judging nutritional balance merely from the presence of protein and reducing sugar.",
+      "automaticDailyRotationApproved": false,
+      "independentQualifiedApproval": false,
+      "disposition": "REWRITE_OR_ENFORCE_SHARED_SKILL_ROTATION_AFTER_TEACHER_REVIEW"
+    },
+    {
+      "candidateId": "bio-y8-food-tests-case-20261025-2-14",
+      "structuredPointOrdinal": 21,
+      "structuredPointId": "bio-y8-food-tests-application-20261025-benedict-no-heat::p2",
+      "candidateStem": "A pupil heats a Benedict's tube for much less time than the working glucose control and it stays blue. Which conclusion is justified?",
+      "structuredStem": "Why is a blue result from an unheated Benedict’s test inconclusive?",
+      "risk": "RELATED_BENEDICT_HEATING",
+      "scienceSkillOverlapReason": "Both challenge interpreting a blue Benedict result under inadequate heating; one specifies shortened heating vs a working control.",
+      "automaticDailyRotationApproved": false,
+      "independentQualifiedApproval": false,
+      "disposition": "REWRITE_OR_ENFORCE_SHARED_SKILL_ROTATION_AFTER_TEACHER_REVIEW"
+    }
+  ],
+  "limitations": [
+    "An identical skill can be phrased differently; lexical uniqueness does not establish unique mastery evidence.",
+    "Not every conceptual similarity is a duplicate; grouped related subskills may merit separate marks after teacher review.",
+    "No Daily selection, Mastery, MP, science source bank or learner history was changed.",
+    "All question-level and option-level academic approvals remain zero."
+  ]
+}
