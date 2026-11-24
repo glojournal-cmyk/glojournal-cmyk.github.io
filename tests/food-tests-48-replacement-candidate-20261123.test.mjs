@@ -154,3 +154,45 @@ test('ethanol test wording distinguishes a specified two-stage method from unive
  assert.equal(safety.correctIndex,0);
  assert.equal(safety.formalCreditEligible,false);
 });
+
+test('26 cross-pool scientific skill overlap cases cannot claim separate Daily Mastery evidence',()=>{
+ const reg=read('qa/food-tests-48-vs-99-skill-overlap-20261124.json');
+ const structured=read('qa/food-tests-structured-99-point-review-candidate-20261122.json');
+ const preview=read('qa/food-tests-143-revised-preview-20261123.json');
+ const points=structured.items.flatMap(x=>x.parts);
+ const lookup=new Map(replacements.map(x=>[x.sourceId,x]));
+ const previewById=new Map(preview.questions.map(x=>[x.id,x]));
+ assert.equal(reg.scope.replacementMCQs,48);
+ assert.equal(reg.scope.structuredPoints,99);
+ assert.equal(reg.scope.provisionallyOverlappingReplacementQuestions,26);
+ assert.equal(reg.scope.distinctStructuredPointIndicesFlagged,45);
+ assert.equal(reg.scope.notYetClassifiedReplacements,22);
+ assert.equal(reg.overlapRows.length,26);
+ assert.equal(reg.remainingReplacementIDs.length,22);
+ assert.equal(reg.allowedToModifyDailySelector,false);
+ assert.equal(reg.scope.approved,0);
+ assert.equal(reg.releases,'BLOCKED');
+ assert.equal(new Set(reg.overlapRows.map(x=>x.replacementId)).size,26);
+ assert.equal(new Set(reg.overlapRows.flatMap(x=>x.sourcePointIndices)).size,45);
+ for(const row of reg.overlapRows){
+  const original=lookup.get(row.replacementId);
+  const pv=previewById.get(row.replacementId);
+  assert.ok(original,row.replacementId);
+  assert.ok(pv,row.replacementId);
+  assert.equal(row.replacementPrompt,original.prompt);
+  assert.equal(row.dailyConceptGroup,null);
+  assert.equal(pv.dailyConceptGroup,null);
+  assert.equal(row.previewMappingStatus,'PENDING_NEW_SKILL_GROUP_REVIEW');
+  assert.equal(pv.reviewDraft.dailyConceptMappingStatus,'PENDING_NEW_SKILL_GROUP_REVIEW');
+  assert.equal(row.formalCreditEligible,false);
+  assert.equal(row.qualifiedIndependentSignoff,false);
+  assert.equal(original.approved,false);
+  assert.equal(original.formalCreditEligible,false);
+  assert.deepEqual(row.sourcePointIds,row.sourcePointIndices.map(n=>points[n-1].pointId));
+  assert.deepEqual(row.sourcePointConcepts,row.sourcePointIndices.map(n=>points[n-1].concept));
+  assert.ok(row.sourcePointIndices.every(n=>points[n-1].approved===false));
+ }
+ for(const id of reg.remainingReplacementIDs)assert.ok(lookup.has(id));
+ assert.equal(draft.approved,0);
+ assert.equal(structured.approved,0);
+});
