@@ -29,7 +29,7 @@ expect(wrongAgain.due===kS(today,2)&&wrongAgain.streak===1,"A later error must r
 expect(core.includes("repair=!!a?.repair"),"recordAttempt must read the repair flag",{});
 expect(core.includes("practice_repair_correct"),"Correct repair must use the repair award path",{});
 expect(core.includes("repairs:{attempted:"),"Topic stats must track repairs separately",{});
-expect(quiz.includes("n.ok&&!Y._repair&&Y.formal!==!1"),"Repair questions must not inflate the formal session score",{});
+expect(quiz.includes("const formalOk=!qaHeld&&n.ok;")&&quiz.includes("formalOk&&!Y._repair&&Y.formal!==!1&&se(e=>e+1)"),"Repair questions must not inflate the formal session score",{});
 expect(quiz.includes("repair:!!Y._repair"),"Quiz session must pass repair metadata to recordAttempt",{});
 
 const summary={today,wrong,repaired,reinforced,wrongAgain,failures:failures.length};
