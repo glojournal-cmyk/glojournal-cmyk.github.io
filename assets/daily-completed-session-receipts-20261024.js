@@ -99,6 +99,8 @@ async function all(){
 }
 function sanitized(source,task){
   if(!source||!task||!Array.isArray(source.questions)||!Array.isArray(source.answers))return null;
+  // An assigned held topic cannot persist fresh receipts even with stale or missing question metadata.
+  if(isFoodTestsQaHeld({topicId:task.assignedTopic}))return null;
   // Fail closed before dropping sourceId/pointId in a compact Safari receipt.
   if(source.questions.some(q=>isFoodTestsQaHeld(q))||
      source.answers.some(a=>isFoodTestsQaHeld(a)))return null;
