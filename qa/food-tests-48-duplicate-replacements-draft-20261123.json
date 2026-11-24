@@ -209,7 +209,7 @@
       "originalSourceAnswer": "starch, lipid",
       "format": "mc_single",
       "topicId": "bio-y8-food-tests",
-      "prompt": "A seed's ethanol extract is already cloudy before it is added to water. What does that observation establish?",
+      "prompt": "In a two-stage ethanol-then-water emulsion test, a seed's ethanol extract is already cloudy before it is added to water. What does that observation establish?",
       "options": [
         "A cloudy ethanol extract alone is sufficient because cloudiness is always a positive emulsion endpoint.",
         "Adding water is unnecessary if the ethanol extract does not look completely transparent.",
@@ -592,7 +592,7 @@
       "originalSourceAnswer": "protein, lipid",
       "format": "mc_single",
       "topicId": "bio-y8-food-tests",
-      "prompt": "One Benedict's tube is heated for 30 seconds and another for five minutes. What should the pupil change for a fair test?",
+      "prompt": "Two equal-volume food extracts are compared using the final colour after five minutes in the same Benedict's water bath. One tube was removed after 30 seconds and the other after five minutes. What should the pupil change for a fair comparison of final colours?",
       "options": [
         "Record the two heating durations and compare the final colours without adjustment.",
         "Add extra Benedict's solution to the shorter-heated tube to compensate for less heating.",
@@ -607,7 +607,7 @@
         "totalMarks": 1
       },
       "correctIndex": 2,
-      "scienceRationale": "Reaction duration affects the observed Benedict's colour.",
+      "scienceRationale": "For a comparison of final Benedict's colours after a fixed period, both extracts must receive the same water-bath heating time, alongside other matched conditions.",
       "academicReview": "pending",
       "distractorReview": "pending",
       "approved": false,
@@ -859,7 +859,7 @@
       "originalSourceAnswer": "starch, reducing sugar",
       "format": "mc_single",
       "topicId": "bio-y8-food-tests",
-      "prompt": "Which sample can serve as a positive lipid control for the ethanol emulsion method?",
+      "prompt": "For a two-stage ethanol-extraction-then-water emulsion test, which material can serve as a positive lipid control?",
       "options": [
         "Use a known glucose solution with the same ethanol-then-water steps.",
         "A small known vegetable-oil sample extracted with ethanol and then added to water.",
@@ -1007,7 +1007,7 @@
       "topicId": "bio-y8-food-tests",
       "prompt": "A pupil proposes heating an ethanol-food mixture to make the emulsion form faster. Which correction is best?",
       "options": [
-        "Do not heat the ethanol; shake with food, then add the clear extract to water.",
+        "Do not heat ethanol; follow the instructed ethanol-and-water emulsion method away from ignition sources.",
         "Warming ethanol gently in an open tube is needed before water can produce an emulsion.",
         "Add water first and then heat the ethanol-water mixture to obtain a stronger white emulsion.",
         "Replace ethanol with hot water because the same lipid test result will form."
@@ -1015,12 +1015,12 @@
       "answer": {
         "mode": "choice",
         "accepted": [
-          "Do not heat the ethanol; shake with food, then add the clear extract to water."
+          "Do not heat ethanol; follow the instructed ethanol-and-water emulsion method away from ignition sources."
         ],
         "totalMarks": 1
       },
       "correctIndex": 0,
-      "scienceRationale": "No heating of ethanol is required; avoid fire risk.",
+      "scienceRationale": "Ethanol is highly flammable and should not be heated or handled near an ignition source. The order in a valid emulsion-test protocol must follow the method taught; AQA's practical handbook and the two-stage ethanol-extract method differ in the order of water and ethanol.",
       "academicReview": "pending",
       "distractorReview": "pending",
       "approved": false,
@@ -1357,7 +1357,7 @@
       "originalSourceAnswer": "reducing sugar",
       "format": "mc_single",
       "topicId": "bio-y8-food-tests",
-      "prompt": "A pupil compares lipid-test cloudiness from two seed extracts prepared in the same way. One clear ethanol extract is added to 2 mL of water and the other to 10 mL. Which criticism is most valid?",
+      "prompt": "Using a two-stage ethanol-then-water emulsion test, a pupil compares lipid-test cloudiness from two seed extracts prepared in the same way. One clear ethanol extract is added to 2 mL of water and the other to 10 mL. Which criticism is most valid?",
       "options": [
         "Different dilution volumes can affect cloudiness; use equal measured volumes of extract and water before comparing.",
         "The cloudier emulsion proves twice as much lipid in the original seed, regardless of dilution.",
