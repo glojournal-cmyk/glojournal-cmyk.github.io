@@ -19,7 +19,9 @@
     "matchingSourceQuestions": 3,
     "matchingSciencePairMapsPass": 3,
     "matchingPairsChecked": 12,
-    "independentQualifiedApproved": 0
+    "independentQualifiedApproved": 0,
+    "matchingScoringItemsDirectlyVerified": 3,
+    "bothBundlesIndividualScoringCasesVerified": 30
   },
   "crossSkillConcerns": "Nine typed_exact recall items duplicate the nine recall MCQ skills. Do not count typed and multiple-choice evidence as two independent Mastery concepts without independent skill mapping.",
   "scientificCaution": "A negative iodine observation supports 'starch was not detected in the tested sample under these conditions'; cannot establish metaphysical total absence. Four current school-style accepted alternatives use categorical 'absent/is not present' and must be adjudicated against intended marking standard.",
@@ -446,7 +448,7 @@
       ],
       "numberOfIndependentlyEarnedPairs": 4,
       "sciencePairMappingVerdict": "AI_CONTENT_SCIENCE_PASS_4_OF_4_PAIRINGS",
-      "knownScoringEvidence": "MATCHING_SCORER_MUST_BE_VERIFIED_ON_THIS_SOURCE_ID",
+      "knownScoringEvidence": "BOTH_REAL_QUIZ_BUNDLE_SCORERS_VERIFIED_0_TO_4_PAIRWISE_MARKS",
       "methodsScope": "TWO_STAGE_EMULSION_METHOD__TGS_SCHOOL_COVERAGE_NOT_CONFIRMED",
       "independentQualifiedApproval": false,
       "pairwiseScoringReleaseApproved": false,
@@ -475,7 +477,7 @@
       ],
       "numberOfIndependentlyEarnedPairs": 4,
       "sciencePairMappingVerdict": "AI_CONTENT_SCIENCE_PASS_4_OF_4_PAIRINGS",
-      "knownScoringEvidence": "MATCHING_SCORER_MUST_BE_VERIFIED_ON_THIS_SOURCE_ID",
+      "knownScoringEvidence": "BOTH_REAL_QUIZ_BUNDLE_SCORERS_VERIFIED_0_TO_4_PAIRWISE_MARKS",
       "methodsScope": "SCHOOL_FOOD_TEST_COLOURS__TGS_SCHOOL_COVERAGE_NOT_CONFIRMED",
       "independentQualifiedApproval": false,
       "pairwiseScoringReleaseApproved": false,
@@ -504,11 +506,12 @@
       ],
       "numberOfIndependentlyEarnedPairs": 4,
       "sciencePairMappingVerdict": "AI_CONTENT_SCIENCE_PASS_4_OF_4_PAIRINGS",
-      "knownScoringEvidence": "0_TO_4_SCORE_VERIFIED_IN_BOTH_QUIZ_BUNDLES",
+      "knownScoringEvidence": "BOTH_REAL_QUIZ_BUNDLE_SCORERS_VERIFIED_0_TO_4_PAIRWISE_MARKS",
       "methodsScope": "TWO_STAGE_EMULSION_METHOD__TGS_SCHOOL_COVERAGE_NOT_CONFIRMED",
       "independentQualifiedApproval": false,
       "pairwiseScoringReleaseApproved": false,
       "formalCreditEligible": false
     }
-  ]
+  ],
+  "matchingScoringDirectEvidence": "Direct execution of actual quiz-session-y8fix-20260920.js and quiz-session-rWAnuDVj.js B(e,t,n,r), 3 source matching items × 5 scores (0-4) × 2 bundles = 30 tests with 0 mismatches."
 }
