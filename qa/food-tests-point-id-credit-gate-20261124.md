@@ -45,3 +45,19 @@ A second QA-branch test reproduced an actual in-memory scoring state mutation (n
 Added regression assertions to `tests/food-tests-qa-credit-hold-20261122.test.mjs` so CI must check all 99 point identifiers, 52 candidate group sources and both fabricated wrapper bypasses. This demonstrates a **potential future import/routing credit vulnerability** identified using fabricated data, **not evidence any real pupil's stored points had changed**.
 
 Approval remains 0/143 source and 0/99 candidate. All score/release gates remain BLOCKED, PR #308 Draft; no merge, deployment or history rewrite.
+
+
+## Additional confirmed Daily reconciliation bypasses — 24 November 2026
+
+A targeted adversarial check found that an archived formal answer event could use an unrelated `questionId:'display-wrapper-id'` with a held Food Tests `sourceId:'bio-y8-app-ethanol-safety'` and a different assigned Biology topic. The previous Daily journal reconciliation checked `isFoodTestsQaHeld(event.questionId)` and **in the fabricated state increased progress from 0/10 to 1/10**.
+
+A second fabricated case exposed the same risk on the fresh submitted-answer path: a generic question `id:'display-wrapper-id'` accompanied by an answer with held Food Tests `sourceId` was treated as a verified slot and increased progress **0/10 → 1/10**.
+
+**Corrections (QA branch only):**
+- `assets/daily-session-credit-20261021.js` checks the **entire answer object** inside `verifiedQuizSlots` and before Daily session answer verification, plus in its later correct-answer aggregation.
+- The same module checks the **entire journal event object** in `formalAttemptLog` instead of considering only `event.questionId`.
+- The full ID gate recognises `id`, `questionId`, `pointId`, `sourceId` and held `sourceId::pN` identifiers.
+
+**Retested** against the actual GitHub Daily code with 99 held structured points wrapped as different-topic answers and journal events: no verified slots, no change in daily progress, and no modification to the original task. As a negative control, an unrelated Biology answer correctly increased progress. Also added the complete source-linked 99-case-per-path regression into `tests/food-tests-qa-credit-hold-20261122.test.mjs`.
+
+**Classification:** Confirmed *synthetic-data credit-path weakness*, not evidence of real student misuse, live app release, or stored learner marks changing. The fixes are in **unmerged Draft QA PR #308** only. They are required for future candidate imports but do not approve the science, questions, Daily mappings, or PWA player. Formal Academic Approval remains **0/143** original sources and **0/99** candidate points.
