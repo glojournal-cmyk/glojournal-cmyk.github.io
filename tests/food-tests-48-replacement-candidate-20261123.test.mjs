@@ -196,3 +196,25 @@ test('26 cross-pool scientific skill overlap cases cannot claim separate Daily M
  assert.equal(draft.approved,0);
  assert.equal(structured.approved,0);
 });
+
+
+test('all 64 original four-test result rows agree with four reagent signals, but remain academically held',()=>{
+ const positive=['starch','reducing sugar','protein','lipid'];
+ const seen=new Map();
+ for(const q of cases){
+  const signals=[
+   /iodine blue-black/.test(q.prompt),
+   /heated Benedict's green \/ yellow \/ orange \/ brick-red/.test(q.prompt),
+   /Biuret lilac \/ purple/.test(q.prompt),
+   /ethanol emulsion test cloudy white emulsion/.test(q.prompt)
+  ];
+  const expected=positive.filter((_,i)=>signals[i]).join(', ')||'none of these four nutrients';
+  assert.equal(q.answer.accepted[0],expected,q.id);
+  const pattern=signals.map(Number).join('');
+  seen.set(pattern,(seen.get(pattern)||0)+1);
+ }
+ assert.equal(seen.size,16);
+ assert.ok([...seen.values()].every(n=>n===4));
+ assert.equal(draft.approved,0);
+ assert.equal(draft.formalCreditEligible,false);
+});
