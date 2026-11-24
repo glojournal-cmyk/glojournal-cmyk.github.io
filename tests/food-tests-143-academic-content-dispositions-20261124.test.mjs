@@ -32,6 +32,12 @@ test('every one of 143 original Food Tests question IDs has an actual content QA
   assert.equal(x.format,q.format);
   assert.ok(allowed.has(x.originalContentDisposition));
   assert.equal(x.aiAcademicContentReviewCompleted,true);
+  const authoritative=qa.reviewRegister[i];
+  assert.equal(authoritative.questionId,x.sourceId);
+  assert.equal(authoritative.aiAcademicContentDisposition,x.originalContentDisposition);
+  assert.equal(authoritative.aiAcademicContentEvidence,x.scienceQaEvidence);
+  assert.equal(authoritative.aiAcademicContentAssessed,true);
+  assert.equal(authoritative.teacherIndependentContentApproved,false);
   assert.ok(rollup.sourceEvidence.includes(x.scienceQaEvidence));
   assert.equal(x.independentQualifiedAcademicApproved,false);
   assert.equal(x.tgsYear8CurriculumApproved,false);
@@ -53,4 +59,7 @@ test('AI-approved original science content cannot be silently promoted to indepe
  assert.ok(revised.filter(x=>x.sourceId.includes('-case-20261025-1-')).length===16);
  assert.equal(rollup.qualityGates.originalSourceReleaseReady,false);
  assert.equal(rollup.qualityGates.realIpadPwa,false);
+ assert.equal(qa.summary.aiSource143SecondPassDispositions.aiSourceQuestionDispositionCompleted,143);
+ assert.equal(qa.summary.aiSource143SecondPassDispositions.SOURCE_CONTENT_PASS,25);
+ assert.equal(qa.summary.aiSource143SecondPassDispositions.qualifiedIndependentAcademicApproved,0);
 });
