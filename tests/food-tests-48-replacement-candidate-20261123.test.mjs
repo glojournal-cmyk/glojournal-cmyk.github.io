@@ -155,7 +155,7 @@ test('ethanol test wording distinguishes a specified two-stage method from unive
  assert.equal(safety.formalCreditEligible,false);
 });
 
-test('26 cross-pool scientific skill overlap cases cannot claim separate Daily Mastery evidence',()=>{
+test('27 cross-pool scientific skill overlap cases cannot claim separate Daily Mastery evidence',()=>{
  const reg=read('qa/food-tests-48-vs-99-skill-overlap-20261124.json');
  const structured=read('qa/food-tests-structured-99-point-review-candidate-20261122.json');
  const preview=read('qa/food-tests-143-revised-preview-20261123.json');
@@ -164,16 +164,16 @@ test('26 cross-pool scientific skill overlap cases cannot claim separate Daily M
  const previewById=new Map(preview.questions.map(x=>[x.id,x]));
  assert.equal(reg.scope.replacementMCQs,48);
  assert.equal(reg.scope.structuredPoints,99);
- assert.equal(reg.scope.provisionallyOverlappingReplacementQuestions,26);
- assert.equal(reg.scope.distinctStructuredPointIndicesFlagged,45);
- assert.equal(reg.scope.notYetClassifiedReplacements,22);
- assert.equal(reg.overlapRows.length,26);
- assert.equal(reg.remainingReplacementIDs.length,22);
+ assert.equal(reg.scope.provisionallyOverlappingReplacementQuestions,27);
+ assert.equal(reg.scope.distinctStructuredPointIndicesFlagged,47);
+ assert.equal(reg.scope.notYetClassifiedReplacements,21);
+ assert.equal(reg.overlapRows.length,27);
+ assert.equal(reg.remainingReplacementIDs.length,21);
  assert.equal(reg.allowedToModifyDailySelector,false);
  assert.equal(reg.scope.approved,0);
  assert.equal(reg.releases,'BLOCKED');
- assert.equal(new Set(reg.overlapRows.map(x=>x.replacementId)).size,26);
- assert.equal(new Set(reg.overlapRows.flatMap(x=>x.sourcePointIndices)).size,45);
+ assert.equal(new Set(reg.overlapRows.map(x=>x.replacementId)).size,27);
+ assert.equal(new Set(reg.overlapRows.flatMap(x=>x.sourcePointIndices)).size,47);
  for(const row of reg.overlapRows){
   const original=lookup.get(row.replacementId);
   const pv=previewById.get(row.replacementId);
@@ -262,4 +262,25 @@ test('cross-pool concept-overlap ledger names real candidate IDs and structured 
  }
  assert.ok(!ledger.issues.some(x=>x.candidateId.endsWith('-4-1')));
  assert.equal(ledger.resolvedCandidateRewrites.length,3);
+});
+
+test('broad 27-replacement register includes all 17 stricter second-pass pairs without overclaiming uniqueness',()=>{
+ const broad=read('qa/food-tests-48-vs-99-skill-overlap-20261124.json');
+ const specific=read('qa/food-tests-48x99-cross-pool-skill-overlap-second-pass-20261124.json');
+ const mapped=new Map(broad.overlapRows.map(row=>[row.replacementId,new Set(row.sourcePointIndices)]));
+ assert.equal(broad.reconciliation.reconciliationStatus,'ALL_17_SECOND_PASS_PAIRS_INCLUDED_IN_BROAD_REGISTER');
+ assert.equal(specific.issues.length,17);
+ assert.equal(specific.issues.filter(i=>i.risk==='HIGH_OVERLAP').length,13);
+ for(const issue of specific.issues){
+  assert.ok(mapped.get(issue.candidateId)?.has(issue.structuredPointOrdinal),
+   'missing explicit second-pass skill overlap: '+issue.candidateId+' / '+issue.structuredPointOrdinal);
+ }
+ assert.ok(mapped.get('bio-y8-food-tests-case-20261025-3-6')?.has(76));
+ assert.ok(mapped.get('bio-y8-food-tests-case-20261025-4-8')?.has(67));
+ assert.equal(broad.overlapRows.find(r=>r.replacementId.endsWith('-4-8')).classification,
+  'PROVISIONAL_RELATED_NOT_IDENTICAL_SAFETY_PROCEDURE');
+ assert.equal(broad.scope.provisionallyOverlappingReplacementQuestions,27);
+ assert.equal(broad.scope.notYetClassifiedReplacements,21);
+ assert.equal(broad.scope.approved,0);
+ assert.equal(specific.releaseApproval,'BLOCKED');
 });
