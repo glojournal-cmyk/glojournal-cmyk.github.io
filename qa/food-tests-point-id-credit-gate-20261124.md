@@ -29,3 +29,19 @@ The structured concept-choice scorer independently returns `formalCreditEligible
 A separate direct execution of the exact updated GitHub hold-module logic against the current source and structured candidate JSON performed **448 candidate credit-gate checks: 448 passed / 0 escaped**, with all 143 original bank IDs present and unrelated Maths sample allowed. This is source-bound unit-level evidence, not a claim of an actual iPad PWA or end-to-end Daily Tasks acceptance. GitHub Actions must still complete on this head; independent Academic QA of sole keys/distractors, TGS taught-scope review and real iPad acceptance remain outstanding.
 
 **No question IDs, options, answers, school progress, learner history or live `main` were changed. No PR merge or deployment.**
+
+## Additional confirmed wrapped-Mastery bypass — 24 November 2026
+
+A second QA-branch test reproduced an actual in-memory scoring state mutation (not a production student record change). Given a fabricated wrapper submission with `questionId:'display-wrapper-id'`, `sourceId:'bio-y8-app-ethanol-safety'`, `formal:true` and `correct:true`, the *old* `addMasteryEvidence` returned a state with **one new attempt** because it checked only `isFoodTestsQaHeld(entry.questionId)`, ignoring the held source ID on the entry itself.
+
+**QA-only remediation:** `assets/mastery-v2-20261018.js` now calls `isFoodTestsQaHeld(entry)` to check all ID forms. The hold gate also checks each of `id`, `questionId`, `sourceId` and `pointId` independently so even an unrelated wrapper identifier cannot mask the held original. This retains the existing guard for unrelated subjects.
+
+**Direct actual-code checks** from current GitHub files, separate from a real iPad:
+- All **99** structured source point IDs as regular submissions: no Mastery credit.
+- All **99** point IDs as *wrapped entries with unrelated question IDs*: no Mastery attempts (99/99).
+- Wrapper object carrying held `sourceId` or held `pointId` as the question in `verifiedQuizSlots`: no Daily credit.
+- Unrelated biology/Mastery and unrelated Daily identifiers still follow their normal paths, rather than being globally blocked.
+
+Added regression assertions to `tests/food-tests-qa-credit-hold-20261122.test.mjs` so CI must check all 99 point identifiers, 52 candidate group sources and both fabricated wrapper bypasses. This demonstrates a **potential future import/routing credit vulnerability** identified using fabricated data, **not evidence any real pupil's stored points had changed**.
+
+Approval remains 0/143 source and 0/99 candidate. All score/release gates remain BLOCKED, PR #308 Draft; no merge, deployment or history rewrite.
