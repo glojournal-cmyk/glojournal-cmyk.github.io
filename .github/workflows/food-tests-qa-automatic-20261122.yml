@@ -81,6 +81,9 @@ jobs:
       - name: Verify held candidate curriculum, store, reward and receipt ingress
         if: always()
         run: node --test tests/food-tests-consolidated-credit-ingress-20261124.test.mjs
+      - name: Verify 93 main-to-QA question differences and preserve held candidate corrections
+        if: always()
+        run: node --test tests/food-tests-main-reconciliation-20261124.test.mjs
       - name: Upload QA evidence
         if: always()
         uses: actions/upload-artifact@v4
