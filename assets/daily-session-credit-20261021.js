@@ -123,7 +123,7 @@ export function reconcileDailySession(state,receipt={}) {
     if(event?.day!==day||event?.dailyTaskId!==taskId||
        event?.subject!==subject||Number(event?.year)!==Number(year)||
        event?.correct!==true||event?.repair||event?.formal===false||
-       event?.recoveryFor||!event.questionId||isFoodTestsQaHeld(event.questionId))continue;
+       event?.recoveryFor||!event.questionId||isFoodTestsQaHeld(event))continue;
     if(event.topicId!==task.assignedTopic&&
        !(scienceTask&&event.topicId))continue;
     creditedIds.add(String(event.questionId));
@@ -161,7 +161,7 @@ export function reconcileDailySession(state,receipt={}) {
   }
   const sessionCorrect=new Set();
   for(const answer of answers||[]){
-    if(answer?.correct===true&&answer.questionId&&!answer.repair&&answer.formal!==false&&!isFoodTestsQaHeld(answer.questionId))
+    if(answer?.correct===true&&answer.questionId&&!answer.repair&&answer.formal!==false&&!isFoodTestsQaHeld(answer))
       sessionCorrect.add(String(answer.questionId));
   }
   const oldIds=trustedOldIds.map(String).filter(id=>id&&!isFoodTestsQaHeld(id));
