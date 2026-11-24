@@ -1,17 +1,17 @@
 {
   "kind": "Cross-pool Food Tests MCQ overlap: 48 replacement proposals vs 99 original long-answer mark-point MCQs",
-  "date": "2026-11-24",
-  "review": "AI_FIRST_PASS_CROSS_POOL_SEMANTIC_CLASSIFICATION_NOT_INDEPENDENT_APPROVAL",
+  "date": "2026-11-24 follow-up reconciliation of second-pass findings",
+  "review": "AI_FIRST_PASS_PLUS_17_PAIR_INDEPENDENT_WORKSTREAM_CROSSWALK__NOT_TEACHER_APPROVAL",
   "branch": "qa/p0-eligibility-2e556ff",
   "scope": {
     "replacementMCQs": 48,
     "structuredPoints": 99,
-    "provisionallyOverlappingReplacementQuestions": 26,
-    "distinctStructuredPointIndicesFlagged": 45,
-    "notYetClassifiedReplacements": 22,
+    "provisionallyOverlappingReplacementQuestions": 27,
+    "distinctStructuredPointIndicesFlagged": 47,
+    "notYetClassifiedReplacements": 21,
     "approved": 0
   },
-  "classificationMeaning": "May assess sufficiently similar evidence to require rotation. This is a provisional risk flag; overlapping items need not be intrinsically wrong or duplicates. The remaining 22 are not certified unique.",
+  "classificationMeaning": "Broad provisional possible-skill overlap: 27 replacement rows / 47 distinct structured points. The separate stricter 17 specific candidate-point pairs represent 13 high-overlap and 4 related cases. Neither count is an academic signoff, and a general science-family relation must not automatically remove marks.",
   "releases": "BLOCKED",
   "allowedToModifyDailySelector": false,
   "caveats": [
@@ -297,19 +297,22 @@
       "replacementPrompt": "A food gives a faint starch colour in one iodine trial. Which design best tests repeatability?",
       "sourcePointIndices": [
         18,
-        19
+        19,
+        76
       ],
       "sourcePointIds": [
         "bio-y8-food-tests-application-20261025-iodine-repeat::p1",
-        "bio-y8-food-tests-application-20261025-iodine-repeat::p2"
+        "bio-y8-food-tests-application-20261025-iodine-repeat::p2",
+        "bio-y8-food-tests-application-20261025-weak-blueblack::p1"
       ],
       "sourcePointConcepts": [
         "repeat the tests using fresh samples",
-        "use the same measured volume of sample and iodine"
+        "use the same measured volume of sample and iodine",
+        "repeat the test with a clean sample or equipment"
       ],
       "overlapSkill": "IODINE_REPEATS",
       "classification": "PROVISIONAL_CROSS_POOL_SIMILAR_KNOWLEDGE_OR_PROCEDURE",
-      "rationale": "The replacement question exercises the same observation, procedural variable or laboratory-safety decision as the listed proposed 99-point question(s); separate Daily mastery evidence may therefore double-count the same skill.",
+      "rationale": "Two points assess fresh repeat testing of uncertain iodine colour, while an additional point concerns consistent sample/reagent amounts. The second-pass independently flagged #76 as a more direct reproducibility overlap; this is a provisional mastery-rotation risk.",
       "dailyConceptGroup": null,
       "previewMappingStatus": "PENDING_NEW_SKILL_GROUP_REVIEW",
       "qualifiedIndependentSignoff": false,
@@ -601,6 +604,26 @@
       "previewMappingStatus": "PENDING_NEW_SKILL_GROUP_REVIEW",
       "qualifiedIndependentSignoff": false,
       "formalCreditEligible": false
+    },
+    {
+      "replacementId": "bio-y8-food-tests-case-20261025-4-8",
+      "replacementPrompt": "How should a pupil transfer reagent into a tube during a food-test practical?",
+      "sourcePointIndices": [
+        67
+      ],
+      "sourcePointIds": [
+        "bio-y8-food-tests-application-20261025-eyes::p2"
+      ],
+      "sourcePointConcepts": [
+        "careful handling or pipetting reduces splashes"
+      ],
+      "overlapSkill": "RELATED_PIPETTING_SAFETY_SUBSKILL",
+      "classification": "PROVISIONAL_RELATED_NOT_IDENTICAL_SAFETY_PROCEDURE",
+      "rationale": "F4-08 asks which transfer tool must avoid mouth suction; structured #67 asks about gentle close-to-the-wall dispensing to avoid splashing. Both are reagent-transfer safety, but they are distinct actions rather than a proven duplicate.",
+      "dailyConceptGroup": null,
+      "previewMappingStatus": "PENDING_NEW_SKILL_GROUP_REVIEW",
+      "qualifiedIndependentSignoff": false,
+      "formalCreditEligible": false
     }
   ],
   "remainingReplacementIDs": [
@@ -620,11 +643,28 @@
     "bio-y8-food-tests-case-20261025-3-12",
     "bio-y8-food-tests-case-20261025-3-13",
     "bio-y8-food-tests-case-20261025-3-14",
-    "bio-y8-food-tests-case-20261025-4-8",
     "bio-y8-food-tests-case-20261025-4-9",
     "bio-y8-food-tests-case-20261025-4-11",
     "bio-y8-food-tests-case-20261025-4-14",
     "bio-y8-food-tests-case-20261025-4-15",
     "bio-y8-food-tests-case-20261025-4-16"
-  ]
+  ],
+  "reconciliation": {
+    "source": "qa/food-tests-48x99-cross-pool-skill-overlap-second-pass-20261124.json",
+    "secondPassFlaggedPairs": 17,
+    "newlyReconciledPairs": [
+      {
+        "replacementId": "bio-y8-food-tests-case-20261025-3-6",
+        "pointIndex": 76,
+        "reason": "iodine reproducibility"
+      },
+      {
+        "replacementId": "bio-y8-food-tests-case-20261025-4-8",
+        "pointIndex": 67,
+        "reason": "related pipetting-safety subskill, not identical"
+      }
+    ],
+    "reconciliationStatus": "ALL_17_SECOND_PASS_PAIRS_INCLUDED_IN_BROAD_REGISTER",
+    "independentAcademicSignoff": false
+  }
 }
