@@ -21,47 +21,47 @@
       "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-001-REVIEW-2",
       "topicId": "math-y9-indices",
       "provisionalConceptFamily": "perfect-power-two-prime-constraints",
-      "stem": "For integers $0\\le n\\le12$, let $N=2^{n+2}3^{2n+1}$. Find the sum of all n for which N is a perfect cube.",
+      "stem": "For integers $0\\le n\\le12$, let $N=2^{n+2}3^{2n+1}$. Find the sum of all n for which N is a perfect cube and $N/3$ is a perfect square.",
       "options": [
         {
           "id": "A",
-          "latex": "12",
-          "errorPath": "Omit the largest allowed value 10."
+          "latex": "22",
+          "errorPath": "Apply only the cube condition: n=1,4,7,10."
         },
         {
           "id": "B",
-          "latex": "22"
+          "latex": "14"
         },
         {
           "id": "C",
-          "latex": "21",
-          "errorPath": "Omit the smallest allowed value 1."
+          "latex": "42",
+          "errorPath": "Apply only the square condition to N/3: all even n from 0 to 12."
         },
         {
           "id": "D",
-          "latex": "7",
-          "errorPath": "Keep only n=7."
+          "latex": "10",
+          "errorPath": "Keep only the larger valid n."
         },
         {
           "id": "E",
           "latex": "4",
-          "errorPath": "Report the count rather than the sum."
+          "errorPath": "Keep only the smaller valid n."
         },
         {
           "id": "F",
-          "latex": "78",
-          "errorPath": "Sum every integer 0 through 12 without applying either exponent condition."
+          "latex": "2",
+          "errorPath": "Report the count of valid integers, not their sum."
         }
       ],
       "correctOptionId": "B",
-      "correctAnswerLatex": "22",
+      "correctAnswerLatex": "14",
       "workedSolutionSteps": [
-        "Both prime exponents must be multiples of 3.",
-        "n+2 divisible by 3 gives n=1,4,7,10; for these 2n+1=3,9,15,21, all divisible by 3.",
-        "The sum is 22."
+        "For N to be a cube, n+2 and 2n+1 must both be divisible by 3. This gives n=1,4,7,10.",
+        "The prime exponents in N/3 are n+2 and 2n. Both must be even, so n must be even.",
+        "The intersection is n=4,10, and their sum is 14."
       ],
       "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
-      "unverifiedTaughtSubskill": "Prime factorisation and simultaneous divisibility conditions.",
+      "unverifiedTaughtSubskill": "Prime factorisation, distinct perfect-power constraints and intersection of integer solution sets.",
       "academicQA": "pending",
       "dailyEligible": false,
       "masteryEligible": false,
@@ -95,7 +95,7 @@
         {
           "id": "D",
           "latex": "3",
-          "errorPath": "Use 16=2^8, giving 16/3<n<8, and then incorrectly include the equality endpoint n=8."
+          "errorPath": "Use 16=2^8 and include the upper equality endpoint, producing n=6,7,8."
         },
         {
           "id": "E",
@@ -736,47 +736,47 @@
       "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-024-REVIEW-2",
       "topicId": "math-y9-indices",
       "provisionalConceptFamily": "negative-exponent-ordering",
-      "stem": "For $0<x<1$, which is the greatest of the following expressions?",
+      "stem": "For $0<x<1$, which expression has the greatest value?",
       "options": [
         {
           "id": "A",
-          "latex": "x^3",
-          "errorPath": "Assume the largest exponent gives the largest value, as it would for x>1."
+          "latex": "x^{-3}/x^{-1/2}",
+          "errorPath": "This simplifies to exponent -5/2; confusing division of negative powers may suggest it is largest."
         },
         {
           "id": "B",
-          "latex": "x^{-1}",
-          "errorPath": "Use a negative power but miss the greater reciprocal power."
+          "latex": "x^{-4}x^{5/4}",
+          "errorPath": "This simplifies to exponent -11/4, which is greater than -3; ignoring the positive factor can wrongly suggest exponent -4."
         },
         {
           "id": "C",
-          "latex": "x^{-3}"
+          "latex": "(x^{-2})^{3/2}"
         },
         {
           "id": "D",
-          "latex": "1",
-          "errorPath": "Assume zero exponent gives the maximum."
+          "latex": "x^{-1}/x^{3/4}",
+          "errorPath": "This has exponent -7/4; it is less than x^{-3}."
         },
         {
           "id": "E",
-          "latex": "x^{-2}",
-          "errorPath": "Choose the second-largest reciprocal power."
+          "latex": "(x^{2})^{-1}",
+          "errorPath": "This has exponent -2; stopping at the reciprocal-square result misses the larger reciprocal cube."
         },
         {
           "id": "F",
-          "latex": "x^2",
-          "errorPath": "Choose a positive power, whose value is less than 1."
+          "latex": "x^{1/2}",
+          "errorPath": "This is a positive power of x, below 1."
         }
       ],
       "correctOptionId": "C",
-      "correctAnswerLatex": "x^{-3}",
+      "correctAnswerLatex": "(x^{-2})^{3/2}",
       "workedSolutionSteps": [
-        "Since 0<x<1, its reciprocal 1/x is greater than 1.",
-        "Thus $x^{-3}>x^{-2}>x^{-1}>1$. Positive powers are less than 1.",
-        "The greatest expression is x^{-3}."
+        "The powers of x represented by the choices have exponents -5/2, -11/4, -7/4, -2, 1/2 and -3.",
+        "For a positive base less than 1, decreasing the exponent increases the value.",
+        "The smallest exponent is -3, so $(x^{-2})^{3/2}$ is greatest."
       ],
       "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
-      "unverifiedTaughtSubskill": "Order reversal for a base between zero and one.",
+      "unverifiedTaughtSubskill": "Combine fractional and negative powers, and compare powers with base below one.",
       "academicQA": "pending",
       "dailyEligible": false,
       "masteryEligible": false,
@@ -796,7 +796,7 @@
         {
           "id": "A",
           "latex": "2^n",
-          "errorPath": "Ignore the variable term in the denominator after simplifying and then reverse the resulting power."
+          "errorPath": "Reverse the subtraction of variable exponents after incorrectly dropping the variable term in the denominator."
         },
         {
           "id": "B",
@@ -901,47 +901,47 @@
       "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-031-REVIEW-2",
       "topicId": "math-y9-indices",
       "provisionalConceptFamily": "fractional-indices-root-branches",
-      "stem": "For real x, solve $(x^2)^{1/2}=5$. Find the sum of all solutions.",
+      "stem": "For real x, solve $( (x-2)^2 )^{1/2}=x+4$. Which answer gives the complete solution set?",
       "options": [
         {
           "id": "A",
-          "latex": "5",
-          "errorPath": "Keep only x=5 and omit the negative solution."
+          "latex": "x=1",
+          "errorPath": "Lose the negative sign when solving 2-x=x+4."
         },
         {
           "id": "B",
-          "latex": "0"
+          "latex": "x=-1"
         },
         {
           "id": "C",
-          "latex": "-5",
-          "errorPath": "Keep only x=-5 and omit the positive solution."
+          "latex": "x=-4",
+          "errorPath": "Set the right side to zero without checking the left side."
         },
         {
           "id": "D",
-          "latex": "10",
-          "errorPath": "Add the magnitudes of the two solutions."
+          "latex": "x=2",
+          "errorPath": "Set the left side to zero without checking the right side."
         },
         {
           "id": "E",
-          "latex": "-25",
-          "errorPath": "Multiply the solutions rather than adding them."
+          "latex": "x=-3",
+          "errorPath": "Subtract the constants incorrectly in the negative branch, obtaining 2x=-6."
         },
         {
           "id": "F",
-          "latex": "25",
-          "errorPath": "Square 5 and report that as x."
+          "latex": "\\text{No solution}",
+          "errorPath": "Use only the branch |x-2|=x-2 and conclude that the equation is impossible."
         }
       ],
       "correctOptionId": "B",
-      "correctAnswerLatex": "0",
+      "correctAnswerLatex": "x=-1",
       "workedSolutionSteps": [
-        "The principal square root of x^2 is |x|, not always x.",
-        "Thus |x|=5 gives x=5 or x=-5.",
-        "Both satisfy the equation and their sum is 0."
+        "The principal square root is |x-2|, so the equation is |x-2|=x+4 and requires x>=-4.",
+        "For x>=2, x-2=x+4 is impossible. For x<2, 2-x=x+4 gives x=-1.",
+        "At x=-1, both sides equal 3; it is the only real solution."
       ],
       "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
-      "unverifiedTaughtSubskill": "Principal square-root domain and completeness of solutions.",
+      "unverifiedTaughtSubskill": "Principal square root, absolute-value branches and sign/domain verification.",
       "academicQA": "pending",
       "dailyEligible": false,
       "masteryEligible": false,
@@ -1176,47 +1176,47 @@
       "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-036-REVIEW-2",
       "topicId": "math-y9-indices",
       "provisionalConceptFamily": "fractional-index-order-comparison",
-      "stem": "Which of these positive numbers is greatest?",
+      "stem": "Without using a calculator, which of the following numbers is greatest?",
       "options": [
         {
           "id": "A",
-          "latex": "16^{1/2}",
-          "errorPath": "Equals 4; underestimate the effect of cubing after taking the fifth root of 32."
+          "latex": "2^{11/6}",
+          "errorPath": "Its common-base exponent is 11/6, which is less than 15/8."
         },
         {
           "id": "B",
-          "latex": "27^{1/3}",
-          "errorPath": "Equals 3; selecting the smaller radical without accounting for the numerator power gives this."
+          "latex": "8^{3/5}",
+          "errorPath": "Its common-base exponent is 9/5=216/120; comparing rounded exponents as if equal can miss that 225/120 is greater."
         },
         {
           "id": "C",
-          "latex": "32^{3/5}"
+          "latex": "32^{3/8}"
         },
         {
           "id": "D",
-          "latex": "64^{1/3}",
-          "errorPath": "Equals 4; choosing by base size rather than evaluating the full exponent can suggest it."
+          "latex": "16^{2/5}",
+          "errorPath": "Its common-base exponent is 8/5; choosing a large base alone is not sufficient."
         },
         {
           "id": "E",
-          "latex": "81^{1/4}",
-          "errorPath": "Equals 3; comparing base sizes instead of evaluating powers can suggest this."
+          "latex": "4^{5/6}",
+          "errorPath": "Its common-base exponent is 5/3, smaller than 15/8."
         },
         {
           "id": "F",
-          "latex": "8^{2/3}",
-          "errorPath": "Equals 4, not the greatest."
+          "latex": "64^{7/24}",
+          "errorPath": "Its common-base exponent is 7/4; the largest original base is not the greatest result."
         }
       ],
       "correctOptionId": "C",
-      "correctAnswerLatex": "32^{3/5}",
+      "correctAnswerLatex": "32^{3/8}",
       "workedSolutionSteps": [
-        "The six values are 8 for 32^{3/5}, 4 for 16^{1/2}, 3 for 27^{1/3}, 4 for 64^{1/3}, 3 for 81^{1/4}, and 4 for 8^{2/3}.",
-        "Taking the appropriate root first makes all these comparisons exact.",
-        "Only 32^{3/5}=8 is greatest."
+        "Write each number as a power of 2. The exponents are 11/6, 9/5, 8/5, 5/3, 7/4 and 15/8.",
+        "Using denominator 120, these exponents are 220/120, 216/120, 192/120, 200/120, 210/120 and 225/120.",
+        "The greatest exponent is 225/120=15/8. Therefore $32^{3/8}$ is uniquely greatest."
       ],
       "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
-      "unverifiedTaughtSubskill": "Compare fractional powers exactly.",
+      "unverifiedTaughtSubskill": "Compare six distinct fractional powers using common bases and exact rational ordering.",
       "academicQA": "pending",
       "dailyEligible": false,
       "masteryEligible": false,
@@ -1231,7 +1231,7 @@
       "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-038-REVIEW-2",
       "topicId": "math-y9-indices",
       "provisionalConceptFamily": "radical-exponent-inequality-integers",
-      "stem": "For integers $-3\\le n\\le5$, find the number of n satisfying $1<\\frac{\\sqrt{4^{n+2}}}{8^{n-1}}\\le16$.",
+      "stem": "For integers $-3\\le n\\le5$, find the number of n satisfying $1<\\frac{\\sqrt{4^{n+3}}}{8^{n-1}}\\le16$.",
       "options": [
         {
           "id": "A",
@@ -1240,22 +1240,22 @@
         {
           "id": "B",
           "latex": "3",
-          "errorPath": "Include the strict equality boundary at which the expression equals 1."
+          "errorPath": "Include n=3, where the expression equals 1 and violates the strict lower bound."
         },
         {
           "id": "C",
           "latex": "1",
-          "errorPath": "Exclude the allowed upper equality boundary at which the expression equals 16."
+          "errorPath": "Exclude n=1, where the expression equals the allowed upper bound 16."
         },
         {
           "id": "D",
           "latex": "4",
-          "errorPath": "Use 16=2^8 instead of 2^4 for the upper exponent bound."
+          "errorPath": "Use 16=2^8, allowing n=-1,0,1,2."
         },
         {
           "id": "E",
           "latex": "5",
-          "errorPath": "Report the exponent's constant term rather than the count."
+          "errorPath": "Count all non-negative n below the stated upper bound 5, using n=0,1,2,3,4 instead of testing the exponent inequalities."
         },
         {
           "id": "F",
@@ -1266,12 +1266,12 @@
       "correctOptionId": "A",
       "correctAnswerLatex": "2",
       "workedSolutionSteps": [
-        "The ratio is $2^{n+2-3(n-1)}=2^{5-2n}$.",
-        "The inequality becomes $0<5-2n\\le4$, or $1/2\\le n<5/2$.",
-        "The integers n=1,2 qualify, so the count is 2."
+        "The ratio simplifies to $2^{n+3-3(n-1)}=2^{6-2n}$.",
+        "The inequalities become $0<6-2n\\le4$, giving $1\\le n<3$.",
+        "Only n=1 and n=2 qualify; there are 2."
       ],
       "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
-      "unverifiedTaughtSubskill": "Index simplification with strict/inclusive inequality and integer domain.",
+      "unverifiedTaughtSubskill": "Strict and inclusive exponent inequalities with actual integer equality boundaries.",
       "academicQA": "pending",
       "dailyEligible": false,
       "masteryEligible": false,
