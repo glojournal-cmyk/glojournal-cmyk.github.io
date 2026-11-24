@@ -5,7 +5,7 @@ import {datedAssignmentEvidence} from '../assets/daily-dated-assignment-evidence
 import {canAssignVerifiedYear8Mastery,canAssignVerifiedYear8Standard,verifiedYear8MasteryConcepts,verifiedYear8ScienceStandardConcepts,verifiedYear8OtherShortConcepts} from '../assets/year8-mastery-source-capacity-20261103.js';
 import {buildYear8DailyV2} from '../assets/year8-daily-v2-20261018.js';
 import {selectDailyVocabulary} from '../assets/daily-vocab-20261003.js';
-import {selectProgressionQuestions} from '../assets/daily-curriculum-20261004.js';
+import {selectProgressionQuestions,curriculumTopics} from '../assets/daily-curriculum-20261004.js';
 import {fillDailyLockedQuestions} from '../assets/daily-locked-question-fallback-20261021.js';
 
 const today='2026-11-03';
@@ -311,15 +311,12 @@ test('unopened impossible Science Standard is safely reassigned; started one sta
  assert.equal(matched.target,10,'never reduce threshold to saved answers');
 });
 
-test('all 115 eligible Year 8 topic packs have accurate Standard concept-capacity routing',()=>{
+test('all eligible Year 8 topic packs have accurate Standard concept-capacity routing, excluding the held Food Tests bank',()=>{
  const subjects=['latin','french','biology','chemistry','physics'];
- const qualified=catalog.filter(t=>t.year===8&&subjects.includes(t.subject)&&
-  t.status==='enabled'&&Number(t.enabled)>=15&&
-  (!t.formats||Object.entries(t.formats).some(([k,v])=>[
-   'typed_exact','typed_short','typed_equivalent','spelling_restore','controlled_translation',
-   'mark_points','extended_response','practical_design','calculation','unordered_set']
-   .includes(k)&&Number(v)>0)));
- assert.equal(qualified.length,110,'five non-production-only Latin packs are excluded by the real Daily curriculum filter');
+ const qualified=subjects.flatMap(subject=>curriculumTopics(subject,8,getCatalog,{}));
+ assert.equal(qualified.length,110,'five non-production-only Latin packs and the QA-held Food Tests bank are excluded from the current 116 raw packs');
+ assert.ok(catalog.some(t=>t.topicId==='bio-y8-food-tests'&&t.status==='enabled'),'held source remains present for practice');
+ assert.ok(!qualified.some(t=>t.topicId==='bio-y8-food-tests'),'Food Tests must not enter formal Daily assignment');
  assert.equal(Object.keys(verifiedYear8OtherShortConcepts).length,9);
  let ineligible=0;
  for(const t of qualified){
