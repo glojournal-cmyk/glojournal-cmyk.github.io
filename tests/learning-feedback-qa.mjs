@@ -1,3 +1,6 @@
+import {scoreFoodTestsGuarded} from '../assets/food-tests-six-guarded-rubric-20261122.js';
+import {scoreFoodTestsRemaining37} from '../assets/food-tests-remaining-37-rubric-20261122.js';
+import {scoreFoodTestsEthanolSafety} from '../assets/food-tests-ethanol-rubric-20261122.js';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import '../assets/learning-feedback-20261003.js';
@@ -10,7 +13,7 @@ const biology=read('assessment/biology-cell-structure-20261003.json').questions;
 const source=fs.readFileSync('assets/quiz-session-y8fix-20260920.js','utf8');
 const block=source.slice(source.indexOf('function A(e){'),source.indexOf('function V(e){'));
 const plain=s=>String(s??'').normalize('NFKD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9 ']/g,'').replace(/\s+/g,' ').trim();
-const score=new Function('a','d','x',block+';return B;')(plain,plain,s=>String(s).normalize('NFC').trim());
+const score=new Function('a','d','x','scoreFoodTestsGuarded','scoreFoodTestsRemaining37','scoreFoodTestsEthanolSafety',block+';return B;')(plain,plain,s=>String(s).normalize('NFC').trim(),scoreFoodTestsGuarded,scoreFoodTestsRemaining37,scoreFoodTestsEthanolSafety);
 assert.ok(score(french[1],'Il pleuvait lorsque nous sommes arrivees.','french').ok,'Accent-free French wording must receive full credit');
 assert.ok(score(french[1],'Il pleuvait lorsque nous sommes arrivées.','french').ok,'Accented feminine wording accepted');
 assert.ok(!score(french[1],'Il pleut quand nous arrivons.','french').ok,'Present-tense answer still rejected');
