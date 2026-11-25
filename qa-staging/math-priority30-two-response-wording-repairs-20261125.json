@@ -1,0 +1,108 @@
+{
+  "sourceRegister": "qa-staging/math-priority116-post30-demand-order-mastery-register-20261125.json",
+  "basis": "902e10f0af49bf782048376cd6e1587c6989315e",
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-017",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-017-DAILY-READINESS-REPAIR-20261125",
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-017-DEMAND-ORDER-RECONCILED-20261125",
+      "topicId": "math-y9-changing-subject",
+      "stem": "For integer x from 0 to 100, let $y=(3x-2)/5$ and $z=(2x+6)/4$. Both y and z must be integers and $-3\\le z-y\\le-1$. Which option correctly makes x the subject of y and gives the sum T of all qualifying x?",
+      "options": [
+        {
+          "latex": "x=(5y-2)/3;\\ T=117",
+          "errorPath": "Move −2 with wrong sign; sum independently found.",
+          "id": "A"
+        },
+        {
+          "latex": "x=(5y+2)/3;\\ T=68",
+          "errorPath": "Exclude upper endpoint49; sum29+39=68.",
+          "id": "B"
+        },
+        {
+          "latex": "x=(5y+2)/3;\\ T=195",
+          "errorPath": "Ignore integer z; all x=29,34,39,44,49 sum195.",
+          "id": "C"
+        },
+        {
+          "latex": "x=(5y+2)/3;\\ T=39",
+          "errorPath": "Report middle qualifying input only.",
+          "id": "D"
+        },
+        {
+          "latex": "x=(5y+2)/3;\\ T=88",
+          "errorPath": "Exclude lower endpoint29, retaining39+49.",
+          "id": "E"
+        },
+        {
+          "latex": "x=(5y+2)/3;\\ T=117",
+          "id": "F"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "x=(5y+2)/3;\\ T=117",
+      "workedSolutionSteps": [
+        "Inverse x=(5y+2)/3. Integer y occurs at x=4,9,14,...; integer z at odd x, so common x=9,19,29,...,99.",
+        "z−y=(19−x)/10. The given interval is equivalent to 29≤x≤49.",
+        "Only29,39,49 qualify; T117."
+      ],
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-017",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-017-DAILY-READINESS-REPAIR-20261125",
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-017-DEMAND-ORDER-RECONCILED-20261125",
+      "topicId": "math-y9-straight-line-graphs",
+      "stem": "P is the intersection of $y=x+1$ and $y=3x-5$. Reflect P in the y-axis, then move the reflected point vertically up by h units, with h>0. The line through this point parallel to $y=-2x+7$ meets the x-axis at Q. The line through P parallel to $y=x$ meets the x-axis at T. Q is 3 units to the right of T. Find h and the y-intercept of the line through Q parallel to $y=-2x+7$.",
+      "options": [
+        {
+          "latex": "(3,1)",
+          "errorPath": "Use h=3 as horizontal shift rather than double it.",
+          "id": "A"
+        },
+        {
+          "latex": "(6,-4)",
+          "errorPath": "Lose sign of calculated intercept.",
+          "id": "B"
+        },
+        {
+          "latex": "(0,-2)",
+          "errorPath": "Omit translation.",
+          "id": "C"
+        },
+        {
+          "latex": "(4,2)",
+          "errorPath": "Set Q x=1 instead of2.",
+          "id": "D"
+        },
+        {
+          "latex": "(6,4)",
+          "id": "E"
+        },
+        {
+          "latex": "(6,2)",
+          "errorPath": "Report Q x-coordinate rather than intercept.",
+          "id": "F"
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "(6,4)",
+      "workedSolutionSteps": [
+        "P=(3,4), reflected and translated point=(−3,4+h). Its parallel has equation y=−2x+h−2; Q has x=(h−2)/2.",
+        "Line through P with slope1 is y=x+1; T x=−1. Therefore Q x=2.",
+        "(h−2)/2=2 gives h6, intercept4."
+      ],
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false
+    }
+  ]
+}
