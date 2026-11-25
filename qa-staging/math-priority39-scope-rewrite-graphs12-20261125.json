@@ -1,0 +1,793 @@
+{
+  "kind": "PRIORITY39_SCOPE_REWRITE_BATCH_NO_RELEASE",
+  "date": "2026-11-25",
+  "sourceRegister": "qa-staging/math-priority116-post35-second-pass-qa-scope-triage-20261125.json",
+  "sourceRegisterBlobSha": "0921e5a54b5e846c108fdf4c1efb1a9fd0ba9655",
+  "sourceCommit": "1e86e8507d70733afb091fa75636b2e1a49f9d8f",
+  "counts": {
+    "drafted": 12,
+    "formalApproved": 0
+  },
+  "limits": "Author drafts only. Retain inequality prerequisite for Q20. Difficulty and independent review pending; no runtime/Vercel changes.",
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-003",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-003-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-graphs8-20261124.json",
+      "priorRecordBlobSha": "679711e6abf9728f15f26d68755524f0e53654d0",
+      "priorAnswer": "\\frac{13}{5}",
+      "priorScopeNote": "Negative reciprocal gradient not explicitly stated in autumn; area proof also required.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-003",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-003-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-003-DISTRACTOR-REPAIR-20261124",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "The line through A=(k,2k+1) and B=(3,5) is parallel to the line through (0,4) and (4,0). Find the area of triangle OAB, where O=(0,0).",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\frac83"
+          },
+          {
+            "id": "B",
+            "latex": "\\frac{16}{3}",
+            "errorPath": "Omit factor1/2."
+          },
+          {
+            "id": "C",
+            "latex": "\\frac73",
+            "errorPath": "Use k as the area."
+          },
+          {
+            "id": "D",
+            "latex": "\\frac{35}{6}",
+            "errorPath": "Keep only 5k/2 term in determinant."
+          },
+          {
+            "id": "E",
+            "latex": "\\frac{17}{2}",
+            "errorPath": "Keep only 3(2k+1)/2 term."
+          },
+          {
+            "id": "F",
+            "latex": "\\frac43",
+            "errorPath": "Apply factor1/2 twice."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "\\frac83",
+        "workedSolutionSteps": [
+          "The parallel line through B has slope−1, so y=−x+8.",
+          "2k+1=−k+8 gives k=7/3 and A=(7/3,17/3).",
+          "Area=|3·17/3−5·7/3|/2=8/3."
+        ],
+        "unverifiedTaughtSubskill": "Linear equations, gradients, parallel lines, intersections, integer enumeration and direct area as applicable. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTERCEPT_AREA",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-009",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-009-V324-REASONING_REDESIGN_QA_ONLY",
+      "priorRecordPath": "qa-staging/math-v324-four-source-linked-multiconstraint-reasoning-candidates-20261124.json",
+      "priorRecordBlobSha": "9eeab6a50c05876420ffb910676e26922f629b44",
+      "priorAnswer": "-10",
+      "priorScopeNote": "Quadratic equation in gradient and intercept conditions; not explicitly stated.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-009",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-009-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-009-V324-REASONING_REDESIGN_QA_ONLY",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "Lines A: $y=2x+1$ and B: $y=5-2x$ meet at P. A new line through P has y-intercept twice P's y-coordinate. A second new line through P is parallel to $y=x-4$. Find the difference between the x-intercepts of the two new lines (larger minus smaller).",
+        "options": [
+          {
+            "id": "A",
+            "latex": "4"
+          },
+          {
+            "id": "B",
+            "latex": "2",
+            "errorPath": "Report positive intercept only."
+          },
+          {
+            "id": "C",
+            "latex": "6",
+            "errorPath": "Add y-intercept instead of using the intercept difference."
+          },
+          {
+            "id": "D",
+            "latex": "-4",
+            "errorPath": "Reverse subtraction."
+          },
+          {
+            "id": "E",
+            "latex": "\\frac43",
+            "errorPath": "Divide difference4 by3."
+          },
+          {
+            "id": "F",
+            "latex": "3",
+            "errorPath": "Report P's y-coordinate."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "4",
+        "workedSolutionSteps": [
+          "P=(1,3). First new line has intercept6 and gradient−3, so x-intercept2.",
+          "Second line y=x+2 has x-intercept−2.",
+          "Difference=2−(−2)=4."
+        ],
+        "unverifiedTaughtSubskill": "Linear equations, gradients, parallel lines, intersections, integer enumeration and direct area as applicable. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTERCEPT_AREA",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-010",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-010-SECOND-PASS-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority116-second-pass-six-repairs-20261124.json",
+      "priorRecordBlobSha": "5891d9ad4724999a42efd0c5471139bfdf47ec89",
+      "priorAnswer": "\\frac47",
+      "priorScopeNote": "Perpendicular gradients not explicitly stated in autumn; AQA Higher A9.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-010",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-010-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-010-SECOND-PASS-REPAIR-20261124",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "Line A passes through (1,15) and (5,27); line B through (1,9) and (5,29). They intersect at P. A line through P parallel to the segment joining (2,4) and (6,6) meets $y=2x+12$ at Q. Find the x-coordinate of Q.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\frac{20}{3}"
+          },
+          {
+            "id": "B",
+            "latex": "\\frac{28}{3}",
+            "errorPath": "Use y-intercept26 instead of22, moving the term from P with wrong sign."
+          },
+          {
+            "id": "C",
+            "latex": "\\frac{28}{5}",
+            "errorPath": "Use negative slope −1/2; line y=−x/2+26, so x=28/5."
+          },
+          {
+            "id": "D",
+            "latex": "4",
+            "errorPath": "Report P's x-coordinate."
+          },
+          {
+            "id": "E",
+            "latex": "6",
+            "errorPath": "Use a horizontal line through P: 24=2x+12."
+          },
+          {
+            "id": "F",
+            "latex": "8",
+            "errorPath": "Use y-intercept24 rather than22."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "\\frac{20}{3}",
+        "workedSolutionSteps": [
+          "A y=3x+12 and B y=5x+4, so P=(4,24).",
+          "Parallel slope1/2 gives y=x/2+22.",
+          "Equate x/2+22=2x+12; x=20/3."
+        ],
+        "unverifiedTaughtSubskill": "Linear equations, gradients, parallel lines, intersections, integer enumeration and direct area as applicable. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "LINEAR_SYSTEM_TRANSFER",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-014",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-014-DEMAND-UPGRADE-20261124",
+      "priorRecordPath": "qa-staging/math-demand-upgrade-straight-line-graphs20-20261124.json",
+      "priorRecordBlobSha": "b910883f51fe859e0606715f6b4835315cf57541",
+      "priorAnswer": "2-\\frac{\\sqrt{10}}{5}",
+      "priorScopeNote": "Similarity is spring and Year 9 outline explicitly specifies length only; area ratio extension.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-014",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-014-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-014-DEMAND-UPGRADE-20261124",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "Lines $y=2x+1$ and $y=7-x$ meet at P. Together with the y-axis they form a triangle. The vertical line $x=k$ with 0<k<2 divides it, leaving a trapezium next to the y-axis. The distance between the two lines at x=k is exactly 3 units. Find the area of the trapezium and its width k.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\frac92;\\ 1"
+          },
+          {
+            "id": "B",
+            "latex": "3;\\ 1",
+            "errorPath": "Use shorter side3 as rectangle height."
+          },
+          {
+            "id": "C",
+            "latex": "6;\\ 1",
+            "errorPath": "Use longer side6 as rectangle height."
+          },
+          {
+            "id": "D",
+            "latex": "\\frac32;\\ 1",
+            "errorPath": "Use triangular area with height3 and base1."
+          },
+          {
+            "id": "E",
+            "latex": "\\frac92;\\ 3",
+            "errorPath": "Report vertical separation3 as width."
+          },
+          {
+            "id": "F",
+            "latex": "9;\\ 1",
+            "errorPath": "Omit factor1/2."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "\\frac92;\\ 1",
+        "workedSolutionSteps": [
+          "Vertical separation at x=k is (7−k)−(2k+1)=6−3k.",
+          "Set equal3, obtaining k1.",
+          "Trapezium has parallel sides length6 and3 separated by1; area(6+3)/2=9/2."
+        ],
+        "unverifiedTaughtSubskill": "Linear equations, gradients, parallel lines, intersections, integer enumeration and direct area as applicable. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTERCEPT_AREA",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-015",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-015-DEMAND-UPGRADE-20261124",
+      "priorRecordPath": "qa-staging/math-demand-upgrade-straight-line-graphs20-20261124.json",
+      "priorRecordBlobSha": "b910883f51fe859e0606715f6b4835315cf57541",
+      "priorAnswer": "19",
+      "priorScopeNote": "Graphical inequalities summer p4; parity lattice counting extension.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-015",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-015-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-015-DEMAND-UPGRADE-20261124",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "For integer x from 0 to 8, line A gives $y=2x+1$ and line B gives $y=3x-4$. Retain x if A's output is a multiple of 3 and B's output is positive. Find the sum of the outputs from BOTH lines at all retained x.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "49"
+          },
+          {
+            "id": "B",
+            "latex": "24",
+            "errorPath": "Report A outputs only:9+15."
+          },
+          {
+            "id": "C",
+            "latex": "25",
+            "errorPath": "Report B outputs only:8+17."
+          },
+          {
+            "id": "D",
+            "latex": "51",
+            "errorPath": "Include x1 despite B=−1: A3 plus B−1 adds2."
+          },
+          {
+            "id": "E",
+            "latex": "32",
+            "errorPath": "Keep only x7, giving15+17."
+          },
+          {
+            "id": "F",
+            "latex": "11",
+            "errorPath": "Add retained x values4+7."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "49",
+        "workedSolutionSteps": [
+          "A output divisible by3 when x1,4,7. B positive for x≥2, so retain4,7.",
+          "At x4: A9,B8, total17. At x7: A15,B17,total32.",
+          "Grand total49."
+        ],
+        "unverifiedTaughtSubskill": "Linear equations, gradients, parallel lines, intersections, integer enumeration and direct area as applicable. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTEGER_FEASIBILITY",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-017",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-017-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-graphs8-20261124.json",
+      "priorRecordBlobSha": "679711e6abf9728f15f26d68755524f0e53654d0",
+      "priorAnswer": "-\\frac{13}{4}",
+      "priorScopeNote": "Quadratic symmetry and second equidistant point; extension not stated.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-017",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-017-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-017-DISTRACTOR-REPAIR-20261124",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "Point P lies on $y=x+1$ and also on $y=3x-5$. Reflect P in the y-axis to obtain R. The line through R parallel to $y=-2x+7$ crosses the x-axis at Q. Find the exact x-coordinate of Q.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "-1"
+          },
+          {
+            "id": "B",
+            "latex": "1",
+            "errorPath": "Lose negative sign in final intercept."
+          },
+          {
+            "id": "C",
+            "latex": "-5",
+            "errorPath": "Use +2 as slope: line through R gives x−5."
+          },
+          {
+            "id": "D",
+            "latex": "-3",
+            "errorPath": "Report R's x-coordinate."
+          },
+          {
+            "id": "E",
+            "latex": "5",
+            "errorPath": "Forget reflection: line through P gives x5."
+          },
+          {
+            "id": "F",
+            "latex": "4",
+            "errorPath": "Report P's y-coordinate."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "-1",
+        "workedSolutionSteps": [
+          "Intersect x+1=3x−5: x3, P=(3,4). Reflect gives R=(−3,4).",
+          "Slope−2 through R: y=−2x−2.",
+          "At y0, x−1."
+        ],
+        "unverifiedTaughtSubskill": "Linear equations, gradients, parallel lines, intersections, integer enumeration and direct area as applicable. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "LINEAR_SYSTEM_TRANSFER",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-019",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-019-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-graphs8-20261124.json",
+      "priorRecordBlobSha": "679711e6abf9728f15f26d68755524f0e53654d0",
+      "priorAnswer": "12",
+      "priorScopeNote": "Coordinate circle equation with non-origin centre; not explicitly stated (AQA A16 specifies origin).",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-019",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-019-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-019-DISTRACTOR-REPAIR-20261124",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "For integer k from 1 to 8, a horizontal line $y=k$ meets $y=2x+1$ and $y=5-3x$ at two points. Find the sum of all k for which BOTH intersection x-coordinates are integers and the first intersection is to the right of the second.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "5"
+          },
+          {
+            "id": "B",
+            "latex": "2",
+            "errorPath": "Use second line only and choose smallest possible k."
+          },
+          {
+            "id": "C",
+            "latex": "8",
+            "errorPath": "Use second line only and choose largest possible k."
+          },
+          {
+            "id": "D",
+            "latex": "7",
+            "errorPath": "Use first line only and choose largest odd k."
+          },
+          {
+            "id": "E",
+            "latex": "12",
+            "errorPath": "Include k5 and7 ignoring second line integer requirement."
+          },
+          {
+            "id": "F",
+            "latex": "0",
+            "errorPath": "Reverse order test and reject k5."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "5",
+        "workedSolutionSteps": [
+          "First x=(k−1)/2 integer for k odd; second x=(5−k)/3 integer for k2,5,8.",
+          "Only k5 satisfies both; x first2, second0, so correct order.",
+          "Sum5."
+        ],
+        "unverifiedTaughtSubskill": "Linear equations, gradients, parallel lines, intersections, integer enumeration and direct area as applicable. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTEGER_FEASIBILITY",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-020",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-020-DEMAND-UPGRADE-20261124",
+      "priorRecordPath": "qa-staging/math-demand-upgrade-straight-line-graphs20-20261124.json",
+      "priorRecordBlobSha": "b910883f51fe859e0606715f6b4835315cf57541",
+      "priorAnswer": "2",
+      "priorScopeNote": "Absolute-value inequalities; summer linear inequalities, absolute-value extension not stated.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-020",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-020-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-020-DEMAND-UPGRADE-20261124",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "Three lines give $A=2x+3$, $B=5x-9$ and $C=3x-1$. At integer x from 0 to 8, retain x when B lies above A and C lies strictly between A and B. The vertical gap from A to B must be at most 9 units. Find the sum of the vertical gaps B−C over all retained x.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "12"
+          },
+          {
+            "id": "B",
+            "latex": "6",
+            "errorPath": "Report largest B−C only."
+          },
+          {
+            "id": "C",
+            "latex": "9",
+            "errorPath": "Report greatest B−A only."
+          },
+          {
+            "id": "D",
+            "latex": "18",
+            "errorPath": "Sum B−A rather than B−C:3+6+9=18."
+          },
+          {
+            "id": "E",
+            "latex": "20",
+            "errorPath": "Ignore gap cap and include x8, adding8."
+          },
+          {
+            "id": "F",
+            "latex": "3",
+            "errorPath": "Report count of valid x."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "12",
+        "workedSolutionSteps": [
+          "B>A requires x>4. C−A=x−4 and B−C=2x−8, both positive for x>4.",
+          "Gap B−A=3x−12≤9 gives x≤7, so x5,6,7.",
+          "B−C=2,4,6; sum12."
+        ],
+        "unverifiedTaughtSubskill": "Linear equations, gradients, parallel lines, intersections, integer enumeration and direct area as applicable. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "LINEAR_INEQUALITY_CONSTRAINTS",
+      "scopeDisposition": "ADDITIONAL_INEQUALITY_PREREQUISITE_HOLD",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-023",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-023-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-graphs8-20261124.json",
+      "priorRecordBlobSha": "679711e6abf9728f15f26d68755524f0e53654d0",
+      "priorAnswer": "18",
+      "priorScopeNote": "Intercept-area quadratic; quadratic solutions not explicitly stated.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-023",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-023-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-023-DISTRACTOR-REPAIR-20261124",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "A straight line has positive x- and y-intercepts a and b. The y-intercept is 3 more than twice the x-intercept, and the gradient is −3. A second line has the same gradient but its y-intercept is 6 units greater. Find the difference between the areas of the triangles formed by each line with the coordinate axes.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "24"
+          },
+          {
+            "id": "B",
+            "latex": "48",
+            "errorPath": "Omit factor1/2 in both areas."
+          },
+          {
+            "id": "C",
+            "latex": "\\frac{27}{2}",
+            "errorPath": "Report first triangle area rather than difference."
+          },
+          {
+            "id": "D",
+            "latex": "15",
+            "errorPath": "Report second y-intercept."
+          },
+          {
+            "id": "E",
+            "latex": "\\frac{75}{2}",
+            "errorPath": "Report second area rather than difference."
+          },
+          {
+            "id": "F",
+            "latex": "9",
+            "errorPath": "Use original base3 and height change6: 3×6/2."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "24",
+        "workedSolutionSteps": [
+          "Gradient−b/a=−3 implies b=3a. Since b=2a+3, a3,b9.",
+          "Second intercept b=15, x-intercept5. Triangle areas are 9×3/2=13.5 and 15×5/2=37.5.",
+          "Difference24."
+        ],
+        "unverifiedTaughtSubskill": "Linear equations, gradients, parallel lines, intersections, integer enumeration and direct area as applicable. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTERCEPT_AREA",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-027",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-027-ACADEMIC-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-final-academic-review-straight-line-graphs40-20261124.json",
+      "priorRecordBlobSha": "5bf403e274905c98ae668662a2d3ab0bbe5ed93d",
+      "priorAnswer": "\\frac{36}{5}",
+      "priorScopeNote": "Perpendicular distance/negative reciprocal gradient not explicitly stated.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-027",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-027-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-027-ACADEMIC-REVIEW-20261124",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "Parallel lines $y=mx+2$ and $y=mx+8$ have x-intercepts 3 units apart, and m<0. A third parallel line passes through the midpoint of those two x-intercepts. Where does the third line meet the line $y=x-1$?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "(2,1)"
+          },
+          {
+            "id": "B",
+            "latex": "(1,0)",
+            "errorPath": "Use first line instead: −2x+2=x−1 gives1,0."
+          },
+          {
+            "id": "C",
+            "latex": "(3,2)",
+            "errorPath": "Use second line instead: −2x+8=x−1 gives3,2."
+          },
+          {
+            "id": "D",
+            "latex": "(2,5)",
+            "errorPath": "Report y-intercept5 as y at x2."
+          },
+          {
+            "id": "E",
+            "latex": "(1,2)",
+            "errorPath": "Report first x-intercept and first y-intercept."
+          },
+          {
+            "id": "F",
+            "latex": "(3,0)",
+            "errorPath": "Report rounded midpoint x as 3, y0."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "(2,1)",
+        "workedSolutionSteps": [
+          "The x-intercept difference is 6/|m|=3, so m=−2.",
+          "First intercept1, second4, midpoint(2.5,0); third line y=−2x+5.",
+          "Equate −2x+5=x−1: x2,y1."
+        ],
+        "unverifiedTaughtSubskill": "Linear equations, gradients, parallel lines, intersections, integer enumeration and direct area as applicable. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "LINEAR_SYSTEM_TRANSFER",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-030",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-030-V314-DISTINCT_REDESIGN_QA_ONLY",
+      "priorRecordPath": "qa-staging/math-v314-graphs029-030-sim005-013-four-distinct-reasoning-drafts-20261123.json",
+      "priorRecordBlobSha": "32bf1de7e46e9ff6e2917e9666f9385d92dc246a",
+      "priorAnswer": "k=-1\\pm\\sqrt{5}",
+      "priorScopeNote": "Intercept-area quadratic with both real branches; not explicitly stated.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-030",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-030-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-030-V314-DISTINCT_REDESIGN_QA_ONLY",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "A line through A=(k,6) and B=(2,3), with k<2, meets both positive coordinate axes. Its y-intercept is exactly 3 times its x-intercept. Find k and the area of its axis-intercept triangle.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "k=1;\\ \\frac{27}{2}"
+          },
+          {
+            "id": "B",
+            "latex": "k=1;\\ 27",
+            "errorPath": "Omit triangle factor1/2."
+          },
+          {
+            "id": "C",
+            "latex": "k=3;\\ \\frac{27}{2}",
+            "errorPath": "Solve −3k=−3 incorrectly as k3 by reporting the magnitude of the right side; retain correct area."
+          },
+          {
+            "id": "D",
+            "latex": "k=1;\\ \\frac{81}{2}",
+            "errorPath": "Use y-intercept9 as both base and height."
+          },
+          {
+            "id": "E",
+            "latex": "k=1;\\ 9",
+            "errorPath": "Report y-intercept rather than area."
+          },
+          {
+            "id": "F",
+            "latex": "k=-1;\\ \\frac{27}{2}",
+            "errorPath": "Reverse sign of k."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "k=1;\\ \\frac{27}{2}",
+        "workedSolutionSteps": [
+          "If intercepts are a,3a, gradient=−3. Line through B is y=−3x+9.",
+          "At A, 6=−3k+9 gives k1.",
+          "Intercepts3,9; area13.5."
+        ],
+        "unverifiedTaughtSubskill": "Linear equations, gradients, parallel lines, intersections, integer enumeration and direct area as applicable. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTERCEPT_AREA",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-032",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-032-ACADEMIC-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-final-academic-review-straight-line-graphs40-20261124.json",
+      "priorRecordBlobSha": "5bf403e274905c98ae668662a2d3ab0bbe5ed93d",
+      "priorAnswer": "-12",
+      "priorScopeNote": "Perpendicular slopes and quadratic roots; not explicitly stated.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-032",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-032-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-032-ACADEMIC-REVIEW-20261124",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "Points A=(0,0), B=(k,2) and C=(2k,k-4) have k>0. The gradient of AB is exactly twice the gradient of BC. Find k and the gradient of the line joining A to C.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "k=7;\\ \\frac3{14}"
+          },
+          {
+            "id": "B",
+            "latex": "k=7;\\ \\frac27",
+            "errorPath": "Report AB gradient."
+          },
+          {
+            "id": "C",
+            "latex": "k=10;\\ \\frac3{10}",
+            "errorPath": "Reverse twice relationship, 2/k=(k−6)/(2k), yielding k10; AC gradient6/20=3/10."
+          },
+          {
+            "id": "D",
+            "latex": "k=7;\\ \\frac17",
+            "errorPath": "Report BC gradient."
+          },
+          {
+            "id": "E",
+            "latex": "k=8;\\ \\frac14",
+            "errorPath": "Assume equal AB and BC gradients: k8, C(16,4)."
+          },
+          {
+            "id": "F",
+            "latex": "k=7;\\ \\frac37",
+            "errorPath": "Use k rather than2k as horizontal change."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "k=7;\\ \\frac3{14}",
+        "workedSolutionSteps": [
+          "AB gradient2/k and BC gradient(k−6)/k. Thus2=2(k−6), k7.",
+          "C=(14,3), so AC gradient3/14."
+        ],
+        "unverifiedTaughtSubskill": "Linear equations, gradients, parallel lines, intersections, integer enumeration and direct area as applicable. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "LINEAR_SYSTEM_TRANSFER",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ]
+}
