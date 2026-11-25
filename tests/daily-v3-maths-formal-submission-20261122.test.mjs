@@ -230,3 +230,31 @@ test('actual Scholar recordAttempt wrapper persists the A-F selected answer and 
  assert.ok(wrapper.includes('approvedCorrectOptionByQuestion:Object.fromEntries('),
    'dated Maths answer key survives compact backup');
 });
+
+test('a restored retry cannot displace the earlier first choice and clear a failed Daily', () => {
+ const first = questions.map((q, i) => ({
+  day, at: day+'T12:00:00Z', dailyTaskId:task.id, questionId:q.id,
+  subject:'maths', year:9, formal:true, correct:i<8, selectedOptionId:i<8?'B':'A'
+ }));
+ const retry = {...first[8], at:day+'T14:00:00+01:00', selectedOptionId:'B', correct:true};
+ for(const history of [[retry, ...first], [...first, retry]]) {
+  const score = mathsEvidence(history, day, task);
+  assert.equal(score.submitted,10);
+  assert.equal(score.correct,8);
+  assert.equal(score.completed,false);
+ }
+ const genuinePass = first.map((a,i)=>i===8 ? {...a,selectedOptionId:'B',correct:true} : a);
+ const lateWrong = {...genuinePass[8],at:day+'T16:00:00Z',selectedOptionId:'A',correct:false};
+ assert.equal(mathsEvidence([lateWrong,...genuinePass],day,task).completed,true);
+});
+
+test('ambiguous simultaneous receipts cannot create a mark and exact duplicates count once', () => {
+ const first = makeVerifiedMathsSubmission({...args, selectedOptionId:'B'}).formalAttempt;
+ const conflict = {...first,correct:false,selectedOptionId:'A'};
+ for(const pair of [[first,conflict],[conflict,first]]) {
+  assert.equal(mathsEvidence(pair,day,task).correct,0);
+ }
+ const copy = {...first};
+ assert.equal(mathsEvidence([first,copy],day,task).submitted,1);
+ assert.equal(mathsEvidence([first,copy],day,task).correct,1);
+});
