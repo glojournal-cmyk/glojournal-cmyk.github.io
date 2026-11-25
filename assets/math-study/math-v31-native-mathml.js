@@ -46,6 +46,13 @@ export function latexMathML(latex){
   if(cmd==='dfrac'||cmd==='frac')return '<mfrac>'+argument()+argument()+'</mfrac>';
   if(cmd==='sqrt')return '<msqrt>'+argument()+'</msqrt>';
   if(cmd==='pounds')return '<mtext>£</mtext>';
+  if(cmd==='text'){
+    spaces();
+    const literal=latex.slice(i).match(/^\{([^{}\\]*)\}/);
+    if(!literal)err('expected plain text');
+    i+=literal[0].length;
+    return '<mtext>'+escapeText(literal[1])+'</mtext>';
+  }
   if(cmd==='quad')return '<mspace width="1em"/>';
   if(cmd==='Delta')return mi('Δ');
   if(cmd==='varnothing')return mo('∅');
