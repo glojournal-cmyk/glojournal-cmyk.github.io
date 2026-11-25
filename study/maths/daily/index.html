@@ -26,9 +26,18 @@ small{color:#5a6268}.progress{font-size:14px;font-weight:700;color:#514b6f;margi
 </style></head><body><main class="paper">
 <a href="/study/maths/">← Back to Maths Study</a>
 <h1>Maths Daily · Year 9</h1>
-<p class="flag" role="status">ACADEMIC QA HOLD — NOT AVAILABLE FOR DAILY CREDIT</p>
+<div id="maths-hold"><p class="flag" role="status">ACADEMIC QA HOLD — NOT AVAILABLE FOR DAILY CREDIT</p>
 <p>Maths V3.1 contains 200 questions with mathematical answer-key checks, but teaching-scope, GCSE grade, distractor quality and iPad grading have not been signed off. Until then, no question in this module may award Daily, Mastery, XP, MP or Recovery credit.</p>
 <p><a href="/study/maths/practise/">Use existing independent Maths Study instead</a>.</p>
+</div>
+<section id="formal-maths" hidden aria-label="Today's Maths Daily">
+<p id="daily-status" role="status" aria-live="polite"></p>
+<div id="daily-question"></div>
+<div id="daily-options" class="choices" role="group" aria-label="Answer choices"></div>
+<div id="daily-feedback" aria-live="polite"></div>
+<button id="daily-next" type="button" hidden>Continue</button>
+<p><a href="/">Back to Daily Tasks</a></p>
+</section>
 <section id="qa-preview" hidden aria-label="Isolated reviewer preview">
 <hr>
 <h2>Reviewer-only sample · 10 original question IDs</h2>
@@ -48,4 +57,5 @@ small{color:#5a6268}.progress{font-size:14px;font-weight:700;color:#514b6f;margi
 </div>
 </section></main>
 <script type="module" src="/assets/math-study/daily-v31-qa-preview.js"></script>
+<script type="module" src="/assets/math-study/daily-v31-student.js"></script>
 </body></html>

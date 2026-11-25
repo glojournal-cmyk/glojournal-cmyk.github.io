@@ -110,3 +110,30 @@ export function mergeMarkedEvidence(current,archived){
  return extra.length?[...base,...extra]
    .sort((a,b)=>String(a.at||"").localeCompare(String(b.at||""))).slice(-10000):base;
 }
+
+// Read and insert within the same transaction so two tabs cannot replace a
+// first Maths choice. Use the existing journal that Home replays on pageshow.
+export async function saveFirstMathsAnswer(answer){
+ if(!valid(answer)||answer.dailyTaskId!=='maths-daily'||answer.subject!=='maths'||
+    answer.year!==9||answer.formal!==true||answer.repair||answer.assisted||
+    answer.hintUsed||answer.scaffolded||answer.recoveryFor||
+    !['A','B','C','D','E','F'].includes(answer.selectedOptionId)){
+   throw Error('Invalid Maths Daily answer.');
+ }
+ const attemptId=['maths-daily',answer.day,answer.questionId].join(':');
+ const entry={...answer,attemptId,id:attemptId};
+ const db=await deadline(open());
+ return deadline(new Promise((resolve,reject)=>{
+   const tx=db.transaction(TABLE,'readwrite');
+   const table=tx.objectStore(TABLE);
+   const read=table.get(attemptId);
+   let first;
+   read.onsuccess=()=>{
+     first=read.result||entry;
+     if(!read.result)table.add(entry);
+   };
+   tx.oncomplete=()=>resolve(first);
+   tx.onabort=()=>reject(tx.error||Error('Could not save the Maths answer.'));
+   tx.onerror=()=>reject(tx.error||Error('Could not save the Maths answer.'));
+ }));
+}

@@ -1,0 +1,116 @@
+{
+  "status": "QA rehearsal only; trial bands are provisional, no Daily or MP release approval",
+  "sourceCommit": "972bb7aa745e1dfd079a2ab78af8b76fd1a635d4",
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-009",
+      "revisionId": "LUX-MATH-Y9-INDICES-009-AUTUMN-DEMAND-REWRITE-20261125",
+      "sourcePath": "qa-staging/math-priority35-autumn-demand-rewrite-indices-standard11-20261125.json",
+      "sourceBlobSha": "6cbd596fc0e2ce34a573dc95248b02aa16b6e5e8",
+      "topicId": "math-y9-indices",
+      "trialBand": "G8",
+      "skill": "Recover two exponents from two constraints, then apply a changed scale.",
+      "correctOptionId": "B",
+      "correctAnswerLatex": "2048"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-010",
+      "revisionId": "LUX-MATH-Y9-INDICES-010-AUTUMN-DEMAND-REWRITE-20261125",
+      "sourcePath": "qa-staging/math-priority35-autumn-demand-rewrite-indices-standard11-20261125.json",
+      "sourceBlobSha": "6cbd596fc0e2ce34a573dc95248b02aa16b6e5e8",
+      "topicId": "math-y9-indices",
+      "trialBand": "G8",
+      "skill": "Compare two scaling operations on a quotient of monomials.",
+      "correctOptionId": "D",
+      "correctAnswerLatex": "8"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-014-RELEASED-PAPER-REVISION-20261125",
+      "sourcePath": "qa-staging/math-priority116-released-paper-three-repairs-20261125.json",
+      "sourceBlobSha": "3cfb49fb65111c1c8b3a88bfeb88d78fc89ad155",
+      "topicId": "math-y9-standard-form",
+      "trialBand": "G7",
+      "skill": "Use conservation of a pulse count to recover the two durations.",
+      "correctOptionId": "D",
+      "correctAnswerLatex": "4.16\\times10^7"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-026-FINAL-GATE-DISTRACTOR-REPAIR-20261125",
+      "sourcePath": "qa-staging/math-priority116-final-gate-two-distractor-repairs-20261125.json",
+      "sourceBlobSha": "18121c23c766d14bcda8eef4585b960a5ff2d539",
+      "topicId": "math-y9-standard-form",
+      "trialBand": "G7",
+      "skill": "Subtract two pump balances to infer a leak rate, then recover a start time in seconds.",
+      "correctOptionId": "B",
+      "correctAnswerLatex": "(2.4\\times10^{-4},5.4\\times10^3)"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-007",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-007-AUTUMN-DEMAND-REWRITE-20261125",
+      "sourcePath": "qa-staging/math-priority35-autumn-demand-rewrite-changing-subject10-20261125.json",
+      "sourceBlobSha": "61dda8211f2182798fc8a7d8a2b9a1a15f52e800",
+      "topicId": "math-y9-changing-subject",
+      "trialBand": "G7",
+      "skill": "Eliminate an unwanted variable and propagate two changes.",
+      "correctOptionId": "A",
+      "correctAnswerLatex": "x=\\frac{10P+3Q}{7},\\ \\Delta x=\\frac{11}{7}"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-011",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-011-POST35-QA-REPAIR-20261125",
+      "sourcePath": "qa-staging/math-priority35-second-pass-five-repairs-20261125.json",
+      "sourceBlobSha": "acdbcec5a99b2c15c224336bab8dec2580409051",
+      "topicId": "math-y9-changing-subject",
+      "trialBand": "G8-9",
+      "skill": "Use a constant sum to fix a coefficient before inverting a different combination.",
+      "correctOptionId": "D",
+      "correctAnswerLatex": "k=-\\frac65,\\ x=\\frac{44-25d}{20}"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-006",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-006-DEMAND-ORDER-RECONCILED-20261125",
+      "sourcePath": "qa-staging/math-priority52-demand-order-reconciliation-20261125.json",
+      "sourceBlobSha": "105c1d90a5c0f6e04e9b7aa60640de01fd4c73f8",
+      "topicId": "math-y9-straight-line-graphs",
+      "trialBand": "G8",
+      "skill": "Construct a parallelogram from intersection and parallel constraints, then obtain its area.",
+      "correctOptionId": "F",
+      "correctAnswerLatex": "96"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-010",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-010-BALANCED-OPTION-ORDER-20261125",
+      "sourcePath": "qa-staging/math-priority39-balanced-options-20261125.json",
+      "sourceBlobSha": "cf7eff2935f98e395d63bd4dd5db59fac19edd68",
+      "topicId": "math-y9-straight-line-graphs",
+      "trialBand": "G7",
+      "skill": "Use two line intersections and a transferred gradient.",
+      "correctOptionId": "B",
+      "correctAnswerLatex": "\\frac{20}{3}"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-023",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-DEMAND-ORDER-RECONCILED-20261125",
+      "sourcePath": "qa-staging/math-priority52-demand-order-reconciliation-20261125.json",
+      "sourceBlobSha": "105c1d90a5c0f6e04e9b7aa60640de01fd4c73f8",
+      "topicId": "math-y9-simultaneous-equations",
+      "trialBand": "G8-9",
+      "skill": "Recover original inputs and use a constraint on their change to find a new parameter and input.",
+      "correctOptionId": "C",
+      "correctAnswerLatex": "(57/8,-21)"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-024",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-AUTUMN-DEMAND-REWRITE-20261125",
+      "sourcePath": "qa-staging/math-priority35-autumn-demand-rewrite-graphs-simultaneous14-20261125.json",
+      "sourceBlobSha": "855f1ace2a97db4bce13e308a9b306c7adf2b93b",
+      "topicId": "math-y9-simultaneous-equations",
+      "trialBand": "G8",
+      "skill": "Solve for two price lists and use an independent purchase constraint.",
+      "correctOptionId": "F",
+      "correctAnswerLatex": "\\pounds44"
+    }
+  ]
+}

@@ -4,6 +4,12 @@ on:
     branches: [feature/daily-tasks-v3-20261122]
     paths:
       - '.github/workflows/daily-v3-maths-browser-20261122.yml'
+      - 'tests/daily-v3-maths-student-browser-20261125.mjs'
+      - 'assets/math-study/daily-v31-student.js'
+      - 'assets/math-study/daily-v31-formal-submission.js'
+      - 'assets/durable-study-evidence-20261018.js'
+      - 'assets/daily-tasks-v3-20261122.js'
+      - 'qa-staging/math-priority116-ten-question-scoring-rehearsal-20261125.json'
       - 'study/maths/daily/index.html'
       - 'assets/math-study/daily-v31-qa-preview.js'
       - 'assets/math-study/math-v31-native-mathml.js'
@@ -28,6 +34,10 @@ jobs:
           npx playwright install --with-deps chromium webkit
       - name: Confirm offline MathML QA-only preview, 6-option grading and no learner state writes
         run: node tests/daily-v3-maths-ipad-browser-20261122.mjs
+      - name: Exercise first answers, retries and scoring across tabs and reopening
+        env:
+          MATHS_BROWSER_ENGINES: chromium,webkit
+        run: node tests/daily-v3-maths-student-browser-20261125.mjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
