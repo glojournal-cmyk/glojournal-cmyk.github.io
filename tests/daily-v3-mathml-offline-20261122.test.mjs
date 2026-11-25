@@ -64,3 +64,9 @@ test('revised questions preserve single-token fractions, currency, set and spaci
  assert.match(latexMathML('x,\\ \\Delta x'), /<mspace[^>]*\/><mi>Δ<\/mi>/);
  for(const expr of ['\\frac4','\\frac{4}','\\sqrt','\\frac4}'])assert.throws(()=>latexMathML(expr));
 });
+
+test('short prose in a Maths option is literal MathML text',()=>{
+ assert.match(latexMathML('\\text{no unique }x'), /<mtext>no unique <\/mtext><mi>x<\/mi>/);
+ assert.match(latexMathML('\\text{a<b}'), /<mtext>a&lt;b<\/mtext>/);
+ assert.throws(()=>latexMathML('\\text{bad\\macro}'));
+});
