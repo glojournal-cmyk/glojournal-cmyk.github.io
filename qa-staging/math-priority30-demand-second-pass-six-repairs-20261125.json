@@ -1,0 +1,387 @@
+{
+  "kind": "GRADE_DEMAND_SECOND_PASS_REPAIRS_NO_RELEASE",
+  "date": "2026-11-25",
+  "sourceCommit": "902e10f0af49bf782048376cd6e1587c6989315e",
+  "sourceRegister": "qa-staging/math-priority116-post30-demand-order-mastery-register-20261125.json",
+  "sourceRegisterBlobSha": "dfa3b4b1d076245e7c8fabf6755b3ce4b73fcbe0",
+  "counts": {
+    "repaired": 6,
+    "keysUnchanged": 6,
+    "formalApproved": 0
+  },
+  "limits": "AI second-pass corrections, not grade or classroom approval; no runtime/deployment changes.",
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-019",
+      "priorRevisionId": "LUX-MATH-Y9-INDICES-019-DEMAND-ORDER-RECONCILED-20261125",
+      "priorRecordPath": "qa-staging/math-priority52-demand-order-reconciliation-20261125.json",
+      "priorRecordBlobSha": "105c1d90a5c0f6e04e9b7aa60640de01fd4c73f8",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-INDICES-019",
+        "revisionId": "LUX-MATH-Y9-INDICES-019-DEMAND-SECOND-PASS-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-INDICES-019-DEMAND-ORDER-RECONCILED-20261125",
+        "topicId": "math-y9-indices",
+        "stem": "For integers n>m, define $A=5\\cdot2^n+2^m$ and $B=5\\cdot2^m+2^n$. Given $A/B=41/13$ and $A=1312$, find $2^{n+m}$.",
+        "options": [
+          {
+            "latex": "8",
+            "errorPath": "Report the ratio of the two powers.",
+            "id": "A"
+          },
+          {
+            "latex": "256",
+            "errorPath": "Report 2^n only.",
+            "id": "B"
+          },
+          {
+            "latex": "32",
+            "errorPath": "Report 2^m only.",
+            "id": "C"
+          },
+          {
+            "latex": "8192",
+            "id": "D"
+          },
+          {
+            "id": "E",
+            "latex": "1024",
+            "errorPath": "Square the smaller recovered power, (2^m)^2=32², instead of multiplying the two different powers."
+          },
+          {
+            "id": "F",
+            "latex": "65536",
+            "errorPath": "Square the larger recovered power, (2^n)^2=256², instead of multiplying the two different powers."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "8192",
+        "workedSolutionSteps": [
+          "Let t=2^(n−m). Then (5t+1)/(5+t)=41/13, giving 65t+13=205+41t, so t=8.",
+          "A=(5t+1)2^m=41·2^m=1312, so 2^m=32 and m5; n8.",
+          "2^(n+m)=2^13=8192."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "repairSummary": "Replace weak distractor or restore consistent compound-answer format.",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-014-DEMAND-ORDER-RECONCILED-20261125",
+      "priorRecordPath": "qa-staging/math-priority52-demand-order-reconciliation-20261125.json",
+      "priorRecordBlobSha": "105c1d90a5c0f6e04e9b7aa60640de01fd4c73f8",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-014-DEMAND-SECOND-PASS-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-014-DEMAND-ORDER-RECONCILED-20261125",
+        "topicId": "math-y9-standard-form",
+        "stem": "Two detectors collect $3.2\\times10^5$ pulses per second for $2.5\\times10^2$ seconds and $4.8\\times10^4$ pulses per second for $1.5\\times10^3$ seconds. Remove $1.6\\times10^7$ pulses. Exactly 44 containers are used, each of type A (capacity $2.4\\times10^6$) or type B ($3.6\\times10^6$). All retained pulses must fit; partly filled containers are allowed. Using as few B containers as possible, find the number of B containers and the total unused capacity in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "(25,4\\times10^5)",
+            "errorPath": "Round the B count down to25; capacity135.6m is short of the 136m needed by0.4m. Mistake that shortage for spare capacity."
+          },
+          {
+            "latex": "(44,2.24\\times10^7)",
+            "errorPath": "Use all B: capacity158.4m and spare22.4m.",
+            "id": "B"
+          },
+          {
+            "latex": "(26,8\\times10^5)",
+            "id": "C"
+          },
+          {
+            "latex": "(26,1.368\\times10^8)",
+            "errorPath": "Report capacity instead of unused amount.",
+            "id": "D"
+          },
+          {
+            "latex": "(27,2\\times10^6)",
+            "errorPath": "Use one unnecessary extra B; spare2m.",
+            "id": "E"
+          },
+          {
+            "latex": "(18,8\\times10^5)",
+            "errorPath": "Report number of A rather than B.",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "(26,8\\times10^5)",
+        "workedSolutionSteps": [
+          "Retained 80m+72m−16m=136m.",
+          "44 A containers give105.6m capacity; every B replacement adds1.2m. 30.4m/1.2m=25⅓, so at least26 B.",
+          "Capacity=136.8m, unused0.8m; 18 A and26 B fit."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "repairSummary": "Replace weak distractor or restore consistent compound-answer format.",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-026-DEMAND-ORDER-RECONCILED-20261125",
+      "priorRecordPath": "qa-staging/math-priority52-demand-order-reconciliation-20261125.json",
+      "priorRecordBlobSha": "105c1d90a5c0f6e04e9b7aa60640de01fd4c73f8",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-026-DEMAND-SECOND-PASS-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-026-DEMAND-ORDER-RECONCILED-20261125",
+        "topicId": "math-y9-standard-form",
+        "stem": "Pump A delivers $2.4\\times10^{-3}$ m³ per minute and pump B delivers $6\\times10^{-4}$ m³ per minute. A tank initially empty loses water at a constant $4\\times10^{-4}$ m³ per minute throughout the operation. A runs for all 150 minutes; B starts once during that period and then runs until the end. The final volume is exactly $3.6\\times10^{-1}$ m³. Which pair gives (the time in seconds A ran before B started, the total volume in m³ delivered by B), with both quantities in standard form?",
+        "options": [
+          {
+            "latex": "(6\\times10^3,3\\times10^{-2})",
+            "errorPath": "Confuse B duration with A-only time and compute B for50 min.",
+            "id": "A"
+          },
+          {
+            "latex": "(3\\times10^3,6\\times10^{-2})",
+            "id": "B"
+          },
+          {
+            "latex": "(0,9\\times10^{-2})",
+            "errorPath": "Assume both start together.",
+            "id": "C"
+          },
+          {
+            "latex": "(3\\times10^3,3\\times10^{-2})",
+            "errorPath": "Use A-only period when computing B volume.",
+            "id": "D"
+          },
+          {
+            "latex": "(50,6\\times10^{-2})",
+            "errorPath": "Leave time in minutes.",
+            "id": "E"
+          },
+          {
+            "latex": "(9\\times10^3,0)",
+            "errorPath": "Ignore leakage and assume B unnecessary.",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "(3\\times10^3,6\\times10^{-2})",
+        "workedSolutionSteps": [
+          "A delivers .36 m³ and loss is .06 m³, so B must deliver .06 m³.",
+          "B duration=.06/.0006=100 minutes.",
+          "A-only period=50 minutes=3000 seconds."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "repairSummary": "Clarify requested quantity or format; no mathematical change.",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-017",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-017-DEMAND-ORDER-RECONCILED-20261125",
+      "priorRecordPath": "qa-staging/math-priority52-demand-order-reconciliation-20261125.json",
+      "priorRecordBlobSha": "105c1d90a5c0f6e04e9b7aa60640de01fd4c73f8",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-017",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-017-DEMAND-SECOND-PASS-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-017-DEMAND-ORDER-RECONCILED-20261125",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "P is the intersection of $y=x+1$ and $y=3x-5$. Reflect P in the y-axis, then move the reflected point vertically up by h units, with h>0. Let L be the line through this transformed point parallel to $y=-2x+7$. L meets the x-axis at Q. The line through P parallel to $y=x$ meets the x-axis at T. Q is 3 units to the right of T. Find h and the y-intercept of L, in that order.",
+        "options": [
+          {
+            "latex": "(3,1)",
+            "errorPath": "Use h=3 as horizontal shift rather than double it.",
+            "id": "A"
+          },
+          {
+            "latex": "(6,-4)",
+            "errorPath": "Lose sign of calculated intercept.",
+            "id": "B"
+          },
+          {
+            "latex": "(0,-2)",
+            "errorPath": "Omit translation.",
+            "id": "C"
+          },
+          {
+            "latex": "(4,2)",
+            "errorPath": "Set Q x=1 instead of2.",
+            "id": "D"
+          },
+          {
+            "latex": "(6,4)",
+            "id": "E"
+          },
+          {
+            "latex": "(6,2)",
+            "errorPath": "Report Q x-coordinate rather than intercept.",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "(6,4)",
+        "workedSolutionSteps": [
+          "P=(3,4), reflected and translated point=(−3,4+h). Its parallel has equation y=−2x+h−2; Q has x=(h−2)/2.",
+          "Line through P with slope1 is y=x+1; T x=−1. Therefore Q x=2.",
+          "(h−2)/2=2 gives h6, intercept4."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "repairSummary": "Clarify requested quantity or format; no mathematical change.",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-017",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-017-DEMAND-ORDER-RECONCILED-20261125",
+      "priorRecordPath": "qa-staging/math-priority52-demand-order-reconciliation-20261125.json",
+      "priorRecordBlobSha": "105c1d90a5c0f6e04e9b7aa60640de01fd4c73f8",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-017",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-017-DEMAND-SECOND-PASS-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-017-DEMAND-ORDER-RECONCILED-20261125",
+        "topicId": "math-y9-changing-subject",
+        "stem": "For integer x from 0 to 100, let $y=(3x-2)/5$ and $z=(2x+6)/4$. Both y and z must be integers and $-3\\le z-y\\le-1$. Which option correctly makes x the subject of y and gives the sum T of all qualifying x?",
+        "options": [
+          {
+            "latex": "x=(5y-2)/3;\\ T=117",
+            "errorPath": "Move −2 with wrong sign; sum independently found.",
+            "id": "A"
+          },
+          {
+            "latex": "x=(5y+2)/3;\\ T=68",
+            "errorPath": "Exclude upper endpoint49; sum29+39=68.",
+            "id": "B"
+          },
+          {
+            "id": "C",
+            "latex": "x=(5y+2)/3;\\ T=195",
+            "errorPath": "Ignore integer z; x=29,34,39,44,49 gives sum195."
+          },
+          {
+            "latex": "x=(5y+2)/3;\\ T=39",
+            "errorPath": "Report middle qualifying input only.",
+            "id": "D"
+          },
+          {
+            "id": "E",
+            "latex": "x=(5y+2)/3;\\ T=88",
+            "errorPath": "Exclude lower endpoint29; retain39+49=88."
+          },
+          {
+            "latex": "x=(5y+2)/3;\\ T=117",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "x=(5y+2)/3;\\ T=117",
+        "workedSolutionSteps": [
+          "Inverse x=(5y+2)/3. Integer y occurs at x=4,9,14,...; integer z at odd x, so common x=9,19,29,...,99.",
+          "z−y=(19−x)/10. The given interval is equivalent to 29≤x≤49.",
+          "Only29,39,49 qualify; T117."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "repairSummary": "Replace weak distractor or restore consistent compound-answer format.",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-028",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-DEMAND-ORDER-RECONCILED-20261125",
+      "priorRecordPath": "qa-staging/math-priority52-demand-order-reconciliation-20261125.json",
+      "priorRecordBlobSha": "105c1d90a5c0f6e04e9b7aa60640de01fd4c73f8",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-028",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-DEMAND-SECOND-PASS-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-DEMAND-ORDER-RECONCILED-20261125",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "Boxes A and B contain positive whole numbers of counters. Moving 15 from A to B gives ratio A:B=2:3; starting from the original counts and moving 6 from B to A gives ratio 3:2. A third box C initially contains three tenths of the total number of counters in ALL THREE boxes. Starting again from original counts, how many counters must be moved from A to C so that A:C=1:2?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "35",
+            "errorPath": "Ignore the increase in C and solve 2(57−n)=45, obtaining34.5; then round to a whole counter."
+          },
+          {
+            "latex": "23",
+            "id": "B"
+          },
+          {
+            "latex": "12",
+            "errorPath": "Use C's initial deficit relative to A:57−45.",
+            "id": "C"
+          },
+          {
+            "latex": "69",
+            "errorPath": "Fail to divide 114−45 by3.",
+            "id": "D"
+          },
+          {
+            "latex": "45",
+            "errorPath": "Report C initial count.",
+            "id": "E"
+          },
+          {
+            "latex": "57",
+            "errorPath": "Report A initial count.",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "23",
+        "workedSolutionSteps": [
+          "With T=A+B, A−15=2T/5 and A+6=3T/5. Thus T105 and A57,B48.",
+          "C=3(105+C)/10 gives C45.",
+          "For transfer n, 2(57−n)=45+n, so n23; final A34,C68."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "repairSummary": "Replace weak distractor or restore consistent compound-answer format.",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ]
+}
