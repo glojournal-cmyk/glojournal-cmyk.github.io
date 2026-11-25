@@ -1,0 +1,910 @@
+{
+  "kind": "BORDERLINE35_AUTUMN_CORE_REWRITE_BATCH_NO_RELEASE",
+  "date": "2026-11-25",
+  "sourceRegister": "qa-staging/math-priority116-school-scope-higher-demand-screen-20261124.json",
+  "sourceRegisterBlobSha": "1f60b643177afaa70f41f7091da9c2d5b72e74ba",
+  "sourceCommit": "d5345793c12ad046d781be3cf06d3d81b97a8cd3",
+  "counts": {
+    "rewritten": 14,
+    "formalApproved": 0
+  },
+  "limits": "Author-drafted; independent review, grade demand and class scope pending. No Vercel/runtime changes.",
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-006",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-006-PRIORITY-CONTENT-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-priority116-content-acceptance-graphs21-20261124.json",
+      "priorRecordBlobSha": "0a1d930223781c7c3f8ea45106308ff03f5b3c57",
+      "priorAnswer": "10",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-006",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-006-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-006-PRIORITY-CONTENT-REVIEW-20261124",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "Line A passes through (2,3) and (6,11). Line B passes through (1,9) and (5,5). Let P be their intersection and let Q and R be the x-intercepts of B and A respectively. Find the exact area of triangle PQR.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\frac{361}{6}",
+            "errorPath": "Omit the factor1/2."
+          },
+          {
+            "id": "B",
+            "latex": "\\frac{209}{12}",
+            "errorPath": "Use P's x-coordinate11/3 as height."
+          },
+          {
+            "id": "C",
+            "latex": "\\frac{361}{12}"
+          },
+          {
+            "id": "D",
+            "latex": "\\frac{95}{3}",
+            "errorPath": "Use base10 instead of10−1/2."
+          },
+          {
+            "id": "E",
+            "latex": "\\frac{209}{6}",
+            "errorPath": "Use A's y-intercept−1 as its x-intercept; base11."
+          },
+          {
+            "id": "F",
+            "latex": "\\frac{19}{3}",
+            "errorPath": "Report height only."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "\\frac{361}{12}",
+        "workedSolutionSteps": [
+          "A: y=2x−1; B: y=−x+10. Equate to obtain P=(11/3,19/3).",
+          "Q=(10,0), R=(1/2,0); base length19/2.",
+          "Area=(19/2)(19/3)/2=361/12."
+        ],
+        "unverifiedTaughtSubskill": "Linear gradients, equations, intersections and routine coordinate/area reasoning as stated.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTERCEPT_AREA",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-013",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-013-V325-REASONING-QA-ONLY",
+      "priorRecordPath": "qa-staging/math-v325-graphs12-reasoning-replacements-20261124.json",
+      "priorRecordBlobSha": "04d947ab851069de61245fab2e7f6577ab4f2147",
+      "priorAnswer": "1",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-013",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-013-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-013-V325-REASONING-QA-ONLY",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "A rectangle has corners (0,0), (12,0), (12,8), (0,8). A straight line parallel to the segment joining (1,2) and (7,5) crosses both vertical sides. The area below the line inside the rectangle is exactly 7/16 of the rectangle's area. Find its y-intercept.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\frac72",
+            "errorPath": "Report mean height42/12 as intercept."
+          },
+          {
+            "id": "B",
+            "latex": "\\frac32",
+            "errorPath": "Use complement 9/16, giving area54 and c=3/2."
+          },
+          {
+            "id": "C",
+            "latex": "\\frac{11}{2}",
+            "errorPath": "Use half width6: area6c+9=42."
+          },
+          {
+            "id": "D",
+            "latex": "\\frac12"
+          },
+          {
+            "id": "E",
+            "latex": "\\frac{13}{2}",
+            "errorPath": "Use slope−1/2 instead of+1/2: c−3=7/2."
+          },
+          {
+            "id": "F",
+            "latex": "-\\frac{17}{2}",
+            "errorPath": "Use reciprocal slope2: c+12=7/2."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "\\frac12",
+        "workedSolutionSteps": [
+          "Parallel gradient=(5−2)/(7−1)=1/2. Write y=x/2+c.",
+          "Heights at sides are c and c+6. Area below=12(2c+6)/2=12c+36.",
+          "Target=(7/16)96=42; c=1/2. Both heights 1/2 and13/2 are within rectangle."
+        ],
+        "unverifiedTaughtSubskill": "Linear gradients, equations, intersections and routine coordinate/area reasoning as stated.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTERCEPT_AREA",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-024",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-024-V326-REASONING-QA-ONLY",
+      "priorRecordPath": "qa-staging/math-v326-graphs25-reasoning-replacements-20261124.json",
+      "priorRecordBlobSha": "55884c165762b559276dfe901f78f4af65d557b7",
+      "priorAnswer": "-\\frac{5}{2}",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-024",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-024-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-024-V326-REASONING-QA-ONLY",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "A line crosses the positive axes at (a,0) and (0,b), with a,b positive integers. The sum a+b is 14 and the triangle bounded by the axes and the line has area 24. The gradient is less than −1. The line is then translated vertically UP by 3 units. Find the x-coordinate of the new x-intercept.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "12",
+            "errorPath": "Use shallower original slope−3/4 and b=6; new intercept12."
+          },
+          {
+            "id": "B",
+            "latex": "6",
+            "errorPath": "Report old x-intercept."
+          },
+          {
+            "id": "C",
+            "latex": "\\frac{15}{4}",
+            "errorPath": "Translate down, b=5."
+          },
+          {
+            "id": "D",
+            "latex": "\\frac{33}{4}"
+          },
+          {
+            "id": "E",
+            "latex": "9",
+            "errorPath": "Add3 to x-intercept instead of shifting vertically."
+          },
+          {
+            "id": "F",
+            "latex": "\\frac{44}{3}",
+            "errorPath": "Use reciprocal slope−3/4 with new y-intercept11."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "\\frac{33}{4}",
+        "workedSolutionSteps": [
+          "ab=48, a+b=14; integer pairs (6,8),(8,6).",
+          "Gradient less than−1 selects a=6,b=8, slope−4/3. Shift gives y=−4x/3+11.",
+          "Set y=0: x=33/4."
+        ],
+        "unverifiedTaughtSubskill": "Linear gradients, equations, intersections and routine coordinate/area reasoning as stated.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTERCEPT_AREA",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-029",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-029-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-graphs8-20261124.json",
+      "priorRecordBlobSha": "679711e6abf9728f15f26d68755524f0e53654d0",
+      "priorAnswer": "\\frac{625}{12}",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-029",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-029-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-029-DISTRACTOR-REPAIR-20261124",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "Lines A: $y=2x+3$ and B: $y=11-2x$ meet at P. A line through P is parallel to the segment joining (1,2) and (4,0). It crosses the y-axis at Y. Let X be the x-intercept of line B. Find the gradient of the line XY.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "-\\frac23",
+            "errorPath": "Report slope of the parallel line."
+          },
+          {
+            "id": "B",
+            "latex": "-\\frac{14}{11}",
+            "errorPath": "Use P's y-coordinate7 instead of Y's y-coordinate."
+          },
+          {
+            "id": "C",
+            "latex": "\\frac{50}{9}",
+            "errorPath": "Use A's x-intercept−3/2 instead of B's."
+          },
+          {
+            "id": "D",
+            "latex": "\\frac{50}{33}",
+            "errorPath": "Drop minus sign."
+          },
+          {
+            "id": "E",
+            "latex": "-\\frac{50}{33}"
+          },
+          {
+            "id": "F",
+            "latex": "-\\frac{33}{50}",
+            "errorPath": "Reverse rise and run."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "-\\frac{50}{33}",
+        "workedSolutionSteps": [
+          "P=(2,7), parallel slope−2/3, so Y=(0,25/3).",
+          "B's x-intercept X=(11/2,0).",
+          "XY gradient=(0−25/3)/(11/2)=−50/33."
+        ],
+        "unverifiedTaughtSubskill": "Linear gradients, equations, intersections and routine coordinate/area reasoning as stated.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "LINEAR_SYSTEM_TRANSFER",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-035",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-035-PRIORITY-CONTENT-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-priority116-content-acceptance-graphs21-20261124.json",
+      "priorRecordBlobSha": "0a1d930223781c7c3f8ea45106308ff03f5b3c57",
+      "priorAnswer": "18:55",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-035",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-035-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-035-PRIORITY-CONTENT-REVIEW-20261124",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "A=(0,6), B=(8,0). Points P and Q lie on segment AB, with positive coordinates. At P, the distance from the y-axis is twice the distance from the x-axis. At Q, the distance from the x-axis is twice the distance from the y-axis. Point M lies between P and Q with $PM:MQ=2:1$. Find M's y-coordinate.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\frac{168}{55}",
+            "errorPath": "Reverse ratio: (2yP+yQ)/3."
+          },
+          {
+            "id": "B",
+            "latex": "\\frac{186}{55}",
+            "errorPath": "Use midpoint instead of given division ratio."
+          },
+          {
+            "id": "C",
+            "latex": "\\frac{12}{5}",
+            "errorPath": "Report yP."
+          },
+          {
+            "id": "D",
+            "latex": "\\frac{204}{55}"
+          },
+          {
+            "id": "E",
+            "latex": "\\frac{48}{11}",
+            "errorPath": "Report yQ."
+          },
+          {
+            "id": "F",
+            "latex": "\\frac{108}{55}",
+            "errorPath": "Report yQ−yP."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "\\frac{204}{55}",
+        "workedSolutionSteps": [
+          "AB: y=6−3x/4. P has x=2y, giving P=(24/5,12/5); Q has y=2x, giving Q=(24/11,48/11).",
+          "M is two thirds of the way from P to Q. Its y-coordinate=(yP+2yQ)/3.",
+          "(12/5+96/11)/3=204/55."
+        ],
+        "unverifiedTaughtSubskill": "Linear gradients, equations, intersections and routine coordinate/area reasoning as stated.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "LOCAL_straight-line-graphs_axis-distance-ratio",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-007",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-007-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-simultaneous8-20261124.json",
+      "priorRecordBlobSha": "cc509c9112c9304cb461cc7af250637a6e49988a",
+      "priorAnswer": "-\\frac{11}{3}",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-007",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-007-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-007-DISTRACTOR-REPAIR-20261124",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "Originally $7x+4y=31$ and $3x-2y=5$. In a second system, the first right-hand side increases by 13 and the second decreases by 4, with coefficients unchanged. Let N be the change (new minus original) in $23x+2y$ and D the change in $-x-8y$. Find N/D.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\frac23",
+            "errorPath": "Drop sign of denominator."
+          },
+          {
+            "id": "B",
+            "latex": "-\\frac32",
+            "errorPath": "Invert N/D."
+          },
+          {
+            "id": "C",
+            "latex": "-\\frac{38}{5}",
+            "errorPath": "Treat second change as +4: (26+12)/(8−13)."
+          },
+          {
+            "id": "D",
+            "latex": "\\frac32",
+            "errorPath": "Ignore first change: −12/(−8)."
+          },
+          {
+            "id": "E",
+            "latex": "-2",
+            "errorPath": "Ignore second change:26/(−13)."
+          },
+          {
+            "id": "F",
+            "latex": "-\\frac23"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "-\\frac23",
+        "workedSolutionSteps": [
+          "23x+2y=2(7x+4y)+3(3x−2y). Its change is 2(13)+3(−4)=14.",
+          "−x−8y=2(3x−2y)−(7x+4y); change=2(−4)−13=−21.",
+          "N/D=14/(−21)=−2/3."
+        ],
+        "unverifiedTaughtSubskill": "Linear simultaneous equations, changes of coefficients or right-hand sides, integer/ratio constraints as stated.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "LINEAR_SYSTEM_TRANSFER",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-009",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-simultaneous8-20261124.json",
+      "priorRecordBlobSha": "cc509c9112c9304cb461cc7af250637a6e49988a",
+      "priorAnswer": "78",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-009",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-DISTRACTOR-REPAIR-20261124",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "For positive integer k≤450, a first system is $(x+y)/3=(x-y)/2$ and $2x+3y=k$. A second system keeps the first equation and replaces the second by $2u+5v=k$, with $(u+v)/3=(u-v)/2$. Both systems must have positive integer solutions, and the original x+y must be divisible by 4. Find x+u.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "140",
+            "errorPath": "Ignore divisibility by4 and choose k195; x75,u65."
+          },
+          {
+            "id": "B",
+            "latex": "150",
+            "errorPath": "Report original x only."
+          },
+          {
+            "id": "C",
+            "latex": "280"
+          },
+          {
+            "id": "D",
+            "latex": "130",
+            "errorPath": "Report new u only."
+          },
+          {
+            "id": "E",
+            "latex": "390",
+            "errorPath": "Report k."
+          },
+          {
+            "id": "F",
+            "latex": "56",
+            "errorPath": "Report y+v."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "280",
+        "workedSolutionSteps": [
+          "The shared relation gives x=5y and u=5v. Thus k=13y=15v.",
+          "Common positive multiples of13 and15 up to450 are195,390. Original y must be even because x+y=6y is divisible by4, so k390.",
+          "y30,v26; x150,u130; x+u280."
+        ],
+        "unverifiedTaughtSubskill": "Linear simultaneous equations, changes of coefficients or right-hand sides, integer/ratio constraints as stated.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTEGER_FEASIBILITY",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-010",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-simultaneous8-20261124.json",
+      "priorRecordBlobSha": "cc509c9112c9304cb461cc7af250637a6e49988a",
+      "priorAnswer": "36",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-010",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-DISTRACTOR-REPAIR-20261124",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "For integer c, a first system is $x+2y=c$, $3x-2y=12-c$. A second system is $u+2v=c$, $3u-2v=20-c$. Both systems must have positive integer solutions. Also $2<x+y\\le8$, and v must not be a multiple of 3. Find the sum of all possible c.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "31",
+            "errorPath": "Exclude multiples of3 in y instead of v: y2,4,5 gives7+11+13."
+          },
+          {
+            "id": "B",
+            "latex": "40",
+            "errorPath": "Ignore restriction on v:7+9+11+13."
+          },
+          {
+            "id": "C",
+            "latex": "16",
+            "errorPath": "Omit y5:7+9."
+          },
+          {
+            "id": "D",
+            "latex": "10",
+            "errorPath": "Sum allowed y values2+3+5 instead of c."
+          },
+          {
+            "id": "E",
+            "latex": "29"
+          },
+          {
+            "id": "F",
+            "latex": "3",
+            "errorPath": "Report count of c values."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "29",
+        "workedSolutionSteps": [
+          "Adding equations in each system gives x3,u5; y=(c−3)/2,v=(c−5)/2=y−1.",
+          "Both positive and x+y≤8 imply y=2,3,4,5. Exclude v3, i.e. y4.",
+          "c=7,9,13; sum29."
+        ],
+        "unverifiedTaughtSubskill": "Linear simultaneous equations, changes of coefficients or right-hand sides, integer/ratio constraints as stated.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTEGER_FEASIBILITY",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-015",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-015-DEMAND-UPGRADE-20261124",
+      "priorRecordPath": "qa-staging/math-demand-upgrade-simultaneous26-20261124.json",
+      "priorRecordBlobSha": "e8983bdc7519f2d42fbfcb926982a00f2b654884",
+      "priorAnswer": "-3",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-015",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-015-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-015-DEMAND-UPGRADE-20261124",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "Three real numbers satisfy $2a+3b=24$, $3a-b=3$ and $2b+c=19$. A new set of numbers satisfies the same second and third equations, but the first is changed to $2a+3b=35$. Find the change in c (new value minus original value).",
+        "options": [
+          {
+            "id": "A",
+            "latex": "6",
+            "errorPath": "Reverse order of subtraction."
+          },
+          {
+            "id": "B",
+            "latex": "-3",
+            "errorPath": "Forget coefficient2 in c=19−2b when computing change."
+          },
+          {
+            "id": "C",
+            "latex": "1",
+            "errorPath": "Report new c."
+          },
+          {
+            "id": "D",
+            "latex": "-6"
+          },
+          {
+            "id": "E",
+            "latex": "7",
+            "errorPath": "Report old c."
+          },
+          {
+            "id": "F",
+            "latex": "3",
+            "errorPath": "Report increase in b."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "-6",
+        "workedSolutionSteps": [
+          "From 3a−b=3, b=3a−3. Substitute into original first equation:11a−9=24 gives a3,b6,c7.",
+          "New first gives11a−9=35, so a4,b9,c1.",
+          "Change=1−7=−6."
+        ],
+        "unverifiedTaughtSubskill": "Linear simultaneous equations, changes of coefficients or right-hand sides, integer/ratio constraints as stated.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "LINEAR_SYSTEM_TRANSFER",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-016",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-016-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-simultaneous8-20261124.json",
+      "priorRecordBlobSha": "cc509c9112c9304cb461cc7af250637a6e49988a",
+      "priorAnswer": "14",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-016",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-016-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-016-DISTRACTOR-REPAIR-20261124",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "For positive integers k≤10, the system $2x+y=21$ and $kx-y=3$ has a unique solution. Find the sum of all k for which x,y are positive integers, x<y and y is NOT divisible by 3.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "15",
+            "errorPath": "Ignore x<y: k1,4,10."
+          },
+          {
+            "id": "B",
+            "latex": "22",
+            "errorPath": "Ignore divisibility of y: k2,4,6,10."
+          },
+          {
+            "id": "C",
+            "latex": "8",
+            "errorPath": "Require y divisible by3 instead: k2,6."
+          },
+          {
+            "id": "D",
+            "latex": "14"
+          },
+          {
+            "id": "E",
+            "latex": "10",
+            "errorPath": "Keep only larger valid k."
+          },
+          {
+            "id": "F",
+            "latex": "6",
+            "errorPath": "Add x values4+2."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "14",
+        "workedSolutionSteps": [
+          "Adding gives (k+2)x=24; k+2 ranges3..12 and must divide24. Candidates k1,2,4,6,10 give x8,6,4,3,2 and y5,9,13,15,17.",
+          "x<y rejects k1. y not divisible by3 rejects k2,6.",
+          "k4,10 remain; sum14."
+        ],
+        "unverifiedTaughtSubskill": "Linear simultaneous equations, changes of coefficients or right-hand sides, integer/ratio constraints as stated.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTEGER_FEASIBILITY",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-023",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-SECOND-PASS-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority116-second-pass-six-repairs-20261124.json",
+      "priorRecordBlobSha": "5891d9ad4724999a42efd0c5471139bfdf47ec89",
+      "priorAnswer": "\\{(2,5),(\\frac{26}{5},-\\frac75)\\}",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-023",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-SECOND-PASS-REPAIR-20261124",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "A device takes two real numbers x,y and produces outputs $2x+y$ and $x-2y$, in that order. Initially these outputs are 9 and −8. The input is then changed to u,v so the outputs swap positions: −8 and 9. Find how much the difference between the input numbers changes, i.e. $(u-v)-(x-y)$.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\frac{19}{5}",
+            "errorPath": "Report new difference only."
+          },
+          {
+            "id": "B",
+            "latex": "-\\frac{34}{5}",
+            "errorPath": "Reverse subtraction."
+          },
+          {
+            "id": "C",
+            "latex": "-\\frac{68}{5}",
+            "errorPath": "Compare sums instead: −33/5−7."
+          },
+          {
+            "id": "D",
+            "latex": "-\\frac{17}{5}",
+            "errorPath": "Report change in first input alone."
+          },
+          {
+            "id": "E",
+            "latex": "\\frac{34}{5}"
+          },
+          {
+            "id": "F",
+            "latex": "-\\frac{51}{5}",
+            "errorPath": "Report change in second input alone."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "\\frac{34}{5}",
+        "workedSolutionSteps": [
+          "Initial equations 2x+y=9,x−2y=−8 give x2,y5; x−y=−3.",
+          "New equations 2u+v=−8,u−2v=9 give u=−7/5,v=−26/5; u−v=19/5.",
+          "Change=19/5−(−3)=34/5."
+        ],
+        "unverifiedTaughtSubskill": "Linear simultaneous equations, changes of coefficients or right-hand sides, integer/ratio constraints as stated.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "LINEAR_SYSTEM_TRANSFER",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-024",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-SECOND-PASS-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority116-second-pass-six-repairs-20261124.json",
+      "priorRecordBlobSha": "5891d9ad4724999a42efd0c5471139bfdf47ec89",
+      "priorAnswer": "2:1",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-024",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-SECOND-PASS-REPAIR-20261124",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "At a shop, 3 notebooks and 2 pens originally cost £21, while 2 notebooks and 5 pens cost £25. After both individual prices increase, the same bundles cost £24.60 and £28.50. A customer buys exactly 12 items (notebooks or pens); the total price of this purchase has increased by exactly £6.40. Find the ORIGINAL total price of the purchase.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\pounds50.40",
+            "errorPath": "Report new total44+6.40."
+          },
+          {
+            "id": "B",
+            "latex": "\\pounds6.40",
+            "errorPath": "Report increase."
+          },
+          {
+            "id": "C",
+            "latex": "\\pounds52",
+            "errorPath": "Swap counts to8 notebooks,4 pens."
+          },
+          {
+            "id": "D",
+            "latex": "\\pounds36",
+            "errorPath": "Assume all12 items pens."
+          },
+          {
+            "id": "E",
+            "latex": "\\pounds4",
+            "errorPath": "Report notebook count."
+          },
+          {
+            "id": "F",
+            "latex": "\\pounds44"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "\\pounds44",
+        "workedSolutionSteps": [
+          "Original unit prices n,p satisfy 3n+2p21,2n+5p25, so n5,p3. New unit prices6,3.30 from same coefficients.",
+          "Let a be notebooks, b pens. a+b=12 and a+0.30b=6.40. Solve a4,b8.",
+          "Original cost4×5+8×3=44."
+        ],
+        "unverifiedTaughtSubskill": "Linear simultaneous equations, changes of coefficients or right-hand sides, integer/ratio constraints as stated.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "LINEAR_SYSTEM_TRANSFER",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-028",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-simultaneous8-20261124.json",
+      "priorRecordBlobSha": "cc509c9112c9304cb461cc7af250637a6e49988a",
+      "priorAnswer": "105",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-028",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-DISTRACTOR-REPAIR-20261124",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "Boxes A and B contain positive whole numbers of counters. Moving 15 from A to B gives ratio A:B=2:3. Starting again from original counts, moving 6 from B to A gives A:B=3:2. Starting once more from original counts, how many counters must be moved from A to B to make A:B=1:4?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "21",
+            "errorPath": "Report target A count."
+          },
+          {
+            "id": "B",
+            "latex": "-27",
+            "errorPath": "Reverse target ratio: A target84; transfer57−84."
+          },
+          {
+            "id": "C",
+            "latex": "\\frac{123}{4}",
+            "errorPath": "Use 1/4 of total as target A, giving57−105/4."
+          },
+          {
+            "id": "D",
+            "latex": "36"
+          },
+          {
+            "id": "E",
+            "latex": "15",
+            "errorPath": "Report first transfer."
+          },
+          {
+            "id": "F",
+            "latex": "57",
+            "errorPath": "Report original A count."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "36",
+        "workedSolutionSteps": [
+          "Total T unchanged. A−15=2T/5 and A+6=3T/5; subtract gives21=T/5, T105.",
+          "Original A=57,B48. Target A is 1/5 of105=21.",
+          "Transfer57−21=36, leaving21 and84."
+        ],
+        "unverifiedTaughtSubskill": "Linear simultaneous equations, changes of coefficients or right-hand sides, integer/ratio constraints as stated.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "CONSERVATION_RATIO_TRANSFER",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-038",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-038-ACADEMIC-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-final-academic-review-simultaneous-equations40-20261124.json",
+      "priorRecordBlobSha": "6be6a2cb0f39d34ce9e059ccff70e236ae8bf5be",
+      "priorAnswer": "k>\\frac{5}{3}",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-038",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-038-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-038-ACADEMIC-REVIEW-20261124",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "For positive integers $2\\le k\\le12$, consider the systems $x+y=6$, $kx+y=10$ and $u+v=6$, $ku+v=14$. Find the sum of all k for which BOTH systems have positive integer solutions.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "10",
+            "errorPath": "Check first system only, or ignore positivity in second:2+3+5."
+          },
+          {
+            "id": "B",
+            "latex": "17",
+            "errorPath": "Check second system only: k3,5,9."
+          },
+          {
+            "id": "C",
+            "latex": "5",
+            "errorPath": "Keep larger k only."
+          },
+          {
+            "id": "D",
+            "latex": "3",
+            "errorPath": "Keep smaller k only."
+          },
+          {
+            "id": "E",
+            "latex": "8"
+          },
+          {
+            "id": "F",
+            "latex": "6",
+            "errorPath": "Sum new u values4+2."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "8",
+        "workedSolutionSteps": [
+          "Subtract equations: x=4/(k−1), u=8/(k−1). Both integers require k−1 divides4; k2,3,5.",
+          "At k2, u8 and v−2, not positive. k3 gives (x,y)=(2,4),(u,v)=(4,2); k5 gives (1,5),(2,4).",
+          "Sum3+5=8."
+        ],
+        "unverifiedTaughtSubskill": "Linear simultaneous equations, changes of coefficients or right-hand sides, integer/ratio constraints as stated.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTEGER_FEASIBILITY",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ]
+}
