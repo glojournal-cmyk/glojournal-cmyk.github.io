@@ -1,0 +1,581 @@
+{
+  "kind": "SEVEN_DAY_STANDARD_FORM_SCOPE_REVISIONS_NO_RELEASE",
+  "date": "2026-11-25",
+  "sourceCommit": "7d365d09a88b133d95c03cdc0cccda134c1a98d3",
+  "sourceRegister": "qa-staging/math-priority116-indices-graphs-review-20261125.json",
+  "sourceRegisterBlobSha": "3d7da3d041c4fac8636f68ea830826aecbb6a90f",
+  "counts": {
+    "revised": 8,
+    "keysUnchanged": 8,
+    "targetedArithmeticChecks": 8
+  },
+  "limits": "Fraction restatement reduces dependence on percentage notation, not difficulty or all prior knowledge. Editorial drafts; further scope and demand assessment needed. No release.",
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-003",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-003-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-standard-form8-20261124.json",
+      "priorRecordBlobSha": "d207e930bdb10acd7d63d1162b4900cf5fae30c9",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-003",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-003-FRACTION_SCOPE_REVISION-20261125",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-003-REVIEW-2",
+        "topicId": "math-y9-standard-form",
+        "provisionalConceptFamily": "percentage-change-with-offset",
+        "stem": "An archive originally contains $4\\times10^6$ files, each of size $2.5\\times10^5$ bytes. All files are compressed. There are two methods: A retains one fifth of a file's original size and B retains seven twentieths. Method B must be used for at least one quarter of the files. A fixed index adds $3\\times10^9$ bytes. Storage capacity is $2.78\\times10^{11}$ bytes. What is the greatest possible number of files compressed using B? Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "2\\times10^{6}"
+          },
+          {
+            "id": "B",
+            "latex": "2.08\\times10^{6}",
+            "errorPath": "Omit the fixed index: (278000000000−200000000000)/37500."
+          },
+          {
+            "id": "C",
+            "latex": "8.57142\\times10^{5}",
+            "errorPath": "Divide the headroom after the all-A baseline by the full B size rather than the additional size: floor(75×10^9/87500)."
+          },
+          {
+            "id": "D",
+            "latex": "3.142857\\times10^{6}",
+            "errorPath": "Allocate the entire capacity after the index to B files, failing to reserve space for the remaining A files: floor(275×10^9/87500)."
+          },
+          {
+            "id": "E",
+            "latex": "1.5\\times10^{6}",
+            "errorPath": "Use the A compressed size 50000 as the marginal extra per B file: 75×10^9/50000."
+          },
+          {
+            "id": "F",
+            "latex": "1\\times10^{6}",
+            "errorPath": "Use the minimum required number instead of optimising the storage constraint: 4000000/4."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "2\\times10^{6}",
+        "workedSolutionSteps": [
+          "If all use A, compressed size is 2×10^11 bytes; including index gives 2.03×10^11 bytes.",
+          "Each B file adds (0.35−0.20)(2.5×10^5)=37500 bytes. Capacity permits at most (2.78×10^11−2.03×10^11)/37500=2000000 B files.",
+          "The required minimum is 1000000. The maximum 2000000 is feasible, and any extra B file exceeds capacity."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Optimise an allocation subject to minimum usage and capacity.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-003-DISTRACTOR-REPAIR-20261124",
+        "provisionalCrossTopicMasteryHold": "Shared linear allocation under fixed total and capacity with Q31, Q32 and Q40; do not award separate concept credit until independently reviewed.",
+        "importAllowed": false
+      },
+      "repairSummary": "Equivalent fraction replaces percentage notation. Retained quantitative constraints, key and error routes; explanations may express equivalent percentages. Ordinary fraction arithmetic and any supplied conversion remain prerequisites; not proof of classroom exposure.",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-009",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-009-ACADEMIC-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-final-academic-review-standard-form40-20261124.json",
+      "priorRecordBlobSha": "f0029eb6e6635251e0d24c38876ccf0f1d21cd3d",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-009",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-009-FRACTION_SCOPE_REVISION-20261125",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-009-REVIEW-2",
+        "replacesPreviousCandidateRevisionId": "LUX-MATH-Y9-STANDARD_FORM-009-V318-CONSTRAINT-TRANSFER-DRAFT-20261123",
+        "topicId": "math-y9-standard-form",
+        "oldLowerDemandVerdict": "LOWER",
+        "newUnverifiedReasoningDemand": "Requires making a feasible integer model with two unequal safe capacities and competing costs, demonstrating why cheaper mixes fail, not just dividing a known mass by one container capacity.",
+        "stem": "A factory makes $6\\times10^5$ g of material and discards $3\\times10^4$ g. It can use at most **5 containers**. A type A container costs £40, holds at most $1.2\\times10^5$ g, and may be loaded to at most **17/20 of its nominal mass capacity**; a type B costs £65, holds at most $1.5\\times10^5$ g, and may be loaded to at most **9/10 of its nominal mass capacity**. All remaining material must be packed, but its distribution among containers may vary. Find the **lowest total cost**. Give $(a,b,C,U)$, where $a,b$ are the numbers of type A and B containers, $C$ is the cost in pounds, and $U$ is the **unused nominal container capacity in grams**. Express $U$ in standard form $A\\times10^n$ where $1\\le A<10$ and integer $n$.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "(4,1,225,6\\times10^4)",
+            "errorPath": "Choose 4 A and 1 B: nominal unused capacity is 630000−570000=60000g and £225 cost, but usable safe capacity is only 543000g, below what must be packed."
+          },
+          {
+            "id": "B",
+            "latex": "(5,0,200,3\\times10^4)",
+            "errorPath": "Choose 5 A: nominal spare 600000−570000=30000g and cost £200, but 15% safe empty requirement limits usable load to 510000g."
+          },
+          {
+            "id": "C",
+            "latex": "(3,2,250,6\\times10^3)",
+            "errorPath": "Find correct cheapest mix of 3 A, 2 B, but calculate only unused safe loading capacity 576000−570000=6000g instead of unused full nominal mass capacity."
+          },
+          {
+            "id": "D",
+            "latex": "(3,2,250,9\\times10^4)"
+          },
+          {
+            "id": "E",
+            "latex": "(4,2,290,2.1\\times10^5)",
+            "errorPath": "Use 4 A plus 2 B, costing £290, nominal spare 780000−570000=210000g, but that is six containers, above the maximum of five."
+          },
+          {
+            "id": "F",
+            "latex": "(2,3,275,1.2\\times10^5)",
+            "errorPath": "Use a feasible 2 A plus 3 B mixture: nominal spare 690000−570000=120000g but cost £275, not cheapest £250."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "(3,2,250,9\\times10^4)",
+        "workedSolutionSteps": [
+          "The mass retained is $6\\times10^5-3\\times10^4=5.7\\times10^5$ g. Safe usable capacities are $0.85(1.2\\times10^5)=1.02\\times10^5$ g per A and $0.90(1.5\\times10^5)=1.35\\times10^5$ g per B.",
+          "With at most 5, feasibility requires $1.02\\times10^5a+1.35\\times10^5b\\ge5.7\\times10^5$ and $a+b\\le5$. Even 4 B cannot hold all mass. The five-container feasible costs are £250, £275, £300, £325; minimum cost £250 is $a=3,b=2$.",
+          "Unused **nominal**, not safe, capacity is $U=(3\\times1.2\\times10^5+2\\times1.5\\times10^5)-5.7\\times10^5=9\\times10^4$ g. Answer $(a,b,C,U)=(3,2,250,9\\times10^4)$."
+        ],
+        "exactTaughtSubskillUnverified": "Mixed-integer feasibility, capacity headroom and cost optimisation need independent taught-curriculum check.",
+        "reviewClassification": "AO2_AO3_CANDIDATE_NOT_CERTIFIED_G7_PLUS",
+        "academicQA": "pending",
+        "independentGrade7PlusCertification": false,
+        "teacherTaughtConfirmed": false,
+        "empiricalStudentMisconceptionEvidence": false,
+        "independentMasteryConceptApproved": false,
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "scoringWritesAllowed": false,
+        "N9NewEvidence": "Scientific quantity normalization 9×10^4 grams is explicitly assessed as final value.",
+        "topicAlignmentReview": "REBALANCED_TO_EXPLICIT_N9_FINAL_STANDARD_FORM_PENDING_INDEPENDENT_REVIEW",
+        "grade7PlusCertified": false,
+        "empiricalWrongAnswerEvidence": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-009-ACADEMIC-REVIEW-20261124",
+        "importAllowed": false,
+        "independentGradeCalibrated": false
+      },
+      "repairSummary": "Equivalent fraction replaces percentage notation. Retained quantitative constraints, key and error routes; explanations may express equivalent percentages. Ordinary fraction arithmetic and any supplied conversion remain prerequisites; not proof of classroom exposure.",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-011",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-011-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-standard-form8-20261124.json",
+      "priorRecordBlobSha": "d207e930bdb10acd7d63d1162b4900cf5fae30c9",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-011",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-011-FRACTION_SCOPE_REVISION-20261125",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-011-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-011-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+        "topicId": "math-y9-standard-form",
+        "provisionalConceptFamily": "tare-and-unit-count",
+        "stem": "A shipment containing $2\\times10^2$ empty boxes and a separate load of identical unpacked items has total mass $9.6\\times10^5$ g. Each empty box weighs $8\\times10^2$ g. Each item weighs $4\\times10^1$ g. After removing three twentieths of the items, the remaining items must be packed into these boxes, each holding at most 90 items. The new shipment must weigh at most $8.4\\times10^5$ g. What is the maximum number of empty boxes that can also be included, beyond those needed to hold all the remaining items? Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "1.2\\times10^{1}",
+            "errorPath": "Round the necessary number of filled boxes down: 200−floor(17000/90)."
+          },
+          {
+            "id": "B",
+            "latex": "1.7\\times10^{1}",
+            "errorPath": "Apply the 15% reduction to the whole original shipment, including the unchanged box mass, then subtract 160000 g to infer 656000 g of items. This implies 16400 items and 183 filled boxes, leaving 17."
+          },
+          {
+            "id": "C",
+            "latex": "3\\times10^{1}",
+            "errorPath": "Use the original average of 100 items per available box as the permitted capacity instead of 90: 200−ceil(17000/100)."
+          },
+          {
+            "id": "D",
+            "latex": "1\\times10^{1}",
+            "errorPath": "Round the necessary filled-box count to 190 rather than use the exact ceiling 189."
+          },
+          {
+            "id": "E",
+            "latex": "1.1\\times10^{1}"
+          },
+          {
+            "id": "F",
+            "latex": "1.89\\times10^{2}",
+            "errorPath": "Calculate the minimum filled-box count correctly but confuse it with the extra empty-box count."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "1.1\\times10^{1}",
+        "workedSolutionSteps": [
+          "The original items weigh 800000 g, so there were 20000 items; 17000 remain, weighing 680000 g.",
+          "At least ceil(17000/90)=189 boxes are needed. The mass cap allows at most floor((840000−680000)/800)=200 boxes in total.",
+          "Therefore at most 200−189=11 empty boxes may also be included. This packing is attainable."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Combine a capacity ceiling and mass-budget floor.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-011-DISTRACTOR-REPAIR-20261124",
+        "importAllowed": false
+      },
+      "repairSummary": "Equivalent fraction replaces percentage notation. Retained quantitative constraints, key and error routes; explanations may express equivalent percentages. Ordinary fraction arithmetic and any supplied conversion remain prerequisites; not proof of classroom exposure.",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-013",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-013-V312-REASONING-CANDIDATE",
+      "priorRecordPath": "qa-staging/math-v312-standard-form013-016-reasoning-replacement-candidates-20261123.json",
+      "priorRecordBlobSha": "740c7a7605bcf608851d7d9ebaaf0f4a70a55f50",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-013",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-013-FRACTION_SCOPE_REVISION-20261125",
+        "replacesRevisionId": "LUX-MATH-Y9-STANDARD_FORM-013-REVIEW-2",
+        "topicId": "math-y9-standard-form",
+        "sourceDisposition": "PROPOSED_REPLACEMENT_OF_ROUTINE_ARITHMETIC_NUMERIC_ROTATION",
+        "stem": "A monitoring station records $2.4\\times10^{7}$ bytes per minute for $1.5\\times10^{2}$ minutes. Compression reduces the data to seven tenths of their original size. Drive A stores $5.0\\times10^{8}$ bytes and costs £32; Drive B stores $8.0\\times10^{8}$ bytes and costs £55. Drives may be mixed. What is the minimum total cost in pounds to store all the compressed data?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "160",
+            "errorPath": "Buy five type-A drives for £160 but overlook that they hold only 2.5×10^9 bytes, less than the compressed data."
+          },
+          {
+            "id": "B",
+            "latex": "174"
+          },
+          {
+            "id": "C",
+            "latex": "183",
+            "errorPath": "Buy four A drives and one B drive, a feasible but more expensive combination."
+          },
+          {
+            "id": "D",
+            "latex": "192",
+            "errorPath": "Use only six type-A drives, missing a cheaper mixed-drive combination."
+          },
+          {
+            "id": "E",
+            "latex": "197",
+            "errorPath": "Buy one A drive and three B drives, a feasible but more expensive combination."
+          },
+          {
+            "id": "F",
+            "latex": "220",
+            "errorPath": "Use only four type-B drives, missing the lower-cost mixed-drive option."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "174",
+        "workedSolutionSteps": [
+          "The raw data size is $(2.4\\times10^7)(1.5\\times10^2)=3.6\\times10^9$ bytes. After 70% retention, $2.52\\times10^9$ bytes must be stored.",
+          "If $a$ A-drives and $b$ B-drives are purchased, capacity requires $a(5.0\\times10^8)+b(8.0\\times10^8)\\ge2.52\\times10^9$ and the cost is $32a+55b$ pounds.",
+          "For $b=0,1,2,3,4$, the cheapest feasible costs are respectively £192, £183, £174, £197, £220. For $b\\ge5$, the B drives alone cost at least £275. Hence £174 is the global minimum, achieved by $a=b=2$."
+        ],
+        "provisionalAOFocus": "AO3 candidate: optimise two integer resource choices under a capacity constraint after scientific-notation and percentage modelling; comparison requires proof of minimality.",
+        "unverifiedTaughtSubskill": "Actual Year 9 teaching of two-variable integer resource-optimisation and capacity inequality not verified; independent Grade7+ benchmarking required.",
+        "academicQA": "pending",
+        "gradeStatus": "PROVISIONAL_REASONING_NOT_G7PLUS_CERTIFIED",
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "independentStudentMisconceptionCertified": false,
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-013-V312-REASONING-CANDIDATE",
+        "importAllowed": false
+      },
+      "repairSummary": "Equivalent fraction replaces percentage notation. Retained quantitative constraints, key and error routes; explanations may express equivalent percentages. Ordinary fraction arithmetic and any supplied conversion remain prerequisites; not proof of classroom exposure.",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-017",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-017-DEMAND-UPGRADE-20261124",
+      "priorRecordPath": "qa-staging/math-demand-upgrade-standard-form16-20261124.json",
+      "priorRecordBlobSha": "2864adb12ed72cc45bf6a2decb4e5c1b2b764504",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-017",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-017-FRACTION_SCOPE_REVISION-20261125",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-017-REVIEW-2",
+        "topicId": "math-y9-standard-form",
+        "provisionalConceptFamily": "area-rate-and-unit-conversion",
+        "stem": "An array measures $3\\times10^2$ m by $8\\times10^1$ m. Of its area, three quarters is active. The active area is divided into two panel types: A produces $2\\times10^{-1}$ Wh/cm² per day and B produces $5\\times10^{-1}$ Wh/cm² per day. The target daily energy is exactly $5.4\\times10^7$ Wh. What area of type B, in m², is required? Assume $1$ m²=$10^4$ cm² and no output losses. Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "1.2\\times10^{4}",
+            "errorPath": "Report the area of type A instead of B."
+          },
+          {
+            "id": "B",
+            "latex": "1.8\\times10^{4}",
+            "errorPath": "Report the entire active area."
+          },
+          {
+            "id": "C",
+            "latex": "1.08\\times10^{4}",
+            "errorPath": "Divide the target by B's yield alone, ignoring the output from A."
+          },
+          {
+            "id": "D",
+            "latex": "9\\times10^{3}",
+            "errorPath": "Assume both types cover equal areas."
+          },
+          {
+            "id": "E",
+            "latex": "6\\times10^{3}"
+          },
+          {
+            "id": "F",
+            "latex": "6\\times10^{7}",
+            "errorPath": "Calculate the correct area in cm² but fail to convert to m²."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "6\\times10^{3}",
+        "workedSolutionSteps": [
+          "Active area is 300×80×0.75=18000 m², or 1.8×10^8 cm².",
+          "All type A would produce 3.6×10^7 Wh. Replacing 1 cm² with B adds 0.3 Wh, so the required B area is (5.4×10^7−3.6×10^7)/0.3=6×10^7 cm².",
+          "Convert to m²: 6000. The remaining A area is 12000 m², satisfying the target."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Solve a weighted output allocation with area conversion.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-017-DEMAND-UPGRADE-20261124",
+        "provisionalCrossTopicMasteryHold": "Weighted allocation, similar to concentration mixture and simultaneous equations; cross-topic grouping pending.",
+        "importAllowed": false
+      },
+      "repairSummary": "Equivalent fraction replaces percentage notation. Retained quantitative constraints, key and error routes; explanations may express equivalent percentages. Ordinary fraction arithmetic and any supplied conversion remain prerequisites; not proof of classroom exposure.",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-025",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-025-V320-TOPIC-REBALANCE-QA-ONLY",
+      "priorRecordPath": "qa-staging/math-v320-two-standard-form-n9-final-output-rebalanced-candidates-20261123.json",
+      "priorRecordBlobSha": "318e1465cd4a94cd753cc7d8aa54fb3d59c55334",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-025",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-025-FRACTION_SCOPE_REVISION-20261125",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-025-REVIEW-2",
+        "replacesPreviousCandidateRevisionId": "LUX-MATH-Y9-STANDARD_FORM-025-V318-CONSTRAINT-TRANSFER-DRAFT-20261123",
+        "topicId": "math-y9-standard-form",
+        "oldLowerDemandVerdict": "LOWER",
+        "newUnverifiedReasoningDemand": "Requires an inverse concentration model, allowable discrete volume selection and unsplittable whole-pack count under a maximum-pack condition, rather than following a prescribed chronological arithmetic chain.",
+        "stem": "A chamber initially has volume $2.5\\times10^{-3}$ m$^3$ and $4\\times10^3$ particles per cm$^3$. A filter removes **one quarter** of the particles. The chamber is then compressed to one of the volumes $1.5$, $1.75$, $2$, or $2.25$, each multiplied by $10^{-3}$ m$^3$. A technician may add at most **3 sealed packs**, each containing $1.5\\times10^6$ particles; a pack must be added whole. There is no further loss. The final concentration must be **exactly** $6\\times10^3$ particles per cm$^3$. Which available volume is **greatest** while meeting all these conditions? Give $(v,p,T)$, where the volume is $v\\times10^{-3}$ m$^3$, $p$ is the number of whole packs, and $T$ is the final number of particles, expressed in standard form $A\\times10^n$ where $1\\le A<10$ and integer $n$. ($1$ m$^3=10^6$ cm$^3$.)",
+        "options": [
+          {
+            "id": "A",
+            "latex": "(2.25,3,1.2\\times10^7)",
+            "errorPath": "At 2250cm³ and 12 million particles, the resulting concentration is 5333.33/cm³ rather than exactly the specified 6000/cm³."
+          },
+          {
+            "id": "B",
+            "latex": "(2.25,4,1.35\\times10^7)",
+            "errorPath": "Four sealed packs give 13.5 million particles and 6000/cm³ for 2250cm³, but exceed the maximum of three packs."
+          },
+          {
+            "id": "C",
+            "latex": "(2,3,1.2\\times10^7)"
+          },
+          {
+            "id": "D",
+            "latex": "(1.75,2,1.05\\times10^7)",
+            "errorPath": "Two packs in 1750cm³ give 10.5 million particles and the correct 6000/cm³, but 1750cm³ is not the greatest feasible offered volume."
+          },
+          {
+            "id": "E",
+            "latex": "(2,2,1.05\\times10^7)",
+            "errorPath": "Two packs give exactly 10.5 million particles, but in 2000cm³ they give 5250/cm³ not the required 6000/cm³."
+          },
+          {
+            "id": "F",
+            "latex": "(2,3,1.2\\times10^6)",
+            "errorPath": "Keep the correct largest-volume and three-pack decision, but incorrectly normalize 12×10^6 by reducing 12 to 1.2 without increasing the exponent from 6 to 7. This gives 1.2×10^6, ten times too small."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "(2,3,1.2\\times10^7)",
+        "workedSolutionSteps": [
+          "Initial count $(2.5\\times10^{-3})(10^6)(4\\times10^3)=1\\times10^7$. After 25% removal, $7.5\\times10^6$ particles remain.",
+          "With $p$ whole packs, $T=7.5\\times10^6+p(1.5\\times10^6)$. In a chamber of $v\\times10^{-3}$ m$^3$, required $T=(6\\times10^3)(1000v)=6\\times10^6v$. Thus $v=1.25+0.25p$.",
+          "For $p=0,1,2,3$, candidate $v$ values are $1.25,1.5,1.75,2$. The greatest offered feasible volume is $v=2,p=3$. Then $T=7.5\\times10^6+3(1.5\\times10^6)=12\\times10^6=1.2\\times10^7$ particles, in normalized standard form."
+        ],
+        "exactTaughtSubskillUnverified": "Particle-concentration conservation, constrained integer packs, model choice and volume conversion require actual taught-skill verification.",
+        "reviewClassification": "AO2_AO3_CANDIDATE_NOT_CERTIFIED_G7_PLUS",
+        "academicQA": "pending",
+        "independentGrade7PlusCertification": false,
+        "teacherTaughtConfirmed": false,
+        "empiricalStudentMisconceptionEvidence": false,
+        "independentMasteryConceptApproved": false,
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "scoringWritesAllowed": false,
+        "N9NewEvidence": "Final count 12×10^6 normalized as 1.2×10^7 particles is explicitly assessed.",
+        "topicAlignmentReview": "REBALANCED_TO_EXPLICIT_N9_FINAL_STANDARD_FORM_PENDING_INDEPENDENT_REVIEW",
+        "grade7PlusCertified": false,
+        "empiricalWrongAnswerEvidence": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-025-V320-TOPIC-REBALANCE-QA-ONLY",
+        "importAllowed": false,
+        "independentGradeCalibrated": false
+      },
+      "repairSummary": "Equivalent fraction replaces percentage notation. Retained quantitative constraints, key and error routes; explanations may express equivalent percentages. Ordinary fraction arithmetic and any supplied conversion remain prerequisites; not proof of classroom exposure.",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-032",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-032-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-standard-form8-20261124.json",
+      "priorRecordBlobSha": "d207e930bdb10acd7d63d1162b4900cf5fae30c9",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-032",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-032-FRACTION_SCOPE_REVISION-20261125",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-032-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-032-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+        "topicId": "math-y9-standard-form",
+        "provisionalConceptFamily": "discrete-capacity-and-optimisation",
+        "stem": "A square site has side length $3\\times10^3$ m. Exactly one fifth of its area is reserved for paths. The remaining area may contain small plots of area $2\\times10^3$ m² and large plots of area $3\\times10^3$ m². There must be exactly $3\\times10^3$ plots, at least half of which are small. Ignoring layout restrictions, find the greatest possible total area occupied by large plots, in m², without exceeding usable area. Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "4.5\\times10^{6}",
+            "errorPath": "Use only the count restriction: at most 1500 large plots, each 3000 m²."
+          },
+          {
+            "id": "B",
+            "latex": "3.6\\times10^{6}"
+          },
+          {
+            "id": "C",
+            "latex": "1.2\\times10^{6}",
+            "errorPath": "Multiply the correct 1200 large plots by the incremental area 1000 instead of their full area."
+          },
+          {
+            "id": "D",
+            "latex": "2.4\\times10^{6}",
+            "errorPath": "Multiply the correct 1200 large plots by the small-plot area 2000 rather than the large-plot area."
+          },
+          {
+            "id": "E",
+            "latex": "1.8\\times10^{6}",
+            "errorPath": "Divide the additional usable area 1200000 by the small-plot area 2000 instead of the difference, then multiply the resulting 600 by 3000."
+          },
+          {
+            "id": "F",
+            "latex": "5.4\\times10^{6}",
+            "errorPath": "Use the count of small plots (1800) as the large-plot count, multiplying it by 3000."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "3.6\\times10^{6}",
+        "workedSolutionSteps": [
+          "Usable area is 0.8×3000²=7.2×10^6 m². If every plot were small, the total would be 6×10^6 m².",
+          "Each large plot adds 1000 m², so capacity permits at most 1200 large plots. At least half small separately requires at most 1500 large plots.",
+          "The binding limit is 1200 large plots, with 1800 small plots. The maximum large-plot area is 1200×3000=3.6×10^6 m²."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Compare a count cap and area budget to maximise the area of one plot type.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-032-DISTRACTOR-REPAIR-20261124",
+        "provisionalCrossTopicMasteryHold": "Shared linear allocation under fixed total and capacity with Q31, Q32 and Q40; do not award separate concept credit until independently reviewed.",
+        "importAllowed": false
+      },
+      "repairSummary": "Equivalent fraction replaces percentage notation. Retained quantitative constraints, key and error routes; explanations may express equivalent percentages. Ordinary fraction arithmetic and any supplied conversion remain prerequisites; not proof of classroom exposure.",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-034",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-034-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-standard-form8-20261124.json",
+      "priorRecordBlobSha": "d207e930bdb10acd7d63d1162b4900cf5fae30c9",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-034",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-034-FRACTION_SCOPE_REVISION-20261125",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-034-REVIEW-2",
+        "topicId": "math-y9-standard-form",
+        "provisionalConceptFamily": "ratio-transfer",
+        "stem": "Two storage units A and B initially hold data in ratio 7:2, with total $9\\times10^8$ bytes. Exactly one tenth of the data originally in A is deleted and one fifth of the data originally in B is deleted. Then data is transferred from A to B, with no further losses. The final ratio A:B is 2:3. How many bytes are transferred? Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "3.4\\times10^{8}",
+            "errorPath": "Ignore both deletions: 700000000−(2/5)×900000000."
+          },
+          {
+            "id": "B",
+            "latex": "2.98\\times10^{8}",
+            "errorPath": "Ignore deletion from B but apply the deletion from A: 630000000−(2/5)×830000000."
+          },
+          {
+            "id": "C",
+            "latex": "3.56\\times10^{8}",
+            "errorPath": "Ignore deletion from A but apply the deletion from B: 700000000−(2/5)×860000000."
+          },
+          {
+            "id": "D",
+            "latex": "3.06\\times10^{8}",
+            "errorPath": "Apply the 10% deletion to both units: 630000000−(2/5)×810000000."
+          },
+          {
+            "id": "E",
+            "latex": "1.56\\times10^{8}",
+            "errorPath": "Reverse the final ratio and use 3/5 for A's final share: 630000000−(3/5)×790000000."
+          },
+          {
+            "id": "F",
+            "latex": "3.14\\times10^{8}"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "3.14\\times10^{8}",
+        "workedSolutionSteps": [
+          "Initially A has 7×10^8 bytes and B has 2×10^8. After deletion they hold 6.3×10^8 and 1.6×10^8 respectively.",
+          "The remaining total is 7.9×10^8 bytes. The required final A share is 2/5 of this, namely 3.16×10^8.",
+          "The transferred amount is 6.3×10^8−3.16×10^8=3.14×10^8 bytes; the final B share is 4.74×10^8."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Recalculate conserved total after unequal losses, then invert a target ratio.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-034-DISTRACTOR-REPAIR-20261124",
+        "provisionalCrossTopicMasteryHold": "Ratio transfer and conservation, related to simultaneous equations Q28.",
+        "importAllowed": false
+      },
+      "repairSummary": "Equivalent fraction replaces percentage notation. Retained quantitative constraints, key and error routes; explanations may express equivalent percentages. Ordinary fraction arithmetic and any supplied conversion remain prerequisites; not proof of classroom exposure.",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ]
+}
