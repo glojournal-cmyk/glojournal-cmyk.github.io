@@ -1,0 +1,898 @@
+{
+  "kind": "GRADE_DEMAND_REWRITE_AUTHOR_DRAFT_NO_RELEASE",
+  "date": "2026-11-25",
+  "sourceCommit": "824f0c36c7dc72a777f9d58d53c21e3149b2cb56",
+  "sourceRegister": "qa-staging/math-priority116-post39-second-pass-grade-risk-mastery-review-20261125.json",
+  "sourceRegisterBlobSha": "b97df4107a0dffcf1173bbcd480a3674aa1ace61",
+  "optionOrderOverlay": "qa-staging/math-priority39-balanced-options-20261125.json",
+  "optionOrderBlobSha": "cf7eff2935f98e395d63bd4dd5db59fac19edd68",
+  "counts": {
+    "rewritten": 14,
+    "formalApproved": 0
+  },
+  "limits": "Original candidates, not externally calibrated. Exact prerequisites, distractor routes and difficulty need fresh QA. No runtime or deployment change.",
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-019",
+      "priorRevisionId": "LUX-MATH-Y9-INDICES-019-AUTUMN-DEMAND-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority35-autumn-demand-rewrite-indices-standard11-20261125.json",
+      "priorRecordBlobSha": "6cbd596fc0e2ce34a573dc95248b02aa16b6e5e8",
+      "previousDemandRisk": "Only six residual values to inspect; bounded search may bypass deeper reasoning.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-INDICES-019",
+        "revisionId": "LUX-MATH-Y9-INDICES-019-GRADE-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-INDICES-019-AUTUMN-DEMAND-REWRITE-20261125",
+        "topicId": "math-y9-indices",
+        "stem": "For integers n>m, define $A=5\\cdot2^n+2^m$ and $B=5\\cdot2^m+2^n$. Given $A/B=41/13$ and $A=1312$, find $2^{n+m}$.",
+        "options": [
+          {
+            "latex": "8",
+            "errorPath": "Report the ratio of the two powers.",
+            "id": "A"
+          },
+          {
+            "latex": "8192",
+            "id": "B"
+          },
+          {
+            "latex": "256",
+            "errorPath": "Report 2^n only.",
+            "id": "C"
+          },
+          {
+            "latex": "32",
+            "errorPath": "Report 2^m only.",
+            "id": "D"
+          },
+          {
+            "latex": "4096",
+            "errorPath": "Use n+m−1 as exponent.",
+            "id": "E"
+          },
+          {
+            "latex": "16384",
+            "errorPath": "Use n+m+1 as exponent.",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "8192",
+        "workedSolutionSteps": [
+          "Let t=2^(n−m). Then (5t+1)/(5+t)=41/13, giving 65t+13=205+41t, so t=8.",
+          "A=(5t+1)2^m=41·2^m=1312, so 2^m=32 and m5; n8.",
+          "2^(n+m)=2^13=8192."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "proposedPrimarySkill": "index-invariant-ratio-recovery",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-014-AUTUMN-DEMAND-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority35-autumn-demand-rewrite-indices-standard11-20261125.json",
+      "priorRecordBlobSha": "6cbd596fc0e2ce34a573dc95248b02aa16b6e5e8",
+      "previousDemandRisk": "Routine two products and quotient/remainder, no non-obvious modelling choice.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-014-GRADE-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-014-AUTUMN-DEMAND-REWRITE-20261125",
+        "topicId": "math-y9-standard-form",
+        "stem": "Two detectors collect $3.2\\times10^5$ pulses per second for $2.5\\times10^2$ seconds and $4.8\\times10^4$ pulses per second for $1.5\\times10^3$ seconds. Remove $1.6\\times10^7$ pulses. Exactly 44 containers are used, each of type A (capacity $2.4\\times10^6$) or type B ($3.6\\times10^6$). All retained pulses must fit; partly filled containers are allowed. Using as few B containers as possible, find the number of B containers and the total unused capacity in standard form.",
+        "options": [
+          {
+            "latex": "(26,8\\times10^5)",
+            "id": "A"
+          },
+          {
+            "latex": "(25,-4\\times10^5)",
+            "errorPath": "Round B count down to25; capacity135.6m.",
+            "id": "B"
+          },
+          {
+            "latex": "(44,2.24\\times10^7)",
+            "errorPath": "Use all B: capacity158.4m and spare22.4m.",
+            "id": "C"
+          },
+          {
+            "latex": "(26,1.368\\times10^8)",
+            "errorPath": "Report capacity instead of unused amount.",
+            "id": "D"
+          },
+          {
+            "latex": "(27,2\\times10^6)",
+            "errorPath": "Use one unnecessary extra B; spare2m.",
+            "id": "E"
+          },
+          {
+            "latex": "(18,8\\times10^5)",
+            "errorPath": "Report number of A rather than B.",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "(26,8\\times10^5)",
+        "workedSolutionSteps": [
+          "Retained 80m+72m−16m=136m.",
+          "44 A containers give105.6m capacity; every B replacement adds1.2m. 30.4m/1.2m=25⅓, so at least26 B.",
+          "Capacity=136.8m, unused0.8m; 18 A and26 B fit."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "proposedPrimarySkill": "standard-form-capacity-substitution",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-026-AUTUMN-DEMAND-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority35-autumn-demand-rewrite-indices-standard11-20261125.json",
+      "priorRecordBlobSha": "6cbd596fc0e2ce34a573dc95248b02aa16b6e5e8",
+      "previousDemandRisk": "Straightforward two-stage rates and conversion.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-026-GRADE-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-026-AUTUMN-DEMAND-REWRITE-20261125",
+        "topicId": "math-y9-standard-form",
+        "stem": "Pump A delivers $2.4\\times10^{-3}$ m³ per minute and pump B delivers $6\\times10^{-4}$ m³ per minute. A tank initially empty loses water at a constant $4\\times10^{-4}$ m³ per minute throughout the operation. A runs for all 150 minutes; B starts once during that period and then runs until the end. The final volume is exactly $3.6\\times10^{-1}$ m³. Find how many seconds A ran before B started, and the total volume delivered by B.",
+        "options": [
+          {
+            "latex": "(6\\times10^3,3\\times10^{-2})",
+            "errorPath": "Confuse B duration with A-only time and compute B for50 min.",
+            "id": "A"
+          },
+          {
+            "latex": "(0,9\\times10^{-2})",
+            "errorPath": "Assume both start together.",
+            "id": "B"
+          },
+          {
+            "latex": "(3\\times10^3,3\\times10^{-2})",
+            "errorPath": "Use A-only period when computing B volume.",
+            "id": "C"
+          },
+          {
+            "latex": "(50,6\\times10^{-2})",
+            "errorPath": "Leave time in minutes.",
+            "id": "D"
+          },
+          {
+            "latex": "(9\\times10^3,0)",
+            "errorPath": "Ignore leakage and assume B unnecessary.",
+            "id": "E"
+          },
+          {
+            "latex": "(3\\times10^3,6\\times10^{-2})",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "(3\\times10^3,6\\times10^{-2})",
+        "workedSolutionSteps": [
+          "A delivers .36 m³ and loss is .06 m³, so B must deliver .06 m³.",
+          "B duration=.06/.0006=100 minutes.",
+          "A-only period=50 minutes=3000 seconds."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "proposedPrimarySkill": "standard-form-net-rate-recovery",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-027",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-027-AUTUMN-DEMAND-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority35-autumn-demand-rewrite-indices-standard11-20261125.json",
+      "priorRecordBlobSha": "6cbd596fc0e2ce34a573dc95248b02aa16b6e5e8",
+      "previousDemandRisk": "Single retention rate and ceiling calculation, plus subtraction.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-027",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-027-GRADE-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-027-AUTUMN-DEMAND-REWRITE-20261125",
+        "topicId": "math-y9-standard-form",
+        "stem": "A sample contains $2.4\\times10^8$ particles per mL; processing removes $9\\times10^7$ per mL. Exactly five containers are used. Type A processes 160 mL of sample plus 20 mL of particle-free flush; type B processes 240 mL plus 60 mL of flush. At least $1.35\\times10^{11}$ retained particles are required, and total sample plus flush must be at most 1200 mL. Find the number of B containers and the excess retained particles above the target, in standard form.",
+        "options": [
+          {
+            "latex": "(1,-3\\times10^9)",
+            "errorPath": "Round required B count down to1; retained1.32×10^11.",
+            "id": "A"
+          },
+          {
+            "latex": "(3,2.1\\times10^{10})",
+            "errorPath": "Ignore total-liquid cap; three B give1040mL sample.",
+            "id": "B"
+          },
+          {
+            "latex": "(2,1.44\\times10^{11})",
+            "errorPath": "Report total retained.",
+            "id": "C"
+          },
+          {
+            "latex": "(2,3\\times10^{10})",
+            "errorPath": "Count 140mL flush as sample, adding2.1×10^10 to correct excess.",
+            "id": "D"
+          },
+          {
+            "latex": "(2,9\\times10^9)",
+            "id": "E"
+          },
+          {
+            "latex": "(3,9\\times10^9)",
+            "errorPath": "Report A count rather than B count.",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "(2,9\\times10^9)",
+        "workedSolutionSteps": [
+          "Retained concentration1.5×10^8; target sample≥900mL. If b type B, sample800+80b, total liquid900+120b.",
+          "Target needs b≥2, liquid cap needs b≤2. Thus b2, sample960mL.",
+          "Retained1.44×10^11; excess9×10^9."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "proposedPrimarySkill": "standard-form-linked-capacity-constraints",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-006",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-006-AUTUMN-DEMAND-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority35-autumn-demand-rewrite-graphs-simultaneous14-20261125.json",
+      "priorRecordBlobSha": "855f1ace2a97db4bce13e308a9b306c7adf2b93b",
+      "previousDemandRisk": "Standard line intersection and intercept triangle calculation.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-006",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-006-GRADE-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-006-AUTUMN-DEMAND-REWRITE-20261125",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "Lines $y=2x+2$ and $y=11-x$ meet at P. Their x-intercepts are R and S respectively. Draw a line through S parallel to the first line and a line through R parallel to the second; they meet at Q. Find the area of quadrilateral PRQS.",
+        "options": [
+          {
+            "latex": "48",
+            "errorPath": "Count one triangle only.",
+            "id": "A"
+          },
+          {
+            "latex": "192",
+            "errorPath": "Omit half factor on both triangles.",
+            "id": "B"
+          },
+          {
+            "latex": "60",
+            "errorPath": "Use horizontal coordinates of P and Q as the two triangle heights: 12(3+7)/2=60.",
+            "id": "C"
+          },
+          {
+            "latex": "96",
+            "id": "D"
+          },
+          {
+            "latex": "12",
+            "errorPath": "Report base only.",
+            "id": "E"
+          },
+          {
+            "latex": "16",
+            "errorPath": "Report combined heights only.",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "96",
+        "workedSolutionSteps": [
+          "P=(3,8), R=(−1,0), S=(11,0). New lines y=2x−22 and y=−x−1 meet at Q=(7,−8).",
+          "RS is the common base of triangles PRS and QRS, length12; heights8 and8.",
+          "Area=12·8/2+12·8/2=96."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "proposedPrimarySkill": "graph-parallel-intersection-area",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-014",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-014-BALANCED-OPTION-ORDER-20261125",
+      "priorRecordPath": "qa-staging/math-priority39-balanced-options-20261125.json",
+      "priorRecordBlobSha": "cf7eff2935f98e395d63bd4dd5db59fac19edd68",
+      "previousDemandRisk": "Single linear equation then trapezium area; both steps routine.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-014",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-014-GRADE-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-014-BALANCED-OPTION-ORDER-20261125",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "The lines $y=2x+1$, $y=7-x$ and the y-axis form a triangle. Two vertical cuts $x=k$ and $x=k+1/2$ lie strictly inside the triangle. The trapezium between the cuts has area $15/8$. Find the area of the region between the y-axis and the first cut.",
+        "options": [
+          {
+            "latex": "\\frac{15}{8}",
+            "errorPath": "Report given middle area.",
+            "id": "A"
+          },
+          {
+            "latex": "3",
+            "errorPath": "Treat left region as rectangle of height6.",
+            "id": "B"
+          },
+          {
+            "latex": "\\frac{21}{8}",
+            "id": "C"
+          },
+          {
+            "latex": "\\frac98",
+            "errorPath": "Treat left region as a triangle of height4.5.",
+            "id": "D"
+          },
+          {
+            "latex": "\\frac92",
+            "errorPath": "Report area from the y-axis to second cut, (6+3)/2×1.",
+            "id": "E"
+          },
+          {
+            "latex": "\\frac{9}{4}",
+            "errorPath": "Use shorter height4.5 as rectangle height, multiplied by width1/2.",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "\\frac{21}{8}",
+        "workedSolutionSteps": [
+          "Vertical gap at x is 6−3x. Middle area = (1/2)( (6−3k)+(4.5−3k) )/2 =21/8−3k/2.",
+          "Set equal15/8 gives k=1/2. First region has widths in y 6 and4.5, separation1/2.",
+          "Area=(6+4.5)/4=21/8."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "proposedPrimarySkill": "graph-area-from-two-cuts",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-017",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-017-BALANCED-OPTION-ORDER-20261125",
+      "priorRecordPath": "qa-staging/math-priority39-balanced-options-20261125.json",
+      "priorRecordBlobSha": "cf7eff2935f98e395d63bd4dd5db59fac19edd68",
+      "previousDemandRisk": "Standard intersection/reflection/parallel line procedure.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-017",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-017-GRADE-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-017-BALANCED-OPTION-ORDER-20261125",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "P is the intersection of $y=x+1$ and $y=3x-5$. Reflect P in the y-axis, then move the reflected point vertically up by h units, with h>0. The line through this point parallel to $y=-2x+7$ meets the x-axis at Q. The line through P parallel to $y=x$ meets the x-axis at T. Q is 3 units to the right of T. Find h and the y-intercept of the line through Q.",
+        "options": [
+          {
+            "latex": "(3,1)",
+            "errorPath": "Use h=3 as horizontal shift rather than double it.",
+            "id": "A"
+          },
+          {
+            "latex": "(6,4)",
+            "id": "B"
+          },
+          {
+            "latex": "(6,-4)",
+            "errorPath": "Lose sign of calculated intercept.",
+            "id": "C"
+          },
+          {
+            "latex": "(0,-2)",
+            "errorPath": "Omit translation.",
+            "id": "D"
+          },
+          {
+            "latex": "(4,2)",
+            "errorPath": "Set Q x=1 instead of2.",
+            "id": "E"
+          },
+          {
+            "latex": "(6,2)",
+            "errorPath": "Report Q x-coordinate rather than intercept.",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "(6,4)",
+        "workedSolutionSteps": [
+          "P=(3,4), reflected and translated point=(−3,4+h). Its parallel has equation y=−2x+h−2; Q has x=(h−2)/2.",
+          "Line through P with slope1 is y=x+1; T x=−1. Therefore Q x=2.",
+          "(h−2)/2=2 gives h6, intercept4."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "proposedPrimarySkill": "graph-transformation-constraint",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-019",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-019-BALANCED-OPTION-ORDER-20261125",
+      "priorRecordPath": "qa-staging/math-priority39-balanced-options-20261125.json",
+      "priorRecordBlobSha": "cf7eff2935f98e395d63bd4dd5db59fac19edd68",
+      "previousDemandRisk": "Small finite enumeration; now more discriminating but MCQ can shortcut.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-019",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-019-GRADE-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-019-BALANCED-OPTION-ORDER-20261125",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "A horizontal line $y=k$ intersects $y=2x+1$ at A and $y=4-x$ at B. The line $y=k+6$ intersects the same two lines at C and D respectively. B is strictly to the left of A, and D is strictly to the left of C. The horizontal distance CD is four times AB. Find k and the sum of the x-coordinates of C and D.",
+        "options": [
+          {
+            "latex": "(5,-2)",
+            "id": "A"
+          },
+          {
+            "latex": "(5,12)",
+            "errorPath": "Report distance CD rather than sum.",
+            "id": "B"
+          },
+          {
+            "latex": "(5,2)",
+            "errorPath": "Lose sign of sum.",
+            "id": "C"
+          },
+          {
+            "latex": "(11,-5)",
+            "errorPath": "Treat the upper horizontal level11 as k and evaluate intersections at y17: 8+(−13)=−5.",
+            "id": "D"
+          },
+          {
+            "latex": "(3,-1)",
+            "errorPath": "Treat AB as zero, k3, then at y9 sum4−5=−1.",
+            "id": "E"
+          },
+          {
+            "latex": "(5,1)",
+            "errorPath": "Report sum at original level:2+(−1)=1.",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "(5,-2)",
+        "workedSolutionSteps": [
+          "AB=(k−1)/2−(4−k)=(3k−9)/2; CD=AB+9.",
+          "CD=4AB gives AB3, then k5.",
+          "At y11, C x5, D x−7; sum−2."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "proposedPrimarySkill": "graph-gap-ratio-model",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-029",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-029-AUTUMN-DEMAND-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority35-autumn-demand-rewrite-graphs-simultaneous14-20261125.json",
+      "priorRecordBlobSha": "855f1ace2a97db4bce13e308a9b306c7adf2b93b",
+      "previousDemandRisk": "Direct parallel gradient, intersection and intercept sequence.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-029",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-029-GRADE-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-029-AUTUMN-DEMAND-REWRITE-20261125",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "Lines $y=2x+3$ and $y=11-2x$ meet at P. A line through P parallel to the segment from (1,2) to (4,0) meets the y-axis at Y. Let X be the x-intercept of $y=11-2x$. A different line through Y has twice the gradient of XY. It meets $y=11-2x$ at Z. Find Z's x-coordinate.",
+        "options": [
+          {
+            "latex": "\\frac{44}{17}",
+            "errorPath": "Lose negative sign.",
+            "id": "A"
+          },
+          {
+            "latex": "\\frac{11}{2}",
+            "errorPath": "Keep original XY gradient, returning X.",
+            "id": "B"
+          },
+          {
+            "latex": "\\frac{44}{83}",
+            "errorPath": "Reverse the doubled gradient's sign: 88=166x.",
+            "id": "C"
+          },
+          {
+            "latex": "\\frac{88}{41}",
+            "errorPath": "Use half the original gradient −25/33 rather than twice, so 88=41x.",
+            "id": "D"
+          },
+          {
+            "latex": "0",
+            "errorPath": "Report Y x-coordinate.",
+            "id": "E"
+          },
+          {
+            "latex": "-\\frac{44}{17}",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "-\\frac{44}{17}",
+        "workedSolutionSteps": [
+          "P=(2,7); parallel through P y=−2x/3+25/3, hence Y=(0,25/3). X=(11/2,0), so XY gradient−50/33.",
+          "New line y=−100x/33+25/3. Equate to 11−2x: 88=−34x.",
+          "x=−44/17."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "proposedPrimarySkill": "graph-slope-transfer",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-032",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-032-BALANCED-OPTION-ORDER-20261125",
+      "priorRecordPath": "qa-staging/math-priority39-balanced-options-20261125.json",
+      "priorRecordBlobSha": "cf7eff2935f98e395d63bd4dd5db59fac19edd68",
+      "previousDemandRisk": "Equate two gradient expressions and cancel common denominator.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-032",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-032-GRADE-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-032-BALANCED-OPTION-ORDER-20261125",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "Points A=(0,0), B=(k,2) and C=(2k,k−4) have k>0. The gradient of AB is twice that of BC. A line through C parallel to AB meets the x-axis at U; a line through B parallel to AC meets the x-axis at V. Find the distance UV.",
+        "options": [
+          {
+            "latex": "\\frac76",
+            "errorPath": "Subtract magnitudes rather than add across zero.",
+            "id": "A"
+          },
+          {
+            "latex": "\\frac72",
+            "errorPath": "Report U x-coordinate.",
+            "id": "B"
+          },
+          {
+            "latex": "\\frac73",
+            "errorPath": "Report magnitude of V x-coordinate.",
+            "id": "C"
+          },
+          {
+            "latex": "\\frac{35}{12}",
+            "errorPath": "Apply an unnecessary factor1/2 to the distance.",
+            "id": "D"
+          },
+          {
+            "latex": "\\frac{35}{6}",
+            "id": "E"
+          },
+          {
+            "latex": "\\frac32",
+            "errorPath": "Report vertical distance between the two y-intercepts, 1+1/2.",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "\\frac{35}{6}",
+        "workedSolutionSteps": [
+          "2/k=2(k−6)/k, so k7; B(7,2), C(14,3). AB gradient2/7, AC gradient3/14.",
+          "Through C: y=(2/7)x−1, U x=7/2. Through B: y=(3/14)x+1/2, V x=−7/3.",
+          "UV=7/2+7/3=35/6."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "proposedPrimarySkill": "graph-parallel-intercept-distance",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-014",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-014-BALANCED-OPTION-ORDER-20261125",
+      "priorRecordPath": "qa-staging/math-priority39-balanced-options-20261125.json",
+      "priorRecordBlobSha": "cf7eff2935f98e395d63bd4dd5db59fac19edd68",
+      "previousDemandRisk": "Ordinary elimination plus scaling a constant difference.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-014",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-014-GRADE-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-014-BALANCED-OPTION-ORDER-20261125",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "Original equations are $3x+2y=17$ and $5x-2y=7$. A new system uses the same left-hand sides, but both right-hand sides have changed. Twice the sum of its equations has right-hand side 64, and four times the first-minus-second difference has right-hand side 16. Find the change in each original right-hand side (new minus original), in order.",
+        "options": [
+          {
+            "latex": "(18,14)",
+            "errorPath": "Report new RHS rather than changes.",
+            "id": "A"
+          },
+          {
+            "latex": "(7,1)",
+            "errorPath": "Swap changes.",
+            "id": "B"
+          },
+          {
+            "latex": "(-1,-7)",
+            "errorPath": "Reverse subtraction.",
+            "id": "C"
+          },
+          {
+            "latex": "(1,7)",
+            "id": "D"
+          },
+          {
+            "latex": "(3,5)",
+            "errorPath": "Divide difference RHS16 by2 instead of4, obtaining a−b=8; then a20,b12.",
+            "id": "E"
+          },
+          {
+            "latex": "(32,4)",
+            "errorPath": "Report reconstructed sum and difference.",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "(1,7)",
+        "workedSolutionSteps": [
+          "Let new RHS be a,b. Then a+b=32 and a−b=4.",
+          "Solving gives a18,b14.",
+          "Changes18−17=1 and14−7=7."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "proposedPrimarySkill": "simultaneous-transformed-rhs-recovery",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-015",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-015-AUTUMN-DEMAND-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority35-autumn-demand-rewrite-graphs-simultaneous14-20261125.json",
+      "priorRecordBlobSha": "855f1ace2a97db4bce13e308a9b306c7adf2b93b",
+      "previousDemandRisk": "Two small systems with one changed RHS; can subtract directly.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-015",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-015-GRADE-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-015-AUTUMN-DEMAND-REWRITE-20261125",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "Originally $2a+3b=24$, $3a-b=3$ and $2b+c=19$. The first right-hand side increases to 32, the second to $3+d$, while the third equation stays unchanged. The new value of c must be exactly the original c. Find d and the new value of a.",
+        "options": [
+          {
+            "latex": "(15,7)",
+            "errorPath": "Report new second RHS instead of its change.",
+            "id": "A"
+          },
+          {
+            "latex": "(8,7)",
+            "errorPath": "Use first RHS change as d.",
+            "id": "B"
+          },
+          {
+            "latex": "(12,7)",
+            "id": "C"
+          },
+          {
+            "latex": "(12,4)",
+            "errorPath": "Report change in a rather than new a.",
+            "id": "D"
+          },
+          {
+            "latex": "(0,41/11)",
+            "errorPath": "Keep d0; new a=41/11, which violates fixed c.",
+            "id": "E"
+          },
+          {
+            "latex": "(-12,7)",
+            "errorPath": "Reverse sign of d.",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "(12,7)",
+        "workedSolutionSteps": [
+          "Original a3,b6,c7. Fixed c and third equation force b6 again.",
+          "New first: 2a+18=32, so a7.",
+          "New second: 21−6=15=3+d, so d12."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "proposedPrimarySkill": "simultaneous-invariant-output",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-023",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-AUTUMN-DEMAND-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority35-autumn-demand-rewrite-graphs-simultaneous14-20261125.json",
+      "priorRecordBlobSha": "855f1ace2a97db4bce13e308a9b306c7adf2b93b",
+      "previousDemandRisk": "Two ordinary linear systems; output swap pattern may shorten.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-023",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-GRADE-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-AUTUMN-DEMAND-REWRITE-20261125",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "A device maps input (x,y) to outputs $(2x+y,x-2y)$. Initially the outputs are (9,−8). New outputs are (−8k,9) for positive k, giving input (u,v). The new difference u−v is twice the original difference x−y. Find k and u.",
+        "options": [
+          {
+            "latex": "(27/8,-9)",
+            "errorPath": "Set new difference zero instead of −6; k27/8, u−9.",
+            "id": "A"
+          },
+          {
+            "latex": "(57/8,-21)",
+            "id": "B"
+          },
+          {
+            "latex": "(57/8,21)",
+            "errorPath": "Lose sign of u.",
+            "id": "C"
+          },
+          {
+            "latex": "(57/8,-57)",
+            "errorPath": "Report first new device output instead of first input.",
+            "id": "D"
+          },
+          {
+            "latex": "(-3/8,3)",
+            "errorPath": "Use positive6 as target difference, giving k−3/8 and u3, contradicting k>0.",
+            "id": "E"
+          },
+          {
+            "latex": "(57/8,-6)",
+            "errorPath": "Report new difference instead of u.",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "(57/8,-21)",
+        "workedSolutionSteps": [
+          "Original (x,y)=(2,5), difference−3. For outputs (a,b), input difference=(a+3b)/5.",
+          "Thus (−8k+27)/5=−6, giving k57/8.",
+          "New outputs (−57,9); u=(2·(−57)+9)/5=−21."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "proposedPrimarySkill": "simultaneous-output-invariant-parameter",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-028",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-AUTUMN-DEMAND-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority35-autumn-demand-rewrite-graphs-simultaneous14-20261125.json",
+      "priorRecordBlobSha": "855f1ace2a97db4bce13e308a9b306c7adf2b93b",
+      "previousDemandRisk": "Constant-total ratio transfer; standard fraction reasoning.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-028",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-GRADE-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-AUTUMN-DEMAND-REWRITE-20261125",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "Boxes A and B contain positive whole numbers of counters. Moving 15 from A to B gives ratio A:B=2:3; starting from the original counts and moving 6 from B to A gives ratio 3:2. A third box C initially contains three tenths of the total number of counters in ALL THREE boxes. Starting again from original counts, how many counters must be moved from A to C so that A:C=1:2?",
+        "options": [
+          {
+            "latex": "23",
+            "id": "A"
+          },
+          {
+            "latex": "\\frac{69}{2}",
+            "errorPath": "Ignore increase in C: solve 2(57−n)=45, giving34.5.",
+            "id": "B"
+          },
+          {
+            "latex": "12",
+            "errorPath": "Use C's initial deficit relative to A:57−45.",
+            "id": "C"
+          },
+          {
+            "latex": "69",
+            "errorPath": "Fail to divide 114−45 by3.",
+            "id": "D"
+          },
+          {
+            "latex": "45",
+            "errorPath": "Report C initial count.",
+            "id": "E"
+          },
+          {
+            "latex": "57",
+            "errorPath": "Report A initial count.",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "23",
+        "workedSolutionSteps": [
+          "With T=A+B, A−15=2T/5 and A+6=3T/5. Thus T105 and A57,B48.",
+          "C=3(105+C)/10 gives C45.",
+          "For transfer n, 2(57−n)=45+n, so n23; final A34,C68."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "proposedPrimarySkill": "simultaneous-three-box-conservation",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ]
+}
