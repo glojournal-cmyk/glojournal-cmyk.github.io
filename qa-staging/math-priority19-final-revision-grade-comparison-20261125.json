@@ -1,0 +1,296 @@
+{
+  "scope": "19 previously supported Grade 7+ candidates cross-checked against the final 116-question register. Broad editorial difficulty assessment for the specific revisions; no classroom attendance or statutory examiner judgement is inferred.",
+  "registerCommit": "ea3af3c278fd4621ca1de085a8b16b1d0196806f",
+  "benchmarks": {
+    "indices": [
+      "https://qualifications.pearson.com/content/dam/pdf/GCSE/Mathematics/2015/Exam-materials/1ma1-1h-pef-20240822.pdf",
+      "https://thefullmarks.co.uk/past-papers/november-2021/paper-3-higher/"
+    ],
+    "standardForm": [
+      "https://school.ninja/gcse/mathematics/edexcel/topics/standard-form",
+      "https://resources.collins.co.uk/Wesbite%20images/Edexcel%20Achieve%20Grade%207-9%20Workbook%20Sample%20chapter.pdf"
+    ],
+    "rearranging": [
+      "https://thefullmarks.co.uk/topics/algebra/rearranging-formulae/"
+    ],
+    "graphs": [
+      "https://thefullmarks.co.uk/past-papers/november-2018/paper-2-higher/",
+      "https://thefullmarks.co.uk/past-papers/november-2019/paper-2-higher/"
+    ],
+    "simultaneous": [
+      "https://thefullmarks.co.uk/past-papers/november-2021/paper-3-higher/"
+    ]
+  },
+  "counts": {
+    "sameSourceAndRevision": 11,
+    "sameStemSixOptionsRationalesAndAnswerWithReordering": 5,
+    "substantivelyRewritten": 3
+  },
+  "questionChecks": [
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-009",
+      "selectedRevisionId": "LUX-MATH-Y9-INDICES-009-AUTUMN-DEMAND-REWRITE-20261125",
+      "sourcePath": "qa-staging/math-priority35-autumn-demand-rewrite-indices-standard11-20261125.json",
+      "sourceBlob": "6cbd596fc0e2ce34a573dc95248b02aa16b6e5e8",
+      "previousRevisionId": "LUX-MATH-Y9-INDICES-009-AUTUMN-DEMAND-REWRITE-20261125",
+      "schoolScope": "CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "demand": "Same file blob and revision. The two exponent constraints determine the inputs; the scaling then changes both exponents in a new expression. No offered answer supplies the inputs.",
+      "benchmark": "I",
+      "formalCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-010",
+      "selectedRevisionId": "LUX-MATH-Y9-INDICES-010-AUTUMN-DEMAND-REWRITE-20261125",
+      "sourcePath": "qa-staging/math-priority35-autumn-demand-rewrite-indices-standard11-20261125.json",
+      "sourceBlob": "6cbd596fc0e2ce34a573dc95248b02aa16b6e5e8",
+      "previousRevisionId": "LUX-MATH-Y9-INDICES-010-AUTUMN-DEMAND-REWRITE-20261125",
+      "schoolScope": "CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "demand": "Same file blob and revision. Simplifying the power quotient is only the first step; the student must compare the two scaling experiments and convert the exponent to a factor.",
+      "benchmark": "I",
+      "formalCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-015",
+      "selectedRevisionId": "LUX-MATH-Y9-INDICES-015-DEMAND-UPGRADE-20261124",
+      "sourcePath": "qa-staging/math-demand-upgrade-indices12-20261124.json",
+      "sourceBlob": "a90e0dc06826bc6f65695d3dfb13c1e091160cef",
+      "previousRevisionId": "LUX-MATH-Y9-INDICES-015-DEMAND-UPGRADE-20261124",
+      "schoolScope": "AUTUMN_CORE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "demand": "Same file blob and revision. Each substitution gives a different necessary exponent equation. Repeated first-condition-only and second-condition-only choices make both checks necessary.",
+      "benchmark": "I",
+      "formalCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-020",
+      "selectedRevisionId": "LUX-MATH-Y9-INDICES-020-DISTRACTOR-REPAIR-20261124",
+      "sourcePath": "qa-staging/math-priority42-distractor-repair-indices10-20261124.json",
+      "sourceBlob": "dc5c25e2a0befe73b3b8963aa1aaee40c43118c5",
+      "previousRevisionId": "LUX-MATH-Y9-INDICES-020-DISTRACTOR-REPAIR-20261124",
+      "schoolScope": "ADDITIONAL_PREREQUISITE_CONFIRMATION",
+      "demand": "Same file blob and revision. A common factor must be separated before taking the product and quotient; the resulting independent exponent equations determine the sum of squares.",
+      "benchmark": "I",
+      "formalCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-028",
+      "selectedRevisionId": "LUX-MATH-Y9-INDICES-028-BALANCED-OPTION-ORDER-20261125",
+      "sourcePath": "qa-staging/math-priority39-balanced-options-20261125.json",
+      "sourceBlob": "cf7eff2935f98e395d63bd4dd5db59fac19edd68",
+      "previousRevisionId": "LUX-MATH-Y9-INDICES-028-AUTUMN-SCOPE-REWRITE-20261125",
+      "schoolScope": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "demand": "Rechecked the reordered options, same six response texts, misconception routes, key value and stem. Reversing the ratio yields two distinct exponent equations and different magnitudes for the sum. The student has to account for both.",
+      "benchmark": "I",
+      "formalCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-029",
+      "selectedRevisionId": "LUX-MATH-Y9-INDICES-029-DEMAND-UPGRADE-20261124",
+      "sourcePath": "qa-staging/math-demand-upgrade-indices12-20261124.json",
+      "sourceBlob": "a90e0dc06826bc6f65695d3dfb13c1e091160cef",
+      "previousRevisionId": "LUX-MATH-Y9-INDICES-029-DEMAND-UPGRADE-20261124",
+      "schoolScope": "ADDITIONAL_PREREQUISITE_CONFIRMATION",
+      "demand": "Same file blob and revision. Rewriting the root and power quotient produces a linear exponent in n. Two observations determine its coefficients, including a nontrivial sign.",
+      "benchmark": "I",
+      "formalCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-011",
+      "selectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-011-DISTRACTOR-REPAIR-20261124",
+      "sourcePath": "qa-staging/math-priority42-distractor-repair-standard-form8-20261124.json",
+      "sourceBlob": "d207e930bdb10acd7d63d1162b4900cf5fae30c9",
+      "previousRevisionId": "LUX-MATH-Y9-STANDARD_FORM-011-DISTRACTOR-REPAIR-20261124",
+      "schoolScope": "ADDITIONAL_PREREQUISITE_CONFIRMATION",
+      "demand": "Same file blob and revision. Like the Collins faulty-batch task, this requires recovering a count from mass and applying a percentage to that count. The item also imposes independent capacity and tare-mass limits; selecting a rounded box count alone gives a distractor.",
+      "benchmark": "F",
+      "formalCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-017",
+      "selectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-017-DEMAND-UPGRADE-20261124",
+      "sourcePath": "qa-staging/math-demand-upgrade-standard-form16-20261124.json",
+      "sourceBlob": "2864adb12ed72cc45bf6a2decb4e5c1b2b764504",
+      "previousRevisionId": "LUX-MATH-Y9-STANDARD_FORM-017-DEMAND-UPGRADE-20261124",
+      "schoolScope": "ADDITIONAL_PREREQUISITE_CONFIRMATION",
+      "demand": "Same file blob and revision. Combines the Collins-style change of scale and units with a second model for the output of two panel types. The provided area conversion removes a recall barrier; the split must still be inferred before converting back.",
+      "benchmark": "F",
+      "formalCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-007",
+      "selectedRevisionId": "LUX-MATH-Y9-REARRANGING-007-AUTUMN-DEMAND-REWRITE-20261125",
+      "sourcePath": "qa-staging/math-priority35-autumn-demand-rewrite-changing-subject10-20261125.json",
+      "sourceBlob": "61dda8211f2182798fc8a7d8a2b9a1a15f52e800",
+      "previousRevisionId": "LUX-MATH-Y9-REARRANGING-007-AUTUMN-DEMAND-REWRITE-20261125",
+      "schoolScope": "CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "demand": "Same file blob and revision. The unwanted variable must be eliminated symbolically and two simultaneous reading changes combined with their signs. Three choices share the correct formula.",
+      "benchmark": "R",
+      "formalCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-011",
+      "selectedRevisionId": "LUX-MATH-Y9-REARRANGING-011-POST35-QA-REPAIR-20261125",
+      "sourcePath": "qa-staging/math-priority35-second-pass-five-repairs-20261125.json",
+      "sourceBlob": "acdbcec5a99b2c15c224336bab8dec2580409051",
+      "previousRevisionId": "LUX-MATH-Y9-REARRANGING-011-POST35-QA-REPAIR-20261125",
+      "schoolScope": "CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "demand": "Same file blob and revision. The invariant sum determines a coefficient, then the student has to use a different linear combination to invert the model. Knowing the coefficient alone leaves five choices.",
+      "benchmark": "R",
+      "formalCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-006",
+      "selectedRevisionId": "LUX-MATH-Y9-GRAPHS-006-DEMAND-ORDER-RECONCILED-20261125",
+      "sourcePath": "qa-staging/math-priority52-demand-order-reconciliation-20261125.json",
+      "sourceBlob": "105c1d90a5c0f6e04e9b7aa60640de01fd4c73f8",
+      "previousRevisionId": "LUX-MATH-Y9-GRAPHS-006-AUTUMN-DEMAND-REWRITE-20261125",
+      "schoolScope": "SPECIFIC_PREREQUISITE_CONFIRMATION_HOLD",
+      "demand": "Higher multistep coordinate geometry; the parallelogram shortcut removes the need to solve for Q. Coordinate area and parallel-line coverage remain open.",
+      "benchmark": "G",
+      "formalCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-009",
+      "selectedRevisionId": "LUX-MATH-Y9-GRAPHS-009-BALANCED-OPTION-ORDER-20261125",
+      "sourcePath": "qa-staging/math-priority39-balanced-options-20261125.json",
+      "sourceBlob": "cf7eff2935f98e395d63bd4dd5db59fac19edd68",
+      "previousRevisionId": "LUX-MATH-Y9-GRAPHS-009-AUTUMN-SCOPE-REWRITE-REPAIR-20261125",
+      "schoolScope": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "demand": "Rechecked the reordered options, same six response texts, misconception routes, key value and stem. The original intersection fixes two derived lines. Finding the x-intercepts still requires reconstructing each line before comparing the results.",
+      "benchmark": "G",
+      "formalCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-010",
+      "selectedRevisionId": "LUX-MATH-Y9-GRAPHS-010-BALANCED-OPTION-ORDER-20261125",
+      "sourcePath": "qa-staging/math-priority39-balanced-options-20261125.json",
+      "sourceBlob": "cf7eff2935f98e395d63bd4dd5db59fac19edd68",
+      "previousRevisionId": "LUX-MATH-Y9-GRAPHS-010-AUTUMN-SCOPE-REWRITE-20261125",
+      "schoolScope": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "demand": "Rechecked the reordered options, same six response texts, misconception routes, key value and stem. Derive two equations, find their meeting point, then use a second gradient to reach a new intersection. The answer choices supply neither intermediate point.",
+      "benchmark": "G",
+      "formalCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-023",
+      "selectedRevisionId": "LUX-MATH-Y9-GRAPHS-023-BALANCED-OPTION-ORDER-20261125",
+      "sourcePath": "qa-staging/math-priority39-balanced-options-20261125.json",
+      "sourceBlob": "cf7eff2935f98e395d63bd4dd5db59fac19edd68",
+      "previousRevisionId": "LUX-MATH-Y9-GRAPHS-023-AUTUMN-SCOPE-REWRITE-20261125",
+      "schoolScope": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "demand": "Rechecked the reordered options, same six response texts, misconception routes, key value and stem. Derive the intercepts from the slope and their stated relationship, then recompute the second triangle after translation. A single area calculation is insufficient.",
+      "benchmark": "G",
+      "formalCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-027",
+      "selectedRevisionId": "LUX-MATH-Y9-GRAPHS-027-BALANCED-OPTION-ORDER-20261125",
+      "sourcePath": "qa-staging/math-priority39-balanced-options-20261125.json",
+      "sourceBlob": "cf7eff2935f98e395d63bd4dd5db59fac19edd68",
+      "previousRevisionId": "LUX-MATH-Y9-GRAPHS-027-SCOPE-SECOND-PASS-REPAIR-20261125",
+      "schoolScope": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "demand": "Rechecked the reordered options, same six response texts, misconception routes, key value and stem. Use the separation of intercepts to recover the gradient, infer the third intercept via the midpoint, then intersect. Testing y=x−1 alone leaves three possible choices.",
+      "benchmark": "G",
+      "formalCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-029",
+      "selectedRevisionId": "LUX-MATH-Y9-GRAPHS-029-DEMAND-ORDER-RECONCILED-20261125",
+      "sourcePath": "qa-staging/math-priority52-demand-order-reconciliation-20261125.json",
+      "sourceBlob": "105c1d90a5c0f6e04e9b7aa60640de01fd4c73f8",
+      "previousRevisionId": "LUX-MATH-Y9-GRAPHS-029-AUTUMN-DEMAND-REWRITE-20261125",
+      "schoolScope": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "demand": "Only the keyed answer is negative. A qualitative sketch can select it before the intended final calculation. Revised six-option form below.",
+      "benchmark": "G",
+      "formalCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-024",
+      "selectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-AUTUMN-DEMAND-REWRITE-20261125",
+      "sourcePath": "qa-staging/math-priority35-autumn-demand-rewrite-graphs-simultaneous14-20261125.json",
+      "sourceBlob": "855f1ace2a97db4bce13e308a9b306c7adf2b93b",
+      "previousRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-AUTUMN-DEMAND-REWRITE-20261125",
+      "schoolScope": "CORE_PLUS_ADDITIONAL_PRIOR_SKILLS_TO_CONFIRM",
+      "demand": "Same file blob and revision. Model two price lists, infer the count of each item from the change in bundle price, then reconstruct the original purchase. The offered amounts do not dictate the original unit prices.",
+      "benchmark": "S",
+      "formalCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-028",
+      "selectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-DEMAND-SECOND-PASS-REPAIR-20261125",
+      "sourcePath": "qa-staging/math-priority30-demand-second-pass-six-repairs-20261125.json",
+      "sourceBlob": "c7528e84b822baaa7a0c42f985421eeece95fa69",
+      "previousRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-AUTUMN-DEMAND-REWRITE-20261125",
+      "schoolScope": "SPECIFIC_PREREQUISITE_CONFIRMATION_HOLD",
+      "demand": "Modelling two transfers and recovering a third amount extends the structure of November 2021 3H Q13. Multi-box ratio conservation is a separate scope check.",
+      "benchmark": "S",
+      "formalCredit": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-035",
+      "selectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-035-PRIORITY-CONTENT-REVIEW-20261124",
+      "sourcePath": "qa-staging/math-priority116-content-acceptance-simultaneous15-20261124.json",
+      "sourceBlob": "919945f5acb9cb7092e1043a94cdcc941a9b07e5",
+      "previousRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-035-PRIORITY-CONTENT-REVIEW-20261124",
+      "schoolScope": "AUTUMN_CORE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "demand": "Same file blob and revision. The given ratio fixes the first solution, but the coefficient inferred there must be retained for the modified system. Simple scaling by the changed total gives a distractor.",
+      "benchmark": "S",
+      "formalCredit": false
+    }
+  ],
+  "correction": {
+    "previousBlob": "105c1d90a5c0f6e04e9b7aa60640de01fd4c73f8",
+    "question": {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-029",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-029-SIGNED-DISTRACTORS-20261125",
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-029-DEMAND-ORDER-RECONCILED-20261125",
+      "topicId": "math-y9-straight-line-graphs",
+      "stem": "Lines $y=2x+3$ and $y=11-2x$ meet at P. A line through P parallel to the segment from (1,2) to (4,0) meets the y-axis at Y. Let X be the x-intercept of $y=11-2x$. A different line through Y has twice the gradient of XY. It meets $y=11-2x$ at Z. Find Z's x-coordinate.",
+      "options": [
+        {
+          "latex": "\\frac{44}{17}",
+          "errorPath": "Lose negative sign.",
+          "id": "A"
+        },
+        {
+          "latex": "\\frac{11}{2}",
+          "errorPath": "Keep original XY gradient, returning X.",
+          "id": "B"
+        },
+        {
+          "latex": "-\\frac{22}{3}",
+          "errorPath": "Use the height of P (7) as the y-intercept Y. This gives final slope −28/11 and the intersection equation (2−28/11)x=4.",
+          "id": "C"
+        },
+        {
+          "latex": "\\frac{88}{41}",
+          "errorPath": "Use half the original gradient −25/33 rather than twice, so 88=41x.",
+          "id": "D"
+        },
+        {
+          "latex": "-\\frac{44}{17}",
+          "id": "E"
+        },
+        {
+          "latex": "-\\frac{363}{34}",
+          "errorPath": "Use the correct doubled slope −100/33 but draw the final line through the origin. Then (2−100/33)x=11.",
+          "id": "F"
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "-\\frac{44}{17}",
+      "workedSolutionSteps": [
+        "P=(2,7); parallel through P y=−2x/3+25/3, hence Y=(0,25/3). X=(11/2,0), so XY gradient−50/33.",
+        "New line y=−100x/33+25/3. Equate to 11−2x: 88=−34x.",
+        "x=−44/17."
+      ],
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false
+    },
+    "independentCheck": "P=(2,7), Y=(0,25/3), X=(11/2,0). With slope −100/33 and intercept 25/3 the intersection satisfies −34x=88, giving choice E. Three negative choices now require distinguishing their magnitudes. Wrong C gives −22/3; wrong F gives −363/34. No added prerequisite.",
+    "academicDifficultyAssessment": "The repaired version supports a broad Grade 7+ editorial target for linking a gradient, two equations, and successive intersections. Compare November 2018 2H Q18. Finer grade and classroom coverage remain open."
+  }
+}
