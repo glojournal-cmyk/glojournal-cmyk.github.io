@@ -1,0 +1,666 @@
+{
+  "kind": "PRIORITY39_SCOPE_REWRITE_BATCH_NO_RELEASE",
+  "date": "2026-11-25",
+  "sourceRegister": "qa-staging/math-priority116-post35-second-pass-qa-scope-triage-20261125.json",
+  "sourceRegisterBlobSha": "0921e5a54b5e846c108fdf4c1efb1a9fd0ba9655",
+  "sourceCommit": "7b2524a700427f618abbd1e18b45876b359339dc",
+  "counts": {
+    "drafted": 10,
+    "coreMethodCandidates": 8,
+    "extensionStillHeld": 2,
+    "formalApproved": 0
+  },
+  "limits": "Author drafts only. Original versions remain in historical records. Two linear-consistency items still need exact prerequisite approval; no scope or grade certification. No runtime/Vercel changes.",
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-023",
+      "priorRevisionId": "LUX-MATH-Y9-INDICES-023-DEMAND-UPGRADE-20261124",
+      "priorRecordPath": "qa-staging/math-demand-upgrade-indices12-20261124.json",
+      "priorRecordBlobSha": "a90e0dc06826bc6f65695d3dfb13c1e091160cef",
+      "priorAnswer": "(x^{-6}y^{-9})^{-1/4}",
+      "priorScopeNote": "Fractional indices and universal identity; fractional powers not individually specified.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-INDICES-023",
+        "revisionId": "LUX-MATH-Y9-INDICES-023-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-INDICES-023-DEMAND-UPGRADE-20261124",
+        "topicId": "math-y9-indices",
+        "stem": "Positive x,y satisfy $x^2y^3=16$. Which expression is guaranteed to equal 4096 for every such pair?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x^6y^8",
+            "errorPath": "Miss one power of y: not invariant; at x=1,y=16^(1/3), equals 16^(8/3)."
+          },
+          {
+            "id": "B",
+            "latex": "x^{10}y^{15}",
+            "errorPath": "Use T⁵ instead of T³."
+          },
+          {
+            "id": "C",
+            "latex": "\\frac{x^6y^9}{x^2y^3}",
+            "errorPath": "Use T² instead of T³."
+          },
+          {
+            "id": "D",
+            "latex": "\\frac{x^8y^{12}}{x^3y^4}",
+            "errorPath": "Subtract incorrect powers: x⁵y⁸, which is not invariant (test x=4,y=1)."
+          },
+          {
+            "id": "E",
+            "latex": "(x^{-2}y^{-3})^{-1}",
+            "errorPath": "Use T instead of T³."
+          },
+          {
+            "id": "F",
+            "latex": "\\frac{(x^4y^6)^2}{x^2y^3}"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "\\frac{(x^4y^6)^2}{x^2y^3}",
+        "workedSolutionSteps": [
+          "Write T=x²y³=16. Since 4096=16³, the required expression must equal T³ for all positive pairs.",
+          "Option F simplifies to x⁶y⁹=T³.",
+          "A and D fail at x=1,y=16^(1/3). B=T⁵ and C,E=T², all different from T³."
+        ],
+        "unverifiedTaughtSubskill": "Core methods with listed constraints; specific classroom exposure and Grade 7+ demand unverified.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "MONOMIAL_EXPONENT_RELATIONS",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false,
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-028",
+      "priorRevisionId": "LUX-MATH-Y9-INDICES-028-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-indices10-20261124.json",
+      "priorRecordBlobSha": "dc5c25e2a0befe73b3b8963aa1aaee40c43118c5",
+      "priorAnswer": "5",
+      "priorScopeNote": "Reciprocal exponential substitution and quadratic solution, not explicitly specified.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-INDICES-028",
+        "revisionId": "LUX-MATH-Y9-INDICES-028-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-INDICES-028-DISTRACTOR-REPAIR-20261124",
+        "topicId": "math-y9-indices",
+        "stem": "For integer n, let $A=2^{3n-1}$ and $B=4^{n+1}$. A technician records the larger of A/B and B/A as 8. Find the sum of the two possible values of $A+B$.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "147456",
+            "errorPath": "Keep n6 only."
+          },
+          {
+            "id": "B",
+            "latex": "\\frac92",
+            "errorPath": "Keep n0 only."
+          },
+          {
+            "id": "C",
+            "latex": "131072",
+            "errorPath": "Report A at n6."
+          },
+          {
+            "id": "D",
+            "latex": "\\frac{294903}{2}",
+            "errorPath": "Subtract the smaller sum from the larger instead of adding."
+          },
+          {
+            "id": "E",
+            "latex": "\\frac{294921}{2}"
+          },
+          {
+            "id": "F",
+            "latex": "6",
+            "errorPath": "Sum the two n values."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "\\frac{294921}{2}",
+        "workedSolutionSteps": [
+          "A/B=2^(n−3); larger ratio8 means n−3=3 or −3, so n6 or0.",
+          "At n0, A=1/2,B=4, sum9/2. At n6, A=131072,B=16384, sum147456.",
+          "Total 147456+9/2=294921/2."
+        ],
+        "unverifiedTaughtSubskill": "Core methods with listed constraints; specific classroom exposure and Grade 7+ demand unverified.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "EXPONENTIAL_EXPRESSION_AND_SHIFT",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false,
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-034",
+      "priorRevisionId": "LUX-MATH-Y9-INDICES-034-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-indices10-20261124.json",
+      "priorRecordBlobSha": "dc5c25e2a0befe73b3b8963aa1aaee40c43118c5",
+      "priorAnswer": "13",
+      "priorScopeNote": "Fractional indices and integer exponent optimisation.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-INDICES-034",
+        "revisionId": "LUX-MATH-Y9-INDICES-034-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-INDICES-034-DISTRACTOR-REPAIR-20261124",
+        "topicId": "math-y9-indices",
+        "stem": "Positive x,y are scaled by factors $2^a$ and $2^b$, where a,b are nonzero integers with |a|≤6 and |b|≤6. The value of $x^6/y^4$ stays unchanged. The value of $x^2y$ must increase. Find the greatest possible factor by which $x^2y$ increases.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "2^7",
+            "errorPath": "Choose t1 rather than maximising."
+          },
+          {
+            "id": "B",
+            "latex": "2^{14}"
+          },
+          {
+            "id": "C",
+            "latex": "2^{21}",
+            "errorPath": "Allow t3, exceeding both bounds."
+          },
+          {
+            "id": "D",
+            "latex": "2^4",
+            "errorPath": "Use a alone at t2 as exponent."
+          },
+          {
+            "id": "E",
+            "latex": "2^{20}",
+            "errorPath": "Square y as well: 2a+2b=20 at t2."
+          },
+          {
+            "id": "F",
+            "latex": "2^{10}",
+            "errorPath": "Add a+b at t2."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "2^{14}",
+        "workedSolutionSteps": [
+          "Unchanged expression requires 6a−4b=0, so a=2t,b=3t for integer t.",
+          "Bounds permit t=−2,−1,1,2. The second multiplier is 2^(2a+b)=2^(7t), so increase means t positive.",
+          "Maximum at t2, multiplier 2^14."
+        ],
+        "unverifiedTaughtSubskill": "Core methods with listed constraints; specific classroom exposure and Grade 7+ demand unverified.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "MONOMIAL_EXPONENT_RELATIONS",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false,
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-035",
+      "priorRevisionId": "LUX-MATH-Y9-INDICES-035-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-indices10-20261124.json",
+      "priorRecordBlobSha": "dc5c25e2a0befe73b3b8963aa1aaee40c43118c5",
+      "priorAnswer": "24",
+      "priorScopeNote": "Fractional indices and strict linear inequality.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-INDICES-035",
+        "revisionId": "LUX-MATH-Y9-INDICES-035-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-INDICES-035-DISTRACTOR-REPAIR-20261124",
+        "topicId": "math-y9-indices",
+        "stem": "Positive integers a,b satisfy $2^a4^b=2^{14}$ and $a>b$. Let $x=2^a$ and $y=2^b$. Find the sum of all possible values of x/y.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "2340"
+          },
+          {
+            "id": "B",
+            "latex": "2336",
+            "errorPath": "Omit b4 and ratio4."
+          },
+          {
+            "id": "C",
+            "latex": "\\frac{4369}{4}",
+            "errorPath": "Use a=14−3b; ratios 1024,64,4,1/4; sum1092.25."
+          },
+          {
+            "id": "D",
+            "latex": "4680",
+            "errorPath": "Evaluate 2^(a−b+1) for each valid pair, doubling the correct sum."
+          },
+          {
+            "id": "E",
+            "latex": "2048",
+            "errorPath": "Keep only b1."
+          },
+          {
+            "id": "F",
+            "latex": "10",
+            "errorPath": "Sum b values instead of ratios."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "2340",
+        "workedSolutionSteps": [
+          "a+2b=14, a>b, b positive. Thus b=1,2,3,4 and a=12,10,8,6.",
+          "Ratios are 2^11,2^8,2^5,2²=2048,256,32,4.",
+          "Sum2048+256+32+4=2340."
+        ],
+        "unverifiedTaughtSubskill": "Core methods with listed constraints; specific classroom exposure and Grade 7+ demand unverified.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTEGER_FEASIBILITY",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false,
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-019",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-019-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-standard-form8-20261124.json",
+      "priorRecordBlobSha": "d207e930bdb10acd7d63d1162b4900cf5fae30c9",
+      "priorAnswer": "5\\times10^{1}",
+      "priorScopeNote": "Cubic similarity scaling not explicitly in Year 9; spring similarity is length only.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-019",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-019-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-019-DISTRACTOR-REPAIR-20261124",
+        "topicId": "math-y9-standard-form",
+        "stem": "A machine processes $2.4\\times10^5$ items per minute. After running for $1.5\\times10^2$ minutes, it removes $3.6\\times10^6$ defective items. A second machine processes the remaining items at $1.2\\times10^6$ per minute. It can only run for complete minutes, and must run for at least 5 minutes per shift. If a shift can process at most $1.0\\times10^7$ items, what is the greatest number of full-capacity minutes it can run in one shift, and the least number of shifts needed to process all remaining items? In the final shift unused capacity is allowed.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "(8,4)"
+          },
+          {
+            "id": "B",
+            "latex": "(8,5)",
+            "errorPath": "Round up the shift count an extra time."
+          },
+          {
+            "id": "C",
+            "latex": "(9,3)",
+            "errorPath": "Round 8⅓ up to9, then ceil(32.4/10.8)=3."
+          },
+          {
+            "id": "D",
+            "latex": "(5,6)",
+            "errorPath": "Use minimum5 minutes instead of maximum; ceil(32.4/6)=6."
+          },
+          {
+            "id": "E",
+            "latex": "(8,3)",
+            "errorPath": "Round down the required shift count."
+          },
+          {
+            "id": "F",
+            "latex": "(10,3)",
+            "errorPath": "Treat 10 million capacity as 10 minutes."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "(8,4)",
+        "workedSolutionSteps": [
+          "Remaining items=3.6×10^7−3.6×10^6=3.24×10^7.",
+          "Capacity per shift divided by rate is 8⅓ minutes, so at most 8 complete full-rate minutes, 9.6×10^6 items.",
+          "Three shifts cover 2.88×10^7; four are needed. Final shift can run its minimum five minutes with unused capacity."
+        ],
+        "unverifiedTaughtSubskill": "Core methods with listed constraints; specific classroom exposure and Grade 7+ demand unverified.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "FIXED_TOTAL_RESOURCE_ALLOCATION",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false,
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-029",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-029-PRIORITY-CONTENT-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-priority116-content-acceptance-standard-form18-20261124.json",
+      "priorRecordBlobSha": "87a55441e7484611550734260dea9cda096b3808",
+      "priorAnswer": "50",
+      "priorScopeNote": "Whole-number divisibility constraints in addition to standard-form operations; exact extension not stated.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-029",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-029-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-029-PRIORITY-CONTENT-REVIEW-20261124",
+        "topicId": "math-y9-standard-form",
+        "stem": "A storage bank contains $8.2\\times10^8$ identical records. Each full cartridge stores $1.6\\times10^7$ records; an index of $2\\times10^5$ records' worth of space must be reserved inside every cartridge. Cartridges can be partly filled, but the last must contain at least $1\\times10^6$ records. Using the fewest cartridges, load every cartridge except the last to its maximum usable capacity. Which pair gives the cartridge count and the number of records in the last cartridge, in standard form?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "(52,1.42\\times10^7)"
+          },
+          {
+            "id": "B",
+            "latex": "(52,4\\times10^6)",
+            "errorPath": "Ignore index reservation: 51×16m=816m, leaving4m."
+          },
+          {
+            "id": "C",
+            "latex": "(51,1.42\\times10^7)",
+            "errorPath": "Round down cartridge count while retaining remainder."
+          },
+          {
+            "id": "D",
+            "latex": "(53,1.4\\times10^7)",
+            "errorPath": "Use usable capacity 15.5m instead of 15.8m, then 52×15.5m=806m, leaves14m."
+          },
+          {
+            "id": "E",
+            "latex": "(52,8.2\\times10^8)",
+            "errorPath": "Report total records instead of remainder."
+          },
+          {
+            "id": "F",
+            "latex": "(52,1.42\\times10^6)",
+            "errorPath": "Reduce exponent incorrectly when normalising remainder."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "(52,1.42\\times10^7)",
+        "workedSolutionSteps": [
+          "Usable capacity=1.58×10^7. 51 cartridges hold 8.058×10^8.",
+          "Remaining=1.42×10^7, which fits and exceeds the required minimum. Therefore 52 cartridges are necessary and sufficient.",
+          "Last cartridge contains 1.42×10^7 records."
+        ],
+        "unverifiedTaughtSubskill": "Core methods with listed constraints; specific classroom exposure and Grade 7+ demand unverified.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "FIXED_TOTAL_RESOURCE_ALLOCATION",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false,
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-013",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-013-PRIORITY-CONTENT-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-priority116-content-acceptance-simultaneous15-20261124.json",
+      "priorRecordBlobSha": "919945f5acb9cb7092e1043a94cdcc941a9b07e5",
+      "priorAnswer": "I:k=4,t=7;N:k=4,t\\ne7",
+      "priorScopeNote": "Parameter degeneracy and no/infinite solutions not explicitly stated.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-013",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-013-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-013-PRIORITY-CONTENT-REVIEW-20261124",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "A shop sells identical packs A and B. Two A and three B cost £7; six A and nine B cost £21. A second supplier offers the same items, and two A plus three B cost £7 but six A plus nine B cost £20. A third supplier quotes two A plus three B for £7 and four A plus five B for £12. Which option correctly describes the number of possible real unit-price pairs at suppliers 1, 2, 3 respectively, and gives the third supplier's B price?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "(1,1,1);\\ \\pounds2",
+            "errorPath": "Assume each pair of equations has a unique solution."
+          },
+          {
+            "id": "B",
+            "latex": "(\\text{many},\\text{none},1);\\ \\pounds2"
+          },
+          {
+            "id": "C",
+            "latex": "(\\text{none},\\text{many},1);\\ \\pounds2",
+            "errorPath": "Interchange consistent and inconsistent proportional systems."
+          },
+          {
+            "id": "D",
+            "latex": "(\\text{many},\\text{none},1);\\ \\pounds1",
+            "errorPath": "Subtract £12 from £14 incorrectly as £1."
+          },
+          {
+            "id": "E",
+            "latex": "(\\text{many},\\text{none},1);\\ \\pounds\\frac12",
+            "errorPath": "Report A instead of B."
+          },
+          {
+            "id": "F",
+            "latex": "(\\text{many},\\text{many},1);\\ \\pounds2",
+            "errorPath": "Compare coefficients only and ignore different totals."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "(\\text{many},\\text{none},1);\\ \\pounds2",
+        "workedSolutionSteps": [
+          "First two equations at supplier 1 are multiples, so infinitely many real pairs; supplier2 contradicts 3×7=21.",
+          "Supplier3: double first gives 4A+6B=14. Subtract 4A+5B=12 gives B=2.",
+          "Then A=(7−6)/2=1/2, unique."
+        ],
+        "unverifiedTaughtSubskill": "Core methods with listed constraints; specific classroom exposure and Grade 7+ demand unverified.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "DEGENERATE_SYSTEM_PARAMETER",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false,
+      "scopeDisposition": "EXTENSION_STILL_HELD_LINEAR_CONSISTENCY_REVIEW"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-014",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-014-ACADEMIC-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-final-academic-review-simultaneous-equations40-20261124.json",
+      "priorRecordBlobSha": "6be6a2cb0f39d34ce9e059ccff70e236ae8bf5be",
+      "priorAnswer": "-\\frac{14}{3}",
+      "priorScopeNote": "Parameter degeneracy, equal/opposite rows; not explicitly stated.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-014",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-014-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-014-ACADEMIC-REVIEW-20261124",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "A pupil is given $3x+2y=17$ and $5x-2y=7$. Instead of copying these equations, she writes their sum and twice their difference (first minus second). Another pupil writes twice their sum and four times their difference. Which pair gives the common solution (x,y) and the value of the second pupil's difference-equation right-hand side?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "(3,4);20",
+            "errorPath": "Use first pupil's doubled difference."
+          },
+          {
+            "id": "B",
+            "latex": "(3,4);40"
+          },
+          {
+            "id": "C",
+            "latex": "(3,4);-40",
+            "errorPath": "Reverse order of subtraction."
+          },
+          {
+            "id": "D",
+            "latex": "(4,3);40",
+            "errorPath": "Swap coordinates."
+          },
+          {
+            "id": "E",
+            "latex": "(3,4);10",
+            "errorPath": "Use unscaled difference."
+          },
+          {
+            "id": "F",
+            "latex": "(3,4);24",
+            "errorPath": "Report unscaled sum."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "(3,4);40",
+        "workedSolutionSteps": [
+          "Add original equations: 8x=24 so x3. First gives 2y=8, y4.",
+          "First minus second has RHS17−7=10.",
+          "Four times difference has RHS40. Both transformed systems equivalent because sum and difference reconstruct originals."
+        ],
+        "unverifiedTaughtSubskill": "Core methods with listed constraints; specific classroom exposure and Grade 7+ demand unverified.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "LINEAR_SYSTEM_TRANSFER",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false,
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-030",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-simultaneous8-20261124.json",
+      "priorRecordBlobSha": "cc509c9112c9304cb461cc7af250637a6e49988a",
+      "priorAnswer": "\\frac{349}{16}",
+      "priorScopeNote": "Recover roots from sum/product then solve linear system; quadratic solving not specified.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-030",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-DISTRACTOR-REPAIR-20261124",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "Real x,y satisfy $3x+2y=a$ and $x-2y=b$. The constants also satisfy $a+b=18$ and $2a-b=30$. Find $x^2+y^2$.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\frac{349}{16}"
+          },
+          {
+            "id": "B",
+            "latex": "\\frac{529}{16}",
+            "errorPath": "Square sum x+y."
+          },
+          {
+            "id": "C",
+            "latex": "\\frac{853}{16}",
+            "errorPath": "Swap a,b."
+          },
+          {
+            "id": "D",
+            "latex": "\\frac{493}{16}",
+            "errorPath": "Use y=(x+b)/2."
+          },
+          {
+            "id": "E",
+            "latex": "\\frac{53}{2}",
+            "errorPath": "Omit final division by2 for y."
+          },
+          {
+            "id": "F",
+            "latex": "40",
+            "errorPath": "Use 3x instead of4x after adding."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "\\frac{349}{16}",
+        "workedSolutionSteps": [
+          "Add the equations for a,b: 3a=48, a16,b2.",
+          "Add x,y equations: 4x18, x9/2. Then y=(x−2)/2=5/4.",
+          "Squares sum81/4+25/16=349/16."
+        ],
+        "unverifiedTaughtSubskill": "Core methods with listed constraints; specific classroom exposure and Grade 7+ demand unverified.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "LINEAR_SYSTEM_TRANSFER",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false,
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-036",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-DIAGNOSTIC-SET-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority116-residual-diagnostic-set-repairs-20261124.json",
+      "priorRecordBlobSha": "c7bedc0d4272d3ebe08379d501f22651a568cba7",
+      "priorAnswer": "\\{2-3\\sqrt{2},2+3\\sqrt{2}\\}",
+      "priorScopeNote": "Parameter degeneracy and surd roots; not explicitly stated.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-036",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-DIAGNOSTIC-SET-REPAIR-20261124",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "Consider $2x+3y=12$ and $4x+ky=24+t$, where k,t are chosen from the five pairs (5,0), (6,0), (6,3), (7,0), (7,3). Which choice gives the complete set of parameter pairs for which there is a unique solution with BOTH x and y strictly positive?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\{(5,0),(7,0)\\}",
+            "errorPath": "Include solutions with y=0 rather than checking strict positivity."
+          },
+          {
+            "id": "B",
+            "latex": "\\{(6,0),(7,3)\\}",
+            "errorPath": "Include nonunique (6,0) because positive examples exist."
+          },
+          {
+            "id": "C",
+            "latex": "\\{(7,3)\\}"
+          },
+          {
+            "id": "D",
+            "latex": "\\{(6,3)\\}",
+            "errorPath": "Treat 0y=3 as a valid equation."
+          },
+          {
+            "id": "E",
+            "latex": "\\{(7,0),(7,3)\\}",
+            "errorPath": "Use k>6 as sufficient, without requiring y>0."
+          },
+          {
+            "id": "F",
+            "latex": "\\varnothing",
+            "errorPath": "Reject all cases merely because one pair is inconsistent."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "\\{(7,3)\\}",
+        "workedSolutionSteps": [
+          "Subtract twice the first equation from the second: (k−6)y=t.",
+          "For k6, t0 yields nonunique, t3 impossible. For k5 or7 with t0, y0 fails positivity.",
+          "For (7,3), y3 and x=(12−9)/2=1.5>0; unique."
+        ],
+        "unverifiedTaughtSubskill": "Core methods with listed constraints; specific classroom exposure and Grade 7+ demand unverified.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "DEGENERATE_SYSTEM_PARAMETER",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false,
+      "scopeDisposition": "EXTENSION_STILL_HELD_LINEAR_CONSISTENCY_REVIEW"
+    }
+  ]
+}
