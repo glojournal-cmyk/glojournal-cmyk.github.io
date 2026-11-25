@@ -53,3 +53,14 @@ test('renderer rejects malformed or unsafe source instead of showing raw TeX',()
  assert.doesNotMatch(safe,/<script>/);assert.match(safe,/&lt;script&gt;/);
  assert.throws(()=>mathsOptionHTML({id:'G',latex:'2'}),/Unknown answer/);
 });
+
+test('revised questions preserve single-token fractions, currency, set and spacing notation',()=>{
+ assert.match(latexMathML('\\frac47'), /<mfrac><mn>4<\/mn><mn>7<\/mn><\/mfrac>/);
+ assert.match(latexMathML('\\frac AB'), /<mfrac><mi>A<\/mi><mi>B<\/mi><\/mfrac>/);
+ assert.match(latexMathML('\\frac1{16}'), /<mfrac><mn>1<\/mn><mrow><mn>16<\/mn>/);
+ assert.match(latexMathML('\\frac{6}{\\sqrt5}'), /<msqrt><mn>5<\/mn><\/msqrt>/);
+ assert.match(latexMathML('\\pounds44'), /<mtext>£<\/mtext><mn>44<\/mn>/);
+ assert.match(latexMathML('x\\in\\varnothing'), /<mo>∈<\/mo><mo>∅<\/mo>/);
+ assert.match(latexMathML('x,\\ \\Delta x'), /<mspace[^>]*\/><mi>Δ<\/mi>/);
+ for(const expr of ['\\frac4','\\frac{4}','\\sqrt','\\frac4}'])assert.throws(()=>latexMathML(expr));
+});
