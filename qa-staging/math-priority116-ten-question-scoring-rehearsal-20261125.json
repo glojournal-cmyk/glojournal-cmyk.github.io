@@ -1,6 +1,7 @@
 {
-  "status": "QA rehearsal only; trial bands are provisional, no Daily or MP release approval",
-  "sourceCommit": "972bb7aa745e1dfd079a2ab78af8b76fd1a635d4",
+  "status": "QA rehearsal only. Grade bands are fixture inputs for the planner contract. No live Daily or MP approvals.",
+  "sourceCommit": "31e2f28ffd7931760bb1d802af320d95b554c84d",
+  "sourceRegister": "qa-staging/math-priority61-internal-academic-decisions-20261125.json",
   "questions": [
     {
       "sourceId": "LUX-MATH-Y9-INDICES-009",
@@ -9,31 +10,31 @@
       "sourceBlobSha": "6cbd596fc0e2ce34a573dc95248b02aa16b6e5e8",
       "topicId": "math-y9-indices",
       "trialBand": "G8",
-      "skill": "Recover two exponents from two constraints, then apply a changed scale.",
+      "skill": "indices:monomial-scale-and-invariants",
       "correctOptionId": "B",
       "correctAnswerLatex": "2048"
     },
     {
-      "sourceId": "LUX-MATH-Y9-INDICES-010",
-      "revisionId": "LUX-MATH-Y9-INDICES-010-AUTUMN-DEMAND-REWRITE-20261125",
-      "sourcePath": "qa-staging/math-priority35-autumn-demand-rewrite-indices-standard11-20261125.json",
-      "sourceBlobSha": "6cbd596fc0e2ce34a573dc95248b02aa16b6e5e8",
+      "sourceId": "LUX-MATH-Y9-INDICES-019",
+      "revisionId": "LUX-MATH-Y9-INDICES-019-DEMAND-SECOND-PASS-REPAIR-20261125",
+      "sourcePath": "qa-staging/math-priority30-demand-second-pass-six-repairs-20261125.json",
+      "sourceBlobSha": "c7528e84b822baaa7a0c42f985421eeece95fa69",
       "topicId": "math-y9-indices",
-      "trialBand": "G8",
-      "skill": "Compare two scaling operations on a quotient of monomials.",
+      "trialBand": "G8-9",
+      "skill": "indices:exponential-sum-recovery",
       "correctOptionId": "D",
-      "correctAnswerLatex": "8"
+      "correctAnswerLatex": "8192"
     },
     {
-      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
-      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-014-RELEASED-PAPER-REVISION-20261125",
-      "sourcePath": "qa-staging/math-priority116-released-paper-three-repairs-20261125.json",
-      "sourceBlobSha": "3cfb49fb65111c1c8b3a88bfeb88d78fc89ad155",
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-021",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-021-POST35-QA-REPAIR-20261125",
+      "sourcePath": "qa-staging/math-priority35-second-pass-five-repairs-20261125.json",
+      "sourceBlobSha": "acdbcec5a99b2c15c224336bab8dec2580409051",
       "topicId": "math-y9-standard-form",
       "trialBand": "G7",
-      "skill": "Use conservation of a pulse count to recover the two durations.",
-      "correctOptionId": "D",
-      "correctAnswerLatex": "4.16\\times10^7"
+      "skill": "standard_form:linked-discrete-calibration",
+      "correctOptionId": "B",
+      "correctAnswerLatex": "1\\times10^5"
     },
     {
       "sourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
@@ -41,8 +42,8 @@
       "sourcePath": "qa-staging/math-priority116-final-gate-two-distractor-repairs-20261125.json",
       "sourceBlobSha": "18121c23c766d14bcda8eef4585b960a5ff2d539",
       "topicId": "math-y9-standard-form",
-      "trialBand": "G7",
-      "skill": "Subtract two pump balances to infer a leak rate, then recover a start time in seconds.",
+      "trialBand": "G8",
+      "skill": "standard_form:net-rate-recovery",
       "correctOptionId": "B",
       "correctAnswerLatex": "(2.4\\times10^{-4},5.4\\times10^3)"
     },
@@ -53,31 +54,20 @@
       "sourceBlobSha": "61dda8211f2182798fc8a7d8a2b9a1a15f52e800",
       "topicId": "math-y9-changing-subject",
       "trialBand": "G7",
-      "skill": "Eliminate an unwanted variable and propagate two changes.",
+      "skill": "rearranging:linked-equation-inverse",
       "correctOptionId": "A",
       "correctAnswerLatex": "x=\\frac{10P+3Q}{7},\\ \\Delta x=\\frac{11}{7}"
     },
     {
-      "sourceId": "LUX-MATH-Y9-REARRANGING-011",
-      "revisionId": "LUX-MATH-Y9-REARRANGING-011-POST35-QA-REPAIR-20261125",
-      "sourcePath": "qa-staging/math-priority35-second-pass-five-repairs-20261125.json",
-      "sourceBlobSha": "acdbcec5a99b2c15c224336bab8dec2580409051",
+      "sourceId": "LUX-MATH-Y9-REARRANGING-010",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-010-GRADE-DEMAND-REWRITE-20261125",
+      "sourcePath": "qa-staging/math-priority30-demand-rewrite-changing-subject16-20261125.json",
+      "sourceBlobSha": "bda92528d6319ac1a3a867b0f230a25b839c2a34",
       "topicId": "math-y9-changing-subject",
-      "trialBand": "G8-9",
-      "skill": "Use a constant sum to fix a coefficient before inverting a different combination.",
-      "correctOptionId": "D",
-      "correctAnswerLatex": "k=-\\frac65,\\ x=\\frac{44-25d}{20}"
-    },
-    {
-      "sourceId": "LUX-MATH-Y9-GRAPHS-006",
-      "revisionId": "LUX-MATH-Y9-GRAPHS-006-DEMAND-ORDER-RECONCILED-20261125",
-      "sourcePath": "qa-staging/math-priority52-demand-order-reconciliation-20261125.json",
-      "sourceBlobSha": "105c1d90a5c0f6e04e9b7aa60640de01fd4c73f8",
-      "topicId": "math-y9-straight-line-graphs",
       "trialBand": "G8",
-      "skill": "Construct a parallelogram from intersection and parallel constraints, then obtain its area.",
-      "correctOptionId": "F",
-      "correctAnswerLatex": "96"
+      "skill": "rearranging:affine-linked-inverse",
+      "correctOptionId": "A",
+      "correctAnswerLatex": "x=(35z-21)/22;\\ x=-14/3"
     },
     {
       "sourceId": "LUX-MATH-Y9-GRAPHS-010",
@@ -86,31 +76,42 @@
       "sourceBlobSha": "cf7eff2935f98e395d63bd4dd5db59fac19edd68",
       "topicId": "math-y9-straight-line-graphs",
       "trialBand": "G7",
-      "skill": "Use two line intersections and a transferred gradient.",
+      "skill": "graphs:parallel-and-intercept-transfer",
       "correctOptionId": "B",
       "correctAnswerLatex": "\\frac{20}{3}"
     },
     {
-      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-023",
-      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-DEMAND-ORDER-RECONCILED-20261125",
+      "sourceId": "LUX-MATH-Y9-GRAPHS-019",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-019-DEMAND-ORDER-RECONCILED-20261125",
       "sourcePath": "qa-staging/math-priority52-demand-order-reconciliation-20261125.json",
       "sourceBlobSha": "105c1d90a5c0f6e04e9b7aa60640de01fd4c73f8",
-      "topicId": "math-y9-simultaneous-equations",
-      "trialBand": "G8-9",
-      "skill": "Recover original inputs and use a constraint on their change to find a new parameter and input.",
-      "correctOptionId": "C",
-      "correctAnswerLatex": "(57/8,-21)"
+      "topicId": "math-y9-straight-line-graphs",
+      "trialBand": "G8",
+      "skill": "graphs:line-height-comparison",
+      "correctOptionId": "D",
+      "correctAnswerLatex": "(5,-2)"
     },
     {
-      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-024",
-      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-AUTUMN-DEMAND-REWRITE-20261125",
-      "sourcePath": "qa-staging/math-priority35-autumn-demand-rewrite-graphs-simultaneous14-20261125.json",
-      "sourceBlobSha": "855f1ace2a97db4bce13e308a9b306c7adf2b93b",
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-014",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-014-FINAL-DEMAND-CANDIDATE-20261125",
+      "sourcePath": "qa-staging/math-priority30-final-two-demand-candidates-20261125.json",
+      "sourceBlobSha": "94513996a599be24ea25d84b7fed6893f18246cd",
       "topicId": "math-y9-simultaneous-equations",
-      "trialBand": "G8",
-      "skill": "Solve for two price lists and use an independent purchase constraint.",
-      "correctOptionId": "F",
-      "correctAnswerLatex": "\\pounds44"
+      "trialBand": "G8-9",
+      "skill": "simultaneous:system-transformation-and-transfer",
+      "correctOptionId": "C",
+      "correctAnswerLatex": "(2,14)"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-026",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-026-DEMAND-UPGRADE-20261124",
+      "sourcePath": "qa-staging/math-demand-upgrade-simultaneous26-20261124.json",
+      "sourceBlobSha": "e8983bdc7519f2d42fbfcb926982a00f2b654884",
+      "topicId": "math-y9-simultaneous-equations",
+      "trialBand": "G7",
+      "skill": "simultaneous:multi-stage-linear-modelling",
+      "correctOptionId": "B",
+      "correctAnswerLatex": "15750"
     }
   ]
 }
