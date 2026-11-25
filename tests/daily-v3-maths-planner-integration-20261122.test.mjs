@@ -54,3 +54,31 @@ test('actual V3 planner consumes 200 synthetic unique question IDs in 20 fixed 4
  assert.equal(exhausted.supplyBlocked,true);
  assert.equal(exhausted.progress,0);
 });
+
+
+import {appendApprovedMathsDaily} from '../assets/daily-maths-additive-eleventh-20261125.js';
+test('additive Maths planner retains all ten existing tasks and appends only approved Maths',()=>{
+ const day='2026-11-26',old=legacy(day),state={today:day,daily:[],dailyLog:{},formalAttemptLog:[]};
+ const release={...V3_APPROVED,maths:bank,mathsRuntimeReady:true};
+ const result=appendApprovedMathsDaily(state,old,release,day);
+ assert.equal(result.length,11);
+ assert.deepEqual(result.slice(0,10),old);
+ for(let i=0;i<10;i++)assert.equal(result[i],old[i]);
+ const maths=result[10];assert.equal(maths.id,'maths-daily');
+ assert.equal(maths.target,10);assert.equal(maths.progress,0);assert.equal(maths.done,false);
+ assert.equal(new Set(maths.approvedQuestionIds).size,10);
+ assert.equal(new Set(Object.values(maths.approvedConceptByQuestion)).size,10);
+ assert.equal(result.reduce((n,t)=>n+t.target,0),old.reduce((n,t)=>n+t.target,0)+10);
+});
+test('additive Maths planner blocks unapproved, unverified-runtime and previously issued plans',()=>{
+ const day='2026-11-26',old=legacy(day),state={today:day,daily:[],dailyLog:{},formalAttemptLog:[]};
+ const release={...V3_APPROVED,maths:bank,mathsRuntimeReady:true};
+ assert.equal(appendApprovedMathsDaily(state,old,V3_APPROVED,day),old);
+ assert.equal(appendApprovedMathsDaily(state,old,{...release,mathsRuntimeReady:false},day),old);
+ assert.equal(appendApprovedMathsDaily(state,old,release,'2026-11-27'),old);
+ assert.equal(appendApprovedMathsDaily({...state,daily:old},old,release,day),old);
+ assert.equal(appendApprovedMathsDaily({...state,dailyLog:{[day]:{tasks:old}}},old,release,day),old);
+ assert.equal(appendApprovedMathsDaily({...state,formalAttemptLog:[{day,dailyTaskId:'latin-vocab'}]},old,release,day),old);
+ assert.equal(appendApprovedMathsDaily(state,old.slice(0,9),release,day).length,9);
+ assert.equal(appendApprovedMathsDaily(state,old,{...release,maths:[]},day),old);
+});
