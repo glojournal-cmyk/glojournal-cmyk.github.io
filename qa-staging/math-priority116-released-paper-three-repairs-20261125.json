@@ -1,0 +1,159 @@
+{
+  "sourceCommit": "7b5e42cb029513ed5a2e8070559f1abb899ef195",
+  "reviewDate": "2026-11-25",
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-014-AUTUMN-DEMAND-REWRITE-20261125",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-014-RELEASED-PAPER-REVISION-20261125",
+      "topicId": "math-y9-standard-form",
+      "stem": "Two detectors run one after the other for a total of $3.0\\times10^2$ seconds. Detector A records $3.2\\times10^5$ pulses per second and B records $4.8\\times10^4$ pulses per second. In a second trial they run for exactly the same respective times. A's rate increases by $4.0\\times10^4$ pulses per second and B's rate decreases by $2.0\\times10^4$ pulses per second. The combined number of pulses stays the same. How many pulses were recorded in the first trial? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "5.52\\times10^7",
+          "errorPath": "Split 300 seconds equally between the detectors."
+        },
+        {
+          "id": "B",
+          "latex": "6.88\\times10^7",
+          "errorPath": "Reverse the times of the two detectors, running A for 200 seconds."
+        },
+        {
+          "id": "C",
+          "latex": "3.2\\times10^7",
+          "errorPath": "Count only detector A's pulses."
+        },
+        {
+          "id": "D",
+          "latex": "4.16\\times10^7"
+        },
+        {
+          "id": "E",
+          "latex": "1.28\\times10^8",
+          "errorPath": "Treat B's rate as 480,000 in the final total instead of 48,000."
+        },
+        {
+          "id": "F",
+          "latex": "8.32\\times10^7",
+          "errorPath": "Add both trials even though the first trial alone was requested."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "4.16\\times10^7",
+      "workedSolutionSteps": [
+        "Let A run for a seconds and B for b seconds. The unchanged total means the additional 40,000a pulses equal the lost 20,000b pulses.",
+        "Thus b=2a. The two times sum to 300 s, so a=100 and b=200.",
+        "The first trial records 32,000,000 + 9,600,000 = 41,600,000 pulses."
+      ],
+      "concept": "Constant total across two operating regimes",
+      "benchmark": "June 2017 2H Q10 and November 2021 3H Q13. The changed rates determine the mixing times. The task then requires different powers of ten to be combined.",
+      "academicQA": "author_revised_and_checked",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-026-AUTUMN-DEMAND-REWRITE-20261125",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-026-RELEASED-PAPER-REVISION-20261125",
+      "topicId": "math-y9-standard-form",
+      "stem": "A tank contains some water before pump A starts. Its volume is $6.0\\times10^{-2}$ m³ after 12 minutes and $1.0\\times10^{-1}$ m³ after 22 minutes. Pump A has a constant rate. The tank is then reset to its original starting volume. A runs alone until the volume reaches $7.2\\times10^{-2}$ m³. With A still running, pump B starts adding $2.0\\times10^{-3}$ m³ per minute. How many seconds elapse from the restart until the volume reaches $2.16\\times10^{-1}$ m³? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2.52\\times10^3",
+          "errorPath": "Assume the tank was initially empty when finding the time to the switch."
+        },
+        {
+          "id": "B",
+          "latex": "1.44\\times10^3",
+          "errorPath": "Report only the time after pump B starts."
+        },
+        {
+          "id": "C",
+          "latex": "3.06\\times10^3",
+          "errorPath": "Use pump A's rate throughout both stages."
+        },
+        {
+          "id": "D",
+          "latex": "5.22\\times10^3",
+          "errorPath": "Use B's rate alone after the switch."
+        },
+        {
+          "id": "E",
+          "latex": "2.34\\times10^3"
+        },
+        {
+          "id": "F",
+          "latex": "2.04\\times10^3",
+          "errorPath": "Use the combined rate from the restart."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "2.34\\times10^3",
+      "workedSolutionSteps": [
+        "The gain is 0.040 m³ in 10 minutes, so A adds 0.004 m³ per minute. The starting volume is 0.060 − 12 × 0.004 = 0.012 m³.",
+        "A takes (0.072 − 0.012)/0.004 = 15 minutes to reach the switch. Both pumps then add 0.006 m³ per minute. The last 0.144 m³ takes 24 minutes.",
+        "The total time from the restart is (15 + 24) × 60 = 2340 seconds."
+      ],
+      "concept": "Rate and intercept from two readings, followed by a change of rate",
+      "benchmark": "Collins §1.4 Q3 multi-unit rate and November 2018 2H Q18 gradient/intercept. Recovering the missing initial volume changes the answer.",
+      "academicQA": "author_revised_and_checked",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-001",
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-001-V313-AO2-AO3-REDESIGN-DRAFT",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-001-RELEASED-PAPER-REVISION-20261125",
+      "topicId": "math-y9-changing-subject",
+      "stem": "An instrument follows $y=(ax+6)/(x+b)$ whenever the denominator is nonzero. At $x=0$ it reads $y=3$, and at $x=2$ it reads $y=4$. Which option gives both the inverse formula (x in terms of y) and the single reading y that the instrument can never produce?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "x=\\frac{2y-6}{5-y},\\quad y\\ne3",
+          "errorPath": "Use the reading when x=0 as the excluded output."
+        },
+        {
+          "id": "B",
+          "latex": "x=\\frac{2y-6}{5-y},\\quad y\\ne5"
+        },
+        {
+          "id": "C",
+          "latex": "x=\\frac{2y-6}{y-5},\\quad y\\ne5",
+          "errorPath": "Reverse the denominator sign while collecting terms."
+        },
+        {
+          "id": "D",
+          "latex": "x=\\frac{2y+6}{5-y},\\quad y\\ne5",
+          "errorPath": "Move the constant term with the wrong sign."
+        },
+        {
+          "id": "E",
+          "latex": "x=\\frac{5-y}{2y-6},\\quad y\\ne3",
+          "errorPath": "Invert the rearranged fraction and infer an exclusion from its new denominator."
+        },
+        {
+          "id": "F",
+          "latex": "x=\\frac{2y-6}{5-y},\\quad y\\ne-2",
+          "errorPath": "Exclude the forbidden input from the set of outputs."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "x=\\frac{2y-6}{5-y},\\quad y\\ne5",
+      "workedSolutionSteps": [
+        "At x=0, 6/b=3, giving b=2. At x=2, (2a+6)/4=4, giving a=5.",
+        "Collect the x terms in y(x+2)=5x+6 to obtain x=(2y−6)/(5−y).",
+        "At y=5 the original equation would give 5x+10=5x+6. Every other y gives an input, since x+2=4/(5−y) is nonzero."
+      ],
+      "concept": "Rational inverse and attainable outputs",
+      "benchmark": "November 2020 1H Q17. The repeated subject must be collected and the impossible output distinguished from the excluded input. The earlier inequality prerequisite has been removed.",
+      "academicQA": "author_revised_and_checked",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ]
+}
