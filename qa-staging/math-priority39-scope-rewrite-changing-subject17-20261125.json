@@ -1,0 +1,1119 @@
+{
+  "kind": "PRIORITY39_SCOPE_REWRITE_BATCH_NO_RELEASE",
+  "date": "2026-11-25",
+  "sourceRegister": "qa-staging/math-priority116-post35-second-pass-qa-scope-triage-20261125.json",
+  "sourceRegisterBlobSha": "0921e5a54b5e846c108fdf4c1efb1a9fd0ba9655",
+  "sourceCommit": "1b9dea94edd361a06e468e4db8738d85e892261e",
+  "counts": {
+    "drafted": 17,
+    "formalApproved": 0
+  },
+  "limits": "Author drafts only. Routine inverse and branch items may not reach Grade 7+. Original versions preserved. No runtime/Vercel changes.",
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-003",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-003-PRIORITY-CONTENT-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-priority116-content-acceptance-changing-subject30-20261124.json",
+      "priorRecordBlobSha": "b7df0d7ccca85c2b0ff02844db9994dc1d5d50a3",
+      "priorAnswer": "x=\\frac{(1-y^2)^2}{4y^2},0<y\\le1,x(1/3)=\\frac{16}{9}",
+      "priorScopeNote": "Radical inverse, rationalisation and exact image proof; not explicitly in autumn outline.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-003",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-003-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-003-PRIORITY-CONTENT-REVIEW-20261124",
+        "topicId": "math-y9-changing-subject",
+        "stem": "For positive x, $p=(2x^2+3)/4$ and $q=(x^2-1)/3$. Let $r=3p-2q$. Which option gives x in terms of r and x when r=25/4?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=\\sqrt{(12r-35)/10};\\ x=2"
+          },
+          {
+            "id": "B",
+            "latex": "x=\\sqrt{(12r+35)/10};\\ x=\\sqrt{11}",
+            "errorPath": "Move constant35 with wrong sign."
+          },
+          {
+            "id": "C",
+            "latex": "x=(12r-35)/10;\\ x=4",
+            "errorPath": "Stop at x²."
+          },
+          {
+            "id": "D",
+            "latex": "x=\\sqrt{(12r-35)/26};\\ x=\\sqrt{20/13}",
+            "errorPath": "Add rather than subtract coefficients18 and8."
+          },
+          {
+            "id": "E",
+            "latex": "x=-\\sqrt{(12r-35)/10};\\ x=-2",
+            "errorPath": "Select negative root."
+          },
+          {
+            "id": "F",
+            "latex": "x=\\sqrt{(12r-35)/10};\\ x=4",
+            "errorPath": "Report x² rather than x in numerical component."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "x=\\sqrt{(12r-35)/10};\\ x=2",
+        "workedSolutionSteps": [
+          "12r=9(2x²+3)−8(x²−1)=10x²+35.",
+          "Positive x implies x=√((12r−35)/10).",
+          "At r=25/4, x²=4, x=2."
+        ],
+        "unverifiedTaughtSubskill": "Linear rearrangement or isolation of one squared variable with explicit domain; finite integer reasoning where specified. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "RADICAL_RECIPROCAL_INVERSE",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-006",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-006-ACADEMIC-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-final-academic-review-changing-subject40-20261124.json",
+      "priorRecordBlobSha": "6181830c46fe390adc7c26ee79d27a1aa228bed5",
+      "priorAnswer": "x=\\frac{(y+\\sqrt{y^2-16})^2}{4}-1, y\\ge4",
+      "priorScopeNote": "Quadratic formula and restricted inverse branch; not explicitly stated.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-006",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-006-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-006-ACADEMIC-REVIEW-20261124",
+        "topicId": "math-y9-changing-subject",
+        "stem": "A model is $y=a(x-2)^2+b$ for x≥2, with a>0. It gives y=5 at x=2 and y=23 at x=5. Which choice gives the inverse and the input for y=37?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=2+\\sqrt{(y-5)/6};\\ x=2+\\sqrt{16/3}",
+            "errorPath": "Divide18 by3 instead of9 during calibration."
+          },
+          {
+            "id": "B",
+            "latex": "x=2+\\sqrt{(y-5)/2};\\ x=6"
+          },
+          {
+            "id": "C",
+            "latex": "x=-2+\\sqrt{(y-5)/2};\\ x=2",
+            "errorPath": "Move shift2 with wrong sign."
+          },
+          {
+            "id": "D",
+            "latex": "x=2-\\sqrt{(y-5)/2};\\ x=-2",
+            "errorPath": "Select negative branch."
+          },
+          {
+            "id": "E",
+            "latex": "x=2+(y-5)/2;\\ x=18",
+            "errorPath": "Forget square root."
+          },
+          {
+            "id": "F",
+            "latex": "x=2+\\sqrt{(y+5)/2};\\ x=2+\\sqrt{21}",
+            "errorPath": "Move b with wrong sign."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "x=2+\\sqrt{(y-5)/2};\\ x=6",
+        "workedSolutionSteps": [
+          "At x2,b5; at x5,9a+5=23 gives a2.",
+          "(x−2)²=(y−5)/2; select nonnegative root.",
+          "At y37, x6."
+        ],
+        "unverifiedTaughtSubskill": "Linear rearrangement or isolation of one squared variable with explicit domain; finite integer reasoning where specified. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "RADICAL_RECIPROCAL_INVERSE",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-010",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-010-PRIORITY-CONTENT-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-priority116-content-acceptance-changing-subject30-20261124.json",
+      "priorRecordBlobSha": "b7df0d7ccca85c2b0ff02844db9994dc1d5d50a3",
+      "priorAnswer": "\\frac{15}{4}",
+      "priorScopeNote": "Algebraic fractional equation (summer p3) and quadratic solution.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-010",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-010-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-010-PRIORITY-CONTENT-REVIEW-20261124",
+        "topicId": "math-y9-changing-subject",
+        "stem": "A machine displays $y=(4x+3)/5$. A second machine displays $z=(3y+2x)/7$. Which formula makes x the subject in terms of z, and what change in x produces an increase of 11 in z?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=(35z-9)/22;\\ \\Delta x=35/2"
+          },
+          {
+            "id": "B",
+            "latex": "x=(35z+9)/22;\\ \\Delta x=35/2",
+            "errorPath": "Move9 with wrong sign."
+          },
+          {
+            "id": "C",
+            "latex": "x=(35z-9)/2;\\ \\Delta x=385/2",
+            "errorPath": "Subtract 10x instead of adding."
+          },
+          {
+            "id": "D",
+            "latex": "x=(7z-9)/22;\\ \\Delta x=7/2",
+            "errorPath": "Fail to multiply 7z by5."
+          },
+          {
+            "id": "E",
+            "latex": "x=(35z-9)/22;\\ \\Delta x=11",
+            "errorPath": "Assume equal changes."
+          },
+          {
+            "id": "F",
+            "latex": "x=(35z-9)/22;\\ \\Delta x=188/11",
+            "errorPath": "Subtract offset again: (385−9)/22."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "x=(35z-9)/22;\\ \\Delta x=35/2",
+        "workedSolutionSteps": [
+          "35z=22x+9.",
+          "x=(35z−9)/22.",
+          "Δx=35×11/22=35/2."
+        ],
+        "unverifiedTaughtSubskill": "Linear rearrangement or isolation of one squared variable with explicit domain; finite integer reasoning where specified. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "CALIBRATION_AND_INVERSE",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-012",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-012-PRIORITY-CONTENT-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-priority116-content-acceptance-changing-subject30-20261124.json",
+      "priorRecordBlobSha": "b7df0d7ccca85c2b0ff02844db9994dc1d5d50a3",
+      "priorAnswer": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{34}}{3},2<y\\le5",
+      "priorScopeNote": "Fixed-point quadratic formula and rational range; not explicitly stated.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-012",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-012-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-012-PRIORITY-CONTENT-REVIEW-20261124",
+        "topicId": "math-y9-changing-subject",
+        "stem": "A formula is $y=(kx+6)/4$. At x=2, y=4. Which option gives x in terms of y and the input for which y=2x+1?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=(4y-6)/5;\\ x=2/3"
+          },
+          {
+            "id": "B",
+            "latex": "x=(4y+6)/5;\\ x=-10/3",
+            "errorPath": "Move6 with wrong sign, solve 5x=8x+10."
+          },
+          {
+            "id": "C",
+            "latex": "x=(4y-6)/5;\\ x=2",
+            "errorPath": "Ignore +1 in target condition, solve y=2x."
+          },
+          {
+            "id": "D",
+            "latex": "x=(4y-6)/5;\\ x=-2/3",
+            "errorPath": "Reverse sign while collecting terms."
+          },
+          {
+            "id": "E",
+            "latex": "x=(4y-6)/2;\\ x=1/3",
+            "errorPath": "Use k=2 in inverse; solve 2x=8x−2."
+          },
+          {
+            "id": "F",
+            "latex": "x=(4y-6)/5;\\ x=7/3",
+            "errorPath": "Report y rather than x for the correctly solved condition."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "x=(4y-6)/5;\\ x=2/3",
+        "workedSolutionSteps": [
+          "2k+6=16, k5; x=(4y−6)/5.",
+          "At y=2x+1, 5x=8x+4−6, so 3x=2.",
+          "x=2/3 and y=7/3."
+        ],
+        "unverifiedTaughtSubskill": "Linear rearrangement or isolation of one squared variable with explicit domain; finite integer reasoning where specified. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "CALIBRATION_AND_INVERSE",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-013",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-013-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-changing-subject8-20261124.json",
+      "priorRecordBlobSha": "3b1ea6bb4368f3c180d03e74277ef542e0659f76",
+      "priorAnswer": "2",
+      "priorScopeNote": "Algebraic fractional equation (summer p3), quadratic roots and root product.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-013",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-013-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-013-DISTRACTOR-REPAIR-20261124",
+        "topicId": "math-y9-changing-subject",
+        "stem": "For fixed a,b, $P=3x+a$ and $Q=5x+b$. At x=2, P=11 and Q=9. Let $R=2P-Q$. Which choice gives x in terms of R and the value of R when P=Q?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=R-11;\\ R=28",
+            "errorPath": "Report 2P rather than R."
+          },
+          {
+            "id": "B",
+            "latex": "x=R+11;\\ R=14",
+            "errorPath": "Move11 with wrong sign."
+          },
+          {
+            "id": "C",
+            "latex": "x=R-11;\\ R=14"
+          },
+          {
+            "id": "D",
+            "latex": "x=(R-11)/11;\\ R=14",
+            "errorPath": "Divide by constant11 rather than coefficient1."
+          },
+          {
+            "id": "E",
+            "latex": "x=11-R;\\ R=14",
+            "errorPath": "Reverse subtraction."
+          },
+          {
+            "id": "F",
+            "latex": "x=R-9;\\ R=14",
+            "errorPath": "Use b=+1 when deriving inverse; find R separately."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "x=R-11;\\ R=14",
+        "workedSolutionSteps": [
+          "a5,b−1; R=x+11.",
+          "P=Q implies x3 and P=Q=14.",
+          "R14; x=R−11."
+        ],
+        "unverifiedTaughtSubskill": "Linear rearrangement or isolation of one squared variable with explicit domain; finite integer reasoning where specified. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "CALIBRATION_AND_INVERSE",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-019",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-019-V313-AO2-AO3-REDESIGN-DRAFT",
+      "priorRecordPath": "qa-staging/math-v313-eight-grade-demand-redesign-candidates-20261123.json",
+      "priorRecordBlobSha": "85ae5991c94fadfb09489dcdd8ef9f3f0a2b91a1",
+      "priorAnswer": "\\frac{3}{65}",
+      "priorScopeNote": "Rational adjacent differences and formal inequality; summer algebraic fractions/inequalities.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-019",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-019-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-019-V313-AO2-AO3-REDESIGN-DRAFT",
+        "topicId": "math-y9-changing-subject",
+        "stem": "A machine gives $y=(5x+7)/3$. A second gives $z=(2y+4)/5$. Which option makes x the subject of z and finds the change in z when x increases by 9?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=(15z-26)/10;\\ \\Delta z=6"
+          },
+          {
+            "id": "B",
+            "latex": "x=(15z+26)/10;\\ \\Delta z=6",
+            "errorPath": "Move26 with wrong sign."
+          },
+          {
+            "id": "C",
+            "latex": "x=(15z-26)/10;\\ \\Delta z=9",
+            "errorPath": "Assume equal changes."
+          },
+          {
+            "id": "D",
+            "latex": "x=(15z-26)/5;\\ \\Delta z=3",
+            "errorPath": "Forget factor2 on 5x."
+          },
+          {
+            "id": "E",
+            "latex": "x=(15z-26)/10;\\ \\Delta z=116/15",
+            "errorPath": "Include offset in change: (90+26)/15."
+          },
+          {
+            "id": "F",
+            "latex": "x=(15z-26)/10;\\ \\Delta z=64/15",
+            "errorPath": "Subtract offset from change: (90−26)/15."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "x=(15z-26)/10;\\ \\Delta z=6",
+        "workedSolutionSteps": [
+          "15z=10x+26.",
+          "x=(15z−26)/10.",
+          "Δz=10×9/15=6."
+        ],
+        "unverifiedTaughtSubskill": "Linear rearrangement or isolation of one squared variable with explicit domain; finite integer reasoning where specified. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "CALIBRATION_AND_INVERSE",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-020",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-020-ACADEMIC-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-final-academic-review-changing-subject40-20261124.json",
+      "priorRecordBlobSha": "6181830c46fe390adc7c26ee79d27a1aa228bed5",
+      "priorAnswer": "x=\\frac{105z-39}{40-104z},\\frac{13}{35}\\le z<\\frac{5}{13}",
+      "priorScopeNote": "Composition of functions, rational inverse/range; composition not stated.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-020",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-020-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-020-ACADEMIC-REVIEW-20261124",
+        "topicId": "math-y9-changing-subject",
+        "stem": "Two machines transform input x: A outputs $(3x+5)/2$; B outputs $(4x-1)/3$. Let z be the result of applying A then B. Which formula gives x in terms of z, and what result does B then A produce for the same input when z=11?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=(3z-9)/6;\\ 5",
+            "errorPath": "Apply B alone to x4."
+          },
+          {
+            "id": "B",
+            "latex": "x=(3z-9)/6;\\ 10"
+          },
+          {
+            "id": "C",
+            "latex": "x=(3z+9)/6;\\ 16",
+            "errorPath": "Move9 with wrong sign, giving x7 and output16."
+          },
+          {
+            "id": "D",
+            "latex": "x=(3z-6)/6;\\ 11",
+            "errorPath": "Use reverse chain's offset for the forward inverse, x4.5."
+          },
+          {
+            "id": "E",
+            "latex": "x=(3z-9)/6;\\ 11",
+            "errorPath": "Assume both orders produce11."
+          },
+          {
+            "id": "F",
+            "latex": "x=(3z-9)/6;\\ 4",
+            "errorPath": "Report recovered x."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "x=(3z-9)/6;\\ 10",
+        "workedSolutionSteps": [
+          "A then B gives z=(6x+9)/3=2x+3.",
+          "x=(3z−9)/6; z11 gives x4.",
+          "B then A gives (4x−1+5)/2=2x+2; output10."
+        ],
+        "unverifiedTaughtSubskill": "Linear rearrangement or isolation of one squared variable with explicit domain; finite integer reasoning where specified. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "CALIBRATION_AND_INVERSE",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-028",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-028-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-changing-subject8-20261124.json",
+      "priorRecordBlobSha": "3b1ea6bb4368f3c180d03e74277ef542e0659f76",
+      "priorAnswer": "3",
+      "priorScopeNote": "Square-root inverse, extraneous solutions, exact branch checks; extension not stated.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-028",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-028-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-028-DISTRACTOR-REPAIR-20261124",
+        "topicId": "math-y9-changing-subject",
+        "stem": "A student rearranges $y=3+(x-2)^2$ to $x=2+\\sqrt{y-3}$. For original inputs x from −2 to 6 inclusive, which is the complete set of inputs producing y=12, and which input does the student's formula miss?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\{5\\};\\ \\text{none}",
+            "errorPath": "Keep only positive branch."
+          },
+          {
+            "id": "B",
+            "latex": "\\{-5,5\\};\\ -5",
+            "errorPath": "Reflect positive root about zero instead of2."
+          },
+          {
+            "id": "C",
+            "latex": "\\{-1,5\\};\\ -1"
+          },
+          {
+            "id": "D",
+            "latex": "\\{-1,5\\};\\ 5",
+            "errorPath": "Misidentify missing branch."
+          },
+          {
+            "id": "E",
+            "latex": "\\{-3,3\\};\\ -3",
+            "errorPath": "Forget shift2."
+          },
+          {
+            "id": "F",
+            "latex": "\\{2,5\\};\\ 2",
+            "errorPath": "Treat shift2 as a root."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "\\{-1,5\\};\\ -1",
+        "workedSolutionSteps": [
+          "(x−2)²=9; x−2=±3.",
+          "Both x−1 and5 are in the domain.",
+          "Student's formula gives5 and misses−1."
+        ],
+        "unverifiedTaughtSubskill": "Linear rearrangement or isolation of one squared variable with explicit domain; finite integer reasoning where specified. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "QUADRATIC_AND_BRANCH_REASONING",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-029",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-029-V313-CONCEPT-ANCHOR-DRAFT",
+      "priorRecordPath": "qa-staging/math-v313-rearranging029-033-037-distinct-anchor-candidates-20261123.json",
+      "priorRecordBlobSha": "7b3635eddbd4df63319a11147065f86409ea70dc",
+      "priorAnswer": "M=3,x=1",
+      "priorScopeNote": "Rational expression proof and minimisation; algebraic fractions summer.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-029",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-029-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-029-V313-CONCEPT-ANCHOR-DRAFT",
+        "topicId": "math-y9-changing-subject",
+        "stem": "Let $y=(x-4)^2+7$ for integer inputs 0≤x≤9. Which pair gives the minimum y and the complete set of inputs for which y=16?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "7;\\ \\{1,7\\}"
+          },
+          {
+            "id": "B",
+            "latex": "0;\\ \\{1,7\\}",
+            "errorPath": "Ignore offset7 for minimum."
+          },
+          {
+            "id": "C",
+            "latex": "7;\\ \\{7\\}",
+            "errorPath": "Keep positive branch only."
+          },
+          {
+            "id": "D",
+            "latex": "7;\\ \\{-3,3\\}",
+            "errorPath": "Forget shift4."
+          },
+          {
+            "id": "E",
+            "latex": "16;\\ \\{1,7\\}",
+            "errorPath": "Report target16 as minimum."
+          },
+          {
+            "id": "F",
+            "latex": "7;\\ \\{4,7\\}",
+            "errorPath": "Treat minimiser4 as solution to y16."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "7;\\ \\{1,7\\}",
+        "workedSolutionSteps": [
+          "Square is nonnegative; minimum7 at x4.",
+          "For y16, (x−4)²=9; x−4=±3.",
+          "Both x1 and7 permitted."
+        ],
+        "unverifiedTaughtSubskill": "Linear rearrangement or isolation of one squared variable with explicit domain; finite integer reasoning where specified. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "QUADRATIC_AND_BRANCH_REASONING",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-030",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-030-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-changing-subject8-20261124.json",
+      "priorRecordBlobSha": "3b1ea6bb4368f3c180d03e74277ef542e0659f76",
+      "priorAnswer": "2",
+      "priorScopeNote": "Algebraic fractions (summer p3), quadratic solving rather than expressions.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-030",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-030-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-030-DISTRACTOR-REPAIR-20261124",
+        "topicId": "math-y9-changing-subject",
+        "stem": "A model has $y=a(x+1)+b(x-2)$. It produces y=10 when x=2, and y=24 when x=4. Which choice gives x in terms of y and x when y=45?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=(y+4)/7;\\ x=7"
+          },
+          {
+            "id": "B",
+            "latex": "x=(y-4)/7;\\ x=41/7",
+            "errorPath": "Move −4 with wrong sign."
+          },
+          {
+            "id": "C",
+            "latex": "x=(y+4)/5;\\ x=49/5",
+            "errorPath": "Miscompute slope using 10/(4−2)=5, retaining correctly computed offset."
+          },
+          {
+            "id": "D",
+            "latex": "x=y/7;\\ x=45/7",
+            "errorPath": "Omit offset."
+          },
+          {
+            "id": "E",
+            "latex": "x=(y+4)/7;\\ x=41/7",
+            "errorPath": "Subtract4 rather than add when evaluating."
+          },
+          {
+            "id": "F",
+            "latex": "x=(y+4)/7;\\ x=49",
+            "errorPath": "Forget divide by7."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "x=(y+4)/7;\\ x=7",
+        "workedSolutionSteps": [
+          "Slope (24−10)/(4−2)=7, so a+b=7.",
+          "At x2, offset=10−14=−4.",
+          "y=7x−4, x=(y+4)/7; x7."
+        ],
+        "unverifiedTaughtSubskill": "Linear rearrangement or isolation of one squared variable with explicit domain; finite integer reasoning where specified. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "CALIBRATION_AND_INVERSE",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-033",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-033-PRIORITY-CONTENT-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-priority116-content-acceptance-changing-subject30-20261124.json",
+      "priorRecordBlobSha": "b7df0d7ccca85c2b0ff02844db9994dc1d5d50a3",
+      "priorAnswer": "x=\\frac{5y-7}{4-2y},y\\ne1,y\\ne2",
+      "priorScopeNote": "Nested algebraic fractions with missing outputs; algebraic fractions summer.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-033",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-033-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-033-PRIORITY-CONTENT-REVIEW-20261124",
+        "topicId": "math-y9-changing-subject",
+        "stem": "Let $y=2+(3+(x-1)/4)/5$. Which option gives x in terms of y and the change in x when y decreases by 3/2?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=20y-51;\\ \\Delta x=-30"
+          },
+          {
+            "id": "B",
+            "latex": "x=20y+51;\\ \\Delta x=-30",
+            "errorPath": "Move constant51 with wrong sign."
+          },
+          {
+            "id": "C",
+            "latex": "x=20y-51;\\ \\Delta x=30",
+            "errorPath": "Treat decrease as increase."
+          },
+          {
+            "id": "D",
+            "latex": "x=5y-12;\\ \\Delta x=-15/2",
+            "errorPath": "Forget factor4 in last step."
+          },
+          {
+            "id": "E",
+            "latex": "x=20y-53;\\ \\Delta x=-30",
+            "errorPath": "Move −1 with wrong sign."
+          },
+          {
+            "id": "F",
+            "latex": "x=20y-51;\\ \\Delta x=-3/2",
+            "errorPath": "Ignore scaling."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "x=20y-51;\\ \\Delta x=-30",
+        "workedSolutionSteps": [
+          "5(y−2)=3+(x−1)/4.",
+          "20y−40=12+x−1, so x=20y−51.",
+          "Δx=20(−3/2)=−30."
+        ],
+        "unverifiedTaughtSubskill": "Linear rearrangement or isolation of one squared variable with explicit domain; finite integer reasoning where specified. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "CALIBRATION_AND_INVERSE",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-034",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-034-DIAGNOSTIC-SET-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority116-residual-diagnostic-set-repairs-20261124.json",
+      "priorRecordBlobSha": "c7bedc0d4272d3ebe08379d501f22651a568cba7",
+      "priorAnswer": "\\{1,3,4\\}",
+      "priorScopeNote": "Nested rational rearrangement, signed divisor enumeration, domain exclusion; algebraic fractions summer.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-034",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-034-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-034-DIAGNOSTIC-SET-REPAIR-20261124",
+        "topicId": "math-y9-changing-subject",
+        "stem": "For integer x from −4 to 8 inclusive, two machines output $y=(3x+2)/4$ and $y=(2x-1)/3$ respectively. Which option gives the inverse of the FIRST machine and the complete set S of integer outputs BOTH can produce (inputs may differ)?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=(4y-2)/3;\\ S=\\{-1,2,5\\}",
+            "errorPath": "Use first machine only."
+          },
+          {
+            "id": "B",
+            "latex": "x=(4y+2)/3;\\ S=\\{-1,5\\}",
+            "errorPath": "Move2 with wrong sign; shared set found separately."
+          },
+          {
+            "id": "C",
+            "latex": "x=(4y-2)/3;\\ S=\\{-1,5\\}"
+          },
+          {
+            "id": "D",
+            "latex": "x=(4y-2)/3;\\ S=\\{5\\}",
+            "errorPath": "Miss negative shared output."
+          },
+          {
+            "id": "E",
+            "latex": "x=(4y-2)/3;\\ S=\\{-3,-1,1,3,5\\}",
+            "errorPath": "Use second machine only."
+          },
+          {
+            "id": "F",
+            "latex": "x=(3y-2)/4;\\ S=\\{-1,5\\}",
+            "errorPath": "Interchange inverse coefficients."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "x=(4y-2)/3;\\ S=\\{-1,5\\}",
+        "workedSolutionSteps": [
+          "First inverse x=(4y−2)/3; integer outputs from x−2,2,6 are−1,2,5.",
+          "Second integer outputs from x−4,−1,2,5,8 are−3,−1,1,3,5.",
+          "Intersection −1,5."
+        ],
+        "unverifiedTaughtSubskill": "Linear rearrangement or isolation of one squared variable with explicit domain; finite integer reasoning where specified. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTEGER_FEASIBILITY",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-035",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-035-DIAGNOSTIC-SET-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority116-residual-diagnostic-set-repairs-20261124.json",
+      "priorRecordBlobSha": "c7bedc0d4272d3ebe08379d501f22651a568cba7",
+      "priorAnswer": "\\{2,4,6\\}",
+      "priorScopeNote": "Nested rational calibration, signed divisor enumeration, domain exclusion; algebraic fractions summer.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-035",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-035-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-035-DIAGNOSTIC-SET-REPAIR-20261124",
+        "topicId": "math-y9-changing-subject",
+        "stem": "A meter outputs $y=(kx+2)/5$ and reads y=4 when x=3. A second meter outputs $z=(x+1)/2$. Integer inputs x lie from 0 to 12. Which choice gives k and the complete set of inputs for which both y and z are integers?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "k=6;\\ \\{3,8\\}",
+            "errorPath": "Check y alone."
+          },
+          {
+            "id": "B",
+            "latex": "k=6;\\ \\{3\\}"
+          },
+          {
+            "id": "C",
+            "latex": "k=6;\\ \\{1,3,5,7,9,11\\}",
+            "errorPath": "Check z alone."
+          },
+          {
+            "id": "D",
+            "latex": "k=22/3;\\ \\{3\\}",
+            "errorPath": "Move2 with wrong sign during calibration; set found separately."
+          },
+          {
+            "id": "E",
+            "latex": "k=6;\\ \\{3,13\\}",
+            "errorPath": "Ignore upper bound12 and include next valid odd x13."
+          },
+          {
+            "id": "F",
+            "latex": "k=6;\\ \\{8\\}",
+            "errorPath": "Choose even instead of odd."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "k=6;\\ \\{3\\}",
+        "workedSolutionSteps": [
+          "3k+2=20 so k6. Integer y requires x3,8 in domain.",
+          "Integer z requires odd x.",
+          "Only x3 meets both."
+        ],
+        "unverifiedTaughtSubskill": "Linear rearrangement or isolation of one squared variable with explicit domain; finite integer reasoning where specified. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTEGER_FEASIBILITY",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-036",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-036-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-changing-subject8-20261124.json",
+      "priorRecordBlobSha": "3b1ea6bb4368f3c180d03e74277ef542e0659f76",
+      "priorAnswer": "-18",
+      "priorScopeNote": "Algebraic fractional equation (summer p3) and quadratic solving.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-036",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-036-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-036-DISTRACTOR-REPAIR-20261124",
+        "topicId": "math-y9-changing-subject",
+        "stem": "Let $f(x)=(3x+7)/4$. A positive input t gives $f(t)+2f(-t)=3$. Find t and make t the subject in terms of S, where $S=f(t)+2f(-t)$.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "t=(21-4S)/3;\\ t=3"
+          },
+          {
+            "id": "B",
+            "latex": "t=(4S-21)/3;\\ t=-3",
+            "errorPath": "Reverse subtraction."
+          },
+          {
+            "id": "C",
+            "latex": "t=(4S-21)/9;\\ t=-1",
+            "errorPath": "Replace f(−t) with f(t), giving 4S=9t+21."
+          },
+          {
+            "id": "D",
+            "latex": "t=(21-4S)/3;\\ t=9",
+            "errorPath": "Forget division by3 in numerical result."
+          },
+          {
+            "id": "E",
+            "latex": "t=(21-4S)/3;\\ t=-3",
+            "errorPath": "Report negative input instead of positive."
+          },
+          {
+            "id": "F",
+            "latex": "t=(21-4S)/3;\\ t=7",
+            "errorPath": "Ignore 4S when evaluating."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "t=(21-4S)/3;\\ t=3",
+        "workedSolutionSteps": [
+          "4S=3t+7+2(−3t+7)=21−3t.",
+          "t=(21−4S)/3.",
+          "At S3, t3."
+        ],
+        "unverifiedTaughtSubskill": "Linear rearrangement or isolation of one squared variable with explicit domain; finite integer reasoning where specified. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "CALIBRATION_AND_INVERSE",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-037",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-037-PRIORITY-CONTENT-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-priority116-content-acceptance-changing-subject30-20261124.json",
+      "priorRecordBlobSha": "b7df0d7ccca85c2b0ff02844db9994dc1d5d50a3",
+      "priorAnswer": "x=\\frac{3-4(y-1)^2}{(y-1)^2-2},y\\ge1,y\\ne1+\\sqrt{2}",
+      "priorScopeNote": "Rational radical, excluded output and exact range; extension not stated.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-037",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-037-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-037-PRIORITY-CONTENT-REVIEW-20261124",
+        "topicId": "math-y9-changing-subject",
+        "stem": "For x≥−2, $y=1+\\sqrt{2x+4}$. A second display reads $z=3y-2$. Which option makes x the subject in terms of z and gives x when z=13?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=((z-1)/3)^2/2-2;\\ x=6"
+          },
+          {
+            "id": "B",
+            "latex": "x=((z+1)/3)^2/2-2;\\ x=80/9",
+            "errorPath": "Move1 with wrong sign."
+          },
+          {
+            "id": "C",
+            "latex": "x=(z-1)^2/2-2;\\ x=70",
+            "errorPath": "Omit division by3."
+          },
+          {
+            "id": "D",
+            "latex": "x=((z-1)/3)^2-2;\\ x=14",
+            "errorPath": "Forget division by2 on squared term."
+          },
+          {
+            "id": "E",
+            "latex": "x=(z-1)/6-2;\\ x=0",
+            "errorPath": "Forget squaring."
+          },
+          {
+            "id": "F",
+            "latex": "x=((z-1)/3)^2/2+2;\\ x=10",
+            "errorPath": "Move constant4 with wrong sign."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "x=((z-1)/3)^2/2-2;\\ x=6",
+        "workedSolutionSteps": [
+          "z=1+3√(2x+4).",
+          "Square (z−1)/3, then x=((z−1)/3)²/2−2, z≥1.",
+          "At z13, x6."
+        ],
+        "unverifiedTaughtSubskill": "Linear rearrangement or isolation of one squared variable with explicit domain; finite integer reasoning where specified. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "RADICAL_RECIPROCAL_INVERSE",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-038",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-038-V329-REASONING-QA-ONLY",
+      "priorRecordPath": "qa-staging/math-v329-changing-subject15-reasoning-replacements-20261124.json",
+      "priorRecordBlobSha": "05caa700d99bca4cecefe007fe978737775e7a94",
+      "priorAnswer": "x=\\frac{6-2(y-1)^2}{(y-1)^2-1},\\quad y\\ge1,\\ y\\ne2",
+      "priorScopeNote": "Rational radical and exact image; extension not stated.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-038",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-038-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-038-V329-REASONING-QA-ONLY",
+        "topicId": "math-y9-changing-subject",
+        "stem": "For x≤1 let $y=2+(x-1)^2$. A second display is $z=3y+4$. Which formula makes x the subject of z, and what is x for z=37?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=1-\\sqrt{(z-10)/3};\\ x=-2"
+          },
+          {
+            "id": "B",
+            "latex": "x=1+\\sqrt{(z-10)/3};\\ x=4",
+            "errorPath": "Select wrong branch."
+          },
+          {
+            "id": "C",
+            "latex": "x=1-\\sqrt{(z+10)/3};\\ x=1-\\sqrt{47/3}",
+            "errorPath": "Move offset10 with wrong sign."
+          },
+          {
+            "id": "D",
+            "latex": "x=-1-\\sqrt{(z-10)/3};\\ x=-4",
+            "errorPath": "Move shift1 with wrong sign."
+          },
+          {
+            "id": "E",
+            "latex": "x=1-\\sqrt{z-10};\\ x=1-3\\sqrt3",
+            "errorPath": "Forget division by3."
+          },
+          {
+            "id": "F",
+            "latex": "x=1-(z-10)/3;\\ x=-8",
+            "errorPath": "Forget square root."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "x=1-\\sqrt{(z-10)/3};\\ x=-2",
+        "workedSolutionSteps": [
+          "z=10+3(x−1)².",
+          "x≤1 selects x=1−√((z−10)/3).",
+          "At z37, x−2."
+        ],
+        "unverifiedTaughtSubskill": "Linear rearrangement or isolation of one squared variable with explicit domain; finite integer reasoning where specified. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "QUADRATIC_AND_BRANCH_REASONING",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-039",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-039-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-changing-subject8-20261124.json",
+      "priorRecordBlobSha": "3b1ea6bb4368f3c180d03e74277ef542e0659f76",
+      "priorAnswer": "-8",
+      "priorScopeNote": "Rational radical, perfect-square enumeration and domain checks; extension not stated.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-039",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-039-AUTUMN-SCOPE-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-039-DISTRACTOR-REPAIR-20261124",
+        "topicId": "math-y9-changing-subject",
+        "stem": "For integer x from 0 to 12 inclusive, a machine outputs $y=2+\\sqrt{3x+1}$. Which option gives the inverse formula and the complete set S of integer inputs for which y is an integer?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=((y-2)^2-1)/3;\\ S=\\{0,1,5,8\\}"
+          },
+          {
+            "id": "B",
+            "latex": "x=((y-2)^2-1)/3;\\ S=\\{0,1,5,8,12\\}",
+            "errorPath": "Include endpoint12 without checking radicand37."
+          },
+          {
+            "id": "C",
+            "latex": "x=((y+2)^2-1)/3;\\ S=\\{0,1,5,8\\}",
+            "errorPath": "Move2 with wrong sign."
+          },
+          {
+            "id": "D",
+            "latex": "x=((y-2)^2-1)/3;\\ S=\\{1,5,8\\}",
+            "errorPath": "Exclude permitted x0."
+          },
+          {
+            "id": "E",
+            "latex": "x=((y-2)^2-1)/3;\\ S=\\{0,1,8\\}",
+            "errorPath": "Omit x5."
+          },
+          {
+            "id": "F",
+            "latex": "x=((y-2)^2+1)/3;\\ S=\\{0,1,5,8\\}",
+            "errorPath": "Move1 with wrong sign."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "x=((y-2)^2-1)/3;\\ S=\\{0,1,5,8\\}",
+        "workedSolutionSteps": [
+          "Inverse x=((y−2)²−1)/3.",
+          "Square radicands1,4,9,16,25,36; only1,4,16,25 yield integer x.",
+          "x0,1,5,8."
+        ],
+        "unverifiedTaughtSubskill": "Linear rearrangement or isolation of one squared variable with explicit domain; finite integer reasoning where specified. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTEGER_FEASIBILITY",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ]
+}
