@@ -1,0 +1,139 @@
+{
+  "kind": "GRAPH_CORE_DIVERSITY_REPAIRS_NO_RELEASE",
+  "date": "2026-11-25",
+  "sourceRegister": "qa-staging/math-priority116-core41-three-day-rotation-20261125.json",
+  "sourceRegisterBlobSha": "d7d144558d69584eabcedb896e19783d957ed945",
+  "sourceCommit": "f01be33504ea69d1489b312c33f32fd25cdf80c7",
+  "counts": {
+    "repaired": 2,
+    "keysUnchanged": 2
+  },
+  "limits": "Targeted AI review, not external grade or classroom certification.",
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-003",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-003-BALANCED-OPTION-ORDER-20261125",
+      "priorRecordPath": "qa-staging/math-priority39-balanced-options-20261125.json",
+      "priorRecordBlobSha": "cf7eff2935f98e395d63bd4dd5db59fac19edd68",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-003",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-003-CORE-DIVERSITY-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-003-BALANCED-OPTION-ORDER-20261125",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "The line through A=(k,2k+1) and B=(3,5) is parallel to the line through (0,4) and (4,0). Find the area of triangle OAB, where O=(0,0).",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\frac73",
+            "errorPath": "Use k as the area."
+          },
+          {
+            "id": "B",
+            "latex": "\\frac{68}{3}",
+            "errorPath": "Find area of triangle with vertices O, A and the common x-intercept (8,0), but forget to subtract the corresponding triangle through B."
+          },
+          {
+            "id": "C",
+            "latex": "20",
+            "errorPath": "Find area of triangle with vertices O, B and the common x-intercept (8,0), instead of the difference of the two triangles."
+          },
+          {
+            "id": "D",
+            "latex": "\\frac83"
+          },
+          {
+            "id": "E",
+            "latex": "\\frac43",
+            "errorPath": "Apply factor1/2 twice."
+          },
+          {
+            "id": "F",
+            "latex": "\\frac{16}{3}",
+            "errorPath": "Omit factor1/2."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "\\frac83",
+        "workedSolutionSteps": [
+          "The parallel gradient is −1, so AB has equation y=8−x. Substituting A=(k,2k+1) gives 3k=7, so A=(7/3,17/3).",
+          "Let X=(8,0). Both triangles OAX and OBX have base OX=8; A is further along AB towards the y-axis than B. Their areas are 68/3 and 20 respectively.",
+          "Triangle OAB is the difference of these areas: 68/3−20=8/3."
+        ],
+        "unverifiedTaughtSubskill": "Linear equations, gradients, parallel lines, intersections, integer enumeration and direct area as applicable. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false,
+        "importAllowed": false
+      },
+      "repairSummary": "Replaced determinant-dependent explanation with ordinary common-base triangle areas, preserving stem and key.",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-029",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-029-DEMAND-ORDER-RECONCILED-20261125",
+      "priorRecordPath": "qa-staging/math-priority52-demand-order-reconciliation-20261125.json",
+      "priorRecordBlobSha": "105c1d90a5c0f6e04e9b7aa60640de01fd4c73f8",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-029",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-029-CORE-DIVERSITY-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-029-DEMAND-ORDER-RECONCILED-20261125",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "Lines $y=2x+3$ and $y=11-2x$ meet at P. A line through P parallel to the segment from (1,2) to (4,0) meets the y-axis at Y. Let X be the x-intercept of $y=11-2x$. A different line through Y has twice the gradient of XY. It meets $y=11-2x$ at Z. Find Z's x-coordinate.",
+        "options": [
+          {
+            "latex": "\\frac{44}{17}",
+            "errorPath": "Lose negative sign.",
+            "id": "A"
+          },
+          {
+            "latex": "\\frac{11}{2}",
+            "errorPath": "Keep original XY gradient, returning X.",
+            "id": "B"
+          },
+          {
+            "id": "C",
+            "latex": "-\\frac{44}{9}",
+            "errorPath": "Use P's y-coordinate 7 rather than Y's 25/3 when finding XY gradient: −14/11, doubled −28/11. Keeping Y fixed gives x=(8/3)/(−6/11)=−44/9."
+          },
+          {
+            "id": "D",
+            "latex": "-2",
+            "errorPath": "Round X's x-coordinate 11/2 down to 5 before calculating XY gradient: −5/3, doubled −10/3. Keeping Y fixed gives x=(8/3)/(−4/3)=−2."
+          },
+          {
+            "latex": "-\\frac{44}{17}",
+            "id": "E"
+          },
+          {
+            "latex": "0",
+            "errorPath": "Report Y x-coordinate.",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "-\\frac{44}{17}",
+        "workedSolutionSteps": [
+          "P=(2,7); parallel through P y=−2x/3+25/3, hence Y=(0,25/3). X=(11/2,0), so XY gradient−50/33.",
+          "New line y=−100x/33+25/3. Equate to 11−2x: 88=−34x.",
+          "x=−44/17."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "repairSummary": "Two additional plausible negative answers remove the unique-negative shortcut. Correct key and stem unchanged.",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ]
+}
