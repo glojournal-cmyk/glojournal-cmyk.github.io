@@ -68,5 +68,8 @@
   window.addEventListener('storage', event => {
     if (event.key?.startsWith(prefix) && event.key !== prefix + 'place') render(index);
   });
-  render(Math.max(0, cards.findIndex(c => c.dataset.question === read('place'))));
+  const requestedTopic = new URLSearchParams(location.search).get('topic');
+  const topicIndex = requestedTopic ? cards.findIndex(c => c.dataset.topic === requestedTopic) : -1;
+  const savedIndex = cards.findIndex(c => c.dataset.question === read('place'));
+  render(topicIndex >= 0 ? topicIndex : Math.max(0, savedIndex));
 })();
