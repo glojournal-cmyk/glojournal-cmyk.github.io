@@ -251,10 +251,11 @@ test('Maths task credit is scoped to ten pinned, unassisted, first submitted for
    correct:i!==0,selectedOptionId:i===0?'B':'A',
    formal:true,submittedAt:day+'T12:00:00Z'
  }));
+ const later={submittedAt:day+'T12:01:00Z'};
  const scoped=mathsEvidence([...attempts,
-    {...attempts[0],correct:true,selectedOptionId:'A'},{...attempts[1],questionId:'not-assigned',correct:true},
-    {...attempts[2],repair:true,questionId:attempts[2].questionId},
-    {...attempts[3],hintUsed:true,questionId:attempts[3].questionId}],day,task);
+    {...attempts[0],...later,correct:true,selectedOptionId:'A'},{...attempts[1],questionId:'not-assigned',correct:true},
+    {...attempts[2],...later,repair:true,questionId:attempts[2].questionId},
+    {...attempts[3],...later,hintUsed:true,questionId:attempts[3].questionId}],day,task);
  // Persisted credit must verify the actual active Maths task, the ten
  // reviewed concept families, and a real London-local answer timestamp.
  for(const bad of [
@@ -298,7 +299,7 @@ test('Maths task credit is scoped to ten pinned, unassisted, first submitted for
    'correct:true without actual selected option cannot mint credit');
  const noSelected=attempts.map(a=>({...a}));
  const malformedFirst={...noSelected[0],selectedOptionId:null,correct:true};
- const correctedLater={...noSelected[0],selectedOptionId:'A',correct:true};
+ const correctedLater={...noSelected[0],...later,selectedOptionId:'A',correct:true};
  const invalidFirst=mathsEvidence([malformedFirst,correctedLater,...noSelected.slice(1)],day,task);
  assert.equal(invalidFirst.submitted,9,
    'Malformed first formal attempt must reserve its ID and block later correct repeats');
