@@ -1,0 +1,143 @@
+{
+  "kind": "FINAL_GATE_DISTRACTOR_REPAIR_NO_RELEASE",
+  "sourceCommit": "bdb21317b6e8e5f8e099ce777fcaafaa9b5e1b9a",
+  "date": "2026-11-25",
+  "counts": {
+    "repaired": 2,
+    "keysUnchanged": 2
+  },
+  "limits": "Targeted author review; formal grade and curriculum clearance remain pending.",
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-026-FINAL-DEMAND-CANDIDATE-20261125",
+      "priorRecordPath": "qa-staging/math-priority30-final-two-demand-candidates-20261125.json",
+      "priorRecordBlobSha": "94513996a599be24ea25d84b7fed6893f18246cd",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-026-FINAL-GATE-DISTRACTOR-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-026-FINAL-DEMAND-CANDIDATE-20261125",
+        "topicId": "math-y9-standard-form",
+        "stem": "Pump A delivers $2.4\\times10^{-3}$ m³ per minute and pump B delivers $6\\times10^{-4}$ m³ per minute. Each of two separate runs starts with an empty tank. In both runs A operates for all 150 minutes and B starts once, then runs until the end. In run 1, water leaks out at an unknown constant rate L m³ per minute, and the final volume is $3.6\\times10^{-1}$ m³. In run 2, B starts 30 minutes earlier than in run 1, but the leak rate is twice L. The final volume in run 2 is $3.42\\times10^{-1}$ m³. Which pair gives (L in m³ per minute, the time in seconds before B starts in run 1), both in standard form?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "(1.2\\times10^{-4},7.2\\times10^3)",
+            "errorPath": "Ignore the extra input from B in run 2: infer 150L=0.018, then B runs 30 min in run 1 and starts after 120 min."
+          },
+          {
+            "id": "B",
+            "latex": "(2.4\\times10^{-4},5.4\\times10^3)"
+          },
+          {
+            "id": "C",
+            "latex": "(2.4\\times10^{-4},3.6\\times10^3)",
+            "errorPath": "Report B's operating duration (60 min) rather than its start time (90 min)."
+          },
+          {
+            "id": "D",
+            "latex": "(3.6\\times10^{-2},5.4\\times10^3)",
+            "errorPath": "Report total leaked volume in run 1 instead of leakage per minute."
+          },
+          {
+            "id": "E",
+            "latex": "(2.4\\times10^{-4},7.2\\times10^3)",
+            "errorPath": "Find the correct leak rate but mistake the 30-minute difference in pump start times for B's first-run operating duration; then start time is 120 minutes=7200 seconds."
+          },
+          {
+            "id": "F",
+            "latex": "(2.4\\times10^{-4},9\\times10^1)",
+            "errorPath": "Calculate correct time in minutes but fail to convert it to seconds."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "(2.4\\times10^{-4},5.4\\times10^3)",
+        "workedSolutionSteps": [
+          "Let B run for t minutes in run 1. The first-run balance is 0.36+0.0006t−150L=0.36.",
+          "Run 2 has B duration t+30 and leakage 300L. Subtract run 1 balance: 0.0006×30−150L=0.342−0.36=−0.018.",
+          "Hence 150L=0.036, L=0.00024=2.4×10^−4. First balance gives 0.0006t=0.036, t=60 minutes.",
+          "B starts after 150−60=90 minutes=5400 seconds=5.4×10^3. Check run 2: 0.36+0.054−0.072=0.342."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-031",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-031-SECOND-PASS-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority116-second-pass-six-repairs-20261124.json",
+      "priorRecordBlobSha": "5891d9ad4724999a42efd0c5471139bfdf47ec89",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-031",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-031-FINAL-GATE-DISTRACTOR-REPAIR-20261125",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-031-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-031-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+        "topicId": "math-y9-standard-form",
+        "provisionalConceptFamily": "discrete-capacity-and-optimisation",
+        "stem": "A data link has capacity $7.5\\times10^8$ bytes per session, including a fixed overhead of $1.5\\times10^8$ bytes. A large file uses $2.4\\times10^5$ bytes and a small file uses $1.2\\times10^5$ bytes. Exactly $3\\times10^3$ complete files must be sent, with at least one quarter large. Find the greatest number of large files that can be sent. Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "2.5\\times10^{3}",
+            "errorPath": "Divide the payload capacity by the large-file size, without reserving room for the other required files: 600000000/240000."
+          },
+          {
+            "id": "B",
+            "latex": "3\\times10^{3}",
+            "errorPath": "Omit the fixed overhead; the resulting model allows all 3000 files to be large because 3000×240000≤750000000."
+          },
+          {
+            "id": "C",
+            "latex": "2\\times10^{3}"
+          },
+          {
+            "id": "D",
+            "latex": "1\\times10^{3}",
+            "errorPath": "Divide the headroom after the all-small baseline by the full large-file size rather than the difference: 240000000/240000."
+          },
+          {
+            "id": "E",
+            "latex": "7.5\\times10^{2}",
+            "errorPath": "Deduct the fixed overhead twice, so remaining headroom is 750000000−300000000−360000000=90000000; divide by 120000."
+          },
+          {
+            "id": "F",
+            "latex": "1.25\\times10^3",
+            "errorPath": "Reserve the minimum 750 large files first, leaving 150000000 bytes of headroom above that baseline. Compute 1250 additional large files but forget to add the initial 750."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "2\\times10^{3}",
+        "workedSolutionSteps": [
+          "All 3000 files treated as small would use 3.6×10^8 bytes. The available capacity after overhead is 6×10^8.",
+          "Each large file adds 1.2×10^5 bytes. Thus the number L of large files obeys 1.2×10^5 L≤2.4×10^8, or L≤2000.",
+          "The minimum is 750. Taking L=2000 and 1000 small files exactly meets capacity and all constraints."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Optimise a two-size allocation under a fixed total and capacity.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-031-SECOND-PASS-REPAIR-20261124",
+        "provisionalCrossTopicMasteryHold": "Shared linear allocation under fixed total and capacity with Q31, Q32 and Q40; do not award separate concept credit until independently reviewed.",
+        "importAllowed": false
+      },
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ]
+}
