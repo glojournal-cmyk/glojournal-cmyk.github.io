@@ -213,6 +213,7 @@ export function mathsEvidence(attempts=[],day,task=null){
        typeof families[id]!=='string'||!families[id])))
     return {submitted:0,correct:0,attemptFinished:false,completed:false,targetMet:false};
   const seen=new Map();
+  const firstTimes=new Map();
   for(const a of attempts){
     if(a?.day!==day||!a.questionId||!validDate(day))continue;
     const id=String(a.questionId).split('@')[0];
@@ -220,7 +221,13 @@ export function mathsEvidence(attempts=[],day,task=null){
       if(!accepted.has(id)||!Object.hasOwn(correctIds,id)||
          a.dailyTaskId!=='maths-daily'||a.subject!=='maths'||
          Number(a.year)!==9||a.formal!==true)continue;
-      if(seen.has(id))continue;
+      // Restored evidence can arrive in a different order from submission.
+      // A missing timestamp cannot establish that a later choice came first.
+      const stamp=a.submittedAt||a.at;
+      const time=Date.parse(stamp);
+      const order=Number.isFinite(time)?time:-Infinity;
+      const earliest=firstTimes.get(id);
+      if(earliest!==undefined&&order>earliest)continue;
       // Reserve the FIRST formal submitted ID even if the answer payload was
       // malformed or assisted. It can never be replaced by a later correct
       // submission, hint reset or an untrusted bare correct:true assertion.
@@ -230,7 +237,13 @@ export function mathsEvidence(attempts=[],day,task=null){
         a.correct===(a.selectedOptionId===correctIds[id])&&
         a.repair!==true&&a.hintUsed!==true&&
         a.scaffolded!==true&&a.assisted!==true&&!a.recoveryFor;
-      seen.set(id,firstValid?a:null);
+      if(order===earliest){
+        const previous=seen.get(id);
+        if(!firstValid||previous?.selectedOptionId!==a.selectedOptionId)seen.set(id,null);
+      }else{
+        firstTimes.set(id,order);
+        seen.set(id,firstValid?a:null);
+      }
     }else if(typeof a.correct==='boolean'&&(a.submittedAt||a.at)&&!seen.has(id)){
       seen.set(id,a); // legacy two-argument isolated QA only
     }
