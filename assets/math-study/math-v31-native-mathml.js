@@ -13,6 +13,13 @@ export function latexMathML(latex){
  function group(){spaces();if(latex[i]!=='{')err('expected brace');i++;
    const inner=sequence('}');if(latex[i]!=='}')err('unclosed brace');i++;return inner}
  function one(){spaces();if(i>=latex.length)err('empty exponent');return latex[i]==='{'?group():atom()}
+ function argument(){
+   spaces();
+   // An unbraced TeX argument takes one token, even between adjacent digits.
+   if(/[0-9]/.test(latex.charAt(i))){return mn(latex[i++])}
+   if(i>=latex.length||latex[i]==='}')err('missing macro argument');
+   return atom();
+ }
  function cases(){
   const stop='\\end{cases}',end=latex.indexOf(stop,i);
   if(end===-1)err('unclosed cases');
@@ -31,12 +38,18 @@ export function latexMathML(latex){
   if(!cmd){
     const ch=latex[i++];
     if(ch==='%'||ch==='{'||ch==='}'||ch==='$')return mo(ch);
+    if(ch===' '||ch===',')return ch===' '?'<mspace width="0.33em"/>':'<mspace width="0.17em"/>';
     if(ch==='\\')return mo(' ');
     err('unknown escape');
   }
   if(cmd==='left'||cmd==='right')return '';
-  if(cmd==='dfrac'||cmd==='frac')return '<mfrac>'+group()+group()+'</mfrac>';
-  if(cmd==='sqrt')return '<msqrt>'+group()+'</msqrt>';
+  if(cmd==='dfrac'||cmd==='frac')return '<mfrac>'+argument()+argument()+'</mfrac>';
+  if(cmd==='sqrt')return '<msqrt>'+argument()+'</msqrt>';
+  if(cmd==='pounds')return '<mtext>£</mtext>';
+  if(cmd==='quad')return '<mspace width="1em"/>';
+  if(cmd==='Delta')return mi('Δ');
+  if(cmd==='varnothing')return mo('∅');
+  if(cmd==='in')return mo('∈');
   if(cmd==='mathrm')return '<mstyle mathvariant="normal">'+group()+'</mstyle>';
   if(cmd==='begin'){
     if(!exact('{cases}'))err('unsupported environment');
