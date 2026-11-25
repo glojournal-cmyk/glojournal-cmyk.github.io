@@ -1,0 +1,274 @@
+{
+  "kind": "COMPOUND_OPTION_REPAIR_NO_RELEASE",
+  "date": "2026-11-25",
+  "sourceCommit": "48a5a5f906cd8b6ae942b0eee9085597b99a2469",
+  "sourceRegister": "qa-staging/math-priority116-post30-demand-order-mastery-register-20261125.json",
+  "sourceRegisterBlobSha": "dfa3b4b1d076245e7c8fabf6755b3ce4b73fcbe0",
+  "counts": {
+    "repaired": 4,
+    "keysUnchanged": 4
+  },
+  "limits": "String-component checks remove obvious single-component uniqueness, not proof against all test-taking shortcuts. Not empirical validation.",
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-006",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-006-GRADE-DEMAND-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority30-demand-rewrite-changing-subject16-20261125.json",
+      "priorRecordBlobSha": "bda92528d6319ac1a3a867b0f230a25b839c2a34",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-006",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-006-COMPOUND-OPTION-QA-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-006-GRADE-DEMAND-REWRITE-20261125",
+        "topicId": "math-y9-changing-subject",
+        "stem": "A model is $y=a(x-2)^2+b$ for x≥2, a>0. At x=3, y=7; at x=5, y=23. A second display shows $z=3y-4$. Which option gives x in terms of z and x when z=107?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=2+\\sqrt{(z+11)/6};\\ x=6",
+            "errorPath": "Move the constant 11 with the wrong sign when rearranging, but obtain x=6 separately by substituting z=107 into the original calibrated model."
+          },
+          {
+            "latex": "x=2+\\sqrt{(z-11)/6};\\ x=6",
+            "id": "B"
+          },
+          {
+            "latex": "x=2-\\sqrt{(z-11)/6};\\ x=-2",
+            "errorPath": "Select negative root contrary to x≥2.",
+            "id": "C"
+          },
+          {
+            "latex": "x=2+\\sqrt{(z-11)/2};\\ x=2+4\\sqrt3",
+            "errorPath": "Omit factor3 on squared term from second display.",
+            "id": "D"
+          },
+          {
+            "latex": "x=2+(z-11)/6;\\ x=18",
+            "errorPath": "Forget square root.",
+            "id": "E"
+          },
+          {
+            "latex": "x=2+\\sqrt{(z-11)/6};\\ x=4",
+            "errorPath": "Report root value without adding shift2.",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "x=2+\\sqrt{(z-11)/6};\\ x=6",
+        "workedSolutionSteps": [
+          "a+b=7,9a+b=23, so a2,b5.",
+          "z=6(x−2)²+11. Restricted inverse x=2+√((z−11)/6).",
+          "At z107, squared term16, x6."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "checks": {
+        "wrongOptionsSharingCorrectFormula": 1,
+        "wrongOptionsSharingCorrectNumericComponent": 1
+      },
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-012",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-012-GRADE-DEMAND-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority30-demand-rewrite-changing-subject16-20261125.json",
+      "priorRecordBlobSha": "bda92528d6319ac1a3a867b0f230a25b839c2a34",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-012",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-012-COMPOUND-OPTION-QA-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-012-GRADE-DEMAND-REWRITE-20261125",
+        "topicId": "math-y9-changing-subject",
+        "stem": "A formula is $y=(kx+6)/4$ and another is $z=(2x-1)/3$. At x=2, y=4. Define $w=y-2z$. Which option makes x the subject in terms of w and gives the input for which y is exactly 1/2 more than twice z?",
+        "options": [
+          {
+            "latex": "x=12w-26;\\ x=-20",
+            "errorPath": "Reverse the subtraction when isolating x.",
+            "id": "A"
+          },
+          {
+            "id": "B",
+            "latex": "x=10-12w;\\ x=20",
+            "errorPath": "Use −8 rather than +8 while expanding −2z in the symbolic difference, but solve the original numerical equality correctly."
+          },
+          {
+            "latex": "x=26+12w;\\ x=32",
+            "errorPath": "Move 12w with wrong sign.",
+            "id": "C"
+          },
+          {
+            "latex": "x=26-12w;\\ x=14",
+            "errorPath": "Treat the half-unit excess as one unit.",
+            "id": "D"
+          },
+          {
+            "latex": "x=(26-12w)/2;\\ x=10",
+            "errorPath": "Divide by2 instead of coefficient1.",
+            "id": "E"
+          },
+          {
+            "latex": "x=26-12w;\\ x=20",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "x=26-12w;\\ x=20",
+        "workedSolutionSteps": [
+          "k5 from 2k+6=16. Then 12w=15x+18−16x+8=26−x.",
+          "Thus x=26−12w.",
+          "The condition y=2z+1/2 means w=1/2, giving x20."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "checks": {
+        "wrongOptionsSharingCorrectFormula": 1,
+        "wrongOptionsSharingCorrectNumericComponent": 1
+      },
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-021",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-021-DEMAND-ORDER-RECONCILED-20261125",
+      "priorRecordPath": "qa-staging/math-priority52-demand-order-reconciliation-20261125.json",
+      "priorRecordBlobSha": "105c1d90a5c0f6e04e9b7aa60640de01fd4c73f8",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-021",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-021-COMPOUND-OPTION-QA-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-021-DEMAND-ORDER-RECONCILED-20261125",
+        "topicId": "math-y9-changing-subject",
+        "stem": "Machine A takes an input x to $(3x+k)/2$, and B takes an input x to $(2x-5)/3$. For the same starting input, applying B then A gives 9, while applying A then B gives 7. Let w denote the result of B then A after k has been determined. Which option gives x in terms of w and the result of A then B when w=12?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=w+6;\\ 10",
+            "errorPath": "Move the offset 6 with the wrong sign in the inverse, but find the reverse output from the two original chains separately."
+          },
+          {
+            "latex": "x=w-4;\\ 12",
+            "errorPath": "Use reverse-chain inverse x=w−4; x8, reverse output12.",
+            "id": "B"
+          },
+          {
+            "latex": "x=w-6;\\ 12",
+            "errorPath": "Assume the chains commute.",
+            "id": "C"
+          },
+          {
+            "latex": "x=w-6;\\ 6",
+            "errorPath": "Report original input for w12.",
+            "id": "D"
+          },
+          {
+            "latex": "x=w-6;\\ 10",
+            "id": "E"
+          },
+          {
+            "latex": "x=w-6;\\ 4",
+            "errorPath": "Report reverse-chain offset instead of result.",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "x=w-6;\\ 10",
+        "workedSolutionSteps": [
+          "B then A gives w=x+(k−5)/2; A then B gives x+(k−5)/3.",
+          "Their difference2=(k−5)/6, hence k17. Thus x=w−6 and reverse output x+4.",
+          "For w12, x6, reverse output10."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "checks": {
+        "wrongOptionsSharingCorrectFormula": 3,
+        "wrongOptionsSharingCorrectNumericComponent": 1
+      },
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-028",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-028-GRADE-DEMAND-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority30-demand-rewrite-changing-subject16-20261125.json",
+      "priorRecordBlobSha": "bda92528d6319ac1a3a867b0f230a25b839c2a34",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-028",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-028-COMPOUND-OPTION-QA-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-028-GRADE-DEMAND-REWRITE-20261125",
+        "topicId": "math-y9-changing-subject",
+        "stem": "A model has the form $y=a(x-h)^2+b$, with a>0. It produces y=21 at both x=−1 and x=5, and y=11 at x=4. Original inputs are restricted to −4≤x≤8. Which option gives all inverse branches for x in terms of y (retaining only inputs in the original domain) and the complete set S of inputs producing y=35?",
+        "options": [
+          {
+            "latex": "x=2+\\sqrt{(y-3)/2};\\ S=\\{6\\}",
+            "errorPath": "Keep positive branch only.",
+            "id": "A"
+          },
+          {
+            "latex": "x=2\\pm\\sqrt{(y-3)/2};\\ S=\\{-2,6\\}",
+            "id": "B"
+          },
+          {
+            "id": "C",
+            "latex": "x=2\\pm\\sqrt{(y+3)/2};\\ S=\\{-2,6\\}",
+            "errorPath": "Move offset 3 with the wrong sign in the inverse, but obtain the correct numerical set by checking the original calibrated model."
+          },
+          {
+            "latex": "x=2\\pm\\sqrt{(y-3)/2};\\ S=\\{-4,4\\}",
+            "errorPath": "Forget centre shift in numeric answers.",
+            "id": "D"
+          },
+          {
+            "latex": "x=2\\pm(y-3)/2;\\ S=\\varnothing",
+            "errorPath": "Forget square root, giving x=−14 or18 outside domain.",
+            "id": "E"
+          },
+          {
+            "latex": "x=2\\pm\\sqrt{(y-3)/2};\\ S=\\{-2\\}",
+            "errorPath": "Keep negative branch only.",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "x=2\\pm\\sqrt{(y-3)/2};\\ S=\\{-2,6\\}",
+        "workedSolutionSteps": [
+          "Equal outputs imply equal squared distances from h: h is midpoint of −1 and5, so h2.",
+          "9a+b=21,4a+b=11, giving a2,b3. Thus x=2±√((y−3)/2), restricted to domain.",
+          "At y35, square root4, giving −2 and6, both permitted."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "checks": {
+        "wrongOptionsSharingCorrectFormula": 2,
+        "wrongOptionsSharingCorrectNumericComponent": 1
+      },
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ]
+}
