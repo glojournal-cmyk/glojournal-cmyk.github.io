@@ -1,3 +1,4 @@
+import {dailyURL as higherMathsURL,includeEarnedMaths} from "./math-study/higher-daily-20261125.js";
 import {restoreCompletedDailyReceipts} from "./daily-completed-session-receipts-20261024.js?v=20261026-bio-savefix2&modeguard=20261030-2";
 import {syncTodayFromDatedRecord} from "./today-record-sync-20261024.js";
 import {dailyVocabTotal} from "./daily-vocab-total-20261020.js?v=20261026-vocabqa7";
@@ -1918,7 +1919,7 @@ function normalizeState() {
   const stateForDaily = { ...state, ...(patch.topicStats ? { topicStats: patch.topicStats } : {}),
     ...(patch.recoveryVocabByDay ? { recoveryVocabByDay: patch.recoveryVocabByDay } : {}),
     ...(patch.recoveryTaskByDay ? { recoveryTaskByDay: patch.recoveryTaskByDay } : {}) };
-  const daily = buildAdaptiveDaily(stateForDaily);
+  const daily = includeEarnedMaths(buildAdaptiveDaily(stateForDaily),stateForDaily.formalAttemptLog,state.today);
   if (JSON.stringify(daily) !== JSON.stringify(state.daily || [])) patch.daily = daily;
   const currentLog = state.dailyLog && typeof state.dailyLog === "object" ? state.dailyLog : {};
   const correctedLog = reconcileRecoveredTaskHistory(stateForDaily,
@@ -3241,6 +3242,17 @@ async function restoreDurableMarkedAnswers(){
      dailyLog[date]={date,tasks,done:0,total:tasks.length,
        complete:false,recoveryFallback:true,recoveredFromAnswerJournal:true};
    }
+   // A learner can finish the standalone Maths page and next open Home on a later day.
+   const mathsDates=new Set(archived.filter(a=>a.dailyTaskId==="maths-daily"&&a.day<todayKey()).map(a=>a.day));
+   for(const date of mathsDates){
+     const saved=dailyLog[date]?.tasks;
+     const tasks=saved?.length?saved:unopenedPlan(state,date);
+     if(!tasks?.length)continue;
+     const earned=includeEarnedMaths(tasks,merged,date);
+     if(earned===tasks)continue;
+     dailyLog=writeDailyLog(dailyLog,date,earned);
+     reconstructed=true;
+   }
    if(merged!==state.formalAttemptLog||reconstructed){
      const patch={};
      if(merged!==state.formalAttemptLog)patch.formalAttemptLog=merged;
@@ -4028,6 +4040,10 @@ function mountDailyGlance() {
         window.__luxOpenDailyRecord?.();
       });
       verdictEl.append(recordBtn);
+      const mathsLink=document.createElement("a");
+      mathsLink.href=higherMathsURL;
+      mathsLink.textContent="Maths Daily";
+      verdictEl.append(mathsLink);
       const grid = document.createElement("div");
       grid.className = "lux-today-grid";
       for (const task of tasks) {

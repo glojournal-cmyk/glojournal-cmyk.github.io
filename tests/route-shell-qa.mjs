@@ -38,7 +38,7 @@ for(const file of html){
      !src.includes('type="module" src="app.mjs"'))
     failures.push({type:"standalone-v8-practice-entrypoint-missing",file:rel});
   if(rel==="study/maths/higher-practice/index.html"){
-    const hasPlayer=src.includes('src="./practice.js"')&&fs.existsSync(path.join(path.dirname(file),"practice.js"));
+    const hasPlayer=src.includes('src="./practice.js?v=daily-20261126"')&&fs.existsSync(path.join(path.dirname(file),"practice.js"));
     const questions=[...src.matchAll(/<article hidden data-question="([^"]+)"/g)];
     const choices=[...src.matchAll(/<button type="button" data-choice="[A-F]"/g)];
     if(src.includes(mainModule)||!hasPlayer||questions.length===0||new Set(questions.map(m=>m[1])).size!==questions.length||choices.length!==questions.length*6)
