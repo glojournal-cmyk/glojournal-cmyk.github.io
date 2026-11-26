@@ -33,18 +33,18 @@ const makeMath=(id,grade='7')=>({
     ...(i?{misconception:'confuses law '+i}:{})})),
   correctOptionId:'A',workedSolution:['Apply the law of indices.','Simplify the powers.']
 });
-test('fixed V3 contract: ten tasks and 165 questions',()=>{
-  assert.equal(V3_TASK_SPEC.length,10);
-  assert.equal(new Set(V3_TASK_SPEC.map(x=>x[0])).size,10);
-  assert.equal(V3_TARGET,165);
-  assert.deepEqual(V3_TASK_SPEC.map(x=>x[1]),[30,30,10,10,10,20,20,10,10,15]);
+test('fixed V3 contract: eleven tasks and 175 questions',()=>{
+  assert.equal(V3_TASK_SPEC.length,11);
+  assert.equal(new Set(V3_TASK_SPEC.map(x=>x[0])).size,11);
+  assert.equal(V3_TARGET,175);
+  assert.deepEqual(V3_TASK_SPEC.map(x=>x[1]),[30,30,10,10,10,20,20,10,10,15,10]);
 });
-test('unapproved supply cannot be invented and weak review is no longer compulsory',()=>{
+test('unapproved supply cannot be invented and weakness review is retained',()=>{
   const snapshot=JSON.stringify(state());
   const empty={...V3_APPROVED,languageGrammar:{latin:[],french:[]},year9Standard:[]};
   const result=buildDailyV3(state(),old(),empty);
   assert.deepEqual(result.map(x=>x.id),V3_TASK_SPEC.map(x=>x[0]));
-  assert.ok(!result.some(x=>x.id==='weakness-review'));
+  assert.ok(result.some(x=>x.id==='weakness-review'));
   for(const id of ['languages-standard','y8-standard-b','maths-daily']){
     const card=result.find(x=>x.id===id);
     assert.equal(card.supplyBlocked,true,id);
@@ -182,14 +182,14 @@ test('existing V3 plan keeps assignments across planner rebuild',()=>{
   assert.equal(changed.find(t=>t.id==='y8-standard-b').assignedTopic,'chem-y9-certified');
 });
 
-test('unopened Day 2/7 recall does not shrink ten-card V3 daily quota',()=>{
+test('unopened Day 2/7 recall does not shrink eleven-card V3 daily quota',()=>{
   const legacy=old();
   const due=legacy.find(t=>t.id==='due-review');
   due.target=5;due.masteryCheck=true;due.href='/study/latin/practise?daily=1&locked=1&mode=due&task=due-review';
   const plan=buildDailyV3(state(),legacy);
-  assert.equal(plan.length,10);
+  assert.equal(plan.length,11);
   assert.equal(plan.find(t=>t.id==='due-review').target,10);
-  assert.equal(plan.reduce((n,t)=>n+t.target,0),165);
+  assert.equal(plan.reduce((n,t)=>n+t.target,0),175);
   assert.equal(plan.find(t=>t.id==='due-review').progress,0);
 });
 
@@ -203,7 +203,7 @@ test('actual reviewed whitelists activate both Language parts and an exclusively
   assert.equal(b.supplyBlocked,undefined);
   assert.equal(b.assignedYear,9);
   assert.equal(b.approvedQuestionIds.length,10);
-  assert.equal(plan.reduce((sum,t)=>sum+t.target,0),165);
+  assert.equal(plan.reduce((sum,t)=>sum+t.target,0),175);
 });
 test('when future tense question supply is depleted, Standard B falls back to independently reviewed Year 9 perfect tense',()=>{
   const future=V3_APPROVED.year9Standard.find(t=>t.topicId.includes('future-tense'));
