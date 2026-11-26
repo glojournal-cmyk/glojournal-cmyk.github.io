@@ -306,3 +306,20 @@ test('Maths task credit is scoped to ten pinned, unassisted, first submitted for
  assert.equal(invalidFirst.completed,false);
 
 });
+
+import {mergeDailyRecordRow} from '../assets/daily-record-integrity-20261018.js';
+test('eleven-task history never treats ten Maths submissions with eight correct as a pass',()=>{
+ const math={id:'maths-daily',dailyV3:true,target:10,progress:10,done:false,supplyBlocked:false,
+  approvedQuestionIds:Array.from({length:10},(_,i)=>'math-'+i),
+  approvedCorrectOptionByQuestion:Object.fromEntries(Array.from({length:10},(_,i)=>['math-'+i,'A']))};
+ const base=old().map(t=>({...t,progress:t.target,done:true}));
+ const prior={date:day,tasks:[...base,math],done:10,total:11,complete:false};
+ const merged=mergeDailyRecordRow(prior,prior,day);
+ assert.equal(merged.tasks.length,11);
+ assert.equal(merged.tasks.find(t=>t.id==='maths-daily').done,false);
+ assert.equal(merged.done,10);
+ assert.equal(merged.complete,false);
+ const stale=mergeDailyRecordRow(prior,{date:day,tasks:base,done:10,total:10,complete:true},day);
+ // A historical original ten-task receipt may still take priority; never fabricate a Maths pass.
+ assert.ok(!stale.tasks.some(t=>t.id==='maths-daily'&&t.done===true));
+});
