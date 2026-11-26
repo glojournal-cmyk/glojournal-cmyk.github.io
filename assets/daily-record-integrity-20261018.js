@@ -7,7 +7,8 @@ const validDate=d=>{
 };
 const nonneg=v=>Math.max(0,Number(v)||0);
 const tasksOf=row=>Array.isArray(row?.tasks)?row.tasks.filter(t=>t&&typeof t.id==="string"&&t.id):[];
-const isDone=t=>t?.done===true||(Number(t?.target)>0&&nonneg(t?.progress)>=Number(t.target));
+const isMaths=t=>t?.id==='maths-daily';
+const isDone=t=>isMaths(t)?t.done===true&&t.supplyBlocked!==true:t?.done===true||(Number(t?.target)>0&&nonneg(t?.progress)>=Number(t.target));
 const isFallback=t=>t?.recoveryFallback===true;
 function mergeTask(previous,incoming,date){
  const left=previous||{},right=incoming||{};
@@ -54,6 +55,16 @@ function mergeTask(previous,incoming,date){
      }catch{return false}})())
  );
  if(started&&different)return {...left,done:isDone(left)};
+ // Maths progress is submitted count, not correct count. Never infer a pass from 10 submissions.
+ if(isMaths(left)||isMaths(right)){
+   const original=left.id?left:right;
+   const matching=left.id&&right.id&&left.approvedQuestionIds?.length===10&&
+     JSON.stringify(left.approvedQuestionIds)===JSON.stringify(right.approvedQuestionIds)&&
+     JSON.stringify(left.approvedCorrectOptionByQuestion)===JSON.stringify(right.approvedCorrectOptionByQuestion);
+   const progress=Math.min(10,Math.max(nonneg(original.progress),matching?nonneg(right.progress):0));
+   const done=isDone(original)||(matching&&isDone(right));
+   return {...original,target:10,progress,done};
+ }
  const target=Math.max(1,nonneg(left.target),nonneg(right.target));
  const progress=Math.min(target,Math.max(nonneg(left.progress),nonneg(right.progress),
    isDone(left)?nonneg(left.target):0,isDone(right)?nonneg(right.target):0));
@@ -106,7 +117,7 @@ export function mergeDailyRecordRow(previous,incoming,date){
  // recorded for that day. Regeneration must not add a new task and turn 10/10
  // into 10/11, or replace an answered 5/5 with an unattempted 0/20.
  // Actual Recovery answers are merged by matching task ID below.
- const startedTen=oldTasks.length===10&&oldTasks.some(t=>nonneg(t.progress)>0||isDone(t));
+ const startedTen=[10,11].includes(oldTasks.length)&&oldTasks.some(t=>nonneg(t.progress)>0||isDone(t));
  const assignmentIdsChanged=newTasks.length>0&&(
    newTasks.length!==oldTasks.length||
    newTasks.some(t=>!oldTasks.some(old=>old.id===t.id))
