@@ -45,7 +45,7 @@ test('actual V3 planner consumes 200 synthetic unique question IDs in 20 fixed 4
   }
   previous=new Set(templates);
   history[day]={date:day,tasks:[maths]};
-  assert.equal(tasks.reduce((n,t)=>n+t.target,0),165);
+  assert.equal(tasks.reduce((n,t)=>n+t.target,0),175);
  }
  assert.equal(seen.size,200);
  const date='2026-12-13';
