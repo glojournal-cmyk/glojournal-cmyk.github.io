@@ -8,8 +8,8 @@ export const V3_START_DATE = '2026-11-23';
 export const V3_TASK_SPEC = Object.freeze([
   ['french-vocab',30],['latin-vocab',30],['languages-standard',10],
   ['y8-standard-a',10],['y8-standard-b',10],
-  ['y8-mastery-a',20],['y8-mastery-b',20],['maths-daily',10],
-  ['due-review',10],['year9-light',15]
+  ['y8-mastery-a',20],['y8-mastery-b',20],['weakness-review',10],
+  ['due-review',10],['year9-light',15],['maths-daily',10]
 ]);
 export const V3_TARGET = V3_TASK_SPEC.reduce((sum,[,n])=>sum+n,0);
 // Whitelist approves ONLY the 40 explicit question IDs, never the rest of a bank.
@@ -275,7 +275,7 @@ export function buildDailyV3(state,legacy=[],manifest=V3_APPROVED,{mathAttempts=
   if(dated.length&&!dated.every(t=>t.dailyV3===true)&&
      (dated.some(isStarted)||(state.formalAttemptLog||[]).some(e=>
        e.day===day&&e.dailyTaskId)))return legacy;
-  if(dated.length===10&&dated.every(t=>t.dailyV3===true)){
+  if([10,11].includes(dated.length)&&dated.every(t=>t.dailyV3===true)){
     const languages=languageEvidence(state,day);
     const assignedMath=dated.find(t=>t.id==='maths-daily');
     const maths=mathsEvidence(mathAttempts,day,assignedMath||{supplyBlocked:true});
@@ -397,12 +397,13 @@ export function buildDailyV3(state,legacy=[],manifest=V3_APPROVED,{mathAttempts=
   },day):(pendingYear8Recall&&Number(originalDue.target)===5&&Number(originalDue.progress)===0
     ? {...originalDue,target:10,detail:'Year 8 Day 2/7 recall within a 10-question Due Review; five additional unassisted consolidation questions required. Existing recall evidence is assessed separately.'}
     : originalDue);
-  const plan=[passthrough('french-vocab'),passthrough('latin-vocab'),language,
+  const vocab=id=>({...passthrough(id),detail:'30 vocabulary words: target 20 Year 7–8 + 10 independently approved Year 9; short supply must be disclosed; no sentences.'});
+  const plan=[vocab('french-vocab'),vocab('latin-vocab'),language,
     passthrough('y8-standard-a'),standardB,
-    passthrough('y8-mastery-a'),passthrough('y8-mastery-b'),mathsTask,due,
-    passthrough('year9-light')];
+    passthrough('y8-mastery-a'),passthrough('y8-mastery-b'),passthrough('weakness-review'),due,
+    passthrough('year9-light'),mathsTask];
   // Distinct cards, fixed normal quotas, never copied completion credit.
-  if(plan.length!==10||new Set(plan.map(t=>t.id)).size!==10||
+  if(plan.length!==V3_TASK_SPEC.length||new Set(plan.map(t=>t.id)).size!==V3_TASK_SPEC.length||
     plan.reduce((n,t)=>n+t.target,0)!==V3_TARGET)throw Error('Daily V3 specification mismatch');
   return plan;
 }
