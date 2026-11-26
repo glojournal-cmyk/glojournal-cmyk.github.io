@@ -7,7 +7,7 @@ let cachedHref=null, cachedHrefAt=0;
 function continueHref() {
   if(cachedHref&&Date.now()-cachedHrefAt<1200)return cachedHref;
   const J=globalThis.LuxJourney,state=J?.withReviewCredits?.(store.getState())||store.getState();
-  const active=state.today===J?.day()&&Array.isArray(state.daily)&&state.daily.length===10;
+  const active=state.today===J?.day()&&Array.isArray(state.daily)&&[10,11].includes(state.daily.length);
   const next=active&&state.daily.find(t=>Number(t.progress)<Number(t.target)&&J.safeHref(t.href));
   const drafts=J?.resumeCandidates(state)||[];
   const daily=active&&drafts.find(d=>d.daily&&d.planDate===state.today);
