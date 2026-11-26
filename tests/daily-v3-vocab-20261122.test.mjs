@@ -26,10 +26,10 @@ test('historical pre-V3 vocabulary retains original 27+3 rule',()=>{
 });
 test('V3 never assumes an internally stored Year 9 word has been taught',()=>{
   const q=select('2026-11-23');
-  assert.equal(q.length,30);
+  assert.equal(q.length,20);
   assert.equal(q.filter(x=>x._dailyYear9).length,0);
-  assert.equal(q.filter(x=>x._dailyYear8).length,30);
-  assert.equal(new Set(q.map(x=>x._vocabConcept)).size,30);
+  assert.equal(q.filter(x=>x._dailyYear8).length,20);
+  assert.equal(new Set(q.map(x=>x._vocabConcept)).size,20);
 });
 test('alternate translation direction cannot double-credit the same word concept',()=>{
   const alt={...make('reverse',0,8,'English → French'),
@@ -40,4 +40,25 @@ test('alternate translation direction cannot double-credit the same word concept
     ledger:{},seenCorrect:{},size:30,seed:'reverse-test',topicLearning:{}
   });
   assert.equal(new Set(q.map(x=>x._vocabConcept)).size,q.length);
+});
+
+test('V3 20+10 requires explicitly approved Year 9 headwords; no substitution on short supply',()=>{
+ const approved=newer.map(q=>({academicQA:'approved',taughtVerified:true,topicId:q.topicId,term:q._vocabTerm}));
+ const run=words=>selectDailyVocabulary({subject:'french',items:older,year9Items:newer,
+   day:'2026-11-23',seed:'v3-split',ledger:{},size:30,
+   approvedYear9Vocabulary:{french:words}});
+ const full=run(approved);
+ assert.equal(full.length,30);
+ assert.equal(full.filter(q=>q._dailyYear8).length,20);
+ assert.equal(full.filter(q=>q._dailyYear9).length,10);
+ const short=run(approved.slice(0,4));
+ assert.equal(short.length,24);
+ assert.equal(short.filter(q=>q._dailyYear8).length,20);
+ assert.equal(short.filter(q=>q._dailyYear9).length,4);
+ const items=Object.fromEntries(full.filter(q=>q._dailyYear8).map(q=>[q.id,true]));
+ const resumed=selectDailyVocabulary({subject:'french',items:older,year9Items:newer,
+   day:'2026-11-23',seed:'resume',ledger:{'2026-11-23':{french:{items}}},size:30,
+   approvedYear9Vocabulary:{french:approved}});
+ assert.equal(resumed.filter(q=>q._dailyYear8).length,0);
+ assert.equal(resumed.filter(q=>q._dailyYear9).length,10);
 });
