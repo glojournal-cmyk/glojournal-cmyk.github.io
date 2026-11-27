@@ -1286,33 +1286,29 @@
       "topicId": "phys-y9-p5",
       "topic": "Infrared radiation — absorption, emission and reflection; Leslie cube",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "A detector is pointed at a Leslie cube. Which part of the electromagnetic spectrum does it measure?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "infrared detector"
+          "infrared",
+          "infrared radiation",
+          "IR"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "infrared. Equipment used to compare radiation emitted from Leslie-cube surfaces.",
+        "steps": [
+          "infrared. Equipment used to compare radiation emitted from Leslie-cube surfaces."
         ]
       },
-      "stimulus": {
-        "text": "equipment used to compare radiation emitted from Leslie-cube surfaces"
-      },
-      "feedback": {
-        "short": "equipment used to compare radiation emitted from Leslie-cube surfaces",
-        "steps": [
-          "Key idea: infrared detector.",
-          "equipment used to compare radiation emitted from Leslie-cube surfaces",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: infrared detector"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "infrared detector → equipment used to compare radiation emitted from Leslie-cube surfaces"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1322,34 +1318,30 @@
       "conceptId": "phys-y9-p5-infrared-detector-7c104f6a34-concept",
       "topicId": "phys-y9-p5",
       "topic": "Infrared radiation — absorption, emission and reflection; Leslie cube",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "A detector is pointed at a Leslie cube. Which part of the electromagnetic spectrum does it measure?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "infrared detector"
+          "infrared",
+          "infrared radiation",
+          "IR"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "infrared. Equipment used to compare radiation emitted from Leslie-cube surfaces.",
+        "steps": [
+          "infrared. Equipment used to compare radiation emitted from Leslie-cube surfaces."
         ]
       },
-      "stimulus": {
-        "masked": "i__r___d ___e___r"
-      },
-      "feedback": {
-        "short": "equipment used to compare radiation emitted from Leslie-cube surfaces",
-        "steps": [
-          "Key idea: infrared detector.",
-          "equipment used to compare radiation emitted from Leslie-cube surfaces",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: infrared detector"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "infrared detector → equipment used to compare radiation emitted from Leslie-cube surfaces"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1484,73 +1476,67 @@
       "topicId": "phys-y9-p5",
       "topic": "Infrared radiation — absorption, emission and reflection; Leslie cube",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "Which mechanism can transfer thermal energy across a vacuum: conduction, convection or radiation?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "radiation in vacuum"
+          "radiation",
+          "infrared radiation"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "radiation. Infrared transfer that can travel through a vacuum, unlike conduction.",
+        "steps": [
+          "radiation. Infrared transfer that can travel through a vacuum, unlike conduction."
         ]
       },
-      "stimulus": {
-        "text": "infrared transfer that can travel through a vacuum, unlike conduction"
-      },
-      "feedback": {
-        "short": "infrared transfer that can travel through a vacuum, unlike conduction",
-        "steps": [
-          "Key idea: radiation in vacuum.",
-          "infrared transfer that can travel through a vacuum, unlike conduction",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: radiation in vacuum"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "radiation in vacuum → infrared transfer that can travel through a vacuum, unlike conduction"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p5-radiation-in-vacuum-080199ab1a-restore",
       "conceptId": "phys-y9-p5-radiation-in-vacuum-080199ab1a-concept",
       "topicId": "phys-y9-p5",
       "topic": "Infrared radiation — absorption, emission and reflection; Leslie cube",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of radiation in vacuum: “___ transfer that can travel through a vacuum, unlike conduction”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "radiation in vacuum"
+          "infrared",
+          "infrared radiation"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "infrared. Infrared transfer that can travel through a vacuum, unlike conduction.",
+        "steps": [
+          "infrared. Infrared transfer that can travel through a vacuum, unlike conduction."
         ]
       },
-      "stimulus": {
-        "masked": "r__i___o_ __ v___u_"
-      },
-      "feedback": {
-        "short": "infrared transfer that can travel through a vacuum, unlike conduction",
-        "steps": [
-          "Key idea: radiation in vacuum.",
-          "infrared transfer that can travel through a vacuum, unlike conduction",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: radiation in vacuum"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "radiation in vacuum → infrared transfer that can travel through a vacuum, unlike conduction"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p5-radiation-in-vacuum-080199ab1a-explain",
@@ -1889,7 +1875,9 @@
           "shiny face",
           "dark matt face"
         ],
-        "diagramId": "phys-leslie-cube"
+        "diagramId": "phys-leslie-cube",
+        "image": "/content/diagrams/question-review/phys-leslie-cube.svg",
+        "imageAlt": "Lettered figure for Infrared radiation — absorption, emission and reflection; Leslie cube."
       },
       "feedback": {
         "short": "Place every scientific label at its correct anchor.",

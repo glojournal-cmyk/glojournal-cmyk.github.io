@@ -1,3 +1,4 @@
+import {dailyURL as higherMathsURL,includeEarnedMaths} from "./math-study/higher-daily-20261125.js";
 import {restoreCompletedDailyReceipts} from "./daily-completed-session-receipts-20261024.js?v=20261026-bio-savefix2&modeguard=20261030-2";
 import {syncTodayFromDatedRecord} from "./today-record-sync-20261024.js";
 import {dailyVocabTotal} from "./daily-vocab-total-20261020.js?v=20261026-vocabqa7";
@@ -1585,7 +1586,8 @@ function writeDailyLog(existing, date, daily) {
   // when all ten canonical slots are present. Never erase genuine extra work,
   // old days, XP/MP or any stored question/answer evidence.
   const retiredSlots=new Set(['study-session','year8-long-review','tend-garden','play-game']);
-  if(date>='2026-11-03'&&date===todayKey()&&tasks.length===10&&
+  if(date>='2026-11-03'&&date===todayKey()&&[10,11].includes(tasks.length)&&
+     tasks.every(t=>canonicalIds.has(t.id))&&
      Array.isArray(row?.tasks)&&
      row.tasks.some(t=>retiredSlots.has(t.id))&&
      row.tasks.every(t=>tasks.some(now=>now.id===t.id)||retiredSlots.has(t.id))){
@@ -1594,7 +1596,7 @@ function writeDailyLog(existing, date, daily) {
       const retained=row.tasks.filter(t=>!retiredSlots.has(t.id));
       const archive=[...(row.legacyExtraTasks||[])];
       for(const t of legacy)if(!archive.some(old=>old.id===t.id&&old.planDate===t.planDate))archive.push(t);
-      const completed=retained.filter(t=>t.done===true||Number(t.progress)>=Number(t.target)).length;
+      const completed=retained.filter(t=>t.id==='maths-daily' ? t.done===true : t.done===true||Number(t.progress)>=Number(t.target)).length;
       row={...row,tasks:retained,total:retained.length,done:completed,
         complete:completed===retained.length,
         legacyExtraTasks:archive.slice(-12)};
@@ -1945,7 +1947,7 @@ function normalizeState() {
   const stateForDaily = { ...state, ...(patch.topicStats ? { topicStats: patch.topicStats } : {}),
     ...(patch.recoveryVocabByDay ? { recoveryVocabByDay: patch.recoveryVocabByDay } : {}),
     ...(patch.recoveryTaskByDay ? { recoveryTaskByDay: patch.recoveryTaskByDay } : {}) };
-  const daily = buildAdaptiveDaily(stateForDaily);
+  const daily = includeEarnedMaths(buildAdaptiveDaily(stateForDaily),stateForDaily.formalAttemptLog,state.today);
   if (JSON.stringify(daily) !== JSON.stringify(state.daily || [])) patch.daily = daily;
   const currentLog = state.dailyLog && typeof state.dailyLog === "object" ? state.dailyLog : {};
   const correctedLog = reconcileRecoveredTaskHistory(stateForDaily,
@@ -2039,7 +2041,7 @@ function v3EvidenceOwnedTask(task) {
   if(task.id==="maths-daily"||task.id==="languages-standard")return true;
   // Year 8/legacy Standard B and Due must retain their existing behaviour.
   return task.dailyV3===true && Number(task.assignedYear)===9 &&
-    (task.id==="y8-standard-b"||task.id==="due-review");
+    (task.id==="y8-standard-b"||task.id==="due-review"||task.id==="weakness-review");
 }
 
 function patchedAward(kind, options = {}) {
@@ -3326,6 +3328,17 @@ async function restoreDurableMarkedAnswers(){
      dailyLog[date]={date,tasks,done:0,total:tasks.length,
        complete:false,recoveryFallback:true,recoveredFromAnswerJournal:true};
    }
+   // A learner can finish the standalone Maths page and next open Home on a later day.
+   const mathsDates=new Set(archived.filter(a=>a.dailyTaskId==="maths-daily"&&a.day<todayKey()).map(a=>a.day));
+   for(const date of mathsDates){
+     const saved=dailyLog[date]?.tasks;
+     const tasks=saved?.length?saved:unopenedPlan(state,date);
+     if(!tasks?.length)continue;
+     const earned=includeEarnedMaths(tasks,merged,date);
+     if(earned===tasks)continue;
+     dailyLog=writeDailyLog(dailyLog,date,earned);
+     reconstructed=true;
+   }
    if(merged!==state.formalAttemptLog||reconstructed){
      const patch={};
      if(merged!==state.formalAttemptLog)patch.formalAttemptLog=merged;
@@ -4113,6 +4126,10 @@ function mountDailyGlance() {
         window.__luxOpenDailyRecord?.();
       });
       verdictEl.append(recordBtn);
+      const mathsLink=document.createElement("a");
+      mathsLink.href=higherMathsURL;
+      mathsLink.textContent="Maths Daily";
+      verdictEl.append(mathsLink);
       const grid = document.createElement("div");
       grid.className = "lux-today-grid";
       for (const task of tasks) {

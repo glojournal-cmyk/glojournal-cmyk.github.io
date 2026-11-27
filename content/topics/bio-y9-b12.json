@@ -536,34 +536,29 @@
       "conceptId": "bio-y9-b12-increased-heart-rate-b140714183-concept",
       "topicId": "bio-y9-b12",
       "topic": "Response to exercise",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "During exercise, a person's heart rate rises from 70 to 140 beats per minute. By what factor has it increased?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "increased heart rate"
+          "2",
+          "two"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "2. A response delivering oxygen and glucose to muscles faster and removing carbon dioxide.",
+        "steps": [
+          "2. A response delivering oxygen and glucose to muscles faster and removing carbon dioxide."
         ]
       },
-      "stimulus": {
-        "masked": "i__r___e_ __a__ _a__"
-      },
-      "feedback": {
-        "short": "a response delivering oxygen and glucose to muscles faster and removing carbon dioxide",
-        "steps": [
-          "Key idea: increased heart rate.",
-          "a response delivering oxygen and glucose to muscles faster and removing carbon dioxide",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: increased heart rate"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "increased heart rate → a response delivering oxygen and glucose to muscles faster and removing carbon dioxide"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -737,37 +732,33 @@
       "conceptId": "bio-y9-b12-increased-breathing-rate-c616a6659e-concept",
       "topicId": "bio-y9-b12",
       "topic": "Response to exercise",
-      "format": "spelling_restore",
-      "prompt": "Restore the complete answer for this science cue.",
+      "format": "typed_exact",
+      "prompt": "A runner takes more breaths each minute. Which quantity has increased: breathing rate or lung capacity?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "a response increasing gas exchange during exercise"
+          "breathing rate"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "breathing rate. A response increasing gas exchange during exercise.",
+        "steps": [
+          "breathing rate. A response increasing gas exchange during exercise."
         ]
       },
-      "stimulus": {
-        "masked": "a __s___s_ __c___s___ g__ _x___n__ _u___g ___r___e"
-      },
-      "feedback": {
-        "short": "a response increasing gas exchange during exercise",
-        "steps": [
-          "Key idea: increased breathing rate.",
-          "a response increasing gas exchange during exercise",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: a response increasing gas exchange during exercise"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "increased breathing rate → a response increasing gas exchange during exercise"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b12-increased-breathing-rate-c616a6659e-explain",
@@ -1139,34 +1130,29 @@
       "conceptId": "bio-y9-b12-lactic-acid-accumulation-5a6d5714b4-concept",
       "topicId": "bio-y9-b12",
       "topic": "Response to exercise",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "In the GCSE word equation for anaerobic respiration in muscle, what product is formed from glucose?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "lactic acid accumulation"
+          "lactic acid",
+          "lactate"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "lactic acid.",
+        "steps": [
+          "lactic acid."
         ]
       },
-      "stimulus": {
-        "masked": "l__t__ _c__ _c___u___i__"
-      },
-      "feedback": {
-        "short": "the result when some muscle cells respire anaerobically because oxygen delivery is insufficient",
-        "steps": [
-          "Key idea: lactic acid accumulation.",
-          "the result when some muscle cells respire anaerobically because oxygen delivery is insufficient",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: lactic acid accumulation"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "lactic acid accumulation → the result when some muscle cells respire anaerobically because oxygen delivery is insufficient"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1309,6 +1295,11 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "post-exercise oxygen"
+        ],
+        "reviewedEquivalents": [
+          "oxygen debt",
+          "EPOC",
+          "excess post-exercise oxygen consumption"
         ]
       },
       "stimulus": {
@@ -1346,6 +1337,11 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "post-exercise oxygen"
+        ],
+        "reviewedEquivalents": [
+          "oxygen debt",
+          "EPOC",
+          "excess post-exercise oxygen consumption"
         ]
       },
       "stimulus": {
@@ -1739,34 +1735,29 @@
       "conceptId": "bio-y9-b12-liver-conversion-194e686e7b-concept",
       "topicId": "bio-y9-b12",
       "topic": "Response to exercise",
-      "format": "spelling_restore",
-      "prompt": "Restore the complete answer for this science cue.",
+      "format": "typed_exact",
+      "prompt": "After exercise, which organ can convert lactate back into glucose?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "conversion of lactic acid back into glucose"
+          "liver",
+          "the liver"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "liver. Conversion of lactic acid back into glucose.",
+        "steps": [
+          "liver. Conversion of lactic acid back into glucose."
         ]
       },
-      "stimulus": {
-        "masked": "c__v___i__ _f ___t__ _c__ _a__ _n__ _l___s_"
-      },
-      "feedback": {
-        "short": "conversion of lactic acid back into glucose",
-        "steps": [
-          "Key idea: liver conversion.",
-          "conversion of lactic acid back into glucose",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: conversion of lactic acid back into glucose"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "liver conversion → conversion of lactic acid back into glucose"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true

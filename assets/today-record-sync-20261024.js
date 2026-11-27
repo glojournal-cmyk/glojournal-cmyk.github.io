@@ -26,13 +26,15 @@ function sameAssignment(live, saved) {
 }
 export function syncTodayFromDatedRecord(daily, row, date) {
   if(!/^\d{4}-\d{2}-\d{2}$/.test(date||'') ||
-    !Array.isArray(daily) || daily.length !== 10 ||
-    !Array.isArray(row?.tasks) || row.tasks.length !== 10 ||
+    !Array.isArray(daily) || ![10,11].includes(daily.length) ||
+    !Array.isArray(row?.tasks) || row.tasks.length !== daily.length ||
     row.date!==date) return daily;
   const records = new Map(row.tasks.map(task=>[task?.id,task]));
   let changed=false;
   const reconciled=daily.map(task=>{
     if(task?.planDate!==date) return task;
+    // Scored V3 assignments rebuild from their pinned formal answer journal.
+    if(task.dailyV3 && (task.id==='maths-daily'||task.languageSplit||task.approvedQuestionIds))return task;
     const saved=records.get(task.id);
     if(!sameAssignment(task,saved))return task;
     // From 24 Oct, current verified CORRECT-only answer evidence overrides

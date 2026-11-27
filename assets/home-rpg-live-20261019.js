@@ -444,7 +444,7 @@ if (!window.__luxRpgLiveHome) {
     if (progress.ready) {
       for (const row of progress.rows) task(panel,row,/vocab/i.test(row.title) ? '⚑' : '▣');
     } else {
-      panel.append(make('p','rpg-loading-live',"Waiting for today's official ten-task plan…"));
+      panel.append(make('p','rpg-loading-live',"Waiting for today's Daily Tasks…"));
       const link = make('a','rpg-open-study-live','Open Study →');link.href='/study';panel.append(link);
     }
     if (progress.ready && progress.next?.href) {

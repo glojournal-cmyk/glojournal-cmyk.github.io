@@ -21,15 +21,17 @@ const compactUnit=u=>String(u??"").replace(/²/g,"2").replace(/³/g,"3").replace
 for(const q of calcs){
  const a=q.answer, unit=a.units?.[0]||"";
  const value=a.value;
- const canonical=unit?value+" "+unit:String(value);
+ const direction = a.direction ? " "+a.direction : "";
+ const canonical=(unit?value+" "+unit:String(value))+direction;
+ if(a.direction && B(q,value+" "+unit,"physics",{}).ok) failures.push({type:"missing-direction-accepted",id:q.id});
  const r=B(q,canonical,"physics",{});
  cases.push({id:q.id,input:canonical,result:r});
  if(!r.ok) failures.push({type:"canonical-rejected",file:q.__file,id:q.id,input:canonical,answer:a,result:r});
  if(unit){
-   const noUnit=B(q,String(value),"physics",{});
-   if(noUnit.ok) failures.push({type:"missing-unit-accepted",file:q.__file,id:q.id,input:String(value),units:a.units,result:noUnit});
+   const noUnit=B(q,String(value)+direction,"physics",{});
+   if(noUnit.ok!==Boolean(a.unitInPrompt)) failures.push({type:"unit-expectation-mismatch",file:q.__file,id:q.id,input:String(value),units:a.units,result:noUnit});
    for(const alias of a.units||[]){
-     const ar=B(q,value+" "+alias,"physics",{});
+     const ar=B(q,value+" "+alias+direction,"physics",{});
      if(!ar.ok) failures.push({type:"listed-unit-alias-rejected",file:q.__file,id:q.id,input:value+" "+alias,alias,answer:a,result:ar});
    }
  }

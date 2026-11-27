@@ -14,11 +14,11 @@ test('integration files are valid and contain no progress writes',()=>{
   assert.doesNotMatch(js,/\b(localStorage|sessionStorage)\.setItem\s*\(/);
   assert.doesNotMatch(js,/\baward(?:XP|Credit|Reward)?\s*\(/i);
 });
-test('official journey selects live 10 tasks and delays display until App ready',()=>{
+test('official journey selects the live tasks and delays display until App ready',()=>{
   assert.match(js,/LuxHomeJourneyV2Logic\?\.homeJourney/);
   assert.match(js,/progress\.ready/);
   assert.match(js,/window\.__luxAppReady/);
-  assert.match(js,/Waiting for today's official ten-task plan/);
+  assert.match(js,/Waiting for today's Daily Tasks/);
   assert.doesNotMatch(js,/Year 7–8 Latin vocab/);
 });
 test('recovery opens existing panel and never generates substitute Recovery tasks',()=>{

@@ -902,33 +902,29 @@
       "topicId": "phys-y9-p6",
       "topic": "Specific heat capacity — AQA Required Practical 1",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "A block warms from 18 °C to 25 °C. What is its temperature change in °C?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "temperature change"
+          "7",
+          "7 °C",
+          "7 degrees Celsius"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "7. Final temperature minus initial temperature, rather than the final temperature alone.",
+        "steps": [
+          "7. Final temperature minus initial temperature, rather than the final temperature alone."
         ]
       },
-      "stimulus": {
-        "text": "final temperature minus initial temperature, rather than the final temperature alone"
-      },
-      "feedback": {
-        "short": "final temperature minus initial temperature, rather than the final temperature alone",
-        "steps": [
-          "Key idea: temperature change.",
-          "final temperature minus initial temperature, rather than the final temperature alone",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: temperature change"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "temperature change → final temperature minus initial temperature, rather than the final temperature alone"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -938,34 +934,30 @@
       "conceptId": "phys-y9-p6-temperature-change-148303cdac-concept",
       "topicId": "phys-y9-p6",
       "topic": "Specific heat capacity — AQA Required Practical 1",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "A block warms from 18 °C to 25 °C. What is its temperature change in °C?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "temperature change"
+          "7",
+          "7 °C",
+          "7 degrees Celsius"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "7. Final temperature minus initial temperature, rather than the final temperature alone.",
+        "steps": [
+          "7. Final temperature minus initial temperature, rather than the final temperature alone."
         ]
       },
-      "stimulus": {
-        "masked": "t__p___t___ c___g_"
-      },
-      "feedback": {
-        "short": "final temperature minus initial temperature, rather than the final temperature alone",
-        "steps": [
-          "Key idea: temperature change.",
-          "final temperature minus initial temperature, rather than the final temperature alone",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: temperature change"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "temperature change → final temperature minus initial temperature, rather than the final temperature alone"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1100,33 +1092,28 @@
       "topicId": "phys-y9-p6",
       "topic": "Specific heat capacity — AQA Required Practical 1",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "A 20 W heater runs for 10 s. How much electrical energy is supplied, in joules?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "heater energy"
+          "200",
+          "200 J"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "200. Energy supplied directly or calculated as heater power multiplied by time.",
+        "steps": [
+          "200. Energy supplied directly or calculated as heater power multiplied by time."
         ]
       },
-      "stimulus": {
-        "text": "energy supplied directly or calculated as heater power multiplied by time"
-      },
-      "feedback": {
-        "short": "energy supplied directly or calculated as heater power multiplied by time",
-        "steps": [
-          "Key idea: heater energy.",
-          "energy supplied directly or calculated as heater power multiplied by time",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: heater energy"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "heater energy → energy supplied directly or calculated as heater power multiplied by time"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1136,37 +1123,33 @@
       "conceptId": "phys-y9-p6-heater-energy-f4aa9b6beb-concept",
       "topicId": "phys-y9-p6",
       "topic": "Specific heat capacity — AQA Required Practical 1",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of heater energy: “energy supplied directly or calculated as heater power multiplied by ___”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "heater energy"
+          "time"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "time. Energy supplied directly or calculated as heater power multiplied by time.",
+        "steps": [
+          "time. Energy supplied directly or calculated as heater power multiplied by time."
         ]
       },
-      "stimulus": {
-        "masked": "h__t__ _n___y"
-      },
-      "feedback": {
-        "short": "energy supplied directly or calculated as heater power multiplied by time",
-        "steps": [
-          "Key idea: heater energy.",
-          "energy supplied directly or calculated as heater power multiplied by time",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: heater energy"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "heater energy → energy supplied directly or calculated as heater power multiplied by time"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p6-heater-energy-f4aa9b6beb-explain",
@@ -1298,33 +1281,29 @@
       "topicId": "phys-y9-p6",
       "topic": "Specific heat capacity — AQA Required Practical 1",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "Insulation around a heated block reduces energy transfer to what part of the system's environment?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "block insulation"
+          "surroundings",
+          "the surroundings",
+          "surrounding air"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "surroundings. Material reducing unwanted energy transfer from the heated block to the surroundings.",
+        "steps": [
+          "surroundings. Material reducing unwanted energy transfer from the heated block to the surroundings."
         ]
       },
-      "stimulus": {
-        "text": "material reducing unwanted energy transfer from the heated block to the surroundings"
-      },
-      "feedback": {
-        "short": "material reducing unwanted energy transfer from the heated block to the surroundings",
-        "steps": [
-          "Key idea: block insulation.",
-          "material reducing unwanted energy transfer from the heated block to the surroundings",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: block insulation"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "block insulation → material reducing unwanted energy transfer from the heated block to the surroundings"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1334,37 +1313,33 @@
       "conceptId": "phys-y9-p6-block-insulation-a479989694-concept",
       "topicId": "phys-y9-p6",
       "topic": "Specific heat capacity — AQA Required Practical 1",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of block insulation: “material reducing unwanted ___ transfer from the heated block to the surroundings”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "block insulation"
+          "energy"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "energy. Material reducing unwanted energy transfer from the heated block to the surroundings.",
+        "steps": [
+          "energy. Material reducing unwanted energy transfer from the heated block to the surroundings."
         ]
       },
-      "stimulus": {
-        "masked": "b__c_ __s___t___"
-      },
-      "feedback": {
-        "short": "material reducing unwanted energy transfer from the heated block to the surroundings",
-        "steps": [
-          "Key idea: block insulation.",
-          "material reducing unwanted energy transfer from the heated block to the surroundings",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: block insulation"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "block insulation → material reducing unwanted energy transfer from the heated block to the surroundings"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p6-block-insulation-a479989694-explain",
@@ -1496,73 +1471,67 @@
       "topicId": "phys-y9-p6",
       "topic": "Specific heat capacity — AQA Required Practical 1",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "Oil in the thermometer hole of a metal block displaces air. Does this improve or worsen thermal contact?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "thermal contact"
+          "improve",
+          "improves",
+          "improve thermal contact"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "improve. Close contact allowing heater and thermometer to exchange energy effectively with the block.",
+        "steps": [
+          "improve. Close contact allowing heater and thermometer to exchange energy effectively with the block."
         ]
       },
-      "stimulus": {
-        "text": "close contact allowing heater and thermometer to exchange energy effectively with the block"
-      },
-      "feedback": {
-        "short": "close contact allowing heater and thermometer to exchange energy effectively with the block",
-        "steps": [
-          "Key idea: thermal contact.",
-          "close contact allowing heater and thermometer to exchange energy effectively with the block",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: thermal contact"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "thermal contact → close contact allowing heater and thermometer to exchange energy effectively with the block"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p6-thermal-contact-f01faf0d77-restore",
       "conceptId": "phys-y9-p6-thermal-contact-f01faf0d77-concept",
       "topicId": "phys-y9-p6",
       "topic": "Specific heat capacity — AQA Required Practical 1",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of thermal contact: “close contact allowing heater and thermometer to exchange ___ effectively with the block”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "thermal contact"
+          "energy"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "energy. Close contact allowing heater and thermometer to exchange energy effectively with the block.",
+        "steps": [
+          "energy. Close contact allowing heater and thermometer to exchange energy effectively with the block."
         ]
       },
-      "stimulus": {
-        "masked": "t__r___ c___a__"
-      },
-      "feedback": {
-        "short": "close contact allowing heater and thermometer to exchange energy effectively with the block",
-        "steps": [
-          "Key idea: thermal contact.",
-          "close contact allowing heater and thermometer to exchange energy effectively with the block",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: thermal contact"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "thermal contact → close contact allowing heater and thermometer to exchange energy effectively with the block"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p6-thermal-contact-f01faf0d77-explain",
@@ -1694,33 +1663,29 @@
       "topicId": "phys-y9-p6",
       "topic": "Specific heat capacity — AQA Required Practical 1",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "For a fixed mass and negligible losses, a graph of supplied energy against temperature rise is linear. If the rise doubles, by what factor does supplied energy change?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "SHC graph"
+          "2",
+          "two",
+          "it doubles"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "2. Using several energy and temperature readings to obtain a stronger result than one reading.",
+        "steps": [
+          "2. Using several energy and temperature readings to obtain a stronger result than one reading."
         ]
       },
-      "stimulus": {
-        "text": "using several energy and temperature readings to obtain a stronger result than one reading"
-      },
-      "feedback": {
-        "short": "using several energy and temperature readings to obtain a stronger result than one reading",
-        "steps": [
-          "Key idea: SHC graph.",
-          "using several energy and temperature readings to obtain a stronger result than one reading",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: SHC graph"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "SHC graph → using several energy and temperature readings to obtain a stronger result than one reading"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1730,37 +1695,33 @@
       "conceptId": "phys-y9-p6-shc-graph-be872e1c4a-concept",
       "topicId": "phys-y9-p6",
       "topic": "Specific heat capacity — AQA Required Practical 1",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of shc graph: “using several ___ and temperature readings to obtain a stronger result than one reading”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "SHC graph"
+          "energy"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "energy. Using several energy and temperature readings to obtain a stronger result than one reading.",
+        "steps": [
+          "energy. Using several energy and temperature readings to obtain a stronger result than one reading."
         ]
       },
-      "stimulus": {
-        "masked": "S__ g___h"
-      },
-      "feedback": {
-        "short": "using several energy and temperature readings to obtain a stronger result than one reading",
-        "steps": [
-          "Key idea: SHC graph.",
-          "using several energy and temperature readings to obtain a stronger result than one reading",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: SHC graph"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "SHC graph → using several energy and temperature readings to obtain a stronger result than one reading"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p6-shc-graph-be872e1c4a-explain",
@@ -2133,7 +2094,7 @@
       "topicId": "phys-y9-p6",
       "topic": "Specific heat capacity — AQA Required Practical 1",
       "format": "calculation",
-      "prompt": "Calculate the energy needed to heat 2.0 kg of a substance with c = 450 J/kg°C by 30°C.",
+      "prompt": "Calculate the energy needed to heat 2.0 kg of a substance with c = 450 J/kg°C by 30°C. A number on its own will be read in J.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
@@ -2146,7 +2107,9 @@
         ],
         "working": "ΔE = mcΔθ = 2.0 × 450 × 30 = 27,000 J",
         "tolerance": 0,
-        "modelAnswer": "27000 J"
+        "modelAnswer": "27000 J",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -2173,7 +2136,7 @@
       "topicId": "phys-y9-p6",
       "topic": "Specific heat capacity — AQA Required Practical 1",
       "format": "calculation",
-      "prompt": "A 0.50 kg block receives 12,000 J and warms by 40°C. Calculate its specific heat capacity.",
+      "prompt": "A 0.50 kg block receives 12,000 J and warms by 40°C. Calculate its specific heat capacity. A number on its own will be read in J/kg°C.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -2186,7 +2149,9 @@
         ],
         "working": "c = ΔE ÷ (mΔθ) = 12,000 ÷ (0.50 × 40) = 600 J/kg°C",
         "tolerance": 0,
-        "modelAnswer": "600 J/kg°C"
+        "modelAnswer": "600 J/kg°C",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -2336,7 +2301,9 @@
           "energy measurement",
           "heater"
         ],
-        "diagramId": "phys-shc"
+        "diagramId": "phys-shc",
+        "image": "/content/diagrams/question-review/phys-shc.svg",
+        "imageAlt": "Lettered figure for Specific heat capacity — AQA Required Practical 1."
       },
       "feedback": {
         "short": "Place every scientific label at its correct anchor.",

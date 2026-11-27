@@ -153,6 +153,18 @@ export function mergeDailyRecordRow(previous,incoming,date){
    date:date||previous?.date||incoming?.date,tasks:merged,done,total,
    complete:total>0&&done===total,
    ...(verifiedReceipt?{verifiedOriginalCompletionReceipt:true}:{})};
+ // During hydration the initial shell can reach the ledger before the official plan.
+ const retired=new Set(['study-session','year8-long-review','tend-garden','play-game']);
+ const live=merged.filter(t=>!retired.has(t.id));
+ const placeholders=merged.filter(t=>retired.has(t.id));
+ if(live.length===11 && live.every(t=>t.dailyV3===true) &&
+    live.some(t=>t.id==='languages-standard') && live.some(t=>t.id==='maths-daily') &&
+    placeholders.length && placeholders.every(t=>!t.done && !nonneg(t.progress))){
+   const archive=new Map((row.legacyExtraTasks||[]).map(t=>[t.id,t]));
+   for(const t of placeholders)if(!archive.has(t.id))archive.set(t.id,t);
+   row.tasks=live;row.total=live.length;row.done=live.filter(isDone).length;
+   row.complete=row.done===row.total;row.legacyExtraTasks=[...archive.values()];
+ }
  if(previous&&incoming&&(!originalFallback||!newFallback))delete row.recoveryFallback;
  return row;
 }

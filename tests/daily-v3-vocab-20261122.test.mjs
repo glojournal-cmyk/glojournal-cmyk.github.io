@@ -62,3 +62,28 @@ test('V3 20+10 requires explicitly approved Year 9 headwords; no substitution on
  assert.equal(resumed.filter(q=>q._dailyYear8).length,0);
  assert.equal(resumed.filter(q=>q._dailyYear9).length,10);
 });
+
+import {year9DailyVocabulary} from '../assets/daily-vocab-y9-20261021.js';
+import {approvedDailyWords} from '../assets/daily-v3-approved-words.js';
+import fs from 'node:fs';
+
+for(const subject of ['latin','french']){
+ test(subject+' selects 20 older and 10 reviewed Year 9 words from the shipped topic banks',()=>{
+  const folder='content/topics/';
+  const prefix=subject==='latin'?'la-y8-':'fr-y8-';
+  const items=fs.readdirSync(folder).filter(f=>f.startsWith(prefix)&&f.endsWith('.json'))
+    .flatMap(f=>JSON.parse(fs.readFileSync(folder+f)).questions||[]);
+  const year9Items=year9DailyVocabulary(subject);
+  const entries=approvedDailyWords[subject];
+  for(const entry of entries){
+   const pair=year9Items.filter(q=>q.topicId===entry.topicId&&q._vocabTerm===entry.term);
+   assert.equal(pair.length,2,entry.term);
+   if(entry.english)assert.ok(entry.english.includes(pair[0].answer.accepted[0]),entry.term);
+  }
+  const set=selectDailyVocabulary({subject,day:'2026-11-27',items,year9Items,size:30});
+  assert.equal(set.length,30);
+  assert.equal(set.filter(q=>q._dailyYear9).length,10);
+  assert.equal(new Set(set.map(q=>q._vocabConcept)).size,30);
+  for(const q of set.filter(q=>q._dailyYear9))assert.ok(entries.some(e=>e.term===q._vocabTerm&&e.topicId===q.topicId));
+ });
+}

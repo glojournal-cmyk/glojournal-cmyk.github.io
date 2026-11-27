@@ -887,33 +887,27 @@
       "topicId": "bio-y9-b15",
       "topic": "Rate of photosynthesis and Required Practical 6",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Which green pigment absorbs light for photosynthesis?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "chlorophyll amount"
+          "chlorophyll"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "chlorophyll. A factor that can limit how much light energy a plant absorbs.",
+        "steps": [
+          "chlorophyll. A factor that can limit how much light energy a plant absorbs."
         ]
       },
-      "stimulus": {
-        "text": "a factor that can limit how much light energy a plant absorbs"
-      },
-      "feedback": {
-        "short": "a factor that can limit how much light energy a plant absorbs",
-        "steps": [
-          "Key idea: chlorophyll amount.",
-          "a factor that can limit how much light energy a plant absorbs",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: chlorophyll amount"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "chlorophyll amount → a factor that can limit how much light energy a plant absorbs"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -923,37 +917,33 @@
       "conceptId": "bio-y9-b15-chlorophyll-amount-2b2d991c5d-concept",
       "topicId": "bio-y9-b15",
       "topic": "Rate of photosynthesis and Required Practical 6",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of chlorophyll amount: “a factor that can limit how much light ___ a plant absorbs”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "chlorophyll amount"
+          "energy"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "energy. A factor that can limit how much light energy a plant absorbs.",
+        "steps": [
+          "energy. A factor that can limit how much light energy a plant absorbs."
         ]
       },
-      "stimulus": {
-        "masked": "c__o___h___ a___n_"
-      },
-      "feedback": {
-        "short": "a factor that can limit how much light energy a plant absorbs",
-        "steps": [
-          "Key idea: chlorophyll amount.",
-          "a factor that can limit how much light energy a plant absorbs",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: chlorophyll amount"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "chlorophyll amount → a factor that can limit how much light energy a plant absorbs"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b15-chlorophyll-amount-2b2d991c5d-explain",
@@ -1124,34 +1114,29 @@
       "conceptId": "bio-y9-b15-photosynthesis-plateau-8d7741a7f8-concept",
       "topicId": "bio-y9-b15",
       "topic": "Rate of photosynthesis and Required Practical 6",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Light intensity increases but photosynthesis no longer speeds up. Is light still the limiting factor?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "photosynthesis plateau"
+          "no",
+          "no it is not"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "no. A graph region where increasing the tested factor no longer increases rate because another factor limits.",
+        "steps": [
+          "no. A graph region where increasing the tested factor no longer increases rate because another factor limits."
         ]
       },
-      "stimulus": {
-        "masked": "p__t___n___s__ _l___a_"
-      },
-      "feedback": {
-        "short": "a graph region where increasing the tested factor no longer increases rate because another factor limits",
-        "steps": [
-          "Key idea: photosynthesis plateau.",
-          "a graph region where increasing the tested factor no longer increases rate because another factor limits",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: photosynthesis plateau"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "photosynthesis plateau → a graph region where increasing the tested factor no longer increases rate because another factor limits"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1296,7 +1281,11 @@
           "a rate decrease when enzymes lose their functional shape"
         ],
         "totalMarks": 1,
-        "modelAnswer": "a rate decrease when enzymes lose their functional shape"
+        "modelAnswer": "a rate decrease when enzymes lose their functional shape",
+        "reviewedEquivalents": [
+          "enzymes denature",
+          "enzymes lose the shape of their active site and the rate decreases"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -1373,7 +1362,11 @@
           "a rate decrease when enzymes lose their functional shape"
         ],
         "totalMarks": 1,
-        "modelAnswer": "a rate decrease when enzymes lose their functional shape"
+        "modelAnswer": "a rate decrease when enzymes lose their functional shape",
+        "reviewedEquivalents": [
+          "enzymes denature",
+          "enzymes lose the shape of their active site and the rate decreases"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -1497,7 +1490,11 @@
           "oxygen volume divided by time, a preferred measure of pondweed photosynthesis rate"
         ],
         "totalMarks": 1,
-        "modelAnswer": "oxygen volume divided by time, a preferred measure of pondweed photosynthesis rate"
+        "modelAnswer": "oxygen volume divided by time, a preferred measure of pondweed photosynthesis rate",
+        "reviewedEquivalents": [
+          "rate = oxygen volume / time",
+          "volume of oxygen produced divided by time taken"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -1526,37 +1523,33 @@
       "conceptId": "bio-y9-b15-oxygen-volume-rate-1f45699ca6-concept",
       "topicId": "bio-y9-b15",
       "topic": "Rate of photosynthesis and Required Practical 6",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of oxygen-volume rate: “oxygen volume divided by ___, a preferred measure of pondweed photosynthesis rate”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "oxygen-volume rate"
+          "time"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "time. Oxygen volume divided by time, a preferred measure of pondweed photosynthesis rate.",
+        "steps": [
+          "time. Oxygen volume divided by time, a preferred measure of pondweed photosynthesis rate."
         ]
       },
-      "stimulus": {
-        "masked": "o__g__-_o___e ___e"
-      },
-      "feedback": {
-        "short": "oxygen volume divided by time, a preferred measure of pondweed photosynthesis rate",
-        "steps": [
-          "Key idea: oxygen-volume rate.",
-          "oxygen volume divided by time, a preferred measure of pondweed photosynthesis rate",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: oxygen-volume rate"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "oxygen-volume rate → oxygen volume divided by time, a preferred measure of pondweed photosynthesis rate"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b15-oxygen-volume-rate-1f45699ca6-explain",
@@ -1574,7 +1567,11 @@
           "oxygen volume divided by time, a preferred measure of pondweed photosynthesis rate"
         ],
         "totalMarks": 1,
-        "modelAnswer": "oxygen volume divided by time, a preferred measure of pondweed photosynthesis rate"
+        "modelAnswer": "oxygen volume divided by time, a preferred measure of pondweed photosynthesis rate",
+        "reviewedEquivalents": [
+          "rate = oxygen volume / time",
+          "volume of oxygen produced divided by time taken"
+        ]
       },
       "stimulus": {
         "marks": 1,
@@ -1727,37 +1724,35 @@
       "conceptId": "bio-y9-b15-photosynthesis-practical-controls-5a1ab34f5f-concept",
       "topicId": "bio-y9-b15",
       "topic": "Rate of photosynthesis and Required Practical 6",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "In a test of light intensity, should the water temperature be changed or kept constant?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "photosynthesis practical controls"
+          "kept constant",
+          "constant",
+          "kept the same"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "kept constant. Temperature, carbon dioxide availability, pondweed length or species, and measurement time.",
+        "steps": [
+          "kept constant. Temperature, carbon dioxide availability, pondweed length or species, and measurement time."
         ]
       },
-      "stimulus": {
-        "masked": "p__t___n___s__ _r___i___ c___r___"
-      },
-      "feedback": {
-        "short": "temperature, carbon dioxide availability, pondweed length or species, and measurement time",
-        "steps": [
-          "Key idea: photosynthesis practical controls.",
-          "temperature, carbon dioxide availability, pondweed length or species, and measurement time",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: photosynthesis practical controls"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "photosynthesis practical controls → temperature, carbon dioxide availability, pondweed length or species, and measurement time"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b15-photosynthesis-practical-controls-5a1ab34f5f-explain",
@@ -1889,33 +1884,29 @@
       "topicId": "bio-y9-b15",
       "topic": "Rate of photosynthesis and Required Practical 6",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Three oxygen-volume readings are 5, 6 and 7 cm³ in equal times. What is their mean in cm³?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "repeats and mean"
+          "6",
+          "6 cm³",
+          "6 cm3"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "6. A method for improving confidence and reducing the influence of random variation.",
+        "steps": [
+          "6. A method for improving confidence and reducing the influence of random variation."
         ]
       },
-      "stimulus": {
-        "text": "a method for improving confidence and reducing the influence of random variation"
-      },
-      "feedback": {
-        "short": "a method for improving confidence and reducing the influence of random variation",
-        "steps": [
-          "Key idea: repeats and mean.",
-          "a method for improving confidence and reducing the influence of random variation",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: repeats and mean"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "repeats and mean → a method for improving confidence and reducing the influence of random variation"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1925,37 +1916,33 @@
       "conceptId": "bio-y9-b15-repeats-and-mean-bc93420c3d-concept",
       "topicId": "bio-y9-b15",
       "topic": "Rate of photosynthesis and Required Practical 6",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of repeats and mean: “a method for improving confidence and reducing the influence of ___ variation”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "repeats and mean"
+          "random"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "random. A method for improving confidence and reducing the influence of random variation.",
+        "steps": [
+          "random. A method for improving confidence and reducing the influence of random variation."
         ]
       },
-      "stimulus": {
-        "masked": "r__e___ a__ _e__"
-      },
-      "feedback": {
-        "short": "a method for improving confidence and reducing the influence of random variation",
-        "steps": [
-          "Key idea: repeats and mean.",
-          "a method for improving confidence and reducing the influence of random variation",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: repeats and mean"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "repeats and mean → a method for improving confidence and reducing the influence of random variation"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b15-repeats-and-mean-bc93420c3d-explain",
@@ -2086,37 +2073,32 @@
       "conceptId": "bio-y9-b15-inverse-square-light-relationship-93f30da03a-concept",
       "topicId": "bio-y9-b15",
       "topic": "Rate of photosynthesis and Required Practical 6",
-      "format": "typed_short",
-      "prompt": "State the key biological fact about “inverse-square light relationship”.",
+      "format": "typed_exact",
+      "prompt": "For a point light source, intensity varies as 1/d². If the distance doubles, what fraction of the original intensity remains?",
       "difficulty": 2,
       "status": "preview",
       "options": null,
       "answer": {
-        "mode": "mark_points",
-        "markPoints": [
-          "light intensity is approximately proportional to one divided by distance squared for a point source"
+        "mode": "exact_or_equivalent",
+        "accepted": [
+          "one quarter",
+          "a quarter",
+          "1/4",
+          "0.25",
+          "25%"
         ],
-        "totalMarks": 1,
-        "modelAnswer": "light intensity is approximately proportional to one divided by distance squared for a point source"
+        "exactScienceResponse": true
       },
-      "stimulus": {
-        "marks": 1,
-        "cue": "inverse-square light relationship"
-      },
+      "stimulus": {},
       "feedback": {
-        "short": "light intensity is approximately proportional to one divided by distance squared for a point source",
+        "short": "one quarter. Light intensity is approximately proportional to one divided by distance squared for a point source.",
         "steps": [
-          "Key idea: inverse-square light relationship.",
-          "light intensity is approximately proportional to one divided by distance squared for a point source",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
-          "Suggested answer: light intensity is approximately proportional to one divided by distance squared for a point source"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "inverse-square light relationship → light intensity is approximately proportional to one divided by distance squared for a point source"
+          "one quarter. Light intensity is approximately proportional to one divided by distance squared for a point source."
+        ]
       },
       "task": {
         "label": "SHORT ANSWER",
-        "instruction": "Write the precise short answer requested."
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": false
@@ -2126,37 +2108,33 @@
       "conceptId": "bio-y9-b15-inverse-square-light-relationship-93f30da03a-concept",
       "topicId": "bio-y9-b15",
       "topic": "Rate of photosynthesis and Required Practical 6",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of inverse-square light relationship: “light intensity is approximately proportional to one divided by ___ squared for a point source”.",
       "difficulty": 2,
       "status": "preview",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "inverse-square light relationship"
+          "distance"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "distance. Light intensity is approximately proportional to one divided by distance squared for a point source.",
+        "steps": [
+          "distance. Light intensity is approximately proportional to one divided by distance squared for a point source."
         ]
       },
-      "stimulus": {
-        "masked": "i__e___-s___r_ __g__ _e___i___h__"
-      },
-      "feedback": {
-        "short": "light intensity is approximately proportional to one divided by distance squared for a point source",
-        "steps": [
-          "Key idea: inverse-square light relationship.",
-          "light intensity is approximately proportional to one divided by distance squared for a point source",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: inverse-square light relationship"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "inverse-square light relationship → light intensity is approximately proportional to one divided by distance squared for a point source"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": false
+      "ordinary": false,
+      "formal": false
     },
     {
       "id": "bio-y9-b15-inverse-square-light-relationship-93f30da03a-explain",
@@ -2328,7 +2306,7 @@
       "topicId": "bio-y9-b15",
       "topic": "Rate of photosynthesis and Required Practical 6",
       "format": "calculation",
-      "prompt": "Pondweed produces 18 cm³ of oxygen in 6 minutes. Calculate the mean oxygen-production rate.",
+      "prompt": "Pondweed produces 18 cm³ of oxygen in 6 minutes. Calculate the mean oxygen-production rate. A number on its own will be read in cm³/min.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
@@ -2342,7 +2320,9 @@
         ],
         "working": "18 cm³ ÷ 6 min = 3 cm³/min",
         "tolerance": 0,
-        "modelAnswer": "3 cm³/min"
+        "modelAnswer": "3 cm³/min",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -2413,37 +2393,45 @@
       "conceptId": "bio-y9-b15-app-graph-plateau-concept",
       "topicId": "bio-y9-b15",
       "topic": "Rate of photosynthesis and Required Practical 6",
-      "format": "mark_points",
-      "prompt": "A graph rises at low light intensity and then levels off. Explain both regions.",
+      "format": "extended_response",
+      "prompt": "A graph rises at low light intensity and then levels off. Explain both regions.\nAnswer each numbered part on a separate line, in order.\n1. At low light intensity, the photosynthesis rate rises when the lamp is brightened. Which factor was limiting?\n2. At high light intensity, the graph plateaus. Would increasing light alone raise the rate further?\n3. Name one other factor that can limit the rate at the plateau.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "mark_points",
-        "markPoints": [
-          "at low light, light is limiting so more light increases rate",
-          "at the plateau light is no longer limiting",
-          "another factor such as carbon dioxide or temperature limits the rate"
+        "mode": "ordered_parts",
+        "reviewedParts": [
+          [
+            "light",
+            "light intensity"
+          ],
+          [
+            "no"
+          ],
+          [
+            "temperature",
+            "carbon dioxide",
+            "carbon dioxide concentration",
+            "CO2 concentration",
+            "CO2",
+            "chlorophyll concentration"
+          ]
         ],
         "totalMarks": 3,
-        "modelAnswer": "at low light, light is limiting so more light increases rate at the plateau light is no longer limiting another factor such as carbon dioxide or temperature limits the rate"
+        "modelAnswer": "light\nno\ntemperature"
       },
-      "stimulus": {
-        "marks": 3
-      },
+      "stimulus": {},
       "feedback": {
-        "short": "at low light, light is limiting so more light increases rate at the plateau light is no longer limiting another factor such as carbon dioxide or temperature limits the rate",
+        "short": "light\nno\ntemperature",
         "steps": [
-          "at low light, light is limiting so more light increases rate at the plateau light is no longer limiting another factor such as carbon dioxide or temperature limits the rate",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
-          "Suggested answer: at low light, light is limiting so more light increases rate at the plateau light is no longer limiting another factor such as carbon dioxide or temperature limits the rate"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "at low light, light is limiting so more light increases rate at the plateau light is no longer limiting another factor such as carbon dioxide or temperature limits the rate"
+          "1. light",
+          "2. no",
+          "3. temperature"
+        ]
       },
       "task": {
-        "label": "EXPLAIN",
-        "instruction": "Write one distinct scientific idea for each available mark."
+        "label": "SHORT ANSWERS",
+        "instruction": "One response per line, in the order shown."
       },
       "preview": true,
       "ordinary": true
@@ -2453,38 +2441,45 @@
       "conceptId": "bio-y9-b15-app-gas-v-bubbles-concept",
       "topicId": "bio-y9-b15",
       "topic": "Rate of photosynthesis and Required Practical 6",
-      "format": "mark_points",
-      "prompt": "Explain why measuring oxygen volume is preferable to recording only a bubble count in the supplied method.",
+      "format": "extended_response",
+      "prompt": "Answer each numbered part on a separate line, in order.\n1. Which measurement gives gas production in cm³ per minute: bubble count or volume collected per minute?\n2. Which property of individual bubbles can vary even at the same count?\n3. Two runs give 12 bubbles each. Must the oxygen volumes be equal?",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "mark_points",
-        "markPoints": [
-          "measuring gas volume directly measures the amount of oxygen produced",
-          "bubbles can vary in size",
-          "the same bubble count can therefore represent different gas volumes, making bubble count less reliable"
+        "mode": "ordered_parts",
+        "reviewedParts": [
+          [
+            "volume collected per minute",
+            "volume",
+            "gas volume",
+            "volume collected"
+          ],
+          [
+            "size",
+            "volume",
+            "bubble size",
+            "bubble volume"
+          ],
+          [
+            "no"
+          ]
         ],
         "totalMarks": 3,
-        "modelAnswer": "measuring gas volume directly measures the amount of oxygen produced bubbles can vary in size the same bubble count can therefore represent different gas volumes, making bubble count less reliable"
+        "modelAnswer": "volume collected per minute\nsize\nno"
       },
-      "stimulus": {
-        "marks": 3
-      },
+      "stimulus": {},
       "feedback": {
-        "short": "Gas volume is more reliable because bubbles vary in size, so the same bubble count can represent different volumes of oxygen.",
+        "short": "volume collected per minute\nsize\nno",
         "steps": [
-          "Measure the amount of oxygen produced, not just the number of bubbles.",
-          "Bubbles can be different sizes.",
-          "Therefore the same number of bubbles can represent different gas volumes, so bubble count is less reliable.",
-          "Suggested answer: Gas volume directly measures oxygen produced; bubble size varies, so equal bubble counts may represent different oxygen volumes."
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "Gas volume is preferable to bubble count because bubble size varies."
+          "1. volume collected per minute",
+          "2. size",
+          "3. no"
+        ]
       },
       "task": {
-        "label": "EXPLAIN",
-        "instruction": "Write one distinct scientific idea for each available mark."
+        "label": "SHORT ANSWERS",
+        "instruction": "One response per line, in the order shown."
       },
       "preview": true,
       "ordinary": true

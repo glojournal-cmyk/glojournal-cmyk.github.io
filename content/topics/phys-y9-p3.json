@@ -890,73 +890,66 @@
       "topicId": "phys-y9-p3",
       "topic": "Internal energy and heating",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "As a pure substance melts at its melting point, which particle energy increases: kinetic or potential?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "heating during state change"
+          "potential",
+          "potential energy"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "potential. Energy transfer increasing particle potential energy without increasing temperature.",
+        "steps": [
+          "potential. Energy transfer increasing particle potential energy without increasing temperature."
         ]
       },
-      "stimulus": {
-        "text": "energy transfer increasing particle potential energy without increasing temperature"
-      },
-      "feedback": {
-        "short": "energy transfer increasing particle potential energy without increasing temperature",
-        "steps": [
-          "Key idea: heating during state change.",
-          "energy transfer increasing particle potential energy without increasing temperature",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: heating during state change"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "heating during state change → energy transfer increasing particle potential energy without increasing temperature"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p3-heating-during-state-change-61d9671f0b-restore",
       "conceptId": "phys-y9-p3-heating-during-state-change-61d9671f0b-concept",
       "topicId": "phys-y9-p3",
       "topic": "Internal energy and heating",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of heating during state change: “energy transfer increasing particle ___ without increasing temperature”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "heating during state change"
+          "potential energy"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "potential energy. Energy transfer increasing particle potential energy without increasing temperature.",
+        "steps": [
+          "potential energy. Energy transfer increasing particle potential energy without increasing temperature."
         ]
       },
-      "stimulus": {
-        "masked": "h__t___ d___n_ __a__ _h___e"
-      },
-      "feedback": {
-        "short": "energy transfer increasing particle potential energy without increasing temperature",
-        "steps": [
-          "Key idea: heating during state change.",
-          "energy transfer increasing particle potential energy without increasing temperature",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: heating during state change"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "heating during state change → energy transfer increasing particle potential energy without increasing temperature"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p3-heating-during-state-change-61d9671f0b-explain",
@@ -1286,73 +1279,67 @@
       "topicId": "phys-y9-p3",
       "topic": "Internal energy and heating",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "Two samples of the same pure solid are at the same temperature. Which has more total internal energy: 10 g or 20 g?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "size and internal energy"
+          "20 g",
+          "20",
+          "the 20 g sample"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "20 g. A larger object potentially having more internal energy than a smaller object at the same temperature because it has more particles.",
+        "steps": [
+          "20 g. A larger object potentially having more internal energy than a smaller object at the same temperature because it has more particles."
         ]
       },
-      "stimulus": {
-        "text": "a larger object potentially having more internal energy than a smaller object at the same temperature because it has more particles"
-      },
-      "feedback": {
-        "short": "a larger object potentially having more internal energy than a smaller object at the same temperature because it has more particles",
-        "steps": [
-          "Key idea: size and internal energy.",
-          "a larger object potentially having more internal energy than a smaller object at the same temperature because it has more particles",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: size and internal energy"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "size and internal energy → a larger object potentially having more internal energy than a smaller object at the same temperature because it has more particles"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p3-size-and-internal-energy-918f8bdb76-restore",
       "conceptId": "phys-y9-p3-size-and-internal-energy-918f8bdb76-concept",
       "topicId": "phys-y9-p3",
       "topic": "Internal energy and heating",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of size and internal energy: “a larger object potentially having more internal energy than a smaller object at the same ___ because it has more particles”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "size and internal energy"
+          "temperature"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "temperature. A larger object potentially having more internal energy than a smaller object at the same temperature because it has more particles.",
+        "steps": [
+          "temperature. A larger object potentially having more internal energy than a smaller object at the same temperature because it has more particles."
         ]
       },
-      "stimulus": {
-        "masked": "s__e ___ i___r___ e___g_"
-      },
-      "feedback": {
-        "short": "a larger object potentially having more internal energy than a smaller object at the same temperature because it has more particles",
-        "steps": [
-          "Key idea: size and internal energy.",
-          "a larger object potentially having more internal energy than a smaller object at the same temperature because it has more particles",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: size and internal energy"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "size and internal energy → a larger object potentially having more internal energy than a smaller object at the same temperature because it has more particles"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "phys-y9-p3-size-and-internal-energy-918f8bdb76-explain",

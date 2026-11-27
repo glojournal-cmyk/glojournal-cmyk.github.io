@@ -1,0 +1,30 @@
+name: Higher Maths Daily credit
+on:
+  push:
+    branches: [main, qa/higher-maths-daily-credit]
+    paths:
+      - 'assets/math-study/higher-daily-20261125.js'
+      - 'assets/durable-study-evidence-20261018.js'
+      - 'assets/index-BLVOhKhN.js'
+      - 'study/maths/higher-practice/**'
+      - 'tests/higher-maths-daily-credit.mjs'
+      - '.github/workflows/higher-maths-daily-credit.yml'
+permissions:
+  contents: read
+jobs:
+  scored-student-flow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install browser driver
+        run: npm install --prefix "$RUNNER_TEMP/maths-browser" --no-save playwright
+      - name: Check scored student sessions and the dated Home ledger
+        env:
+          NODE_PATH: ${{ runner.temp }}/maths-browser/node_modules
+        run: |
+          python3 -m http.server 8765 --bind 127.0.0.1 > "$RUNNER_TEMP/maths-http.log" 2>&1 &
+          node tests/higher-maths-daily-credit.mjs

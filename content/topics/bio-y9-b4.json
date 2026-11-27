@@ -1087,33 +1087,29 @@
       "topicId": "bio-y9-b4",
       "topic": "Culturing microorganisms and aseptic technique — Required Practical 2",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "What term describes equipment free of viable microorganisms?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "sterilised inoculating loop"
+          "sterile",
+          "sterilised",
+          "sterilized"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "sterile.",
+        "steps": [
+          "sterile."
         ]
       },
-      "stimulus": {
-        "text": "equipment treatment that kills unwanted microorganisms before transfer"
-      },
-      "feedback": {
-        "short": "equipment treatment that kills unwanted microorganisms before transfer",
-        "steps": [
-          "Key idea: sterilised inoculating loop.",
-          "equipment treatment that kills unwanted microorganisms before transfer",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: sterilised inoculating loop"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "sterilised inoculating loop → equipment treatment that kills unwanted microorganisms before transfer"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1123,37 +1119,35 @@
       "conceptId": "bio-y9-b4-sterilised-inoculating-loop-a91d75534b-concept",
       "topicId": "bio-y9-b4",
       "topic": "Culturing microorganisms and aseptic technique — Required Practical 2",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "What term describes equipment free of viable microorganisms?",
       "difficulty": 2,
-      "status": "enabled",
+      "status": "disabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "sterilised inoculating loop"
+          "sterile",
+          "sterilised",
+          "sterilized"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "sterile.",
+        "steps": [
+          "sterile."
         ]
       },
-      "stimulus": {
-        "masked": "s__r___s__ _n___l___n_ __o_"
-      },
-      "feedback": {
-        "short": "equipment treatment that kills unwanted microorganisms before transfer",
-        "steps": [
-          "Key idea: sterilised inoculating loop.",
-          "equipment treatment that kills unwanted microorganisms before transfer",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: sterilised inoculating loop"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "sterilised inoculating loop → equipment treatment that kills unwanted microorganisms before transfer"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "duplicateOf": "bio-y9-b4-sterilised-inoculating-loop-a91d75534b-typed",
+      "formal": false
     },
     {
       "id": "bio-y9-b4-sterilised-inoculating-loop-a91d75534b-explain",
@@ -1285,33 +1279,27 @@
       "topicId": "bio-y9-b4",
       "topic": "Culturing microorganisms and aseptic technique — Required Practical 2",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "An unintended microorganism is found in a laboratory sample. What is the presence of unwanted material in a sample called?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "brief lid opening"
+          "contamination"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "contamination.",
+        "steps": [
+          "contamination."
         ]
       },
-      "stimulus": {
-        "text": "a technique reducing contamination from microorganisms in the air"
-      },
-      "feedback": {
-        "short": "a technique reducing contamination from microorganisms in the air",
-        "steps": [
-          "Key idea: brief lid opening.",
-          "a technique reducing contamination from microorganisms in the air",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: brief lid opening"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "brief lid opening → a technique reducing contamination from microorganisms in the air"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1321,37 +1309,33 @@
       "conceptId": "bio-y9-b4-brief-lid-opening-91a8271c6d-concept",
       "topicId": "bio-y9-b4",
       "topic": "Culturing microorganisms and aseptic technique — Required Practical 2",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "An unintended microorganism is found in a laboratory sample. What is the presence of unwanted material in a sample called?",
       "difficulty": 2,
-      "status": "enabled",
+      "status": "disabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "brief lid opening"
+          "contamination"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "contamination.",
+        "steps": [
+          "contamination."
         ]
       },
-      "stimulus": {
-        "masked": "b__e_ __d ___n___"
-      },
-      "feedback": {
-        "short": "a technique reducing contamination from microorganisms in the air",
-        "steps": [
-          "Key idea: brief lid opening.",
-          "a technique reducing contamination from microorganisms in the air",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: brief lid opening"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "brief lid opening → a technique reducing contamination from microorganisms in the air"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "duplicateOf": "bio-y9-b4-brief-lid-opening-91a8271c6d-typed",
+      "formal": false
     },
     {
       "id": "bio-y9-b4-brief-lid-opening-91a8271c6d-explain",
@@ -1483,73 +1467,66 @@
       "topicId": "bio-y9-b4",
       "topic": "Culturing microorganisms and aseptic technique — Required Practical 2",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Which word describes an organism that grows without oxygen: aerobic or anaerobic?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "taping at a few points"
+          "anaerobic"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "anaerobic.",
+        "steps": [
+          "anaerobic."
         ]
       },
-      "stimulus": {
-        "text": "the school safety practice that secures a plate without sealing it completely"
-      },
-      "feedback": {
-        "short": "the school safety practice that secures a plate without sealing it completely",
-        "steps": [
-          "Key idea: taping at a few points.",
-          "the school safety practice that secures a plate without sealing it completely",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: taping at a few points"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "taping at a few points → the school safety practice that secures a plate without sealing it completely"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b4-taping-at-a-few-points-34be8586f5-restore",
       "conceptId": "bio-y9-b4-taping-at-a-few-points-34be8586f5-concept",
       "topicId": "bio-y9-b4",
       "topic": "Culturing microorganisms and aseptic technique — Required Practical 2",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Which word describes an organism that grows without oxygen: aerobic or anaerobic?",
       "difficulty": 2,
-      "status": "enabled",
+      "status": "disabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "taping at a few points"
+          "anaerobic"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "anaerobic.",
+        "steps": [
+          "anaerobic."
         ]
       },
-      "stimulus": {
-        "masked": "t__i__ _t _ __w ___n__"
-      },
-      "feedback": {
-        "short": "the school safety practice that secures a plate without sealing it completely",
-        "steps": [
-          "Key idea: taping at a few points.",
-          "the school safety practice that secures a plate without sealing it completely",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: taping at a few points"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "taping at a few points → the school safety practice that secures a plate without sealing it completely"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false,
+      "duplicateOf": "bio-y9-b4-taping-at-a-few-points-34be8586f5-typed"
     },
     {
       "id": "bio-y9-b4-taping-at-a-few-points-34be8586f5-explain",
@@ -1681,33 +1658,27 @@
       "topicId": "bio-y9-b4",
       "topic": "Culturing microorganisms and aseptic technique — Required Practical 2",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Water vapour changes into liquid droplets on a cool transparent surface. What is this physical change called?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "inverted incubation"
+          "condensation"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "condensation.",
+        "steps": [
+          "condensation."
         ]
       },
-      "stimulus": {
-        "text": "storing a plate upside down to stop condensation dripping onto and spreading colonies"
-      },
-      "feedback": {
-        "short": "storing a plate upside down to stop condensation dripping onto and spreading colonies",
-        "steps": [
-          "Key idea: inverted incubation.",
-          "storing a plate upside down to stop condensation dripping onto and spreading colonies",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: inverted incubation"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "inverted incubation → storing a plate upside down to stop condensation dripping onto and spreading colonies"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1717,37 +1688,33 @@
       "conceptId": "bio-y9-b4-inverted-incubation-5d2e20b2a5-concept",
       "topicId": "bio-y9-b4",
       "topic": "Culturing microorganisms and aseptic technique — Required Practical 2",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Water vapour changes into liquid droplets on a cool transparent surface. What is this physical change called?",
       "difficulty": 2,
-      "status": "enabled",
+      "status": "disabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "inverted incubation"
+          "condensation"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "condensation.",
+        "steps": [
+          "condensation."
         ]
       },
-      "stimulus": {
-        "masked": "i__e___d ___u___i__"
-      },
-      "feedback": {
-        "short": "storing a plate upside down to stop condensation dripping onto and spreading colonies",
-        "steps": [
-          "Key idea: inverted incubation.",
-          "storing a plate upside down to stop condensation dripping onto and spreading colonies",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: inverted incubation"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "inverted incubation → storing a plate upside down to stop condensation dripping onto and spreading colonies"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "duplicateOf": "bio-y9-b4-inverted-incubation-5d2e20b2a5-typed",
+      "formal": false
     },
     {
       "id": "bio-y9-b4-inverted-incubation-5d2e20b2a5-explain",
@@ -1879,35 +1846,28 @@
       "topicId": "bio-y9-b4",
       "topic": "Culturing microorganisms and aseptic technique — Required Practical 2",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "What term describes a microorganism that can cause disease?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "school incubation temperature",
-          "≤25°C",
-          "25°C or below"
+          "pathogen",
+          "a pathogen"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "pathogen.",
+        "steps": [
+          "pathogen."
         ]
       },
-      "stimulus": {
-        "text": "no more than 25 degrees Celsius to reduce growth of harmful human pathogens"
-      },
-      "feedback": {
-        "short": "no more than 25 degrees Celsius to reduce growth of harmful human pathogens",
-        "steps": [
-          "Key idea: school incubation temperature.",
-          "no more than 25 degrees Celsius to reduce growth of harmful human pathogens",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: school incubation temperature"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "school incubation temperature → no more than 25 degrees Celsius to reduce growth of harmful human pathogens"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1917,39 +1877,34 @@
       "conceptId": "bio-y9-b4-school-incubation-temperature-b68a178730-concept",
       "topicId": "bio-y9-b4",
       "topic": "Culturing microorganisms and aseptic technique — Required Practical 2",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "What term describes a microorganism that can cause disease?",
       "difficulty": 2,
-      "status": "enabled",
+      "status": "disabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "school incubation temperature",
-          "≤25°C",
-          "25°C or below"
+          "pathogen",
+          "a pathogen"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "pathogen.",
+        "steps": [
+          "pathogen."
         ]
       },
-      "stimulus": {
-        "masked": "s__o__ _n___a___n ___p___t___"
-      },
-      "feedback": {
-        "short": "no more than 25 degrees Celsius to reduce growth of harmful human pathogens",
-        "steps": [
-          "Key idea: school incubation temperature.",
-          "no more than 25 degrees Celsius to reduce growth of harmful human pathogens",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: school incubation temperature"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "school incubation temperature → no more than 25 degrees Celsius to reduce growth of harmful human pathogens"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "duplicateOf": "bio-y9-b4-school-incubation-temperature-b68a178730-typed",
+      "formal": false
     },
     {
       "id": "bio-y9-b4-school-incubation-temperature-b68a178730-explain",
@@ -2751,7 +2706,7 @@
       "topicId": "bio-y9-b4",
       "topic": "Culturing microorganisms and aseptic technique — Required Practical 2",
       "format": "calculation",
-      "prompt": "One bacterial cell divides by binary fission once every 20 minutes. How many cells are present after 2 hours if all cells survive and keep dividing?",
+      "prompt": "One bacterial cell divides by binary fission once every 20 minutes. How many cells are present after 2 hours if all cells survive and keep dividing? A number on its own will be read in cells.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -2764,7 +2719,9 @@
         ],
         "working": "2 hours = 120 minutes = 6 divisions; 1 × 2⁶ = 64 cells",
         "tolerance": 0,
-        "modelAnswer": "64 cells"
+        "modelAnswer": "64 cells",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -2786,18 +2743,18 @@
       "ordinary": true
     }
   ],
-  "enabled": 63,
+  "enabled": 58,
   "preview": 5,
-  "disabled": 0,
+  "disabled": 5,
   "formats": {
     "mc_single": 24,
-    "typed_exact": 12,
-    "spelling_restore": 12,
+    "typed_exact": 17,
+    "spelling_restore": 7,
     "mark_points": 14,
     "matching": 3,
+    "word_tiles": 1,
     "practical_design": 1,
-    "calculation": 1,
-    "word_tiles": 1
+    "calculation": 1
   },
   "gated": false,
   "note": {

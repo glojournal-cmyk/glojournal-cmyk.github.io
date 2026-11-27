@@ -1534,37 +1534,35 @@
       "conceptId": "bio-y9-b3-lowest-power-objective-first-21793960f8-concept",
       "topicId": "bio-y9-b3",
       "topic": "Microscopy and Required Practical 1",
-      "format": "spelling_restore",
-      "prompt": "Restore the complete answer for this science cue.",
+      "format": "typed_exact",
+      "prompt": "Which microscope setting gives a wider field of view: low magnification or high magnification?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "the objective used first before focusing and moving to higher power if required"
+          "low magnification",
+          "low",
+          "lower magnification"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "low magnification. The objective used first before focusing and moving to higher power if required.",
+        "steps": [
+          "low magnification. The objective used first before focusing and moving to higher power if required."
         ]
       },
-      "stimulus": {
-        "masked": "t__ o___c___e ___d ___s_ __f___ f___s___ a__ _o___g __ _i___r ___e_ __ r___i___"
-      },
-      "feedback": {
-        "short": "the objective used first before focusing and moving to higher power if required",
-        "steps": [
-          "Key idea: lowest-power objective first.",
-          "the objective used first before focusing and moving to higher power if required",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: the objective used first before focusing and moving to higher power if required"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "lowest-power objective first → the objective used first before focusing and moving to higher power if required"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b3-lowest-power-objective-first-21793960f8-explain",
@@ -2386,7 +2384,7 @@
       "topicId": "bio-y9-b3",
       "topic": "Microscopy and Required Practical 1",
       "format": "calculation",
-      "prompt": "A cell image is 40 mm long and the real cell is 0.05 mm long. Calculate the magnification.",
+      "prompt": "A cell image is 40 mm long and the real cell is 0.05 mm long. Calculate the magnification. A number on its own will be read in ×.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
@@ -2400,7 +2398,9 @@
         ],
         "working": "magnification = 40 mm ÷ 0.05 mm = 800×",
         "tolerance": 0,
-        "modelAnswer": "800 ×"
+        "modelAnswer": "800 ×",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -2427,7 +2427,7 @@
       "topicId": "bio-y9-b3",
       "topic": "Microscopy and Required Practical 1",
       "format": "calculation",
-      "prompt": "A drawing is 30 mm wide at ×600 magnification. Calculate the real width in micrometres.",
+      "prompt": "A drawing is 30 mm wide at ×600 magnification. Calculate the real width in micrometres. A number on its own will be read in μm.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -2442,7 +2442,10 @@
         ],
         "working": "real size = 30 mm ÷ 600 = 0.05 mm = 50 μm",
         "tolerance": 0,
-        "modelAnswer": "50 μm"
+        "modelAnswer": "50 μm",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true,
+        "requireRequestedUnit": true
       },
       "stimulus": {},
       "feedback": {
@@ -2880,7 +2883,7 @@
       "topicId": "bio-y9-b3",
       "topic": "Microscopy and Required Practical 1",
       "format": "calculation",
-      "prompt": "GCSE-style calculation: A cell has an actual width of 25 µm and is drawn 50 mm wide. Calculate the magnification.",
+      "prompt": "GCSE-style calculation: A cell has an actual width of 25 µm and is drawn 50 mm wide. Calculate the magnification. A number on its own will be read in ×.",
       "difficulty": 4,
       "status": "enabled",
       "options": null,
@@ -2894,7 +2897,9 @@
         ],
         "working": "50 mm = 50,000 µm; magnification = 50,000 µm ÷ 25 µm = ×2000.",
         "tolerance": 0,
-        "modelAnswer": "2000 ×"
+        "modelAnswer": "2000 ×",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {

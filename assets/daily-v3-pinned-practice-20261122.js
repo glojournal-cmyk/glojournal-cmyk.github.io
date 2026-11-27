@@ -1,12 +1,14 @@
 // Original approved V3 Daily question IDs are the ONLY allowed practice source.
 // No student storage/XP/MP writes. Returning an empty set on missing pinned
 // content is deliberate: never substitute unrelated, not independently QA'd IDs.
-const TARGETS=Object.freeze({'languages-standard':{year:8},'y8-standard-b':{year:9}});
+const TARGETS=Object.freeze({'languages-standard':{year:8},'y8-standard-b':{year:9},'weakness-review':{year:9},'due-review':{year:9}});
 const nonEmpty=x=>typeof x==='string'&&x.length>0;
 export function pinnedV3DailyPractice({dailyLocked=false,taskId=null,assignment=null,
   subject=null,year=null,topicId=null,day=null,recovery=false,questions=[]}={}){
  const applicable=dailyLocked===true&&recovery!==true&&
-   Object.hasOwn(TARGETS,String(taskId||''));
+   Object.hasOwn(TARGETS,String(taskId||'')) &&
+   (!['due-review','weakness-review'].includes(taskId) ||
+     (assignment?.id===taskId&&assignment.dailyV3===true&&Number(assignment.assignedYear)===9));
  if(!applicable)return {applicable:false,items:[],required:0,issue:null};
  const blocked=issue=>({applicable:true,items:[],required:0,issue});
  if(!assignment||assignment.id!==taskId||assignment.dailyV3!==true||

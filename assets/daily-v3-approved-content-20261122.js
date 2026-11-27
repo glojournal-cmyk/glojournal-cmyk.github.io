@@ -206,7 +206,7 @@ export const V3_ACADEMIC_WHITELIST = Object.freeze({
       "reviewedAt": "2026-11-22",
       "reviewScope": "only the explicitly listed question IDs; school-topic evidence and independently checked answer keys, not the full topic",
       "teacherSource": "TGS Carnet de vocabulaire Year 9 2026-27.docx: Year7–8 present-tense recapitulation tables",
-      "bankSourceSha": "74a40125477bb9f5ac6ef9c9b7350807c8d70955",
+      "bankSourceSha": "b139a1b938dc759c5337b672c70051fe7bf89329",
       "concepts": [
         {
           "conceptId": "fr-y8-source-fr-06-0007-write-the-je-form-in-the-aller-column",
@@ -272,7 +272,7 @@ export const V3_ACADEMIC_WHITELIST = Object.freeze({
       "reviewedAt": "2026-11-22",
       "reviewScope": "only the explicitly listed question IDs; school-topic evidence and independently checked answer keys, not the full topic",
       "teacherSource": "TGS Carnet de vocabulaire Year 9 2026-27.docx: perfect tense (avoir/être) and agreement; French Year9 curriculum autumn revision",
-      "bankSourceSha": "9f17651943b92162203ef6f68f0c6eac5dc14b45",
+      "bankSourceSha": "504c72b28175fca93d35e47c30113d52ae332849",
       "concepts": [
         {
           "conceptId": "fr-y9-u1-perfect-tense-001-conjugate-write-the-je-perfect-tense-form-of-v-concept",
@@ -386,7 +386,7 @@ export const V3_ACADEMIC_WHITELIST = Object.freeze({
       "reviewedAt": "2026-11-22",
       "reviewScope": "only the explicitly listed question IDs; school-topic evidence and independently checked answer keys, not the full topic",
       "teacherSource": "TGS Carnet de vocabulaire Year 9 2026-27.docx: Futur simple and irregular future stems, negatives; Year9 lesson '1. Future Tense' as recorded in topic source",
-      "bankSourceSha": "c34ee7d460c3d039f0447b84cbd755ee03c8c05f",
+      "bankSourceSha": "3860bee5f369a9ead701e2d1c7ec93fe17d48142",
       "concepts": [
         {
           "conceptId": "fr-y9-oct17-future-tense-holidays-312-concept",

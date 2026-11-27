@@ -323,3 +323,28 @@ test('eleven-task history never treats ten Maths submissions with eight correct 
  // A historical original ten-task receipt may still take priority; never fabricate a Maths pass.
  assert.ok(!stale.tasks.some(t=>t.id==='maths-daily'&&t.done===true));
 });
+
+test('Year 9 review uses unresolved earlier errors and saved due dates, reserving separate topics',()=>{
+ const source=V3_APPROVED.year9Standard;
+ const errors=source.flatMap(topic=>topic.concepts.map(g=>({
+   day:'2026-11-22',questionId:g.ids[0],dailyTaskId:'year9-light',topicId:topic.topicId,
+   formal:true,subject:topic.subject,year:9,correct:false
+ })));
+ const reviews=Object.fromEntries(source[1].concepts.map(g=>[g.ids[0],{due:day}]));
+ const manifest={...V3_APPROVED,year9Standard:source,year9Due:source};
+ const seenCorrect=Object.fromEntries(source.map(t=>[t.concepts[0].ids[0],1]));
+ const fresh=buildDailyV3(state({formalAttemptLog:errors,reviews,seenCorrect}),old(),manifest);
+ const weak=fresh.find(t=>t.id==='weakness-review'),due=fresh.find(t=>t.id==='due-review');
+ assert.equal(weak.assignedTopic,source[0].topicId);
+ assert.equal(due.assignedTopic,source[1].topicId);
+ for(const t of [weak,due]){
+   assert.equal(t.assignedYear,9);assert.equal(new Set(t.approvedQuestionIds).size,10);
+   const answers=t.approvedQuestionIds.map(id=>({day,year:9,subject:t.assignedSubject,
+     topicId:t.assignedTopic,questionId:id,dailyTaskId:t.id,formal:true,correct:true}));
+   const reopened=buildDailyV3(state({daily:fresh,formalAttemptLog:answers}),old(),manifest);
+   assert.equal(reopened.find(x=>x.id===t.id).done,true);
+ }
+ const cleared=errors.map(e=>({...e,correct:true}));
+ assert.equal(buildDailyV3(state({formalAttemptLog:cleared,seenCorrect}),old(),manifest)
+   .find(t=>t.id==='weakness-review').assignedYear,8);
+});

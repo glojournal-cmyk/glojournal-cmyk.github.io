@@ -130,14 +130,19 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
   // V3 requires explicit teacher-taught and independently QA-approved headwords.
   // An internal Year 9 bank entry is NOT by itself evidence of teaching.
   const v3=day>=V3_START_DATE;
-  const approvedYear9=new Set((approvedYear9Vocabulary?.[subject]||[])
+  const approvedYear9=new Map((approvedYear9Vocabulary?.[subject]||[])
     .filter(x=>x?.academicQA==='approved'&&x?.taughtVerified===true&&x?.topicId)
-    .map(x=>x.topicId+'|'+wordKey(x.term)));
+    .map(x=>[x.topicId+'|'+wordKey(x.term),x]));
   for(const q of year9Items){
-    if(v3&&!approvedYear9.has(q.topicId+'|'+wordKey(q._vocabTerm||(directionOf(q)==='toForeign'?q.answer?.accepted?.[0]:q.stimulus?.text))))continue;
+    const entry=approvedYear9.get(q.topicId+'|'+wordKey(q._vocabTerm||(directionOf(q)==='toForeign'?q.answer?.accepted?.[0]:q.stimulus?.text)));
+    if(v3&&!entry)continue;
     const year9=Number(q.year)===9&&String(q.conceptId||'').startsWith(
       (subject==='french'?'fr':'la')+'-y9-concept-vocab-');
-    if(year9&&q.status!=='disabled'&&q.formal!==false&&isHeadword(q,subject))add(q,true);
+    if(year9&&q.status!=='disabled'&&q.formal!==false&&isHeadword(q,subject)){
+      const checked=v3&&entry.english?.length&&directionOf(q)==='toEnglish'
+        ? {...q,answer:{...q.answer,accepted:entry.english}} : q;
+      add(checked,true);
+    }
   }
   // Keep legacy word-to-question history, including results saved on older iPads.
   const wordConcepts = new Map(), aliases = new Map();

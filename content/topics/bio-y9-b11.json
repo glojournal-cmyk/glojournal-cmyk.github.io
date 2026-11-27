@@ -302,6 +302,10 @@
         "accepted": [
           "aerobic respiration",
           "glucose + oxygen → carbon dioxide + water"
+        ],
+        "reviewedEquivalents": [
+          "oxygen + glucose → carbon dioxide + water",
+          "glucose + oxygen → water + carbon dioxide"
         ]
       },
       "stimulus": {
@@ -501,6 +505,9 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "mitochondria"
+        ],
+        "reviewedEquivalents": [
+          "mitochondrion"
         ]
       },
       "stimulus": {
@@ -538,6 +545,9 @@
         "mode": "exact_or_equivalent",
         "accepted": [
           "mitochondria"
+        ],
+        "reviewedEquivalents": [
+          "mitochondrion"
         ]
       },
       "stimulus": {
@@ -730,37 +740,34 @@
       "conceptId": "bio-y9-b11-aerobic-energy-transfer-649a97f6ab-concept",
       "topicId": "bio-y9-b11",
       "topic": "Aerobic and anaerobic respiration",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Which type of respiration normally transfers more energy per glucose molecule in muscle, aerobic or anaerobic?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "aerobic energy transfer"
+          "aerobic",
+          "aerobic respiration"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "aerobic. A relatively large energy transfer because glucose is fully broken down with oxygen.",
+        "steps": [
+          "aerobic. A relatively large energy transfer because glucose is fully broken down with oxygen."
         ]
       },
-      "stimulus": {
-        "masked": "a__o___ e___g_ __a___e_"
-      },
-      "feedback": {
-        "short": "a relatively large energy transfer because glucose is fully broken down with oxygen",
-        "steps": [
-          "Key idea: aerobic energy transfer.",
-          "a relatively large energy transfer because glucose is fully broken down with oxygen",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: aerobic energy transfer"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "aerobic energy transfer → a relatively large energy transfer because glucose is fully broken down with oxygen"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b11-aerobic-energy-transfer-649a97f6ab-explain",
@@ -901,6 +908,10 @@
         "accepted": [
           "anaerobic respiration in muscle",
           "glucose → lactic acid"
+        ],
+        "reviewedEquivalents": [
+          "glucose produces lactic acid",
+          "glucose → lactate"
         ]
       },
       "stimulus": {
@@ -939,6 +950,10 @@
         "accepted": [
           "anaerobic respiration in muscle",
           "glucose → lactic acid"
+        ],
+        "reviewedEquivalents": [
+          "glucose produces lactic acid",
+          "glucose → lactate"
         ]
       },
       "stimulus": {
@@ -1530,35 +1545,29 @@
       "conceptId": "bio-y9-b11-yeast-anaerobic-equation-46eb563265-concept",
       "topicId": "bio-y9-b11",
       "topic": "Aerobic and anaerobic respiration",
-      "format": "spelling_restore",
-      "prompt": "Restore the complete answer for this science cue.",
+      "format": "typed_exact",
+      "prompt": "Which alcohol is formed when yeast respires anaerobically?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "glucose produces ethanol and carbon dioxide",
-          "glucose → ethanol + carbon dioxide"
+          "ethanol",
+          "ethyl alcohol"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "ethanol. Glucose produces ethanol and carbon dioxide.",
+        "steps": [
+          "ethanol. Glucose produces ethanol and carbon dioxide."
         ]
       },
-      "stimulus": {
-        "masked": "g__c___ p___u___ e___n__ _n_ __r___ d___i__"
-      },
-      "feedback": {
-        "short": "glucose produces ethanol and carbon dioxide",
-        "steps": [
-          "Key idea: yeast anaerobic equation.",
-          "glucose produces ethanol and carbon dioxide",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: glucose produces ethanol and carbon dioxide"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "yeast anaerobic equation → glucose produces ethanol and carbon dioxide"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1693,33 +1702,28 @@
       "topicId": "bio-y9-b11",
       "topic": "Aerobic and anaerobic respiration",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "In a muscle cell, energy released by respiration enables the muscle to shorten. What is this shortening called?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "respiration for movement"
+          "contraction",
+          "muscle contraction"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "contraction. Energy transferred by respiration used for muscle contraction.",
+        "steps": [
+          "contraction. Energy transferred by respiration used for muscle contraction."
         ]
       },
-      "stimulus": {
-        "text": "energy transferred by respiration used for muscle contraction"
-      },
-      "feedback": {
-        "short": "energy transferred by respiration used for muscle contraction",
-        "steps": [
-          "Key idea: respiration for movement.",
-          "energy transferred by respiration used for muscle contraction",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: respiration for movement"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "respiration for movement → energy transferred by respiration used for muscle contraction"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1729,37 +1733,33 @@
       "conceptId": "bio-y9-b11-respiration-for-movement-e2042c31d9-concept",
       "topicId": "bio-y9-b11",
       "topic": "Aerobic and anaerobic respiration",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of respiration for movement: “___ transferred by respiration used for muscle contraction”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "respiration for movement"
+          "energy"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "energy. Energy transferred by respiration used for muscle contraction.",
+        "steps": [
+          "energy. Energy transferred by respiration used for muscle contraction."
         ]
       },
-      "stimulus": {
-        "masked": "r__p___t___ f__ _o___e__"
-      },
-      "feedback": {
-        "short": "energy transferred by respiration used for muscle contraction",
-        "steps": [
-          "Key idea: respiration for movement.",
-          "energy transferred by respiration used for muscle contraction",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: respiration for movement"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "respiration for movement → energy transferred by respiration used for muscle contraction"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b11-respiration-for-movement-e2042c31d9-explain",
@@ -1891,33 +1891,29 @@
       "topicId": "bio-y9-b11",
       "topic": "Aerobic and anaerobic respiration",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Energy released during respiration helps mammals keep which physical quantity nearly constant?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "respiration for temperature"
+          "body temperature",
+          "temperature",
+          "core temperature"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "body temperature. Energy transferred by respiration helping mammals and birds maintain body temperature.",
+        "steps": [
+          "body temperature. Energy transferred by respiration helping mammals and birds maintain body temperature."
         ]
       },
-      "stimulus": {
-        "text": "energy transferred by respiration helping mammals and birds maintain body temperature"
-      },
-      "feedback": {
-        "short": "energy transferred by respiration helping mammals and birds maintain body temperature",
-        "steps": [
-          "Key idea: respiration for temperature.",
-          "energy transferred by respiration helping mammals and birds maintain body temperature",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: respiration for temperature"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "respiration for temperature → energy transferred by respiration helping mammals and birds maintain body temperature"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1927,37 +1923,33 @@
       "conceptId": "bio-y9-b11-respiration-for-temperature-9b862b85af-concept",
       "topicId": "bio-y9-b11",
       "topic": "Aerobic and anaerobic respiration",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of respiration for temperature: “___ transferred by respiration helping mammals and birds maintain body temperature”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "respiration for temperature"
+          "energy"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "energy. Energy transferred by respiration helping mammals and birds maintain body temperature.",
+        "steps": [
+          "energy. Energy transferred by respiration helping mammals and birds maintain body temperature."
         ]
       },
-      "stimulus": {
-        "masked": "r__p___t___ f__ _e___r___r_"
-      },
-      "feedback": {
-        "short": "energy transferred by respiration helping mammals and birds maintain body temperature",
-        "steps": [
-          "Key idea: respiration for temperature.",
-          "energy transferred by respiration helping mammals and birds maintain body temperature",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: respiration for temperature"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "respiration for temperature → energy transferred by respiration helping mammals and birds maintain body temperature"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b11-respiration-for-temperature-9b862b85af-explain",
@@ -2089,33 +2081,27 @@
       "topicId": "bio-y9-b11",
       "topic": "Aerobic and anaerobic respiration",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "What are the small molecules joined together to make proteins using energy supplied by respiration?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "respiration for synthesis"
+          "amino acids"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "amino acids. Energy transferred by respiration driving reactions that build larger molecules.",
+        "steps": [
+          "amino acids. Energy transferred by respiration driving reactions that build larger molecules."
         ]
       },
-      "stimulus": {
-        "text": "energy transferred by respiration driving reactions that build larger molecules"
-      },
-      "feedback": {
-        "short": "energy transferred by respiration driving reactions that build larger molecules",
-        "steps": [
-          "Key idea: respiration for synthesis.",
-          "energy transferred by respiration driving reactions that build larger molecules",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: respiration for synthesis"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "respiration for synthesis → energy transferred by respiration driving reactions that build larger molecules"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -2125,37 +2111,33 @@
       "conceptId": "bio-y9-b11-respiration-for-synthesis-d9ac478478-concept",
       "topicId": "bio-y9-b11",
       "topic": "Aerobic and anaerobic respiration",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of respiration for synthesis: “___ transferred by respiration driving reactions that build larger molecules”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "respiration for synthesis"
+          "energy"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "energy. Energy transferred by respiration driving reactions that build larger molecules.",
+        "steps": [
+          "energy. Energy transferred by respiration driving reactions that build larger molecules."
         ]
       },
-      "stimulus": {
-        "masked": "r__p___t___ f__ _y___e___"
-      },
-      "feedback": {
-        "short": "energy transferred by respiration driving reactions that build larger molecules",
-        "steps": [
-          "Key idea: respiration for synthesis.",
-          "energy transferred by respiration driving reactions that build larger molecules",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: respiration for synthesis"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "respiration for synthesis → energy transferred by respiration driving reactions that build larger molecules"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b11-respiration-for-synthesis-d9ac478478-explain",
@@ -2478,37 +2460,43 @@
       "conceptId": "bio-y9-b11-app-anaerobic-less-concept",
       "topicId": "bio-y9-b11",
       "topic": "Aerobic and anaerobic respiration",
-      "format": "mark_points",
-      "prompt": "Explain why anaerobic respiration transfers less energy from each glucose molecule than aerobic respiration.",
+      "format": "extended_response",
+      "prompt": "Answer each numbered part on a separate line, in order.\n1. Which gas is used in aerobic respiration but is unnecessary for anaerobic respiration?\n2. Is glucose broken down completely or incompletely during anaerobic respiration in muscle?\n3. Compared with aerobic respiration, how much energy is transferred per glucose molecule: more, less or the same?",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
       "answer": {
-        "mode": "mark_points",
-        "markPoints": [
-          "anaerobic respiration does not use oxygen",
-          "glucose is not fully broken down",
-          "less energy is therefore transferred"
+        "mode": "ordered_parts",
+        "reviewedParts": [
+          [
+            "oxygen",
+            "O2"
+          ],
+          [
+            "incompletely",
+            "incomplete",
+            "partially"
+          ],
+          [
+            "less",
+            "less energy"
+          ]
         ],
         "totalMarks": 3,
-        "modelAnswer": "anaerobic respiration does not use oxygen glucose is not fully broken down less energy is therefore transferred"
+        "modelAnswer": "oxygen\nincompletely\nless"
       },
-      "stimulus": {
-        "marks": 3
-      },
+      "stimulus": {},
       "feedback": {
-        "short": "anaerobic respiration does not use oxygen glucose is not fully broken down less energy is therefore transferred",
+        "short": "oxygen\nincompletely\nless",
         "steps": [
-          "anaerobic respiration does not use oxygen glucose is not fully broken down less energy is therefore transferred",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
-          "Suggested answer: anaerobic respiration does not use oxygen glucose is not fully broken down less energy is therefore transferred"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "anaerobic respiration does not use oxygen glucose is not fully broken down less energy is therefore transferred"
+          "1. oxygen",
+          "2. incompletely",
+          "3. less"
+        ]
       },
       "task": {
-        "label": "EXPLAIN",
-        "instruction": "Write one distinct scientific idea for each available mark."
+        "label": "SHORT ANSWERS",
+        "instruction": "One response per line, in the order shown."
       },
       "preview": true,
       "ordinary": true

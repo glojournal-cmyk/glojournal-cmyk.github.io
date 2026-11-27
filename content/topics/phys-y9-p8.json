@@ -1300,33 +1300,27 @@
       "topicId": "phys-y9-p8",
       "topic": "Power and energy",
       "format": "typed_exact",
-      "prompt": "Name the physics term or rule described below.",
+      "prompt": "Which physical quantity is measured in watts and describes energy transferred per unit time?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "power-versus-energy"
+          "power"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "power. Power measures how quickly energy transfers, not the total energy itself.",
+        "steps": [
+          "power. Power measures how quickly energy transfers, not the total energy itself."
         ]
       },
-      "stimulus": {
-        "text": "power measures how quickly energy transfers, not the total energy itself"
-      },
-      "feedback": {
-        "short": "power measures how quickly energy transfers, not the total energy itself",
-        "steps": [
-          "Key idea: power-versus-energy.",
-          "power measures how quickly energy transfers, not the total energy itself",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: power-versus-energy"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "power-versus-energy → power measures how quickly energy transfers, not the total energy itself"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1336,34 +1330,28 @@
       "conceptId": "phys-y9-p8-power-versus-energy-f6d3a6c9bf-concept",
       "topicId": "phys-y9-p8",
       "topic": "Power and energy",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing physics wording.",
+      "format": "typed_exact",
+      "prompt": "Which physical quantity is measured in watts and describes energy transferred per unit time?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "power-versus-energy"
+          "power"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "power. Power measures how quickly energy transfers, not the total energy itself.",
+        "steps": [
+          "power. Power measures how quickly energy transfers, not the total energy itself."
         ]
       },
-      "stimulus": {
-        "masked": "p__e_-__r___-e___g_"
-      },
-      "feedback": {
-        "short": "power measures how quickly energy transfers, not the total energy itself",
-        "steps": [
-          "Key idea: power-versus-energy.",
-          "power measures how quickly energy transfers, not the total energy itself",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: power-versus-energy"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "power-versus-energy → power measures how quickly energy transfers, not the total energy itself"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1532,7 +1520,7 @@
       "topicId": "phys-y9-p8",
       "topic": "Power and energy",
       "format": "calculation",
-      "prompt": "A motor transfers 3600 J in 30 s. Calculate its power.",
+      "prompt": "A motor transfers 3600 J in 30 s. Calculate its power. A number on its own will be read in W.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
@@ -1545,7 +1533,9 @@
         ],
         "working": "P = E/t = 3600 ÷ 30 = 120 W",
         "tolerance": 0,
-        "modelAnswer": "120 W"
+        "modelAnswer": "120 W",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {
@@ -1572,7 +1562,7 @@
       "topicId": "phys-y9-p8",
       "topic": "Power and energy",
       "format": "calculation",
-      "prompt": "A 500 W device transfers 15,000 J. Calculate the time taken.",
+      "prompt": "A 500 W device transfers 15,000 J. Calculate the time taken. A number on its own will be read in s.",
       "difficulty": 3,
       "status": "enabled",
       "options": null,
@@ -1585,7 +1575,9 @@
         ],
         "working": "t = E/P = 15,000 ÷ 500 = 30 s",
         "tolerance": 0,
-        "modelAnswer": "30 s"
+        "modelAnswer": "30 s",
+        "checkFinalQuantity": true,
+        "unitInPrompt": true
       },
       "stimulus": {},
       "feedback": {

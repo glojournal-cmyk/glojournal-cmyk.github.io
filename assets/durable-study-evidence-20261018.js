@@ -14,7 +14,7 @@ const FIELD_NAMES=["at","day","attemptId","questionId","correct","subject","year
  "vocabConcept","recoveryFor",
  // Preserve Maths first-A-F-attempt and assistance flags even when IndexedDB
  // is unavailable and Safari falls back to its compact local answer journal.
- "selectedOptionId","assisted","hintUsed","scaffolded"];
+ "bankVersion","selectedOptionId","assisted","hintUsed","scaffolded"];
 function fallbackRead(){
  try{
   const rows=JSON.parse(localStorage.getItem(FALLBACK)||"[]");

@@ -4,14 +4,15 @@
 "use strict";
 if(root.LuxHomeContinue)return;
 function href(J,s){try{return J?.navigationHref(s)||null;}catch{return null;}}
+const finished=t=>t.id==='maths-daily' ? t.done===true : Number(t.progress)>=Number(t.target);
 function choose(state,J,now=Date.now()){
  const library={kind:"library",title:"Choose your next subject",detail:"Open the Study library to carry on.",
   href:"/study/",practiceHref:"/study/",button:"Browse subjects →"};
- if(!J||state?.today!==J.day(now)||!Array.isArray(state.daily)||state.daily.length!==10)return library;
+ if(!J||state?.today!==J.day(now)||!Array.isArray(state.daily)||![10,11].includes(state.daily.length))return library;
  let drafts=[];
  try{drafts=J.resumeCandidates(state,now)||[];}catch{}
  const pick=drafts.find(d=>d.daily&&d.planDate===state.today&&href(J,d.href)&&
-  state.daily.some(t=>t.id===d.dailyTaskId&&Number(t.target)>0&&Number(t.progress)<Number(t.target)&&href(J,t.href)));
+  state.daily.some(t=>t.id===d.dailyTaskId&&Number(t.target)>0&&!finished(t)&&href(J,t.href)));
  if(pick){
   const link=href(J,pick.href),total=Math.max(1,Number(pick.total)||1);
   const question=Math.max(1,Math.min(total,(Number(pick.index)||0)+1));
@@ -21,7 +22,7 @@ function choose(state,J,now=Date.now()){
    button:"Resume question "+question+" →"};
  }
  const tasks=state.daily.filter(t=>Number(t?.target)>0);
- const next=tasks.find(t=>Number(t.progress)<Number(t.target)&&href(J,t.href));
+ const next=tasks.find(t=>!finished(t)&&href(J,t.href));
  if(next){
   const link=href(J,next.href);
   return {kind:"task",title:String(next.title||"Next daily task"),
@@ -29,8 +30,8 @@ function choose(state,J,now=Date.now()){
    href:link,practiceHref:/^\/study\/[^/]+\/practise(?:\/|\?|$)/.test(link)?link:"/study/",
    button:"Continue this task →"};
  }
- if(tasks.length===10&&tasks.every(t=>Number(t.progress)>=Number(t.target)))
-  return {kind:"complete",title:"All 10 daily tasks complete",
+ if(tasks.length===state.daily.length&&tasks.every(finished))
+  return {kind:"complete",title:`All ${tasks.length} daily tasks complete`,
    detail:"Your progress is counted for today.",href:"/garden",practiceHref:"/study/",
    button:"Visit the garden →"};
  // A saved free practice is a fallback, never a reason to skip today's mission.

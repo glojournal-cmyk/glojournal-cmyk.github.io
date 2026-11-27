@@ -1782,7 +1782,8 @@
               [
                 "(?:rho|ρ)\\s*=\\s*540\\s*(?:\\/|÷|divided\\s+by)\\s*200\\b",
                 "density\\s+(?:equals|is)\\s+mass\\s+(?:divided\\s+by|over)\\s+volume",
-                "\\b(?:rho|ρ)\\s*=\\s*540\\s*(?:\\/|÷|divided\\s+by)\\s*200\\b"
+                "\\b(?:rho|ρ)\\s*=\\s*540\\s*(?:\\/|÷|divided\\s+by)\\s*200\\b",
+                "(?:ρ|rho|density)\\s*=\\s*(?:mass|m)\\s*[/÷]\\s*(?:volume|v)(?![a-z])"
               ],
               [
                 "540\\s*(?:\\/|÷|divided\\s+by)\\s*200"
@@ -1841,7 +1842,8 @@
               [
                 "\\b(?:mass|m)\\s*=\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*(?:volume|v)\\b",
                 "mass\\s+equals\\s+density\\s+multiplied\\s+by\\s+volume",
-                "2\\.7\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*50"
+                "2\\.7\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*50",
+                "(?:mass|m)\\s*=\\s*(?:ρ|rho|density)\\s*[×*x]?\\s*(?:volume|v)(?![a-z])"
               ],
               [
                 "\\b135\\s*g\\b"
@@ -1897,7 +1899,8 @@
               [
                 "\\b(?:volume|v)\\s*=\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:density|ρ|rho)\\b",
                 "volume\\s+equals\\s+mass\\s+divided\\s+by\\s+density",
-                "400\\s*(?:\\/|÷|divided\\s+by)\\s*8"
+                "400\\s*(?:\\/|÷|divided\\s+by)\\s*8",
+                "(?:volume|v)\\s*=\\s*(?:mass|m)\\s*[/÷]\\s*(?:ρ|rho|density)(?![a-z])"
               ],
               [
                 "\\b50\\s*cm3\\b"
@@ -2083,7 +2086,8 @@
               [
                 "\\b(?:density|ρ|rho)\\s*=\\s*(?:mass|m)\\s*(?:\\/|÷|divided\\s+by)\\s*(?:volume|v)\\b",
                 "density\\s+equals\\s+mass\\s+divided\\s+by\\s+volume",
-                "1\\.2\\s*(?:\\/|÷|divided\\s+by)\\s*0\\.002"
+                "1\\.2\\s*(?:\\/|÷|divided\\s+by)\\s*0\\.002",
+                "(?:ρ|rho|density)\\s*=\\s*(?:mass|m)\\s*[/÷]\\s*(?:volume|v)(?![a-z])"
               ],
               [
                 "\\b600\\s*kg\\s*\\/\\s*m3\\b"
@@ -2333,7 +2337,8 @@
               ],
               [
                 "mass\\s*=\\s*density\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*volume",
-                "mass\\s+equals\\s+density\\s+multiplied\\s+by\\s+volume"
+                "mass\\s+equals\\s+density\\s+multiplied\\s+by\\s+volume",
+                "(?:mass|m)\\s*=\\s*(?:ρ|rho|density)\\s*[×*x]?\\s*(?:volume|v)(?![a-z])"
               ],
               [
                 "8(?:\\.0)?\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*30",
@@ -3332,7 +3337,8 @@
             ],
             "methodRules": [
               [
-                "(?:mass|m)\\s*(?:=|is|equals)\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*(?:volume|v)"
+                "(?:mass|m)\\s*(?:=|is|equals)\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*(?:volume|v)",
+                "(?:mass|m)\\s*=\\s*(?:ρ|rho|density)\\s*[×*x]?\\s*(?:volume|v)(?![a-z])"
               ],
               [
                 "2\\.5\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*24"
@@ -3399,7 +3405,8 @@
             ],
             "methodRules": [
               [
-                "(?:mass|m)\\s*(?:=|is|equals)\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*(?:volume|v)"
+                "(?:mass|m)\\s*(?:=|is|equals)\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*(?:volume|v)",
+                "(?:mass|m)\\s*=\\s*(?:ρ|rho|density)\\s*[×*x]?\\s*(?:volume|v)(?![a-z])"
               ],
               [
                 "0\\.8\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*150"
@@ -3466,7 +3473,8 @@
             ],
             "methodRules": [
               [
-                "(?:mass|m)\\s*(?:=|is|equals)\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*(?:volume|v)"
+                "(?:mass|m)\\s*(?:=|is|equals)\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*(?:volume|v)",
+                "(?:mass|m)\\s*=\\s*(?:ρ|rho|density)\\s*[×*x]?\\s*(?:volume|v)(?![a-z])"
               ],
               [
                 "2400\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*0\\.015"
@@ -3533,7 +3541,8 @@
             ],
             "methodRules": [
               [
-                "(?:mass|m)\\s*(?:=|is|equals)\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*(?:volume|v)"
+                "(?:mass|m)\\s*(?:=|is|equals)\\s*(?:density|ρ|rho)\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*(?:volume|v)",
+                "(?:mass|m)\\s*=\\s*(?:ρ|rho|density)\\s*[×*x]?\\s*(?:volume|v)(?![a-z])"
               ],
               [
                 "1\\.4\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*75"
@@ -3974,7 +3983,8 @@
                 "\\b72\\s*cm3\\b"
               ],
               [
-                "mass\\s*=\\s*density\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*volume"
+                "mass\\s*=\\s*density\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*volume",
+                "(?:mass|m)\\s*=\\s*(?:ρ|rho|density)\\s*[×*x]?\\s*(?:volume|v)(?![a-z])"
               ],
               [
                 "2\\.5\\s*(?:×|x|\\*|times|multiplied\\s+by)\\s*72"
@@ -6288,7 +6298,8 @@
                 "\\b11\\.6\\s*(?:\\/|÷|divided\\s+by)\\s*10\\b"
               ],
               [
-                "\\b1\\.16\\s*(?:°\\s*C\\s*\\/\\s*(?:min|minute)|degrees?\\s*(?:Celsius)?\\s*(?:per|\\/)\\s*min(?:ute)?s?)\\b"
+                "\\b1\\.16\\s*(?:°\\s*C\\s*\\/\\s*(?:min|minute)|degrees?\\s*(?:Celsius)?\\s*(?:per|\\/)\\s*min(?:ute)?s?)\\b",
+                "(?<![.\\d])1\\.16\\s*(?:°\\s*C|degrees?\\s*C(?:elsius)?)\\s*(?:/|per)\\s*min(?:ute)?s?\\b"
               ]
             ],
             "markingPolicy": "step_by_step"
@@ -7165,7 +7176,8 @@
                   "The mean temperature fall is 21°C."
                 ],
                 "patterns": [
-                  "(?=.*(?:21))(?=.*(?:mean))(?=.*(?:°C|Celsius)).*"
+                  "(?=.*(?:21))(?=.*(?:mean))(?=.*(?:°C|Celsius)).*",
+                  "(?<![.\\d])21\\s*(?:°\\s*C|degrees?\\s*C(?:elsius)?)\\b"
                 ]
               }
             ]
@@ -7220,7 +7232,8 @@
                   "The mean cooling rate is 2°C/min."
                 ],
                 "patterns": [
-                  "(?=.*(?:2))(?=.*(?:rate))(?=.*(?:°C/min)).*"
+                  "(?=.*(?:2))(?=.*(?:rate))(?=.*(?:°C/min)).*",
+                  "(?<![.\\d])2\\s*(?:°\\s*C|degrees?\\s*C(?:elsius)?)\\s*(?:/|per)\\s*min(?:ute)?s?\\b"
                 ]
               }
             ]
@@ -7266,7 +7279,8 @@
                   "The difference is 8.1°C."
                 ],
                 "patterns": [
-                  "(?=.*(?:8\\.1))(?=.*(?:°C|Celsius)).*"
+                  "(?=.*(?:8\\.1))(?=.*(?:°C|Celsius)).*",
+                  "(?<![.\\d])8\\.1\\s*(?:°\\s*C|degrees?\\s*C(?:elsius)?)\\b"
                 ]
               },
               {

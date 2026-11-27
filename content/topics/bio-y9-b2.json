@@ -494,33 +494,29 @@
       "topicId": "bio-y9-b2",
       "topic": "Cell specialisation and differentiation",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Which structure propels a human sperm cell?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "sperm-cell tail"
+          "flagellum",
+          "tail",
+          "sperm tail"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "flagellum. An adaptation that enables a sperm cell to move.",
+        "steps": [
+          "flagellum. An adaptation that enables a sperm cell to move."
         ]
       },
-      "stimulus": {
-        "text": "an adaptation that enables a sperm cell to move"
-      },
-      "feedback": {
-        "short": "an adaptation that enables a sperm cell to move",
-        "steps": [
-          "Key idea: sperm-cell tail.",
-          "an adaptation that enables a sperm cell to move",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: sperm-cell tail"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "sperm-cell tail → an adaptation that enables a sperm cell to move"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -530,37 +526,35 @@
       "conceptId": "bio-y9-b2-sperm-cell-tail-0b96d6707e-concept",
       "topicId": "bio-y9-b2",
       "topic": "Cell specialisation and differentiation",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Which structure propels a human sperm cell?",
       "difficulty": 2,
-      "status": "enabled",
+      "status": "disabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "sperm-cell tail"
+          "flagellum",
+          "tail",
+          "sperm tail"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "flagellum. An adaptation that enables a sperm cell to move.",
+        "steps": [
+          "flagellum. An adaptation that enables a sperm cell to move."
         ]
       },
-      "stimulus": {
-        "masked": "s__r_-__l_ __i_"
-      },
-      "feedback": {
-        "short": "an adaptation that enables a sperm cell to move",
-        "steps": [
-          "Key idea: sperm-cell tail.",
-          "an adaptation that enables a sperm cell to move",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: sperm-cell tail"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "sperm-cell tail → an adaptation that enables a sperm cell to move"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "duplicateOf": "bio-y9-b2-sperm-cell-tail-0b96d6707e-typed",
+      "formal": false
     },
     {
       "id": "bio-y9-b2-sperm-cell-tail-0b96d6707e-explain",
@@ -692,33 +686,27 @@
       "topicId": "bio-y9-b2",
       "topic": "Cell specialisation and differentiation",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Which organelles in the midpiece of a sperm cell supply energy through aerobic respiration?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "many sperm-cell mitochondria"
+          "mitochondria"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "mitochondria. An adaptation transferring energy needed for swimming.",
+        "steps": [
+          "mitochondria. An adaptation transferring energy needed for swimming."
         ]
       },
-      "stimulus": {
-        "text": "an adaptation transferring energy needed for swimming"
-      },
-      "feedback": {
-        "short": "an adaptation transferring energy needed for swimming",
-        "steps": [
-          "Key idea: many sperm-cell mitochondria.",
-          "an adaptation transferring energy needed for swimming",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: many sperm-cell mitochondria"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "many sperm-cell mitochondria → an adaptation transferring energy needed for swimming"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -728,37 +716,33 @@
       "conceptId": "bio-y9-b2-many-sperm-cell-mitochondria-3c12ca2095-concept",
       "topicId": "bio-y9-b2",
       "topic": "Cell specialisation and differentiation",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of many sperm-cell mitochondria: “an adaptation transferring ___ needed for swimming”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "many sperm-cell mitochondria"
+          "energy"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "energy. An adaptation transferring energy needed for swimming.",
+        "steps": [
+          "energy. An adaptation transferring energy needed for swimming."
         ]
       },
-      "stimulus": {
-        "masked": "m__y ___r_-__l_ __t___o___i_"
-      },
-      "feedback": {
-        "short": "an adaptation transferring energy needed for swimming",
-        "steps": [
-          "Key idea: many sperm-cell mitochondria.",
-          "an adaptation transferring energy needed for swimming",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: many sperm-cell mitochondria"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "many sperm-cell mitochondria → an adaptation transferring energy needed for swimming"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b2-many-sperm-cell-mitochondria-3c12ca2095-explain",
@@ -890,33 +874,27 @@
       "topicId": "bio-y9-b2",
       "topic": "Cell specialisation and differentiation",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Name the long part of a neurone that carries impulses away from the cell body.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "long axon"
+          "axon"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "axon. A nerve-cell adaptation allowing electrical impulses to travel long distances.",
+        "steps": [
+          "axon. A nerve-cell adaptation allowing electrical impulses to travel long distances."
         ]
       },
-      "stimulus": {
-        "text": "a nerve-cell adaptation allowing electrical impulses to travel long distances"
-      },
-      "feedback": {
-        "short": "a nerve-cell adaptation allowing electrical impulses to travel long distances",
-        "steps": [
-          "Key idea: long axon.",
-          "a nerve-cell adaptation allowing electrical impulses to travel long distances",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: long axon"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "long axon → a nerve-cell adaptation allowing electrical impulses to travel long distances"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -926,37 +904,33 @@
       "conceptId": "bio-y9-b2-long-axon-8b40ce7182-concept",
       "topicId": "bio-y9-b2",
       "topic": "Cell specialisation and differentiation",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of long axon: “a nerve-cell adaptation allowing ___ impulses to travel long distances”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "long axon"
+          "electrical"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "electrical. A nerve-cell adaptation allowing electrical impulses to travel long distances.",
+        "steps": [
+          "electrical. A nerve-cell adaptation allowing electrical impulses to travel long distances."
         ]
       },
-      "stimulus": {
-        "masked": "l__g ___n"
-      },
-      "feedback": {
-        "short": "a nerve-cell adaptation allowing electrical impulses to travel long distances",
-        "steps": [
-          "Key idea: long axon.",
-          "a nerve-cell adaptation allowing electrical impulses to travel long distances",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: long axon"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "long axon → a nerve-cell adaptation allowing electrical impulses to travel long distances"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b2-long-axon-8b40ce7182-explain",
@@ -1088,33 +1062,27 @@
       "topicId": "bio-y9-b2",
       "topic": "Cell specialisation and differentiation",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "Which organelles are especially numerous in muscle cells that rely on aerobic respiration?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "many muscle-cell mitochondria"
+          "mitochondria"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "mitochondria. An adaptation supplying energy transfer needed for contraction.",
+        "steps": [
+          "mitochondria. An adaptation supplying energy transfer needed for contraction."
         ]
       },
-      "stimulus": {
-        "text": "an adaptation supplying energy transfer needed for contraction"
-      },
-      "feedback": {
-        "short": "an adaptation supplying energy transfer needed for contraction",
-        "steps": [
-          "Key idea: many muscle-cell mitochondria.",
-          "an adaptation supplying energy transfer needed for contraction",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: many muscle-cell mitochondria"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "many muscle-cell mitochondria → an adaptation supplying energy transfer needed for contraction"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -1124,37 +1092,33 @@
       "conceptId": "bio-y9-b2-many-muscle-cell-mitochondria-71b018afd2-concept",
       "topicId": "bio-y9-b2",
       "topic": "Cell specialisation and differentiation",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of many muscle-cell mitochondria: “an adaptation supplying ___ transfer needed for contraction”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "many muscle-cell mitochondria"
+          "energy"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "energy. An adaptation supplying energy transfer needed for contraction.",
+        "steps": [
+          "energy. An adaptation supplying energy transfer needed for contraction."
         ]
       },
-      "stimulus": {
-        "masked": "m__y ___c__-_e__ _i___h___r__"
-      },
-      "feedback": {
-        "short": "an adaptation supplying energy transfer needed for contraction",
-        "steps": [
-          "Key idea: many muscle-cell mitochondria.",
-          "an adaptation supplying energy transfer needed for contraction",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: many muscle-cell mitochondria"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "many muscle-cell mitochondria → an adaptation supplying energy transfer needed for contraction"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b2-many-muscle-cell-mitochondria-71b018afd2-explain",
@@ -1286,73 +1250,66 @@
       "topicId": "bio-y9-b2",
       "topic": "Cell specialisation and differentiation",
       "format": "typed_exact",
-      "prompt": "Name the biological term described below.",
+      "prompt": "A root hair is a long extension of one cell. Which feature increases most: surface area or wall thickness?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "root-hair extension"
+          "surface area",
+          "surface area to volume ratio"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "surface area. An adaptation increasing surface area for absorption of water and mineral ions.",
+        "steps": [
+          "surface area. An adaptation increasing surface area for absorption of water and mineral ions."
         ]
       },
-      "stimulus": {
-        "text": "an adaptation increasing surface area for absorption of water and mineral ions"
-      },
-      "feedback": {
-        "short": "an adaptation increasing surface area for absorption of water and mineral ions",
-        "steps": [
-          "Key idea: root-hair extension.",
-          "an adaptation increasing surface area for absorption of water and mineral ions",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: root-hair extension"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "root-hair extension → an adaptation increasing surface area for absorption of water and mineral ions"
-      },
       "task": {
-        "label": "NAME IT",
-        "instruction": "Type the precise scientific term or rule."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b2-root-hair-extension-00a2a8da48-restore",
       "conceptId": "bio-y9-b2-root-hair-extension-00a2a8da48-concept",
       "topicId": "bio-y9-b2",
       "topic": "Cell specialisation and differentiation",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "Complete this description of root-hair extension: “an adaptation increasing ___ for absorption of water and mineral ions”.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "root-hair extension"
+          "surface area"
+        ],
+        "exactScienceResponse": true,
+        "practiceFeedbackOnly": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "surface area. An adaptation increasing surface area for absorption of water and mineral ions.",
+        "steps": [
+          "surface area. An adaptation increasing surface area for absorption of water and mineral ions."
         ]
       },
-      "stimulus": {
-        "masked": "r__t-___r ___e___o_"
-      },
-      "feedback": {
-        "short": "an adaptation increasing surface area for absorption of water and mineral ions",
-        "steps": [
-          "Key idea: root-hair extension.",
-          "an adaptation increasing surface area for absorption of water and mineral ions",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: root-hair extension"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "root-hair extension → an adaptation increasing surface area for absorption of water and mineral ions"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
-      "ordinary": true
+      "ordinary": true,
+      "formal": false
     },
     {
       "id": "bio-y9-b2-root-hair-extension-00a2a8da48-explain",
@@ -2120,34 +2077,29 @@
       "conceptId": "bio-y9-b2-animal-cell-differentiation-43a1f22565-concept",
       "topicId": "bio-y9-b2",
       "topic": "Cell specialisation and differentiation",
-      "format": "spelling_restore",
-      "prompt": "Complete the missing biological term.",
+      "format": "typed_exact",
+      "prompt": "What is the process by which an unspecialised animal cell becomes specialised?",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "exact_or_equivalent",
         "accepted": [
-          "animal-cell differentiation"
+          "differentiation",
+          "cell differentiation"
+        ],
+        "exactScienceResponse": true
+      },
+      "stimulus": {},
+      "feedback": {
+        "short": "differentiation. A process that mostly occurs early in development, after which many cells lose the ability to change type.",
+        "steps": [
+          "differentiation. A process that mostly occurs early in development, after which many cells lose the ability to change type."
         ]
       },
-      "stimulus": {
-        "masked": "a__m__-_e__ _i___r___i___o_"
-      },
-      "feedback": {
-        "short": "a process that mostly occurs early in development, after which many cells lose the ability to change type",
-        "steps": [
-          "Key idea: animal-cell differentiation.",
-          "a process that mostly occurs early in development, after which many cells lose the ability to change type",
-          "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail.",
-          "Suggested answer: animal-cell differentiation"
-        ],
-        "commonError": "A partly correct response can still miss a required form, unit, relationship or mark point.",
-        "remember": "animal-cell differentiation → a process that mostly occurs early in development, after which many cells lose the ability to change type"
-      },
       "task": {
-        "label": "RESTORE",
-        "instruction": "Use the clue and restore the complete scientific wording."
+        "label": "SHORT ANSWER",
+        "instruction": "Answer the question in the space provided."
       },
       "preview": true,
       "ordinary": true
@@ -2574,15 +2526,15 @@
       "ordinary": true
     }
   ],
-  "enabled": 62,
+  "enabled": 61,
   "preview": 0,
-  "disabled": 0,
+  "disabled": 1,
   "formats": {
     "mc_single": 22,
     "typed_short": 3,
-    "spelling_restore": 11,
+    "spelling_restore": 5,
     "mark_points": 13,
-    "typed_exact": 8,
+    "typed_exact": 14,
     "matching": 4,
     "diagram_label": 1
   },

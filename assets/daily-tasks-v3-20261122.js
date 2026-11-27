@@ -1,5 +1,7 @@
 // Daily Tasks V3 contract and safety gates. No learner state is mutated here.
 import {V3_ACADEMIC_WHITELIST} from './daily-v3-approved-content-20261122.js';
+import {approvedDailyWords} from './daily-v3-approved-words.js';
+import {dailyURL, releasedMathsTask, includeEarnedMaths} from './math-study/higher-daily-20261125.js';
 import {selectMathsV31Daily} from './math-study/daily-v31-selector.js';
 import {mathsOriginalGradeDemandDecision} from './math-study/math-v311-grade-demand-gate.js';
 // Academic QA manifests start EMPTY. Absence of verification blocks supply;
@@ -16,8 +18,8 @@ export const V3_TARGET = V3_TASK_SPEC.reduce((sum,[,n])=>sum+n,0);
 export const V3_APPROVED = Object.freeze({
   languageGrammar:{latin:V3_ACADEMIC_WHITELIST.latin,french:V3_ACADEMIC_WHITELIST.french},
   year9Standard:V3_ACADEMIC_WHITELIST.y9,
-  year9Due:[],
-  year9Vocabulary:{latin:[],french:[]},
+  year9Due:V3_ACADEMIC_WHITELIST.y9,
+  year9Vocabulary:approvedDailyWords,
   maths:[] // separately supplied; never fabricate filler
 });
 
@@ -60,7 +62,7 @@ export function v3ScopedQuestionEvidence(state,task,day){
   const ids=task?.approvedQuestionIds,concepts=task?.approvedConceptByQuestion||{};
   if(!task||task.supplyBlocked===true||task.dailyV3!==true||
      task.planDate!==day||Number(task.assignedYear)!==9||
-     !['y8-standard-b','due-review'].includes(task.id)||
+     !['y8-standard-b','due-review','weakness-review'].includes(task.id)||
      !task.assignedTopic||!task.assignedSubject||
      !Array.isArray(ids)||ids.length!==10||new Set(ids).size!==10||
      Object.keys(concepts).length!==10||
@@ -265,6 +267,46 @@ const blocked=(id,title,target,year,reason,day)=>({
 const tagged=(task,day)=>({...task,planDate:day,dailyV3:true,planVersion:3});
 const isStarted=t=>Number(t?.progress)>0||t?.done===true||
   (Array.isArray(t?.verifiedCorrectIds)&&t.verifiedCorrectIds.length>0);
+function refreshLegacyProgress(task,legacy){
+  const current=legacy.find(t=>t.id===task.id);
+  if(!current||current.assignedTopic!==task.assignedTopic||
+     current.assignedSubject!==task.assignedSubject||current.target!==task.target)return task;
+  const progress=current.correctOnlyEvidence ? current.progress : Math.max(task.progress||0,current.progress||0);
+  return {...task,progress,done:progress>=task.target};
+}
+
+function year9WeakTask(state,entries,reserved,day){
+  // Prefer the last independent response on a previous day. Retried or aided
+  // work cannot erase a genuinely unresolved gap.
+  const last=new Map();
+  for(const e of state.formalAttemptLog||[]){
+    if(!validDate(e?.day)||e.day>=day||Number(e.year)!==9||e.formal!==true||
+       e.repair||e.recoveryFor||e.assisted||e.hintUsed||e.scaffolded||
+       typeof e.correct!=='boolean'||!e.questionId)continue;
+    const key=[e.subject,e.topicId,String(e.questionId).split('@')[0]].join('|');
+    if(!last.has(key)||String(e.at||e.day)>=String(last.get(key).at||last.get(key).day))last.set(key,e);
+  }
+  const candidates=[];
+  for(const entry of entries||[]){
+    if(!approveTopic(entry,9,entry.subject)||reserved.has(entry.topicId))continue;
+    const missed=g=>g.ids.find(id=>last.get([entry.subject,entry.topicId,id].join('|'))?.correct===false);
+    const weak=entry.concepts.filter(missed);
+    if(!weak.length)continue;
+    const groups=[...weak,...entry.concepts.filter(g=>!missed(g))].slice(0,10);
+    const ids=groups.map(g=>missed(g)||g.ids[0]);
+    if(new Set(ids).size!==10||new Set(groups.map(g=>g.conceptId)).size!==10)continue;
+    candidates.push({entry,groups,ids,count:weak.length});
+  }
+  const match=candidates.sort((a,b)=>b.count-a.count||a.entry.topicId.localeCompare(b.entry.topicId))[0];
+  if(!match)return null;
+  const {entry,groups,ids}=match;
+  return tagged({id:'weakness-review',title:'Weakness Review · Year 9 · '+entry.title,
+    detail:'Previous errors first, followed by related approved questions.',
+    href:'/study/'+entry.subject+'/practise?daily=1&locked=1&year=9&mode=weak&task=weakness-review&topic='+encodeURIComponent(entry.topicId),
+    target:10,progress:0,done:false,xp:15,assignedYear:9,assignedSubject:entry.subject,
+    assignedTopic:entry.topicId,approvedQuestionIds:ids,
+    approvedConceptByQuestion:Object.fromEntries(groups.map((g,i)=>[ids[i],g.conceptId]))},day);
+}
 export function buildDailyV3(state,legacy=[],manifest=V3_APPROVED,{mathAttempts=null}={}){
   if(mathAttempts===null)mathAttempts=(state.formalAttemptLog||[]).filter(e=>e?.dailyTaskId==='maths-daily');
   const day=dayOf(state.today);
@@ -279,15 +321,16 @@ export function buildDailyV3(state,legacy=[],manifest=V3_APPROVED,{mathAttempts=
     const languages=languageEvidence(state,day);
     const assignedMath=dated.find(t=>t.id==='maths-daily');
     const maths=mathsEvidence(mathAttempts,day,assignedMath||{supplyBlocked:true});
+    const released=assignedMath?.href===dailyURL ? includeEarnedMaths(dated,mathAttempts,day).find(t=>t.id==='maths-daily') : null;
     return dated.map(t=>t.id==='languages-standard'?
       {...t,progress:languages.progress,done:languages.completed,
         languageEvidence:languages}:t.id==='maths-daily'?
-      {...t,progress:maths.submitted,done:maths.completed,mathsEvidence:maths}:
+      released||{...t,progress:maths.submitted,done:maths.completed,mathsEvidence:maths}:
       (t.id==='y8-standard-b'&&Number(t.assignedYear)===9)||
-      (t.id==='due-review'&&Number(t.assignedYear)===9)
+      (['due-review','weakness-review'].includes(t.id)&&Number(t.assignedYear)===9)
       ? {...t,progress:v3ScopedQuestionEvidence(state,t,day).correct,
           done:v3ScopedQuestionEvidence(state,t,day).completed}
-      :t);
+      :refreshLegacyProgress(t,legacy));
   }
   const old=new Map(legacy.map(t=>[t.id,t]));
   const passthrough=id=>old.get(id)?tagged(old.get(id),day):
@@ -359,7 +402,7 @@ export function buildDailyV3(state,legacy=[],manifest=V3_APPROVED,{mathAttempts=
   const maths=mathsEvidence(mathAttempts,day,mathsAssignment||{supplyBlocked:true});
   const mathsTask=mathsAssignment?
     {...mathsAssignment,progress:maths.submitted,done:maths.completed,mathsEvidence:maths}:
-    blocked('maths-daily','Maths Daily · GCSE Higher',10,9,
+    (manifest===V3_APPROVED && releasedMathsTask(day,mathAttempts)) || blocked('maths-daily','Maths Daily · GCSE Higher',10,9,
       'Maths V3.1 awaiting individual taught/grade/distractor QA and a verified iPad quiz renderer. No practice or credit until approved.',day);
   // Year 9 Due requires question-level saved due evidence and QA approval.
   // Year 8 Mastery Day 2/7 recall always remains the priority.
@@ -397,10 +440,12 @@ export function buildDailyV3(state,legacy=[],manifest=V3_APPROVED,{mathAttempts=
   },day):(pendingYear8Recall&&Number(originalDue.target)===5&&Number(originalDue.progress)===0
     ? {...originalDue,target:10,detail:'Year 8 Day 2/7 recall within a 10-question Due Review; five additional unassisted consolidation questions required. Existing recall evidence is assessed separately.'}
     : originalDue);
+  if(year9Due)reserved.add(year9Due.entry.topicId);
+  const weak=year9WeakTask(state,manifest.year9Standard,reserved,day)||passthrough('weakness-review');
   const vocab=id=>({...passthrough(id),detail:'30 vocabulary words: target 20 Year 7–8 + 10 independently approved Year 9; short supply must be disclosed; no sentences.'});
   const plan=[vocab('french-vocab'),vocab('latin-vocab'),language,
     passthrough('y8-standard-a'),standardB,
-    passthrough('y8-mastery-a'),passthrough('y8-mastery-b'),passthrough('weakness-review'),due,
+    passthrough('y8-mastery-a'),passthrough('y8-mastery-b'),weak,due,
     passthrough('year9-light'),mathsTask];
   // Distinct cards, fixed normal quotas, never copied completion credit.
   if(plan.length!==V3_TASK_SPEC.length||new Set(plan.map(t=>t.id)).size!==V3_TASK_SPEC.length||

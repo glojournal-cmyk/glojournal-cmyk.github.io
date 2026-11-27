@@ -3205,7 +3205,7 @@
           {
             "label": "Use the correct relationship and substitute compatible units.",
             "allOf": [
-              "5\\s*[/÷]\\s*1000|image.{0,20}magnif"
+              "(?<![\\d.])(?:5\\s*(?:mm\\s*)?[/÷]\\s*1000|5000\\s*(?:[μµu]m\\s*)?[/÷]\\s*1000)(?![\\d.])|image\\s*(?:size|length)?\\s*(?:[/÷]|divided by)\\s*magnification"
             ],
             "allowNegative": false
           },
@@ -3221,7 +3221,7 @@
         "numeric": {
           "value": 5,
           "unit": "µm",
-          "tolerance": 0.00005
+          "tolerance": 5e-05
         }
       },
       "modelAnswer": "Actual length = 5 / 1000 = 0.005 mm. Multiply by 1000: 5 µm.",
@@ -3258,7 +3258,7 @@
           {
             "label": "Use the correct relationship and substitute compatible units.",
             "allOf": [
-              "19.5\\s*[/÷]\\s*1500|image.{0,20}magnif"
+              "(?<![\\d.])(?:19\\.5\\s*(?:mm\\s*)?[/÷]\\s*1500|19500\\s*(?:[μµu]m\\s*)?[/÷]\\s*1500)(?![\\d.])|image\\s*(?:size|length)?\\s*(?:[/÷]|divided by)\\s*magnification"
             ],
             "allowNegative": false
           },
@@ -3311,7 +3311,7 @@
           {
             "label": "Use the correct relationship and substitute compatible units.",
             "allOf": [
-              "24\\s*[/÷]\\s*600|image.{0,20}magnif"
+              "(?<![\\d.])(?:24\\s*(?:mm\\s*)?[/÷]\\s*600|24000\\s*(?:[μµu]m\\s*)?[/÷]\\s*600)(?![\\d.])|image\\s*(?:size|length)?\\s*(?:[/÷]|divided by)\\s*magnification"
             ],
             "allowNegative": false
           },
@@ -3364,7 +3364,7 @@
           {
             "label": "Use the correct relationship and substitute compatible units.",
             "allOf": [
-              "9\\s*[/÷]\\s*300|image.{0,20}magnif"
+              "(?<![\\d.])(?:9\\s*(?:mm\\s*)?[/÷]\\s*300|9000\\s*(?:[μµu]m\\s*)?[/÷]\\s*300)(?![\\d.])|image\\s*(?:size|length)?\\s*(?:[/÷]|divided by)\\s*magnification"
             ],
             "allowNegative": false
           },
