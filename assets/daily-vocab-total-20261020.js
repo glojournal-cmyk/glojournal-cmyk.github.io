@@ -6,6 +6,27 @@ export const DAILY_VOCAB_TARGET = 30;
 export function dailyVocabTotal(state = {}, subject, day) {
   const date = day || state.today;
   const row = state.dailyVocabByDay?.[date]?.[subject] || {};
+  const splitPlan=(state.today===date?state.daily:state.dailyLog?.[date]?.tasks)||[];
+  if(splitPlan.some(t=>t.id===subject+'-vocab' && t.vocabSplit===true)){
+    const older=new Set(), newer=new Set(), attempts=new Set();
+    const add=(concept,correct)=>{
+      if(typeof concept!=='string')return;
+      const bucket=concept.startsWith(subject+'-y8-vocab-')?older:
+        concept.startsWith(subject+'-y9-vocab-')?newer:null;
+      if(!bucket)return;
+      attempts.add(concept);
+      if(correct===true)bucket.add(concept);
+    };
+    for(const [concept,ok] of Object.entries(row.splitConcepts||{}))add(concept,ok);
+    for(const a of state.formalAttemptLog||[]){
+      if(a?.day!==date || a.dailyTaskId!==subject+'-vocab' || a.subject!==subject ||
+         a.dailyVocab!==subject || a.formal!==true || a.repair || a.recoveryFor ||
+         a.assisted || a.hintUsed || a.scaffolded || typeof a.correct!=='boolean')continue;
+      add(a.vocabConcept,a.correct);
+    }
+    const correct=Math.min(20,older.size)+Math.min(10,newer.size);
+    return {subject,attempts:attempts.size,correct,target:30,passed:correct===30,progress:correct};
+  }
   const items = { ...(row.items && typeof row.items === "object" ? row.items : {}) };
   const concepts = { ...(row.conceptByQuestion || {}) };
   const conceptKey = id => concepts[id] || id;

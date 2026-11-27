@@ -33,7 +33,7 @@ try{
         page.on('pageerror',e=>errors.push(e.message));
         await page.goto(base+'/study/maths/',{waitUntil:'domcontentloaded'});
         await page.locator('.maths-topic-card').first().waitFor({timeout:15000});
-        assert.equal(await page.locator('.maths-topic-card').count(),5);
+        assert.equal(await page.locator('.maths-topic-card:not([href*=higher-practice])').count(),5);
         assert.equal(await page.locator('.maths-nav a').count(),7);
         await page.waitForFunction(()=>{
           const outfit=document.querySelector('.maths-scholar'),pet=document.querySelector('.maths-pet');
@@ -55,9 +55,9 @@ try{
         await page.screenshot({path:'test-results/maths-study/'+engine.name()+'-'+viewport.width+'-learn.png'});
         await page.goto(base+'/study/maths/practise/?topic=math-y9-indices');
         await page.locator('.maths-mode').first().waitFor({timeout:15000});
-        assert.equal(await page.locator('.maths-mode').count(),4);
+        assert.equal(await page.locator('.maths-mode:not([href*=higher-practice])').count(),4);
         checks++;
-        await page.locator('.maths-mode').nth(1).click();
+        await page.getByRole('link',{name:/Topic Practise/}).click();
         await page.locator('.maths-mode').first().waitFor({timeout:15000});
         assert.ok(await page.locator('.maths-mode').count()>0,'Topic practise opens skill selection');
         checks++;

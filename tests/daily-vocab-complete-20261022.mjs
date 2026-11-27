@@ -51,13 +51,11 @@ for(const subject of ['latin','french']){
     const qs=selectDailyVocabulary({subject,items,year9Items,
       legacyVocabulary:vocabulary[subject],day,seed:day,seenCorrect:state.seenCorrect,ledger:state.ledger});
     assert.equal(qs.length,30,subject+' selected 30 words on round '+i);
-    // V2 dates retain their 27+3 contract. V3 never invents teacher approval
-    // for Year 9 vocabulary; absent signed-off Y9 words it fills all 30 from Y7–8.
     const beforeV3=day<'2026-11-23';
-    assert.equal(qs.filter(q=>q._dailyYear9).length,beforeV3?3:0,
-      subject+' Y9 quota must be 3 before V3 and zero unapproved from V3');
-    assert.equal(qs.filter(q=>!q._dailyYear9).length,beforeV3?27:30,
-      subject+' Y7–8 quota must preserve legacy or safely backfill V3');
+    assert.equal(qs.filter(q=>q._dailyYear9).length,beforeV3?3:10,
+      subject+' Y9 quota must be 3 before V3 and 10 reviewed words in V3');
+    assert.equal(qs.filter(q=>!q._dailyYear9).length,beforeV3?27:20,
+      subject+' Y7–8 quota must match the issued plan');
     const keys=qs.map(q=>word(q,subject));
     assert.equal(new Set(keys).size,30,subject+' no duplicated lexical items in one session');
     assert.ok(qs.every(q=>q._dailyYear9||q.topicId==='daily-'+subject+'-legacy'||
@@ -81,4 +79,4 @@ for(const [label,source] of [['current',practice],['iPad fallback',practiceFallb
   for(const phrase of ['year9Items:year9DailyVocabulary(subject,FY9)','seenCorrect:s.getState()?.seenCorrect',
     '20261023-latinbooklet277-v1'])assert.ok(source.includes(phrase),label+' missing '+phrase);
 }
-console.log('DAILY_VOCAB_COMPLETE passed: both routes, historic 27+3 and fail-closed V3 30 Y7-8, scoring identities, no duplicate words');
+console.log('DAILY_VOCAB_COMPLETE passed: both routes, historic 27+3 and reviewed V3 20+10, scoring identities, no duplicate words');

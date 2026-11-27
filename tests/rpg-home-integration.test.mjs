@@ -58,9 +58,11 @@ test('RPG Home uses the authoritative evolving pet sprites, not retired thumbnai
 });
 
 test('official Biology date corrected from the old prototype',()=>{
-  assert.match(js,/Biology · cell structure test/);
-  assert.match(js,/progress:'2 Nov'/);
-  assert.doesNotMatch(js,/16 Nov/);
+  const assessment=fs.readFileSync(path.join(home,'assessment/app-v2.js'),'utf8');
+  assert.match(assessment,/week beginning 16 November 2026/);
+  const card=js.split('\n').find(line=>line.includes('Biology · cell structure assessment'));
+  assert.ok(card);
+  assert.match(card,/w\/c 16 Nov/);
 });
 
 test('background is selected from owned rewards, not static garden-wide art',()=>{

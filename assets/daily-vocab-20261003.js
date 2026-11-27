@@ -15,6 +15,10 @@ function directionOf(q) {
 function isHeadword(q,subject) {
   const dir=directionOf(q),terms=q?.answer?.accepted||[],stim=String(q?.stimulus?.text||'').trim();
   if(!terms.length||!stim)return false;
+  // Some older paradigm rows carry a vocabulary concept ID despite asking
+  // for a declined or conjugated form from a table.
+  if(/(?:exact .*form from the table|conjugate|decline the|complete the (?:ending|paradigm))/i.test(q.prompt||'')||
+     /\b(?:case|tense|person|gender):\s*\S/i.test(stim))return false;
   // A taught word or compact dictionary/idiomatic chunk is vocabulary.
   // Do not silently remove useful multiword lexical items such as "près de"
   // or "faire du vélo"; still exclude full-sentence translation exercises.
@@ -230,7 +234,8 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
     for(const concept of conceptsFor(questionId))
       if(concept.includes('-y9-vocab-'))seenYear9Today.add(concept);
   }
-  const year9Remaining=Math.max(0,(v3?10:3)-seenYear9Today.size);
+  const creditedNewerToday=[...credited].filter(c=>c.includes('-y9-vocab-')).length;
+  const year9Remaining=v3?Math.max(0,10-creditedNewerToday):Math.max(0,3-seenYear9Today.size);
   const year9Target=Math.min(size,year9Remaining,rows.filter(r=>
     r.year9&&!credited.has(r.concept)&&(!r.wrong||r.due)).length);
   const selected=[],used=new Set();

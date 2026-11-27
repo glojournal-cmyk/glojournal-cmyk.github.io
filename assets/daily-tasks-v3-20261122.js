@@ -271,7 +271,7 @@ function refreshLegacyProgress(task,legacy){
   const current=legacy.find(t=>t.id===task.id);
   if(!current||current.assignedTopic!==task.assignedTopic||
      current.assignedSubject!==task.assignedSubject||current.target!==task.target)return task;
-  const progress=current.correctOnlyEvidence ? current.progress : Math.max(task.progress||0,current.progress||0);
+  const progress=task.vocabSplit||current.correctOnlyEvidence ? current.progress : Math.max(task.progress||0,current.progress||0);
   return {...task,progress,done:progress>=task.target};
 }
 
@@ -442,7 +442,7 @@ export function buildDailyV3(state,legacy=[],manifest=V3_APPROVED,{mathAttempts=
     : originalDue);
   if(year9Due)reserved.add(year9Due.entry.topicId);
   const weak=year9WeakTask(state,manifest.year9Standard,reserved,day)||passthrough('weakness-review');
-  const vocab=id=>({...passthrough(id),detail:'30 vocabulary words: target 20 Year 7–8 + 10 independently approved Year 9; short supply must be disclosed; no sentences.'});
+  const vocab=id=>({...passthrough(id),title:id==='latin-vocab'?'Latin Vocab':'French Vocab',vocabSplit:true,correctOnlyEvidence:true,detail:'30 vocabulary words: target 20 Year 7–8 + 10 independently approved Year 9; short supply must be disclosed; no sentences.'});
   const plan=[vocab('french-vocab'),vocab('latin-vocab'),language,
     passthrough('y8-standard-a'),standardB,
     passthrough('y8-mastery-a'),passthrough('y8-mastery-b'),weak,due,

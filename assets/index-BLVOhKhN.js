@@ -1500,6 +1500,7 @@ function compactDailyTasks(daily) {
         ? task.done===true : progress >= target,
       ...(task.correctOnlyEvidence===true?{correctOnlyEvidence:true}:{}),
       ...(task.dailyV3===true?{dailyV3:true,planVersion:3,supplyBlocked:task.supplyBlocked===true}:{}),
+      ...(task.vocabSplit?{vocabSplit:true}:{}),
       ...(task.dailyV3===true&&Array.isArray(task.approvedQuestionIds)?{
         approvedQuestionIds:task.approvedQuestionIds.slice(0,20).map(String),
         approvedConceptByQuestion:Object.fromEntries(Object.entries(task.approvedConceptByQuestion||{})
@@ -2840,13 +2841,13 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
       store.setState({reviews:correct?retainMistakeReview(store.getState().reviews,questionId,todayKey()):store.getState().reviews,daily:(store.getState().daily||[]).map(t=>t.id==="mistake-review"?creditMistakeReview(t,questionId,correct,todayKey()):t)});
     }
     const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
-    if (vocabSubject && (!meta?.repair || correct)) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept, true);
+    if (vocabSubject && (!meta?.repair || correct)) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept, true, evidenceEntry.formal && !evidenceEntry.repair && !evidenceEntry.assisted && !evidenceEntry.hintUsed && !evidenceEntry.scaffolded);
     scheduleNormalizeState();
     return result;
   }
   if (!resolved.topicId) {
     const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
-    if (vocabSubject && (!meta?.repair || correct)) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept, true);
+    if (vocabSubject && (!meta?.repair || correct)) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept, true, evidenceEntry.formal && !evidenceEntry.repair && !evidenceEntry.assisted && !evidenceEntry.hintUsed && !evidenceEntry.scaffolded);
     return result;
   }
   const current = normalizeTopicStat(before.topicStats?.[resolved.topicId] || {});
@@ -2984,7 +2985,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
 
   const focus = store.getState().daily?.find((task) => task.id === "adaptive-focus");
   const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
-  if (vocabSubject && (!isRepair || correct)) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept, true);
+  if (vocabSubject && (!isRepair || correct)) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept, true, evidenceEntry.formal && !evidenceEntry.repair && !evidenceEntry.assisted && !evidenceEntry.hintUsed && !evidenceEntry.scaffolded);
 
   scheduleNormalizeState();
   return result;
@@ -3050,7 +3051,7 @@ function findRecoveryVocabSource(state, date, subject) {
 }
 if (typeof window !== "undefined") window.LuxRecoveryVocabSource = findRecoveryVocabSource;
 
-function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState, vocabConcept = null, verifiedFormalAttempt = false) {
+function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState, vocabConcept = null, verifiedFormalAttempt = false, independent = false) {
   if (!["french", "latin"].includes(subject) || !questionId) return;
   const state = store.getState();
   // Recovery answers belong to the missed date, never to today's Vocab task.
@@ -3157,7 +3158,11 @@ function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState, v
   if(correct&&!previouslyCreditedConcepts.has(creditKey) &&
      !Object.keys(extras).some(id => (conceptByQuestion[id] || id) === creditKey)) extras[String(questionId)]=true;
   items[String(questionId)] = !!correct || !!items[String(questionId)];
-  dayRow[subject] = { ...current,items,conceptByQuestion,baselineProgress:originalBaseline,
+  const split=state.daily?.some(t=>t.id===subject+'-vocab'&&t.vocabSplit&&t.planDate===day);
+  const splitConcepts=split&&independent&&vocabConcept
+    ? {...current.splitConcepts,[vocabConcept]:correct===true||current.splitConcepts?.[vocabConcept]===true}
+    :current.splitConcepts;
+  dayRow[subject] = { ...current,items,conceptByQuestion,...(splitConcepts?{splitConcepts}:{}),baselineProgress:originalBaseline,
     baselineKnownIds:frozenKnown,additionalCorrectIds:extras,
     updatedAt: new Date().toISOString() };
   all[day] = dayRow;

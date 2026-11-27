@@ -87,3 +87,19 @@ for(const subject of ['latin','french']){
   for(const q of set.filter(q=>q._dailyYear9))assert.ok(entries.some(e=>e.term===q._vocabTerm&&e.topicId===q.topicId));
  });
 }
+
+import {dailyVocabTotal} from '../assets/daily-vocab-total-20261020.js';
+test('a V3 vocabulary pass requires correct independent words in both years after reopening',()=>{
+ const subject='latin',day='2026-11-27';
+ const daily=[{id:'latin-vocab',planDate:day,vocabSplit:true,progress:0}];
+ const answer=(year,i,extra={})=>({subject,year,day,dailyVocab:subject,dailyTaskId:'latin-vocab',
+   formal:true,correct:true,questionId:'q'+year+'-'+i,vocabConcept:'latin-y'+year+'-vocab-word'+i,...extra});
+ const older=Array.from({length:30},(_,i)=>answer(8,i));
+ const newer=Array.from({length:10},(_,i)=>answer(9,i));
+ const score=rows=>dailyVocabTotal({today:day,daily,formalAttemptLog:rows},subject,day);
+ assert.equal(score(older).progress,20);
+ assert.equal(score([...older,...newer.slice(0,9),{...newer[0],questionId:'reverse'},answer(9,9,{hintUsed:true})]).progress,29);
+ assert.equal(score([...older,...newer]).passed,true);
+ const splitConcepts=Object.fromEntries([...older,...newer].map(a=>[a.vocabConcept,true]));
+ assert.equal(dailyVocabTotal({dailyLog:{[day]:{tasks:daily}},dailyVocabByDay:{[day]:{latin:{splitConcepts}}}},subject,day).passed,true);
+});
