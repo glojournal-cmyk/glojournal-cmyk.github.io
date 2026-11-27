@@ -33,7 +33,7 @@ test('Biology Year 9 locked 15-question task serves the assigned target, not sta
   const code=readFileSync(new URL('../assets/study._subject.practise-D_PWgUd7.js',import.meta.url),'utf8');
   assert.ok(code.includes('dailyLocked&&assignment?.target&&!dailyParams.has(\'recover\')'));
   assert.ok(code.includes('lockedRemainingRef.current.remaining'));
-  assert.ok(code.includes('remaining:Math.max(0,target-credited)'));
+  assert.match(code,/const remaining=dailyLocked&&E==='y8vocab'[\s\S]{0,130}:target-credited;/);
 });
 test('10 correct marked answers count 10/15, even with old Biology topic metadata',()=>{
   const s=state(),q=questions(),a=answers(q);
