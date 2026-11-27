@@ -256,7 +256,14 @@
      }
    });
  }
- root.LuxPracticeDrafts={key,read,save,clear,ready,isReady:()=>loaded};
+ function entries(){
+   const rows=new Map(cache);
+   for(const [key,draft] of Object.entries(oldMap()))rows.set(key,newer(rows.get(key),draft));
+   const tab=inTab();
+   if(tab)rows.set(tab.key,newer(rows.get(tab.key),tab.record));
+   return [...rows].filter(([key,draft])=>!completedKeys.has(key)&&valid(draft));
+ }
+ root.LuxPracticeDrafts={key,read,save,clear,ready,entries,isReady:()=>loaded};
  // Avoid an orphaned background IndexedDB probe on browsers that lack IDB.
  // Read-only legacy/tab rescue still works; an explicit save invokes ready().
  if(root.indexedDB)void ready().catch(()=>{});

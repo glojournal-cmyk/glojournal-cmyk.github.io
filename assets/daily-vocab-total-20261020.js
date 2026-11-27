@@ -25,7 +25,7 @@ export function dailyVocabTotal(state = {}, subject, day) {
       add(a.vocabConcept,a.correct);
     }
     const correct=Math.min(20,older.size)+Math.min(10,newer.size);
-    return {subject,attempts:attempts.size,correct,target:30,passed:correct===30,progress:correct};
+    return {subject,vocabSplit:true,attempts:attempts.size,correct,target:30,passed:correct===30,progress:correct};
   }
   const items = { ...(row.items && typeof row.items === "object" ? row.items : {}) };
   const concepts = { ...(row.conceptByQuestion || {}) };

@@ -62,7 +62,7 @@ function mergeTask(previous,incoming,date){
      JSON.stringify(left.approvedQuestionIds)===JSON.stringify(right.approvedQuestionIds)&&
      JSON.stringify(left.approvedCorrectOptionByQuestion)===JSON.stringify(right.approvedCorrectOptionByQuestion);
    const progress=Math.min(10,Math.max(nonneg(original.progress),matching?nonneg(right.progress):0));
-   const done=isDone(original)||(matching&&isDone(right));
+   const done=isDone(original)||Boolean(matching&&isDone(right));
    return {...original,target:10,progress,done};
  }
  const target=Math.max(1,nonneg(left.target),nonneg(right.target));

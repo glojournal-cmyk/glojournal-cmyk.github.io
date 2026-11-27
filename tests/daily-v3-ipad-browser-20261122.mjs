@@ -23,6 +23,48 @@ const server=createServer((req,res)=>{
 await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
 const base='http://127.0.0.1:'+server.address().port;
 const day='2026-11-27',report=[];
+async function completeVocabFromHome(browser,subject){
+ const context=await browser.newContext({viewport:{width:1024,height:1366},hasTouch:true,
+   isMobile:true,timezoneId:'Europe/London'});
+ try{
+   const page=await context.newPage();
+   await page.clock.setFixedTime(new Date(day+'T12:00:00Z'));
+   await page.goto(base);
+   await page.getByRole('link',{name:new RegExp('^'+subject+' Vocab','i')}).first().click();
+   const card=page.locator('[data-question-id]').first();
+   await card.waitFor();
+   const words=await page.evaluate(()=>JSON.parse(sessionStorage.getItem('lux-practice-draft-tab-v2')).record.base);
+   assert.equal(words.length,30);
+   assert.equal(words.filter(q=>q._dailyYear9).length,10);
+   assert.equal(words.filter(q=>q._dailyYear8&&!q._dailyYear9).length,20);
+   assert.equal(new Set(words.map(q=>q._vocabConcept)).size,30);
+   for(const [index,word] of words.entries()){
+     assert.equal(await card.getAttribute('data-question-id'),word.id);
+     await page.locator('main textarea:visible,main input:not([type=hidden]):visible').first().fill(word.answer.accepted[0]);
+     await page.getByRole('button',{name:'Submit',exact:true}).click();
+     if(index===29)break;
+     await page.getByRole('button',{name:/^Next/}).first().click();
+     await page.waitForFunction(id=>document.querySelector('[data-question-id]')?.getAttribute('data-question-id')===id,words[index+1].id);
+     if(index===7){
+       await page.goto(base);
+       await page.locator('.rpg-continue-live').filter({hasText:'Resume saved question'}).click();
+       await card.waitFor();
+     }
+   }
+   await page.getByRole('button',{name:'Finish',exact:true}).click();
+   await page.getByText('Saved and counted towards today’s tasks',{exact:true}).waitFor();
+   await page.getByText('YEAR 7–9 '+subject.toUpperCase()+' VOCABULARY · TODAY',{exact:true}).waitFor();
+   await page.goto(base);
+   await page.waitForFunction(subject=>window.__luxStore?.getState().daily?.some(t=>t.id===subject+'-vocab'&&t.progress===30),subject);
+   const record=await page.evaluate(subject=>{
+     const state=window.__luxStore.getState();
+     const row=state.dailyLog[state.today];
+     const task=row.tasks.find(t=>t.id===subject+'-vocab');
+     return [task.progress,task.done,task.vocabSplit,row.done,row.total];
+   },subject);
+   assert.deepEqual(record,[30,true,true,1,11]);
+ }finally{await context.close();}
+}
 async function run(kind,browserType){
  const browser=await browserType.launch({headless:true});
  const context=await browser.newContext({viewport:{width:1024,height:1366},
@@ -83,10 +125,11 @@ async function run(kind,browserType){
       tasks:window.__luxStore.getState().daily.map(t=>({id:t.id,assignedTopic:t.assignedTopic,assignedYear:t.assignedYear}))}));
    assert.equal(saved.xp,start.xp,'Opening unsubmitted questions must not award XP');
    assert.equal(saved.mp,start.mp,'Opening unsubmitted questions must not award MP');
-   assert.deepEqual(JSON.parse(saved.history),JSON.parse(start.historic),'No historical Daily mutation merely from opening');
+   assert.deepEqual(JSON.parse(saved.history),JSON.parse(start.historic),'Opening an assignment must preserve all dated records');
    assert.equal(saved.recovery,start.recovery,'No Recovery mutation merely from opening');
    assert.equal(saved.tasks.find(t=>t.id==='y8-standard-b').assignedTopic,std.assignedTopic);
-   const status={kind,passed:true,day,received,appOpened:true,
+   for(const subject of ['latin','french'])await completeVocabFromHome(browser,subject);
+   const status={kind,passed:true,vocabResumedAndCounted:['latin','french'],day,received,appOpened:true,
      manuscript:'40 reviewed IDs; 2 Language subjects and StandardB tested on real app',
      errors:errors.slice(0,10)};
    report.push(status);

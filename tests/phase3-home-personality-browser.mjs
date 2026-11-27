@@ -63,7 +63,7 @@ try{
       assert.equal(ui.petLink,'/pet/','Pet navigation remains functional');
       assert.equal(ui.navPosition,'fixed','PWA bottom navigation must be viewport-fixed');
       await page.waitForFunction(()=>{
-        try{return JSON.parse(localStorage.getItem('lux-scholar-garden-v1')||'{}')?.state?.daily?.length===10}
+        try{return JSON.parse(localStorage.getItem('lux-scholar-garden-v1')||'{}')?.state?.daily?.length===11}
         catch{return false}
       },null,{timeout:15000});
       // Pet care initializes independently after the Home becomes visible.
@@ -90,7 +90,7 @@ try{
             actionCounts:p.care.daily?.actionCounts,
             rewardLedger:p.care.rewardLedger}:null};
       });
-      // The initial Home hydration may rebuild its ten-task plan after the
+      // The initial Home hydration may rebuild its eleven-task plan after the
       // shell becomes visible. Baseline only after the actual persisted plan
       // settles; Settings must still leave that settled record untouched.
       let previousSnapshot=await snapshot();

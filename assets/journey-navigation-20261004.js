@@ -19,12 +19,12 @@
  function navigationHref(value){const href=safeHref(value);if(!href)return null;const u=new URL(href,'https://glojournal-cmyk.github.io');u.searchParams.set('v','20261010-chem-marking1');return u.pathname+u.search}
  function clean(v){try{const parsed=JSON.parse(v);return typeof parsed==='string'||typeof parsed==='number'?String(parsed):v}catch{return v}}
  function currentTask(state,href,taskId){if(state.today!==day())return null;const rows=state.daily||[];if(taskId)return rows.find(t=>t.id===taskId)||null;try{const u=new URL(href,'https://glojournal-cmyk.github.io'),p=u.searchParams,id=clean(p.get('task'));if(id)return rows.find(t=>t.id===id)||null;if(clean(p.get('daily'))!=='1')return null;return rows.find(t=>{const v=new URL(t.href,'https://glojournal-cmyk.github.io');return v.pathname.replace(/\/$/,'')===u.pathname.replace(/\/$/,'')&&['mode','topic','year','task'].every(k=>(clean(v.searchParams.get(k))||'')===(clean(p.get(k))||''))})||null}catch{return null}}
- const done=t=>Number(t.progress)>=Number(t.target);
+ const done=t=>t.id==='maths-daily'?t.done===true:Number(t.progress)>=Number(t.target);
  function completion(state,href,taskId){const task=currentTask(state,href,taskId);if(!task)return null;const rows=(state.daily||[]).filter(t=>safeHref(t.href)),next=rows.find(t=>t.id!==task.id&&!done(t));return {task,done:done(task),completed:rows.filter(done).length,total:rows.length,next:next?{...next,href:navigationHref(next.href)}:null,remaining:Math.max(0,Number(task.target)-Number(task.progress))}}
  function resumeCandidates(state=garden(),at=Date.now()){
   const candidates=[],today=day(at);
   function add(row){const href=navigationHref(row.href);if(!href||!Number.isInteger(row.index)||row.index<0||row.index>=row.total)return;const task=currentTask(state,href,row.dailyTaskId);if(row.daily&&(row.planDate!==today||!task||done(task)))return;candidates.push({...row,href,savedAt:Number(row.savedAt)||0})}
-  for(const [key,d] of Object.entries(read('lux-practice-drafts-v1'))){
+  for(const [key,d] of (root.LuxPracticeDrafts?.entries?.()||Object.entries(read('lux-practice-drafts-v1')))){
    if(d?.version!==1||d.ce||at-d.savedAt>=7*86400000||!Array.isArray(d.base)||!d.base.length)continue;
    let parts;try{parts=JSON.parse(key)}catch{continue}const [subject,year,size,topic,dailyId,mode,task,scope,planDate]=parts;if(!SUBJECTS.includes(subject))continue;
    const params=new URLSearchParams({year:String(year),mode:mode||'standard'});if(topic)params.set('topic',topic);if(scope)params.set('scope',scope);if(task)params.set('task',task);const daily=!!d.daily||!!dailyId||!!planDate||!!task;if(daily){params.set('daily','1');params.set('locked','1')}

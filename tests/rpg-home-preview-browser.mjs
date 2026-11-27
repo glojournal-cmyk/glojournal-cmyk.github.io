@@ -102,6 +102,7 @@ for (const run of runs) {
       window.dispatchEvent(new Event('scholar:pet-changed'));
     });
     await page.locator('#lux-rpg-live-home .rpg-continue-live').waitFor({timeout:10000});
+    await page.waitForFunction(() => document.querySelector('#lux-rpg-live-home .rpg-continue-live')?.textContent?.includes('Resume saved question'), null, {timeout:10000});
     const rows=await page.locator('#lux-rpg-live-home .rpg-quests-live .rpg-task-live').evaluateAll(els=>
       els.map(el=>({name:el.querySelector('strong')?.textContent?.trim(),
         text:el.textContent.trim(),width:el.querySelector('strong')?.getBoundingClientRect().width||0,

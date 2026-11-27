@@ -70,9 +70,12 @@ const remainingKey=[R,e,N,E,canonicalTask,assignment?.assignedTopic,assignment?.
 if(lockedRemainingRef.current.key!==remainingKey){
  const target=Math.max(0,Number(assignment?.target)||0);
  const credited=Math.max(0,Math.min(target,Number(assignment?.progress)||0));
- lockedRemainingRef.current={key:remainingKey,remaining:Math.max(0,target-credited)};
+ // Freeze the initial vocabulary set size while correct answers update today's total.
+ const remaining=dailyLocked&&E==='y8vocab'&&!dailyParams.has('recover')
+   ?30-dailyVocabTotal(s.getState(),e,R).progress:target-credited;
+ lockedRemainingRef.current={key:remainingKey,remaining:Math.max(0,remaining)};
 }
-let W=dailyLocked&&dailyParams.has('recover')&&E!==`y8vocab`&&assignment?.target?Math.max(1,lockedRemainingRef.current.remaining):E===`mistakes`?Math.max(1,assignment?.target||10):E===`y8vocab`?(dailyLocked&&!dailyParams.has('recover')?Math.max(1,30-dailyVocabTotal(s.getState(),e,R).progress):recoverySize):dailyLocked&&assignment?.target&&!dailyParams.has('recover')&&String(assignment?.href||``).includes(`mode=${E}`)?lockedRemainingRef.current.remaining:dailyLocked&&E===`mastery`&&/^y8-mastery-(?:a|b|topup-a|topup-b)$/.test(canonicalTask||``)?Math.max(15,Number(assignment?.target)||20):E===`quick`?5:canonicalTask===`year9-light`?15:E===`biomix`?16:E===`year8long`||E===`mastery`||E===`exam`||E===`engmix`||E===`chemmix`||E===`physmix`?15:10;
+let W=dailyLocked&&dailyParams.has('recover')&&E!==`y8vocab`&&assignment?.target?Math.max(1,lockedRemainingRef.current.remaining):E===`mistakes`?Math.max(1,assignment?.target||10):E===`y8vocab`?(dailyLocked&&!dailyParams.has('recover')?Math.max(1,lockedRemainingRef.current.remaining):recoverySize):dailyLocked&&assignment?.target&&!dailyParams.has('recover')&&String(assignment?.href||``).includes(`mode=${E}`)?lockedRemainingRef.current.remaining:dailyLocked&&E===`mastery`&&/^y8-mastery-(?:a|b|topup-a|topup-b)$/.test(canonicalTask||``)?Math.max(15,Number(assignment?.target)||20):E===`quick`?5:canonicalTask===`year9-light`?15:E===`biomix`?16:E===`year8long`||E===`mastery`||E===`exam`||E===`engmix`||E===`chemmix`||E===`physmix`?15:10;
 if(dailyLocked&&!dailyParams.has('recover')&&assignment&&
    Number(assignment.progress)<Number(assignment.target)&&
    ['standard','quick','weak','due','y8vocab'].includes(E)){
