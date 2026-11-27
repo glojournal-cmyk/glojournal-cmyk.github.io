@@ -1,0 +1,203 @@
+{
+  "kind": "V318_THREE_LOW_DEMAND_REPLACEMENT_CANDIDATES_CONSTRAINT_TRANSFER_QA_ONLY",
+  "date": "2026-11-23",
+  "pr": 306,
+  "branch": "feature/daily-tasks-v3-20261122",
+  "sourceBankPath": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "canonicalSourceUnchanged": true,
+  "replacesPriorCandidatePackPath": "qa-staging/math-v315-indices017-025-standard009-025-distinct-reasoning-candidates-20261123.json",
+  "priorCandidateBlobSha": "2c061a93256cf685ce5d45c4e21e78b636224e6c",
+  "gradeDemandEvidencePath": "qa-staging/math-v317-eight-candidate-grade-demand-and-six-concept-overlap-evidence-20261123.json",
+  "gradeDemandBlobSha": "bd1030d2493d69eaa9ec50f5c80bc362c805ce81",
+  "originalV315PackRetainedForAudit": true,
+  "officialAOReference": "https://www.aqa.org.uk/subjects/mathematics/gcse/mathematics-8300/specification/scheme-of-assessment",
+  "higherBenchmarkStatus": "REASONING_INTENT_CHECKED_NOT_GRADE7_CERTIFIED",
+  "counts": {
+    "sourceItemsTargeted": 3,
+    "newCandidateQuestions": 3,
+    "options": 18,
+    "wrongOptionsWithNumericallySpecificErrorPaths": 15,
+    "priorLowerPriorityItemsRedesigned": 3,
+    "externalGrade7Certifications": 0,
+    "academicApproved": 0,
+    "dailyEligible": 0,
+    "masteryEligible": 0
+  },
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-025",
+      "revisionId": "LUX-MATH-Y9-INDICES-025-V318-CONSTRAINT-TRANSFER-DRAFT-20261123",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-025-REVIEW-2",
+      "replacesPreviousCandidateRevisionId": "LUX-MATH-Y9-INDICES-025-V315-REASONING-REDESIGN-QA-ONLY",
+      "topicId": "math-y9-indices",
+      "oldLowerDemandVerdict": "LOWER",
+      "newUnverifiedReasoningDemand": "Requires linking two perfect-square conditions, a product of exponential expressions, a ratio inequality and exhaustive integer-pair classification, rather than simply testing one exponent's parity.",
+      "stem": "For each integer $t\\ge3$, let $Q(t)=\\frac{2^{3t-1}}{4^{t+1}}$. Two different integers $n<m$ are chosen so that **both $Q(n)$ and $Q(m)$ are integer perfect squares**. They also satisfy $Q(n)Q(m)=2^{14}$ and $\\frac{Q(m)}{Q(n)}\\le2^6$. Find the sum of **all possible values of $m$**.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "11",
+          "errorPath": "Find the closer admissible pair n=9,m=11, but omit the boundary pair n=7,m=13 that also meets the ratio bound."
+        },
+        {
+          "id": "B",
+          "latex": "13",
+          "errorPath": "Keep only the limiting pair n=7,m=13 with Q(m)/Q(n)=2^6, ignoring the other admissible pair n=9,m=11."
+        },
+        {
+          "id": "C",
+          "latex": "16",
+          "errorPath": "Find both permitted pairs (n,m)=(7,13),(9,11) but add the smaller variables 7+9 rather than the requested m values."
+        },
+        {
+          "id": "D",
+          "latex": "24"
+        },
+        {
+          "id": "E",
+          "latex": "39",
+          "errorPath": "Use a relaxed ratio bound of 2^10, wrongly including the further pair (n,m)=(5,15); add 13+11+15=39."
+        },
+        {
+          "id": "F",
+          "latex": "56",
+          "errorPath": "Ignore the ratio bound entirely: include (n,m)=(3,17),(5,15),(7,13),(9,11), then sum m as 17+15+13+11=56."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "24",
+      "workedSolutionSteps": [
+        "Simplify $Q(t)=\\frac{2^{3t-1}}{2^{2t+2}}=2^{t-3}$. Since both $Q(n)$ and $Q(m)$ must be integer perfect squares, the exponents $n-3$ and $m-3$ must each be even and nonnegative. The product condition gives $(n-3)+(m-3)=14$, hence $n+m=20$.",
+        "The ratio condition is $\\frac{Q(m)}{Q(n)}=2^{m-n}\\le2^6$, so $m-n\\le6$. Together with $n<m$ and $m=20-n$, it implies $7\\le n<10$. Since $n-3$ is even, $n$ is odd.",
+        "The only possibilities are $(n,m)=(7,13)$ and $(9,11)$, both with square ratios and product $2^{14}$. The sum of all possible values of $m$ is $13+11=24$."
+      ],
+      "exactTaughtSubskillUnverified": "Exact taught scope of combined exponential inequalities and double-parameter integer reasoning remains unknown.",
+      "reviewClassification": "AO2_AO3_CANDIDATE_NOT_CERTIFIED_G7_PLUS",
+      "academicQA": "pending",
+      "independentGrade7PlusCertification": false,
+      "teacherTaughtConfirmed": false,
+      "empiricalStudentMisconceptionEvidence": false,
+      "independentMasteryConceptApproved": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "scoringWritesAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-009",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-009-V318-CONSTRAINT-TRANSFER-DRAFT-20261123",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-009-REVIEW-2",
+      "replacesPreviousCandidateRevisionId": "LUX-MATH-Y9-STANDARD_FORM-009-V315-REASONING-REDESIGN-QA-ONLY",
+      "topicId": "math-y9-standard-form",
+      "oldLowerDemandVerdict": "LOWER",
+      "newUnverifiedReasoningDemand": "Requires making a feasible integer model with two unequal safe capacities and competing costs, demonstrating why cheaper mixes fail, not just dividing a known mass by one container capacity.",
+      "stem": "A factory makes $6\\times10^5$ g of material and discards $3\\times10^4$ g. It can use at most **5 containers**. A type A container costs £40, holds at most $1.2\\times10^5$ g, and must remain **15% empty**; a type B costs £65, holds at most $1.5\\times10^5$ g, and must remain **10% empty**. Empty percentages are minimums, and all remaining material must be packed, but its distribution among containers may vary. Find the **lowest total cost**. Give the triple $(a,b,C)$ where $a$ and $b$ are the number of type A and B containers, and $C$ is the total cost in pounds.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "(4,1,225)",
+          "errorPath": "Choose four cheaper A containers and one B, costing 4×40+65=225, but their combined safe capacity is only 4×102000+135000=543000 g, below 570000 g."
+        },
+        {
+          "id": "B",
+          "latex": "(5,0,200)",
+          "errorPath": "Use five type A containers at 5×40=200, treating their nominal 600000 g capacity as usable although the mandatory 15% empty requirement lowers it to 510000 g."
+        },
+        {
+          "id": "C",
+          "latex": "(3,2,250)"
+        },
+        {
+          "id": "D",
+          "latex": "(2,3,275)",
+          "errorPath": "Use two A and three B: safe capacity 2×102000+3×135000=609000 g is enough, but its £275 cost exceeds the £250 feasible three-A/two-B solution."
+        },
+        {
+          "id": "E",
+          "latex": "(4,2,290)",
+          "errorPath": "Use four type A and two type B containers, giving enough usable capacity and a cost of £290, but this plan requires six containers rather than the allowed maximum five."
+        },
+        {
+          "id": "F",
+          "latex": "(1,3,235)",
+          "errorPath": "Choose one A and three B because £235 appears cheaper, but their safe capacity is 102000+3×135000=507000 g, insufficient to pack all 570000 g."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "(3,2,250)",
+      "workedSolutionSteps": [
+        "The remaining mass is $6\\times10^5-3\\times10^4=570000$ g. With their empty-space rules, the usable capacity per type A container is $0.85(1.2\\times10^5)=102000$ g, and per type B is $0.90(1.5\\times10^5)=135000$ g.",
+        "With at most five containers, the usable total is $102000a+135000b$ g, requiring $102000a+135000b\\ge570000$ and $a+b\\le5$. Fewer than five containers cannot work, as even four type B containers hold only $540000$ g.",
+        "For five containers, the feasible mixes $(a,b)$ are $(3,2),(2,3),(1,4),(0,5)$, costing £250, £275, £300, £325 respectively. The least expensive is $(3,2)$, so $(a,b,C)=(3,2,250)$."
+      ],
+      "exactTaughtSubskillUnverified": "Mixed-integer feasibility, capacity headroom and cost optimisation need independent taught-curriculum check.",
+      "reviewClassification": "AO2_AO3_CANDIDATE_NOT_CERTIFIED_G7_PLUS",
+      "academicQA": "pending",
+      "independentGrade7PlusCertification": false,
+      "teacherTaughtConfirmed": false,
+      "empiricalStudentMisconceptionEvidence": false,
+      "independentMasteryConceptApproved": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "scoringWritesAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-025",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-025-V318-CONSTRAINT-TRANSFER-DRAFT-20261123",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-025-REVIEW-2",
+      "replacesPreviousCandidateRevisionId": "LUX-MATH-Y9-STANDARD_FORM-025-V315-REASONING-REDESIGN-QA-ONLY",
+      "topicId": "math-y9-standard-form",
+      "oldLowerDemandVerdict": "LOWER",
+      "newUnverifiedReasoningDemand": "Requires an inverse concentration model, allowable discrete volume selection and unsplittable whole-pack count under a maximum-pack condition, rather than following a prescribed chronological arithmetic chain.",
+      "stem": "A chamber initially has volume $2.5\\times10^{-3}$ m$^3$ and $4\\times10^3$ particles per cm$^3$. A filter removes **25%** of the particles. The chamber is then compressed to one of the volumes $1.5$, $1.75$, $2$, or $2.25$, each multiplied by $10^{-3}$ m$^3$. A technician may add at most **3 sealed packs**, each containing $1.5\\times10^6$ particles; a pack must be added whole. There is no further loss. The final concentration must be **exactly** $6\\times10^3$ particles per cm$^3$. Which available volume is **greatest** while meeting all these conditions? Give $(v,p)$, where the volume is $v\\times10^{-3}$ m$^3$ and $p$ is the number of whole packs. ($1$ m$^3=10^6$ cm$^3$.)",
+      "options": [
+        {
+          "id": "A",
+          "latex": "(2.25,3)",
+          "errorPath": "Use the largest allowed volume and the maximum three packs, but that yields 12000000 particles in 2250 cm³, or only 5333.33 particles/cm³ rather than exactly 6000."
+        },
+        {
+          "id": "B",
+          "latex": "(2.25,4)",
+          "errorPath": "Choose the largest available volume and correctly compute four packs to reach 13500000 particles, but four packs violate the three-pack limit."
+        },
+        {
+          "id": "C",
+          "latex": "(2,3)"
+        },
+        {
+          "id": "D",
+          "latex": "(1.75,2)",
+          "errorPath": "Choose the feasible 1750 cm³ volume with two packs, yielding 10500000/1750=6000 particles/cm³, but it is not the greatest feasible volume."
+        },
+        {
+          "id": "E",
+          "latex": "(2,2)",
+          "errorPath": "Choose a 2000 cm³ chamber with only two whole packs: 7500000+3000000=10500000 particles gives 5250/cm³, below the required exact concentration."
+        },
+        {
+          "id": "F",
+          "latex": "(1.5,3)",
+          "errorPath": "Use three packs despite selecting the smallest 1500 cm³ chamber, yielding 12000000/1500=8000/cm³, above the required exact concentration."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "(2,3)",
+      "workedSolutionSteps": [
+        "The initial particle count is $(2.5\\times10^{-3})(10^6)(4\\times10^3)=10^7$. Removing 25% leaves $0.75(10^7)=7.5\\times10^6$ particles.",
+        "With $p$ sealed packs, the final number is $7.5\\times10^6+1.5\\times10^6p$. A final volume $v\\times10^{-3}$ m$^3$ is $1000v$ cm$^3$, so the exact concentration condition is $7.5\\times10^6+1.5\\times10^6p=(6\\times10^3)(1000v)$, giving $v=1.25+0.25p$.",
+        "For whole $p$ from $0$ through $3$, this yields $v=1.25,1.5,1.75,2$. Only $1.5,1.75,2$ are available; the greatest is $v=2$ requiring $p=3$. The option $(v,p)=(2,3)$ is therefore the only correct choice."
+      ],
+      "exactTaughtSubskillUnverified": "Particle-concentration conservation, constrained integer packs, model choice and volume conversion require actual taught-skill verification.",
+      "reviewClassification": "AO2_AO3_CANDIDATE_NOT_CERTIFIED_G7_PLUS",
+      "academicQA": "pending",
+      "independentGrade7PlusCertification": false,
+      "teacherTaughtConfirmed": false,
+      "empiricalStudentMisconceptionEvidence": false,
+      "independentMasteryConceptApproved": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "scoringWritesAllowed": false
+    }
+  ]
+}

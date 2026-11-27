@@ -26,7 +26,7 @@
     const calendar = journey?.day?.(now);
     const tasks = Array.isArray(state?.daily) ? state.daily : [];
     // Never show the legacy six-task SSR count as today's actual workload.
-    const ready = !!calendar && state?.today === calendar && tasks.length === 10;
+    const ready = !!calendar && state?.today === calendar && [10,11].includes(tasks.length);
     if (!ready) return { ready:false, count:0, total:10, rows:[], next:null,
       title:"Opening today's journey", subtitle:"Syncing your saved tasks…" };
     // UI-only: saved dated Daily evidence must outrank a temporary in-memory
@@ -44,7 +44,7 @@
         Number(old?.progress)||0,old?.done===true?target:0));
       return {
         id:String(task.id || ""),title:String(task.title || task.id || "Daily task"),
-        target,progress,done:progress>=target,href:validHref(journey,task.href)
+        target,progress,done:task.id==='maths-daily' ? task.done===true : progress>=target,href:validHref(journey,task.href)
       };
     });
     const count = rows.filter(row => row.done).length;
@@ -67,7 +67,7 @@
       next = {title:remaining.title,subtitle:`${remaining.progress} / ${remaining.target} completed`,
         href:remaining.href,kind:"task"};
     } else {
-      next = {title:"Today's journey is complete",subtitle:"All 10 tasks are counted.",
+      next = {title:"Today's journey is complete",subtitle:`All ${tasks.length} tasks are counted.`,
         href:"/garden",kind:"complete"};
     }
     return {ready:true,count,total:rows.length,rows,next,reward:nextReward(storage)};

@@ -81,6 +81,8 @@ function openPractice(reserved) {
 const day = schoolDay();
 const plan = assignment(day);
 const params = new URLSearchParams(location.search);
+// Home adds a version parameter to study links. It does not select a practice mode.
+params.delete('v');
 const formal = params.size === 1 && params.get('daily') === '1';
 
 async function openDaily() {

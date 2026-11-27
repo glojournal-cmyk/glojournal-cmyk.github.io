@@ -1,0 +1,253 @@
+{
+  "kind": "MATHS_V314_FOUR_DISTINCT_REASONING_DRAFTS_GRAPH_AND_SIM_QA_ONLY",
+  "date": "2026-11-23",
+  "pr": 306,
+  "sourceBankPath": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "sourceBankUnmodified": true,
+  "evidenceRegisterPath": "qa-staging/math-v314-graphs40-simultaneous40-source-first-pedagogical-hold-register-20261123.json",
+  "evidenceRegisterBlobSha": "8c882eda98517b0e678d5dac383b445fbe710de3",
+  "schoolCurriculumPDF": "SKIPPED_PER_PARENT_INSTRUCTION",
+  "totalOldQuestionsStillHeld": 200,
+  "previousGradeTarget": "GCSE_HIGHER_G7_PLUS_NOT_EXTERNALLY_CERTIFIED",
+  "totals": {
+    "redesigns": 4,
+    "graphRedesigns": 2,
+    "simultaneousRedesigns": 2,
+    "options": 24,
+    "wrongOptionRationales": 20,
+    "formallyApproved": 0,
+    "dailyEligible": 0,
+    "masteryEligible": 0
+  },
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-029",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-029-V314-DISTINCT_REDESIGN_QA_ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-029-REVIEW-2",
+      "sourceTemplateId": "V3-GRAPH-G8-PARAMETER-PERPENDICULAR",
+      "topicId": "math-y9-straight-line-graphs",
+      "stem": "Lines $y=2x+3$ and $y=11-2x$ meet at $P$. A new line through $P$ is parallel to the segment from $A(1,2)$ to $B(4,0)$ and meets both coordinate axes at $X$ and $Y$. What is the **area** of triangle $OXY$, where $O$ is the origin?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac{25}{2}",
+          "errorPath": "Find x-intercept 25/2 correctly but submit this length instead of using both intercepts to form the triangular area."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{625}{6}",
+          "errorPath": "Use the product of the two intercept lengths without the factor one-half required by the triangle area formula."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{25}{3}",
+          "errorPath": "Find y-intercept 25/3 correctly but mistake it for the required triangular area."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{625}{12}"
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{175}{4}",
+          "errorPath": "Calculate the area using the intersection's y-coordinate 7 as the vertical axis intercept, rather than 25/3."
+        },
+        {
+          "id": "F",
+          "latex": "7",
+          "errorPath": "Use the two coordinates of intersection P=(2,7) as perpendicular base and height, giving one-half times 2 times 7."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "\\frac{625}{12}",
+      "workedSolutionSteps": [
+        "Solve $2x+3=11-2x$ to obtain $P=(2,7)$. The segment $AB$ has gradient $\\frac{0-2}{4-1}=-\\frac{2}{3}$.",
+        "The new parallel line is $y-7=-\\frac{2}{3}(x-2)$, hence $y=-\\frac{2}{3}x+\\frac{25}{3}$. Its positive intercepts are $x=\\frac{25}{2}$ and $y=\\frac{25}{3}$.",
+        "The triangle formed with the coordinate axes therefore has area $\\frac{1}{2}\\times\\frac{25}{2}\\times\\frac{25}{3}=\\frac{625}{12}$ square units."
+      ],
+      "provisionalAOFocus": "AO3 candidate: derive intersection, gradient from two separate points, construct a new line, then use axis geometry for area.",
+      "explicitDifferenceFromRoutineSource": "Adds transfer to geometric area calculation rather than four coefficient-rotated one-step values of k.",
+      "unverifiedTaughtSubskill": "Exact classroom treatment of coordinate-axis geometry, parallel gradients and area from intercepts not independently checked.",
+      "sourceTriage": "UPGRADE_STEM_FOR_G7PLUS",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-030",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-030-V314-DISTINCT_REDESIGN_QA_ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-030-REVIEW-2",
+      "sourceTemplateId": "V3-GRAPH-G8-PARAMETER-PERPENDICULAR",
+      "topicId": "math-y9-straight-line-graphs",
+      "stem": "A straight line through $A(k,6)$ and $B(2,3)$, with $k<2$, meets the positive coordinate axes at $X$ and $Y$. Triangle $OXY$ has area $15$ square units. Which option gives **every possible value of $k$**?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "k=1\\pm\\sqrt{5}",
+          "errorPath": "Solve the auxiliary quadratic correctly as t=3±sqrt(5), but transform back using k=t−2 rather than k=2−t, producing k=1±sqrt(5)."
+        },
+        {
+          "id": "B",
+          "latex": "k=-1\\pm\\sqrt{5}"
+        },
+        {
+          "id": "C",
+          "latex": "k=3\\pm\\sqrt{5}",
+          "errorPath": "Correctly solve for the positive auxiliary variable t but report its values instead of returning to k=2-t."
+        },
+        {
+          "id": "D",
+          "latex": "k=-1\\pm\\sqrt{6}",
+          "errorPath": "Miscalculate the quadratic discriminant 36−16=20 as 24, producing sqrt6 instead of sqrt5."
+        },
+        {
+          "id": "E",
+          "latex": "k=-1+\\sqrt{5}",
+          "errorPath": "Retain only the positive-square-root branch of the quadratic, omitting a second admissible k<2 value."
+        },
+        {
+          "id": "F",
+          "latex": "k=2\\pm\\sqrt{5}",
+          "errorPath": "Forget the constant 3 in t=3±sqrt5 when transforming back to k=2-t."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "k=-1\\pm\\sqrt{5}",
+      "workedSolutionSteps": [
+        "Put $t=2-k>0$. The slope of $AB$ is $-\\frac{3}{t}$, so its positive x-intercept is $t+2$ and y-intercept is $\\frac{3(t+2)}{t}$.",
+        "The axis-intercept triangle has area $\\frac{1}{2}(t+2)\\frac{3(t+2)}{t}=15$, hence $(t+2)^2=10t$ and $t^2-6t+4=0$.",
+        "Solve $t=3\\pm\\sqrt{5}$; both values are positive. Converting back gives the two permitted values $k=2-t=-1\\pm\\sqrt{5}$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate: create a variable slope/intercept model, translate a geometric area constraint to quadratic roots, preserve two valid domain branches.",
+      "explicitDifferenceFromRoutineSource": "Requires two-branch geometric parameter reasoning instead of the original one-step perpendicular gradient.",
+      "unverifiedTaughtSubskill": "Quadratic formula and parameter-dependent axis-intercept area must be independently confirmed as taught.",
+      "sourceTriage": "UPGRADE_STEM_FOR_G7PLUS",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-005",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-005-V314-DISTINCT_REDESIGN_QA_ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-005-REVIEW-2",
+      "sourceTemplateId": "V3-SIM-G7-NEW-TICKET-COMBINATION",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "Two adult tickets and three child tickets cost £40; three adult tickets and two child tickets cost £45. A group must buy **exactly 25 tickets**, including **at least 10 child tickets**, on a maximum budget of **£230**. Let $A$ denote the number of adult tickets. What is the **greatest possible value of $A$**?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "16",
+          "errorPath": "Use only the £230 budget and exactly 25 tickets; sixteen adults leave nine children, which violates the ten-child minimum."
+        },
+        {
+          "id": "B",
+          "latex": "9",
+          "errorPath": "Find sixteen adults and nine children using the budget, but report the nine child tickets and disregard the minimum-child constraint."
+        },
+        {
+          "id": "C",
+          "latex": "14",
+          "errorPath": "Apply an unnecessary extra requirement of at least eleven child tickets and cap adults at fourteen, losing one permitted adult ticket."
+        },
+        {
+          "id": "D",
+          "latex": "10",
+          "errorPath": "Confuse the condition requiring at least ten child tickets with a ten-adult maximum, ignoring the exact feasible optimisation."
+        },
+        {
+          "id": "E",
+          "latex": "15"
+        },
+        {
+          "id": "F",
+          "latex": "25",
+          "errorPath": "Ignore the minimum child count and available budget, and count every one of the twenty-five tickets as an adult ticket."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "15",
+      "workedSolutionSteps": [
+        "Write adult price a and child price c. Solve $2a+3c=40$ and $3a+2c=45$ to obtain $a=11$ and $c=6$ pounds.",
+        "Let A be adult-ticket count. Exactly 25 tickets gives children $25-A$. The budget requires $11A+6(25-A)=150+5A\\le230$, hence $A\\le16$.",
+        "At least ten children also requires $25-A\\ge10$, so $A\\le15$. Fifteen adults and ten children cost £225 and meet both conditions; the maximum is $15$."
+      ],
+      "provisionalAOFocus": "AO3 candidate: infer two unit prices, model an integer count/budget feasible region and maximise under independent constraints.",
+      "explicitDifferenceFromRoutineSource": "Adds separate child quota and optimisation constraints to the original one-step ticket substitution.",
+      "unverifiedTaughtSubskill": "Two-variable budget inequalities and integer maximum feasible choices need actual Year9 lesson coverage evidence.",
+      "sourceTriage": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-013",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-013-V314-DISTINCT_REDESIGN_QA_ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-013-REVIEW-2",
+      "sourceTemplateId": "V2-SIMULTANEOUS-4",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "For real parameters $k$ and $t$, consider $\\begin{cases}2x+3y=7\\\\(k+2)x+(2k+1)y=14+t\\end{cases}$. In the options, $I$ states when the system has **infinitely many solutions**, and $N$ states when it has **no solution**. Which gives both conditions correctly?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "I:k=4,t\\ne7;N:k=4,t=7",
+          "errorPath": "Interchange the equal and unequal right-hand-side conditions: the consistent proportional case gives infinitely many, not none."
+        },
+        {
+          "id": "B",
+          "latex": "I:k=3,t=7;N:k=3,t\\ne7",
+          "errorPath": "Set the coefficient proportionality at k=3 even though it does not make both rows parallel."
+        },
+        {
+          "id": "C",
+          "latex": "I:k=4,t=7;N:k=4,t\\ne7"
+        },
+        {
+          "id": "D",
+          "latex": "I:k=4,t=21;N:k=4,t\\ne21",
+          "errorPath": "Forget the second constant is 14+t, not t, when matching the triple of the first right-hand side."
+        },
+        {
+          "id": "E",
+          "latex": "I:k=4,t=7;N:k\\ne4,t=7",
+          "errorPath": "Treat the nonsingular cases with k different from four as inconsistent, although they instead have one unique solution."
+        },
+        {
+          "id": "F",
+          "latex": "I:k=4,t=7;N:k=4,t>7",
+          "errorPath": "Exclude inconsistent cases with t below seven, despite every t different from seven producing parallel distinct lines."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "I:k=4,t=7;N:k=4,t\\ne7",
+      "workedSolutionSteps": [
+        "A no-solution or infinitely-many-solution system requires the two coefficient pairs to be proportional: $2(2k+1)-3(k+2)=0$, hence $k=4$.",
+        "At $k=4$ the second left-hand side is $6x+9y=3(2x+3y)$, so its constant must equal $3\\times7=21$ to describe the same line.",
+        "Thus the system has infinitely many solutions exactly when $k=4,t=7$. If $k=4,t\\ne7$, the lines are distinct and parallel, so there is no solution; other k values give a unique solution."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate: classify the full two-parameter set into unique, parallel-distinct and coincident systems.",
+      "explicitDifferenceFromRoutineSource": "Requires two independent parameter conditions and a three-way solution classification instead of finding k from one ratio.",
+      "unverifiedTaughtSubskill": "General linear-system classifications with two parameters and proportional rows need taught subskill verification.",
+      "sourceTriage": "UPGRADE_STEM_FOR_G7PLUS",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    }
+  ]
+}

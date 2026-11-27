@@ -1,0 +1,1137 @@
+{
+  "kind": "V331_EDITORIAL20_REASONING_UPGRADES_QA_ONLY",
+  "date": "2026-11-24",
+  "sourceBankPath": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "priorRegister": "qa-staging/math-all200-unified-candidate-review-register-20261124.json",
+  "priorRegisterBlobSha": "b8ebeceb5dd2799ab00814484b87bc1fae82f3a4",
+  "count": 20,
+  "optionsCount": 120,
+  "wrongOptionExplanationsCount": 100,
+  "academicApprovals": 0,
+  "dailyEligible": 0,
+  "masteryEligible": 0,
+  "status": "STAGING_ONLY",
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-010",
+      "revisionId": "LUX-MATH-Y9-INDICES-010-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-010-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-INDICES-010-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "monomial-scaling-inverse",
+      "stem": "For positive x,y, let $E=\\frac{(x^2y^{-3})^2}{x^{-2}y^2}$. The value of y is doubled and x is multiplied by a positive factor k. The new E is exactly 1024 times the original E. Find k.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "8"
+        },
+        {
+          "id": "B",
+          "latex": "2",
+          "errorPath": "Assume both variables must be multiplied by the same factor."
+        },
+        {
+          "id": "C",
+          "latex": "4",
+          "errorPath": "Omit the entire y scaling factor and use k^6=2^10, then round the resulting factor incorrectly to 4."
+        },
+        {
+          "id": "D",
+          "latex": "16",
+          "errorPath": "Use k^6=2^24 by treating the denominator effect as 2^14 rather than 2^8."
+        },
+        {
+          "id": "E",
+          "latex": "64",
+          "errorPath": "Take the cube root of 2^18 instead of the sixth root."
+        },
+        {
+          "id": "F",
+          "latex": "512",
+          "errorPath": "Take the square root of 2^18 instead of the sixth root."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "8",
+      "workedSolutionSteps": [
+        "Simplify E=x^6y^{-8}. The new-to-old ratio is k^6/2^8.",
+        "Set k^6/2^8=1024=2^10, so k^6=2^18.",
+        "Because k>0, k=2^3=8."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Negative indices and inverse scaling.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-011",
+      "revisionId": "LUX-MATH-Y9-INDICES-011-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-011-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-INDICES-011-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "prime-exponent-minimal-pair-and-sign",
+      "stem": "For nonzero real x,y, let $E=\\frac{(x^3y^{-4})^2}{x^{-3}y^3}$. Suppose $|x|=2^a$, $|y|=2^b$ for positive integers a,b, and E=1. What is the smallest possible a+b?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2",
+          "errorPath": "Take a=b=1, ignoring the different exponents."
+        },
+        {
+          "id": "B",
+          "latex": "9",
+          "errorPath": "Report b alone in the smallest valid pair."
+        },
+        {
+          "id": "C",
+          "latex": "11",
+          "errorPath": "Report a alone in the smallest valid pair."
+        },
+        {
+          "id": "D",
+          "latex": "99",
+          "errorPath": "Report the common exponent 9a=11b instead of a+b."
+        },
+        {
+          "id": "E",
+          "latex": "40",
+          "errorPath": "Use the second positive multiple of the smallest exponent pair."
+        },
+        {
+          "id": "F",
+          "latex": "20"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "20",
+      "workedSolutionSteps": [
+        "E=x^9/y^{11}; E=1 requires x and y to have the same sign and 9a=11b.",
+        "Since 9 and 11 are coprime, the smallest positive pair is a=11,b=9.",
+        "This is achievable with x=2^11,y=2^9, and a+b=20."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Odd powers, prime factors and least positive integer constraints.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-012",
+      "revisionId": "LUX-MATH-Y9-INDICES-012-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-012-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-INDICES-012-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "two-integer-exponents-feasible-pairs",
+      "stem": "For integers $1\\le n,m\\le10$, set $x=2^n$, $y=4^m$. Find the sum of n+m over all pairs (n,m) satisfying $\\frac{(x^4y^{-5})^2}{x^{-4}y^4}=\\frac1{16}$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3",
+          "errorPath": "Keep only the pair (2,1)."
+        },
+        {
+          "id": "B",
+          "latex": "13",
+          "errorPath": "Keep only the pair (9,4)."
+        },
+        {
+          "id": "C",
+          "latex": "11",
+          "errorPath": "Add the two n values but omit both m values."
+        },
+        {
+          "id": "D",
+          "latex": "5",
+          "errorPath": "Add the two m values but omit both n values."
+        },
+        {
+          "id": "E",
+          "latex": "16"
+        },
+        {
+          "id": "F",
+          "latex": "2",
+          "errorPath": "Report the number of valid pairs rather than the requested sum."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "16",
+      "workedSolutionSteps": [
+        "The expression is x^12y^{-14}=2^{12n-28m}. Match exponents to get 3n−7m=−1.",
+        "The equation gives n=(7m−1)/3. Testing m=1 to 10 for integer n gives m=1,4,7,10, with n=2,9,16,23 respectively.",
+        "Only (2,1) and (9,4) meet both bounds. Their n+m totals are 3 and 13, giving 16."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Integer exponent constraints and exhaustive bounded enumeration.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-026",
+      "revisionId": "LUX-MATH-Y9-INDICES-026-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-026-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-INDICES-026-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "exponential-ratio-product-elimination",
+      "stem": "For real n, $A=2^{3n-1}$ and $B=4^{n+1}$. It is known that $AB=2^{21}$. Find the exact value of $A/B$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "4",
+          "errorPath": "Use n=5 instead of the value from the product constraint."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{1}{2}",
+          "errorPath": "Reverse the quotient A/B."
+        },
+        {
+          "id": "C",
+          "latex": "2"
+        },
+        {
+          "id": "D",
+          "latex": "16",
+          "errorPath": "Report 2^n instead of A/B."
+        },
+        {
+          "id": "E",
+          "latex": "8",
+          "errorPath": "Use exponent n−1 rather than n−3."
+        },
+        {
+          "id": "F",
+          "latex": "32",
+          "errorPath": "Use exponent n+1 rather than n−3."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "2",
+      "workedSolutionSteps": [
+        "Rewrite B=2^{2n+2}. Then AB=2^{5n+1}, so 5n+1=21 and n=4.",
+        "The quotient is A/B=2^{3n−1−(2n+2)}=2^{n−3}.",
+        "Substituting n=4 gives 2."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Product constraints and quotient exponent transfer.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-027",
+      "revisionId": "LUX-MATH-Y9-INDICES-027-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-027-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-INDICES-027-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "two-power-constraints-reconstruct-sum",
+      "stem": "Positive A and B are powers of 2 with integer exponents. Their product is $2^{14}$ and their sum is 320. Find the positive difference between A and B.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "320",
+          "errorPath": "Report the given sum."
+        },
+        {
+          "id": "B",
+          "latex": "192"
+        },
+        {
+          "id": "C",
+          "latex": "128",
+          "errorPath": "Assume both powers equal 2^7 and report that value."
+        },
+        {
+          "id": "D",
+          "latex": "256",
+          "errorPath": "Report the larger power rather than the difference."
+        },
+        {
+          "id": "E",
+          "latex": "64",
+          "errorPath": "Report the smaller power rather than the difference."
+        },
+        {
+          "id": "F",
+          "latex": "384",
+          "errorPath": "Add 2^8 to 2^7 instead of subtracting 2^6 from 2^8."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "192",
+      "workedSolutionSteps": [
+        "Let A=2^a,B=2^b, with a+b=14. The product is 16384.",
+        "The numbers are roots of t²−320t+16384=0, which factors as (t−64)(t−256)=0.",
+        "Both 64=2^6 and 256=2^8 are powers of 2, and the difference is 256−64=192."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Product and sum of powers; quadratic or factor-pair reasoning.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-028",
+      "revisionId": "LUX-MATH-Y9-INDICES-028-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-028-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-INDICES-028-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "exponential-ratio-reciprocal-two-cases",
+      "stem": "Let $A=2^{3n-1}$ and $B=4^{n+1}$ for integer n. If $\\frac AB+\\frac BA=\\frac{17}{4}$, find the product of all possible n.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "5"
+        },
+        {
+          "id": "B",
+          "latex": "6",
+          "errorPath": "Add the two possible n values instead of multiplying."
+        },
+        {
+          "id": "C",
+          "latex": "1",
+          "errorPath": "Keep only the smaller n."
+        },
+        {
+          "id": "D",
+          "latex": "25",
+          "errorPath": "Keep only the larger n and square it."
+        },
+        {
+          "id": "E",
+          "latex": "-5",
+          "errorPath": "Assign a negative sign to one valid n."
+        },
+        {
+          "id": "F",
+          "latex": "2",
+          "errorPath": "Report the positive exponent difference rather than the requested product."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "5",
+      "workedSolutionSteps": [
+        "Let t=A/B=2^{n−3}>0. Then t+1/t=17/4 implies 4t²−17t+4=0.",
+        "Factor as (4t−1)(t−4)=0. Thus t=1/4 or 4, giving n−3=−2 or 2.",
+        "The two valid integers are 1 and 5; their product is 5."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Exponential substitution and all reciprocal branches.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-006",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-006-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-006-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-006-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "weighted-speed-distance-split",
+      "stem": "A probe covers $9\\times10^6$ km in total. It travels one third of the distance at $3\\times10^3$ km/h and the remaining two thirds at $6\\times10^3$ km/h. Find its average speed in km/h. Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "5\\times10^{3}",
+          "errorPath": "Weight the two speeds by distance fractions instead of deriving elapsed times."
+        },
+        {
+          "id": "B",
+          "latex": "3\\times10^{3}",
+          "errorPath": "Use only the first leg speed."
+        },
+        {
+          "id": "C",
+          "latex": "6\\times10^{3}",
+          "errorPath": "Use only the second leg speed."
+        },
+        {
+          "id": "D",
+          "latex": "4.5\\times10^{3}"
+        },
+        {
+          "id": "E",
+          "latex": "9\\times10^{3}",
+          "errorPath": "Add the two speeds."
+        },
+        {
+          "id": "F",
+          "latex": "2.25\\times10^{3}",
+          "errorPath": "Divide the total distance by twice the actual total time."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "4.5\\times10^{3}",
+      "workedSolutionSteps": [
+        "The leg distances are 3×10^6 and 6×10^6 km.",
+        "The corresponding times are 1000 h and 1000 h, so total time is 2000 h.",
+        "Average speed is 9×10^6/2000=4.5×10^3 km/h."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Weighted rate and time rather than distance-weighted speed.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-007",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-007-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-007-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-007-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "round-trip-speed-with-time-target",
+      "stem": "A vehicle travels $1.2\\times10^5$ m outward at $2\\times10^1$ m/s and returns the same distance. The average speed for the entire round trip must be $3\\times10^1$ m/s. What constant return speed in m/s achieves this? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "4\\times10^{1}",
+          "errorPath": "Average the two speeds arithmetically and solve (20+v)/2=30."
+        },
+        {
+          "id": "B",
+          "latex": "3\\times10^{1}",
+          "errorPath": "Use the target average as the return speed."
+        },
+        {
+          "id": "C",
+          "latex": "6\\times10^{1}"
+        },
+        {
+          "id": "D",
+          "latex": "2\\times10^{1}",
+          "errorPath": "Reuse the outward speed."
+        },
+        {
+          "id": "E",
+          "latex": "1.5\\times10^{1}",
+          "errorPath": "Divide the return distance by the full target time."
+        },
+        {
+          "id": "F",
+          "latex": "1.2\\times10^{2}",
+          "errorPath": "Divide the return distance by half the correct return time."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "6\\times10^{1}",
+      "workedSolutionSteps": [
+        "The required total time is 2(1.2×10^5)/30=8000 s.",
+        "The outward trip takes 1.2×10^5/20=6000 s, leaving 2000 s.",
+        "Return speed must be 1.2×10^5/2000=6×10^1 m/s."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Inverse average-speed model for equal distances.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-011",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-011-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-011-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-011-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "packaging-tare-capacity",
+      "stem": "A shipment has total mass $9.6\\times10^5$ g, including $2\\times10^2$ identical empty boxes of mass $8\\times10^2$ g each. The contents are identical items of mass $4\\times10^1$ g. After removing 15% of the items, how many items remain? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2\\times10^{4}",
+          "errorPath": "Find the original number of items but omit the removal."
+        },
+        {
+          "id": "B",
+          "latex": "3\\times10^{3}",
+          "errorPath": "Report the number of items removed."
+        },
+        {
+          "id": "C",
+          "latex": "2.04\\times10^{4}",
+          "errorPath": "Use the entire shipment mass as the item mass, ignoring the boxes."
+        },
+        {
+          "id": "D",
+          "latex": "2.4\\times10^{4}",
+          "errorPath": "Ignore box mass and item removal."
+        },
+        {
+          "id": "E",
+          "latex": "1.7\\times10^{4}"
+        },
+        {
+          "id": "F",
+          "latex": "1.36\\times10^{4}",
+          "errorPath": "Multiply the correct remaining number by 0.8 again."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "1.7\\times10^{4}",
+      "workedSolutionSteps": [
+        "Empty boxes weigh (2×10^2)(8×10^2)=1.6×10^5 g.",
+        "Contents weigh 8×10^5 g, corresponding to 20000 items.",
+        "Keep 85%: 0.85×20000=1.7×10^4 items."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Tare subtraction, unit mass and retention.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-012",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-012-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-012-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-012-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "two-product-yield-balance",
+      "stem": "A factory starts with $6\\times10^7$ g of material. It allocates 40% to line A, which retains 75% of its input, and the rest to line B, which retains 90%. How much usable material in grams is produced altogether? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "4.95\\times10^{7}",
+          "errorPath": "Average the two retention rates equally, then apply 82.5% to the original mass."
+        },
+        {
+          "id": "B",
+          "latex": "1.8\\times10^{7}",
+          "errorPath": "Report the output from line A only."
+        },
+        {
+          "id": "C",
+          "latex": "3.24\\times10^{7}",
+          "errorPath": "Report the output from line B only."
+        },
+        {
+          "id": "D",
+          "latex": "5.04\\times10^{7}"
+        },
+        {
+          "id": "E",
+          "latex": "9.6\\times10^{6}",
+          "errorPath": "Report the material lost rather than the usable total."
+        },
+        {
+          "id": "F",
+          "latex": "6\\times10^{7}",
+          "errorPath": "Ignore both losses."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "5.04\\times10^{7}",
+      "workedSolutionSteps": [
+        "Line A receives 2.4×10^7 g and yields 1.8×10^7 g.",
+        "Line B receives 3.6×10^7 g and yields 3.24×10^7 g.",
+        "Total usable mass is 5.04×10^7 g."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Weighted percentage yields and conservation.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-022",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-022-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-022-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-022-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "reverse-calibration-two-stage",
+      "stem": "A sensor first increases its true reading by 5%, then subtracts a fixed offset of $2\\times10^5$ units. Its final display is $8.2\\times10^6$ units. What was the true reading before both adjustments? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "8.4\\times10^{6}",
+          "errorPath": "Report the display before the offset instead of reversing the increase."
+        },
+        {
+          "id": "B",
+          "latex": "8.61\\times10^{6}",
+          "errorPath": "Multiply the final display 8.2×10^6 by 1.05 instead of reversing both operations."
+        },
+        {
+          "id": "C",
+          "latex": "7.98\\times10^{6}",
+          "errorPath": "Reduce the pre-offset display by 5% instead of dividing by 1.05."
+        },
+        {
+          "id": "D",
+          "latex": "8.2\\times10^{6}",
+          "errorPath": "Report the post-offset reading."
+        },
+        {
+          "id": "E",
+          "latex": "8.82\\times10^{6}",
+          "errorPath": "Apply another 5% increase instead of reversing it."
+        },
+        {
+          "id": "F",
+          "latex": "8\\times10^{6}"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "8\\times10^{6}",
+      "workedSolutionSteps": [
+        "Undo the fixed subtraction first: 8.2×10^6+2×10^5=8.4×10^6.",
+        "That value is 1.05 times the true reading.",
+        "True reading = 8.4×10^6/1.05=8×10^6."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Reverse calibration; distinguish irrelevant later operation.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-023",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-023-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-023-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-023-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "error-interval-difference-lower-bound",
+      "stem": "Two lengths are recorded as $7.2\\times10^5$ m and $4.8\\times10^5$ m, each correct to two significant figures. Find the lower bound of the first length minus the second length, in metres. Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2.4\\times10^{5}",
+          "errorPath": "Subtract the recorded values without using error intervals."
+        },
+        {
+          "id": "B",
+          "latex": "2.5\\times10^{5}",
+          "errorPath": "Use the upper bound of the first length and lower bound of the second."
+        },
+        {
+          "id": "C",
+          "latex": "2.35\\times10^{5}",
+          "errorPath": "Use the lower bound of the first length but the recorded second length."
+        },
+        {
+          "id": "D",
+          "latex": "2.45\\times10^{5}",
+          "errorPath": "Use the recorded first length and lower bound of the second."
+        },
+        {
+          "id": "E",
+          "latex": "2.3\\times10^{5}"
+        },
+        {
+          "id": "F",
+          "latex": "1\\times10^{4}",
+          "errorPath": "Report the total width of the combined rounding uncertainty on one side, not the difference."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "2.3\\times10^{5}",
+      "workedSolutionSteps": [
+        "The first length has lower bound 715000 m; the second has upper bound 485000 m.",
+        "The difference is smallest when the first is as small as possible and the second as large as possible.",
+        "Lower bound is 715000−485000=2.3×10^5 m."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Error intervals and lower bound of a difference.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-024",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-024-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-024-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-024-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "percentage-target-relative-base",
+      "stem": "A town has population $4\\times10^5$. A second town has population 25% greater than the first. The first town grows by 20% while the second grows by 4%. How many additional people must the first town gain to equal the second town's new population? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "1.2\\times10^{5}",
+          "errorPath": "Subtract the initial first population from the new second population, omitting the first town's growth."
+        },
+        {
+          "id": "B",
+          "latex": "2\\times10^{4}",
+          "errorPath": "Compare the original second population with the first town's new population."
+        },
+        {
+          "id": "C",
+          "latex": "1\\times10^{5}",
+          "errorPath": "Report the original population difference."
+        },
+        {
+          "id": "D",
+          "latex": "4\\times10^{4}"
+        },
+        {
+          "id": "E",
+          "latex": "5.2\\times10^{5}",
+          "errorPath": "Report the new second population without subtracting the new first population."
+        },
+        {
+          "id": "F",
+          "latex": "4.8\\times10^{5}",
+          "errorPath": "Report the new first population instead of the gap."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "4\\times10^{4}",
+      "workedSolutionSteps": [
+        "Second town initially has 5×10^5 people.",
+        "New populations are 4×10^5×1.2=4.8×10^5 and 5×10^5×1.04=5.2×10^5.",
+        "Required increase is 5.2×10^5−4.8×10^5=4×10^4."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Percentage changes with different starting bases.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-030",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-030-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-030-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-030-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "standard-form-exponent-unknown",
+      "stem": "A positive quantity N satisfies $\\frac{N+3\\times10^8}{2\\times10^5}=4.5\\times10^3$. A second calculation uses the same N but subtracts $1.5\\times10^8$ before dividing by $5\\times10^4$. What is the second result? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "1.2\\times10^{4}",
+          "errorPath": "Omit the second subtraction and divide N by 5×10^4."
+        },
+        {
+          "id": "B",
+          "latex": "1.5\\times10^{4}",
+          "errorPath": "Add 1.5×10^8 rather than subtracting."
+        },
+        {
+          "id": "C",
+          "latex": "4.5\\times10^{3}",
+          "errorPath": "Report the original first result."
+        },
+        {
+          "id": "D",
+          "latex": "9\\times10^{3}"
+        },
+        {
+          "id": "E",
+          "latex": "2.25\\times10^{3}",
+          "errorPath": "Use the first denominator 2×10^5 for the second calculation."
+        },
+        {
+          "id": "F",
+          "latex": "6\\times10^{8}",
+          "errorPath": "Report N instead of the second result."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "9\\times10^{3}",
+      "workedSolutionSteps": [
+        "The first equation gives N+3×10^8=(2×10^5)(4.5×10^3)=9×10^8, so N=6×10^8.",
+        "The second numerator is 6×10^8−1.5×10^8=4.5×10^8.",
+        "Divide by 5×10^4 to obtain 9×10^3."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Reverse calculation involving two different powers of ten.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-031",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-031-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-031-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-031-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "standard-form-inequality-capacity",
+      "stem": "A data link can transfer at most $7.5\\times10^8$ bytes in a session. The session has a fixed overhead of $1.5\\times10^8$ bytes. Each complete file uses $2.4\\times10^5$ bytes. What is the maximum number of complete files that can be transferred? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3.125\\times10^{3}",
+          "errorPath": "Divide the entire capacity by file size, ignoring overhead."
+        },
+        {
+          "id": "B",
+          "latex": "6.25\\times10^{2}",
+          "errorPath": "Divide the overhead by file size rather than using the available capacity."
+        },
+        {
+          "id": "C",
+          "latex": "2.5\\times10^{3}"
+        },
+        {
+          "id": "D",
+          "latex": "3.75\\times10^{3}",
+          "errorPath": "Add overhead to the capacity instead of subtracting."
+        },
+        {
+          "id": "E",
+          "latex": "2.5\\times10^{2}",
+          "errorPath": "Shift the correct exponent down by one."
+        },
+        {
+          "id": "F",
+          "latex": "2.5\\times10^{4}",
+          "errorPath": "Shift the correct exponent up by one."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "2.5\\times10^{3}",
+      "workedSolutionSteps": [
+        "Available file capacity is 7.5×10^8−1.5×10^8=6×10^8 bytes.",
+        "Divide by 2.4×10^5 bytes per file: 2500.",
+        "The count is already an integer, and one more file exceeds the limit."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Capacity inequality and integer constraint.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-032",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-032-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-032-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-032-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "standard-form-geometric-area-budget",
+      "stem": "A square site has side length $3\\times10^3$ m. Exactly 20% is reserved for paths. Each rectangular plot measures $4\\times10^1$ m by $5\\times10^1$ m. Ignoring layout restrictions, what is the maximum number of complete plots by area? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "4.5\\times10^{3}",
+          "errorPath": "Ignore the 20% paths reserve."
+        },
+        {
+          "id": "B",
+          "latex": "3.6\\times10^{3}"
+        },
+        {
+          "id": "C",
+          "latex": "9\\times10^{2}",
+          "errorPath": "Use the area reserved for paths rather than the remaining area."
+        },
+        {
+          "id": "D",
+          "latex": "7.2\\times10^{3}",
+          "errorPath": "Divide by 1000 m² instead of the full 2000 m² plot area."
+        },
+        {
+          "id": "E",
+          "latex": "1.8\\times10^{3}",
+          "errorPath": "Treat the rectangular plot as twice its actual area."
+        },
+        {
+          "id": "F",
+          "latex": "3.6\\times10^{2}",
+          "errorPath": "Shift the result down one power of ten."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "3.6\\times10^{3}",
+      "workedSolutionSteps": [
+        "Site area is (3×10^3)^2=9×10^6 m².",
+        "Usable area is 0.8×9×10^6=7.2×10^6 m².",
+        "Plot area is 40×50=2000 m²; the area-based maximum is 3600 complete plots."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Square units, proportional reserve and capacity.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-037",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-037-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-037-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-037-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "successive-batch-yield-with-rework",
+      "stem": "A production line makes N batches of $2.5\\times10^4$ items. Exactly 12% are rejected. One quarter of the rejected items are successfully repaired and returned to stock. The final usable count is $6.825\\times10^8$. Find N. Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2.73\\times10^{4}",
+          "errorPath": "Divide usable items by batch size but ignore both rejection and repair."
+        },
+        {
+          "id": "B",
+          "latex": "2.8\\times10^{4}",
+          "errorPath": "Treat each batch as yielding 24375 usable items instead of 22750, effectively using 97.5% retention."
+        },
+        {
+          "id": "C",
+          "latex": "3\\times10^{4}"
+        },
+        {
+          "id": "D",
+          "latex": "2.275\\times10^{4}",
+          "errorPath": "Report usable items per batch rather than the original number of batches."
+        },
+        {
+          "id": "E",
+          "latex": "7.5\\times10^{3}",
+          "errorPath": "Report one quarter of the required batch count."
+        },
+        {
+          "id": "F",
+          "latex": "6.825\\times10^{5}",
+          "errorPath": "Divide the final usable count by 1000 instead of by the usable items per batch."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "3\\times10^{4}",
+      "workedSolutionSteps": [
+        "For each original item, 88% survive and 25% of the rejected 12% return, adding 3%.",
+        "The final usable fraction is 91%, so usable count is N(2.5×10^4)(0.91).",
+        "N=6.825×10^8/(2.275×10^4)=3×10^4."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Recover a fraction of rejected output, then reverse the overall yield.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-038",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-038-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-038-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-038-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "two-batch-types-reverse-constraint",
+      "stem": "A production line makes $4\\times10^4$ batches in total. Small batches contain $2\\times10^4$ items and large batches contain $5\\times10^4$ items. After exactly 10% of all items are removed, $1.26\\times10^9$ items remain. How many large batches were made? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "4\\times10^{4}",
+          "errorPath": "Report the total number of batches."
+        },
+        {
+          "id": "B",
+          "latex": "2\\times10^{4}"
+        },
+        {
+          "id": "C",
+          "latex": "2.8\\times10^{4}",
+          "errorPath": "Divide the original item count by the large batch size, assuming no small batches."
+        },
+        {
+          "id": "D",
+          "latex": "1.8\\times10^{4}",
+          "errorPath": "Take 90% of the correct large-batch count."
+        },
+        {
+          "id": "E",
+          "latex": "1.2\\times10^{4}",
+          "errorPath": "Divide 6×10^8 by the entire large batch size rather than the additional 3×10^4 per large batch."
+        },
+        {
+          "id": "F",
+          "latex": "4.2\\times10^{4}",
+          "errorPath": "Divide the final count 1.26×10^9 by 3×10^4 without removing the small-batch baseline or reversing the loss."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "2\\times10^{4}",
+      "workedSolutionSteps": [
+        "Original item count is 1.26×10^9/0.9=1.4×10^9.",
+        "If all 40000 batches were small, the count would be 8×10^8; each large batch adds 3×10^4 items.",
+        "The difference 6×10^8 requires 20000 large batches."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Reverse yield then model two batch sizes.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-039",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-039-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-039-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-039-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "standard-form-compound-time-growth",
+      "stem": "A data store contains $3.125\\times10^8$ records. It increases by 20% in each of two months, then $5\\times10^7$ records are deleted. The remaining records are distributed equally across $4\\times10^4$ storage units. How many records per unit result? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "1\\times10^{4}"
+        },
+        {
+          "id": "B",
+          "latex": "1.125\\times10^{4}",
+          "errorPath": "Omit deletion: distribute the grown 4.5×10^8 records."
+        },
+        {
+          "id": "C",
+          "latex": "6.5625\\times10^{3}",
+          "errorPath": "Delete from the starting count, ignoring both months of growth."
+        },
+        {
+          "id": "D",
+          "latex": "1.25\\times10^{3}",
+          "errorPath": "Distribute only the deleted records."
+        },
+        {
+          "id": "E",
+          "latex": "9.6875\\times10^{3}",
+          "errorPath": "Use a single 40% increase instead of compounding: (3.125×10^8×1.4−5×10^7)/(4×10^4)."
+        },
+        {
+          "id": "F",
+          "latex": "1\\times10^{5}",
+          "errorPath": "Shift the correct exponent up by one."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "1\\times10^{4}",
+      "workedSolutionSteps": [
+        "Two 20% increases give 3.125×10^8×1.44=4.5×10^8 records.",
+        "After deletion, 4×10^8 records remain.",
+        "Divide by 4×10^4 to get 1×10^4 per unit."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Compound growth, fixed subtraction and distribution.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-040",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-040-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-040-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-040-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "topicId": "math-y9-standard-form",
+      "provisionalConceptFamily": "standard-form-resource-switch-efficiency",
+      "stem": "A laboratory starts with $8\\times10^8$ units of a resource. Method A consumes $2\\times10^4$ units per test. After completing $1.5\\times10^4$ tests using A, it switches to method B, which uses 20% less resource per test. What is the maximum additional number of complete tests using B? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2.5\\times10^{4}",
+          "errorPath": "Use method A's consumption for the remaining resource."
+        },
+        {
+          "id": "B",
+          "latex": "5\\times10^{4}",
+          "errorPath": "Divide the entire starting resource by the new consumption, ignoring earlier tests."
+        },
+        {
+          "id": "C",
+          "latex": "4.625\\times10^{4}",
+          "errorPath": "Report the total tests across both methods, not the additional tests."
+        },
+        {
+          "id": "D",
+          "latex": "2\\times10^{4}",
+          "errorPath": "Reduce the method A test capacity by 20% rather than reducing consumption per test."
+        },
+        {
+          "id": "E",
+          "latex": "1.5\\times10^{4}",
+          "errorPath": "Report the number of tests already completed."
+        },
+        {
+          "id": "F",
+          "latex": "3.125\\times10^{4}"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "3.125\\times10^{4}",
+      "workedSolutionSteps": [
+        "Method A consumes (1.5×10^4)(2×10^4)=3×10^8 units.",
+        "Remaining resource is 5×10^8; method B uses 0.8×2×10^4=1.6×10^4 units per test.",
+        "Maximum additional complete tests = 5×10^8/1.6×10^4=31250."
+      ],
+      "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Sequential resource consumption and inverse efficiency.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    }
+  ]
+}

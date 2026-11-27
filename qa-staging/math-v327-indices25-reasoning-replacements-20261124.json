@@ -1,0 +1,1394 @@
+{
+  "kind": "MATHS_V327_INDICES_25_REASONING_CANDIDATES_QA_ONLY",
+  "date": "2026-11-24",
+  "branch": "feature/daily-tasks-v3-20261122",
+  "pr": 306,
+  "sourceBankPath": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "priorV323Register": "qa-staging/math-v323-canonical200-all-topics-hold-dispositions-source-exact-20261124.json",
+  "priorV324Pack": "qa-staging/math-v324-four-source-linked-multiconstraint-reasoning-candidates-20261124.json",
+  "status": "STAGING_ONLY_NOT_APPROVED_NOT_IMPORTED",
+  "count": 25,
+  "optionsCount": 150,
+  "wrongOptionExplanationsCount": 125,
+  "academicApprovals": 0,
+  "dailyEligible": 0,
+  "masteryEligible": 0,
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-001",
+      "revisionId": "LUX-MATH-Y9-INDICES-001-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-001-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "perfect-power-two-prime-constraints",
+      "stem": "For integers $0\\le n\\le12$, let $N=2^{n+2}3^{2n+1}$. Find the sum of all n for which N is a perfect cube and $N/3$ is a perfect square.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "22",
+          "errorPath": "Apply only the cube condition: n=1,4,7,10."
+        },
+        {
+          "id": "B",
+          "latex": "14"
+        },
+        {
+          "id": "C",
+          "latex": "42",
+          "errorPath": "Apply only the square condition to N/3: all even n from 0 to 12."
+        },
+        {
+          "id": "D",
+          "latex": "10",
+          "errorPath": "Keep only the larger valid n."
+        },
+        {
+          "id": "E",
+          "latex": "4",
+          "errorPath": "Keep only the smaller valid n."
+        },
+        {
+          "id": "F",
+          "latex": "2",
+          "errorPath": "Report the count of valid integers, not their sum."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "14",
+      "workedSolutionSteps": [
+        "For N to be a cube, n+2 and 2n+1 must both be divisible by 3. This gives n=1,4,7,10.",
+        "The prime exponents in N/3 are n+2 and 2n. Both must be even, so n must be even.",
+        "The intersection is n=4,10, and their sum is 14."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Prime factorisation, distinct perfect-power constraints and intersection of integer solution sets.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-002",
+      "revisionId": "LUX-MATH-Y9-INDICES-002-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-002-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "opposing-exponential-growth-window",
+      "stem": "For non-negative integers n, let $A=2^{18-n}$ and $B=4^{n+1}$. For how many n does $A<B<16A$ hold?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "1"
+        },
+        {
+          "id": "B",
+          "latex": "0",
+          "errorPath": "Treat strict inequalities as excluding all integers between the non-integer bounds."
+        },
+        {
+          "id": "C",
+          "latex": "2",
+          "errorPath": "Round both bounds down and include n=5 and n=6."
+        },
+        {
+          "id": "D",
+          "latex": "3",
+          "errorPath": "Use 16=2^8 and include the upper equality endpoint, producing n=6,7,8."
+        },
+        {
+          "id": "E",
+          "latex": "6",
+          "errorPath": "Report the valid n instead of the count."
+        },
+        {
+          "id": "F",
+          "latex": "7",
+          "errorPath": "Round up the upper bound 20/3 and report 7."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "1",
+      "workedSolutionSteps": [
+        "The exponent difference B/A is 3n-16.",
+        "The inequalities become $0<3n-16<4$, so $16/3<n<20/3$.",
+        "Only n=6 qualifies; the count is 1."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Strict inequalities comparing powers of a common positive base.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-003",
+      "revisionId": "LUX-MATH-Y9-INDICES-003-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-003-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "hcf-lcm-sum-and-gap",
+      "stem": "Let $P=2^{n+1}3^2$ and $Q=2^{11-n}3^4$, where n is an integer from 0 to 10. The HCF of P and Q is $2^3 3^2$. Find the product of all possible n.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "10",
+          "errorPath": "Add n=2 and n=8 instead of multiplying."
+        },
+        {
+          "id": "B",
+          "latex": "2",
+          "errorPath": "Keep only the case n+1=3."
+        },
+        {
+          "id": "C",
+          "latex": "8",
+          "errorPath": "Keep only the case 11-n=3."
+        },
+        {
+          "id": "D",
+          "latex": "21",
+          "errorPath": "Set the minimum exponent to 4, obtaining n=3,7."
+        },
+        {
+          "id": "E",
+          "latex": "9",
+          "errorPath": "Set the minimum exponent to 2, obtaining n=1,9."
+        },
+        {
+          "id": "F",
+          "latex": "16"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "16",
+      "workedSolutionSteps": [
+        "The exponent of 2 in the HCF is min(n+1,11-n)=3.",
+        "Either n+1=3, giving n=2, or 11-n=3, giving n=8; both other exponents are at least 3.",
+        "The exponent of 3 is always 2. The product is 16."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "HCF via prime exponents and two cases.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-004",
+      "revisionId": "LUX-MATH-Y9-INDICES-004-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-004-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "exponential-ratio-telescoping",
+      "stem": "For every integer n, define $F(n)=\\frac{4^{n+2}8^{5-n}}{2^3}$. Find $\\frac{F(n-2)F(n+3)}{F(n)^2}$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2",
+          "errorPath": "Reverse the ratio, using the reciprocal of the required result."
+        },
+        {
+          "id": "B",
+          "latex": "8",
+          "errorPath": "Consider only the shift n+3 and reverse its direction."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{1}{8}",
+          "errorPath": "Consider only F(n+3)/F(n)."
+        },
+        {
+          "id": "D",
+          "latex": "4",
+          "errorPath": "Consider only F(n-2)/F(n)."
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{1}{2}"
+        },
+        {
+          "id": "F",
+          "latex": "1",
+          "errorPath": "Assume the opposite shifts cancel although their sum is +1."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "\\frac{1}{2}",
+      "workedSolutionSteps": [
+        "Rewrite F(n) as $2^{16-n}$.",
+        "F(n-2)/F(n)=2^2 and F(n+3)/F(n)=2^{-3}.",
+        "Their product is $2^{-1}=1/2$, independent of n."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Transfer index laws across shifted arguments.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-014",
+      "revisionId": "LUX-MATH-Y9-INDICES-014-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-014-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "identity-two-unknown-exponents",
+      "stem": "For all positive x and y, $\\frac{(x^2y^3)^a}{(xy^2)^b}=x^5y^6$. Find a+b.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "7"
+        },
+        {
+          "id": "B",
+          "latex": "1",
+          "errorPath": "Report a-b rather than a+b."
+        },
+        {
+          "id": "C",
+          "latex": "4",
+          "errorPath": "Report a alone."
+        },
+        {
+          "id": "D",
+          "latex": "3",
+          "errorPath": "Report b alone."
+        },
+        {
+          "id": "E",
+          "latex": "5",
+          "errorPath": "Report the right-hand x exponent."
+        },
+        {
+          "id": "F",
+          "latex": "11",
+          "errorPath": "Add the right-hand exponents, ignoring the left-hand structure."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "7",
+      "workedSolutionSteps": [
+        "Match exponents: 2a-b=5 and 3a-2b=6.",
+        "Twice the first equation minus the second gives a=4; then b=3.",
+        "Therefore a+b=7."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Equate independent variable exponents and solve simultaneous equations.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-015",
+      "revisionId": "LUX-MATH-Y9-INDICES-015-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-015-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "inconsistent-identity-diagnosis",
+      "stem": "For all positive x,y, an identity is proposed: $\\frac{(x^3y^2)^n}{x^2y^5}=x^{10}y^k$. Find k for which the identity is true for some integer n.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "4",
+          "errorPath": "Report n rather than k."
+        },
+        {
+          "id": "B",
+          "latex": "8",
+          "errorPath": "Multiply the y exponent by n but omit division by y^5."
+        },
+        {
+          "id": "C",
+          "latex": "13",
+          "errorPath": "Add 5 instead of subtracting it."
+        },
+        {
+          "id": "D",
+          "latex": "-3",
+          "errorPath": "Reverse the subtraction in 2n-5."
+        },
+        {
+          "id": "E",
+          "latex": "15",
+          "errorPath": "Use the exponent of x, 10, plus the denominator exponent 5."
+        },
+        {
+          "id": "F",
+          "latex": "3"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "3",
+      "workedSolutionSteps": [
+        "Match x exponents: 3n-2=10, giving n=4.",
+        "Match y exponents: k=2n-5.",
+        "Hence k=8-5=3."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Consistency of a multivariable power identity.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-016",
+      "revisionId": "LUX-MATH-Y9-INDICES-016-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-016-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "identity-invariant",
+      "stem": "For positive x,y, define $P=(x^2y^3)^n/(xy)^m$. If $P=x^ay^b$, which expression must equal n for all integer n,m?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "a-b",
+          "errorPath": "Reverse the order of subtraction."
+        },
+        {
+          "id": "B",
+          "latex": "a+b",
+          "errorPath": "Add exponents, retaining the unwanted m term."
+        },
+        {
+          "id": "C",
+          "latex": "b",
+          "errorPath": "Ignore the factor y^m in the denominator."
+        },
+        {
+          "id": "D",
+          "latex": "a",
+          "errorPath": "Ignore the factor x^m and the coefficient 2."
+        },
+        {
+          "id": "E",
+          "latex": "b-a"
+        },
+        {
+          "id": "F",
+          "latex": "2b-3a",
+          "errorPath": "This expression equals m, not n."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "b-a",
+      "workedSolutionSteps": [
+        "The x exponent is a=2n-m; the y exponent is b=3n-m.",
+        "Subtract the first relation from the second to eliminate m.",
+        "The result is b-a=n."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Eliminate a nuisance exponent symbolically.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-018",
+      "revisionId": "LUX-MATH-Y9-INDICES-018-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-018-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "exponential-factorise-difference",
+      "stem": "Find the integer n satisfying $3^{n+2}-3^n=648$. Then find $2^n$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "4",
+          "errorPath": "Report n rather than 2^n."
+        },
+        {
+          "id": "B",
+          "latex": "81",
+          "errorPath": "Report 3^n instead of 2^n."
+        },
+        {
+          "id": "C",
+          "latex": "16"
+        },
+        {
+          "id": "D",
+          "latex": "8",
+          "errorPath": "Use n=3, having divided 648 by 24 instead of 8."
+        },
+        {
+          "id": "E",
+          "latex": "32",
+          "errorPath": "Use n=5, one power too high."
+        },
+        {
+          "id": "F",
+          "latex": "256",
+          "errorPath": "Compute 2^{2n} instead of 2^n."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "16",
+      "workedSolutionSteps": [
+        "Factor the left side as $3^n(9-1)=8\\cdot3^n$.",
+        "Then $3^n=81=3^4$, so n=4.",
+        "The requested value is $2^4=16$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Factor common exponential terms and transfer the exponent.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-019",
+      "revisionId": "LUX-MATH-Y9-INDICES-019-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-019-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "exponential-quadratic-two-roots",
+      "stem": "For integer n, solve $2^{2n}-6\\cdot2^n+8=0$. Find the sum of all possible n.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "6",
+          "errorPath": "Add the roots 2 and 4 of the substituted quadratic rather than their exponents."
+        },
+        {
+          "id": "B",
+          "latex": "3"
+        },
+        {
+          "id": "C",
+          "latex": "2",
+          "errorPath": "Keep only n=2."
+        },
+        {
+          "id": "D",
+          "latex": "1",
+          "errorPath": "Keep only n=1."
+        },
+        {
+          "id": "E",
+          "latex": "8",
+          "errorPath": "Multiply the roots of the substituted quadratic instead of adding n."
+        },
+        {
+          "id": "F",
+          "latex": "0",
+          "errorPath": "Treat the equation as if its exponents could be cancelled to give n=0."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "3",
+      "workedSolutionSteps": [
+        "Set t=2^n>0. The equation becomes $t^2-6t+8=0$.",
+        "Factor $(t-2)(t-4)=0$, so t=2 or 4 and n=1 or 2.",
+        "Both satisfy the original equation; the sum is 3."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Substitution into a quadratic and checking exponential roots.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-020",
+      "revisionId": "LUX-MATH-Y9-INDICES-020-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-020-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "exponential-fraction-factor",
+      "stem": "Find the integer n satisfying $\\frac{5^{n+2}+5^{n+1}}{5^{2n}}=\\frac{6}{25}$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3"
+        },
+        {
+          "id": "B",
+          "latex": "2",
+          "errorPath": "Ignore the factor 5 in the 5^{n+2} term after factoring, and incorrectly match 5^{-n}=5^{-2}."
+        },
+        {
+          "id": "C",
+          "latex": "-3",
+          "errorPath": "Reverse the sign of the resulting n."
+        },
+        {
+          "id": "D",
+          "latex": "1",
+          "errorPath": "Match 5^{1-n} to 1 rather than 1/25."
+        },
+        {
+          "id": "E",
+          "latex": "4",
+          "errorPath": "Factor out 6 times 5^{n+2} instead of 6 times 5^{n+1}."
+        },
+        {
+          "id": "F",
+          "latex": "-1",
+          "errorPath": "Solve 1-n=2, using positive rather than negative exponent on the right."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "3",
+      "workedSolutionSteps": [
+        "Factor numerator as $6\\cdot5^{n+1}$.",
+        "Divide by $5^{2n}$ and cancel 6: $5^{1-n}=5^{-2}$.",
+        "Then 1-n=-2, hence n=3."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Common-factor simplification involving negative powers.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-021",
+      "revisionId": "LUX-MATH-Y9-INDICES-021-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-021-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "negative-exponents-equality-ratio",
+      "stem": "Positive x,y satisfy $x^2y^{-3}=8$ and $xy^{-1}=2$. Find y.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2",
+          "errorPath": "Report x/y or reverse 4/8 to 8/4."
+        },
+        {
+          "id": "B",
+          "latex": "8",
+          "errorPath": "Report the first given expression."
+        },
+        {
+          "id": "C",
+          "latex": "4",
+          "errorPath": "Square x/y but fail to divide by 8."
+        },
+        {
+          "id": "D",
+          "latex": "1",
+          "errorPath": "Report x, which is 1 at the solution."
+        },
+        {
+          "id": "E",
+          "latex": "16",
+          "errorPath": "Multiply the two given values instead of eliminating x."
+        },
+        {
+          "id": "F",
+          "latex": "0.5"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "0.5",
+      "workedSolutionSteps": [
+        "Square x/y=2 to get $x^2y^{-2}=4$.",
+        "Divide the squared relation by $x^2y^{-3}=8$, leaving y=4/8.",
+        "So y=1/2; x=1 and both conditions hold."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Negative powers and division of monomial equations.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-022",
+      "revisionId": "LUX-MATH-Y9-INDICES-022-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-022-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "negative-exponent-parameter",
+      "stem": "For positive x,y, $\\left(x^{-2}y^3\\right)^a\\left(x^3y^{-1}\\right)^b=x^5y^2$ is true for all x,y. Find a-b.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac{8}{7}",
+          "errorPath": "Reverse the requested subtraction."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{30}{7}",
+          "errorPath": "Add a and b instead."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{11}{7}",
+          "errorPath": "Report a alone."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{19}{7}",
+          "errorPath": "Report b alone."
+        },
+        {
+          "id": "E",
+          "latex": "-\\frac{8}{7}"
+        },
+        {
+          "id": "F",
+          "latex": "-\\frac{30}{7}",
+          "errorPath": "Negate the sum instead of subtracting."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "-\\frac{8}{7}",
+      "workedSolutionSteps": [
+        "Match x exponents: -2a+3b=5. Match y exponents: 3a-b=2.",
+        "From the second, b=3a-2. Substitute: 7a=11, so a=11/7 and b=19/7.",
+        "Thus a-b=-8/7."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Simultaneous exponent equations involving negative coefficients.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-023",
+      "revisionId": "LUX-MATH-Y9-INDICES-023-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-023-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "negative-power-invariance",
+      "stem": "For positive x,y with $x^2y^3=16$, find the value of $\\frac{x^{-4}y^{-6}}{(x^2y^3)^{-3}}$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "256",
+          "errorPath": "Square the known expression rather than using the net exponent of 1."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{1}{16}",
+          "errorPath": "Subtract the exponents in the reverse order."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{1}{256}",
+          "errorPath": "Evaluate the numerator only."
+        },
+        {
+          "id": "D",
+          "latex": "16"
+        },
+        {
+          "id": "E",
+          "latex": "4096",
+          "errorPath": "Evaluate the reciprocal of the denominator only."
+        },
+        {
+          "id": "F",
+          "latex": "1",
+          "errorPath": "Assume both negative exponent expressions are identical and cancel them completely."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "16",
+      "workedSolutionSteps": [
+        "Let t=x^2y^3=16. The numerator is t^{-2} and the denominator is t^{-3}.",
+        "Their quotient is $t^{-2-(-3)}=t^1$.",
+        "The value is 16, irrespective of the individual x and y."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Substitution of a composite expression and negative-power quotient.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-024",
+      "revisionId": "LUX-MATH-Y9-INDICES-024-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-024-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "negative-exponent-ordering",
+      "stem": "For $0<x<1$, which expression has the greatest value?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "x^{-3}/x^{-1/2}",
+          "errorPath": "This simplifies to exponent -5/2; confusing division of negative powers may suggest it is largest."
+        },
+        {
+          "id": "B",
+          "latex": "x^{-4}x^{5/4}",
+          "errorPath": "This simplifies to exponent -11/4, which is greater than -3; ignoring the positive factor can wrongly suggest exponent -4."
+        },
+        {
+          "id": "C",
+          "latex": "(x^{-2})^{3/2}"
+        },
+        {
+          "id": "D",
+          "latex": "x^{-1}/x^{3/4}",
+          "errorPath": "This has exponent -7/4; it is less than x^{-3}."
+        },
+        {
+          "id": "E",
+          "latex": "(x^{2})^{-1}",
+          "errorPath": "This has exponent -2; stopping at the reciprocal-square result misses the larger reciprocal cube."
+        },
+        {
+          "id": "F",
+          "latex": "x^{1/2}",
+          "errorPath": "This is a positive power of x, below 1."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "(x^{-2})^{3/2}",
+      "workedSolutionSteps": [
+        "The powers of x represented by the choices have exponents -5/2, -11/4, -7/4, -2, 1/2 and -3.",
+        "For a positive base less than 1, decreasing the exponent increases the value.",
+        "The smallest exponent is -3, so $(x^{-2})^{3/2}$ is greatest."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Combine fractional and negative powers, and compare powers with base below one.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-029",
+      "revisionId": "LUX-MATH-Y9-INDICES-029-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-029-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "radical-exponent-cancellation-identity",
+      "stem": "For every real n, simplify $\\frac{\\sqrt{2^{4n+6}}\\,8^{1-n}}{2^{6-n}}$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2^n",
+          "errorPath": "Reverse the subtraction of variable exponents after incorrectly dropping the variable term in the denominator."
+        },
+        {
+          "id": "B",
+          "latex": "2^{-n}",
+          "errorPath": "Ignore the variable term in the denominator, leaving the variable term in the numerator."
+        },
+        {
+          "id": "C",
+          "latex": "2^3",
+          "errorPath": "Keep a constant contribution of 3 rather than cancelling all constant terms."
+        },
+        {
+          "id": "D",
+          "latex": "1"
+        },
+        {
+          "id": "E",
+          "latex": "2^6",
+          "errorPath": "Ignore the denominator's constant exponent after cancelling the variable."
+        },
+        {
+          "id": "F",
+          "latex": "0",
+          "errorPath": "Interpret exponent zero as a numerical value of zero."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "1",
+      "workedSolutionSteps": [
+        "The square root is $2^{2n+3}$ because powers of 2 are positive.",
+        "The numerator is $2^{2n+3+3-3n}=2^{6-n}$.",
+        "Numerator and denominator agree for all real n, giving 1."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Square roots of positive powers and cancellation of parameter dependence.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-030",
+      "revisionId": "LUX-MATH-Y9-INDICES-030-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-030-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "fractional-index-equation-two-bases",
+      "stem": "Which statement describes all integer solutions n of $\\frac{27^{(n+2)/3}\\sqrt{9^{n-1}}}{3^{2n-4}}=243$?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "0",
+          "errorPath": "Choose one valid integer but assume it is unique."
+        },
+        {
+          "id": "B",
+          "latex": "1",
+          "errorPath": "Choose a second valid integer but assume it is unique."
+        },
+        {
+          "id": "C",
+          "latex": "Every integer n"
+        },
+        {
+          "id": "D",
+          "latex": "5",
+          "errorPath": "Set n equal to the exponent of 243."
+        },
+        {
+          "id": "E",
+          "latex": "No integer n",
+          "errorPath": "Assume cancellation of n proves inconsistency rather than an identity."
+        },
+        {
+          "id": "F",
+          "latex": "Only positive integers",
+          "errorPath": "Impose an unnecessary restriction although all exponential bases are positive."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "Every integer n",
+      "workedSolutionSteps": [
+        "The numerator is $3^{n+2}3^{n-1}=3^{2n+1}$.",
+        "Divide by $3^{2n-4}$ to get $3^5=243$.",
+        "The equation is true for every integer n."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Fractional powers and distinction between identities and equations.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-031",
+      "revisionId": "LUX-MATH-Y9-INDICES-031-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-031-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "fractional-indices-root-branches",
+      "stem": "For real x, solve $( (x-2)^2 )^{1/2}=x+4$. Which answer gives the complete solution set?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "x=1",
+          "errorPath": "Lose the negative sign when solving 2-x=x+4."
+        },
+        {
+          "id": "B",
+          "latex": "x=-1"
+        },
+        {
+          "id": "C",
+          "latex": "x=-4",
+          "errorPath": "Set the right side to zero without checking the left side."
+        },
+        {
+          "id": "D",
+          "latex": "x=2",
+          "errorPath": "Set the left side to zero without checking the right side."
+        },
+        {
+          "id": "E",
+          "latex": "x=-3",
+          "errorPath": "Subtract the constants incorrectly in the negative branch, obtaining 2x=-6."
+        },
+        {
+          "id": "F",
+          "latex": "\\text{No solution}",
+          "errorPath": "Use only the branch |x-2|=x-2 and conclude that the equation is impossible."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "x=-1",
+      "workedSolutionSteps": [
+        "The principal square root is |x-2|, so the equation is |x-2|=x+4 and requires x>=-4.",
+        "For x>=2, x-2=x+4 is impossible. For x<2, 2-x=x+4 gives x=-1.",
+        "At x=-1, both sides equal 3; it is the only real solution."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Principal square root, absolute-value branches and sign/domain verification.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-032",
+      "revisionId": "LUX-MATH-Y9-INDICES-032-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-032-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "fractional-power-composite-equation",
+      "stem": "For positive x, $x^{1/3}+x^{-1/3}=\\frac52$. Find the sum of all possible values of x.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac{65}{8}"
+        },
+        {
+          "id": "B",
+          "latex": "8",
+          "errorPath": "Keep only the solution x=8."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{1}{8}",
+          "errorPath": "Keep only the reciprocal solution."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{5}{2}",
+          "errorPath": "Add the transformed roots but forget to cube each."
+        },
+        {
+          "id": "E",
+          "latex": "1",
+          "errorPath": "Multiply the two solutions rather than adding them."
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{125}{8}",
+          "errorPath": "Cube the sum 5/2 rather than adding the cubes of the individual roots."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "\\frac{65}{8}",
+      "workedSolutionSteps": [
+        "Let t=x^{1/3}>0. Then t+1/t=5/2, so $2t^2-5t+2=0$.",
+        "Factor $(2t-1)(t-2)=0$, giving t=1/2 or 2.",
+        "Cubing gives x=1/8 or 8. Their sum is 65/8."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Fractional-power substitution, quadratic and two valid roots.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-033",
+      "revisionId": "LUX-MATH-Y9-INDICES-033-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-033-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "fractional-identity-elimination",
+      "stem": "For all positive x,y, $(x^{1/2}y^{-1/3})^{6a}(x^{-1}y)^{b}=x^7y^{-3}$. Find a+b.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "-1",
+          "errorPath": "Report a-b rather than a+b."
+        },
+        {
+          "id": "B",
+          "latex": "4",
+          "errorPath": "Report a alone."
+        },
+        {
+          "id": "C",
+          "latex": "5",
+          "errorPath": "Report b alone."
+        },
+        {
+          "id": "D",
+          "latex": "7",
+          "errorPath": "Report the required x exponent rather than a+b."
+        },
+        {
+          "id": "E",
+          "latex": "-9",
+          "errorPath": "Negate the correct sum."
+        },
+        {
+          "id": "F",
+          "latex": "9"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "9",
+      "workedSolutionSteps": [
+        "Match exponents: 3a-b=7 and -2a+b=-3.",
+        "Adding gives a=4; the second gives b=5.",
+        "Therefore a+b=9."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Fractional and negative index laws with two unknown exponents.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-034",
+      "revisionId": "LUX-MATH-Y9-INDICES-034-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-034-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "fractional-identity-constraint-consistency",
+      "stem": "For positive x,y, $(x^{1/2}y^{1/3})^{6n}=x^{12}y^{k}$. The equality holds for every positive x,y. Find k.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "4",
+          "errorPath": "Report n instead of k."
+        },
+        {
+          "id": "B",
+          "latex": "12",
+          "errorPath": "Report the x exponent rather than y exponent."
+        },
+        {
+          "id": "C",
+          "latex": "24",
+          "errorPath": "Multiply 6 by n but omit the one-third exponent."
+        },
+        {
+          "id": "D",
+          "latex": "2",
+          "errorPath": "Report the coefficient of n in the y exponent, before substitution."
+        },
+        {
+          "id": "E",
+          "latex": "8"
+        },
+        {
+          "id": "F",
+          "latex": "-8",
+          "errorPath": "Assign a negative sign to the positive y exponent."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "8",
+      "workedSolutionSteps": [
+        "The left-hand exponents are 3n and 2n.",
+        "From 3n=12, n=4.",
+        "Hence k=2n=8."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Consistency of fractional-exponent identities.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-035",
+      "revisionId": "LUX-MATH-Y9-INDICES-035-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-035-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "fractional-composite-invariant",
+      "stem": "Positive x and y satisfy $x^{1/2}y^{-1/3}=2$. Find the value of $x^{-3}y^2$. ",
+      "options": [
+        {
+          "id": "A",
+          "latex": "64",
+          "errorPath": "Raise to power +6 rather than -6."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{1}{8}",
+          "errorPath": "Raise to power -3, leaving the wrong exponents."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{1}{4}",
+          "errorPath": "Square the reciprocal rather than raising to the sixth power."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{1}{64}"
+        },
+        {
+          "id": "E",
+          "latex": "8",
+          "errorPath": "Raise to power +3 rather than -6."
+        },
+        {
+          "id": "F",
+          "latex": "12",
+          "errorPath": "Multiply 2 by 6 instead of taking a power."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "\\frac{1}{64}",
+      "workedSolutionSteps": [
+        "Multiplying the exponents 1/2 and -1/3 by -6 gives -3 and 2.",
+        "Thus the required expression is $(x^{1/2}y^{-1/3})^{-6}$.",
+        "Its value is $2^{-6}=1/64$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Recognise a composite expression raised to a negative power.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-036",
+      "revisionId": "LUX-MATH-Y9-INDICES-036-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-036-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "fractional-index-order-comparison",
+      "stem": "Without using a calculator, which of the following numbers is greatest?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2^{11/6}",
+          "errorPath": "Its common-base exponent is 11/6, which is less than 15/8."
+        },
+        {
+          "id": "B",
+          "latex": "8^{3/5}",
+          "errorPath": "Its common-base exponent is 9/5=216/120; comparing rounded exponents as if equal can miss that 225/120 is greater."
+        },
+        {
+          "id": "C",
+          "latex": "32^{3/8}"
+        },
+        {
+          "id": "D",
+          "latex": "16^{2/5}",
+          "errorPath": "Its common-base exponent is 8/5; choosing a large base alone is not sufficient."
+        },
+        {
+          "id": "E",
+          "latex": "4^{5/6}",
+          "errorPath": "Its common-base exponent is 5/3, smaller than 15/8."
+        },
+        {
+          "id": "F",
+          "latex": "64^{7/24}",
+          "errorPath": "Its common-base exponent is 7/4; the largest original base is not the greatest result."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "32^{3/8}",
+      "workedSolutionSteps": [
+        "Write each number as a power of 2. The exponents are 11/6, 9/5, 8/5, 5/3, 7/4 and 15/8.",
+        "Using denominator 120, these exponents are 220/120, 216/120, 192/120, 200/120, 210/120 and 225/120.",
+        "The greatest exponent is 225/120=15/8. Therefore $32^{3/8}$ is uniquely greatest."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Compare six distinct fractional powers using common bases and exact rational ordering.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-038",
+      "revisionId": "LUX-MATH-Y9-INDICES-038-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-038-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "radical-exponent-inequality-integers",
+      "stem": "For integers $-3\\le n\\le5$, find the number of n satisfying $1<\\frac{\\sqrt{4^{n+3}}}{8^{n-1}}\\le16$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2"
+        },
+        {
+          "id": "B",
+          "latex": "3",
+          "errorPath": "Include n=3, where the expression equals 1 and violates the strict lower bound."
+        },
+        {
+          "id": "C",
+          "latex": "1",
+          "errorPath": "Exclude n=1, where the expression equals the allowed upper bound 16."
+        },
+        {
+          "id": "D",
+          "latex": "4",
+          "errorPath": "Use 16=2^8, allowing n=-1,0,1,2."
+        },
+        {
+          "id": "E",
+          "latex": "5",
+          "errorPath": "Count all non-negative n below the stated upper bound 5, using n=0,1,2,3,4 instead of testing the exponent inequalities."
+        },
+        {
+          "id": "F",
+          "latex": "0",
+          "errorPath": "Reverse the inequalities without accounting for the negative coefficient of n."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "2",
+      "workedSolutionSteps": [
+        "The ratio simplifies to $2^{n+3-3(n-1)}=2^{6-2n}$.",
+        "The inequalities become $0<6-2n\\le4$, giving $1\\le n<3$.",
+        "Only n=1 and n=2 qualify; there are 2."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Strict and inclusive exponent inequalities with actual integer equality boundaries.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-039",
+      "revisionId": "LUX-MATH-Y9-INDICES-039-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-039-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "radical-exponential-perfect-square-cube",
+      "stem": "For integers $0\\le n\\le10$, let $T=\\sqrt{4^{n+2}}\\cdot 8^n$. Find the sum of all n for which T is both a perfect square and a perfect cube.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "21",
+          "errorPath": "Omit the smallest valid n=1."
+        },
+        {
+          "id": "B",
+          "latex": "4",
+          "errorPath": "Report the number of eligible values."
+        },
+        {
+          "id": "C",
+          "latex": "12",
+          "errorPath": "Omit the largest valid n=10."
+        },
+        {
+          "id": "D",
+          "latex": "55",
+          "errorPath": "Use only the square condition, which all n satisfy."
+        },
+        {
+          "id": "E",
+          "latex": "10",
+          "errorPath": "Report the largest eligible n instead of the sum."
+        },
+        {
+          "id": "F",
+          "latex": "22"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "22",
+      "workedSolutionSteps": [
+        "Rewrite T as $2^{n+2+3n}=2^{4n+2}$.",
+        "The exponent must be divisible by 6. This is equivalent to n congruent to 1 modulo 3.",
+        "The eligible n are 1,4,7,10, with sum 22."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Simultaneous perfect-square and perfect-cube conditions.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-040",
+      "revisionId": "LUX-MATH-Y9-INDICES-040-V327-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-040-REVIEW-2",
+      "topicId": "math-y9-indices",
+      "provisionalConceptFamily": "radical-exponent-ratio-shift",
+      "stem": "Let $G(n)=\\frac{\\sqrt{16^{n+1}}}{8^{n-2}}$. Find $\\frac{G(n-3)}{G(n+2)}$ for every integer n.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "16",
+          "errorPath": "Use a shift of 4 rather than 5."
+        },
+        {
+          "id": "B",
+          "latex": "8",
+          "errorPath": "Use only the shift from n to n-3."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{1}{32}",
+          "errorPath": "Reverse the quotient."
+        },
+        {
+          "id": "D",
+          "latex": "2",
+          "errorPath": "Use the difference between the magnitudes of the shifts, 3-2."
+        },
+        {
+          "id": "E",
+          "latex": "32"
+        },
+        {
+          "id": "F",
+          "latex": "64",
+          "errorPath": "Use a shift of 6 rather than 5."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "32",
+      "workedSolutionSteps": [
+        "Simplify G(n) to $2^{2n+2-3n+6}=2^{8-n}$.",
+        "G(n-3)=2^{11-n} and G(n+2)=2^{6-n}.",
+        "Their quotient is $2^5=32$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Compare shifted radical-exponential expressions.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    }
+  ]
+}

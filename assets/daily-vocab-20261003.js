@@ -1,4 +1,5 @@
 import {LATIN_BOOKLET_GROUPS} from './latin-vocabulary-booklet-20261023.js';
+import {V3_START_DATE,V3_APPROVED} from './daily-tasks-v3-20261122.js';
 // Only independent word meanings, spellings and dictionary entries count as Daily Vocab.
 // Grammar transformations, sentences and comprehension belong to their own subject practice.
 function directionOf(q) {
@@ -14,6 +15,10 @@ function directionOf(q) {
 function isHeadword(q,subject) {
   const dir=directionOf(q),terms=q?.answer?.accepted||[],stim=String(q?.stimulus?.text||'').trim();
   if(!terms.length||!stim)return false;
+  // Some older paradigm rows carry a vocabulary concept ID despite asking
+  // for a declined or conjugated form from a table.
+  if(/(?:exact .*form from the table|conjugate|decline the|complete the (?:ending|paradigm))/i.test(q.prompt||'')||
+     /\b(?:case|tense|person|gender):\s*\S/i.test(stim))return false;
   // A taught word or compact dictionary/idiomatic chunk is vocabulary.
   // Do not silently remove useful multiword lexical items such as "près de"
   // or "faire du vélo"; still exclude full-sentence translation exercises.
@@ -52,7 +57,7 @@ const wordKey = text => String(text || '').normalize('NFD').replace(/[\u0300-\u0
 
 export function selectDailyVocabulary({subject, items = [], year9Items = [], day, seed = day,
   ledger = {}, reviews = {}, spellingDue = {}, seenCorrect = {}, legacyVocabulary = [], size = 30,
-  topicLearning = {}}) {
+  topicLearning = {}, approvedYear9Vocabulary = V3_APPROVED.year9Vocabulary}) {
   const words=new Map(),byId=new Map(),year8Terms=new Set();
   const add=(q,year9=false)=>{
     if(!q?.id||!Array.isArray(q.answer?.accepted)||!q.answer.accepted.length)return;
@@ -126,10 +131,22 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
       if(isHeadword(q,'latin'))add(q,false);
     }
   }
+  // V3 requires explicit teacher-taught and independently QA-approved headwords.
+  // An internal Year 9 bank entry is NOT by itself evidence of teaching.
+  const v3=day>=V3_START_DATE;
+  const approvedYear9=new Map((approvedYear9Vocabulary?.[subject]||[])
+    .filter(x=>x?.academicQA==='approved'&&x?.taughtVerified===true&&x?.topicId)
+    .map(x=>[x.topicId+'|'+wordKey(x.term),x]));
   for(const q of year9Items){
+    const entry=approvedYear9.get(q.topicId+'|'+wordKey(q._vocabTerm||(directionOf(q)==='toForeign'?q.answer?.accepted?.[0]:q.stimulus?.text)));
+    if(v3&&!entry)continue;
     const year9=Number(q.year)===9&&String(q.conceptId||'').startsWith(
       (subject==='french'?'fr':'la')+'-y9-concept-vocab-');
-    if(year9&&q.status!=='disabled'&&q.formal!==false&&isHeadword(q,subject))add(q,true);
+    if(year9&&q.status!=='disabled'&&q.formal!==false&&isHeadword(q,subject)){
+      const checked=v3&&entry.english?.length&&directionOf(q)==='toEnglish'
+        ? {...q,answer:{...q.answer,accepted:entry.english}} : q;
+      add(checked,true);
+    }
   }
   // Keep legacy word-to-question history, including results saved on older iPads.
   const wordConcepts = new Map(), aliases = new Map();
@@ -212,12 +229,13 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
   // Limit Year 9 exposure ACROSS all resumed sessions today, not three per
   // newly opened section. Both wrong and right attempts occupy today's quota;
   // they do not receive fake credit and wrong words retain their due schedule.
-  const seenYear9Today=new Set();
+  const seenYear9Today=new Set(),creditedOlderToday=new Set([...credited].filter(c=>c.includes('-y8-vocab-')));
   for(const questionId of Object.keys(todayRow.items||{})){
     for(const concept of conceptsFor(questionId))
       if(concept.includes('-y9-vocab-'))seenYear9Today.add(concept);
   }
-  const year9Remaining=Math.max(0,3-seenYear9Today.size);
+  const creditedNewerToday=[...credited].filter(c=>c.includes('-y9-vocab-')).length;
+  const year9Remaining=v3?Math.max(0,10-creditedNewerToday):Math.max(0,3-seenYear9Today.size);
   const year9Target=Math.min(size,year9Remaining,rows.filter(r=>
     r.year9&&!credited.has(r.concept)&&(!r.wrong||r.due)).length);
   const selected=[],used=new Set();
@@ -250,7 +268,9 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
   // Repair no more than ten DUE mistakes in each 30-word session. Remaining
   // due mistakes stay eligible for a later session; a not-yet-due mistake must
   // never be silently pulled forward as normal vocabulary.
-  const year8Quota=size-selected.length;
+  // V3 preserves the 20/10 split across resumed sessions; short Year 9 supply must not be replaced by older words.
+  const year8Quota=v3?Math.min(size-selected.length,Math.max(0,20-creditedOlderToday.size)):size-selected.length;
+  const selectionLimit=selected.length+year8Quota;
   const dueMistakes=y8.filter(r=>r.wrong&&r.due&&!credited.has(r.concept)).sort(rank);
   const selectedRepairs=dueMistakes.slice(0,Math.min(10,year8Quota)).map(row=>{
     used.add(row.concept);
@@ -260,20 +280,20 @@ export function selectDailyVocabulary({subject, items = [], year9Items = [], day
   // A learner still receives fresh words after the ten repairs. The remaining
   // overdue errors are excluded from this one set, not treated as fresh words.
   const freshPool=y8.filter(r=>!r.wrong&&!credited.has(r.concept));
-  const selectedY8=choose(freshPool,size-selected.length,'');
+  const selectedY8=choose(freshPool,Math.max(0,selectionLimit-selected.length),'');
   selected.push(...selectedY8);
   // If all unused fresh words in a small/filtered pool are exhausted, keep
   // the assigned 30-word quota achievable without re-crediting today's words.
   // Not-yet-due wrong words must wait until their spaced-review due date.
-  if(selected.length<size){
+  if(selected.length<selectionLimit){
     const fallback=y8.filter(r=>r.wrong&&r.due&&!used.has(r.concept)&&!credited.has(r.concept));
-    selected.push(...choose(fallback,size-selected.length,'fallback-'));
+    selected.push(...choose(fallback,selectionLimit-selected.length,'fallback-'));
   }
   // Keep a genuinely completed word out of this date's set. If the whole
   // bank has been completed, the next cycle can still use prior-day words.
-  if(selected.length<size){
+  if(selected.length<selectionLimit){
     const other=y8.filter(r=>!used.has(r.concept)&&!credited.has(r.concept)&&(!r.wrong||r.due));
-    selected.push(...choose(other,size-selected.length,'next-cycle-'));
+    selected.push(...choose(other,selectionLimit-selected.length,'next-cycle-'));
   }
   // Keep the order of cycle tiers (all still-unanswered words before old
   // successes); the hash makes each tier and each fresh session random.

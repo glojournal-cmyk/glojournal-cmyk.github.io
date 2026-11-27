@@ -85,7 +85,7 @@ for (const run of runs) {
     assert.ok(imageStatus.every(x=>x.ok),'missing Home art '+JSON.stringify(imageStatus.filter(x=>!x.ok)));
     const liveTasks=await page.locator('#lux-rpg-live-home .rpg-quests-live .rpg-task-live').count();
     const waiting=await page.locator('#lux-rpg-live-home .rpg-loading-live').count();
-    assert.ok(liveTasks===12 || waiting===1,'official 10 tasks or honest waiting state, no fake counts');
+    assert.ok(liveTasks===14 || waiting===1,'three school links and eleven Daily tasks or honest waiting state, no fake counts');
     // Exercise ten real-format quests even when a fresh CI browser has no saved daily plan.
     await page.evaluate(() => {
       window.LuxHomeJourneyV2Logic.homeJourney = () => ({
@@ -102,11 +102,12 @@ for (const run of runs) {
       window.dispatchEvent(new Event('scholar:pet-changed'));
     });
     await page.locator('#lux-rpg-live-home .rpg-continue-live').waitFor({timeout:10000});
+    await page.waitForFunction(() => document.querySelector('#lux-rpg-live-home .rpg-continue-live')?.textContent?.includes('Resume saved question'), null, {timeout:10000});
     const rows=await page.locator('#lux-rpg-live-home .rpg-quests-live .rpg-task-live').evaluateAll(els=>
       els.map(el=>({name:el.querySelector('strong')?.textContent?.trim(),
         text:el.textContent.trim(),width:el.querySelector('strong')?.getBoundingClientRect().width||0,
         display:getComputedStyle(el.querySelector('strong')).display})));
-    assert.equal(rows.length,12,'two school items plus ten missions');
+    assert.equal(rows.length,13,'three school items plus ten legacy missions');
     assert.ok(rows.every(r=>r.name && r.text.includes(r.name) && r.width>12 && r.display!=='none'),
       'missing or hidden quest titles: '+JSON.stringify(rows));
     await page.waitForFunction(() => document.querySelector('#lux-rpg-live-home .rpg-continue-live')?.textContent?.includes('Resume saved question'), {timeout:10000});

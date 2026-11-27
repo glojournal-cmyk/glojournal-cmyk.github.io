@@ -12,6 +12,7 @@ import {applyRecoveryReceipts, saveRecoveryReceipt} from "./recovery-receipt-202
 import {curriculumRank,curriculumTopics,curriculumFrontier,curriculumAssignment,curriculumHref,creditCurriculumAttempt} from "./daily-curriculum-20261004.js?v=20261010-chem-marking1&ux=20261013-corrections2";
 import {addMasteryEvidence,masteryStage,coveredTopic} from "./mastery-v2-20261018.js?v=20261023-mastery-count20-v1";
 import {buildYear8DailyV2,verifiedOct23DatedRow} from "./year8-daily-v2-20261018.js?v=20261025-scorefix2&latinrotation=20261101a&latincapacity=20261107a&dailyfix=20261104-regression1&supply=20261111a&frenchExam=20261114b";
+import {V3_START_DATE,buildDailyV3} from "./daily-tasks-v3-20261122.js";
 import "./journey-navigation-20261004.js?v=20261024-latin-ipad-date2&ux=20261013-corrections2";
 import "./weekly-evidence-20261004.js?ux=20261013-corrections2";
 import {mistakeReviewTask,creditMistakeReview,retainMistakeReview} from "./mistake-review-plan-20261003.js?v=20261011-storage-qa1&ux=20261013-corrections2";
@@ -1304,7 +1305,8 @@ function buildAdaptiveDaily(state) {
         (getTopicCatalog(subject, 8) || []).length > 0);
     } catch {}
     if (!catalogReady && Array.isArray(state.daily) && state.daily.length) return state.daily;
-    return buildYear8DailyV2(state,getTopicCatalog,readCurriculumLearning());
+    const legacyPlan = buildYear8DailyV2(state,getTopicCatalog,readCurriculumLearning());
+    return state.today>=V3_START_DATE ? buildDailyV3(state,legacyPlan) : legacyPlan;
   }
   function masteryKeyCount(topicId) {
     const day = state.today || todayKey();
@@ -1491,8 +1493,34 @@ function compactDailyTasks(daily) {
       title: String(task.title || task.id),
       progress,
       target,
-      done: progress >= target,
+      // Maths progress counts submitted questions, but only >=9/10 FIRST
+      // correctly marked answers may clear Daily. Never change a failed
+      // 8/10 attempt into 'done' while compacting the dated history.
+      done: task.dailyV3===true && task.id==='maths-daily'
+        ? task.done===true : progress >= target,
       ...(task.correctOnlyEvidence===true?{correctOnlyEvidence:true}:{}),
+      ...(task.dailyV3===true?{dailyV3:true,planVersion:3,supplyBlocked:task.supplyBlocked===true}:{}),
+      ...(task.vocabSplit?{vocabSplit:true}:{}),
+      ...(task.dailyV3===true&&Array.isArray(task.approvedQuestionIds)?{
+        approvedQuestionIds:task.approvedQuestionIds.slice(0,20).map(String),
+        approvedConceptByQuestion:Object.fromEntries(Object.entries(task.approvedConceptByQuestion||{})
+          .filter(([id])=>task.approvedQuestionIds.includes(id)).slice(0,20)),
+        ...(task.id==='maths-daily'?{approvedTemplateByQuestion:Object.fromEntries(
+          Object.entries(task.approvedTemplateByQuestion||{})
+          .filter(([id])=>task.approvedQuestionIds.includes(id)).slice(0,10))}:{}),
+        // Maths first-submission grading must survive dated-log compaction.
+        ...(task.id==='maths-daily'?{approvedCorrectOptionByQuestion:Object.fromEntries(
+          Object.entries(task.approvedCorrectOptionByQuestion||{})
+          .filter(([id])=>task.approvedQuestionIds.includes(id)).slice(0,10))}:{})
+      }:{}),
+      // Preserve the exact two-subject V3 assignment identity in dated logs.
+      // Only the ten selected question IDs are retained; no whole-bank copy.
+      ...(task.dailyV3===true&&task.languageSplit?{languageSplit:Object.fromEntries(
+        ['latin','french'].filter(s=>task.languageSplit[s]?.topicId).map(s=>[s,{
+          subject:s,year:8,target:5,topicId:String(task.languageSplit[s].topicId).slice(0,120),
+          approvedQuestionIds:(task.languageSplit[s].approvedQuestionIds||[]).slice(0,5),
+          approvedConceptByQuestion:task.languageSplit[s].approvedConceptByQuestion||{}
+        }]))}:{}),
       // Keep minimal original assignment identity for accurate recovery.
       // The old compact log discarded the assigned subject and topic.
       ...(typeof task.href==="string" && task.href.startsWith("/") ? {href:task.href.slice(0,280)} : {}),
@@ -1516,7 +1544,7 @@ function writeDailyLog(existing, date, daily) {
   // write those placeholders back into a canonical ten-task dated record.
   const canonicalIds=new Set(['latin-vocab','french-vocab','latin-standard',
     'y8-standard-a','y8-standard-b','y8-mastery-a','y8-mastery-b',
-    'weakness-review','due-review','year9-light']);
+    'weakness-review','due-review','year9-light','languages-standard','maths-daily']);
   const ten=rawTasks.filter(t=>canonicalIds.has(t.id));
   const extras=rawTasks.filter(t=>!canonicalIds.has(t.id));
   const oldIds=new Set(['study-session','year8-long-review','tend-garden','play-game']);
@@ -1559,7 +1587,8 @@ function writeDailyLog(existing, date, daily) {
   // when all ten canonical slots are present. Never erase genuine extra work,
   // old days, XP/MP or any stored question/answer evidence.
   const retiredSlots=new Set(['study-session','year8-long-review','tend-garden','play-game']);
-  if(date>='2026-11-03'&&date===todayKey()&&tasks.length===10&&
+  if(date>='2026-11-03'&&date===todayKey()&&[10,11].includes(tasks.length)&&
+     tasks.every(t=>canonicalIds.has(t.id))&&
      Array.isArray(row?.tasks)&&
      row.tasks.some(t=>retiredSlots.has(t.id))&&
      row.tasks.every(t=>tasks.some(now=>now.id===t.id)||retiredSlots.has(t.id))){
@@ -1568,7 +1597,7 @@ function writeDailyLog(existing, date, daily) {
       const retained=row.tasks.filter(t=>!retiredSlots.has(t.id));
       const archive=[...(row.legacyExtraTasks||[])];
       for(const t of legacy)if(!archive.some(old=>old.id===t.id&&old.planDate===t.planDate))archive.push(t);
-      const completed=retained.filter(t=>t.done===true||Number(t.progress)>=Number(t.target)).length;
+      const completed=retained.filter(t=>t.id==='maths-daily' ? t.done===true : t.done===true||Number(t.progress)>=Number(t.target)).length;
       row={...row,tasks:retained,total:retained.length,done:completed,
         complete:completed===retained.length,
         legacyExtraTasks:archive.slice(-12)};
@@ -1971,7 +2000,8 @@ function normalizeState() {
   // Reconcile the completion award after the canonical daily list is stored.
   const settled = store.getState();
   if (settled.today === calendarToday && settled.daily?.length &&
-      settled.daily.every((task) => task.progress >= task.target) &&
+      settled.daily.every((task) => task.progress >= task.target &&
+        (!v3EvidenceOwnedTask(task)||task.done===true)) &&
       !settled.dailyCompleteAwarded?.[calendarToday]) {
     originalBumpDaily("study-session", 0);
   }
@@ -2003,7 +2033,31 @@ const STUDY_REWARD_XP = {
   mastery_retention: 10,
 };
 
+// V3 evidence-scoped tasks must use their immutable dated formal answer ledger,
+// not the core progress-only daily counter. Year 8 Due / Standard B remain legacy.
+function v3EvidenceOwnedTask(task) {
+  if(!task)return false;
+  // These two IDs exist only in V3. Treat a missing V3 tag in a damaged
+  // restored row as UNVERIFIED, never as permission to grant Daily XP.
+  if(task.id==="maths-daily"||task.id==="languages-standard")return true;
+  // Year 8/legacy Standard B and Due must retain their existing behaviour.
+  return task.dailyV3===true && Number(task.assignedYear)===9 &&
+    (task.id==="y8-standard-b"||task.id==="due-review"||task.id==="weakness-review");
+}
+
 function patchedAward(kind, options = {}) {
+  // Core bumps progress-based cards and may pre-flag Daily Complete. Only
+  // a real evidence-verified V3 completion can unlock the full-day reward.
+  if (kind==="daily_complete" && store.getState().daily?.some(task=>
+      v3EvidenceOwnedTask(task) && task.done!==true)) {
+    const state=store.getState(),day=todayKey();
+    if(state.dailyCompleteAwarded?.[day]){
+      const ledger={...(state.dailyCompleteAwarded||{})};
+      delete ledger[day];
+      store.setState({dailyCompleteAwarded:ledger});
+    }
+    return {awarded:0,levelUp:false,unlocked:[]};
+  }
   if (options?.amount != null || !(kind in STUDY_REWARD_XP)) return originalAward(kind, options);
 
   const state = store.getState();
@@ -2636,6 +2690,20 @@ function dailyVocabSubject(subject, meta = {}) {
 }
 
 function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
+  // SAFETY: the legacy synchronous recordAttempt grants core XP *before* its
+  // fire-and-forget IndexedDB backup resolves. A Year 9 Maths Daily answer
+  // MUST NOT enter this path: it needs a signed ten-question assignment,
+  // server-independent A-F first-answer marking and durable save ACK first.
+  // Until the dedicated graded player is wired and independently audited,
+  // fail closed with no store write, XP, MP, Mastery or Daily credit.
+  const legacyTaskFromRoute = typeof window !== "undefined"
+    ? new URLSearchParams(window.location.search).get("task") : null;
+  if (meta?.progressionTask==="maths-daily"||
+      meta?.dailyTaskId==="maths-daily"||
+      legacyTaskFromRoute==="maths-daily") {
+    return {blocked:true,reason:"maths-daily-requires-durable-verified-submission",
+      awarded:0,xp:0,mp:0};
+  }
   const before = store.getState();
   const dueBefore = !!before.reviews?.[questionId]?.due && before.reviews[questionId].due <= todayKey();
   const resolved = inferAttemptMeta(questionId, subject, meta || {});
@@ -2732,6 +2800,14 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
     topicId: resolved.topicId || null, topicTitle: resolved.topicTitle || meta.topicTitle || resolved.topicId || "General practice",
     formal: meta.formal !== false, repair: !!meta.repair,
     format: meta.format || null, mode: meta.progressionMode || null,
+    // Future Maths V3 answer evidence MUST retain the actual selected A-F
+    // choice, rather than accepting a caller's bare correct:true assertion.
+    // Preserve assisted/hint/scaffold flags so neither Daily nor Mastery
+    // can incorrectly award unassisted credit after a save/reload.
+    selectedOptionId: ['A','B','C','D','E','F'].includes(meta.selectedOptionId)
+      ? meta.selectedOptionId : null,
+    assisted: meta.assisted===true, hintUsed: meta.hintUsed===true,
+    scaffolded: meta.scaffolded===true,
     // Give the mastery evidence gate the real assigned set size.
     // Free practice and previously started Daily sets stay on the old 15.
     masteryTarget: ['mastery','year8long'].includes(meta.progressionMode)
@@ -2765,13 +2841,13 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
       store.setState({reviews:correct?retainMistakeReview(store.getState().reviews,questionId,todayKey()):store.getState().reviews,daily:(store.getState().daily||[]).map(t=>t.id==="mistake-review"?creditMistakeReview(t,questionId,correct,todayKey()):t)});
     }
     const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
-    if (vocabSubject && (!meta?.repair || correct)) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept, true);
+    if (vocabSubject && (!meta?.repair || correct)) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept, true, evidenceEntry.formal && !evidenceEntry.repair && !evidenceEntry.assisted && !evidenceEntry.hintUsed && !evidenceEntry.scaffolded);
     scheduleNormalizeState();
     return result;
   }
   if (!resolved.topicId) {
     const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
-    if (vocabSubject && (!meta?.repair || correct)) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept, true);
+    if (vocabSubject && (!meta?.repair || correct)) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept, true, evidenceEntry.formal && !evidenceEntry.repair && !evidenceEntry.assisted && !evidenceEntry.hintUsed && !evidenceEntry.scaffolded);
     return result;
   }
   const current = normalizeTopicStat(before.topicStats?.[resolved.topicId] || {});
@@ -2909,7 +2985,7 @@ function patchedRecordAttempt(questionId, correct, subject, meta = {}) {
 
   const focus = store.getState().daily?.find((task) => task.id === "adaptive-focus");
   const vocabSubject = dailyVocabSubject(resolved.subject || subject, meta);
-  if (vocabSubject && (!isRepair || correct)) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept, true);
+  if (vocabSubject && (!isRepair || correct)) recordDailyVocabAttempt(vocabSubject, questionId, !!correct, before, meta?.vocabConcept, true, evidenceEntry.formal && !evidenceEntry.repair && !evidenceEntry.assisted && !evidenceEntry.hintUsed && !evidenceEntry.scaffolded);
 
   scheduleNormalizeState();
   return result;
@@ -2975,7 +3051,7 @@ function findRecoveryVocabSource(state, date, subject) {
 }
 if (typeof window !== "undefined") window.LuxRecoveryVocabSource = findRecoveryVocabSource;
 
-function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState, vocabConcept = null, verifiedFormalAttempt = false) {
+function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState, vocabConcept = null, verifiedFormalAttempt = false, independent = false) {
   if (!["french", "latin"].includes(subject) || !questionId) return;
   const state = store.getState();
   // Recovery answers belong to the missed date, never to today's Vocab task.
@@ -3082,7 +3158,11 @@ function recordDailyVocabAttempt(subject, questionId, correct, preAnswerState, v
   if(correct&&!previouslyCreditedConcepts.has(creditKey) &&
      !Object.keys(extras).some(id => (conceptByQuestion[id] || id) === creditKey)) extras[String(questionId)]=true;
   items[String(questionId)] = !!correct || !!items[String(questionId)];
-  dayRow[subject] = { ...current,items,conceptByQuestion,baselineProgress:originalBaseline,
+  const split=state.daily?.some(t=>t.id===subject+'-vocab'&&t.vocabSplit&&t.planDate===day);
+  const splitConcepts=split&&independent&&vocabConcept
+    ? {...current.splitConcepts,[vocabConcept]:correct===true||current.splitConcepts?.[vocabConcept]===true}
+    :current.splitConcepts;
+  dayRow[subject] = { ...current,items,conceptByQuestion,...(splitConcepts?{splitConcepts}:{}),baselineProgress:originalBaseline,
     baselineKnownIds:frozenKnown,additionalCorrectIds:extras,
     updatedAt: new Date().toISOString() };
   all[day] = dayRow;
@@ -3138,8 +3218,19 @@ function patchedRecordSpelling(questionId, correct) {
   return result;
 }
 
+// Generic counters cannot award a signed V3 question, even if a legacy
+// player or an outdated route calls bumpDaily() after a correct answer.
+// Preserve all existing Year 8 and ordinary game/practice progression.
+function patchedBumpDaily(taskId, increment=1) {
+  if(taskId==="maths-daily"||taskId==="languages-standard")return null;
+  const assigned=(store.getState().daily||[]).find(t=>t?.id===taskId);
+  if(v3EvidenceOwnedTask(assigned))return null;
+  return originalBumpDaily(taskId,increment);
+}
+
 store.setState({
   award: patchedAward,
+  bumpDaily: patchedBumpDaily,
   hydrateDay: patchedHydrateDay,
   recordPe: patchedRecordPe,
   recordGame: patchedRecordGame,

@@ -202,6 +202,7 @@ html.lux-rpg-recovery-open #lux-recovery-quests a{
 @media(max-width:700px){
  .rpg-home-live .rpg-hud-live{max-width:calc(100vw - 1.5rem)}
  .rpg-home-live .rpg-days-live{min-width:5.7rem!important}
+ .rpg-home-live{grid-template-rows:max-content max-content}
  .rpg-home-live .rpg-rail-live{max-height:none}
  .rpg-home-live .rpg-quests-live{flex:0 0 auto;max-height:48vh}
  .rpg-home-live .rpg-days-timeline-live{min-height:2.3rem}

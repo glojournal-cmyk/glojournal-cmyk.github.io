@@ -1,0 +1,1490 @@
+{
+  "kind": "CHANGING_SUBJECT40_ITEM_LEVEL_ACADEMIC_REVIEW_AND_CORRECTIONS_NO_IMPORT",
+  "date": "2026-11-24",
+  "registerPath": "qa-staging/math-all200-reasoning-candidate-review-register-20261124.json",
+  "registerBlobSha": "fc389023285fa8514e866fc4a4e764f5d5e3e3fa",
+  "counts": {
+    "reviewed": 40,
+    "mathsContentChecked": 40,
+    "corrected": 12,
+    "higherReasoningCandidates": 22,
+    "benchmarkOrDifficultyReview": 18,
+    "provisionalSharedMasteryFamilies": 19,
+    "formalApprovals": 0
+  },
+  "limitations": "Author item review of selected stems, worked solutions, choice reasoning and domains. Hand algebra and forward/back substitution checks at representative points supplement exact reasoning; finite sample checks do not prove all symbolic identities or option equivalence. Grade, taught scope, empirical distractor evidence and rendering remain unverified. Cross-topic Mastery grouping pending. Historical packs remain pinned; corrections are full records for next review only.",
+  "masteryGroups": {
+    "rational-inverse-domain-range": [
+      1,
+      2,
+      9,
+      10,
+      13,
+      23
+    ],
+    "two-radical-inversion": [
+      3,
+      5
+    ],
+    "annulus-linear-expansion": [
+      4
+    ],
+    "quadratic-substitution-branch": [
+      6,
+      24
+    ],
+    "radical-mobius-inversion": [
+      7,
+      37,
+      38,
+      39
+    ],
+    "absolute-square-inverse-branches": [
+      8,
+      14
+    ],
+    "degenerate-parameter-identity": [
+      11,
+      15,
+      16
+    ],
+    "fixed-point-quadratic": [
+      12,
+      18
+    ],
+    "cancelled-domain-hole": [
+      17,
+      33,
+      34
+    ],
+    "rational-increment-optimisation": [
+      19
+    ],
+    "composition-inverse": [
+      20
+    ],
+    "reciprocal-shift-and-range": [
+      21,
+      22,
+      26
+    ],
+    "inverse-square-scaling": [
+      25,
+      27,
+      40
+    ],
+    "extraneous-output-after-squaring": [
+      28
+    ],
+    "rational-sum-minimum": [
+      29
+    ],
+    "calibrate-then-invert": [
+      30,
+      35
+    ],
+    "positive-denominator-inequality": [
+      31
+    ],
+    "rational-quadratic-equation": [
+      32
+    ],
+    "nested-inverse-difference": [
+      36
+    ]
+  },
+  "rows": [
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-001",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-001-V313-AO2-AO3-REDESIGN-DRAFT",
+      "selectedPackPath": "qa-staging/math-v313-eight-grade-demand-redesign-candidates-20261123.json",
+      "selectedPackBlobSha": "85ae5991c94fadfb09489dcdd8ef9f3f0a2b91a1",
+      "reviewedCorrectKey": "x=\\frac{3y-7}{4-y},N=5",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Inverse and half-open integer interval give five permitted inputs 2–6.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "rational-inverse-domain-range",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-002",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-002-V312-DISTINCT-INVERSE-MODELLING-CANDIDATE",
+      "selectedPackPath": "qa-staging/math-v312-rearranging001-004-inverse-model-reasoning-candidates-20261123.json",
+      "selectedPackBlobSha": "1c8b09ec758a6d7480265b4b24b4ced6861ccf65",
+      "reviewedCorrectKey": "x=\\frac{2y-6}{5-y},y\\ne5",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Two observations yield p=5,q=6; inverse and missing output 5 checked.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "rational-inverse-domain-range",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-003",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-003-V313-AO2-AO3-REDESIGN-DRAFT",
+      "selectedPackPath": "qa-staging/math-v313-eight-grade-demand-redesign-candidates-20261123.json",
+      "selectedPackBlobSha": "85ae5991c94fadfb09489dcdd8ef9f3f0a2b91a1",
+      "reviewedCorrectKey": "x=\\frac{(1-y^2)^2}{4y^2},0<y\\le1,x(1/3)=\\frac{16}{9}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Conjugate identity and nonnegative root give exact range and x=16/9 at 1/3.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "two-radical-inversion",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-004",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-004-V312-DISTINCT-INVERSE-MODELLING-CANDIDATE",
+      "selectedPackPath": "qa-staging/math-v312-rearranging001-004-inverse-model-reasoning-candidates-20261123.json",
+      "selectedPackBlobSha": "1c8b09ec758a6d7480265b4b24b4ced6861ccf65",
+      "reviewedCorrectKey": "r=\\frac{A-\\pi d^2}{2\\pi d},A\\ge\\pi d^2",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Linear expansion correct; zero-radius case clarified; modest demand.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "annulus-linear-expansion",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-005",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-005-V312-MULTI-RADICAL-INVERSE-REASONING-CANDIDATE",
+      "selectedPackPath": "qa-staging/math-v312-rearranging005-008-radical-inverse-reasoning-candidates-20261123.json",
+      "selectedPackBlobSha": "a7e364ba138edb9be86c96d463d4ae955e777f49",
+      "reviewedCorrectKey": "x=\\frac{(y^2-4)^2}{4y^2}, y\\ge2",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Both square-root isolation and exact range sufficiency established.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "two-radical-inversion",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-006",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-006-V312-MULTI-RADICAL-INVERSE-REASONING-CANDIDATE",
+      "selectedPackPath": "qa-staging/math-v312-rearranging005-008-radical-inverse-reasoning-candidates-20261123.json",
+      "selectedPackBlobSha": "a7e364ba138edb9be86c96d463d4ae955e777f49",
+      "reviewedCorrectKey": "x=\\frac{(y+\\sqrt{y^2-16})^2}{4}-1, y\\ge4",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Quadratic in t has unique permitted branch t≥2; exact range established.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "quadratic-substitution-branch",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-007",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-007-V312-MULTI-RADICAL-INVERSE-REASONING-CANDIDATE",
+      "selectedPackPath": "qa-staging/math-v312-rearranging005-008-radical-inverse-reasoning-candidates-20261123.json",
+      "selectedPackBlobSha": "a7e364ba138edb9be86c96d463d4ae955e777f49",
+      "reviewedCorrectKey": "x=\\frac{(1+y)^2}{(1-y)^2}-2, 0\\le y<1",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Mobius inversion of positive radical; both range endpoints correctly handled.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "radical-mobius-inversion",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-008",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-008-V312-MULTI-RADICAL-INVERSE-REASONING-CANDIDATE",
+      "selectedPackPath": "qa-staging/math-v312-rearranging005-008-radical-inverse-reasoning-candidates-20261123.json",
+      "selectedPackBlobSha": "a7e364ba138edb9be86c96d463d4ae955e777f49",
+      "reviewedCorrectKey": "x=3\\pm y, 0<y\\le3",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Absolute value branches verified; simple branch question, benchmark hold.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "absolute-square-inverse-branches",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-009",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-009-V313-AO2-AO3-REDESIGN-DRAFT",
+      "selectedPackPath": "qa-staging/math-v313-eight-grade-demand-redesign-candidates-20261123.json",
+      "selectedPackBlobSha": "85ae5991c94fadfb09489dcdd8ef9f3f0a2b91a1",
+      "reviewedCorrectKey": "k=3,x=\\frac{5y-4}{3-2y},\\frac{4}{5}\\le y<\\frac{3}{2}",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Parameter calibration and strict upper asymptote; inverse nonnegative over claimed range.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "rational-inverse-domain-range",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-010",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-010-V312-INVERSE-REASONING-CANDIDATE",
+      "selectedPackPath": "qa-staging/math-v312-rearranging009-011-017-inverse-domain-reasoning-candidates-20261123.json",
+      "selectedPackBlobSha": "546b9d2de712aab5567f74ebefbe75e28d77e31e",
+      "reviewedCorrectKey": "p=\\frac{12-2t}{t-3}, 3<t<6",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "One rational rearrangement and interval; relatively routine, benchmark hold.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "rational-inverse-domain-range",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-011",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-011-V312-INVERSE-REASONING-CANDIDATE",
+      "selectedPackPath": "qa-staging/math-v312-rearranging009-011-017-inverse-domain-reasoning-candidates-20261123.json",
+      "selectedPackBlobSha": "546b9d2de712aab5567f74ebefbe75e28d77e31e",
+      "reviewedCorrectKey": "k=\\pm3\\sqrt{2}",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Coefficient identity handles k=0 explicitly; two valid nonzero parameters.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "degenerate-parameter-identity",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-012",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-012-V313-AO2-AO3-REDESIGN-DRAFT",
+      "selectedPackPath": "qa-staging/math-v313-eight-grade-demand-redesign-candidates-20261123.json",
+      "selectedPackBlobSha": "85ae5991c94fadfb09489dcdd8ef9f3f0a2b91a1",
+      "reviewedCorrectKey": "x=\\frac{10-2y}{3(y-2)},x_{\\mathrm{fixed}}=\\frac{2+\\sqrt{34}}{3},2<y\\le5",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Inverse and fixed-point quadratic checked; negative root excluded.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "fixed-point-quadratic",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-013",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-013-V312-REASONING-CANDIDATE",
+      "selectedPackPath": "qa-staging/math-v312-rearranging012-015-distinct-reasoning-candidates-20261123.json",
+      "selectedPackBlobSha": "5e79db304dd06e74df294cb5bc226e93ca9716b0",
+      "reviewedCorrectKey": "x=\\frac{18}{y-1}-2,y\\ne1",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Two simple calibration equations followed by reciprocal inverse; benchmark hold.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "rational-inverse-domain-range",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-014",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-014-V313-AO2-AO3-REDESIGN-DRAFT",
+      "selectedPackPath": "qa-staging/math-v313-eight-grade-demand-redesign-candidates-20261123.json",
+      "selectedPackBlobSha": "85ae5991c94fadfb09489dcdd8ef9f3f0a2b91a1",
+      "reviewedCorrectKey": "x=3\\pm\\sqrt{y-4},4<y\\le13",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Distinct branches require 4<y≤13; upper input cap does not further restrict.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "absolute-square-inverse-branches",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-015",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-015-V312-REASONING-CANDIDATE",
+      "selectedPackPath": "qa-staging/math-v312-rearranging012-015-distinct-reasoning-candidates-20261123.json",
+      "selectedPackBlobSha": "5e79db304dd06e74df294cb5bc226e93ca9716b0",
+      "reviewedCorrectKey": "k\\ne3:x=\\frac{y-2k}{k-3};k=3:y=6",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Existence condition k=3,y=6 clarified; routine linear parameter case.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "degenerate-parameter-identity",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-016",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-016-V329-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v329-changing-subject15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "05caa700d99bca4cecefe007fe978737775e7a94",
+      "reviewedCorrectKey": "0",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Constant rational identity at a=3, no valid x for y=4; short reasoning.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "degenerate-parameter-identity",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-017",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-017-V313-AO2-AO3-REDESIGN-DRAFT",
+      "selectedPackPath": "qa-staging/math-v313-eight-grade-demand-redesign-candidates-20261123.json",
+      "selectedPackBlobSha": "85ae5991c94fadfb09489dcdd8ef9f3f0a2b91a1",
+      "reviewedCorrectKey": "N=1,(x,y)=(-1,4)",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Domain hole removes x=5, leaving (-1,4); false-root distractor corrected.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "cancelled-domain-hole",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-018",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-018-V312-INVERSE_FIXEDPOINT_OR_QUADRATIC_DOMAIN-DRAFT",
+      "selectedPackPath": "qa-staging/math-v312-rearranging018-024-fixedpoint-quadratic-domain-candidates-20261123.json",
+      "selectedPackBlobSha": "4524722d3b4588fe0b722c871dce74ed4b2795d8",
+      "reviewedCorrectKey": "x=\\frac{2y-5}{4-y};x_{\\mathrm{fixed}}=1+\\sqrt{6}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Inverse and fixed point 1+√6 verified; overlaps Q012.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "fixed-point-quadratic",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-019",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-019-V313-AO2-AO3-REDESIGN-DRAFT",
+      "selectedPackPath": "qa-staging/math-v313-eight-grade-demand-redesign-candidates-20261123.json",
+      "selectedPackBlobSha": "85ae5991c94fadfb09489dcdd8ef9f3f0a2b91a1",
+      "reviewedCorrectKey": "\\frac{3}{65}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Increment 6/[(3x+4)(3x+7)] strictly decreases for permitted x≥2.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "rational-increment-optimisation",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-020",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-020-V312-COMPOSITE-RECIPROCAL-REASONING-CANDIDATE",
+      "selectedPackPath": "qa-staging/math-v312-rearranging019-022-composite-reciprocal-reasoning-candidates-20261123.json",
+      "selectedPackBlobSha": "090992de266fb4d5b482f6527d5298cd57659986",
+      "reviewedCorrectKey": "x=\\frac{105z-39}{40-104z},\\frac{13}{35}\\le z<\\frac{5}{13}",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Composition expands to (40x+39)/(104x+105); exact range proof added.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "composition-inverse",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-021",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-021-V312-COMPOSITE-RECIPROCAL-REASONING-CANDIDATE",
+      "selectedPackPath": "qa-staging/math-v312-rearranging019-022-composite-reciprocal-reasoning-candidates-20261123.json",
+      "selectedPackBlobSha": "090992de266fb4d5b482f6527d5298cd57659986",
+      "reviewedCorrectKey": "k=2;x=\\frac{4(3y-1)}{5(1-2y)},\\frac{1}{3}\\le y<\\frac{1}{2}",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Unattained upper limit fixes k=2; inverse and range verified.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "reciprocal-shift-and-range",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-022",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-022-V312-COMPOSITE-RECIPROCAL-REASONING-CANDIDATE",
+      "selectedPackPath": "qa-staging/math-v312-rearranging019-022-composite-reciprocal-reasoning-candidates-20261123.json",
+      "selectedPackBlobSha": "090992de266fb4d5b482f6527d5298cd57659986",
+      "reviewedCorrectKey": "x=\\sqrt{\\frac{9y-4}{1-y}},\\frac{4}{9}\\le y<1",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Nonnegative radical inverse and attainable lower endpoint; upper 1 excluded.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "reciprocal-shift-and-range",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-023",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-023-V329-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v329-changing-subject15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "05caa700d99bca4cecefe007fe978737775e7a94",
+      "reviewedCorrectKey": "\\frac{7}{2}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Parameter a=7/2, only missing output 7/2; modest calibration demand.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "rational-inverse-domain-range",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-024",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-024-V312-INVERSE_FIXEDPOINT_OR_QUADRATIC_DOMAIN-DRAFT",
+      "selectedPackPath": "qa-staging/math-v312-rearranging018-024-fixedpoint-quadratic-domain-candidates-20261123.json",
+      "selectedPackBlobSha": "4524722d3b4588fe0b722c871dce74ed4b2795d8",
+      "reviewedCorrectKey": "t=\\frac{\\sqrt{u^2+2as}-u}{a},s\\ge0",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Quadratic time formula, positive branch and full nonnegative output verified.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "quadratic-substitution-branch",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-025",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-025-V329-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v329-changing-subject15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "05caa700d99bca4cecefe007fe978737775e7a94",
+      "reviewedCorrectKey": "\\frac{5}{2}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Inverse-square scaling gives x=5/2; benchmark hold.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "inverse-square-scaling",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-026",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-026-V329-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v329-changing-subject15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "05caa700d99bca4cecefe007fe978737775e7a94",
+      "reviewedCorrectKey": "y<2",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Exact range y<2 verified constructively; short conceptual item.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "reciprocal-shift-and-range",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-027",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-027-V329-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v329-changing-subject15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "05caa700d99bca4cecefe007fe978737775e7a94",
+      "reviewedCorrectKey": "4",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Two inverse evaluations give increase 4; modest demand.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "inverse-square-scaling",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-028",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-028-V329-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v329-changing-subject15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "05caa700d99bca4cecefe007fe978737775e7a94",
+      "reviewedCorrectKey": "1",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Counterexample y=1 unique among choices; non-key values checked.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "extraneous-output-after-squaring",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-029",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-029-V313-CONCEPT-ANCHOR-DRAFT",
+      "selectedPackPath": "qa-staging/math-v313-rearranging029-033-037-distinct-anchor-candidates-20261123.json",
+      "selectedPackBlobSha": "7b3635eddbd4df63319a11147065f86409ea70dc",
+      "reviewedCorrectKey": "M=3,x=1",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Difference from 3 is (x−1)²/[(3x+5)(5x+3)]; global minimum unique.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "rational-sum-minimum",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-030",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-030-V329-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v329-changing-subject15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "05caa700d99bca4cecefe007fe978737775e7a94",
+      "reviewedCorrectKey": "-\\frac{1}{4}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Calibration a=10, new input −1/4; straightforward linear solving.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "calibrate-then-invert",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-031",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-031-V329-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v329-changing-subject15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "05caa700d99bca4cecefe007fe978737775e7a94",
+      "reviewedCorrectKey": "7",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Positive denominator allows inequality; x=7 exact minimum; short.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "positive-denominator-inequality",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-032",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-032-V329-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v329-changing-subject15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "05caa700d99bca4cecefe007fe978737775e7a94",
+      "reviewedCorrectKey": "6",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Quadratic x²−6x−10 roots both in domain, sum 6.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "rational-quadratic-equation",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-033",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-033-V313-CONCEPT-ANCHOR-DRAFT",
+      "selectedPackPath": "qa-staging/math-v313-rearranging029-033-037-distinct-anchor-candidates-20261123.json",
+      "selectedPackBlobSha": "7b3635eddbd4df63319a11147065f86409ea70dc",
+      "reviewedCorrectKey": "x=\\frac{5y-7}{4-2y},y\\ne1,y\\ne2",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Nested denominator restrictions remove y=1 and y=2; correct inverse.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "cancelled-domain-hole",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-034",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-034-V329-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v329-changing-subject15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "05caa700d99bca4cecefe007fe978737775e7a94",
+      "reviewedCorrectKey": "0",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Only y=0 has a finite inverse but no original input; short diagnostic.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "cancelled-domain-hole",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-035",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-035-V329-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v329-changing-subject15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "05caa700d99bca4cecefe007fe978737775e7a94",
+      "reviewedCorrectKey": "-7",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Nested parameter k=3 then x=−7; modest calculation.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "calibrate-then-invert",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-036",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-036-V329-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v329-changing-subject15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "05caa700d99bca4cecefe007fe978737775e7a94",
+      "reviewedCorrectKey": "-9",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Old and new inputs 3,−6; difference −9; routine inverse.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "nested-inverse-difference",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-037",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-037-V313-CONCEPT-ANCHOR-DRAFT",
+      "selectedPackPath": "qa-staging/math-v313-rearranging029-033-037-distinct-anchor-candidates-20261123.json",
+      "selectedPackBlobSha": "7b3635eddbd4df63319a11147065f86409ea70dc",
+      "reviewedCorrectKey": "x=\\frac{3-4(y-1)^2}{(y-1)^2-2},y\\ge1,y\\ne1+\\sqrt{2}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Rational radical domain consists of two intervals; exact missing output verified.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "radical-mobius-inversion",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-038",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-038-V329-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v329-changing-subject15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "05caa700d99bca4cecefe007fe978737775e7a94",
+      "reviewedCorrectKey": "x=\\frac{6-2(y-1)^2}{(y-1)^2-1},\\quad y\\ge1,\\ y\\ne2",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Inverse and complete output restrictions checked; closely overlaps Q037.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "radical-mobius-inversion",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-039",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-039-V329-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v329-changing-subject15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "05caa700d99bca4cecefe007fe978737775e7a94",
+      "reviewedCorrectKey": "4",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Unique unattainable output 4; other options checked; short diagnostic.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "radical-mobius-inversion",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-040",
+      "reviewedRevisionId": "LUX-MATH-Y9-REARRANGING-040-V329-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v329-changing-subject15-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "05caa700d99bca4cecefe007fe978737775e7a94",
+      "reviewedCorrectKey": "7:16",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Ratio 7:16 from two positive inverse inputs; familiar calculation.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "inverse-square-scaling",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    }
+  ],
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-004",
+      "reason": "Explicitly allow zero-area inner region, avoiding a degenerate-circle ambiguity.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-004",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-004-ACADEMIC-REVIEW-20261124",
+        "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-004-REVIEW-2",
+        "topicId": "math-y9-changing-subject",
+        "sourceDisposition": "STANDALONE_AO2_AO3_REDESIGN_NOT_IMPORTED",
+        "stem": "Two concentric circles have outer radius $r+d$ and inner radius $r$, where $r\\ge0$ and $d>0$. For this model, r=0 means the inner region has zero area. The area between the boundaries is $A=\\pi((r+d)^2-r^2)$. Which option makes r the subject and states the exact possible values of A?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "r=\\frac{A-\\pi d^2}{\\pi d},A\\ge\\pi d^2",
+            "errorPath": "Forget the factor of 2 from expanding the cross-term 2rd."
+          },
+          {
+            "id": "B",
+            "latex": "r=\\frac{A+\\pi d^2}{2\\pi d},A\\ge\\pi d^2",
+            "errorPath": "Move the constant +πd squared with the wrong sign when isolating r."
+          },
+          {
+            "id": "C",
+            "latex": "r=\\frac{A-\\pi d^2}{2\\pi d},A>\\pi d^2",
+            "errorPath": "Exclude r=0 even though it is allowed and gives A=πd squared."
+          },
+          {
+            "id": "D",
+            "latex": "r=\\frac{A-\\pi d^2}{2\\pi d},A\\ge\\pi d^2"
+          },
+          {
+            "id": "E",
+            "latex": "r=\\frac{A-\\pi d^2}{2\\pi d^2},A\\ge\\pi d^2",
+            "errorPath": "Divide by 2πd squared instead of the actual coefficient 2πd of r."
+          },
+          {
+            "id": "F",
+            "latex": "r=\\frac{A-\\pi d^2}{2\\pi d},A\\ge0",
+            "errorPath": "Use only the general non-negative area condition and omit the stronger minimum A≥πd squared."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "r=\\frac{A-\\pi d^2}{2\\pi d},A\\ge\\pi d^2",
+        "workedSolutionSteps": [
+          "Expand the square and subtract the inner area: $A=\\pi(r^2+2rd+d^2-r^2)=\\pi(2rd+d^2)$.",
+          "Rearrange to $2\\pi dr=A-\\pi d^2$. Since $d>0$, divide by $2\\pi d$ to get $r=\\frac{A-\\pi d^2}{2\\pi d}$.",
+          "Because $r\\ge0$ and $d>0$, the exact output condition is $A\\ge\\pi d^2$. Equality holds when the inner radius is zero."
+        ],
+        "provisionalAOFocus": "Use geometric modelling, cancellation of square terms and domain constraints when changing the subject.",
+        "academicQA": "pending",
+        "independentGradeCalibrated": false,
+        "independentStudentMisconceptionCertified": false,
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-004-V312-DISTINCT-INVERSE-MODELLING-CANDIDATE"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-005",
+      "reason": "Align distractor with its algebra and prove sufficiency of range.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-005",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-005-ACADEMIC-REVIEW-20261124",
+        "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-005-REVIEW-2",
+        "topicId": "math-y9-changing-subject",
+        "sourceDisposition": "STANDALONE_REDESIGNED_RADICAL_REASONING_CANDIDATE_NOT_LIVE",
+        "stem": "For real $x\\ge0$, let $y=\\sqrt{x+4}+\\sqrt{x}$. Which choice makes $x$ the subject and gives the exact possible values of $y$?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=\\frac{(y^2+4)^2}{4y^2}, y\\ge2",
+            "errorPath": "Move the +4 from the squared difference with the wrong sign, replacing y squared minus 4 by y squared plus 4."
+          },
+          {
+            "id": "B",
+            "latex": "x=\\frac{(y^2-4)^2}{4y^2}, y\\ge2"
+          },
+          {
+            "id": "C",
+            "latex": "x=\\frac{(y^2-4)^2}{4y}, y\\ge2",
+            "errorPath": "Square y²−4 and the factor 2, but forget to square the factor y in the denominator 2y; this gives 4y instead of 4y²."
+          },
+          {
+            "id": "D",
+            "latex": "x=\\frac{y^2-4}{2y}, y\\ge2",
+            "errorPath": "Fail to square the final expression for the non-negative square root of x."
+          },
+          {
+            "id": "E",
+            "latex": "x=\\frac{(y^2-4)^2}{4y^2}, y>2",
+            "errorPath": "Incorrectly exclude x=0 and its permitted lower endpoint y=2."
+          },
+          {
+            "id": "F",
+            "latex": "x=\\frac{(y^2-4)^2}{4y^2}, y\\ge0",
+            "errorPath": "Mistake the image of the sum of roots as y at least zero instead of y at least two; y=0 also makes the inverse undefined."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "x=\\frac{(y^2-4)^2}{4y^2}, y\\ge2",
+        "workedSolutionSteps": [
+          "Starting with $y=\\sqrt{x+4}+\\sqrt{x}$, move the second root and square to obtain $y^2+x-2y\\sqrt{x}=x+4$.",
+          "As $y>0$, isolate the remaining root: $\\sqrt{x}=\\frac{y^2-4}{2y}$. Squaring gives $x=\\frac{(y^2-4)^2}{4y^2}$.",
+          "The isolated square root must be nonnegative, so y≥2. Conversely, for any y≥2 set t=(y²−4)/(2y)≥0 and x=t². Then √(x+4)=(y²+4)/(2y) and √x=t, so their sum is y. Thus the exact range is y≥2."
+        ],
+        "provisionalAOFocus": "Two-root inverse, isolate an intermediate radical and prevent extraneous solutions by checking the unsquared sign condition.",
+        "academicQA": "pending",
+        "independentGradeCalibrated": false,
+        "independentStudentMisconceptionCertified": false,
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-005-V312-MULTI-RADICAL-INVERSE-REASONING-CANDIDATE"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-006",
+      "reason": "Explicitly establish that every claimed output is attained.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-006",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-006-ACADEMIC-REVIEW-20261124",
+        "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-006-REVIEW-2",
+        "topicId": "math-y9-changing-subject",
+        "sourceDisposition": "STANDALONE_REDESIGNED_RADICAL_REASONING_CANDIDATE_NOT_LIVE",
+        "stem": "For real $x\\ge3$, let $y=\\sqrt{x+1}+\\frac{4}{\\sqrt{x+1}}$. Which choice makes $x$ the subject and gives the exact possible values of $y$?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=\\frac{(y-\\sqrt{y^2-16})^2}{4}-1, y\\ge4",
+            "errorPath": "Choose the smaller quadratic root for the positive substitution sqrt(x+1), which is less than 2 when y>4 and violates x at least 3."
+          },
+          {
+            "id": "B",
+            "latex": "x=\\frac{(y+\\sqrt{y^2-16})^2}{4}-1, y>4",
+            "errorPath": "Reject the permitted boundary x=3, which gives y=4."
+          },
+          {
+            "id": "C",
+            "latex": "x=\\frac{(y+\\sqrt{y^2+16})^2}{4}-1, y\\ge4",
+            "errorPath": "Put a plus rather than a minus before 16 in the quadratic discriminant."
+          },
+          {
+            "id": "D",
+            "latex": "x=\\frac{(y+\\sqrt{y^2-16})^2}{4}-1, y\\ge4"
+          },
+          {
+            "id": "E",
+            "latex": "x=\\frac{y+\\sqrt{y^2-16}}{2}-1, y\\ge4",
+            "errorPath": "Forget to square the recovered value of sqrt(x+1) before subtracting one."
+          },
+          {
+            "id": "F",
+            "latex": "x=\\frac{(y+\\sqrt{y^2-16})^2}{2}-1, y\\ge4",
+            "errorPath": "When squaring t, square its numerator but retain the denominator 2 instead of squaring it to 4."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "x=\\frac{(y+\\sqrt{y^2-16})^2}{4}-1, y\\ge4",
+        "workedSolutionSteps": [
+          "Put $t=\\sqrt{x+1}$, so $t\\ge2$. The original equation becomes $y=t+\\frac{4}{t}$; multiplying by t gives $t^2-yt+4=0$.",
+          "Using the quadratic formula, $t=\\frac{y\\pm\\sqrt{y^2-16}}{2}$. Only the plus branch meets $t\\ge2$ for y>4; both branches give t=2 at y=4.",
+          "For t≥2, y−4=(t−2)²/t≥0. Conversely, for every y≥4, t=(y+√(y²−16))/2≥2, so x=t²−1≥3 and satisfies the original equation. Thus the range is exactly y≥4."
+        ],
+        "provisionalAOFocus": "Substitution converts a radical and its reciprocal to a quadratic; prove the admissible root and exact endpoint without calculus.",
+        "academicQA": "pending",
+        "independentGradeCalibrated": false,
+        "independentStudentMisconceptionCertified": false,
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-006-V312-MULTI-RADICAL-INVERSE-REASONING-CANDIDATE"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-009",
+      "reason": "Replace informal monotonicity claim with explicit decomposition and inverse domain proof.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-009",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-009-ACADEMIC-REVIEW-20261124",
+        "supersedesCandidateRevisionId": "LUX-MATH-Y9-REARRANGING-009-V312-INVERSE-REASONING-CANDIDATE",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-009-REVIEW-2",
+        "topicId": "math-y9-changing-subject",
+        "sourceDisposition": "QA_ONLY_REDRAFT_NOT_RELEASED",
+        "stem": "A model has $y=\\frac{kx+4}{2x+5}$ for $x\\ge0$. It records $y=1$ when $x=1$. Which choice determines $k$, makes $x$ the subject, and gives **all possible values** of $y$?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "k=3,x=\\frac{5y-4}{3-2y},\\frac{4}{5}\\le y\\le\\frac{3}{2}",
+            "errorPath": "Include the unattainable horizontal asymptote y=3/2 as an actual model output."
+          },
+          {
+            "id": "B",
+            "latex": "k=3,x=\\frac{5y-4}{3-2y},\\frac{4}{5}<y<\\frac{3}{2}",
+            "errorPath": "Exclude the lower endpoint y=4/5 even though x=0 is permitted."
+          },
+          {
+            "id": "C",
+            "latex": "k=3,x=\\frac{5y-4}{3-2y},\\frac{4}{5}\\le y<\\frac{3}{2}"
+          },
+          {
+            "id": "D",
+            "latex": "k=3,x=\\frac{5y-4}{2y-3},\\frac{4}{5}\\le y<\\frac{3}{2}",
+            "errorPath": "Reverse the sign of the denominator while collecting x terms."
+          },
+          {
+            "id": "E",
+            "latex": "k=3,x=\\frac{5y+4}{3-2y},\\frac{4}{5}\\le y<\\frac{3}{2}",
+            "errorPath": "Carry the constant 4 across equality with the wrong sign."
+          },
+          {
+            "id": "F",
+            "latex": "k=11,x=\\frac{5y-4}{11-2y},\\frac{4}{5}\\le y<\\frac{11}{2}",
+            "errorPath": "Add rather than subtract the numerator constant when calibrating k from the x=1 measurement."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "k=3,x=\\frac{5y-4}{3-2y},\\frac{4}{5}\\le y<\\frac{3}{2}",
+        "workedSolutionSteps": [
+          "The observation gives $1=\\frac{k+4}{7}$, so $k=3$. Therefore $y=\\frac{3x+4}{2x+5}$.",
+          "Collect terms: (3−2y)x=5y−4, so x=(5y−4)/(3−2y). Equivalently the forward model is y=3/2−7/[2(2x+5)], strictly increasing for x≥0.",
+          "At x=0 the value is 4/5 and the upper limit is 3/2, never attained. Conversely for 4/5≤y<3/2, the inverse has nonnegative numerator and positive denominator, giving x≥0. This establishes the exact range."
+        ],
+        "provisionalAOFocus": "AO2 candidate: infer a model parameter from an observation before inversion and derive the attainable output interval.",
+        "unverifiedTaughtSubskill": "Parametric formulas, rational inverses and asymptotic bounds need individual taught-subskill evidence.",
+        "conceptOverlapReviewRequired": [
+          "REARRANGING-002_OBSERVATION_CALIBRATION",
+          "REARRANGING-001_INVERSE_RANGE"
+        ],
+        "academicQA": "pending",
+        "gradeStatus": "PROVISIONAL_AO2_AO3_DEMAND_NOT_INDEPENDENT_GRADE7_CERTIFIED",
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "independentStudentMisconceptionCertified": false,
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-009-V313-AO2-AO3-REDESIGN-DRAFT"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-011",
+      "reason": "Avoid silently dividing by k before establishing it is nonzero.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-011",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-011-ACADEMIC-REVIEW-20261124",
+        "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-011-REVIEW-2",
+        "topicId": "math-y9-changing-subject",
+        "sourceDisposition": "SEPARATE_REASONING_REDESIGN_CANDIDATE_ORIGINAL_NUMERIC_TEMPLATE_RETAINED",
+        "stem": "For which real values of $k$ is $y=\\frac{kx+6}{3x+k}$ independent of $x$ wherever the denominator is non-zero?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "k=\\pm\\sqrt{6}",
+            "errorPath": "Forget the x coefficient 3 in the denominator when comparing proportional coefficients, solving k squared =6."
+          },
+          {
+            "id": "B",
+            "latex": "k=\\pm2\\sqrt{3}",
+            "errorPath": "Mistake the denominator x-coefficient 3 for 2, leading to k squared =12 rather than 18."
+          },
+          {
+            "id": "C",
+            "latex": "k=\\pm3",
+            "errorPath": "Correctly find k squared =18 but halve 18 before taking the square root."
+          },
+          {
+            "id": "D",
+            "latex": "k=\\pm3\\sqrt{2}"
+          },
+          {
+            "id": "E",
+            "latex": "k=\\pm6",
+            "errorPath": "Replace the denominator x coefficient 3 with the numerator constant 6, solving k squared =36."
+          },
+          {
+            "id": "F",
+            "latex": "k=\\pm3\\sqrt{6}",
+            "errorPath": "Square the denominator x coefficient 3 in the coefficient comparison, solving k squared =54."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "k=\\pm3\\sqrt{2}",
+        "workedSolutionSteps": [
+          "For the quotient to be constant C wherever 3x+k≠0, the polynomial identity kx+6=C(3x+k) must hold. Comparing coefficients gives k=3C and 6=Ck. In particular k cannot be zero.",
+          "Substitute C=k/3 to obtain k²=18, hence k=±3√2.",
+          "For either k, the identity holds and the quotient equals k/3 for all permitted x. These are exactly the two values."
+        ],
+        "provisionalAOFocus": "Reason about degeneracy and uniqueness of an inverse using coefficient proportionality, including both parameter branches.",
+        "academicQA": "pending",
+        "independentGradeCalibrated": false,
+        "independentStudentMisconceptionCertified": false,
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "domainReasoningQA": "PENDING_INDEPENDENT_DOMAIN_AND_MISCONCEPTION_REVIEW",
+        "gradeStatus": "POTENTIAL_AO2_AO3_UNBENCHMARKED",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-011-V312-INVERSE-REASONING-CANDIDATE"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-015",
+      "reason": "Clarify that the exceptional condition is for existence, not uniqueness.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-015",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-015-ACADEMIC-REVIEW-20261124",
+        "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-015-REVIEW-2",
+        "topicId": "math-y9-changing-subject",
+        "sourceDisposition": "STANDALONE_DIFFERENT_REASONING_GOAL_REPLACEMENT_CANDIDATE",
+        "stem": "For real x, y and k, the relation is $y=(k-3)x+2k$. Which option gives the unique solution for x when $k\\ne3$ and the necessary and sufficient condition on y for any real x to satisfy the equation when $k=3$?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "k\\ne3:x=\\frac{y-2k}{k-3};k=3:y=3",
+            "errorPath": "When k=3, substitute the coefficient 3 as the output value and forget the constant 2k=6."
+          },
+          {
+            "id": "B",
+            "latex": "k\\ne3:x=\\frac{y+2k}{k-3};k=3:y=6",
+            "errorPath": "Move +2k across with the wrong sign while collecting the term in x."
+          },
+          {
+            "id": "C",
+            "latex": "k\\ne3:x=\\frac{y-2k}{3-k};k=3:y=6",
+            "errorPath": "Reverse the sign of the coefficient k−3 when dividing."
+          },
+          {
+            "id": "D",
+            "latex": "k\\ne3:x=\\frac{y-2k}{k-3};k=3:y=6"
+          },
+          {
+            "id": "E",
+            "latex": "k\\ne3:x=\\frac{y-2k}{k-3};k=3:y=0",
+            "errorPath": "Assume the vanishing x-coefficient means the whole right-hand side is zero."
+          },
+          {
+            "id": "F",
+            "latex": "k\\ne3:x=\\frac{y-2k}{k-3};k=3:y\\ne6",
+            "errorPath": "Reverse the exceptional existence condition: when k=3 the equation has a solution only for y=6."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "k\\ne3:x=\\frac{y-2k}{k-3};k=3:y=6",
+        "workedSolutionSteps": [
+          "For $k\\ne3$, subtract $2k$ from both sides: $y-2k=(k-3)x$, so $x=\\frac{y-2k}{k-3}$.",
+          "For $k=3$, the coefficient of x becomes zero and the relation reduces to $y=6$, independently of x.",
+          "Thus with k=3 every real x works if y=6, while no x works if y differs from 6. There is no unique solution in that exceptional case."
+        ],
+        "provisionalAOFocus": "Parameter-dependent solvability: uniquely invertible equation versus infinitely many or no solutions.",
+        "academicQA": "pending",
+        "independentGradeCalibrated": false,
+        "independentStudentMisconceptionCertified": false,
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-015-V312-REASONING-CANDIDATE"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-017",
+      "reason": "Make the incorrect-root distractor a reproducible algebraic error.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-017",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-017-ACADEMIC-REVIEW-20261124",
+        "supersedesCandidateRevisionId": "LUX-MATH-Y9-REARRANGING-017-V312-INVERSE-REASONING-CANDIDATE",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-017-REVIEW-2",
+        "topicId": "math-y9-changing-subject",
+        "sourceDisposition": "QA_ONLY_REDRAFT_NOT_RELEASED",
+        "stem": "The relation $y=\\frac{x^2-25}{x-5}$ is defined only for $x\\ne5$. A second relation is $y=x^2-3x$. How many **valid real intersections** are there, and what is their location?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "N=2,(x,y)=(-1,4),(5,10)",
+            "errorPath": "Cancel the common x-5 factor and forget that the original rational formula was undefined at x=5."
+          },
+          {
+            "id": "B",
+            "latex": "N=1,(x,y)=(5,10)",
+            "errorPath": "Discard the negative x root incorrectly and keep the excluded x=5 root."
+          },
+          {
+            "id": "C",
+            "latex": "N=0",
+            "errorPath": "Discard the permitted x=-1 root as well as the genuinely forbidden x=5 root."
+          },
+          {
+            "id": "D",
+            "latex": "N=1,(x,y)=(-1,4)"
+          },
+          {
+            "id": "E",
+            "latex": "N=1,(x,y)=(-1,-4)",
+            "errorPath": "Substitute x=-1 into the linear branch but give y the wrong sign."
+          },
+          {
+            "id": "F",
+            "latex": "N=1,(x,y)=(1,6)",
+            "errorPath": "Lose the negative sign when solving x+1=0, then substitute x=1 into y=x+5 without checking the second relation."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "N=1,(x,y)=(-1,4)",
+        "workedSolutionSteps": [
+          "For x≠5, factor the numerator as $(x-5)(x+5)$, so the rational relation agrees with $y=x+5$ but has a missing point at x=5.",
+          "Set the two expressions for y equal: $x+5=x^2-3x$, so $(x-5)(x+1)=0$ and the algebraic candidates are x=5 or x=-1.",
+          "The original model forbids x=5. At x=-1, y=x+5=4. Thus exactly one valid intersection remains: $(-1,4)$."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate: solve a cross-model intersection then reject the root at a removable discontinuity.",
+        "unverifiedTaughtSubskill": "Factorisation, quadratic intersection models and domain holes need individual teaching evidence.",
+        "conceptOverlapReviewRequired": [
+          "REARRANGING-014_INVERSE_BRANCH_NOT_SAME_CONCEPT"
+        ],
+        "academicQA": "pending",
+        "gradeStatus": "PROVISIONAL_AO2_AO3_DEMAND_NOT_INDEPENDENT_GRADE7_CERTIFIED",
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "independentStudentMisconceptionCertified": false,
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-017-V313-AO2-AO3-REDESIGN-DRAFT"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-020",
+      "reason": "Prove monotonicity and full range rather than merely citing a limit.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-020",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-020-ACADEMIC-REVIEW-20261124",
+        "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-020-REVIEW-2",
+        "topicId": "math-y9-changing-subject",
+        "sourceDisposition": "NEW_STANDALONE_DIAGNOSTIC_REASONING_CANDIDATE_ORIGINAL_RETAINED",
+        "stem": "Let $f(t)=\\frac{4t+3}{8t+9}$ and $x\\ge0$. The two-stage process is $z=f(f(x))$. Which option makes $x$ the subject in terms of $z$ and gives the exact range of $z$?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=\\frac{105z+39}{40-104z},\\frac{13}{35}\\le z<\\frac{5}{13}",
+            "errorPath": "Move the constant 39 across the composed equation with the wrong sign."
+          },
+          {
+            "id": "B",
+            "latex": "x=\\frac{105z-39}{104z-40},\\frac{13}{35}\\le z<\\frac{5}{13}",
+            "errorPath": "Reverse the sign of the collected coefficient 40-104z."
+          },
+          {
+            "id": "C",
+            "latex": "x=\\frac{105z-39}{40-104z},\\frac{13}{35}<z<\\frac{5}{13}",
+            "errorPath": "Exclude x=0, which produces the exact lower endpoint z=13/35."
+          },
+          {
+            "id": "D",
+            "latex": "x=\\frac{105z-39}{40-104z},\\frac{13}{35}\\le z\\le\\frac{5}{13}",
+            "errorPath": "Include the upper asymptote z=5/13 even though no finite x reaches it."
+          },
+          {
+            "id": "E",
+            "latex": "x=\\frac{105z-39}{40-104z},\\frac{13}{35}\\le z<\\frac{5}{13}"
+          },
+          {
+            "id": "F",
+            "latex": "x=\\frac{40-104z}{105z-39},\\frac{13}{35}\\le z<\\frac{5}{13}",
+            "errorPath": "Invert the final formula, producing a false pole at the valid lower endpoint."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "x=\\frac{105z-39}{40-104z},\\frac{13}{35}\\le z<\\frac{5}{13}",
+        "workedSolutionSteps": [
+          "Substituting $f(x)=\\frac{4x+3}{8x+9}$ into $f(f(x))$ gives $z=\\frac{40x+39}{104x+105}$.",
+          "Cross-multiply: $104xz+105z=40x+39$, hence $x=\\frac{105z-39}{40-104z}$.",
+          "For x≥0, z=5/13−18/[13(104x+105)] increases from 13/35 towards 5/13 without reaching it. Conversely for 13/35≤z<5/13, the inverse has nonnegative numerator and positive denominator and gives x≥0. Hence this is the exact range."
+        ],
+        "provisionalAOFocus": "Unpack a composite Möbius function, simplify before inversion, and preserve its half-open output range; reason about a second-stage nonlinear transformation.",
+        "academicQA": "pending",
+        "independentGradeCalibrated": false,
+        "independentStudentMisconceptionCertified": false,
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-020-V312-COMPOSITE-RECIPROCAL-REASONING-CANDIDATE"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-021",
+      "reason": "An unattained upper limit is not a greatest attained output.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-021",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-021-ACADEMIC-REVIEW-20261124",
+        "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-021-REVIEW-2",
+        "topicId": "math-y9-changing-subject",
+        "sourceDisposition": "NEW_STANDALONE_DIAGNOSTIC_REASONING_CANDIDATE_ORIGINAL_RETAINED",
+        "stem": "A sensor follows $\\frac{1}{y}=\\frac{4}{5x+4}+k$ for $x\\ge0$, with constant $k>0$. Its outputs approach the upper limit $\\frac{1}{2}$ as x increases without bound; this limit is never attained. Which option determines $k$, makes $x$ the subject and states the exact permissible range of $y$?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "k=2;x=\\frac{4(3y-1)}{5(1-2y)},\\frac{1}{3}\\le y<\\frac{1}{2}"
+          },
+          {
+            "id": "B",
+            "latex": "k=2;x=\\frac{4(3y+1)}{5(1-2y)},\\frac{1}{3}\\le y<\\frac{1}{2}",
+            "errorPath": "Move the constant 4 across the equation with the wrong sign, giving 3y+1 instead of 3y−1."
+          },
+          {
+            "id": "C",
+            "latex": "k=\\frac{1}{2};x=\\frac{4(3y-1)}{5(1-2y)},\\frac{1}{3}\\le y<\\frac{1}{2}",
+            "errorPath": "Take the limiting ceiling y=1/k itself to be k, confusing k with its reciprocal."
+          },
+          {
+            "id": "D",
+            "latex": "k=2;x=\\frac{4(3y-1)}{5(1-2y)},\\frac{1}{3}<y<\\frac{1}{2}",
+            "errorPath": "Exclude the allowed x=0 endpoint, which produces y=1/3."
+          },
+          {
+            "id": "E",
+            "latex": "k=2;x=\\frac{4(3y-1)}{5(1-2y)},\\frac{1}{3}\\le y\\le\\frac{1}{2}",
+            "errorPath": "Include the non-attained limiting output y=1/2."
+          },
+          {
+            "id": "F",
+            "latex": "k=2;x=\\frac{4(3y-1)}{5(2y-1)},\\frac{1}{3}\\le y<\\frac{1}{2}",
+            "errorPath": "Divide by 2y−1 rather than 1−2y, reversing the sign of the isolated coefficient."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "k=2;x=\\frac{4(3y-1)}{5(1-2y)},\\frac{1}{3}\\le y<\\frac{1}{2}",
+        "workedSolutionSteps": [
+          "Since x grows without bound, $\\frac{4}{5x+4}$ tends to zero, so the limiting maximum of y is $\\frac{1}{k}=\\frac{1}{2}$. Hence $k=2$.",
+          "Substitute $k=2$: $\\frac{1}{y}-2=\\frac{4}{5x+4}$. Therefore $5x+4=\\frac{4y}{1-2y}$ and $x=\\frac{4(3y-1)}{5(1-2y)}$.",
+          "For x≥0, y increases from 1/3 towards 1/2. Conversely for 1/3≤y<1/2, the inverse gives x≥0, so all such y occur."
+        ],
+        "provisionalAOFocus": "Identify an unknown positive model constant from a limiting output before rational inversion and verify both output endpoints.",
+        "academicQA": "pending",
+        "independentGradeCalibrated": false,
+        "independentStudentMisconceptionCertified": false,
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-021-V312-COMPOSITE-RECIPROCAL-REASONING-CANDIDATE"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-028",
+      "reason": "Explain why every non-key output fails the counterexample request.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-028",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-028-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-028-REVIEW-2",
+        "topicId": "math-y9-changing-subject",
+        "provisionalConceptFamily": "radical-inverse-sign-validation",
+        "stem": "A student rearranges $y=3+\\frac{2}{\\sqrt{x-1}}$ to $x=1+\\frac{4}{(y-3)^2}$. The original domain is x>1. Which output below gives an x that satisfies the student's rearrangement but does NOT satisfy the original formula?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "1"
+          },
+          {
+            "id": "B",
+            "latex": "4",
+            "errorPath": "Selects an output that is valid rather than a counterexample. This gives x=5, and the original output is 4."
+          },
+          {
+            "id": "C",
+            "latex": "5",
+            "errorPath": "Selects an output that is valid rather than a counterexample. This gives x=2, and the original output is 5."
+          },
+          {
+            "id": "D",
+            "latex": "7",
+            "errorPath": "Selects an output that is valid rather than a counterexample. This gives x=5/4, and the original output is 7."
+          },
+          {
+            "id": "E",
+            "latex": "6",
+            "errorPath": "Selects an output that is valid rather than a counterexample. This gives x=13/9, and the original output is 6."
+          },
+          {
+            "id": "F",
+            "latex": "9",
+            "errorPath": "Selects an output that is valid rather than a counterexample. This gives x=10/9, and the original output is 9."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "1",
+        "workedSolutionSteps": [
+          "The original fraction is positive, so the original formula requires y>3.",
+          "At y=1 the squared rearrangement gives x=1+4/4=2, a permitted input.",
+          "But the original formula at x=2 gives 3+2=5, not 1. Squaring lost the sign restriction."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+        "unverifiedTaughtSubskill": "Extraneous outputs introduced by squaring a reciprocal radical.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-028-V329-REASONING-QA-ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-034",
+      "reason": "Distinguish the two impossible outputs, only one of which meets the finite-inverse condition.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-034",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-034-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-034-REVIEW-2",
+        "topicId": "math-y9-changing-subject",
+        "provisionalConceptFamily": "nested-reciprocal-inverse-excluded-output",
+        "stem": "For real x with x≠−1 and x≠−2, let $y=\\frac{2}{1+\\frac{1}{x+1}}$. Which real output y is impossible even though the rearranged expression $x=\\frac{2y-2}{2-y}$ gives a finite real number?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "0"
+          },
+          {
+            "id": "B",
+            "latex": "2",
+            "errorPath": "This output makes the rearranged denominator zero, so it does not give a finite x."
+          },
+          {
+            "id": "C",
+            "latex": "1",
+            "errorPath": "The rearrangement gives x=0, which is allowed and yields y=1."
+          },
+          {
+            "id": "D",
+            "latex": "3",
+            "errorPath": "The rearrangement gives x=−4, which is allowed and yields y=3."
+          },
+          {
+            "id": "E",
+            "latex": "4",
+            "errorPath": "The rearrangement gives x=−3, which is allowed and yields y=4."
+          },
+          {
+            "id": "F",
+            "latex": "-2",
+            "errorPath": "The rearrangement gives x=−3/2, which is allowed and yields y=−2."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "0",
+        "workedSolutionSteps": [
+          "Combining the inner fraction gives y=2(x+1)/(x+2), still excluding both −1 and −2.",
+          "Rearrange to x=(2y−2)/(2−y), defined for y≠2.",
+          "At y=0 the rearrangement gives x=−1, excluded by the original inner denominator. The other impossible output y=2 makes the inverse undefined, so fails the finite-value requirement. Every other listed output gives an allowed original input."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+        "unverifiedTaughtSubskill": "Nested rational formulas and retained domain holes.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-034-V329-REASONING-QA-ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-039",
+      "reason": "Tie the verified substitutions to the asked impossible-output criterion.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-039",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-039-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-039-REVIEW-2",
+        "topicId": "math-y9-changing-subject",
+        "provisionalConceptFamily": "radical-rational-inverse-unattainable-boundary",
+        "stem": "For real x where $x\\ne-1$ and $(4x+9)/(x+1)\\ge0$, let $y=2+\\sqrt{\\frac{4x+9}{x+1}}$. Which y is impossible, although it satisfies the necessary condition y≥2?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "2",
+            "errorPath": "Selects an attainable output rather than an impossible one. This is attainable at x=−9/4, giving radicand zero."
+          },
+          {
+            "id": "B",
+            "latex": "4"
+          },
+          {
+            "id": "C",
+            "latex": "3",
+            "errorPath": "Selects an attainable output rather than an impossible one. This is attainable at x=−8/3, giving radicand 1."
+          },
+          {
+            "id": "D",
+            "latex": "5",
+            "errorPath": "Selects an attainable output rather than an impossible one. This is attainable at x=0, giving radicand 9."
+          },
+          {
+            "id": "E",
+            "latex": "6",
+            "errorPath": "Selects an attainable output rather than an impossible one. This is attainable at x=−7/12, giving radicand 16."
+          },
+          {
+            "id": "F",
+            "latex": "7",
+            "errorPath": "Selects an attainable output rather than an impossible one. This is attainable at x=−16/21, giving radicand 25."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "4",
+        "workedSolutionSteps": [
+          "Write (y−2)²=(4x+9)/(x+1). Rearranging gives ((y−2)²−4)x=9−(y−2)².",
+          "When y=4, the left coefficient is zero but the right side is 5, so no x exists.",
+          "The other listed outputs have y≥2 and their finite inverse inputs are allowed; substitution verifies each."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+        "unverifiedTaughtSubskill": "Radical rational inverse and a missing output in the allowed sign range.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-039-V329-REASONING-QA-ONLY"
+      }
+    }
+  ]
+}

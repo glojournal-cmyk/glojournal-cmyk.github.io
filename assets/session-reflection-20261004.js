@@ -50,9 +50,9 @@ export function SessionResult({score,formalCount,coach,errors,daily,backHref,nex
     'Your answers have been checked. Review your skills and continue when ready.')
   ),
   vocabProgress?h('section',{'aria-label':'Cumulative daily vocabulary correct',className:'rounded-xl border border-line bg-sage/30 p-4 my-3'},
-    h('p',{className:'text-sm font-medium'},'YEAR 7–8 '+(vocabProgress.subject==='latin'?'LATIN':'FRENCH')+' VOCABULARY · TODAY'),
+    h('p',{className:'text-sm font-medium'},(vocabProgress.vocabSplit?'YEAR 7–9 ':'YEAR 7–8 ')+(vocabProgress.subject==='latin'?'LATIN':'FRENCH')+' VOCABULARY · TODAY'),
     h('p',{className:'text-2xl font-semibold tabular-nums'},String(vocabProgress.correct)+' / '+String(vocabProgress.target||30)+' correct'),
-    h('p',{className:'text-sm text-muted'},'Cumulative correct answers for today’s Daily Task. The score for this practice set is shown separately below. Repeated question IDs count only once.')):null,
+    h('p',{className:'text-sm text-muted'},vocabProgress.vocabSplit?'Daily credit counts each word once, with up to 20 Year 7–8 words and 10 Year 9 words.':'Cumulative correct answers for today’s Daily Task. The score for this practice set is shown separately below. Repeated question IDs count only once.')):null,
   daily?h('div',{className:'lux-session-daily-v2'},daily):null,
   h('div',{className:'lux-session-rewards-v2','aria-label':'Session result and experience'},
    h('div',{className:'lux-session-reward-v2'},

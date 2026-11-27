@@ -1,0 +1,188 @@
+{
+  "kind": "V313_THREE_DISTINCT_ANCHOR_CHALLENGES_QA_ONLY_ALL_HOLD",
+  "date": "2026-11-23",
+  "pr": 306,
+  "sourceBankPath": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "sourceBankUnmodified": true,
+  "provisionalFamilyLedgerPath": "qa-staging/math-v313-rearranging025-040-concept-consolidation-no-credit-20261123.json",
+  "provisionalFamilyLedgerBlobSha": "0a1de4378b3c88198166e02934f9d556e56e313d",
+  "rationaleForNo025Replacement": "Four original radical reciprocal questions overlap existing radical inversion candidates and have no independent taught/Grade7 certification; do not invent filler.",
+  "totals": {
+    "source16": 16,
+    "conceptGroups": 4,
+    "newDistinctAnchors": 3,
+    "allChoices": 18,
+    "wrongChoices": 15,
+    "academicApprovals": 0,
+    "dailyEligible": 0,
+    "masteryEligible": 0
+  },
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-029",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-029-V313-CONCEPT-ANCHOR-DRAFT",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-029-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "CANDIDATE_CONCEPT_SHIFTED_RATIONAL_INVERSE",
+      "stem": "For $x>0$, define $f(x)=1+\\frac{2(x+1)}{3x+5}$. What is the **minimum value $M$** of $f(x)+f(1/x)$, and for which $x$ is the minimum attained?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "M=\\frac{46}{15},x=0",
+          "errorPath": "Use the output limit as x approaches zero; this is larger than the attained interior minimum."
+        },
+        {
+          "id": "B",
+          "latex": "M=3,x=0",
+          "errorPath": "Assume the endpoint x=0 attains equality, despite x>0 and f(1/x) being undefined there."
+        },
+        {
+          "id": "C",
+          "latex": "M=3,x=1"
+        },
+        {
+          "id": "D",
+          "latex": "M=\\frac{14}{5},x=0",
+          "errorPath": "Put x=0 into both f(x) and f(1/x), incorrectly obtaining twice f(0)."
+        },
+        {
+          "id": "E",
+          "latex": "M=\\frac{10}{3},x=1",
+          "errorPath": "Use each asymptotic value 5/3 instead of the actual model value f(1)=3/2."
+        },
+        {
+          "id": "F",
+          "latex": "M=3,x=-1",
+          "errorPath": "Choose the invalid negative equality branch rather than the only zero of (x-1)^2."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "M=3,x=1",
+      "workedSolutionSteps": [
+        "For x>0, $f(x)=\\frac{5x+7}{3x+5}$ and $f(1/x)=\\frac{7x+5}{5x+3}$.",
+        "Combining yields $f(x)+f(1/x)-3=\\frac{(x-1)^2}{(3x+5)(5x+3)}$.",
+        "Both denominator factors are positive for x>0, so this difference is non-negative. Equality occurs only at x=1 and gives $M=3$."
+      ],
+      "provisionalAOFocus": "AO2/3 candidate: global inequality proof with symmetric rational substitution.",
+      "unverifiedTaughtSubskill": "Rational inequalities and non-negative-square optimisation not yet independently confirmed taught.",
+      "conceptCollisionReviewRequired": true,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-033",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-033-V313-CONCEPT-ANCHOR-DRAFT",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-033-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "CANDIDATE_CONCEPT_NESTED_RECIPROCAL_WITH_HOLES",
+      "stem": "The original nested relation is $y=1+\\frac{2}{2+\\frac{3}{x+1}}$, wherever **every original denominator is non-zero**. Which choice makes $x$ the subject and states **all excluded real values of $y$**?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "x=\\frac{5y-7}{4-2y},y\\ne2",
+          "errorPath": "Cancel x+1 and forget the source domain hole x=-1, which creates a missing output y=1."
+        },
+        {
+          "id": "B",
+          "latex": "x=\\frac{5y-7}{4-2y},y\\ne1,y\\ne2"
+        },
+        {
+          "id": "C",
+          "latex": "x=\\frac{5y-7}{4-2y},y\\ne1",
+          "errorPath": "Record the removed y=1 output but allow the impossible asymptotic value y=2."
+        },
+        {
+          "id": "D",
+          "latex": "x=\\frac{5y+7}{4-2y},y\\ne1,y\\ne2",
+          "errorPath": "Move the numerator constant to the other side with the wrong sign."
+        },
+        {
+          "id": "E",
+          "latex": "x=\\frac{5y-7}{2y-4},y\\ne1,y\\ne2",
+          "errorPath": "Reverse the sign of the denominator during the last division."
+        },
+        {
+          "id": "F",
+          "latex": "x=\\frac{5y-7}{4-2y},y\\ne0,y\\ne2",
+          "errorPath": "Reject output y=0 instead of y=1 despite the original nested source restriction."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "x=\\frac{5y-7}{4-2y},y\\ne1,y\\ne2",
+      "workedSolutionSteps": [
+        "The source prohibits $x=-1$ and $x=-\\frac{5}{2}$, because its original denominators must stay non-zero.",
+        "On the domain, simplify to $y=\\frac{4x+7}{2x+5}$ and solve $x=\\frac{5y-7}{4-2y}$.",
+        "The inverse pole forbids $y=2$. The source hole at $x=-1$ additionally forbids $y=1$. Every other real output is attainable."
+      ],
+      "provisionalAOFocus": "AO2 candidate: nested rational cancellation, inverse pole and removable source hole.",
+      "unverifiedTaughtSubskill": "Nested fractions, inversion, cancelled-domain restrictions need evidence of classroom coverage.",
+      "conceptCollisionReviewRequired": true,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-037",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-037-V313-CONCEPT-ANCHOR-DRAFT",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-037-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "CANDIDATE_CONCEPT_RADICAL_RATIONAL_DOMAIN_BRANCHES",
+      "stem": "Let $y=1+\\sqrt{\\frac{2x+3}{x+4}}$ for **every real $x$ where the original square root is defined**. Which choice makes $x$ the subject and states the **complete set of possible values of $y$**?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "x=\\frac{3-4(y-1)^2}{(y-1)^2-2},y\\ge1",
+          "errorPath": "Take y≥1 from the square root, but forget the unattained asymptotic output y=1+sqrt2."
+        },
+        {
+          "id": "B",
+          "latex": "x=\\frac{3-4(y-1)^2}{(y-1)^2-2},y>1,y\\ne1+\\sqrt{2}",
+          "errorPath": "Exclude the attained value y=1 at x=-3/2, where the original radicand equals zero."
+        },
+        {
+          "id": "C",
+          "latex": "x=\\frac{3-4(y-1)^2}{(y-1)^2-2},y\\ge1,y\\ne1+\\sqrt{2}"
+        },
+        {
+          "id": "D",
+          "latex": "x=\\frac{3+4(y-1)^2}{(y-1)^2-2},y\\ge1,y\\ne1+\\sqrt{2}",
+          "errorPath": "Collect the squared terms with the wrong sign in the inverse formula."
+        },
+        {
+          "id": "E",
+          "latex": "x=\\frac{3-4(y-1)^2}{2-(y-1)^2},y\\ge1,y\\ne1+\\sqrt{2}",
+          "errorPath": "Reverse the sign of the denominator after collecting the terms containing x."
+        },
+        {
+          "id": "F",
+          "latex": "x=\\frac{3-4(y-1)^2}{(y-1)^2-2},y\\ge1,y\\ne1-\\sqrt{2}",
+          "errorPath": "Exclude the negative radical value which is impossible anyway, while allowing the actual missing positive output."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "x=\\frac{3-4(y-1)^2}{(y-1)^2-2},y\\ge1,y\\ne1+\\sqrt{2}",
+      "workedSolutionSteps": [
+        "The radicand is $\\frac{2x+3}{x+4}=2-\\frac{5}{x+4}$, non-negative exactly for $x<-4$ or $x\\ge-\\frac{3}{2}$.",
+        "Put $t=(y-1)^2$ and rearrange $t(x+4)=2x+3$ to find $x=\\frac{3-4(y-1)^2}{(y-1)^2-2}$.",
+        "The square root gives y≥1, with y=1 attained. Output $y=1+\\sqrt{2}$ is impossible, since radicand 2 would force $2x+3=2x+8$. All other y≥1 occur."
+      ],
+      "provisionalAOFocus": "AO2/3 candidate: radical-rational sign analysis plus inverse and missing output.",
+      "unverifiedTaughtSubskill": "Rational sign charts, radical inversion, disconnected real domains not confirmed taught.",
+      "conceptCollisionReviewRequired": true,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    }
+  ]
+}

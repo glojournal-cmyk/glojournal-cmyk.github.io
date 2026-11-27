@@ -1,0 +1,149 @@
+{
+  "kind": "STANDARD_FORM_CORE_EXPANSION_NO_RELEASE",
+  "date": "2026-11-25",
+  "sourceRegister": "qa-staging/math-priority61-internal-academic-decisions-20261125.json",
+  "sourceRegisterBlobSha": "2281fc51020e2e057f291c854ddbd97b0583c022",
+  "sourceCommit": "31e2f28ffd7931760bb1d802af320d95b554c84d",
+  "counts": {
+    "revisions": 2,
+    "keysVerified": 2
+  },
+  "limits": "AI editorial and mathematical review; no official grade or taught-scope confirmation, no credit.",
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-014-DEMAND-SECOND-PASS-REPAIR-20261125",
+      "priorRecordPath": "qa-staging/math-priority30-demand-second-pass-six-repairs-20261125.json",
+      "priorRecordBlobSha": "c7528e84b822baaa7a0c42f985421eeece95fa69",
+      "adoptedSibling": {
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-014-RELEASED-PAPER-REVISION-20261125",
+        "path": "qa-staging/math-priority116-released-paper-three-repairs-20261125.json",
+        "blobSha": "3cfb49fb65111c1c8b3a88bfeb88d78fc89ad155"
+      },
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-014-DEMAND-SECOND-PASS-REPAIR-20261125",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-014-CORE-EXPANSION-20261125",
+        "topicId": "math-y9-standard-form",
+        "stem": "Two detectors run one after the other for a total of $3.0\\times10^2$ seconds. Detector A records $3.2\\times10^5$ pulses per second and B records $4.8\\times10^4$ pulses per second. In a second trial they run for exactly the same respective times. A's rate increases by $4.0\\times10^4$ pulses per second and B's rate decreases by $2.0\\times10^4$ pulses per second. The combined number of pulses stays the same. How many pulses were recorded in the first trial? Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "5.52\\times10^7",
+            "errorPath": "Split 300 seconds equally between the detectors."
+          },
+          {
+            "id": "B",
+            "latex": "6.88\\times10^7",
+            "errorPath": "Reverse the times of the two detectors, running A for 200 seconds."
+          },
+          {
+            "id": "C",
+            "latex": "3.2\\times10^7",
+            "errorPath": "Count only detector A's pulses."
+          },
+          {
+            "id": "D",
+            "latex": "4.16\\times10^7"
+          },
+          {
+            "id": "E",
+            "latex": "1.28\\times10^8",
+            "errorPath": "Treat B's rate as 480,000 in the final total instead of 48,000."
+          },
+          {
+            "id": "F",
+            "latex": "8.32\\times10^7",
+            "errorPath": "Add both trials even though the first trial alone was requested."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "4.16\\times10^7",
+        "workedSolutionSteps": [
+          "Let A run for a seconds and B for b seconds. The unchanged total means the additional 40,000a pulses equal the lost 20,000b pulses.",
+          "Thus b=2a. The two times sum to 300 s, so a=100 and b=200.",
+          "The first trial records 32,000,000 + 9,600,000 = 41,600,000 pulses."
+        ],
+        "concept": "Constant total across two operating regimes",
+        "benchmark": "June 2017 2H Q10 and November 2021 3H Q13. The changed rates determine the mixing times. The task then requires different powers of ten to be combined.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "mathEvidence": "40,000a=20,000b and a+b=300, so a100,b200. Total32m+9.6m=41.6m. All five options checked: equal durations55.2m, reversed68.8m, A only32m, wrong B exponent128m, double83.2m.",
+      "scopeNote": "Standard form and two linear equations; no percentage, concentration or inequality prerequisite.",
+      "proposedSkill": "standard_form:conserved-count-rate-change",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-027",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-027-DEMAND-ORDER-RECONCILED-20261125",
+      "priorRecordPath": "qa-staging/math-priority52-demand-order-reconciliation-20261125.json",
+      "priorRecordBlobSha": "105c1d90a5c0f6e04e9b7aa60640de01fd4c73f8",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-027",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-027-CORE-EXPANSION-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-027-DEMAND-ORDER-RECONCILED-20261125",
+        "topicId": "math-y9-standard-form",
+        "stem": "A sample contains $2.4\\times10^8$ particles per mL; processing removes $9\\times10^7$ per mL. Exactly five containers are used. Type A processes 160 mL of sample plus 20 mL of particle-free flush; type B processes 240 mL plus 60 mL of flush. At least $1.35\\times10^{11}$ retained particles are required, and total sample plus flush must be at most 1200 mL. Find the number of B containers and the excess retained particles above the target, in standard form.",
+        "options": [
+          {
+            "latex": "(2,9\\times10^9)",
+            "id": "A"
+          },
+          {
+            "id": "B",
+            "latex": "(1,3\\times10^9)",
+            "errorPath": "Round required B count down to1; retained1.32×10^11 is 3×10^9 below target; report magnitude of shortage as excess."
+          },
+          {
+            "latex": "(3,2.1\\times10^{10})",
+            "errorPath": "Ignore total-liquid cap; three B give1040mL sample.",
+            "id": "C"
+          },
+          {
+            "latex": "(2,1.44\\times10^{11})",
+            "errorPath": "Report total retained.",
+            "id": "D"
+          },
+          {
+            "latex": "(2,3.6\\times10^{10})",
+            "errorPath": "Count 180 mL flush as sample: retained particle count is overstated by 180×1.5×10^8=2.7×10^10; add to correct excess9×10^9.",
+            "id": "E"
+          },
+          {
+            "latex": "(3,9\\times10^9)",
+            "errorPath": "Report A count rather than B count.",
+            "id": "F"
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "(2,9\\times10^9)",
+        "workedSolutionSteps": [
+          "Retained concentration1.5×10^8; target sample≥900mL. If b type B, sample800+80b, total liquid900+120b.",
+          "Target needs b≥2, liquid cap needs b≤2. Thus b2, sample960mL.",
+          "Retained1.44×10^11; excess9×10^9."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "mathEvidence": "For b=0..5, retained counts (800+80b)×150m and total liquid900+120b. Target and liquid cap meet only at b2; sample960, retained144bn, excess9bn. B shortage magnitude3bn; C excess21bn but volume1260; D total144bn; E flush180mL adds27bn; F reports A count3.",
+      "scopeNote": "Six bounded choices can be enumerated with addition and multiplication in standard form; concentration stated as particles per mL, no formal inequality manipulation required.",
+      "proposedSkill": "standard_form:linked-capacity-and-flush-constraints",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ]
+}

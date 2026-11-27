@@ -1,0 +1,1784 @@
+{
+  "kind": "V315_32_INDICES_STANDARD_FORM_FULL_REPAIRED_MCQS_CREDIT_DENIED",
+  "date": "2026-11-23",
+  "pr": 306,
+  "branch": "feature/daily-tasks-v3-20261122",
+  "sourceBankPath": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "sourceUnchanged": true,
+  "repairEvidencePath": "qa-staging/math-v315-indices-standard-74-source-recomputed-wrong-option-explanation-repairs-20261123.json",
+  "repairEvidenceBlobSha": "1eb750d6ef0263a7d5cbf51f7c52207b77fde2d8",
+  "schoolOutline": "SKIPPED_AS_INSTRUCTED",
+  "totals": {
+    "newCandidateVersions": 32,
+    "sourceQuestionsInScope": 80,
+    "optionStatements": 192,
+    "wrongRationalesRevised": 74,
+    "allSourceKeysPreserved": 32,
+    "academicApproved": 0,
+    "dailyEligible": 0,
+    "masteryEligible": 0
+  },
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-005",
+      "revisionId": "LUX-MATH-Y9-INDICES-005-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-indices",
+      "stem": "Evaluate $\\dfrac{\\left(4^{2}\\times 8^{-1}\\right)^2}{2^{-2}}$ as an exact number.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "16"
+        },
+        {
+          "id": "B",
+          "latex": "8",
+          "errorPath": "Compute unsquared inside expression 2 divided by 0.25, giving 8 instead of the correct 16."
+        },
+        {
+          "id": "C",
+          "latex": "1",
+          "errorPath": "Subtract the magnitude of the negative denominator exponent."
+        },
+        {
+          "id": "D",
+          "latex": "65536",
+          "errorPath": "Treat the negative power of eight as positive."
+        },
+        {
+          "id": "E",
+          "latex": "128",
+          "errorPath": "Square the power of four only."
+        },
+        {
+          "id": "F",
+          "latex": "4",
+          "errorPath": "Square inside value 2 but omit division by 0.25, giving 4 instead of the correct 16."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "16",
+      "workedSolutionSteps": [
+        "Convert everything to base 2, then square: $(2^{2(2)-3(1)})^2=2^{2}$.",
+        "Dividing by $2^{-2}$ adds 2 to the exponent: $2+2=4$, giving $16$.",
+        "The numerator exponent is 2. Dividing by the denominator adds 2, giving exponent 4."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-005-REVIEW-2",
+      "repairedWrongAnswerExplanations": 2,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-006",
+      "revisionId": "LUX-MATH-Y9-INDICES-006-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-indices",
+      "stem": "Evaluate $\\dfrac{\\left(4^{3}\\times 8^{-2}\\right)^2}{2^{-3}}$ as an exact number.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac{1}{8}",
+          "errorPath": "Subtract the magnitude of the negative denominator exponent."
+        },
+        {
+          "id": "B",
+          "latex": "8"
+        },
+        {
+          "id": "C",
+          "latex": "134217728",
+          "errorPath": "Treat the negative power of eight as positive."
+        },
+        {
+          "id": "D",
+          "latex": "512",
+          "errorPath": "Square the power of four only."
+        },
+        {
+          "id": "E",
+          "latex": "32",
+          "errorPath": "Convert four and eight to base two without scaling their exponents."
+        },
+        {
+          "id": "F",
+          "latex": "1",
+          "errorPath": "Square inside value 1 but omit division by 0.125, giving 1 instead of the correct 8."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "8",
+      "workedSolutionSteps": [
+        "Convert everything to base 2, then square: $(2^{2(3)-3(2)})^2=2^{0}$.",
+        "Dividing by $2^{-3}$ adds 3 to the exponent: $0+3=3$, giving $8$.",
+        "The numerator exponent is 0. Dividing by the denominator adds 3, giving exponent 3."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-006-REVIEW-2",
+      "repairedWrongAnswerExplanations": 1,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-007",
+      "revisionId": "LUX-MATH-Y9-INDICES-007-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-indices",
+      "stem": "Evaluate $\\dfrac{\\left(4^{4}\\times 8^{-3}\\right)^2}{2^{-4}}$ as an exact number.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "8",
+          "errorPath": "Compute unsquared inside expression 0.5 divided by 0.0625, giving 8 instead of the correct 4."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{1}{64}",
+          "errorPath": "Subtract the magnitude of the negative denominator exponent."
+        },
+        {
+          "id": "C",
+          "latex": "274877906944",
+          "errorPath": "Treat the negative power of eight as positive."
+        },
+        {
+          "id": "D",
+          "latex": "4"
+        },
+        {
+          "id": "E",
+          "latex": "2048",
+          "errorPath": "Square the power of four only."
+        },
+        {
+          "id": "F",
+          "latex": "64",
+          "errorPath": "Convert four and eight to base two without scaling their exponents."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "4",
+      "workedSolutionSteps": [
+        "Convert everything to base 2, then square: $(2^{2(4)-3(3)})^2=2^{-2}$.",
+        "Dividing by $2^{-4}$ adds 4 to the exponent: $-2+4=2$, giving $4$.",
+        "The numerator exponent is -2. Dividing by the denominator adds 4, giving exponent 2."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-007-REVIEW-2",
+      "repairedWrongAnswerExplanations": 1,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-008",
+      "revisionId": "LUX-MATH-Y9-INDICES-008-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-indices",
+      "stem": "Evaluate $\\dfrac{\\left(4^{5}\\times 8^{-4}\\right)^2}{2^{-5}}$ as an exact number.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "8",
+          "errorPath": "Compute unsquared inside expression 0.25 divided by 0.03125, giving 8 instead of the correct 2."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{1}{512}",
+          "errorPath": "Subtract the magnitude of the negative denominator exponent."
+        },
+        {
+          "id": "C",
+          "latex": "2"
+        },
+        {
+          "id": "D",
+          "latex": "562949953421312",
+          "errorPath": "Treat the negative power of eight as positive."
+        },
+        {
+          "id": "E",
+          "latex": "8192",
+          "errorPath": "Square the power of four only."
+        },
+        {
+          "id": "F",
+          "latex": "128",
+          "errorPath": "Convert four and eight to base two without scaling their exponents."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "2",
+      "workedSolutionSteps": [
+        "Convert everything to base 2, then square: $(2^{2(5)-3(4)})^2=2^{-4}$.",
+        "Dividing by $2^{-5}$ adds 5 to the exponent: $-4+5=1$, giving $2$.",
+        "The numerator exponent is -4. Dividing by the denominator adds 5, giving exponent 1."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-008-REVIEW-2",
+      "repairedWrongAnswerExplanations": 1,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-009",
+      "revisionId": "LUX-MATH-Y9-INDICES-009-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-indices",
+      "stem": "Let $E=\\dfrac{(x^{1}y^{-2})^2}{x^{-1}y^{1}}$. Find the exact value of $E$ when $x=2$ and $y=4$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac{1}{4}",
+          "errorPath": "Substitute y=2, not the stated y=4, into the full expression, giving 0.25 instead of the correct 0.0078125."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{1}{32}",
+          "errorPath": "Add both denominator exponents instead of subtracting them."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{1}{16}",
+          "errorPath": "Leave numerator x^1y^-2 unsquared then divide by x^-1y^1, giving 0.0625 instead of the correct 0.0078125."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{1}{8}",
+          "errorPath": "Square the x factor but not y^-2, then use the actual denominator, giving 0.125 instead of the correct 0.0078125."
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{1}{64}",
+          "errorPath": "Square the whole numerator, then omit division by x^-1y^1, giving 0.015625 instead of the correct 0.0078125."
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{1}{128}"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "\\frac{1}{128}",
+      "workedSolutionSteps": [
+        "Apply the power and quotient rules: $E=x^{3}y^{-5}$.",
+        "Using $x=2$ and $y=4=2^2$, $E=2^{3+2(-5)}=2^{-7}=\\frac{1}{128}$.",
+        "Each power of y contributes two powers of 2. The combined exponent is 3 + 2(-5) = -7."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-009-REVIEW-2",
+      "repairedWrongAnswerExplanations": 4,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-010",
+      "revisionId": "LUX-MATH-Y9-INDICES-010-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-indices",
+      "stem": "Let $E=\\dfrac{(x^{2}y^{-3})^2}{x^{-2}y^{2}}$. Find the exact value of $E$ when $x=2$ and $y=4$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac{1}{4}",
+          "errorPath": "Substitute y=2, not the stated y=4, into the full expression, giving 0.25 instead of the correct 0.0009765625."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{1}{64}",
+          "errorPath": "Add both denominator exponents instead of subtracting them."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{1}{16}",
+          "errorPath": "Square the x factor but not y^-3, then use the actual denominator, giving 0.0625 instead of the correct 0.0009765625."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{1}{1024}"
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{1}{256}",
+          "errorPath": "Square the whole numerator, then omit division by x^-2y^2, giving 0.00390625 instead of the correct 0.0009765625."
+        },
+        {
+          "id": "F",
+          "latex": "1024",
+          "errorPath": "Take the reciprocal of the final answer."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "\\frac{1}{1024}",
+      "workedSolutionSteps": [
+        "Apply the power and quotient rules: $E=x^{6}y^{-8}$.",
+        "Using $x=2$ and $y=4=2^2$, $E=2^{6+2(-8)}=2^{-10}=\\frac{1}{1024}$.",
+        "Each power of y contributes two powers of 2. The combined exponent is 6 + 2(-8) = -10."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-010-REVIEW-2",
+      "repairedWrongAnswerExplanations": 3,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-011",
+      "revisionId": "LUX-MATH-Y9-INDICES-011-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-indices",
+      "stem": "Let $E=\\dfrac{(x^{3}y^{-4})^2}{x^{-3}y^{3}}$. Find the exact value of $E$ when $x=2$ and $y=4$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac{1}{4}",
+          "errorPath": "Substitute y=2, not the stated y=4, into the full expression, giving 0.25 instead of the correct 0.0001220703125."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{1}{128}",
+          "errorPath": "Add both denominator exponents instead of subtracting them."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{1}{256}",
+          "errorPath": "Leave numerator x^3y^-4 unsquared then divide by x^-3y^3, giving 0.00390625 instead of the correct 0.0001220703125."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{1}{8192}"
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{1}{32}",
+          "errorPath": "Square the x factor but not y^-4, then use the actual denominator, giving 0.03125 instead of the correct 0.0001220703125."
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{1}{1024}",
+          "errorPath": "Square the whole numerator, then omit division by x^-3y^3, giving 0.0009765625 instead of the correct 0.0001220703125."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "\\frac{1}{8192}",
+      "workedSolutionSteps": [
+        "Apply the power and quotient rules: $E=x^{9}y^{-11}$.",
+        "Using $x=2$ and $y=4=2^2$, $E=2^{9+2(-11)}=2^{-13}=\\frac{1}{8192}$.",
+        "Each power of y contributes two powers of 2. The combined exponent is 9 + 2(-11) = -13."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-011-REVIEW-2",
+      "repairedWrongAnswerExplanations": 4,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-012",
+      "revisionId": "LUX-MATH-Y9-INDICES-012-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-indices",
+      "stem": "Let $E=\\dfrac{(x^{4}y^{-5})^2}{x^{-4}y^{4}}$. Find the exact value of $E$ when $x=2$ and $y=4$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac{1}{65536}"
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{1}{4}",
+          "errorPath": "Substitute y=2, not the stated y=4, into the full expression, giving 0.25 instead of the correct 0.0000152587890625."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{1}{256}",
+          "errorPath": "Add both denominator exponents instead of subtracting them."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{1}{1024}",
+          "errorPath": "Leave numerator x^4y^-5 unsquared then divide by x^-4y^4, giving 0.0009765625 instead of the correct 0.0000152587890625."
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{1}{64}",
+          "errorPath": "Square the x factor but not y^-5, then use the actual denominator, giving 0.015625 instead of the correct 0.0000152587890625."
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{1}{4096}",
+          "errorPath": "Square the whole numerator, then omit division by x^-4y^4, giving 0.000244140625 instead of the correct 0.0000152587890625."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "\\frac{1}{65536}",
+      "workedSolutionSteps": [
+        "Apply the power and quotient rules: $E=x^{12}y^{-14}$.",
+        "Using $x=2$ and $y=4=2^2$, $E=2^{12+2(-14)}=2^{-16}=\\frac{1}{65536}$.",
+        "Each power of y contributes two powers of 2. The combined exponent is 12 + 2(-14) = -16."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-012-REVIEW-2",
+      "repairedWrongAnswerExplanations": 4,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-025",
+      "revisionId": "LUX-MATH-Y9-INDICES-025-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-indices",
+      "stem": "Let $A=2^{3n-1}$ and $B=4^{n+1}$. Given $\\dfrac{A}{B}=2^{-1}$, find $n^2-2n$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "0"
+        },
+        {
+          "id": "B",
+          "latex": "2",
+          "errorPath": "Find n=2 but do not evaluate the requested n²−2n, giving 2 instead of the correct 0."
+        },
+        {
+          "id": "C",
+          "latex": "4",
+          "errorPath": "Compute n²=2² and omit the negative 2n term, giving 4 instead of the correct 0."
+        },
+        {
+          "id": "D",
+          "latex": "8",
+          "errorPath": "Replace subtraction with addition, computing 4+4, giving 8 instead of the correct 0."
+        },
+        {
+          "id": "E",
+          "latex": "3",
+          "errorPath": "Treat the exponent of B as 2n+3, adding one after the conversion."
+        },
+        {
+          "id": "F",
+          "latex": "6",
+          "errorPath": "Read the requested expression as n squared plus two."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "0",
+      "workedSolutionSteps": [
+        "Convert $B=4^{n+1}=2^{2n+2}$ and write the quotient in base 2.",
+        "It follows that $2^{3n-1-(2n+2)}=2^{n-3}=2^{-1}$; hence $n=2$ and $n^2-2n=0$.",
+        "The quotient exponent at n=2 is 3(2)−1−(2(2)+2)=-1. Now evaluate 2(2−2)=0."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-025-REVIEW-2",
+      "repairedWrongAnswerExplanations": 3,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-026",
+      "revisionId": "LUX-MATH-Y9-INDICES-026-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-indices",
+      "stem": "Let $A=2^{3n-1}$ and $B=4^{n+1}$. Given $\\dfrac{A}{B}=2^{0}$, find $n^2-2n$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "9",
+          "errorPath": "Compute n²=3² and omit the negative 2n term, giving 9 instead of the correct 3."
+        },
+        {
+          "id": "B",
+          "latex": "7",
+          "errorPath": "Replace 2n by 2 at n=3, giving 9−2, giving 7 instead of the correct 3."
+        },
+        {
+          "id": "C",
+          "latex": "3"
+        },
+        {
+          "id": "D",
+          "latex": "15",
+          "errorPath": "Replace subtraction with addition, computing 9+6, giving 15 instead of the correct 3."
+        },
+        {
+          "id": "E",
+          "latex": "-1",
+          "errorPath": "Drop +2 in the denominator exponent."
+        },
+        {
+          "id": "F",
+          "latex": "1",
+          "errorPath": "Square n−2 instead of calculating n(n−2)."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "3",
+      "workedSolutionSteps": [
+        "Convert $B=4^{n+1}=2^{2n+2}$ and write the quotient in base 2.",
+        "It follows that $2^{3n-1-(2n+2)}=2^{n-3}=2^{0}$; hence $n=3$ and $n^2-2n=3$.",
+        "The quotient exponent at n=3 is 3(3)−1−(2(3)+2)=0. Now evaluate 3(3−2)=3."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-026-REVIEW-2",
+      "repairedWrongAnswerExplanations": 3,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-027",
+      "revisionId": "LUX-MATH-Y9-INDICES-027-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-indices",
+      "stem": "Let $A=2^{3n-1}$ and $B=4^{n+1}$. Given $\\dfrac{A}{B}=2^{1}$, find $n^2-2n$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "8"
+        },
+        {
+          "id": "B",
+          "latex": "4",
+          "errorPath": "Find n=4 but do not evaluate the requested n²−2n, giving 4 instead of the correct 8."
+        },
+        {
+          "id": "C",
+          "latex": "16",
+          "errorPath": "Compute n²=4² and omit the negative 2n term, giving 16 instead of the correct 8."
+        },
+        {
+          "id": "D",
+          "latex": "14",
+          "errorPath": "Replace 2n by 2 at n=4, giving 16−2, giving 14 instead of the correct 8."
+        },
+        {
+          "id": "E",
+          "latex": "24",
+          "errorPath": "Replace subtraction with addition, computing 16+8, giving 24 instead of the correct 8."
+        },
+        {
+          "id": "F",
+          "latex": "0",
+          "errorPath": "Fail to distribute the minus sign to +2 in the denominator exponent."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "8",
+      "workedSolutionSteps": [
+        "Convert $B=4^{n+1}=2^{2n+2}$ and write the quotient in base 2.",
+        "It follows that $2^{3n-1-(2n+2)}=2^{n-3}=2^{1}$; hence $n=4$ and $n^2-2n=8$.",
+        "The quotient exponent at n=4 is 3(4)−1−(2(4)+2)=1. Now evaluate 4(4−2)=8."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-027-REVIEW-2",
+      "repairedWrongAnswerExplanations": 4,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-028",
+      "revisionId": "LUX-MATH-Y9-INDICES-028-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-indices",
+      "stem": "Let $A=2^{3n-1}$ and $B=4^{n+1}$. Given $\\dfrac{A}{B}=2^{2}$, find $n^2-2n$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "5",
+          "errorPath": "Find n=5 but do not evaluate the requested n²−2n, giving 5 instead of the correct 15."
+        },
+        {
+          "id": "B",
+          "latex": "25",
+          "errorPath": "Compute n²=5² and omit the negative 2n term, giving 25 instead of the correct 15."
+        },
+        {
+          "id": "C",
+          "latex": "23",
+          "errorPath": "Replace 2n by 2 at n=5, giving 25−2, giving 23 instead of the correct 15."
+        },
+        {
+          "id": "D",
+          "latex": "35",
+          "errorPath": "Replace subtraction with addition, computing 25+10, giving 35 instead of the correct 15."
+        },
+        {
+          "id": "E",
+          "latex": "-1",
+          "errorPath": "Fail to distribute the minus sign to +2 in the denominator exponent."
+        },
+        {
+          "id": "F",
+          "latex": "15"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "15",
+      "workedSolutionSteps": [
+        "Convert $B=4^{n+1}=2^{2n+2}$ and write the quotient in base 2.",
+        "It follows that $2^{3n-1-(2n+2)}=2^{n-3}=2^{2}$; hence $n=5$ and $n^2-2n=15$.",
+        "The quotient exponent at n=5 is 3(5)−1−(2(5)+2)=2. Now evaluate 5(5−2)=15."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-028-REVIEW-2",
+      "repairedWrongAnswerExplanations": 4,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-006",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-006-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-standard-form",
+      "stem": "A probe travels $5\\times 10^{7}$ km and then $3\\times 10^{6}$ km. The total journey takes $4\\times 10^{4}$ hours. Find its average speed in km/h in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "1.325\\times 10^{3}"
+        },
+        {
+          "id": "B",
+          "latex": "1.175\\times 10^{3}",
+          "errorPath": "Compute (50000000−3000000)/40000 instead of total journey divided by total hours, giving 1175 instead of the correct 1325."
+        },
+        {
+          "id": "C",
+          "latex": "1.25\\times 10^{3}",
+          "errorPath": "Use the first leg only, 50000000/40000, but still divide by total hours, giving 1250 instead of the correct 1325."
+        },
+        {
+          "id": "D",
+          "latex": "7.5\\times 10^{1}",
+          "errorPath": "Use only the second leg 3000000/40000 with the full journey time, giving 75 instead of the correct 1325."
+        },
+        {
+          "id": "E",
+          "latex": "2\\times 10^{3}",
+          "errorPath": "Add the two coefficients as if their powers matched."
+        },
+        {
+          "id": "F",
+          "latex": "1.2575\\times 10^{3}",
+          "errorPath": "Shift the second coefficient one place too far."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "1.325\\times 10^{3}",
+      "workedSolutionSteps": [
+        "Total distance is $(5+0.3)\\times 10^{7}$ km.",
+        "Average speed = total distance $\\div$ total time = $1.325\\times 10^{3}$ km/h.",
+        "Reverse the division. The selected value multiplied by $40000$ must reproduce the combined distance, $53000000$."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-006-REVIEW-2",
+      "repairedWrongAnswerExplanations": 3,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-007",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-007-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-standard-form",
+      "stem": "A probe travels $6\\times 10^{8}$ km and then $4\\times 10^{7}$ km. The total journey takes $5\\times 10^{5}$ hours. Find its average speed in km/h in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "1.12\\times 10^{3}",
+          "errorPath": "Compute (600000000−40000000)/500000 instead of total journey divided by total hours, giving 1120 instead of the correct 1280."
+        },
+        {
+          "id": "B",
+          "latex": "1.2\\times 10^{3}",
+          "errorPath": "Use the first leg only, 600000000/500000, but still divide by total hours, giving 1200 instead of the correct 1280."
+        },
+        {
+          "id": "C",
+          "latex": "8\\times 10^{1}",
+          "errorPath": "Use only the second leg 40000000/500000 with the full journey time, giving 80 instead of the correct 1280."
+        },
+        {
+          "id": "D",
+          "latex": "2\\times 10^{3}",
+          "errorPath": "Add the two coefficients as if their powers matched."
+        },
+        {
+          "id": "E",
+          "latex": "1.28\\times 10^{3}"
+        },
+        {
+          "id": "F",
+          "latex": "1.208\\times 10^{3}",
+          "errorPath": "Shift the second coefficient one place too far."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "1.28\\times 10^{3}",
+      "workedSolutionSteps": [
+        "Total distance is $(6+0.4)\\times 10^{8}$ km.",
+        "Average speed = total distance $\\div$ total time = $1.28\\times 10^{3}$ km/h.",
+        "Reverse the division. The selected value multiplied by $500000$ must reproduce the combined distance, $640000000$."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-007-REVIEW-2",
+      "repairedWrongAnswerExplanations": 3,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-009",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-009-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-standard-form",
+      "stem": "A factory makes $6\\times 10^{5}$ g of material. During processing $3\\times 10^{4}$ g is discarded. The remainder is divided equally into 2 containers. What mass (g) is in each container? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3.15\\times 10^{5}",
+          "errorPath": "Add the amount that should be subtracted."
+        },
+        {
+          "id": "B",
+          "latex": "3\\times 10^{5}",
+          "errorPath": "Divide initial amount 600000 by 2 without removing 30000 first, giving 300000 instead of the correct 285000."
+        },
+        {
+          "id": "C",
+          "latex": "2.85\\times 10^{5}"
+        },
+        {
+          "id": "D",
+          "latex": "1.5\\times 10^{4}",
+          "errorPath": "Divide only the subtracted amount."
+        },
+        {
+          "id": "E",
+          "latex": "1.5\\times 10^{5}",
+          "errorPath": "Subtract unaligned coefficients."
+        },
+        {
+          "id": "F",
+          "latex": "2.985\\times 10^{5}",
+          "errorPath": "Shift the smaller term one decimal place too far."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "2.85\\times 10^{5}",
+      "workedSolutionSteps": [
+        "Subtract the waste: $(6-0.3)\\times 10^{5}$ g remains.",
+        "Divide by 2 equal containers: $2.85\\times 10^{5}$ g each.",
+        "Reverse the division. The selected value multiplied by $2$ must reproduce the combined numerator, $570000$."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-009-REVIEW-2",
+      "repairedWrongAnswerExplanations": 1,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-011",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-011-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-standard-form",
+      "stem": "A factory makes $8\\times 10^{7}$ g of material. During processing $5\\times 10^{6}$ g is discarded. The remainder is divided equally into 4 containers. What mass (g) is in each container? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "1.875\\times 10^{7}"
+        },
+        {
+          "id": "B",
+          "latex": "2.125\\times 10^{7}",
+          "errorPath": "Add the amount that should be subtracted."
+        },
+        {
+          "id": "C",
+          "latex": "2\\times 10^{7}",
+          "errorPath": "Divide initial amount 80000000 by 4 without removing 5000000 first, giving 20000000 instead of the correct 18750000."
+        },
+        {
+          "id": "D",
+          "latex": "1.25\\times 10^{6}",
+          "errorPath": "Divide only the subtracted amount."
+        },
+        {
+          "id": "E",
+          "latex": "7.5\\times 10^{6}",
+          "errorPath": "Subtract unaligned coefficients."
+        },
+        {
+          "id": "F",
+          "latex": "1.9875\\times 10^{7}",
+          "errorPath": "Shift the smaller term one decimal place too far."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "1.875\\times 10^{7}",
+      "workedSolutionSteps": [
+        "Subtract the waste: $(8-0.5)\\times 10^{7}$ g remains.",
+        "Divide by 4 equal containers: $1.875\\times 10^{7}$ g each.",
+        "Reverse the division. The selected value multiplied by $4$ must reproduce the combined numerator, $75000000$."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-011-REVIEW-2",
+      "repairedWrongAnswerExplanations": 1,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-012",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-012-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-standard-form",
+      "stem": "A factory makes $9\\times 10^{8}$ g of material. During processing $6\\times 10^{7}$ g is discarded. The remainder is divided equally into 5 containers. What mass (g) is in each container? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "1.92\\times 10^{8}",
+          "errorPath": "Add the amount that should be subtracted."
+        },
+        {
+          "id": "B",
+          "latex": "1.68\\times 10^{8}"
+        },
+        {
+          "id": "C",
+          "latex": "1.8\\times 10^{8}",
+          "errorPath": "Divide initial amount 900000000 by 5 without removing 60000000 first, giving 180000000 instead of the correct 168000000."
+        },
+        {
+          "id": "D",
+          "latex": "1.2\\times 10^{7}",
+          "errorPath": "Divide only the subtracted amount."
+        },
+        {
+          "id": "E",
+          "latex": "6\\times 10^{7}",
+          "errorPath": "Subtract unaligned coefficients."
+        },
+        {
+          "id": "F",
+          "latex": "1.788\\times 10^{8}",
+          "errorPath": "Shift the smaller term one decimal place too far."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "1.68\\times 10^{8}",
+      "workedSolutionSteps": [
+        "Subtract the waste: $(9-0.6)\\times 10^{8}$ g remains.",
+        "Divide by 5 equal containers: $1.68\\times 10^{8}$ g each.",
+        "Reverse the division. The selected value multiplied by $5$ must reproduce the combined numerator, $840000000$."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-012-REVIEW-2",
+      "repairedWrongAnswerExplanations": 1,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-013",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-013-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-standard-form",
+      "stem": "Evaluate $\\dfrac{(6\\times 10^{8})-(3\\times 10^{7})}{2\\times 10^{6}}$, giving your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3.15\\times 10^{2}",
+          "errorPath": "Add the amount that should be subtracted."
+        },
+        {
+          "id": "B",
+          "latex": "2.85\\times 10^{2}"
+        },
+        {
+          "id": "C",
+          "latex": "3\\times 10^{2}",
+          "errorPath": "Divide initial amount 600000000 by 2000000 without removing 30000000 first, giving 300 instead of the correct 285."
+        },
+        {
+          "id": "D",
+          "latex": "1.5\\times 10^{1}",
+          "errorPath": "Divide only the subtracted amount."
+        },
+        {
+          "id": "E",
+          "latex": "1.5\\times 10^{2}",
+          "errorPath": "Subtract unaligned coefficients."
+        },
+        {
+          "id": "F",
+          "latex": "2.985\\times 10^{2}",
+          "errorPath": "Shift the smaller term one decimal place too far."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "2.85\\times 10^{2}",
+      "workedSolutionSteps": [
+        "Express the numerator using $10^{8}$: $(6-3/10)\\times 10^{8}$.",
+        "Divide by $2\\times10^{6}$; the power of ten contributes $10^2$, giving $2.85\\times 10^{2}$.",
+        "Reverse the division. The selected value multiplied by $2000000$ must reproduce the combined numerator, $570000000$."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-013-REVIEW-2",
+      "repairedWrongAnswerExplanations": 1,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-015",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-015-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-standard-form",
+      "stem": "Evaluate $\\dfrac{(8\\times 10^{10})-(5\\times 10^{9})}{4\\times 10^{8}}$, giving your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2.125\\times 10^{2}",
+          "errorPath": "Add the amount that should be subtracted."
+        },
+        {
+          "id": "B",
+          "latex": "2\\times 10^{2}",
+          "errorPath": "Divide initial amount 80000000000 by 400000000 without removing 5000000000 first, giving 200 instead of the correct 187.5."
+        },
+        {
+          "id": "C",
+          "latex": "1.875\\times 10^{2}"
+        },
+        {
+          "id": "D",
+          "latex": "1.25\\times 10^{1}",
+          "errorPath": "Divide only the subtracted amount."
+        },
+        {
+          "id": "E",
+          "latex": "7.5\\times 10^{1}",
+          "errorPath": "Subtract unaligned coefficients."
+        },
+        {
+          "id": "F",
+          "latex": "1.9875\\times 10^{2}",
+          "errorPath": "Shift the smaller term one decimal place too far."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "1.875\\times 10^{2}",
+      "workedSolutionSteps": [
+        "Express the numerator using $10^{10}$: $(8-1/2)\\times 10^{10}$.",
+        "Divide by $4\\times10^{8}$; the power of ten contributes $10^2$, giving $1.875\\times 10^{2}$.",
+        "Reverse the division. The selected value multiplied by $400000000$ must reproduce the combined numerator, $75000000000$."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-015-REVIEW-2",
+      "repairedWrongAnswerExplanations": 1,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-016",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-016-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-standard-form",
+      "stem": "Evaluate $\\dfrac{(9\\times 10^{11})-(6\\times 10^{10})}{5\\times 10^{9}}$, giving your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "1.92\\times 10^{2}",
+          "errorPath": "Add the amount that should be subtracted."
+        },
+        {
+          "id": "B",
+          "latex": "1.8\\times 10^{2}",
+          "errorPath": "Divide initial amount 900000000000 by 5000000000 without removing 60000000000 first, giving 180 instead of the correct 168."
+        },
+        {
+          "id": "C",
+          "latex": "1.68\\times 10^{2}"
+        },
+        {
+          "id": "D",
+          "latex": "1.2\\times 10^{1}",
+          "errorPath": "Divide only the subtracted amount."
+        },
+        {
+          "id": "E",
+          "latex": "6\\times 10^{1}",
+          "errorPath": "Subtract unaligned coefficients."
+        },
+        {
+          "id": "F",
+          "latex": "1.788\\times 10^{2}",
+          "errorPath": "Shift the smaller term one decimal place too far."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "1.68\\times 10^{2}",
+      "workedSolutionSteps": [
+        "Express the numerator using $10^{11}$: $(9-3/5)\\times 10^{11}$.",
+        "Divide by $5\\times10^{9}$; the power of ten contributes $10^2$, giving $1.68\\times 10^{2}$.",
+        "Reverse the division. The selected value multiplied by $5000000000$ must reproduce the combined numerator, $840000000000$."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-016-REVIEW-2",
+      "repairedWrongAnswerExplanations": 1,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-021",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-021-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "QUARANTINE_TAUGHT_SCOPE",
+      "topicId": "math-y9-standard-form",
+      "stem": "An instrument reads $6\\times 10^{5}$ units, compared with an earlier reading of $4\\times 10^{5}$ units. A calibration correction then reduces the newer reading by $10\\%$. By what percentage is the corrected reading greater than the earlier reading?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "50",
+          "errorPath": "Calculate 100(600000−400000)/400000 before applying 10% calibration, giving 50 instead of the correct 35."
+        },
+        {
+          "id": "B",
+          "latex": "135",
+          "errorPath": "Report the corrected amount as a percentage of the old one."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{700}{27}",
+          "errorPath": "Use the corrected reading as the comparison base."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{70}{3}",
+          "errorPath": "Use the uncorrected new reading as the comparison base."
+        },
+        {
+          "id": "E",
+          "latex": "40",
+          "errorPath": "Subtract ten percentage points from the uncorrected percentage increase."
+        },
+        {
+          "id": "F",
+          "latex": "35"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "35",
+      "workedSolutionSteps": [
+        "After calibration, the newer reading is $0.9\\times(6\\times 10^{5})=5.4\\times 10^{5}$ units.",
+        "The percentage increase relative to the earlier reading is $\\dfrac{5.4-4}{4}\\times100\\%=35\\%$.",
+        "Check the reference amount. Multiplying the earlier reading by $\\frac{27}{20}$ gives the corrected reading of $540000$."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-021-REVIEW-2",
+      "repairedWrongAnswerExplanations": 1,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-022",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-022-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "QUARANTINE_TAUGHT_SCOPE",
+      "topicId": "math-y9-standard-form",
+      "stem": "An instrument reads $7\\times 10^{6}$ units, compared with an earlier reading of $5\\times 10^{6}$ units. A calibration correction then reduces the newer reading by $10\\%$. By what percentage is the corrected reading greater than the earlier reading?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "40",
+          "errorPath": "Calculate 100(7000000−5000000)/5000000 before applying 10% calibration, giving 40 instead of the correct 26."
+        },
+        {
+          "id": "B",
+          "latex": "26"
+        },
+        {
+          "id": "C",
+          "latex": "126",
+          "errorPath": "Report the corrected amount as a percentage of the old one."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{1300}{63}",
+          "errorPath": "Use the corrected reading as the comparison base."
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{130}{7}",
+          "errorPath": "Use the uncorrected new reading as the comparison base."
+        },
+        {
+          "id": "F",
+          "latex": "30",
+          "errorPath": "Subtract ten percentage points from the uncorrected percentage increase."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "26",
+      "workedSolutionSteps": [
+        "After calibration, the newer reading is $0.9\\times(7\\times 10^{6})=6.3\\times 10^{6}$ units.",
+        "The percentage increase relative to the earlier reading is $\\dfrac{6.3-5}{5}\\times100\\%=26\\%$.",
+        "Check the reference amount. Multiplying the earlier reading by $\\frac{63}{50}$ gives the corrected reading of $6300000$."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-022-REVIEW-2",
+      "repairedWrongAnswerExplanations": 1,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-023",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-023-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "QUARANTINE_TAUGHT_SCOPE",
+      "topicId": "math-y9-standard-form",
+      "stem": "An instrument reads $8\\times 10^{7}$ units, compared with an earlier reading of $5\\times 10^{7}$ units. A calibration correction then reduces the newer reading by $10\\%$. By what percentage is the corrected reading greater than the earlier reading?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "60",
+          "errorPath": "Calculate 100(80000000−50000000)/50000000 before applying 10% calibration, giving 60 instead of the correct 44."
+        },
+        {
+          "id": "B",
+          "latex": "144",
+          "errorPath": "Report the corrected amount as a percentage of the old one."
+        },
+        {
+          "id": "C",
+          "latex": "44"
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{275}{9}",
+          "errorPath": "Use the corrected reading as the comparison base."
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{55}{2}",
+          "errorPath": "Use the uncorrected new reading as the comparison base."
+        },
+        {
+          "id": "F",
+          "latex": "50",
+          "errorPath": "Subtract ten percentage points from the uncorrected percentage increase."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "44",
+      "workedSolutionSteps": [
+        "After calibration, the newer reading is $0.9\\times(8\\times 10^{7})=7.2\\times 10^{7}$ units.",
+        "The percentage increase relative to the earlier reading is $\\dfrac{7.2-5}{5}\\times100\\%=44\\%$.",
+        "Check the reference amount. Multiplying the earlier reading by $\\frac{36}{25}$ gives the corrected reading of $72000000$."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-023-REVIEW-2",
+      "repairedWrongAnswerExplanations": 1,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-024",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-024-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "QUARANTINE_TAUGHT_SCOPE",
+      "topicId": "math-y9-standard-form",
+      "stem": "An instrument reads $6\\times 10^{8}$ units, compared with an earlier reading of $5\\times 10^{8}$ units. A calibration correction then reduces the newer reading by $10\\%$. By what percentage is the corrected reading greater than the earlier reading?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "8"
+        },
+        {
+          "id": "B",
+          "latex": "20",
+          "errorPath": "Calculate 100(600000000−500000000)/500000000 before applying 10% calibration, giving 20 instead of the correct 8."
+        },
+        {
+          "id": "C",
+          "latex": "108",
+          "errorPath": "Report the corrected amount as a percentage of the old one."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{200}{27}",
+          "errorPath": "Use the corrected reading as the comparison base."
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{20}{3}",
+          "errorPath": "Use the uncorrected new reading as the comparison base."
+        },
+        {
+          "id": "F",
+          "latex": "10",
+          "errorPath": "Subtract ten percentage points from the uncorrected percentage increase."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "8",
+      "workedSolutionSteps": [
+        "After calibration, the newer reading is $0.9\\times(6\\times 10^{8})=5.4\\times 10^{8}$ units.",
+        "The percentage increase relative to the earlier reading is $\\dfrac{5.4-5}{5}\\times100\\%=8\\%$.",
+        "Check the reference amount. Multiplying the earlier reading by $\\frac{27}{25}$ gives the corrected reading of $540000000$."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-024-REVIEW-2",
+      "repairedWrongAnswerExplanations": 1,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-029",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-029-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-standard-form",
+      "stem": "Evaluate $\\dfrac{(8\\times 10^{8})+(4\\times 10^{7})-(2\\times 10^{7})}{2\\times 10^{6}}$ and give the exact result in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "4.3\\times 10^{2}",
+          "errorPath": "Add the final term rather than subtracting it."
+        },
+        {
+          "id": "B",
+          "latex": "3.7\\times 10^{2}",
+          "errorPath": "Compute (800000000−40000000−20000000)/2000000, wrongly changing the middle + into −, giving 370 instead of the correct 409.99999999999994."
+        },
+        {
+          "id": "C",
+          "latex": "4.2\\times 10^{2}",
+          "errorPath": "Compute (800000000+40000000)/2000000, omitting final subtraction 20000000, giving 420 instead of the correct 409.99999999999994."
+        },
+        {
+          "id": "D",
+          "latex": "3.9\\times 10^{2}",
+          "errorPath": "Compute (800000000−20000000)/2000000, omitting the middle addition 40000000, giving 390 instead of the correct 409.99999999999994."
+        },
+        {
+          "id": "E",
+          "latex": "5\\times 10^{2}",
+          "errorPath": "Combine the coefficients without aligning the powers."
+        },
+        {
+          "id": "F",
+          "latex": "4.1\\times 10^{2}"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "4.1\\times 10^{2}",
+      "workedSolutionSteps": [
+        "Collect powers of $10^{8}$ in the numerator: $(8+0.4-0.2)\\times10^{8}=8.2\\times10^{8}$.",
+        "Divide by $2\\times10^6$ to obtain $4.1\\times 10^{2}$.",
+        "Reverse the division. The selected value multiplied by $2000000$ must reproduce the combined numerator, $820000000$."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-029-REVIEW-2",
+      "repairedWrongAnswerExplanations": 3,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-030",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-030-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-standard-form",
+      "stem": "Evaluate $\\dfrac{(8\\times 10^{9})+(4\\times 10^{8})-(2\\times 10^{8})}{2\\times 10^{6}}$ and give the exact result in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "4.3\\times 10^{3}",
+          "errorPath": "Add the final term rather than subtracting it."
+        },
+        {
+          "id": "B",
+          "latex": "3.7\\times 10^{3}",
+          "errorPath": "Compute (8000000000−400000000−200000000)/2000000, wrongly changing the middle + into −, giving 3700 instead of the correct 4100."
+        },
+        {
+          "id": "C",
+          "latex": "4.2\\times 10^{3}",
+          "errorPath": "Compute (8000000000+400000000)/2000000, omitting final subtraction 200000000, giving 4200 instead of the correct 4100."
+        },
+        {
+          "id": "D",
+          "latex": "4.1\\times 10^{3}"
+        },
+        {
+          "id": "E",
+          "latex": "3.9\\times 10^{3}",
+          "errorPath": "Compute (8000000000−200000000)/2000000, omitting the middle addition 400000000, giving 3900 instead of the correct 4100."
+        },
+        {
+          "id": "F",
+          "latex": "5\\times 10^{3}",
+          "errorPath": "Combine the coefficients without aligning the powers."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "4.1\\times 10^{3}",
+      "workedSolutionSteps": [
+        "Collect powers of $10^{9}$ in the numerator: $(8+0.4-0.2)\\times10^{9}=8.2\\times10^{9}$.",
+        "Divide by $2\\times10^6$ to obtain $4.1\\times 10^{3}$.",
+        "Reverse the division. The selected value multiplied by $2000000$ must reproduce the combined numerator, $8200000000$."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-030-REVIEW-2",
+      "repairedWrongAnswerExplanations": 3,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-031",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-031-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-standard-form",
+      "stem": "Evaluate $\\dfrac{(8\\times 10^{10})+(4\\times 10^{9})-(2\\times 10^{9})}{2\\times 10^{6}}$ and give the exact result in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "4.3\\times 10^{4}",
+          "errorPath": "Add the final term rather than subtracting it."
+        },
+        {
+          "id": "B",
+          "latex": "3.7\\times 10^{4}",
+          "errorPath": "Compute (80000000000−4000000000−2000000000)/2000000, wrongly changing the middle + into −, giving 37000 instead of the correct 41000."
+        },
+        {
+          "id": "C",
+          "latex": "4.2\\times 10^{4}",
+          "errorPath": "Compute (80000000000+4000000000)/2000000, omitting final subtraction 2000000000, giving 42000 instead of the correct 41000."
+        },
+        {
+          "id": "D",
+          "latex": "3.9\\times 10^{4}",
+          "errorPath": "Compute (80000000000−2000000000)/2000000, omitting the middle addition 4000000000, giving 39000 instead of the correct 41000."
+        },
+        {
+          "id": "E",
+          "latex": "5\\times 10^{4}",
+          "errorPath": "Combine the coefficients without aligning the powers."
+        },
+        {
+          "id": "F",
+          "latex": "4.1\\times 10^{4}"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "4.1\\times 10^{4}",
+      "workedSolutionSteps": [
+        "Collect powers of $10^{10}$ in the numerator: $(8+0.4-0.2)\\times10^{10}=8.2\\times10^{10}$.",
+        "Divide by $2\\times10^6$ to obtain $4.1\\times 10^{4}$.",
+        "Reverse the division. The selected value multiplied by $2000000$ must reproduce the combined numerator, $82000000000$."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-031-REVIEW-2",
+      "repairedWrongAnswerExplanations": 3,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-032",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-032-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-standard-form",
+      "stem": "Evaluate $\\dfrac{(8\\times 10^{11})+(4\\times 10^{10})-(2\\times 10^{10})}{2\\times 10^{6}}$ and give the exact result in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "4.3\\times 10^{5}",
+          "errorPath": "Add the final term rather than subtracting it."
+        },
+        {
+          "id": "B",
+          "latex": "3.7\\times 10^{5}",
+          "errorPath": "Compute (800000000000−40000000000−20000000000)/2000000, wrongly changing the middle + into −, giving 370000 instead of the correct 409999.99999999994."
+        },
+        {
+          "id": "C",
+          "latex": "4.2\\times 10^{5}",
+          "errorPath": "Compute (800000000000+40000000000)/2000000, omitting final subtraction 20000000000, giving 420000 instead of the correct 409999.99999999994."
+        },
+        {
+          "id": "D",
+          "latex": "4.1\\times 10^{5}"
+        },
+        {
+          "id": "E",
+          "latex": "3.9\\times 10^{5}",
+          "errorPath": "Compute (800000000000−20000000000)/2000000, omitting the middle addition 40000000000, giving 390000 instead of the correct 409999.99999999994."
+        },
+        {
+          "id": "F",
+          "latex": "5\\times 10^{5}",
+          "errorPath": "Combine the coefficients without aligning the powers."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "4.1\\times 10^{5}",
+      "workedSolutionSteps": [
+        "Collect powers of $10^{11}$ in the numerator: $(8+0.4-0.2)\\times10^{11}=8.2\\times10^{11}$.",
+        "Divide by $2\\times10^6$ to obtain $4.1\\times 10^{5}$.",
+        "Reverse the division. The selected value multiplied by $2000000$ must reproduce the combined numerator, $820000000000$."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-032-REVIEW-2",
+      "repairedWrongAnswerExplanations": 3,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-037",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-037-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "QUARANTINE_TAUGHT_SCOPE",
+      "topicId": "math-y9-standard-form",
+      "stem": "A production line makes $N$ batches, each containing $2\\times 10^{4}$ items. After $20\\%$ of the items are discarded, another $1\\times 10^{7}$ items are added. The final total is $4.9\\times 10^{8}$ items. Find $N$ in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "1.92\\times 10^{4}",
+          "errorPath": "Apply the 20% loss again instead of reversing it."
+        },
+        {
+          "id": "B",
+          "latex": "3.0625\\times 10^{4}",
+          "errorPath": "Forget to remove the later addition."
+        },
+        {
+          "id": "C",
+          "latex": "3\\times 10^{4}"
+        },
+        {
+          "id": "D",
+          "latex": "2.4\\times 10^{4}",
+          "errorPath": "Compute (490000000.00000006−10000000)/20000 without dividing by the 80% retained batch yield, giving 24000.000000000004 instead of the correct 30000."
+        },
+        {
+          "id": "E",
+          "latex": "3.125\\times 10^{4}",
+          "errorPath": "Use (490000000.00000006+10000000)/(0.8×20000), adding rather than subtracting later-added items, giving 31250.000000000004 instead of the correct 30000."
+        },
+        {
+          "id": "F",
+          "latex": "1.2\\times 10^{5}",
+          "errorPath": "Use (490000000.00000006−10000000)/(0.2×20000), confusing fraction discarded with fraction retained, giving 120000.00000000001 instead of the correct 30000."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "3\\times 10^{4}",
+      "workedSolutionSteps": [
+        "Before the final addition there were $4.8\\times 10^{8}$ items. This is $80\\%$ of the original production.",
+        "The original total was $\\dfrac{4.8\\times 10^{8}}{0.8}=6\\times 10^{8}$ items. Divide by $2\\times 10^{4}$ per batch to obtain $N=3\\times 10^{4}$.",
+        "Check forwards. The original batches contain $600000000$ items. Keeping 80% and then adding $10000000$ gives $490000000$."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-037-REVIEW-2",
+      "repairedWrongAnswerExplanations": 3,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-038",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-038-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "QUARANTINE_TAUGHT_SCOPE",
+      "topicId": "math-y9-standard-form",
+      "stem": "A production line makes $N$ batches, each containing $2\\times 10^{4}$ items. After $20\\%$ of the items are discarded, another $1\\times 10^{8}$ items are added. The final total is $6.5\\times 10^{9}$ items. Find $N$ in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2.56\\times 10^{5}",
+          "errorPath": "Apply the 20% loss again instead of reversing it."
+        },
+        {
+          "id": "B",
+          "latex": "4.0625\\times 10^{5}",
+          "errorPath": "Forget to remove the later addition."
+        },
+        {
+          "id": "C",
+          "latex": "3.2\\times 10^{5}",
+          "errorPath": "Compute (6500000000−100000000)/20000 without dividing by the 80% retained batch yield, giving 320000 instead of the correct 400000."
+        },
+        {
+          "id": "D",
+          "latex": "4.125\\times 10^{5}",
+          "errorPath": "Use (6500000000+100000000)/(0.8×20000), adding rather than subtracting later-added items, giving 412500 instead of the correct 400000."
+        },
+        {
+          "id": "E",
+          "latex": "1.6\\times 10^{6}",
+          "errorPath": "Use (6500000000−100000000)/(0.2×20000), confusing fraction discarded with fraction retained, giving 1600000 instead of the correct 400000."
+        },
+        {
+          "id": "F",
+          "latex": "4\\times 10^{5}"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "4\\times 10^{5}",
+      "workedSolutionSteps": [
+        "Before the final addition there were $6.4\\times 10^{9}$ items. This is $80\\%$ of the original production.",
+        "The original total was $\\dfrac{6.4\\times 10^{9}}{0.8}=8\\times 10^{9}$ items. Divide by $2\\times 10^{4}$ per batch to obtain $N=4\\times 10^{5}$.",
+        "Check forwards. The original batches contain $8000000000$ items. Keeping 80% and then adding $100000000$ gives $6500000000$."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-038-REVIEW-2",
+      "repairedWrongAnswerExplanations": 3,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-039",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-039-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "QUARANTINE_TAUGHT_SCOPE",
+      "topicId": "math-y9-standard-form",
+      "stem": "A production line makes $N$ batches, each containing $2\\times 10^{4}$ items. After $20\\%$ of the items are discarded, another $1\\times 10^{9}$ items are added. The final total is $8.1\\times 10^{10}$ items. Find $N$ in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "5\\times 10^{6}"
+        },
+        {
+          "id": "B",
+          "latex": "3.2\\times 10^{6}",
+          "errorPath": "Apply the 20% loss again instead of reversing it."
+        },
+        {
+          "id": "C",
+          "latex": "5.0625\\times 10^{6}",
+          "errorPath": "Forget to remove the later addition."
+        },
+        {
+          "id": "D",
+          "latex": "4\\times 10^{6}",
+          "errorPath": "Compute (81000000000−1000000000)/20000 without dividing by the 80% retained batch yield, giving 4000000 instead of the correct 5000000."
+        },
+        {
+          "id": "E",
+          "latex": "5.125\\times 10^{6}",
+          "errorPath": "Use (81000000000+1000000000)/(0.8×20000), adding rather than subtracting later-added items, giving 5125000 instead of the correct 5000000."
+        },
+        {
+          "id": "F",
+          "latex": "2\\times 10^{7}",
+          "errorPath": "Use (81000000000−1000000000)/(0.2×20000), confusing fraction discarded with fraction retained, giving 20000000 instead of the correct 5000000."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "5\\times 10^{6}",
+      "workedSolutionSteps": [
+        "Before the final addition there were $8\\times 10^{10}$ items. This is $80\\%$ of the original production.",
+        "The original total was $\\dfrac{8\\times 10^{10}}{0.8}=1\\times 10^{11}$ items. Divide by $2\\times 10^{4}$ per batch to obtain $N=5\\times 10^{6}$.",
+        "Check forwards. The original batches contain $100000000000$ items. Keeping 80% and then adding $1000000000$ gives $81000000000$."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-039-REVIEW-2",
+      "repairedWrongAnswerExplanations": 3,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-040",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-040-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "sourceDisposition": "QUARANTINE_TAUGHT_SCOPE",
+      "topicId": "math-y9-standard-form",
+      "stem": "A production line makes $N$ batches, each containing $2\\times 10^{4}$ items. After $20\\%$ of the items are discarded, another $1\\times 10^{10}$ items are added. The final total is $9.7\\times 10^{11}$ items. Find $N$ in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3.84\\times 10^{7}",
+          "errorPath": "Apply the 20% loss again instead of reversing it."
+        },
+        {
+          "id": "B",
+          "latex": "6.0625\\times 10^{7}",
+          "errorPath": "Forget to remove the later addition."
+        },
+        {
+          "id": "C",
+          "latex": "4.8\\times 10^{7}",
+          "errorPath": "Compute (969999999999.9999−10000000000)/20000 without dividing by the 80% retained batch yield, giving 47999999.99999999 instead of the correct 60000000."
+        },
+        {
+          "id": "D",
+          "latex": "6.125\\times 10^{7}",
+          "errorPath": "Use (969999999999.9999+10000000000)/(0.8×20000), adding rather than subtracting later-added items, giving 61249999.99999999 instead of the correct 60000000."
+        },
+        {
+          "id": "E",
+          "latex": "2.4\\times 10^{8}",
+          "errorPath": "Use (969999999999.9999−10000000000)/(0.2×20000), confusing fraction discarded with fraction retained, giving 239999999.99999997 instead of the correct 60000000."
+        },
+        {
+          "id": "F",
+          "latex": "6\\times 10^{7}"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "6\\times 10^{7}",
+      "workedSolutionSteps": [
+        "Before the final addition there were $9.6\\times 10^{11}$ items. This is $80\\%$ of the original production.",
+        "The original total was $\\dfrac{9.6\\times 10^{11}}{0.8}=1.2\\times 10^{12}$ items. Divide by $2\\times 10^{4}$ per batch to obtain $N=6\\times 10^{7}$.",
+        "Check forwards. The original batches contain $1200000000000$ items. Keeping 80% and then adding $10000000000$ gives $970000000000$."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-040-REVIEW-2",
+      "repairedWrongAnswerExplanations": 3,
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "independentMasteryConceptApproved": false,
+      "masteryEligible": false
+    }
+  ]
+}

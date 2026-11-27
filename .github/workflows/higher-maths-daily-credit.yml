@@ -1,5 +1,15 @@
 name: Higher Maths Daily credit
 on:
+  pull_request:
+    paths:
+      - 'assets/math-study/higher-daily-20261125.js'
+      - 'assets/daily-tasks-v3-20261122.js'
+      - 'assets/durable-study-evidence-20261018.js'
+      - 'assets/index-BLVOhKhN.js'
+      - 'assets/home-journey-v2-logic-20261010.js'
+      - 'study/maths/higher-practice/**'
+      - 'tests/higher-maths-daily-credit.mjs'
+      - '.github/workflows/higher-maths-daily-credit.yml'
   push:
     branches: [main, qa/higher-maths-daily-credit]
     paths:

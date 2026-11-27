@@ -1,0 +1,374 @@
+{
+  "status": "QA_STAGING_CANDIDATES_NOT_APPROVED",
+  "sourceEvidence": [
+    "Lux_Maths_Y9_V3_All_200_Student.pdf original Q41-44 and Q58-60",
+    "Lux_Maths_Y9_V3_All_200_Answers.pdf original Q41-44 and Q58-60",
+    "qa-staging/math-v31-original-sample10.json original STANDARD_FORM-017"
+  ],
+  "originalFullRaw200BankAvailable": false,
+  "canonicalBankModified": false,
+  "studentCredit": false,
+  "independentTeacherTaughtConfirmed": false,
+  "independentGcseGradeBenchmarkConfirmed": false,
+  "independentMisconceptionTeacherSignoff": false,
+  "deviceRenderVerified": false,
+  "alreadyStaged017": "qa-staging/math-v311-pedagogical-repair-candidates-20261122.json",
+  "notes": "Existing 017 candidate is not replaced. These seven original IDs have separate source-specific replacement stems/answers and full five arithmetically reconstructable wrong paths each; source correct choice A–F letter is retained, numbers and sometimes required quantity change. They must not be imported or treated as teacher-confirmed common misconceptions.",
+  "patches": [
+    {
+      "questionId": "LUX-MATH-Y9-STANDARD_FORM-001",
+      "originalPaperQuestion": 41,
+      "sourceDifficultyProvisional": "G7",
+      "originalCorrectKey": "F",
+      "originalAnswerLatex": "3\\times10^{2}",
+      "methodChange": "bulk density from particle count, individual mass and volume",
+      "replacement": {
+        "stem": "A container holds $2\\times10^{12}$ identical microscopic granules, each of mass $3\\times10^{-12}$ g. The granules occupy a total bulk volume of $2\\times10^1$ cm$^3$ (including spaces between granules). Find their bulk density in g/cm$^3$, in standard form.",
+        "correctOptionId": "F",
+        "options": [
+          {
+            "id": "A",
+            "latex": "3\\times10^{0}",
+            "misconception": "Misread the volume as $2\\times10^0$ rather than $2\\times10^1$: $6/2=3$."
+          },
+          {
+            "id": "B",
+            "latex": "3\\times10^{-2}",
+            "misconception": "Misread the volume as $2\\times10^2$ rather than $2\\times10^1$: $6/200=0.03$."
+          },
+          {
+            "id": "C",
+            "latex": "6\\times10^{-1}",
+            "misconception": "Double the given granule count in the mass calculation: $12/20=0.6$."
+          },
+          {
+            "id": "D",
+            "latex": "6\\times10^{0}",
+            "misconception": "Find the correct total mass of 6 g but fail to divide it by 20 cm³."
+          },
+          {
+            "id": "E",
+            "latex": "2\\times10^{-1}",
+            "misconception": "Misread the mass per granule as $2\\times10^{-12}$ rather than $3\\times10^{-12}$ g: $4/20=0.2$."
+          },
+          {
+            "id": "F",
+            "latex": "3\\times10^{-1}",
+            "misconception": null
+          }
+        ],
+        "workedSolutionSteps": [
+          "Total mass $=(2\\times10^{12})(3\\times10^{-12})=6$ g.",
+          "Bulk density $=6/(2\\times10^1)=3\\times10^{-1}$ g/cm$^3$."
+        ]
+      },
+      "candidateCorrectValue": 0.3,
+      "review": "PENDING_INDEPENDENT_ACADEMIC_QA"
+    },
+    {
+      "questionId": "LUX-MATH-Y9-STANDARD_FORM-002",
+      "originalPaperQuestion": 42,
+      "sourceDifficultyProvisional": "G7",
+      "originalCorrectKey": "E",
+      "originalAnswerLatex": "4\\times10^{2}",
+      "methodChange": "combine two distinct particle masses and two volumes before density",
+      "replacement": {
+        "stem": "Batch A has $3\\times10^{13}$ microscopic granules and batch B has $1\\times10^{13}$ granules. Every granule has mass $4\\times10^{-12}$ g. The two batches occupy $3\\times10^2$ cm$^3$ and $1\\times10^2$ cm$^3$ respectively. After mixing without changing total volume, calculate the combined bulk density in g/cm$^3$ in standard form.",
+        "correctOptionId": "E",
+        "options": [
+          {
+            "id": "A",
+            "latex": "3\\times10^{-1}",
+            "misconception": "Count mass from batch A only, but use the total volume: $120/400=0.3$."
+          },
+          {
+            "id": "B",
+            "latex": "1\\times10^{-1}",
+            "misconception": "Count mass from batch B only, but use the total volume: $40/400=0.1$."
+          },
+          {
+            "id": "C",
+            "latex": "1.6\\times10^{0}",
+            "misconception": "Use only batch B's volume with both batches' mass: $160/100=1.6$."
+          },
+          {
+            "id": "D",
+            "latex": "8\\times10^{-1}",
+            "misconception": "Halve the combined volume of 400 cm³ by mistakenly averaging the two volumes: $160/200=0.8$."
+          },
+          {
+            "id": "E",
+            "latex": "4\\times10^{-1}",
+            "misconception": null
+          },
+          {
+            "id": "F",
+            "latex": "4\\times10^{-2}",
+            "misconception": "Mistake $4\\times10^{-12}$ g for $4\\times10^{-13}$ g per granule: $16/400=0.04$."
+          }
+        ],
+        "workedSolutionSteps": [
+          "Combined mass $=(3\\times10^{13}+1\\times10^{13})(4\\times10^{-12})=160$ g.",
+          "Total volume $=(3+1)\\times10^2=400$ cm$^3$.",
+          "Bulk density $=160/400=4\\times10^{-1}$ g/cm$^3$."
+        ]
+      },
+      "candidateCorrectValue": 0.4,
+      "review": "PENDING_INDEPENDENT_ACADEMIC_QA"
+    },
+    {
+      "questionId": "LUX-MATH-Y9-STANDARD_FORM-003",
+      "originalPaperQuestion": 43,
+      "sourceDifficultyProvisional": "G7",
+      "originalCorrectKey": "C",
+      "originalAnswerLatex": "5\\times10^{2}",
+      "methodChange": "density after a mass removal percentage",
+      "replacement": {
+        "stem": "A porous granular sample contains $4\\times10^{14}$ granules, each of mass $5\\times10^{-12}$ g. During sorting, $20\\%$ of the total mass is removed. The retained granules occupy $2\\times10^3$ cm$^3$. Find the bulk density of the retained granules in g/cm$^3$, in standard form.",
+        "correctOptionId": "C",
+        "options": [
+          {
+            "id": "A",
+            "latex": "1\\times10^{0}",
+            "misconception": "Ignore removal and use the starting 2000 g: $2000/2000=1$."
+          },
+          {
+            "id": "B",
+            "latex": "2\\times10^{-1}",
+            "misconception": "Keep only 20% instead of retaining 80%: $400/2000=0.2$."
+          },
+          {
+            "id": "C",
+            "latex": "8\\times10^{-1}",
+            "misconception": null
+          },
+          {
+            "id": "D",
+            "latex": "6.4\\times10^{-1}",
+            "misconception": "Apply the 20% loss twice: $2000(0.8)^2/2000=0.64$."
+          },
+          {
+            "id": "E",
+            "latex": "8\\times10^{0}",
+            "misconception": "Use $2\\times10^2$ cm³ instead of $2\\times10^3$ cm³: $1600/200=8$."
+          },
+          {
+            "id": "F",
+            "latex": "8\\times10^{-2}",
+            "misconception": "Misread each granule's mass as $5\\times10^{-13}$ instead of $5\\times10^{-12}$ g: $160/2000=0.08$."
+          }
+        ],
+        "workedSolutionSteps": [
+          "Starting mass $=(4\\times10^{14})(5\\times10^{-12})=2\\times10^3$ g.",
+          "Retain 80%: $0.8(2000)=1600$ g.",
+          "Bulk density $=1600/(2\\times10^3)=8\\times10^{-1}$ g/cm$^3$."
+        ]
+      },
+      "candidateCorrectValue": 0.8,
+      "review": "PENDING_INDEPENDENT_ACADEMIC_QA"
+    },
+    {
+      "questionId": "LUX-MATH-Y9-STANDARD_FORM-004",
+      "originalPaperQuestion": 44,
+      "sourceDifficultyProvisional": "G7",
+      "originalCorrectKey": "A",
+      "originalAnswerLatex": "6\\times10^{2}",
+      "methodChange": "inverse density to determine particle count",
+      "replacement": {
+        "stem": "A bulk sample of identical microscopic granules has density $6\\times10^{-1}$ g/cm$^3$ and occupies $5\\times10^3$ cm$^3$. Each granule has mass $6\\times10^{-12}$ g. How many granules are in the sample? Give your answer in standard form.",
+        "correctOptionId": "A",
+        "options": [
+          {
+            "id": "A",
+            "latex": "5\\times10^{14}",
+            "misconception": null
+          },
+          {
+            "id": "B",
+            "latex": "5\\times10^{13}",
+            "misconception": "Use $5\\times10^2$ cm³ instead of $5\\times10^3$: $300/(6\\times10^{-12})=5\\times10^{13}$."
+          },
+          {
+            "id": "C",
+            "latex": "5\\times10^{15}",
+            "misconception": "Use $5\\times10^4$ cm³ instead of $5\\times10^3$: $30000/(6\\times10^{-12})=5\\times10^{15}$."
+          },
+          {
+            "id": "D",
+            "latex": "3\\times10^{15}",
+            "misconception": "Drop the coefficient 6 in $6\\times10^{-12}$ g per granule: $3000/10^{-12}=3\\times10^{15}$."
+          },
+          {
+            "id": "E",
+            "latex": "1\\times10^{11}",
+            "misconception": "Skip multiplying density by the sample volume and divide the density itself by mass per granule: $0.6/(6\\times10^{-12})=10^{11}$."
+          },
+          {
+            "id": "F",
+            "latex": "5\\times10^{12}",
+            "misconception": "Misread the granule mass as $6\\times10^{-10}$ rather than $6\\times10^{-12}$ g: $3000/(6\\times10^{-10})=5\\times10^{12}$."
+          }
+        ],
+        "workedSolutionSteps": [
+          "Total sample mass $=(6\\times10^{-1})(5\\times10^3)=3\\times10^3$ g.",
+          "Number of granules $=(3\\times10^3)/(6\\times10^{-12})=5\\times10^{14}$."
+        ]
+      },
+      "candidateCorrectValue": 500000000000000,
+      "review": "PENDING_INDEPENDENT_ACADEMIC_QA"
+    },
+    {
+      "questionId": "LUX-MATH-Y9-STANDARD_FORM-018",
+      "originalPaperQuestion": 58,
+      "sourceDifficultyProvisional": "G8",
+      "originalCorrectKey": "B",
+      "originalAnswerLatex": "3\\times10^{1}",
+      "methodChange": "combine two unequal mass components and apply a percentage filter",
+      "replacement": {
+        "stem": "Powder A contains $2\\times10^{12}$ granules, each of mass $3\\times10^{-11}$ g. Powder B contains $1\\times10^{12}$ granules, each of mass $2\\times10^{-11}$ g. After mixing, $20\\%$ of the total mass is removed. The retained powder occupies $2\\times10^{2}$ cm$^3$. Find its bulk density in g/cm$^3$, in standard form.",
+        "correctOptionId": "B",
+        "options": [
+          {
+            "id": "A",
+            "latex": "4\\times10^{-1}",
+            "misconception": "Ignore the stated 20% filtration loss and use all 80 g of both powders: (60+20)/200=0.4 g/cm³."
+          },
+          {
+            "id": "B",
+            "latex": "3.2\\times10^{-1}",
+            "misconception": null
+          },
+          {
+            "id": "C",
+            "latex": "2.4\\times10^{-1}",
+            "misconception": "Omit powder B entirely when computing total mass, then keep 80% of powder A: (60×0.8)/200=0.24 g/cm³."
+          },
+          {
+            "id": "D",
+            "latex": "8\\times10^{-2}",
+            "misconception": "Retain 20% instead of 80%: $(60+20)(0.2)/200=0.08$."
+          },
+          {
+            "id": "E",
+            "latex": "3.2\\times10^{-2}",
+            "misconception": "Treat the volume as $2\\times10^3$ instead of $2\\times10^2$ cm³: $64/2000=0.032$."
+          },
+          {
+            "id": "F",
+            "latex": "3.2\\times10^{0}",
+            "misconception": "Treat the volume as $2\\times10^1$ instead of $2\\times10^2$ cm³: $64/20=3.2$."
+          }
+        ],
+        "workedSolutionSteps": [
+          "Mass A $=(2\\times10^{12})(3\\times10^{-11})=60$ g; mass B $=(1\\times10^{12})(2\\times10^{-11})=20$ g.",
+          "Retained mass $=0.8(60+20)=64$ g.",
+          "Bulk density $=64/(2\\times10^2)=3.2\\times10^{-1}$ g/cm$^3$."
+        ]
+      },
+      "candidateCorrectValue": 0.32,
+      "review": "PENDING_INDEPENDENT_ACADEMIC_QA"
+    },
+    {
+      "questionId": "LUX-MATH-Y9-STANDARD_FORM-019",
+      "originalPaperQuestion": 59,
+      "sourceDifficultyProvisional": "G8",
+      "originalCorrectKey": "C",
+      "originalAnswerLatex": "3\\times10^{2}",
+      "methodChange": "percentage reject and changed sample volume",
+      "replacement": {
+        "stem": "A porous sample initially contains $2\\times10^{12}$ granules, each of mass $3\\times10^{-11}$ g. Sorting removes $25\\%$ of the mass. The retained sample is then compacted from $2\\times10^2$ cm$^3$ to $1.2\\times10^2$ cm$^3$ without further loss. Find its final bulk density in g/cm$^3$, in standard form.",
+        "correctOptionId": "C",
+        "options": [
+          {
+            "id": "A",
+            "latex": "5\\times10^{-1}",
+            "misconception": "Ignore the 25% sample-mass removal and divide the initial 60 g by final volume 120 cm³: 60/120=0.5 g/cm³."
+          },
+          {
+            "id": "B",
+            "latex": "2.25\\times10^{-1}",
+            "misconception": "Divide the correct retained mass by the initial 200 cm³ instead of final 120 cm³: $45/200=0.225$."
+          },
+          {
+            "id": "C",
+            "latex": "3.75\\times10^{-1}",
+            "misconception": null
+          },
+          {
+            "id": "D",
+            "latex": "1.25\\times10^{-1}",
+            "misconception": "Keep only 25% instead of remaining 75%: $15/120=0.125$."
+          },
+          {
+            "id": "E",
+            "latex": "2.8125\\times10^{-1}",
+            "misconception": "Apply the 25% reduction twice: $60(0.75)^2/120=0.28125$."
+          },
+          {
+            "id": "F",
+            "latex": "3.75\\times10^{-2}",
+            "misconception": "Divide by 1200 rather than 120 cm³: $45/1200=0.0375$."
+          }
+        ],
+        "workedSolutionSteps": [
+          "Starting mass $=(2\\times10^{12})(3\\times10^{-11})=60$ g, after 25% removal $60(0.75)=45$ g.",
+          "Final volume $=1.2\\times10^2=120$ cm$^3$ (not original 200).",
+          "Bulk density $=45/120=3.75\\times10^{-1}$ g/cm$^3$."
+        ]
+      },
+      "candidateCorrectValue": 0.375,
+      "review": "PENDING_INDEPENDENT_ACADEMIC_QA"
+    },
+    {
+      "questionId": "LUX-MATH-Y9-STANDARD_FORM-020",
+      "originalPaperQuestion": 60,
+      "sourceDifficultyProvisional": "G8",
+      "originalCorrectKey": "A",
+      "originalAnswerLatex": "3\\times10^{1}",
+      "methodChange": "reverse target density into additional mass needed after a filter",
+      "replacement": {
+        "stem": "A chamber of volume $1.5\\times10^3$ cm$^3$ initially contains $2\\times10^{13}$ granules, each of mass $3\\times10^{-12}$ g. A filter removes $25\\%$ of this mass. How many additional grams of identical granules must be added to reach bulk density $6\\times10^{-2}$ g/cm$^3$? Give the mass to add in standard form.",
+        "correctOptionId": "A",
+        "options": [
+          {
+            "id": "A",
+            "latex": "4.5\\times10^{1}",
+            "misconception": null
+          },
+          {
+            "id": "B",
+            "latex": "3\\times10^{1}",
+            "misconception": "Ignore the 25% removal and subtract initial 60 g from target 90 g: $90-60=30$ g."
+          },
+          {
+            "id": "C",
+            "latex": "9\\times10^{1}",
+            "misconception": "Give the final total target mass 90 g, forgetting to subtract the 45 g already present."
+          },
+          {
+            "id": "D",
+            "latex": "6\\times10^{1}",
+            "misconception": "Incorrectly remove 50% of original 60 g instead of 25%: $90-30=60$ g."
+          },
+          {
+            "id": "E",
+            "latex": "7.5\\times10^{1}",
+            "misconception": "Keep only 25% of original 60 g rather than 75%: $90-15=75$ g."
+          },
+          {
+            "id": "F",
+            "latex": "1.5\\times10^{1}",
+            "misconception": "Misread the target density as $4\\times10^{-2}$ g/cm³, so target mass is 60 g and addition $60-45=15$ g."
+          }
+        ],
+        "workedSolutionSteps": [
+          "Initial mass $=(2\\times10^{13})(3\\times10^{-12})=60$ g.",
+          "After 25% removal, retained mass $=0.75(60)=45$ g.",
+          "Target total mass $=(6\\times10^{-2})(1.5\\times10^3)=90$ g, so add $90-45=4.5\\times10^1$ g."
+        ]
+      },
+      "candidateCorrectValue": 45,
+      "review": "PENDING_INDEPENDENT_ACADEMIC_QA"
+    }
+  ]
+}

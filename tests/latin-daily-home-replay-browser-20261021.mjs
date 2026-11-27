@@ -28,6 +28,7 @@ try {
   try {
    const context=await browser.newContext({viewport:{width:1194,height:834},isMobile:engine===webkit,hasTouch:engine===webkit});
    const page=await context.newPage();
+   await page.clock.setFixedTime(new Date('2026-11-20T12:00:00Z'));
    await page.goto(origin+'/',{waitUntil:'domcontentloaded'});
    await page.waitForFunction(()=>window.__luxStore?.persist?.hasHydrated?.()&&
       window.__luxStore.getState().daily?.some(t=>t.id==='latin-standard'),null,{timeout:40000});

@@ -1,0 +1,4066 @@
+{
+  "status": "SOURCE_STANDARD_FORM_40_ARITHMETICALLY_REPRODUCED_ERROR_ROUTES_NOT_TEACHER_SIGNED",
+  "date": "2026-11-22",
+  "method": "Explicit erroneous operations are evaluated directly from the source family coefficients in the original 40-question student PDF and matched numerically to the original A–F wrong values. One wrong choice may match multiple possible operations. A mathematically reproducible route is not evidence a pupil would actually make that error; Grade and pedagogy remain unapproved.",
+  "source": [
+    "qa-staging/math-v311-standard-form40-source-240-option-numeric-review-20261122.json",
+    "qa-staging/math-v311-standard-form40-independent-calculation-20261122.json"
+  ],
+  "counts": {
+    "wrongOptionMathOperationsReconstructed": 107,
+    "wrongOptionNumericDifferentNoOperation": 85,
+    "wrongOptionOriginalMathLayoutAmbiguous": 8,
+    "sourceCorrectOptions": 40,
+    "originalSourceWrongOptions": 200,
+    "questionsWithAtLeastOneReproducedWrongOperation": 37,
+    "reconstructedBySourceFamily": [
+      {
+        "firstPaperQ": 41,
+        "matches": 16
+      },
+      {
+        "firstPaperQ": 45,
+        "matches": 14
+      },
+      {
+        "firstPaperQ": 49,
+        "matches": 10
+      },
+      {
+        "firstPaperQ": 53,
+        "matches": 13
+      },
+      {
+        "firstPaperQ": 57,
+        "matches": 13
+      },
+      {
+        "firstPaperQ": 61,
+        "matches": 1
+      },
+      {
+        "firstPaperQ": 65,
+        "matches": 14
+      },
+      {
+        "firstPaperQ": 69,
+        "matches": 11
+      },
+      {
+        "firstPaperQ": 73,
+        "matches": 10
+      },
+      {
+        "firstPaperQ": 77,
+        "matches": 5
+      }
+    ]
+  },
+  "allSourceOptions": [
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-001",
+      "paperQ": 41,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 30000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "MISREAD_VOLUME_BASE10_EXPONENT_MINUS_2",
+          "wrongValue": 30000,
+          "wrongOperation": "Use the sample volume 2×10^-1 cm³ instead of the stated 2×10^1 cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-001",
+      "paperQ": 41,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 30,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "MISREAD_VOLUME_BASE10_EXPONENT_PLUS_1",
+          "wrongValue": 30,
+          "wrongOperation": "Use the sample volume 2×10^2 cm³ instead of the stated 2×10^1 cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-001",
+      "paperQ": 41,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 3000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "MISREAD_VOLUME_BASE10_EXPONENT_MINUS_1",
+          "wrongValue": 3000,
+          "wrongOperation": "Use the sample volume 2×10^0 cm³ instead of the stated 2×10^1 cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-001",
+      "paperQ": 41,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 90,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-001",
+      "paperQ": 41,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 3,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "MISREAD_VOLUME_BASE10_EXPONENT_PLUS_2",
+          "wrongValue": 3,
+          "wrongOperation": "Use the sample volume 2×10^3 cm³ instead of the stated 2×10^1 cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-001",
+      "paperQ": 41,
+      "originalOption": "F",
+      "isCorrect": true,
+      "parsedNumeric": 300,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-002",
+      "paperQ": 42,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 40000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "MISREAD_VOLUME_BASE10_EXPONENT_MINUS_2",
+          "wrongValue": 40000.00000000001,
+          "wrongOperation": "Use the sample volume 3×10^0 cm³ instead of the stated 3×10^2 cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-002",
+      "paperQ": 42,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 4,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "MISREAD_VOLUME_BASE10_EXPONENT_PLUS_2",
+          "wrongValue": 4.000000000000001,
+          "wrongOperation": "Use the sample volume 3×10^4 cm³ instead of the stated 3×10^2 cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-002",
+      "paperQ": 42,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 160,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-002",
+      "paperQ": 42,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 4000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "MISREAD_VOLUME_BASE10_EXPONENT_MINUS_1",
+          "wrongValue": 4000.0000000000005,
+          "wrongOperation": "Use the sample volume 3×10^1 cm³ instead of the stated 3×10^2 cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-002",
+      "paperQ": 42,
+      "originalOption": "E",
+      "isCorrect": true,
+      "parsedNumeric": 400,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-002",
+      "paperQ": 42,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 40,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "MISREAD_VOLUME_BASE10_EXPONENT_PLUS_1",
+          "wrongValue": 40.00000000000001,
+          "wrongOperation": "Use the sample volume 3×10^3 cm³ instead of the stated 3×10^2 cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-003",
+      "paperQ": 43,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 50000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "MISREAD_VOLUME_BASE10_EXPONENT_MINUS_2",
+          "wrongValue": 50000.00000000001,
+          "wrongOperation": "Use the sample volume 4×10^1 cm³ instead of the stated 4×10^3 cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-003",
+      "paperQ": 43,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 5000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "MISREAD_VOLUME_BASE10_EXPONENT_MINUS_1",
+          "wrongValue": 5000.000000000001,
+          "wrongOperation": "Use the sample volume 4×10^2 cm³ instead of the stated 4×10^3 cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-003",
+      "paperQ": 43,
+      "originalOption": "C",
+      "isCorrect": true,
+      "parsedNumeric": 500,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-003",
+      "paperQ": 43,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 250,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-003",
+      "paperQ": 43,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 50,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "MISREAD_VOLUME_BASE10_EXPONENT_PLUS_1",
+          "wrongValue": 50.00000000000001,
+          "wrongOperation": "Use the sample volume 4×10^4 cm³ instead of the stated 4×10^3 cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-003",
+      "paperQ": 43,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 5,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "MISREAD_VOLUME_BASE10_EXPONENT_PLUS_2",
+          "wrongValue": 5.000000000000001,
+          "wrongOperation": "Use the sample volume 4×10^5 cm³ instead of the stated 4×10^3 cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-004",
+      "paperQ": 44,
+      "originalOption": "A",
+      "isCorrect": true,
+      "parsedNumeric": 600,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-004",
+      "paperQ": 44,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 60,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "MISREAD_VOLUME_BASE10_EXPONENT_PLUS_1",
+          "wrongValue": 60.00000000000001,
+          "wrongOperation": "Use the sample volume 5×10^5 cm³ instead of the stated 5×10^4 cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-004",
+      "paperQ": 44,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 6000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "MISREAD_VOLUME_BASE10_EXPONENT_MINUS_1",
+          "wrongValue": 6000.000000000001,
+          "wrongOperation": "Use the sample volume 5×10^3 cm³ instead of the stated 5×10^4 cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-004",
+      "paperQ": 44,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 360,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-004",
+      "paperQ": 44,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 60000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "MISREAD_VOLUME_BASE10_EXPONENT_MINUS_2",
+          "wrongValue": 60000.00000000001,
+          "wrongOperation": "Use the sample volume 5×10^2 cm³ instead of the stated 5×10^4 cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-004",
+      "paperQ": 44,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 6,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "MISREAD_VOLUME_BASE10_EXPONENT_PLUS_2",
+          "wrongValue": 6.000000000000001,
+          "wrongOperation": "Use the sample volume 5×10^6 cm³ instead of the stated 5×10^4 cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-005",
+      "paperQ": 45,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 2400,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-005",
+      "paperQ": 45,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 2800,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "COUNT_INPUT_2_TIMES",
+          "wrongValue": 2800,
+          "wrongOperation": "Count every original numerator contribution 2 times rather than once, retaining denominator 3000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-005",
+      "paperQ": 45,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 3400,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-005",
+      "paperQ": 45,
+      "originalOption": "D",
+      "isCorrect": true,
+      "parsedNumeric": 1400,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-005",
+      "paperQ": 45,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": -1400,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "SUBTRACT_SUM_SIGN",
+          "wrongValue": -1400,
+          "wrongOperation": "Reverse sign of the positive combined mass (4000000+200000) before dividing by 3000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-005",
+      "paperQ": 45,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 700,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "COUNT_INPUT_0.5_TIMES",
+          "wrongValue": 700,
+          "wrongOperation": "Count every original numerator contribution 0.5 times rather than once, retaining denominator 3000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-006",
+      "paperQ": 46,
+      "originalOption": "A",
+      "isCorrect": true,
+      "parsedNumeric": 1325,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-006",
+      "paperQ": 46,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 662.5,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "COUNT_INPUT_0.5_TIMES",
+          "wrongValue": 662.5,
+          "wrongOperation": "Count every original numerator contribution 0.5 times rather than once, retaining denominator 40000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-006",
+      "paperQ": 46,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 3325,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-006",
+      "paperQ": 46,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 132.5,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "DENOMINATOR_EXPONENT_SHIFT_1",
+          "wrongValue": 132.5,
+          "wrongOperation": "Use denominator power of ten shifted by 1, not the stated denominator 40000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-006",
+      "paperQ": 46,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 325,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-006",
+      "paperQ": 46,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 3975,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "COUNT_INPUT_3_TIMES",
+          "wrongValue": 3975,
+          "wrongOperation": "Count every original numerator contribution 3 times rather than once, retaining denominator 40000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-007",
+      "paperQ": 47,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 280,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-007",
+      "paperQ": 47,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 2560,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "COUNT_INPUT_2_TIMES",
+          "wrongValue": 2560,
+          "wrongOperation": "Count every original numerator contribution 2 times rather than once, retaining denominator 500000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-007",
+      "paperQ": 47,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 640,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "COUNT_INPUT_0.5_TIMES",
+          "wrongValue": 640,
+          "wrongOperation": "Count every original numerator contribution 0.5 times rather than once, retaining denominator 500000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-007",
+      "paperQ": 47,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 3840,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "COUNT_INPUT_3_TIMES",
+          "wrongValue": 3840,
+          "wrongOperation": "Count every original numerator contribution 3 times rather than once, retaining denominator 500000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-007",
+      "paperQ": 47,
+      "originalOption": "E",
+      "isCorrect": true,
+      "parsedNumeric": 1280,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-007",
+      "paperQ": 47,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": -1280,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "SUBTRACT_SUM_SIGN",
+          "wrongValue": -1280,
+          "wrongOperation": "Reverse sign of the positive combined mass (600000000+40000000) before dividing by 500000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-008",
+      "paperQ": 48,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 6250,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "COUNT_INPUT_5_TIMES",
+          "wrongValue": 6250,
+          "wrongOperation": "Count every original numerator contribution 5 times rather than once, retaining denominator 6000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-008",
+      "paperQ": 48,
+      "originalOption": "B",
+      "isCorrect": true,
+      "parsedNumeric": 1250,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-008",
+      "paperQ": 48,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 250,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-008",
+      "paperQ": 48,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 12500,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "DENOMINATOR_EXPONENT_SHIFT_-1",
+          "wrongValue": 12500,
+          "wrongOperation": "Use denominator power of ten shifted by -1, not the stated denominator 6000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-008",
+      "paperQ": 48,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 3750,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "COUNT_INPUT_3_TIMES",
+          "wrongValue": 3750,
+          "wrongOperation": "Count every original numerator contribution 3 times rather than once, retaining denominator 6000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-008",
+      "paperQ": 48,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": -1250,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "SUBTRACT_SUM_SIGN",
+          "wrongValue": -1250,
+          "wrongOperation": "Reverse sign of the positive combined mass (7000000000+500000000) before dividing by 6000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-009",
+      "paperQ": 49,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 28500,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "DENOMINATOR_POWER_SHIFT_1",
+          "wrongValue": 28500,
+          "wrongOperation": "Misread denominator as 20 rather than 2"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-009",
+      "paperQ": 49,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 570000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-009",
+      "paperQ": 49,
+      "originalOption": "C",
+      "isCorrect": true,
+      "parsedNumeric": 285000,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-009",
+      "paperQ": 49,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 2850000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "DENOMINATOR_POWER_SHIFT_-1",
+          "wrongValue": 2850000,
+          "wrongOperation": "Misread denominator as 0.2 rather than 2"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-009",
+      "paperQ": 49,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 300000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-009",
+      "paperQ": 49,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 315000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "SUBTRACTION_REPLACED_BY_ADDITION",
+          "wrongValue": 315000,
+          "wrongOperation": "Add 30000 rather than subtract it from 600000, then divide by 2"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-010",
+      "paperQ": 50,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 4400000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-010",
+      "paperQ": 50,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": -2200000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "REVERSE_SUBTRACTION_ORDER",
+          "wrongValue": -2200000,
+          "wrongOperation": "Subtract 7000000 from 400000 rather than the other way around; divide by 3"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-010",
+      "paperQ": 50,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 11000000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-010",
+      "paperQ": 50,
+      "originalOption": "D",
+      "isCorrect": true,
+      "parsedNumeric": 2200000,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-010",
+      "paperQ": 50,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 4200000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-010",
+      "paperQ": 50,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 1200000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-011",
+      "paperQ": 51,
+      "originalOption": "A",
+      "isCorrect": true,
+      "parsedNumeric": 18750000,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-011",
+      "paperQ": 51,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 75000000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-011",
+      "paperQ": 51,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 187500000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "DENOMINATOR_POWER_SHIFT_-1",
+          "wrongValue": 187500000,
+          "wrongOperation": "Misread denominator as 0.4 rather than 4"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-011",
+      "paperQ": 51,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 21250000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "SUBTRACTION_REPLACED_BY_ADDITION",
+          "wrongValue": 21250000,
+          "wrongOperation": "Add 5000000 rather than subtract it from 80000000, then divide by 4"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-011",
+      "paperQ": 51,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 20000000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-011",
+      "paperQ": 51,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 1875000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "DENOMINATOR_POWER_SHIFT_1",
+          "wrongValue": 1875000,
+          "wrongOperation": "Misread denominator as 40 rather than 4"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-012",
+      "paperQ": 52,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 180000000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-012",
+      "paperQ": 52,
+      "originalOption": "B",
+      "isCorrect": true,
+      "parsedNumeric": 168000000,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-012",
+      "paperQ": 52,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 1680000000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "DENOMINATOR_POWER_SHIFT_-1",
+          "wrongValue": 1680000000,
+          "wrongOperation": "Misread denominator as 0.5 rather than 5"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-012",
+      "paperQ": 52,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 192000000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "SUBTRACTION_REPLACED_BY_ADDITION",
+          "wrongValue": 192000000,
+          "wrongOperation": "Add 60000000 rather than subtract it from 900000000, then divide by 5"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-012",
+      "paperQ": 52,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 16800000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "DENOMINATOR_POWER_SHIFT_1",
+          "wrongValue": 16800000,
+          "wrongOperation": "Misread denominator as 50 rather than 5"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-012",
+      "paperQ": 52,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 840000000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-013",
+      "paperQ": 53,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 28.5,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "DENOMINATOR_POWER_SHIFT_1",
+          "wrongValue": 28.5,
+          "wrongOperation": "Misread denominator as 20000000 rather than 2000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-013",
+      "paperQ": 53,
+      "originalOption": "B",
+      "isCorrect": true,
+      "parsedNumeric": 285,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-013",
+      "paperQ": 53,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 1140000000000000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "MULTIPLY_INSTEAD_OF_DIVIDE",
+          "wrongValue": 1140000000000000,
+          "wrongOperation": "Multiply 570000000 by 2000000 instead of dividing"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-013",
+      "paperQ": 53,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 300,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-013",
+      "paperQ": 53,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 2850,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "DENOMINATOR_POWER_SHIFT_-1",
+          "wrongValue": 2850,
+          "wrongOperation": "Misread denominator as 200000 rather than 2000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-013",
+      "paperQ": 53,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 315,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "SUBTRACTION_REPLACED_BY_ADDITION",
+          "wrongValue": 315,
+          "wrongOperation": "Add 30000000 rather than subtract it from 600000000, then divide by 2000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+      "paperQ": 54,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 320,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+      "paperQ": 54,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 440.00000000000006,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+      "paperQ": 54,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 420,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+      "paperQ": 54,
+      "originalOption": "D",
+      "isCorrect": true,
+      "parsedNumeric": 220.00000000000003,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+      "paperQ": 54,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": -220.00000000000003,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "REVERSE_SUBTRACTION_ORDER",
+          "wrongValue": -220,
+          "wrongOperation": "Subtract 7000000000 from 400000000 rather than the other way around; divide by 30000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+      "paperQ": 54,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 110.00000000000001,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-015",
+      "paperQ": 55,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 1875,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "DENOMINATOR_POWER_SHIFT_-1",
+          "wrongValue": 1875,
+          "wrongOperation": "Misread denominator as 40000000 rather than 400000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-015",
+      "paperQ": 55,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 18.75,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "DENOMINATOR_POWER_SHIFT_1",
+          "wrongValue": 18.75,
+          "wrongOperation": "Misread denominator as 4000000000 rather than 400000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-015",
+      "paperQ": 55,
+      "originalOption": "C",
+      "isCorrect": true,
+      "parsedNumeric": 187.5,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-015",
+      "paperQ": 55,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 212.5,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "SUBTRACTION_REPLACED_BY_ADDITION",
+          "wrongValue": 212.5,
+          "wrongOperation": "Add 5000000000 rather than subtract it from 80000000000, then divide by 400000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-015",
+      "paperQ": 55,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 200,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-015",
+      "paperQ": 55,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 30000000000000000000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "MULTIPLY_INSTEAD_OF_DIVIDE",
+          "wrongValue": 30000000000000000000,
+          "wrongOperation": "Multiply 75000000000 by 400000000 instead of dividing"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-016",
+      "paperQ": 56,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 16.8,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "DENOMINATOR_POWER_SHIFT_1",
+          "wrongValue": 16.8,
+          "wrongOperation": "Misread denominator as 50000000000 rather than 5000000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-016",
+      "paperQ": 56,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 1680,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "DENOMINATOR_POWER_SHIFT_-1",
+          "wrongValue": 1680,
+          "wrongOperation": "Misread denominator as 500000000 rather than 5000000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-016",
+      "paperQ": 56,
+      "originalOption": "C",
+      "isCorrect": true,
+      "parsedNumeric": 168,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-016",
+      "paperQ": 56,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 180,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-016",
+      "paperQ": 56,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 192,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "SUBTRACTION_REPLACED_BY_ADDITION",
+          "wrongValue": 192,
+          "wrongOperation": "Add 60000000000 rather than subtract it from 900000000000, then divide by 5000000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-016",
+      "paperQ": 56,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 4.2e+21,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "MULTIPLY_INSTEAD_OF_DIVIDE",
+          "wrongValue": 4.2e+21,
+          "wrongOperation": "Multiply 840000000000 by 5000000000 instead of dividing"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-017",
+      "paperQ": 57,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 3000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "MISREAD_VOLUME_EXPONENT_-1",
+          "wrongValue": 3000,
+          "wrongOperation": "Treat the stated volume 150 as 15 cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-017",
+      "paperQ": 57,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 200,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "REMOVE_50_NOT_25_PERCENT",
+          "wrongValue": 200,
+          "wrongOperation": "Remove 50% instead of 25% from 60000 g; divide by 150"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-017",
+      "paperQ": 57,
+      "originalOption": "C",
+      "isCorrect": true,
+      "parsedNumeric": 300,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-017",
+      "paperQ": 57,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 500,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "ADD_25_PERCENT_INSTEAD_OF_REMOVE",
+          "wrongValue": 500,
+          "wrongOperation": "Increase 60000 g by 25% rather than remove 25%; divide by 150"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-017",
+      "paperQ": 57,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 900,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-017",
+      "paperQ": 57,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 400,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "IGNORE_REMOVED_25_PERCENT",
+          "wrongValue": 400,
+          "wrongOperation": "Use the full 60000 g rather than retaining 75% after filtering; divide by 150 cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-018",
+      "paperQ": 58,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 150,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-018",
+      "paperQ": 58,
+      "originalOption": "B",
+      "isCorrect": true,
+      "parsedNumeric": 30,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-018",
+      "paperQ": 58,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 300,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "MISREAD_VOLUME_EXPONENT_-1",
+          "wrongValue": 300,
+          "wrongOperation": "Treat the stated volume 1500 as 150 cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-018",
+      "paperQ": 58,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 90,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-018",
+      "paperQ": 58,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 20,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "REMOVE_50_NOT_25_PERCENT",
+          "wrongValue": 20,
+          "wrongOperation": "Remove 50% instead of 25% from 60000 g; divide by 1500"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-018",
+      "paperQ": 58,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 3,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "MISREAD_VOLUME_EXPONENT_1",
+          "wrongValue": 3,
+          "wrongOperation": "Treat the stated volume 1500 as 15000 cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-019",
+      "paperQ": 59,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 500,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "ADD_25_PERCENT_INSTEAD_OF_REMOVE",
+          "wrongValue": 500.0000000000001,
+          "wrongOperation": "Increase 60000.00000000001 g by 25% rather than remove 25%; divide by 150"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-019",
+      "paperQ": 59,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 400,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "IGNORE_REMOVED_25_PERCENT",
+          "wrongValue": 400.00000000000006,
+          "wrongOperation": "Use the full 60000.00000000001 g rather than retaining 75% after filtering; divide by 150 cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-019",
+      "paperQ": 59,
+      "originalOption": "C",
+      "isCorrect": true,
+      "parsedNumeric": 300,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-019",
+      "paperQ": 59,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 150,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-019",
+      "paperQ": 59,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 200,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "REMOVE_50_NOT_25_PERCENT",
+          "wrongValue": 200.00000000000003,
+          "wrongOperation": "Remove 50% instead of 25% from 60000.00000000001 g; divide by 150"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-019",
+      "paperQ": 59,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 900,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-020",
+      "paperQ": 60,
+      "originalOption": "A",
+      "isCorrect": true,
+      "parsedNumeric": 30,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-020",
+      "paperQ": 60,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 40,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "IGNORE_REMOVED_25_PERCENT",
+          "wrongValue": 40,
+          "wrongOperation": "Use the full 60000 g rather than retaining 75% after filtering; divide by 1500 cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-020",
+      "paperQ": 60,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 60,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-020",
+      "paperQ": 60,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 20,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "REMOVE_50_NOT_25_PERCENT",
+          "wrongValue": 20,
+          "wrongOperation": "Remove 50% instead of 25% from 60000 g; divide by 1500"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-020",
+      "paperQ": 60,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 3,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "MISREAD_VOLUME_EXPONENT_1",
+          "wrongValue": 3,
+          "wrongOperation": "Treat the stated volume 1500 as 15000 cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-020",
+      "paperQ": 60,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 150,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-021",
+      "paperQ": 61,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 37,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-021",
+      "paperQ": 61,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": null,
+      "classification": "SOURCE_MATH_LAYOUT_UNRESOLVED",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-021",
+      "paperQ": 61,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": null,
+      "classification": "SOURCE_MATH_LAYOUT_UNRESOLVED",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-021",
+      "paperQ": 61,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": null,
+      "classification": "SOURCE_MATH_LAYOUT_UNRESOLVED",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-021",
+      "paperQ": 61,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": null,
+      "classification": "SOURCE_MATH_LAYOUT_UNRESOLVED",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-021",
+      "paperQ": 61,
+      "originalOption": "F",
+      "isCorrect": true,
+      "parsedNumeric": 35,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-022",
+      "paperQ": 62,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 23,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-022",
+      "paperQ": 62,
+      "originalOption": "B",
+      "isCorrect": true,
+      "parsedNumeric": 26,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-022",
+      "paperQ": 62,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 28,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-022",
+      "paperQ": 62,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": -26,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "REVERSE_NEW_MINUS_OLD",
+          "wrongValue": -25.999999999999993,
+          "wrongOperation": "Reverse the change numerator from new−old to old−new"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-022",
+      "paperQ": 62,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 31,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-022",
+      "paperQ": 62,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 52,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-023",
+      "paperQ": 63,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 49,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-023",
+      "paperQ": 63,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 46,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-023",
+      "paperQ": 63,
+      "originalOption": "C",
+      "isCorrect": true,
+      "parsedNumeric": 44,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-023",
+      "paperQ": 63,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 43,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-023",
+      "paperQ": 63,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": null,
+      "classification": "SOURCE_MATH_LAYOUT_UNRESOLVED",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-023",
+      "paperQ": 63,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": null,
+      "classification": "SOURCE_MATH_LAYOUT_UNRESOLVED",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-024",
+      "paperQ": 64,
+      "originalOption": "A",
+      "isCorrect": true,
+      "parsedNumeric": 8,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-024",
+      "paperQ": 64,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 5,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-024",
+      "paperQ": 64,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 7,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-024",
+      "paperQ": 64,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 13,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-024",
+      "paperQ": 64,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": null,
+      "classification": "SOURCE_MATH_LAYOUT_UNRESOLVED",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-024",
+      "paperQ": 64,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": null,
+      "classification": "SOURCE_MATH_LAYOUT_UNRESOLVED",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-025",
+      "paperQ": 65,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 20000000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "PARTICLE_CONCENTRATION_SCALE_2",
+          "wrongValue": 20000000,
+          "wrongOperation": "Use 2 times given concentration 4000 particles per cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-025",
+      "paperQ": 65,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 50000000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "PARTICLE_CONCENTRATION_SCALE_5",
+          "wrongValue": 50000000,
+          "wrongOperation": "Use 5 times given concentration 4000 particles per cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-025",
+      "paperQ": 65,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 5000000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "PARTICLE_CONCENTRATION_SCALE_0.5",
+          "wrongValue": 5000000,
+          "wrongOperation": "Use 0.5 times given concentration 4000 particles per cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-025",
+      "paperQ": 65,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 1000000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "CM3_M3_CONVERSION_POWER_SHIFT_-1",
+          "wrongValue": 1000000,
+          "wrongOperation": "Use 10^5 rather than 10^6 to convert m³ to cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-025",
+      "paperQ": 65,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 100000000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "CM3_M3_CONVERSION_POWER_SHIFT_1",
+          "wrongValue": 100000000,
+          "wrongOperation": "Use 10^7 rather than 10^6 to convert m³ to cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-025",
+      "paperQ": 65,
+      "originalOption": "F",
+      "isCorrect": true,
+      "parsedNumeric": 10000000,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+      "paperQ": 66,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 900000000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "CM3_M3_CONVERSION_POWER_SHIFT_1",
+          "wrongValue": 900000000,
+          "wrongOperation": "Use 10^7 rather than 10^6 to convert m³ to cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+      "paperQ": 66,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 80000000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+      "paperQ": 66,
+      "originalOption": "C",
+      "isCorrect": true,
+      "parsedNumeric": 90000000,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+      "paperQ": 66,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 110000000.00000001,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+      "paperQ": 66,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 270000000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "PARTICLE_CONCENTRATION_SCALE_3",
+          "wrongValue": 270000000,
+          "wrongOperation": "Use 3 times given concentration 30000 particles per cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+      "paperQ": 66,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 100000000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-027",
+      "paperQ": 67,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 10000000000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "PARTICLE_CONCENTRATION_SCALE_5",
+          "wrongValue": 10000000000,
+          "wrongOperation": "Use 5 times given concentration 500000 particles per cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-027",
+      "paperQ": 67,
+      "originalOption": "B",
+      "isCorrect": true,
+      "parsedNumeric": 2000000000,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-027",
+      "paperQ": 67,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 20000000000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "CM3_M3_CONVERSION_POWER_SHIFT_1",
+          "wrongValue": 20000000000,
+          "wrongOperation": "Use 10^7 rather than 10^6 to convert m³ to cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-027",
+      "paperQ": 67,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 6000000000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "PARTICLE_CONCENTRATION_SCALE_3",
+          "wrongValue": 6000000000,
+          "wrongOperation": "Use 3 times given concentration 500000 particles per cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-027",
+      "paperQ": 67,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 1000000000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "PARTICLE_CONCENTRATION_SCALE_0.5",
+          "wrongValue": 1000000000,
+          "wrongOperation": "Use 0.5 times given concentration 500000 particles per cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-027",
+      "paperQ": 67,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 200000000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "CM3_M3_CONVERSION_POWER_SHIFT_-1",
+          "wrongValue": 200000000,
+          "wrongOperation": "Use 10^5 rather than 10^6 to convert m³ to cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-028",
+      "paperQ": 68,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 11000000000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-028",
+      "paperQ": 68,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 10000000000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-028",
+      "paperQ": 68,
+      "originalOption": "C",
+      "isCorrect": true,
+      "parsedNumeric": 9000000000,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-028",
+      "paperQ": 68,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 4500000000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "PARTICLE_CONCENTRATION_SCALE_0.5",
+          "wrongValue": 4500000000,
+          "wrongOperation": "Use 0.5 times given concentration 6000000 particles per cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-028",
+      "paperQ": 68,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 8000000000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-028",
+      "paperQ": 68,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 27000000000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "PARTICLE_CONCENTRATION_SCALE_3",
+          "wrongValue": 27000000000,
+          "wrongOperation": "Use 3 times given concentration 6000000 particles per cm³"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-029",
+      "paperQ": 69,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 509.99999999999994,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-029",
+      "paperQ": 69,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 310,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-029",
+      "paperQ": 69,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 204.99999999999997,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "WRONG_DENOMINATOR_SCALE_2",
+          "wrongValue": 205,
+          "wrongOperation": "Read the divisor 2000000 as 4000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-029",
+      "paperQ": 69,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": -409.99999999999994,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "NEGATE_COMBINED_TOTAL",
+          "wrongValue": -410,
+          "wrongOperation": "Reverse sign of combined numerator 820000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-029",
+      "paperQ": 69,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 2050,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-029",
+      "paperQ": 69,
+      "originalOption": "F",
+      "isCorrect": true,
+      "parsedNumeric": 409.99999999999994,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-030",
+      "paperQ": 70,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 3100,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-030",
+      "paperQ": 70,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 8200,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "WRONG_DENOMINATOR_SCALE_0.5",
+          "wrongValue": 8200,
+          "wrongOperation": "Read the divisor 2000000 as 1000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-030",
+      "paperQ": 70,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 12300,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "WRONG_DENOMINATOR_SCALE_0.3333333333333333",
+          "wrongValue": 12300,
+          "wrongOperation": "Read the divisor 2000000 as 666666.6666666666"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-030",
+      "paperQ": 70,
+      "originalOption": "D",
+      "isCorrect": true,
+      "parsedNumeric": 4100,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-030",
+      "paperQ": 70,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 41000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "WRONG_DENOMINATOR_SCALE_0.1",
+          "wrongValue": 41000,
+          "wrongOperation": "Read the divisor 2000000 as 200000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-030",
+      "paperQ": 70,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 2050,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "WRONG_DENOMINATOR_SCALE_2",
+          "wrongValue": 2050,
+          "wrongOperation": "Read the divisor 2000000 as 4000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-031",
+      "paperQ": 71,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 51000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-031",
+      "paperQ": 71,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 4100,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "WRONG_DENOMINATOR_SCALE_10",
+          "wrongValue": 4100,
+          "wrongOperation": "Read the divisor 2000000 as 20000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-031",
+      "paperQ": 71,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 82000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "WRONG_DENOMINATOR_SCALE_0.5",
+          "wrongValue": 82000,
+          "wrongOperation": "Read the divisor 2000000 as 1000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-031",
+      "paperQ": 71,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 123000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "WRONG_DENOMINATOR_SCALE_0.3333333333333333",
+          "wrongValue": 123000,
+          "wrongOperation": "Read the divisor 2000000 as 666666.6666666666"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-031",
+      "paperQ": 71,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 31000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-031",
+      "paperQ": 71,
+      "originalOption": "F",
+      "isCorrect": true,
+      "parsedNumeric": 41000,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-032",
+      "paperQ": 72,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 509999.99999999994,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-032",
+      "paperQ": 72,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 310000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-032",
+      "paperQ": 72,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 1230000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "WRONG_DENOMINATOR_SCALE_0.3333333333333333",
+          "wrongValue": 1230000,
+          "wrongOperation": "Read the divisor 2000000 as 666666.6666666666"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-032",
+      "paperQ": 72,
+      "originalOption": "D",
+      "isCorrect": true,
+      "parsedNumeric": 409999.99999999994,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-032",
+      "paperQ": 72,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 610000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-032",
+      "paperQ": 72,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": -409999.99999999994,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "NEGATE_COMBINED_TOTAL",
+          "wrongValue": -410000,
+          "wrongOperation": "Reverse sign of combined numerator 820000000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-033",
+      "paperQ": 73,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 11160.000000000002,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "WRONG_PACKET_COUNT_SCALE_10",
+          "wrongValue": 11160,
+          "wrongOperation": "Read given 50000 packets as 500000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-033",
+      "paperQ": 73,
+      "originalOption": "B",
+      "isCorrect": true,
+      "parsedNumeric": 111600.00000000001,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-033",
+      "paperQ": 73,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": -111600.00000000001,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "NEGATE_REMAINING_MASS",
+          "wrongValue": -111600,
+          "wrongOperation": "Reverse sign of retained mass per packet"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-033",
+      "paperQ": 73,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 55800,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "WRONG_PACKET_COUNT_SCALE_2",
+          "wrongValue": 55800,
+          "wrongOperation": "Read given 50000 packets as 100000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-033",
+      "paperQ": 73,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 211600,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-033",
+      "paperQ": 73,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 1116000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "WRONG_PACKET_COUNT_SCALE_0.1",
+          "wrongValue": 1116000,
+          "wrongOperation": "Read given 50000 packets as 5000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-034",
+      "paperQ": 74,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 211600,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-034",
+      "paperQ": 74,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 558000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-034",
+      "paperQ": 74,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 55800,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "WRONG_PACKET_COUNT_SCALE_2",
+          "wrongValue": 55800,
+          "wrongOperation": "Read given 500000 packets as 1000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-034",
+      "paperQ": 74,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 1116000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "WRONG_PACKET_COUNT_SCALE_0.1",
+          "wrongValue": 1116000,
+          "wrongOperation": "Read given 500000 packets as 50000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-034",
+      "paperQ": 74,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 223200.00000000003,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "WRONG_PACKET_COUNT_SCALE_0.5",
+          "wrongValue": 223200,
+          "wrongOperation": "Read given 500000 packets as 250000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-034",
+      "paperQ": 74,
+      "originalOption": "F",
+      "isCorrect": true,
+      "parsedNumeric": 111600.00000000001,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-035",
+      "paperQ": 75,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 1116000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "WRONG_PACKET_COUNT_SCALE_0.1",
+          "wrongValue": 1116000,
+          "wrongOperation": "Read given 5000000 packets as 500000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-035",
+      "paperQ": 75,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 11600,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-035",
+      "paperQ": 75,
+      "originalOption": "C",
+      "isCorrect": true,
+      "parsedNumeric": 111600.00000000001,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-035",
+      "paperQ": 75,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 311600,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-035",
+      "paperQ": 75,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 334800,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-035",
+      "paperQ": 75,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 211600,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-036",
+      "paperQ": 76,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 558000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-036",
+      "paperQ": 76,
+      "originalOption": "B",
+      "isCorrect": true,
+      "parsedNumeric": 111600.00000000001,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-036",
+      "paperQ": 76,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 1116000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "WRONG_PACKET_COUNT_SCALE_0.1",
+          "wrongValue": 1116000,
+          "wrongOperation": "Read given 50000000 packets as 5000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-036",
+      "paperQ": 76,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 334800,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-036",
+      "paperQ": 76,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 11600,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-036",
+      "paperQ": 76,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 11160.000000000002,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "WRONG_PACKET_COUNT_SCALE_10",
+          "wrongValue": 11160,
+          "wrongOperation": "Read given 50000000 packets as 500000000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-037",
+      "paperQ": 77,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 50000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-037",
+      "paperQ": 77,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 40000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-037",
+      "paperQ": 77,
+      "originalOption": "C",
+      "isCorrect": true,
+      "parsedNumeric": 30000,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-037",
+      "paperQ": 77,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 15000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "WRONG_PACKET_COUNT_SCALE_2",
+          "wrongValue": 15000,
+          "wrongOperation": "Read packet count 20000 as 40000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-037",
+      "paperQ": 77,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 20000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-037",
+      "paperQ": 77,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 90000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-038",
+      "paperQ": 78,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 500000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-038",
+      "paperQ": 78,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 300000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-038",
+      "paperQ": 78,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 200000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "WRONG_PACKET_COUNT_SCALE_2",
+          "wrongValue": 200000,
+          "wrongOperation": "Read packet count 20000 as 40000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-038",
+      "paperQ": 78,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": -400000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-038",
+      "paperQ": 78,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 2000000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-038",
+      "paperQ": 78,
+      "originalOption": "F",
+      "isCorrect": true,
+      "parsedNumeric": 400000,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-039",
+      "paperQ": 79,
+      "originalOption": "A",
+      "isCorrect": true,
+      "parsedNumeric": 5000000,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-039",
+      "paperQ": 79,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 6000000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-039",
+      "paperQ": 79,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 7000000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-039",
+      "paperQ": 79,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 10000000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "WRONG_PACKET_COUNT_SCALE_0.5",
+          "wrongValue": 10000000,
+          "wrongOperation": "Read packet count 20000 as 10000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-039",
+      "paperQ": 79,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 15000000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-039",
+      "paperQ": 79,
+      "originalOption": "F",
+      "isCorrect": false,
+      "parsedNumeric": 25000000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-040",
+      "paperQ": 80,
+      "originalOption": "A",
+      "isCorrect": false,
+      "parsedNumeric": 70000000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-040",
+      "paperQ": 80,
+      "originalOption": "B",
+      "isCorrect": false,
+      "parsedNumeric": 6000000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "WRONG_PACKET_COUNT_SCALE_10",
+          "wrongValue": 6000000,
+          "wrongOperation": "Read packet count 20000 as 200000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-040",
+      "paperQ": 80,
+      "originalOption": "C",
+      "isCorrect": false,
+      "parsedNumeric": 120000000,
+      "classification": "WRONG_VALUE_REPRODUCIBLE_FROM_SPECIFIC_ALGEBRA_OPERATION",
+      "sourceSpecificMathematicallyReproducibleOperations": [
+        {
+          "rule": "WRONG_PACKET_COUNT_SCALE_0.5",
+          "wrongValue": 120000000,
+          "wrongOperation": "Read packet count 20000 as 10000"
+        }
+      ],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-040",
+      "paperQ": 80,
+      "originalOption": "D",
+      "isCorrect": false,
+      "parsedNumeric": 180000000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-040",
+      "paperQ": 80,
+      "originalOption": "E",
+      "isCorrect": false,
+      "parsedNumeric": 50000000,
+      "classification": "WRONG_NUMERIC_VALUE_BUT_NO_REPRODUCED_MECHANISM",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    },
+    {
+      "originalSourceId": "LUX-MATH-Y9-STANDARD_FORM-040",
+      "paperQ": 80,
+      "originalOption": "F",
+      "isCorrect": true,
+      "parsedNumeric": 60000000,
+      "classification": "ORIGINAL_CORRECT_KEY",
+      "sourceSpecificMathematicallyReproducibleOperations": [],
+      "externalMisconceptionFrequencyEvidence": false,
+      "independentTeacherPedagogySigned": false,
+      "externalG7PlusGradeBenchmarked": false,
+      "visualOriginalPdfOptionCertified": false,
+      "studentCreditAllowed": false
+    }
+  ],
+  "teacherSignoffs": 0,
+  "sourceBankEdited": false,
+  "mathsDailyEnabled": false
+}

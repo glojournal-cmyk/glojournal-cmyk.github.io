@@ -1,0 +1,210 @@
+{
+  "kind": "SEVEN_DAY_SIMULTANEOUS_SCOPE_DEMAND_REVISIONS_NO_RELEASE",
+  "date": "2026-11-25",
+  "sourceCommit": "1013e467ca9fc7fcfafdff6e9e43182d12b9c598",
+  "sourceRegister": "qa-staging/math-priority116-indices-graphs-review-20261125.json",
+  "sourceRegisterBlobSha": "3d7da3d041c4fac8636f68ea830826aecbb6a90f",
+  "counts": {
+    "revised": 3,
+    "targetedChecks": 3
+  },
+  "limits": "Author drafts with exact substitution checks; second-pass editorial review and taught-scope evidence remain required.",
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-013",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-013-BALANCED-OPTION-ORDER-20261125",
+      "priorRecordPath": "qa-staging/math-priority39-balanced-options-20261125.json",
+      "priorRecordBlobSha": "cf7eff2935f98e395d63bd4dd5db59fac19edd68",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-013",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-013-SEVEN-DAY-DEMAND-REVISION-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-013-BALANCED-OPTION-ORDER-20261125",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "At supplier A, two identical packs P and three identical packs Q cost £7, while four P and five Q cost £12. At supplier B, the same two combinations cost £11 and £19 respectively. A customer buys exactly 12 packs, with the same quantities of P and Q in either supplier's quotation. Supplier A deducts £2.50 from the total and B deducts £1. The final B quotation is exactly twice the final A quotation. Find (the number of P packs, the final B quotation in pounds).",
+        "options": [
+          {
+            "id": "A",
+            "latex": "(4,27)",
+            "errorPath": "Swap the counts of P and Q, then evaluate B's discounted quotation."
+          },
+          {
+            "id": "B",
+            "latex": "(8,20)",
+            "errorPath": "Find the correct counts but omit B's £1 discount."
+          },
+          {
+            "id": "C",
+            "latex": "(12,11)",
+            "errorPath": "Assume every pack is P."
+          },
+          {
+            "id": "D",
+            "latex": "(8,19)"
+          },
+          {
+            "id": "E",
+            "latex": "(7,21)",
+            "errorPath": "Omit B's discount when forming the doubling equation, giving Q=5; then compute the actual B quotation."
+          },
+          {
+            "id": "F",
+            "latex": "(8,9.5)",
+            "errorPath": "Report A's final quotation rather than B's."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "(8,19)",
+        "workedSolutionSteps": [
+          "Supplier A: 2P+3Q=7, 4P+5Q=12, hence Q2,P0.50. Supplier B similarly Q3,P1.",
+          "Let p,q be counts. p+q=12 and p+3q−1=2(0.5p+2q−2.5). Simplify to q=4, p=8.",
+          "Final B quotation=8+12−1=£19. Check A=4+8−2.5=£9.50."
+        ],
+        "unverifiedTaughtSubskill": "Linear equation methods and bounded arithmetic as specified; classroom exposure unconfirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false,
+        "importAllowed": false
+      },
+      "demandNote": "Two price systems followed by an independent quotation constraint; recover quantities and verify a nontrivial relationship.",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-018",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-018-PRIORITY-CONTENT-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-priority116-content-acceptance-simultaneous15-20261124.json",
+      "priorRecordBlobSha": "919945f5acb9cb7092e1043a94cdcc941a9b07e5",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-018",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-018-SEVEN-DAY-DEMAND-REVISION-20261125",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-018-REVIEW-2",
+        "topicId": "math-y9-simultaneous-equations",
+        "provisionalConceptFamily": "weighted-mixture",
+        "stem": "A technician mixes two salt solutions: each 100 g of solution L contains 8 g of salt and each 100 g of solution H contains 20 g of salt. She makes 750 g of mixture containing 120 g of salt. She then removes 150 g of the well-mixed solution and replaces it with 150 g of a new mixture made from L and H. Assume no salt or solution is lost except for the stated removal. The final 750 g contains exactly 114 g of salt. How many grams of solution H were used in total across both mixing stages?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "500",
+            "errorPath": "Ignore the replacement stage."
+          },
+          {
+            "id": "B",
+            "latex": "50",
+            "errorPath": "Report only the high-concentration solution used in the replacement."
+          },
+          {
+            "id": "C",
+            "latex": "600",
+            "errorPath": "Assume the replacement has the same concentration as the initial mixture."
+          },
+          {
+            "id": "D",
+            "latex": "550"
+          },
+          {
+            "id": "E",
+            "latex": "650",
+            "errorPath": "Assume all replacement mass is 20% solution."
+          },
+          {
+            "id": "F",
+            "latex": "114",
+            "errorPath": "Report the final salt mass rather than the total high-concentration solution."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "550",
+        "workedSolutionSteps": [
+          "First mix: 0.08(750−h)+0.20h=120, so h=500 g.",
+          "Removing 150 g removes 24 g of salt. Final salt is 0.152×750=114 g, so the replacement contributes 18 g.",
+          "Let H be the high-concentration mass in the 150 g replacement: 0.08(150−H)+0.20H=18 gives H=50. Total=550 g."
+        ],
+        "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+        "unverifiedTaughtSubskill": "Use two successive mixture systems and account for removed salt.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-018-PRIORITY-CONTENT-REVIEW-20261124",
+        "provisionalCrossTopicMasteryHold": "Two-stage mixture conservation; related to Standard Form dilution and weighted allocations.",
+        "importAllowed": false
+      },
+      "demandNote": "The given masses replace percentage notation. Two mixture equations and a proportional removal must be linked; ordinary fraction arithmetic remains a prerequisite.",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-030",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-BALANCED-OPTION-ORDER-20261125",
+      "priorRecordPath": "qa-staging/math-priority39-balanced-options-20261125.json",
+      "priorRecordBlobSha": "cf7eff2935f98e395d63bd4dd5db59fac19edd68",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-030",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-SEVEN-DAY-DEMAND-REVISION-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-BALANCED-OPTION-ORDER-20261125",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "Real x,y satisfy $3x+2y=a$ and $x-2y=b$. The constants also satisfy $a+b=18$ and $2a-b=30$. A second system is $3u+2v=a+k$ and $u-2v=b-2k$. It is known that $u+v=x+y+3$. Find the ordered pair (k,u).",
+        "options": [
+          {
+            "id": "A",
+            "latex": "(24/5,57/10)",
+            "errorPath": "Find k correctly but add k/4 to x rather than subtract it."
+          },
+          {
+            "id": "B",
+            "latex": "(24/5,33/10)"
+          },
+          {
+            "id": "C",
+            "latex": "(3,15/4)",
+            "errorPath": "Treat k as equal to the stated increase of 3, then use u=x−k/4."
+          },
+          {
+            "id": "D",
+            "latex": "(-24/5,57/10)",
+            "errorPath": "Reverse the sign of the specified increase when deriving k."
+          },
+          {
+            "id": "E",
+            "latex": "(24/5,109/20)",
+            "errorPath": "Report v instead of u."
+          },
+          {
+            "id": "F",
+            "latex": "(12/5,39/10)",
+            "errorPath": "Use an increase of 1.5 rather than 3 to find k."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "(24/5,33/10)",
+        "workedSolutionSteps": [
+          "From a+b=18 and 2a−b=30, a=16,b=2. Then x=9/2,y=5/4.",
+          "Subtract the original equations from the new ones: 3(u−x)+2(v−y)=k and (u−x)−2(v−y)=−2k.",
+          "Adding gives u−x=−k/4; substituting gives v−y=7k/8. Thus (u+v)−(x+y)=5k/8=3, so k=24/5.",
+          "u=9/2−6/5=33/10, and v=109/20. Check both new equations and the increase."
+        ],
+        "unverifiedTaughtSubskill": "Core methods with listed constraints; specific classroom exposure and Grade 7+ demand unverified.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false,
+        "importAllowed": false
+      },
+      "demandNote": "Requires combining two levels of systems and using a solution invariant to recover the unknown RHS perturbation.",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ]
+}

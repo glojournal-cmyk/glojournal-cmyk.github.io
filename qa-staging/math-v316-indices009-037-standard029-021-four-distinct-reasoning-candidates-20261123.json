@@ -1,0 +1,248 @@
+{
+  "kind": "V316_FOUR_ADDITIONAL_DISTINCT_INDICES_STANDARD_FORM_REASONING_DRAFTS_QA_ONLY",
+  "date": "2026-11-23",
+  "pr": 306,
+  "branch": "feature/daily-tasks-v3-20261122",
+  "sourceBankPath": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "sourceBankUnmodified": true,
+  "methodFamilyRegisterPath": "qa-staging/math-v316-indices-standard-80-method-families-and-mastery-collisions-20261123.json",
+  "methodFamilyRegisterBlobSha": "9310d6c17562cc8f60d040645988b8c3f1e03bf9",
+  "totals": {
+    "newDrafts": 4,
+    "indices": 2,
+    "standardForm": 2,
+    "options": 24,
+    "wrongRationales": 20,
+    "independentlyGrade7PlusApproved": 0,
+    "formalAcademicApproved": 0,
+    "dailyEnabled": 0,
+    "masteryEnabled": 0
+  },
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-009",
+      "revisionId": "LUX-MATH-Y9-INDICES-009-V316-HIGHER-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-009-REVIEW-2",
+      "originalSourceTemplateGroup": "I-SUBSTITUTE-POWERS",
+      "proposedDistinctReasoningDemand": "Link exponent laws with two simultaneous integer constraints and transfer to a new power expression.",
+      "topicId": "math-y9-indices",
+      "stem": "Let $x=2^a$ and $y=2^b$, where $a$ and $b$ are integers from $1$ to $8$ inclusive. You are told that $xy=2^5$ and $\\frac{(xy^{-2})^2}{x^{-1}y}=2^{-1}$. What is the exact value of $x^2y$?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "128",
+          "errorPath": "Use the correct a=3 but mistakenly substitute b=1 rather than b=2 when evaluating 2^(2a+b)."
+        },
+        {
+          "id": "B",
+          "latex": "256"
+        },
+        {
+          "id": "C",
+          "latex": "512",
+          "errorPath": "After obtaining the correct a and b, incorrectly increase the final combined exponent 2a+b from 8 to 9."
+        },
+        {
+          "id": "D",
+          "latex": "32",
+          "errorPath": "Calculate xy=2^5 using only the supplied product, instead of the requested x^2y."
+        },
+        {
+          "id": "E",
+          "latex": "1024",
+          "errorPath": "Compute x^2y^2=2^(2a+2b) after solving, squaring y even though only x should be squared."
+        },
+        {
+          "id": "F",
+          "latex": "64",
+          "errorPath": "Compute x^2=2^(2a) and forget the remaining multiplication by y=2^2."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "256",
+      "workedSolutionSteps": [
+        "Simplify $\\frac{(xy^{-2})^2}{x^{-1}y}=\\frac{x^2y^{-4}}{x^{-1}y}=x^3y^{-5}$. Substituting $x=2^a,y=2^b$ gives $3a-5b=-1$.",
+        "The other condition $xy=2^5$ gives $a+b=5$. Substituting $b=5-a$ into the first equation gives $8a=24$, so $a=3,b=2$.",
+        "Therefore $x^2y=(2^3)^2(2^2)=2^8=256$. Both integer bounds are satisfied."
+      ],
+      "intendedAODemand": "AO2 transfer: two algebraic constraints in hidden integer exponents, not merely evaluate a supplied expression.",
+      "exactTaughtScopeUnverified": "Unknown whether constrained exponent relations are within current TGS taught material.",
+      "conceptDistinctnessFromPriorCandidatesUnverified": true,
+      "empiricalDistractorVerification": false,
+      "independentGrade7PlusCertification": false,
+      "teacherTaughtConfirmed": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-037",
+      "revisionId": "LUX-MATH-Y9-INDICES-037-V316-HIGHER-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-037-REVIEW-2",
+      "originalSourceTemplateGroup": "I-ROOT-QUADRATIC",
+      "proposedDistinctReasoningDemand": "Classify the same exponent family under two distinct divisibility tests, rather than reusing one resulting n.",
+      "topicId": "math-y9-indices",
+      "stem": "For integers $0\\le n\\le8$, define $T(n)=\\frac{\\sqrt{2^{2n+6}}\\times16^{n-1}}{8^{n-2}}$. Let $C$ be the number of these $n$ for which $T(n)$ is a **perfect cube**, and $S$ the number for which $T(n)$ is a **perfect square**. What is the ordered pair $(C,S)$?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "(0,3)",
+          "errorPath": "Switch the cube and square tests: the three valid cubes become wrongly labelled squares."
+        },
+        {
+          "id": "B",
+          "latex": "(3,3)",
+          "errorPath": "Assume every perfect cube is also a perfect square, without testing whether its exponent is even."
+        },
+        {
+          "id": "C",
+          "latex": "(3,0)"
+        },
+        {
+          "id": "D",
+          "latex": "(2,0)",
+          "errorPath": "Exclude the allowed upper endpoint n=8 and therefore miss the third exponent divisible by three."
+        },
+        {
+          "id": "E",
+          "latex": "(4,0)",
+          "errorPath": "Count n=0 as a cube even though the resulting exponent 5 is not divisible by three."
+        },
+        {
+          "id": "F",
+          "latex": "(0,0)",
+          "errorPath": "Use the fact the exponent is always odd to reject squares, then wrongly reject cubes as well."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "(3,0)",
+      "workedSolutionSteps": [
+        "Simplify the power: $\\sqrt{2^{2n+6}}=2^{n+3}$ and $\\frac{16^{n-1}}{8^{n-2}}=2^{n+2}$, giving $T(n)=2^{2n+5}$.",
+        "A perfect cube requires $2n+5$ divisible by $3$. For integers $n$ from $0$ through $8$ this happens at $n=2,5,8$, so $C=3$.",
+        "A perfect square requires an even exponent, but $2n+5$ is odd for every integer $n$, so $S=0$ and $(C,S)=(3,0)$."
+      ],
+      "intendedAODemand": "AO2 reasoning: compare cube versus square exponent divisibility with constrained enumeration.",
+      "exactTaughtScopeUnverified": "Needs class teaching confirmation on cube/square criteria for powers and integer modular enumeration.",
+      "conceptDistinctnessFromPriorCandidatesUnverified": true,
+      "empiricalDistractorVerification": false,
+      "independentGrade7PlusCertification": false,
+      "teacherTaughtConfirmed": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-029",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-029-V316-HIGHER-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-029-REVIEW-2",
+      "originalSourceTemplateGroup": "S-THREE-TERM-ARITHMETIC",
+      "proposedDistinctReasoningDemand": "Solve scientific-notation quantity, integer loading range and exact particle divisibility simultaneously.",
+      "topicId": "math-y9-standard-form",
+      "stem": "A research facility has $8\\times10^8$ identical particles, gains $4\\times10^7$, and then loses $2\\times10^7$. It must divide the remaining particles **equally**, with a whole number of particles in each cartridge. Each cartridge must hold at least $1.5\\times10^7$ and at most $2\\times10^7$ particles. What is the **greatest possible integer number $N$ of cartridges**?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "54",
+          "errorPath": "Use the largest integer count below the capacity quotient 820 million divided by 15 million, ignoring that particles per cartridge must be an integer."
+        },
+        {
+          "id": "B",
+          "latex": "41",
+          "errorPath": "Choose the minimum permitted cartridge count from the maximum cartridge load, rather than the greatest possible count."
+        },
+        {
+          "id": "C",
+          "latex": "50"
+        },
+        {
+          "id": "D",
+          "latex": "56",
+          "errorPath": "Omit the actual loss of 2×10^7 particles: use 840 million, then divide by 15 million to claim 56 equal cartridges, which fits only the incorrect total."
+        },
+        {
+          "id": "E",
+          "latex": "55",
+          "errorPath": "Round the upper cartridge-count bound 820 million divided by 15 million upward, violating the minimum per-cartridge load."
+        },
+        {
+          "id": "F",
+          "latex": "40",
+          "errorPath": "Ignore both later changes of plus 4×10^7 and minus 2×10^7, use the initial 8×10^8 alone, and divide it by the maximum load 2×10^7 to report 40 cartridges instead of optimising the true net count."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "50",
+      "workedSolutionSteps": [
+        "The remaining particle count is $8\\times10^8+4\\times10^7-2\\times10^7=8.2\\times10^8=820000000$.",
+        "If there are $N$ equal cartridges, the load limit gives $1.5\\times10^7\\le\\frac{820000000}{N}\\le2\\times10^7$, so integer $N$ lies from $41$ through $54$.",
+        "A whole number of particles per cartridge requires $N$ to divide $820000000$ exactly. None of $54,53,52,51$ divides it; $50$ does and gives $16400000$ particles in each cartridge, inside the load interval. Hence the greatest permitted $N$ is $50$."
+      ],
+      "intendedAODemand": "AO3 modelling: interpret standard-form quantities, capacity inequalities and divisibility of indivisible particles.",
+      "exactTaughtScopeUnverified": "Exact teaching of discrete divisibility within contextual inequality and scientific notation is unverified.",
+      "conceptDistinctnessFromPriorCandidatesUnverified": true,
+      "empiricalDistractorVerification": false,
+      "independentGrade7PlusCertification": false,
+      "teacherTaughtConfirmed": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-021",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-021-V316-HIGHER-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-021-REVIEW-2",
+      "originalSourceTemplateGroup": "S-CALIBRATED-PERCENT",
+      "proposedDistinctReasoningDemand": "Solve an interval of percentage calibrations rather than substituting a fixed correction.",
+      "topicId": "math-y9-standard-form",
+      "stem": "An instrument currently reads $6\\times10^5$ units; its earlier reading was $4\\times10^5$ units. The newer reading is corrected downwards by an **integer percentage $p$**, with $0\\le p\\le20$. The corrected reading must be between **25% and 35% greater than** the earlier reading, including both boundaries. How many different integer values of $p$ meet all the conditions?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "6",
+          "errorPath": "Exclude the valid boundary p=10 that gives exactly a 35% increase, despite the inclusive wording."
+        },
+        {
+          "id": "B",
+          "latex": "7"
+        },
+        {
+          "id": "C",
+          "latex": "8",
+          "errorPath": "Incorrectly include p=17, which yields only a 24.5% rise, below the minimum 25% requirement."
+        },
+        {
+          "id": "D",
+          "latex": "10",
+          "errorPath": "Report the smallest valid calibration percentage p=10, rather than counting every permitted integer."
+        },
+        {
+          "id": "E",
+          "latex": "16",
+          "errorPath": "Report the largest valid calibration percentage p=16, rather than counting all seven possibilities."
+        },
+        {
+          "id": "F",
+          "latex": "17",
+          "errorPath": "Report the first invalid calibration percentage p=17, confusing the upper excluded boundary with the number of allowed values."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "7",
+      "workedSolutionSteps": [
+        "The adjusted newer reading is $(6\\times10^5)(1-\\frac{p}{100})$, while the earlier reading is $4\\times10^5$. Its percentage increase relative to the earlier reading is $50-1.5p$.",
+        "The condition is $25\\le50-1.5p\\le35$. Solving both inequalities yields $10\\le p\\le\\frac{50}{3}$, in addition to the stated $0\\le p\\le20$.",
+        "Therefore $p$ may be any integer from $10$ to $16$, inclusive, giving $16-10+1=7$ possible values."
+      ],
+      "intendedAODemand": "AO2/AO3 reasoning: translate relative percentage requirement to a double inequality and count integer solutions.",
+      "exactTaughtScopeUnverified": "Actual class coverage of percentage modelling with compound inequalities is unverified.",
+      "conceptDistinctnessFromPriorCandidatesUnverified": true,
+      "empiricalDistractorVerification": false,
+      "independentGrade7PlusCertification": false,
+      "teacherTaughtConfirmed": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    }
+  ]
+}

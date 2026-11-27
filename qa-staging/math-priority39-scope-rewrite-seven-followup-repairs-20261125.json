@@ -1,0 +1,455 @@
+{
+  "kind": "PRIORITY39_SCOPE_REWRITE_FOLLOWUP_NO_RELEASE",
+  "date": "2026-11-25",
+  "sourceCommit": "a876d14bdaf65c459aa87c030dff72ff7171c3c7",
+  "sourceRegister": "qa-staging/math-priority116-post35-second-pass-qa-scope-triage-20261125.json",
+  "sourceRegisterBlobSha": "0921e5a54b5e846c108fdf4c1efb1a9fd0ba9655",
+  "counts": {
+    "revised": 7,
+    "formalApproved": 0
+  },
+  "limits": "Author follow-up and targeted arithmetic/structural checks only. All candidates still need independent review and grade calibration; no runtime/Vercel change.",
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-013",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-013-AUTUMN-SCOPE-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority39-scope-rewrite-indices-standard-simultaneous10-20261125.json",
+      "priorRecordBlobSha": "92b05428aca8094016954af39b63cc3770e37eaa",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-013",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-013-AUTUMN-SCOPE-REWRITE-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-013-AUTUMN-SCOPE-REWRITE-20261125",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "At supplier A, two identical packs P and three identical packs Q cost £7, while four P and five Q cost £12. At supplier B, the same two combinations cost £11 and £19 respectively. How much more does a purchase of five P and four Q cost at supplier B than at supplier A?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\pounds4",
+            "errorPath": "Count only Q price increase."
+          },
+          {
+            "id": "B",
+            "latex": "\\pounds6.50"
+          },
+          {
+            "id": "C",
+            "latex": "\\pounds2.50",
+            "errorPath": "Count only P price increase."
+          },
+          {
+            "id": "D",
+            "latex": "\\pounds1.50",
+            "errorPath": "Add per-pack increases without multiplying by quantities."
+          },
+          {
+            "id": "E",
+            "latex": "\\pounds19",
+            "errorPath": "Report supplier B quoted bundle total."
+          },
+          {
+            "id": "F",
+            "latex": "-\\pounds6.50",
+            "errorPath": "Reverse requested subtraction."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "\\pounds6.50",
+        "workedSolutionSteps": [
+          "Supplier A: double 2P+3Q=7 and subtract 4P+5Q=12, giving Q2, P0.50.",
+          "Supplier B: double 2P+3Q=11 and subtract 4P+5Q=19, giving Q3, P1.",
+          "Price increase=5×0.50+4×1=£6.50."
+        ],
+        "unverifiedTaughtSubskill": "Linear equation methods and bounded arithmetic as specified; classroom exposure unconfirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "LINEAR_SYSTEM_TRANSFER",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-036",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-AUTUMN-SCOPE-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority39-scope-rewrite-indices-standard-simultaneous10-20261125.json",
+      "priorRecordBlobSha": "92b05428aca8094016954af39b63cc3770e37eaa",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-036",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-AUTUMN-SCOPE-REWRITE-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-AUTUMN-SCOPE-REWRITE-20261125",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "Consider $2x+3y=18$ and $4x+ky=36+t$. The pair (k,t) is chosen from (4,−4), (5,−3), (7,4), (8,12), (10,−4). Which option gives the complete set of pairs for which the solution has BOTH x and y as strictly positive integers?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\{(4,-4),(5,-3),(7,4)\\}",
+            "errorPath": "Allow noninteger x=4.5."
+          },
+          {
+            "id": "B",
+            "latex": "\\{(4,-4),(7,4),(8,12)\\}",
+            "errorPath": "Allow x=0."
+          },
+          {
+            "id": "C",
+            "latex": "\\{(4,-4),(7,4)\\}"
+          },
+          {
+            "id": "D",
+            "latex": "\\{(7,4)\\}",
+            "errorPath": "Reject negative k−6 despite t also being negative."
+          },
+          {
+            "id": "E",
+            "latex": "\\{(4,-4),(5,-3),(7,4),(8,12)\\}",
+            "errorPath": "Test positive integral y only, not x."
+          },
+          {
+            "id": "F",
+            "latex": "\\{(4,-4)\\}",
+            "errorPath": "Reject k>6 despite valid (7,4)."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "\\{(4,-4),(7,4)\\}",
+        "workedSolutionSteps": [
+          "Eliminate x: (k−6)y=t; all supplied k≠6. Then x=(18−3y)/2.",
+          "The ordered (x,y) values are (6,2),(4.5,3),(3,4),(0,6),(10.5,−1).",
+          "Only (k,t)=(4,−4),(7,4) give two positive integers."
+        ],
+        "unverifiedTaughtSubskill": "Linear equation methods and bounded arithmetic as specified; classroom exposure unconfirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTEGER_FEASIBILITY",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-035",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-035-AUTUMN-SCOPE-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority39-scope-rewrite-changing-subject17-20261125.json",
+      "priorRecordBlobSha": "f14045b533a04c46b9652f38580c9f7995b55bc6",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-035",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-035-AUTUMN-SCOPE-REWRITE-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-035-AUTUMN-SCOPE-REWRITE-20261125",
+        "topicId": "math-y9-changing-subject",
+        "stem": "A meter outputs $y=(kx+2)/5$ and reads y=4 when x=3. A second meter outputs $z=(x+1)/2$. Integer inputs x lie from 0 to 12. Which choice gives x in terms of y AND the complete set S of inputs for which both y and z are integers?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=(5y-2)/6;\\ S=\\{3,8\\}",
+            "errorPath": "Test y only."
+          },
+          {
+            "id": "B",
+            "latex": "x=(5y-2)/6;\\ S=\\{3\\}"
+          },
+          {
+            "id": "C",
+            "latex": "x=(5y-2)/6;\\ S=\\{1,3,5,7,9,11\\}",
+            "errorPath": "Test z only."
+          },
+          {
+            "id": "D",
+            "latex": "x=(5y+2)/6;\\ S=\\{3\\}",
+            "errorPath": "Move +2 with wrong sign."
+          },
+          {
+            "id": "E",
+            "latex": "x=(5y-2)/6;\\ S=\\{3,13\\}",
+            "errorPath": "Ignore maximum input12."
+          },
+          {
+            "id": "F",
+            "latex": "x=(5y-2)/6;\\ S=\\{8\\}",
+            "errorPath": "Use even rather than odd x for z."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "x=(5y-2)/6;\\ S=\\{3\\}",
+        "workedSolutionSteps": [
+          "3k+2=20, k6; inverse x=(5y−2)/6.",
+          "Integer y occurs at x3,8; integer z requires odd x.",
+          "Only x3 qualifies."
+        ],
+        "unverifiedTaughtSubskill": "Linear equation methods and bounded arithmetic as specified; classroom exposure unconfirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTEGER_FEASIBILITY",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-029",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-029-AUTUMN-SCOPE-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority39-scope-rewrite-indices-standard-simultaneous10-20261125.json",
+      "priorRecordBlobSha": "92b05428aca8094016954af39b63cc3770e37eaa",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-029",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-029-AUTUMN-SCOPE-REWRITE-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-029-AUTUMN-SCOPE-REWRITE-20261125",
+        "topicId": "math-y9-standard-form",
+        "stem": "A storage bank contains $8.2\\times10^8$ identical records. Each full cartridge stores $1.6\\times10^7$ records; an index of $2\\times10^5$ records' worth of space must be reserved inside every cartridge. Cartridges can be partly filled, but the last must contain at least $1\\times10^6$ records. Using the fewest cartridges, load every cartridge except the last to its maximum usable capacity. Which pair gives the cartridge count and the number of records in the last cartridge, in standard form?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "(52,1.42\\times10^7)"
+          },
+          {
+            "id": "B",
+            "latex": "(52,4\\times10^6)",
+            "errorPath": "Ignore index reservation: 51×16m=816m, leaving4m."
+          },
+          {
+            "id": "C",
+            "latex": "(51,1.42\\times10^7)",
+            "errorPath": "Round down cartridge count while retaining remainder."
+          },
+          {
+            "id": "D",
+            "latex": "(59,8\\times10^6)",
+            "errorPath": "Misread reserved index as 2×10^6 rather than 2×10^5; capacity14m, 58 full cartridges hold812m, last8m."
+          },
+          {
+            "id": "E",
+            "latex": "(52,8.2\\times10^8)",
+            "errorPath": "Report total records instead of remainder."
+          },
+          {
+            "id": "F",
+            "latex": "(52,1.42\\times10^6)",
+            "errorPath": "Reduce exponent incorrectly when normalising remainder."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "(52,1.42\\times10^7)",
+        "workedSolutionSteps": [
+          "Usable capacity=1.58×10^7. 51 cartridges hold 8.058×10^8.",
+          "Remaining=1.42×10^7, which fits and exceeds the required minimum. Therefore 52 cartridges are necessary and sufficient.",
+          "Last cartridge contains 1.42×10^7 records."
+        ],
+        "unverifiedTaughtSubskill": "Core methods with listed constraints; specific classroom exposure and Grade 7+ demand unverified.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "FIXED_TOTAL_RESOURCE_ALLOCATION",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-009",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-009-AUTUMN-SCOPE-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority39-scope-rewrite-graphs12-20261125.json",
+      "priorRecordBlobSha": "894c187e3cb43684d07c76986599d5354663efe1",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-009",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-009-AUTUMN-SCOPE-REWRITE-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-009-AUTUMN-SCOPE-REWRITE-20261125",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "Lines A: $y=2x+1$ and B: $y=5-2x$ meet at P. A new line through P has y-intercept twice P's y-coordinate. A second new line through P is parallel to $y=x-4$. Find the difference between the x-intercepts of the two new lines (larger minus smaller).",
+        "options": [
+          {
+            "id": "A",
+            "latex": "4"
+          },
+          {
+            "id": "B",
+            "latex": "2",
+            "errorPath": "Report positive intercept only."
+          },
+          {
+            "id": "C",
+            "latex": "6",
+            "errorPath": "Report first new line's y-intercept rather than horizontal separation."
+          },
+          {
+            "id": "D",
+            "latex": "-4",
+            "errorPath": "Reverse subtraction."
+          },
+          {
+            "id": "E",
+            "latex": "\\frac52",
+            "errorPath": "Use original line A as second new line: x-intercept−1/2; difference2−(−1/2)=5/2."
+          },
+          {
+            "id": "F",
+            "latex": "3",
+            "errorPath": "Report P's y-coordinate."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "4",
+        "workedSolutionSteps": [
+          "P=(1,3). First new line has intercept6 and gradient−3, so x-intercept2.",
+          "Second line y=x+2 has x-intercept−2.",
+          "Difference=2−(−2)=4."
+        ],
+        "unverifiedTaughtSubskill": "Linear equations, gradients, parallel lines, intersections, integer enumeration and direct area as applicable. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTERCEPT_AREA",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-023",
+      "priorRevisionId": "LUX-MATH-Y9-INDICES-023-AUTUMN-SCOPE-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority39-scope-rewrite-indices-standard-simultaneous10-20261125.json",
+      "priorRecordBlobSha": "92b05428aca8094016954af39b63cc3770e37eaa",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-INDICES-023",
+        "revisionId": "LUX-MATH-Y9-INDICES-023-AUTUMN-SCOPE-REWRITE-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-INDICES-023-AUTUMN-SCOPE-REWRITE-20261125",
+        "topicId": "math-y9-indices",
+        "stem": "Positive x,y satisfy $x^2y^3=16$. Which expression is guaranteed to equal 4096 for every such pair?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x^6y^8",
+            "errorPath": "Miss one power of y; x=1/2,y=4 gives1024."
+          },
+          {
+            "id": "B",
+            "latex": "x^{10}y^{15}",
+            "errorPath": "Use T⁵ instead of T³."
+          },
+          {
+            "id": "C",
+            "latex": "\\frac{x^6y^9}{x^2y^3}",
+            "errorPath": "Use T² instead of T³."
+          },
+          {
+            "id": "D",
+            "latex": "\\frac{x^8y^{12}}{x^3y^4}",
+            "errorPath": "Subtract wrong powers, giving x⁵y⁸; at x=1/2,y=4 this is2048."
+          },
+          {
+            "id": "E",
+            "latex": "(x^{-2}y^{-3})^{-1}",
+            "errorPath": "Use T instead of T³."
+          },
+          {
+            "id": "F",
+            "latex": "\\frac{(x^4y^6)^2}{x^2y^3}"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "\\frac{(x^4y^6)^2}{x^2y^3}",
+        "workedSolutionSteps": [
+          "Write T=x²y³=16. Option F reduces to x⁶y⁹=T³=4096.",
+          "B=T⁵, C=T² and E=T, so all differ from4096.",
+          "For x=1/2,y=4, the constraint holds; A=1024 and D=2048, so neither is guaranteed to equal4096."
+        ],
+        "unverifiedTaughtSubskill": "Core methods with listed constraints; specific classroom exposure and Grade 7+ demand unverified.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "MONOMIAL_EXPONENT_RELATIONS",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-030",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-030-AUTUMN-SCOPE-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority39-scope-rewrite-graphs12-20261125.json",
+      "priorRecordBlobSha": "894c187e3cb43684d07c76986599d5354663efe1",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-030",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-030-AUTUMN-SCOPE-REWRITE-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-030-AUTUMN-SCOPE-REWRITE-20261125",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "A line through A=(k,6) and B=(2,3), with k<2, meets both positive coordinate axes. Its y-intercept is exactly 3 times its x-intercept. Find k and the area of its axis-intercept triangle.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "k=1;\\ \\frac{27}{2}"
+          },
+          {
+            "id": "B",
+            "latex": "k=1;\\ 27",
+            "errorPath": "Omit triangle factor1/2."
+          },
+          {
+            "id": "C",
+            "latex": "k=3;\\ \\frac32",
+            "errorPath": "Use +3 instead of −3 as gradient; line through B becomes y=3x−3, giving k3 and triangle area3/2; intercepts violate given signs."
+          },
+          {
+            "id": "D",
+            "latex": "k=1;\\ \\frac{81}{2}",
+            "errorPath": "Use y-intercept9 as both base and height."
+          },
+          {
+            "id": "E",
+            "latex": "k=1;\\ 9",
+            "errorPath": "Report y-intercept rather than area."
+          },
+          {
+            "id": "F",
+            "latex": "k=-1;\\ \\frac{27}{2}",
+            "errorPath": "Reverse sign of k."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "k=1;\\ \\frac{27}{2}",
+        "workedSolutionSteps": [
+          "If intercepts are a,3a, gradient=−3. Line through B is y=−3x+9.",
+          "At A, 6=−3k+9 gives k1.",
+          "Intercepts3,9; area13.5."
+        ],
+        "unverifiedTaughtSubskill": "Linear equations, gradients, parallel lines, intersections, integer enumeration and direct area as applicable. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTERCEPT_AREA",
+      "scopeDisposition": "CORE_METHOD_REWRITE_CANDIDATE_NOT_CLASS_CONFIRMED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ]
+}

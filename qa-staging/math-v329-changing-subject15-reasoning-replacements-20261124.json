@@ -1,0 +1,843 @@
+{
+  "kind": "MATHS_V329_CHANGING_SUBJECT_15_REASONING_CANDIDATES_QA_ONLY",
+  "date": "2026-11-24",
+  "branch": "feature/daily-tasks-v3-20261122",
+  "pr": 306,
+  "sourceBankPath": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "priorV323Register": "qa-staging/math-v323-canonical200-all-topics-hold-dispositions-source-exact-20261124.json",
+  "status": "STAGING_ONLY_NOT_APPROVED_NOT_IMPORTED",
+  "count": 15,
+  "optionsCount": 90,
+  "wrongOptionExplanationsCount": 75,
+  "academicApprovals": 0,
+  "dailyEligible": 0,
+  "masteryEligible": 0,
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-016",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-016-V329-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-016-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "rational-inverse-parameter-degenerate-case",
+      "stem": "For real x with $x\\ne-2$, the equation $y=\\frac{ax+6}{x+2}$ holds. When y=3, every permitted x is a solution. For this value of a, how many permitted real x satisfy y=4?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "0"
+        },
+        {
+          "id": "B",
+          "latex": "1",
+          "errorPath": "Assume the rearranged equation always has one solution; the algebra leads only to the excluded x=-2."
+        },
+        {
+          "id": "C",
+          "latex": "2",
+          "errorPath": "Treat the rational equation as quadratic without justification."
+        },
+        {
+          "id": "D",
+          "latex": "3",
+          "errorPath": "Report the value of a rather than the number of solutions."
+        },
+        {
+          "id": "E",
+          "latex": "4",
+          "errorPath": "Report the requested value of y rather than the number of solutions."
+        },
+        {
+          "id": "F",
+          "latex": "\\text{Infinitely many}",
+          "errorPath": "Assume the identity for y=3 is also an identity for y=4."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "0",
+      "workedSolutionSteps": [
+        "For y=3, cross-multiplication gives 3x+6=ax+6 for every x≠−2. Hence a=3.",
+        "For a=3 the fraction is (3x+6)/(x+2)=3 throughout its domain.",
+        "It cannot equal 4. Equivalently, cross-multiplication for y=4 gives x=−2, which is excluded."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Rational formula rearrangement, identity and excluded values.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-023",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-023-V329-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-023-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "inverse-rational-reconstruct-parameter",
+      "stem": "The formula $y=\\frac{ax+5}{x+1}$ is defined for x≠−1. When y=4, its solution is x=2. For which real value of y does the formula have no permitted real x? ",
+      "options": [
+        {
+          "id": "A",
+          "latex": "4",
+          "errorPath": "Report the output used to determine a."
+        },
+        {
+          "id": "B",
+          "latex": "5",
+          "errorPath": "Use the output at x=0, which is actually attainable."
+        },
+        {
+          "id": "C",
+          "latex": "2",
+          "errorPath": "Report the given input x."
+        },
+        {
+          "id": "D",
+          "latex": "-\\frac{7}{2}",
+          "errorPath": "Lose the sign of a when equating the coefficient of x to zero."
+        },
+        {
+          "id": "E",
+          "latex": "7",
+          "errorPath": "Omit division by 2 after finding 2a=7."
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{7}{2}"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "\\frac{7}{2}",
+      "workedSolutionSteps": [
+        "Substitute x=2,y=4: 12=2a+5, hence a=7/2.",
+        "Rearrange y(x+1)=(7/2)x+5 to get (y−7/2)x=5−y.",
+        "At y=7/2 the left side is zero but the right is 3/2. For every other y the rearranged solution is not −1, so only y=7/2 is impossible."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Parameter inference and unattainable output of rational formula.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-025",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-025-V329-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-025-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "reciprocal-radical-inverse-comparison",
+      "stem": "For $x>-2$, let $y=1+\\frac{6}{\\sqrt{2x+4}}$. The input is changed so that y−1 doubles. If the original input was x=16, what is the new input? ",
+      "options": [
+        {
+          "id": "A",
+          "latex": "7",
+          "errorPath": "Halve the radicand 2x+4 rather than quartering it."
+        },
+        {
+          "id": "B",
+          "latex": "4",
+          "errorPath": "Divide the original x by four without accounting for the offset in the radicand."
+        },
+        {
+          "id": "C",
+          "latex": "34",
+          "errorPath": "Double the radicand to 72 instead of halving the square-root denominator: x=(72−4)/2=34."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{5}{2}"
+        },
+        {
+          "id": "E",
+          "latex": "70",
+          "errorPath": "Multiply the radicand by four to 144 instead of dividing by four: x=(144−4)/2=70."
+        },
+        {
+          "id": "F",
+          "latex": "9",
+          "errorPath": "Report the new radicand rather than solving for x."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "\\frac{5}{2}",
+      "workedSolutionSteps": [
+        "Initially 2x+4=36, so y−1=1.",
+        "Doubling y−1 to 2 halves the square-root denominator from 6 to 3, giving radicand 9.",
+        "Solve 2x+4=9 to obtain x=5/2, in the allowed domain."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Inverse-square scaling in shifted reciprocal radical formula.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-026",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-026-V329-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-026-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "reciprocal-radical-domain-output",
+      "stem": "For real x with $x>-1$, let $y=2-\\frac{3}{\\sqrt{x+1}}$. Which condition describes exactly the possible real values of y?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "y>2",
+          "errorPath": "Treat the subtracted positive fraction as an addition."
+        },
+        {
+          "id": "B",
+          "latex": "y\\le2",
+          "errorPath": "Include the unattainable boundary y=2."
+        },
+        {
+          "id": "C",
+          "latex": "y<2"
+        },
+        {
+          "id": "D",
+          "latex": "y\\ge-1",
+          "errorPath": "Confuse the input restriction x>−1 with the output restriction."
+        },
+        {
+          "id": "E",
+          "latex": "y< -1",
+          "errorPath": "Use only x=0, whose output is −1, as an upper bound."
+        },
+        {
+          "id": "F",
+          "latex": "\\text{All real }y",
+          "errorPath": "Square during rearrangement and lose the requirement that 2−y is positive."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "y<2",
+      "workedSolutionSteps": [
+        "The denominator is positive for every allowed x, so 3/√(x+1)>0 and y<2.",
+        "For any y<2, rearranging gives √(x+1)=3/(2−y)>0.",
+        "The resulting x=9/(2−y)^2−1 is always greater than −1, so every y<2 is attained."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Reciprocal radical inverse and exact output range.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-027",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-027-V329-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-027-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "radical-inverse-compare-parameters",
+      "stem": "A positive quantity t is related to x by $t=\\frac{4}{\\sqrt{3x+1}}$. If t changes from 2 to 1, find the increase in x.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "1",
+          "errorPath": "Find x at t=2 but do not subtract it from the new x."
+        },
+        {
+          "id": "B",
+          "latex": "4"
+        },
+        {
+          "id": "C",
+          "latex": "5",
+          "errorPath": "Find x at t=1 and report the new value alone."
+        },
+        {
+          "id": "D",
+          "latex": "2",
+          "errorPath": "Report the increase in the square-root denominator, from 2 to 4, rather than the increase in x."
+        },
+        {
+          "id": "E",
+          "latex": "12",
+          "errorPath": "Find the increase in 3x+1 rather than x."
+        },
+        {
+          "id": "F",
+          "latex": "-4",
+          "errorPath": "Subtract the new input from the original input."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "4",
+      "workedSolutionSteps": [
+        "Rearrange: 3x+1=16/t².",
+        "At t=2, x=(4−1)/3=1; at t=1, x=(16−1)/3=5.",
+        "The increase is 5−1=4."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Reverse radical model at two outputs; inverse-square relationship.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-028",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-028-V329-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-028-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "radical-inverse-sign-validation",
+      "stem": "A student rearranges $y=3+\\frac{2}{\\sqrt{x-1}}$ to $x=1+\\frac{4}{(y-3)^2}$. The original domain is x>1. Which output below gives an x that satisfies the student's rearrangement but does NOT satisfy the original formula?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "1"
+        },
+        {
+          "id": "B",
+          "latex": "4",
+          "errorPath": "This gives x=5, and the original output is 4."
+        },
+        {
+          "id": "C",
+          "latex": "5",
+          "errorPath": "This gives x=2, and the original output is 5."
+        },
+        {
+          "id": "D",
+          "latex": "7",
+          "errorPath": "This gives x=5/4, and the original output is 7."
+        },
+        {
+          "id": "E",
+          "latex": "6",
+          "errorPath": "This gives x=13/9, and the original output is 6."
+        },
+        {
+          "id": "F",
+          "latex": "9",
+          "errorPath": "This gives x=10/9, and the original output is 9."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "1",
+      "workedSolutionSteps": [
+        "The original fraction is positive, so the original formula requires y>3.",
+        "At y=1 the squared rearrangement gives x=1+4/4=2, a permitted input.",
+        "But the original formula at x=2 gives 3+2=5, not 1. Squaring lost the sign restriction."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Extraneous outputs introduced by squaring a reciprocal radical.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-030",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-030-V329-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-030-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "rational-rearrangement-for-parameter",
+      "stem": "Let $y=2+\\frac{a(x+1)}{2x+3}$, where x≠−3/2. The input x=1 produces y=6. With the same a, which input produces y=5?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "0",
+          "errorPath": "Round the negative fractional solution −1/4 to a whole number even though an exact input is required."
+        },
+        {
+          "id": "B",
+          "latex": "-1",
+          "errorPath": "Set the numerator x+1 to zero, which produces y=2."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{1}{4}",
+          "errorPath": "Lose the negative sign when solving the rearranged linear equation."
+        },
+        {
+          "id": "D",
+          "latex": "-\\frac{3}{2}",
+          "errorPath": "Use the excluded zero-denominator input."
+        },
+        {
+          "id": "E",
+          "latex": "-\\frac{1}{4}"
+        },
+        {
+          "id": "F",
+          "latex": "1",
+          "errorPath": "Reuse the input from the first observation rather than solving for the new output."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "-\\frac{1}{4}",
+      "workedSolutionSteps": [
+        "At x=1,y=6: 4=2a/5, so a=10.",
+        "For y=5: 3(2x+3)=10(x+1), giving 6x+9=10x+10.",
+        "Thus x=−1/4; its denominator is nonzero and substitution gives y=5."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Determine unknown formula coefficient then invert for another output.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-031",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-031-V329-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-031-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "rational-inverse-inequality-positive-denominator",
+      "stem": "For x≥0, let $y=1+\\frac{4x+2}{x+3}$. What is the smallest real x for which y≥4?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3",
+          "errorPath": "Treat y−1 as the required input."
+        },
+        {
+          "id": "B",
+          "latex": "1",
+          "errorPath": "Use the slope difference 4−3 without solving the inequality."
+        },
+        {
+          "id": "C",
+          "latex": "9",
+          "errorPath": "Omit the constant +2 when multiplying out the inequality, giving x≥9."
+        },
+        {
+          "id": "D",
+          "latex": "7"
+        },
+        {
+          "id": "E",
+          "latex": "11",
+          "errorPath": "Move +2 to the wrong side, giving x≥11."
+        },
+        {
+          "id": "F",
+          "latex": "-7",
+          "errorPath": "Reverse the sign when collecting terms."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "7",
+      "workedSolutionSteps": [
+        "Since x≥0, x+3 is strictly positive, so multiplying preserves inequality direction.",
+        "The condition is 4x+2≥3(x+3), hence x≥7.",
+        "The boundary x=7 gives y=4 exactly; the minimum is 7."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Rational rearrangement under a known denominator sign.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-032",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-032-V329-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-032-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "rational-inverse-equal-output-distinct-formulas",
+      "stem": "For real x with x≠−1 and x≠2, suppose $\\frac{2x+3}{x+1}=\\frac{x+4}{x-2}$. What is the sum of all permitted real solutions?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "-6",
+          "errorPath": "Take the opposite sign for the sum of roots."
+        },
+        {
+          "id": "B",
+          "latex": "10",
+          "errorPath": "Report the magnitude of the product of roots instead of their sum."
+        },
+        {
+          "id": "C",
+          "latex": "6"
+        },
+        {
+          "id": "D",
+          "latex": "-10",
+          "errorPath": "Report the signed product of roots rather than the sum."
+        },
+        {
+          "id": "E",
+          "latex": "5",
+          "errorPath": "Omit the −x term when expanding the left-hand product, giving x²−5x−10=0 and sum 5."
+        },
+        {
+          "id": "F",
+          "latex": "2",
+          "errorPath": "Omit 4x when expanding the right-hand product, giving x²−2x−10=0 and sum 2."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "6",
+      "workedSolutionSteps": [
+        "Cross-multiply: (2x+3)(x−2)=(x+4)(x+1).",
+        "Expand: 2x²−x−6=x²+5x+4, hence x²−6x−10=0.",
+        "The two real roots are 3±√19; neither is −1 nor 2. Their sum is 6."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Rational equations, cross-multiplication and checking roots.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-034",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-034-V329-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-034-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "nested-reciprocal-inverse-excluded-output",
+      "stem": "For real x with x≠−1 and x≠−2, let $y=\\frac{2}{1+\\frac{1}{x+1}}$. Which real output y is impossible even though the rearranged expression $x=\\frac{2y-2}{2-y}$ gives a finite real number?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "0"
+        },
+        {
+          "id": "B",
+          "latex": "2",
+          "errorPath": "This output makes the rearranged denominator zero, so it does not give a finite x."
+        },
+        {
+          "id": "C",
+          "latex": "1",
+          "errorPath": "The rearrangement gives x=0, which is allowed and yields y=1."
+        },
+        {
+          "id": "D",
+          "latex": "3",
+          "errorPath": "The rearrangement gives x=−4, which is allowed and yields y=3."
+        },
+        {
+          "id": "E",
+          "latex": "4",
+          "errorPath": "The rearrangement gives x=−3, which is allowed and yields y=4."
+        },
+        {
+          "id": "F",
+          "latex": "-2",
+          "errorPath": "The rearrangement gives x=−3/2, which is allowed and yields y=−2."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "0",
+      "workedSolutionSteps": [
+        "Combining the inner fraction gives y=2(x+1)/(x+2), still excluding both −1 and −2.",
+        "Rearrange to x=(2y−2)/(2−y), defined for y≠2.",
+        "When y=0, the rearrangement yields x=−1, excluded by the original inner denominator. Thus zero is an impossible output despite a finite algebraic inverse."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Nested rational formulas and retained domain holes.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-035",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-035-V329-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-035-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "nested-inverse-two-observations",
+      "stem": "Let $y=\\frac{6}{2+\\frac{k}{x+1}}$, with every denominator nonzero. When x=2, y=2. For this k, what input gives y=4?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "5",
+          "errorPath": "Use x+1=+6 instead of −6, losing the sign of the inner denominator."
+        },
+        {
+          "id": "B",
+          "latex": "-6",
+          "errorPath": "Report x+1 rather than x."
+        },
+        {
+          "id": "C",
+          "latex": "-1",
+          "errorPath": "Choose the excluded inner-denominator zero."
+        },
+        {
+          "id": "D",
+          "latex": "2",
+          "errorPath": "Reuse the original input."
+        },
+        {
+          "id": "E",
+          "latex": "3",
+          "errorPath": "Report the inferred parameter k rather than the required x."
+        },
+        {
+          "id": "F",
+          "latex": "-7"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "-7",
+      "workedSolutionSteps": [
+        "At x=2,y=2: 3=2+k/3, hence k=3.",
+        "For y=4: 3/2=2+3/(x+1), giving 3/(x+1)=−1/2.",
+        "Thus x+1=−6 and x=−7; both denominators in the original formula are nonzero."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Infer parameter, invert nested rational formula and validate signs.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-036",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-036-V329-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-036-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "nested-inverse-order-operations",
+      "stem": "For real x with x≠0 and x≠−3, let $y=1+\\frac{2}{1+\\frac{3}{x}}$. If y is changed from 2 to 5, find the change in x (new x minus old x).",
+      "options": [
+        {
+          "id": "A",
+          "latex": "-6",
+          "errorPath": "Report the new input alone instead of the change."
+        },
+        {
+          "id": "B",
+          "latex": "3",
+          "errorPath": "Report the old input alone."
+        },
+        {
+          "id": "C",
+          "latex": "9",
+          "errorPath": "Subtract new from old rather than old from new."
+        },
+        {
+          "id": "D",
+          "latex": "-3",
+          "errorPath": "Assume the excluded x=−3 is the new input and report it."
+        },
+        {
+          "id": "E",
+          "latex": "-9"
+        },
+        {
+          "id": "F",
+          "latex": "-\\frac{3}{2}",
+          "errorPath": "Report the change in the inner denominator, 1/2−2=−3/2, rather than the change in x."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "-9",
+      "workedSolutionSteps": [
+        "At y=2, 1+3/x=2 gives x=3.",
+        "At y=5, 1+3/x=1/2 gives x=−6.",
+        "Both inputs are allowed. The change is −6−3=−9."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Invert nested reciprocal at two outputs and calculate signed change.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-038",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-038-V329-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-038-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "radical-rational-inverse-two-candidates",
+      "stem": "For real x with $x\\ne-2$ and $(x+6)/(x+2)\\ge0$, let $y=1+\\sqrt{\\frac{x+6}{x+2}}$. Which pair gives the correct rearrangement for x and the exact restriction on y?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "x=\\frac{6-2(y-1)^2}{(y-1)^2-1},\\quad y\\ne2",
+          "errorPath": "Correct algebra but omits the principal square-root condition y≥1."
+        },
+        {
+          "id": "B",
+          "latex": "x=\\frac{6-2(y-1)^2}{(y-1)^2-1},\\quad y>2",
+          "errorPath": "Rejects valid outputs from 1 up to but not including 2, such as y=1 at x=−6."
+        },
+        {
+          "id": "C",
+          "latex": "x=\\frac{6-2(y-1)^2}{(y-1)^2-1},\\quad y\\ge1,\\ y\\ne2"
+        },
+        {
+          "id": "D",
+          "latex": "x=\\frac{6-2(y-1)^2}{(y-1)^2-1},\\quad y\\ge1",
+          "errorPath": "Omits the impossible output y=2, where the inverse denominator is zero."
+        },
+        {
+          "id": "E",
+          "latex": "x=\\frac{6-2(y-1)}{y-2},\\quad y\\ge1,\\ y\\ne2",
+          "errorPath": "Fails to square the isolated radical before solving."
+        },
+        {
+          "id": "F",
+          "latex": "x=\\frac{2(y-1)^2-6}{(y-1)^2-1},\\quad y\\ge1,\\ y\\ne2",
+          "errorPath": "Reverses the numerator sign when collecting the x terms."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "x=\\frac{6-2(y-1)^2}{(y-1)^2-1},\\quad y\\ge1,\\ y\\ne2",
+      "workedSolutionSteps": [
+        "The principal radical requires y≥1. Isolate and square: (y−1)²=(x+6)/(x+2).",
+        "Collect x terms: [(y−1)²−1]x=6−2(y−1)². The denominator vanishes at y=2 within y≥1; the original equation then requires 0=4.",
+        "For any y≥1 except 2, set t=(y−1)². The inverse x=(6−2t)/(t−1) gives x+2=4/(t−1)≠0 and radicand t≥0. Thus every such y is attained."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Symbolic inverse of rational radical and exact output domain, including excluded values.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-039",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-039-V329-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-039-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "radical-rational-inverse-unattainable-boundary",
+      "stem": "For real x where $x\\ne-1$ and $(4x+9)/(x+1)\\ge0$, let $y=2+\\sqrt{\\frac{4x+9}{x+1}}$. Which y is impossible, although it satisfies the necessary condition y≥2?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2",
+          "errorPath": "This is attainable at x=−9/4, giving radicand zero."
+        },
+        {
+          "id": "B",
+          "latex": "4"
+        },
+        {
+          "id": "C",
+          "latex": "3",
+          "errorPath": "This is attainable at x=−8/3, giving radicand 1."
+        },
+        {
+          "id": "D",
+          "latex": "5",
+          "errorPath": "This is attainable at x=0, giving radicand 9."
+        },
+        {
+          "id": "E",
+          "latex": "6",
+          "errorPath": "This is attainable at x=−7/12, giving radicand 16."
+        },
+        {
+          "id": "F",
+          "latex": "7",
+          "errorPath": "This is attainable at x=−16/21, giving radicand 25."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "4",
+      "workedSolutionSteps": [
+        "Write (y−2)²=(4x+9)/(x+1). Rearranging gives ((y−2)²−4)x=9−(y−2)².",
+        "When y=4, the left coefficient is zero but the right side is 5, so no x exists.",
+        "The other listed outputs have y≥2 and their finite inverse inputs are allowed; substitution verifies each."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Radical rational inverse and a missing output in the allowed sign range.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-040",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-040-V329-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-040-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "radical-rational-inverse-constraint-transfer",
+      "stem": "For $x>0$, let $y=\\sqrt{\\frac{9x+4}{x}}$. If y is changed from 4 to 5, what is the ratio of the new input to the old input, in simplest form?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "7:16"
+        },
+        {
+          "id": "B",
+          "latex": "16:7",
+          "errorPath": "Reverse the requested ratio."
+        },
+        {
+          "id": "C",
+          "latex": "4:5",
+          "errorPath": "Use the reciprocal of the new-to-old output ratio without accounting for the squared terms or the offset."
+        },
+        {
+          "id": "D",
+          "latex": "16:25",
+          "errorPath": "Use the ratio of output squares, ignoring the constant 9."
+        },
+        {
+          "id": "E",
+          "latex": "7:25",
+          "errorPath": "Subtract 9 from the old output squared but not the new output squared."
+        },
+        {
+          "id": "F",
+          "latex": "16:9",
+          "errorPath": "Compare the new shifted square with the constant in the formula."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "7:16",
+      "workedSolutionSteps": [
+        "Squaring and rearranging gives y²=9+4/x, so x=4/(y²−9).",
+        "At y=4, x=4/7; at y=5, x=4/16=1/4.",
+        "The ratio new:old is (4/16):(4/7)=7:16; both inputs are positive."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+      "unverifiedTaughtSubskill": "Inverse rational model after squaring and compare two inputs.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    }
+  ]
+}

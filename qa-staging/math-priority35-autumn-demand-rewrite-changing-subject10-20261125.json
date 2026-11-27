@@ -1,0 +1,654 @@
+{
+  "kind": "BORDERLINE35_AUTUMN_CORE_REWRITE_BATCH_NO_RELEASE",
+  "date": "2026-11-25",
+  "sourceRegister": "qa-staging/math-priority116-school-scope-higher-demand-screen-20261124.json",
+  "sourceRegisterBlobSha": "1f60b643177afaa70f41f7091da9c2d5b72e74ba",
+  "sourceCommit": "1a3756bdd18da05435b2989d9d22c47d8ef70ad0",
+  "counts": {
+    "rewritten": 10,
+    "formalApproved": 0
+  },
+  "limits": "Author-drafted; independent QA, class scope and grade calibration pending. No runtime/Vercel changes.",
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-005",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-005-ACADEMIC-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-final-academic-review-changing-subject40-20261124.json",
+      "priorRecordBlobSha": "6181830c46fe390adc7c26ee79d27a1aa228bed5",
+      "priorAnswer": "x=\\frac{(y^2-4)^2}{4y^2}, y\\ge2",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-005",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-005-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-005-ACADEMIC-REVIEW-20261124",
+        "topicId": "math-y9-changing-subject",
+        "stem": "Two meters display $F=(3x+2k)/5$ and $G=(2x-k)/3$, where k is fixed. When x=3, F−G=2. Write d=F−G. Which option makes x the subject in terms of d and gives x when d=1?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=15d-33,\\ x=-18",
+            "errorPath": "Reverse subtraction when isolating x."
+          },
+          {
+            "id": "B",
+            "latex": "x=33+15d,\\ x=48",
+            "errorPath": "Move 15d with wrong sign."
+          },
+          {
+            "id": "C",
+            "latex": "x=33-15d,\\ x=18"
+          },
+          {
+            "id": "D",
+            "latex": "x=30-15d,\\ x=15",
+            "errorPath": "Omit x in calibration: 11k=30."
+          },
+          {
+            "id": "E",
+            "latex": "x=33-5d,\\ x=28",
+            "errorPath": "Multiply d by5 instead of15 after calibration."
+          },
+          {
+            "id": "F",
+            "latex": "x=33-15d,\\ x=3",
+            "errorPath": "Report k instead of x."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "x=33-15d,\\ x=18",
+        "workedSolutionSteps": [
+          "15d=11k−x.",
+          "At x=3,d=2: 30=11k−3, so k=3.",
+          "x=33−15d; d=1 gives18."
+        ],
+        "unverifiedTaughtSubskill": "Linear or squared-variable formula rearrangement; linked equations, integer constraints or calibration as specified in stem.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "CALIBRATION_AND_INVERSE",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-007",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-007-PRIORITY-CONTENT-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-priority116-content-acceptance-changing-subject30-20261124.json",
+      "priorRecordBlobSha": "b7df0d7ccca85c2b0ff02844db9994dc1d5d50a3",
+      "priorAnswer": "x=\\frac{(1+y)^2}{(1-y)^2}-2, 0\\le y<1",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-007",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-007-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-007-PRIORITY-CONTENT-REVIEW-20261124",
+        "topicId": "math-y9-changing-subject",
+        "stem": "Two readings are $P=(3x+2y)/5$ and $Q=(x-4y)/3$. Which option makes x the subject in terms of P and Q, and gives the change in x when P increases by 2 and Q decreases by 3?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=\\frac{10P+3Q}{7},\\ \\Delta x=\\frac{11}{7}"
+          },
+          {
+            "id": "B",
+            "latex": "x=\\frac{10P-3Q}{7},\\ \\Delta x=\\frac{29}{7}",
+            "errorPath": "Subtract rather than add second reading."
+          },
+          {
+            "id": "C",
+            "latex": "x=\\frac{5P+3Q}{7},\\ \\Delta x=\\frac17",
+            "errorPath": "Forget to double 5P."
+          },
+          {
+            "id": "D",
+            "latex": "x=\\frac{10P+3Q}{6},\\ \\Delta x=\\frac{11}{6}",
+            "errorPath": "Add x coefficients incorrectly as6."
+          },
+          {
+            "id": "E",
+            "latex": "x=\\frac{10P+3Q}{7},\\ \\Delta x=\\frac{29}{7}",
+            "errorPath": "Treat Q decrease as positive."
+          },
+          {
+            "id": "F",
+            "latex": "x=\\frac{10P+3Q}{7},\\ \\Delta x=11",
+            "errorPath": "Forget division by7."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "x=\\frac{10P+3Q}{7},\\ \\Delta x=\\frac{11}{7}",
+        "workedSolutionSteps": [
+          "10P=6x+4y and 3Q=x−4y.",
+          "Adding gives 10P+3Q=7x.",
+          "Change=(20−9)/7=11/7."
+        ],
+        "unverifiedTaughtSubskill": "Linear or squared-variable formula rearrangement; linked equations, integer constraints or calibration as specified in stem.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "LINEAR_SYSTEM_TRANSFER",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-009",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-009-ACADEMIC-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-final-academic-review-changing-subject40-20261124.json",
+      "priorRecordBlobSha": "6181830c46fe390adc7c26ee79d27a1aa228bed5",
+      "priorAnswer": "k=3,x=\\frac{5y-4}{3-2y},\\frac{4}{5}\\le y<\\frac{3}{2}",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-009",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-009-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-009-ACADEMIC-REVIEW-20261124",
+        "topicId": "math-y9-changing-subject",
+        "stem": "A machine gives $y=(kx+4)/5$; a second display gives $z=2y-(x+1)/3$. When x=3, y=5. Which option makes x the subject of the combined model and gives x when z=31/5?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=\\frac{15z+19}{37},\\ x=\\frac{112}{37}",
+            "errorPath": "Move19 with wrong sign."
+          },
+          {
+            "id": "B",
+            "latex": "x=\\frac{15z-19}{47},\\ x=\\frac{74}{47}",
+            "errorPath": "Add5x instead of subtracting."
+          },
+          {
+            "id": "C",
+            "latex": "x=\\frac{15z-19}{37},\\ x=2"
+          },
+          {
+            "id": "D",
+            "latex": "x=\\frac{15z-19}{53},\\ x=\\frac{74}{53}",
+            "errorPath": "Use 3k=25+4, giving k=29/3 and coefficient53."
+          },
+          {
+            "id": "E",
+            "latex": "x=\\frac{5z-4}{7},\\ x=\\frac{27}{7}",
+            "errorPath": "Treat z as first display y."
+          },
+          {
+            "id": "F",
+            "latex": "x=\\frac{15z-19}{37},\\ x=\\frac{31}{5}",
+            "errorPath": "Report given z instead of x."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "x=\\frac{15z-19}{37},\\ x=2",
+        "workedSolutionSteps": [
+          "3k+4=25, so k=7.",
+          "15z=6(7x+4)−5(x+1)=37x+19.",
+          "x=(15z−19)/37; z=31/5 gives2."
+        ],
+        "unverifiedTaughtSubskill": "Linear or squared-variable formula rearrangement; linked equations, integer constraints or calibration as specified in stem.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "CALIBRATION_AND_INVERSE",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-011",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-011-ACADEMIC-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-final-academic-review-changing-subject40-20261124.json",
+      "priorRecordBlobSha": "6181830c46fe390adc7c26ee79d27a1aa228bed5",
+      "priorAnswer": "k=\\pm3\\sqrt{2}",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-011",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-011-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-011-ACADEMIC-REVIEW-20261124",
+        "topicId": "math-y9-changing-subject",
+        "stem": "Two outputs are $y=(kx+6)/3$ and $z=(2x-k)/5$. The real constant k is chosen so that y+z is the same for every real x. Let d=y−z. Which choice gives k and makes x the subject in terms of d?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "k=\\frac65,\\ x=\\frac{44-25d}{20}",
+            "errorPath": "Set 5k−6=0 instead of 5k+6=0; inverse component retained."
+          },
+          {
+            "id": "B",
+            "latex": "k=-\\frac65,\\ x=\\frac{44+25d}{20}",
+            "errorPath": "Move d with wrong sign."
+          },
+          {
+            "id": "C",
+            "latex": "k=-\\frac65,\\ x=\\frac{56-25d}{20}",
+            "errorPath": "Use 30−3k in difference, producing56."
+          },
+          {
+            "id": "D",
+            "latex": "k=-\\frac65,\\ x=\\frac{44-25d}{20}"
+          },
+          {
+            "id": "E",
+            "latex": "k=-\\frac65,\\ x=\\frac{25d-44}{20}",
+            "errorPath": "Reverse signs of numerator."
+          },
+          {
+            "id": "F",
+            "latex": "k=-\\frac65,\\ x=\\frac{44-25d}{12}",
+            "errorPath": "Keep coefficient12 rather than20 when simplifying."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "k=-\\frac65,\\ x=\\frac{44-25d}{20}",
+        "workedSolutionSteps": [
+          "15(y+z)=(5k+6)x+30−3k; coefficient zero gives k=−6/5.",
+          "15d=(5k−6)x+30+3k=−12x+132/5.",
+          "75d=−60x+132, hence x=(44−25d)/20."
+        ],
+        "unverifiedTaughtSubskill": "Linear or squared-variable formula rearrangement; linked equations, integer constraints or calibration as specified in stem.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "LINEAR_SYSTEM_TRANSFER",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-014",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-014-V313-AO2-AO3-REDESIGN-DRAFT",
+      "priorRecordPath": "qa-staging/math-v313-eight-grade-demand-redesign-candidates-20261123.json",
+      "priorRecordBlobSha": "85ae5991c94fadfb09489dcdd8ef9f3f0a2b91a1",
+      "priorAnswer": "x=3\\pm\\sqrt{y-4},4<y\\le13",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-014",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-014-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-014-V313-AO2-AO3-REDESIGN-DRAFT",
+        "topicId": "math-y9-changing-subject",
+        "stem": "Two machines accept only integer inputs from 0 to 7 inclusive. Machine A outputs $y=2(x-3)+4$; machine B outputs $y=3(x+1)$. An output is shared if it can be made by BOTH machines (their inputs may differ). Which is the complete set of shared outputs?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\{6,12,18\\}",
+            "errorPath": "Include next multiple18 ignoring A cap."
+          },
+          {
+            "id": "B",
+            "latex": "\\{0,6,12\\}",
+            "errorPath": "Allow B input−1."
+          },
+          {
+            "id": "C",
+            "latex": "\\{6\\}",
+            "errorPath": "Exclude A input7."
+          },
+          {
+            "id": "D",
+            "latex": "\\{3,6,9,12\\}",
+            "errorPath": "Ignore integer requirement for A."
+          },
+          {
+            "id": "E",
+            "latex": "\\{6,12\\}"
+          },
+          {
+            "id": "F",
+            "latex": "\\{0,6,12,18,24\\}",
+            "errorPath": "Ignore A cap and B lower bound, keep nonnegative multiples of6 up to24."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "\\{6,12\\}",
+        "workedSolutionSteps": [
+          "A inverse x=(y+2)/2; even outputs −2 through12. B inverse x=y/3−1; multiples of3 from3 through24.",
+          "Shared outputs multiples of6 from3 through12.",
+          "A inputs4,7; B inputs1,3."
+        ],
+        "unverifiedTaughtSubskill": "Linear or squared-variable formula rearrangement; linked equations, integer constraints or calibration as specified in stem.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTEGER_FEASIBILITY",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-017",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-017-ACADEMIC-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-final-academic-review-changing-subject40-20261124.json",
+      "priorRecordBlobSha": "6181830c46fe390adc7c26ee79d27a1aa228bed5",
+      "priorAnswer": "N=1,(x,y)=(-1,4)",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-017",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-017-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-017-ACADEMIC-REVIEW-20261124",
+        "topicId": "math-y9-changing-subject",
+        "stem": "For a whole number x between 0 and 20 inclusive, let $y=(3x-2)/5$ and $z=(2x+6)/4$. Find the sum of all x for which BOTH outputs are integers.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "46",
+            "errorPath": "Check only y."
+          },
+          {
+            "id": "B",
+            "latex": "100",
+            "errorPath": "Check only z, sum odd numbers1..19."
+          },
+          {
+            "id": "C",
+            "latex": "28"
+          },
+          {
+            "id": "D",
+            "latex": "9",
+            "errorPath": "Retain first valid input."
+          },
+          {
+            "id": "E",
+            "latex": "19",
+            "errorPath": "Retain last valid input."
+          },
+          {
+            "id": "F",
+            "latex": "18",
+            "errorPath": "Select even x from first set."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "28",
+        "workedSolutionSteps": [
+          "Inverse x=(5y+2)/3 and x=2z−3.",
+          "First output integer at x=4,9,14,19; second at odd x.",
+          "Intersection9,19 gives28."
+        ],
+        "unverifiedTaughtSubskill": "Linear or squared-variable formula rearrangement; linked equations, integer constraints or calibration as specified in stem.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTEGER_FEASIBILITY",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-018",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-018-PRIORITY-CONTENT-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-priority116-content-acceptance-changing-subject30-20261124.json",
+      "priorRecordBlobSha": "b7df0d7ccca85c2b0ff02844db9994dc1d5d50a3",
+      "priorAnswer": "x=\\frac{2y-5}{4-y};x_{\\mathrm{fixed}}=1+\\sqrt{6}",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-018",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-018-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-018-PRIORITY-CONTENT-REVIEW-20261124",
+        "topicId": "math-y9-changing-subject",
+        "stem": "A two-stage machine gives $y=(4x+5)/3$ and $z=(2y-7)/5$. Which option makes x the subject in terms of z and finds the input for which z=x−4?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=\\frac{15z-11}{8},\\ x=\\frac{71}{7}",
+            "errorPath": "Move −11 with wrong sign."
+          },
+          {
+            "id": "B",
+            "latex": "x=\\frac{15z-31}{8},\\ x=13",
+            "errorPath": "Use +7 in stage2."
+          },
+          {
+            "id": "C",
+            "latex": "x=\\frac{11-15z}{8},\\ x=\\frac{71}{23}",
+            "errorPath": "Reverse numerator signs."
+          },
+          {
+            "id": "D",
+            "latex": "x=\\frac{15z+11}{8},\\ x=7"
+          },
+          {
+            "id": "E",
+            "latex": "x=\\frac{15z+11}{8},\\ x=-\\frac{71}{7}",
+            "errorPath": "Use z=x+4."
+          },
+          {
+            "id": "F",
+            "latex": "x=\\frac{15z+11}{8},\\ x=-\\frac{11}{7}",
+            "errorPath": "Solve z=x."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "x=\\frac{15z+11}{8},\\ x=7",
+        "workedSolutionSteps": [
+          "15z=8x−11.",
+          "15(x−4)=8x−11.",
+          "7x=49; x=7; z=3 checks."
+        ],
+        "unverifiedTaughtSubskill": "Linear or squared-variable formula rearrangement; linked equations, integer constraints or calibration as specified in stem.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "CALIBRATION_AND_INVERSE",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-021",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-021-ACADEMIC-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-final-academic-review-changing-subject40-20261124.json",
+      "priorRecordBlobSha": "6181830c46fe390adc7c26ee79d27a1aa228bed5",
+      "priorAnswer": "k=2;x=\\frac{4(3y-1)}{5(1-2y)},\\frac{1}{3}\\le y<\\frac{1}{2}",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-021",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-021-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-021-ACADEMIC-REVIEW-20261124",
+        "topicId": "math-y9-changing-subject",
+        "stem": "Machine A takes an input, triples it, adds 4 and divides by 2. Machine B takes an input, doubles it, subtracts 5 and divides by 3. Starting with a number x, applying B then A produces 9. Starting with the SAME x, what output is obtained by applying A then B?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\frac{53}{6}",
+            "errorPath": "Reverse both given and requested orders."
+          },
+          {
+            "id": "B",
+            "latex": "\\frac{55}{6}"
+          },
+          {
+            "id": "C",
+            "latex": "\\frac{19}{2}",
+            "errorPath": "Report starting x."
+          },
+          {
+            "id": "D",
+            "latex": "9",
+            "errorPath": "Assume both orders commute."
+          },
+          {
+            "id": "E",
+            "latex": "\\frac{49}{6}",
+            "errorPath": "Solve x−1/2=9 with wrong sign giving17/2 then subtract1/3."
+          },
+          {
+            "id": "F",
+            "latex": "\\frac{65}{4}",
+            "errorPath": "Apply only A to x=19/2."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "\\frac{55}{6}",
+        "workedSolutionSteps": [
+          "B then A gives (2x−1)/2=x−1/2. Thus x=19/2.",
+          "A then B gives (3x−1)/3=x−1/3.",
+          "Output=55/6."
+        ],
+        "unverifiedTaughtSubskill": "Linear or squared-variable formula rearrangement; linked equations, integer constraints or calibration as specified in stem.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "CALIBRATION_AND_INVERSE",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-022",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-022-PRIORITY-CONTENT-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-priority116-content-acceptance-changing-subject30-20261124.json",
+      "priorRecordBlobSha": "b7df0d7ccca85c2b0ff02844db9994dc1d5d50a3",
+      "priorAnswer": "x=\\sqrt{\\frac{9y-4}{1-y}},\\frac{4}{9}\\le y<1",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-022",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-022-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-022-PRIORITY-CONTENT-REVIEW-20261124",
+        "topicId": "math-y9-changing-subject",
+        "stem": "For positive x, let $P=(3x^2+2)/5$, $Q=(x^2-4)/3$ and $R=P-Q$. Which choice makes x the subject in terms of R and gives x when R=6?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=\\sqrt{\\frac{15R+26}{4}},\\ x=\\sqrt{29}",
+            "errorPath": "Move26 with wrong sign."
+          },
+          {
+            "id": "B",
+            "latex": "x=\\frac{15R-26}{4},\\ x=16",
+            "errorPath": "Stop at x²."
+          },
+          {
+            "id": "C",
+            "latex": "x=\\sqrt{\\frac{15R-26}{14}},\\ x=\\sqrt{\\frac{32}{7}}",
+            "errorPath": "Add coefficients9+5."
+          },
+          {
+            "id": "D",
+            "latex": "x=\\sqrt{\\frac{15R-26}{2}},\\ x=4\\sqrt2",
+            "errorPath": "Use coefficient2 instead of4."
+          },
+          {
+            "id": "E",
+            "latex": "x=-\\sqrt{\\frac{15R-26}{4}},\\ x=-4",
+            "errorPath": "Choose negative square root."
+          },
+          {
+            "id": "F",
+            "latex": "x=\\sqrt{\\frac{15R-26}{4}},\\ x=4"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "x=\\sqrt{\\frac{15R-26}{4}},\\ x=4",
+        "workedSolutionSteps": [
+          "15R=9x²+6−5x²+20=4x²+26.",
+          "Positive x gives x=√((15R−26)/4).",
+          "R=6 gives x²=16,x=4."
+        ],
+        "unverifiedTaughtSubskill": "Linear or squared-variable formula rearrangement; linked equations, integer constraints or calibration as specified in stem.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "RADICAL_RECIPROCAL_INVERSE",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-024",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-024-V312-INVERSE_FIXEDPOINT_OR_QUADRATIC_DOMAIN-DRAFT",
+      "priorRecordPath": "qa-staging/math-v312-rearranging018-024-fixedpoint-quadratic-domain-candidates-20261123.json",
+      "priorRecordBlobSha": "4524722d3b4588fe0b722c871dce74ed4b2795d8",
+      "priorAnswer": "t=\\frac{\\sqrt{u^2+2as}-u}{a},s\\ge0",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-024",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-024-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-024-V312-INVERSE_FIXEDPOINT_OR_QUADRATIC_DOMAIN-DRAFT",
+        "topicId": "math-y9-changing-subject",
+        "stem": "A delivery distance is modelled by $s=ut+v(t-2)$, where u,v are fixed positive numbers and t≥2. When t=5, s=54; when t=7, s=82. Which formula makes t the subject, and what is t when s=110?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "t=\\frac{s+12}{14},\\ t=\\frac{61}{7}",
+            "errorPath": "Swap u and v."
+          },
+          {
+            "id": "B",
+            "latex": "t=\\frac{s+16}{6},\\ t=21",
+            "errorPath": "Divide by u instead of u+v."
+          },
+          {
+            "id": "C",
+            "latex": "t=\\frac{s-16}{14},\\ t=\\frac{47}{7}",
+            "errorPath": "Move −16 with wrong sign."
+          },
+          {
+            "id": "D",
+            "latex": "t=\\frac{s+16}{14},\\ t=9"
+          },
+          {
+            "id": "E",
+            "latex": "t=\\frac{s}{14},\\ t=\\frac{55}{7}",
+            "errorPath": "Ignore −2v offset."
+          },
+          {
+            "id": "F",
+            "latex": "t=\\frac{s+16}{14},\\ t=7",
+            "errorPath": "Report calibration input."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "t=\\frac{s+16}{14},\\ t=9",
+        "workedSolutionSteps": [
+          "5u+3v=54 and 7u+5v=82 imply u+v=14.",
+          "70−2v=54 gives v=8,u=6.",
+          "s=14t−16; t=(s+16)/14; s110 gives9."
+        ],
+        "unverifiedTaughtSubskill": "Linear or squared-variable formula rearrangement; linked equations, integer constraints or calibration as specified in stem.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "LINEAR_SYSTEM_TRANSFER",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ]
+}

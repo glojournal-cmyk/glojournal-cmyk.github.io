@@ -1,0 +1,29 @@
+{
+  "scope": "REVIEW_ONLY_NO_APP_IMPORT",
+  "originalRawJSONSHA256": "6fa88943a4233be04fc6be9f43f2079ffb008906c155d018913541852bb94268",
+  "editorialCandidateRawJSONSHA256": "cb26ea0dd961228dd95e47c29b5ce210f7261e9cb06eadb7b9c6a4824f2419ae",
+  "candidateVersion": "3.1.1-editorial-candidate-not-approved",
+  "note": "Changes only algebraic notation in two worked-solution steps; not mathematical answer keys or authorisation to award credit.",
+  "patches": [
+    {
+      "questionId": "LUX-MATH-Y9-REARRANGING-016",
+      "field": "workedSolutionSteps",
+      "stepIndex": 1,
+      "oldToken": "(1z-2)x",
+      "newToken": "(z-2)x"
+    },
+    {
+      "questionId": "LUX-MATH-Y9-REARRANGING-023",
+      "field": "workedSolutionSteps",
+      "stepIndex": 1,
+      "oldToken": "(1z-4)x",
+      "newToken": "(z-4)x"
+    }
+  ],
+  "teacherTaughtVerified": false,
+  "gradeBandIndependentlyApproved": false,
+  "misconceptionDistractorsSignedOff": false,
+  "all200IndependentStemProof": false,
+  "webKitBrowserPass": false,
+  "readyForLiveImport": false
+}

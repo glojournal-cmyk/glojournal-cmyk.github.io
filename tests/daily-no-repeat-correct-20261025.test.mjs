@@ -24,7 +24,13 @@ test('8/10 correct questions never return when the Daily task is reopened',()=>{
 test('locked Daily uses remaining target; 8/10 resumes for exactly two questions',()=>{
  for(const path of ['assets/study._subject.practise-D_PWgUd7.js','assets/study._subject.practise-y8fix-20260920.js']){
   const source=readFileSync(new URL('../'+path,import.meta.url),'utf8');
-  assert.ok(source.includes('remaining:Math.max(0,target-credited)'),path);
+  const setWindow=new Function('lockedRemainingRef','remainingKey','dailyLocked','E','dailyParams','assignment','dailyVocabTotal','s','e','R',
+    source.slice(source.indexOf('if(lockedRemainingRef.current.key!==remainingKey)'),source.indexOf('let W=dailyLocked')));
+  const window={current:{}};
+  setWindow(window,'test-day',true,'standard',new URLSearchParams(),{target:15,progress:5});
+  assert.equal(window.current.remaining,10);
+  setWindow(window,'test-day',true,'standard',new URLSearchParams(),{target:15,progress:6});
+  assert.equal(window.current.remaining,10,'Marked answers must not resize the active set');
   assert.ok(source.includes('lockedRemainingRef.current.remaining'),path);
   assert.ok(source.includes('dailyCorrectQuestionIds(state'),path);
  }

@@ -188,11 +188,33 @@ export function dailyScore(rows,day) {
   for (const [id,choice] of choices) if (choice===keys.get(id)) correct++;
   return {choices,correct,submitted:choices.size,passed:choices.size===10&&correct>=9};
 }
+// Both the student player and Home derive their ten immutable keys from this release.
+export function releasedMathsTask(day, rows) {
+  const keys = assignment(day);
+  if (keys.length !== 10) return null;
+  const result = dailyScore(rows, day);
+  return {
+    id:taskId, title:'Year 9 Higher Maths MCQ', planDate:day, dailyV3:true, planVersion:3,
+    assignedSubject:'maths', assignedYear:9, target:10, xp:0, href:dailyURL,
+    approvedQuestionIds:keys.map(([id])=>id), approvedCorrectOptionByQuestion:Object.fromEntries(keys),
+    progress:result.passed ? 10 : result.correct, done:result.passed,
+    detail:result.submitted+'/10 answered · '+result.correct+' correct · 9/10 to pass'
+  };
+}
 // An earned bonus contributes one completed Daily task without replacing an assigned task.
 export function includeEarnedMaths(tasks,rows,day) {
   if (!rows?.some(a=>a?.dailyTaskId===taskId && a.day===day && a.bankVersion===release)) return tasks;
   const result=dailyScore(rows,day);
-  if (!result.passed || tasks.some(t=>t.id===taskId)) return tasks;
+  const existing=tasks.find(t=>t.id===taskId);
+  if (existing) {
+    if (!existing.dailyV3 || existing.supplyBlocked || existing.href!==dailyURL) return tasks;
+    const scored=releasedMathsTask(day,rows);
+    if (!scored || !scored.approvedQuestionIds.every((id,i)=>existing.approvedQuestionIds?.[i]===id &&
+        existing.approvedCorrectOptionByQuestion?.[id]===scored.approvedCorrectOptionByQuestion[id])) return tasks;
+    if (existing.progress===scored.progress && existing.done===scored.done && existing.detail===scored.detail) return tasks;
+    return tasks.map(t=>t===existing ? {...t,progress:scored.progress,done:scored.done,detail:scored.detail} : t);
+  }
+  if (!result.passed) return tasks;
   return [...tasks,{id:taskId,title:'Higher Maths Daily',detail:result.correct+'/10 correct · counted into today',
     planDate:day,assignedYear:9,assignedSubject:'maths',progress:10,target:10,done:true,xp:0,href:dailyURL}];
 }

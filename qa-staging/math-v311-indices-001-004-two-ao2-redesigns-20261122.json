@@ -1,0 +1,146 @@
+{
+  "status": "ACADEMIC_REDESIGN_CANDIDATE_ONLY_NOT_APPROVED",
+  "date": "2026-11-22",
+  "sourceFiles": [
+    "Lux_Maths_Y9_V3_All_200_Student.pdf pages 1–2",
+    "Lux_Maths_Y9_V3_All_200_Answers.pdf page 1",
+    "Lux_Maths_V3_1_Formal_Academic_QA_Register_20261122.csv"
+  ],
+  "sourceTemplate": "V2-INDICES-1",
+  "sourceFamilyOriginals": [
+    "LUX-MATH-Y9-INDICES-001",
+    "LUX-MATH-Y9-INDICES-002",
+    "LUX-MATH-Y9-INDICES-003",
+    "LUX-MATH-Y9-INDICES-004"
+  ],
+  "independentGrade7ExamCalibrated": false,
+  "teacherExactTaughtVerified": false,
+  "independentFiveDistractorPedagogySigned": false,
+  "rawCanonicalBankHashVerified": false,
+  "ipadPwaFormallyApproved": false,
+  "studentCreditAllowed": false,
+  "originalSourceModified": false,
+  "doNotImportWithoutNewCanonicalIds": true,
+  "reason": "Four original questions differ only by numeric/exponent substitutions and solve the same base-2 linear exponent equation. Two distinct methods are redesigned, rather than claiming four new independent concepts.",
+  "candidates": [
+    {
+      "originId": "LUX-MATH-Y9-INDICES-001",
+      "paperQuestion": 1,
+      "newCandidateVersionId": "QA-REDESIGN-INDICES-001-CUBE-RANGE-V1",
+      "originalCorrectOptionId": "B",
+      "originalAnswer": 2,
+      "concept": "Combine index laws, interpret perfect cube condition and strict power-of-two bounds, enumerate all admissible integer parameters",
+      "taughtScope": "TGS Autumn index laws broadly; whether perfect-cube exponent constraint and inequalities have been taught is NOT confirmed",
+      "provisionalDemand": "AO2_REASONING_PLAUSIBLE_G7_UNCALIBRATED",
+      "replacement": {
+        "stem": "Let A(n)=\\frac{4^{n+2}\\times8^{3-n}}{2^2}, where n is an integer. A(n) is a positive perfect cube, and 2^5 < A(n) < 2^{12}. Find the sum of all possible values of n.",
+        "correctOptionId": "B",
+        "options": [
+          {
+            "id": "A",
+            "latex": "6",
+            "wrongOperation": "Treat the strict upper bound as inclusive: include exponent 12 and n=−1, giving n=−1,2,5 and sum 6."
+          },
+          {
+            "id": "B",
+            "latex": "7",
+            "wrongOperation": null
+          },
+          {
+            "id": "C",
+            "latex": "15",
+            "wrongOperation": "Include exponent 3 (2^3) below the strict lower bound 2^5, adding n=8 to correct n=5,2 and summing 15."
+          },
+          {
+            "id": "D",
+            "latex": "9",
+            "wrongOperation": "Test perfect squares instead of perfect cubes: use even exponents 6,8,10, giving n=5,3,1 and sum 9."
+          },
+          {
+            "id": "E",
+            "latex": "3",
+            "wrongOperation": "Require n itself, not the exponent 11−n, to be divisible by 3. Eligible n=0 and 3 then sum to 3."
+          },
+          {
+            "id": "F",
+            "latex": "5",
+            "wrongOperation": "Find n=5 for exponent 6 but omit the second valid cube exponent 9 (n=2), giving only 5."
+          }
+        ],
+        "workedSolutionSteps": [
+          "A(n)=2^{2(n+2)+3(3-n)-2}=2^{11-n}.",
+          "Since 2^5<A(n)<2^{12}, the integer exponent e=11-n must satisfy 5<e<12.",
+          "A positive integer power of 2 is a perfect cube exactly when its exponent is a multiple of 3. In this strict range e=6 or 9.",
+          "Thus n=11-6=5 or n=11-9=2. The sum is 5+2=7 (B)."
+        ]
+      },
+      "qaNotes": [
+        "Mathematical correctness can be independently tested, not automatically GCSE Grade7 certified",
+        "Strict inequalities and integer cube reasoning may exceed documented specific Autumn lessons",
+        "All five wrong options have enumerated incorrect reasoning; independent pupil-error plausibility still required"
+      ]
+    },
+    {
+      "originId": "LUX-MATH-Y9-INDICES-004",
+      "paperQuestion": 4,
+      "newCandidateVersionId": "QA-REDESIGN-INDICES-004-ALL-N-SHIFT-V1",
+      "originalCorrectOptionId": "D",
+      "originalAnswer": 5,
+      "concept": "Establish invariant multiplicative relationship under n→n+3 for a whole family of index expressions; distinguish individually omitted factors",
+      "taughtScope": "TGS Autumn index laws broadly; use of function notation F(n) and general proof needs exact taught evidence",
+      "provisionalDemand": "AO2_GENERALISATION_PLAUSIBLE_G7_UNCALIBRATED",
+      "replacement": {
+        "stem": "For every integer n, define F(n)=\\frac{4^{n+5}\\times8^{6-n}}{2^5}. Which statement must hold for every integer n?",
+        "correctOptionId": "D",
+        "options": [
+          {
+            "id": "A",
+            "latex": "F(n+3)=8F(n)",
+            "computedRatio": 8,
+            "wrongOperation": "Reverse the sign of the total n-coefficient −1, assuming increasing n by 3 increases the exponent by 3 and multiplies F by 8."
+          },
+          {
+            "id": "B",
+            "latex": "F(n+3)=\\frac12F(n)",
+            "computedRatio": 0.5,
+            "wrongOperation": "Correctly notice F falls as n increases but use a one-step factor 2^−1, forgetting that n increases by 3 steps."
+          },
+          {
+            "id": "C",
+            "latex": "F(n+3)=F(n)",
+            "computedRatio": 1,
+            "wrongOperation": "Assume the +n from the 4-power and −n from the 8-power cancel without converting bases 4=2² and 8=2³."
+          },
+          {
+            "id": "D",
+            "latex": "F(n+3)=\\frac18F(n)",
+            "computedRatio": 0.125,
+            "wrongOperation": null
+          },
+          {
+            "id": "E",
+            "latex": "F(n+3)=64F(n)",
+            "computedRatio": 64,
+            "wrongOperation": "Keep only the increase in 4^{n+5}; 4³=64, but omit the simultaneous factor 8^−3 from 8^{6−n}."
+          },
+          {
+            "id": "F",
+            "latex": "F(n+3)=\\frac1{512}F(n)",
+            "computedRatio": 0.001953125,
+            "wrongOperation": "Keep only the fall in 8^{6−n}; 8^−3=1/512, but omit the simultaneous increase by factor 4³."
+          }
+        ],
+        "workedSolutionSteps": [
+          "F(n)=2^{2(n+5)+3(6-n)-5}=2^{23-n} for every integer n.",
+          "Then F(n+3)=2^{23-(n+3)}=2^{20-n}=2^{-3}F(n)=\\frac18F(n).",
+          "Alternatively, directly compare the original factors: 4^{(n+3)+5}/4^{n+5}=4^3=64 and 8^{6-(n+3)}/8^{6-n}=8^{-3}=1/512. Their product is 64/512=1/8, proving D for all integers."
+        ]
+      },
+      "qaNotes": [
+        "General identity/invariant asks a different concept from Q1, not another n=constant substitution",
+        "Five wrong alternatives are distinct ratios and have explicitly reconstructable omitted-factor or exponent errors",
+        "Exact school-taught function/general proof and Grade7 exam calibration remain unverified"
+      ]
+    }
+  ]
+}

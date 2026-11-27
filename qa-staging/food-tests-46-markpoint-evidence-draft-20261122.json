@@ -1,0 +1,1262 @@
+{
+  "version": "2026-11-22-food-tests-46-first-pass-evidence",
+  "status": "QA_STAGING_NOT_ACADEMIC_APPROVED",
+  "source": "content/topics/bio-y8-food-tests.json",
+  "applyToLive": false,
+  "independentTeacherSignoff": false,
+  "scope": {
+    "unprotectedSourceQuestions": 46,
+    "questions": 46,
+    "marks": 86
+  },
+  "rules": [
+    {
+      "questionId": "bio-y8-food-tests-benedict-s-solution-explain",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 1,
+      "rules": [
+        {
+          "all": [
+            "(?:reduc\\w*\\s+sugar|glucose|sugars?)",
+            "(?:detect|test|reagent|used|benedict)"
+          ],
+          "notAnywhere": [
+            "\\b(?:iodine|biuret)\\b.{0,25}\\b(?:sugar|glucose)\\b",
+            "\\bbrick[\\s-]*red\\b[^.!?;]{0,55}\\b(?:reducing\\s+)?sugars?\\s+(?:is\\s+)?(?:absent|not\\s+present|not\\s+detected)\\b",
+            "\\bbrick[\\s-]*red\\b[^.!?;]{0,50}\\b(?:no|not|absent|negative)\\b[^.!?;]{0,20}\\b(?:reducing\\s+)?sugars?\\b",
+            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b"
+          ],
+          "alternatives": [
+            "Benedict's solution tests for reducing sugars"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-ethanol-emulsion-test-explain",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 1,
+      "rules": [
+        {
+          "all": [
+            "ethanol",
+            "(?:emulsion|lipid|fat)"
+          ],
+          "notAnywhere": [
+            "\\bethanol\\b[^.!?;]{0,40}\\b(?:must|should|needs?\\s+to)\\s+(?:be\\s+)?(?:heat|boil|warm)\\w*\\b"
+          ],
+          "alternatives": [
+            "the ethanol test is used for fats"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-blue-black-explain",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 1,
+      "rules": [
+        {
+          "all": [
+            "starch",
+            "(?:iodine|blue[\\s-]*black|colour|color|positive)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "blue-black shows that starch is present"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-brick-red-explain",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 1,
+      "rules": [
+        {
+          "all": [
+            "(?:reducing\\s+sugar|glucose|benedict)",
+            "(?:positive|red|heating|heat|sugar)"
+          ],
+          "notAnywhere": [
+            "\\bbrick[\\s-]*red\\b[^.!?;]{0,55}\\b(?:reducing\\s+)?sugars?\\s+(?:is\\s+)?(?:absent|not\\s+present|not\\s+detected)\\b",
+            "\\bbrick[\\s-]*red\\b[^.!?;]{0,50}\\b(?:no|not|absent|negative)\\b[^.!?;]{0,20}\\b(?:reducing\\s+)?sugars?\\b"
+          ],
+          "alternatives": [
+            "brick red is a positive result for reducing sugar"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-lilac-or-purple-explain",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 1,
+      "rules": [
+        {
+          "all": [
+            "protein",
+            "(?:biuret|positive|lilac|purple|violet|colour|color)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "purple means the Biuret test detected protein"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-cloudy-white-emulsion-explain",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 1,
+      "rules": [
+        {
+          "all": [
+            "(?:lipid|fat)",
+            "(?:ethanol|emulsion|cloudy|milky|white|positive)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "a milky white emulsion indicates fat"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-water-bath-explain",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 1,
+      "rules": [
+        {
+          "all": [
+            "(?:water\\s*bath|indirect|controlled|safe)",
+            "(?:benedict|heat|warm)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "heat Benedict's reagent indirectly in a water bath"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-app-ethanol-safety",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "ethanol",
+            "(?:flammable|ignite|fire|flame|burn)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "ethanol is flammable so keep it away from fire"
+          ]
+        },
+        {
+          "all": [
+            "(?:ethanol|emulsion)",
+            "(?:no\\s+heat|not\\s+heat|need\\s+not\\s+be\\s+heat|without\\s+heat|unheated|heating\\s+is\\s+not\\s+needed|does\\s+not\\s+need\\s+heat|no\\s+heating)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "the ethanol emulsion test does not need heating"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-sample-separation",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:separat|reagent|portion)",
+            "(?:interfer|contamin|mix)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "use separate portions to avoid the two reagents mixing"
+          ]
+        },
+        {
+          "all": [
+            "(?:iodine|starch)",
+            "(?:benedict|sugar)",
+            "(?:different|heat|unheated|condition|reagent)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "Benedict's sugar test requires heating whereas the iodine starch test does not"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-iodine-repeat",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:repeat|redo|retest)",
+            "(?:fresh|clean|new|sample)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "repeat the iodine test with a fresh food sample"
+          ]
+        },
+        {
+          "all": [
+            "(?:same|equal|measure|control)",
+            "(?:volum|amount|quantit)",
+            "(?:iodine|sample|reagent|food)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "keep the iodine and food sample volumes the same"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-benedict-no-heat",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "benedict",
+            "(?:heat|hot|warm|boil|water\\s*bath)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "Benedict's reagent must be heated for the test to work"
+          ]
+        },
+        {
+          "all": [
+            "(?:no\\s+heat|cold|without\\s+heat|lack\\s+of\\s+heat|unheated)",
+            "(?:blue|colour|color|change|false\\s+negative|positive)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "if left cold the sample may not change colour despite containing sugar"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-positive-sugar",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "benedict",
+            "(?:blue|orange|colour|color)",
+            "(?:orange|change)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "the heated Benedict's solution changed from blue to orange"
+          ]
+        },
+        {
+          "all": [
+            "(?:reducing\\s+sugar|glucose)",
+            "(?:present|contain|detect|positive|found)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "reducing sugar was detected"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-biuret-control",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:water|distilled)",
+            "(?:negative|control|blank)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "distilled water can be used as a negative control"
+          ]
+        },
+        {
+          "all": [
+            "(?:blue|unchanged|no\\s+change)",
+            "(?:contamin|control|protein|stay|remain)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "the control should remain blue, showing no contamination"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-repeatability",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:same|equal|keep|control|constant)",
+            "(?:volum|mass|amount|size)",
+            "(?:sample|extract|food)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "use equal amounts of food extract each time"
+          ]
+        },
+        {
+          "all": [
+            "(?:same|equal|constant|control|keep)",
+            "(?:heat|temperature|time|water\\s*bath)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "keep the water bath temperature or heating time constant"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-cross-contamination",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:pipette|reagent|sample|food|tube)",
+            "(?:contamin|transfer|carry|mix|leftover)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "residue in the pipette can transfer into another sample"
+          ]
+        },
+        {
+          "all": [
+            "(?:contamin|false|unreliab|incorrect|wrong)",
+            "(?:positive|result|conclusion|test)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "the contamination might produce a false positive result"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-ethanol-emulsion-stages",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:shake|mix|dissolv|agitat)",
+            "(?:food|sample|lipid|fat)",
+            "ethanol"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "mix the food sample with ethanol first"
+          ]
+        },
+        {
+          "all": [
+            "(?:add|pour|introduc|mix)",
+            "water",
+            "(?:ethanol|after|then|first)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "after mixing with ethanol add water"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-ethanol-ventilation",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "ethanol",
+            "(?:flame|flammable|ignite|fire|bunsen|heat)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "keep ethanol away from naked flames"
+          ]
+        },
+        {
+          "all": [
+            "(?:goggle|eye\\s+protect|safety\\s+glasses)",
+            "(?:eye|protect|wear|splash|goggle)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "wear safety goggles to protect your eyes"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-benedict-hot-tube",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:hot|heat|burn|scald)",
+            "(?:tube|glass|water|holder|hand)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "hold the hot test tube with a holder to prevent burns"
+          ]
+        },
+        {
+          "all": [
+            "(?:splash|spray|spill|scald)",
+            "(?:person|people|other|skin|face|tube)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "point the test tube away so hot liquid cannot splash onto others"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-protein-extraction",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:crush|grind|break)",
+            "(?:expos|release|surface|smaller|cell|sample|protein)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "crushing the food breaks it up and exposes its contents"
+          ]
+        },
+        {
+          "all": [
+            "water",
+            "(?:mix|extract|dissolv|suspend|testab|reagent|liquid)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "water makes a liquid extract for the Biuret test"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-starch-extraction",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:crush|grind|break)",
+            "(?:starch|surface|release|expos|potato)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "crushing releases starch from the potato"
+          ]
+        },
+        {
+          "all": [
+            "iodine",
+            "(?:contact|react|reach|mix|starch|expos)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "iodine can then contact the exposed starch"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-fair-amount",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:mass|amount|quantity|weight|sample)",
+            "(?:same|equal|control|constant)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "keep the mass of bread equal for both samples"
+          ]
+        },
+        {
+          "all": [
+            "(?:fair|compar|result|iodine|starch)",
+            "(?:mass|amount|quantity|sample|difference)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "this makes the comparison fair because a larger sample might give a different result",
+            "Masses unequal might change the iodine result so we cannot compare starch fairly",
+            "If the sample masses differ the iodine result may be misleading"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-fair-reagent",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:benedict|reagent)",
+            "(?:volum|amount|different|unequal|control)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "the Benedict's reagent volume is not controlled"
+          ]
+        },
+        {
+          "all": [
+            "(?:result|colour|color|change|difference)",
+            "(?:reagent|benedict|volum|amount|not\\s+sample)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "different results might be caused by the different amount of reagent"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-sugar-strength",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:brick[\\s-]*red|red\\s+precipitate)",
+            "green",
+            "(?:more|higher|greater|concentrat|sugar)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "brick-red suggests more reducing sugar than green"
+          ]
+        },
+        {
+          "all": [
+            "(?:approximat|rough|qualitat|not\\s+exact|estimate|precision)",
+            "(?:sugar|concentrat|amount|result|colour|color)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "the colour change is only an estimate not an exact sugar concentration"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-cloudy-not-protein",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:cloudy|white|emulsion|ethanol)",
+            "(?:lipid|fat)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "the milky emulsion indicates fat rather than protein"
+          ]
+        },
+        {
+          "all": [
+            "(?:biuret|protein)",
+            "(?:separat|test|need|require)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "protein needs a Biuret test instead"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-starch-vs-glucose",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "starch",
+            "(?:detect|present|positive|found|contain)"
+          ],
+          "notAnywhere": [
+            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b",
+            "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)proteins?\\b"
+          ],
+          "alternatives": [
+            "iodine shows starch was detected"
+          ]
+        },
+        {
+          "all": [
+            "(?:reducing\\s+sugar|glucose|benedict)",
+            "(?:no|not|absent|negative|undetect|none)"
+          ],
+          "notAnywhere": [
+            "\\bbenedict(?:['’]?s)?\\b[^.!?;]{0,95}\\b(?:does\\s+not|doesn.t|cannot|never)\\s+(?:test|detect)\\s+(?:for\\s+)?reducing\\s+sugars?\\b",
+            "\\bbiuret(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)reducing\\s+sugars?\\b"
+          ],
+          "alternatives": [
+            "no reducing sugar was detected"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-sugar-vs-starch",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:reducing\\s+sugar|glucose)",
+            "(?:detect|present|positive|found|contain)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "Benedict's shows reducing sugar was detected"
+          ]
+        },
+        {
+          "all": [
+            "starch",
+            "(?:no|not|absent|negative|undetect|none)"
+          ],
+          "notAnywhere": [
+            "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)proteins?\\b",
+            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b",
+            "\\bblue[\\s-]*black\\b[^.!?;]{0,55}\\b(?:no|not|absent|negative)\\b[^.!?;]{0,18}\\bstarch\\b"
+          ],
+          "alternatives": [
+            "no starch was detected"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-biuret-vs-sugar",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "protein",
+            "(?:detect|present|positive|found|contain)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "Biuret indicates protein was detected"
+          ]
+        },
+        {
+          "all": [
+            "(?:reducing\\s+sugar|glucose|benedict)",
+            "(?:no|not|absent|negative|undetect|none)"
+          ],
+          "notAnywhere": [
+            "\\bbenedict(?:['’]?s)?\\b[^.!?;]{0,95}\\b(?:does\\s+not|doesn.t|cannot|never)\\s+(?:test|detect)\\s+(?:for\\s+)?reducing\\s+sugars?\\b",
+            "\\bbiuret(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)reducing\\s+sugars?\\b",
+            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b"
+          ],
+          "alternatives": [
+            "no reducing sugar was detected"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-lipid-vs-starch",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:lipid|fat)",
+            "(?:detect|present|positive|found|contain)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "the emulsion indicates lipid was detected"
+          ]
+        },
+        {
+          "all": [
+            "starch",
+            "(?:no|not|absent|negative|undetect|none)"
+          ],
+          "notAnywhere": [
+            "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)proteins?\\b",
+            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b",
+            "\\bblue[\\s-]*black\\b[^.!?;]{0,55}\\b(?:no|not|absent|negative)\\b[^.!?;]{0,18}\\bstarch\\b"
+          ],
+          "alternatives": [
+            "the iodine test found no starch"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-all-negative",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:none|no|not|negative|undetect)",
+            "(?:starch|sugar|protein|lipid|nutrient|substance|test)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "none of the four tested nutrients was detected"
+          ]
+        },
+        {
+          "all": [
+            "(?:negative|no|not|cannot|does\\s+not|isn.t)",
+            "(?:prove|mean|rule\\s+out|other|all|nutrient)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "a negative result does not mean there are no other nutrients"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-retest-ethanol",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:contamin|dirty|unclean|impurit|carryover)",
+            "(?:sample|tube|glass|reagent|ethanol|water|test)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "the sample or test tube may have been contaminated"
+          ]
+        },
+        {
+          "all": [
+            "(?:ethanol|alcohol)",
+            "water",
+            "(?:after|then|sequence|correct|add|before)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "repeat the proper method: ethanol first then add water"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-glassware",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:label|identif|name)",
+            "(?:mix|confus|sample|tube|identit|wrong)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "labels stop the food samples being mixed up"
+          ]
+        },
+        {
+          "all": [
+            "(?:clean|wash|fresh)",
+            "(?:contamin|residu|mix|transfer|carry)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "clean tubes prevent contamination"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-eyes",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:goggle|safety\\s+glasses|eye\\s+protect)",
+            "(?:eye|splash|chemical|protect)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "goggles protect the eyes from reagent splashes"
+          ]
+        },
+        {
+          "all": [
+            "(?:careful|gentle|slow|safe|pipett|handle)",
+            "(?:splash|spill|spray|reagent|chemical)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "handle reagents carefully to prevent splashes"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-heat-variable",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:time|second|minute|duration)",
+            "(?:different|varie|variab|chang|longer|shorter|unequal)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "the heating times were different"
+          ]
+        },
+        {
+          "all": [
+            "(?:colour|color|result|difference)",
+            "(?:time|heat|not\\s+sugar|instead\\s+of|rather\\s+than)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "the colour difference might be caused by heating time rather than sugar content"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-no-taste",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:unknown|sample|food)",
+            "(?:harm|contamin|poison|unsafe|danger|pathogen)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "the unknown food might be contaminated or harmful"
+          ]
+        },
+        {
+          "all": [
+            "(?:chemical|reagent|laboratory|lab)",
+            "(?:ingest|eat|swallow|taste|consume|poison|harm)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "laboratory chemicals must never be swallowed"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-recording",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:record|note|write|list|name)",
+            "(?:reagent|type\\s+of\\s+test|iodine|benedict|biuret|ethanol)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "record which food test or reagent was used"
+          ]
+        },
+        {
+          "all": [
+            "(?:record|note|write|observe)",
+            "(?:colour|color|appearance|cloudy|result|change)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "record the observed colour change or appearance"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-inference",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:food\\s*test|nutrient|protein|sugar|balance)",
+            "(?:not|cannot|does\\s+not|only|limited|health|balance)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "food tests identify some nutrients but cannot prove a snack is healthy"
+          ]
+        },
+        {
+          "all": [
+            "(?:amount|quantity|balance|diet|calor|fat|salt|overall|other)",
+            "(?:health|nutrient|depend|diet|factor|sugar)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "healthiness depends on quantities and overall dietary balance"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-weak-blueblack",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:repeat|retest|redo|try\\s+again)",
+            "(?:fresh|clean|sample|equipment|iodine)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "repeat the test using fresh clean equipment"
+          ]
+        },
+        {
+          "all": [
+            "(?:compar|check|use)",
+            "(?:positive|negative|control|known)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "compare with a known positive and negative control"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-temperature-safety",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:water\\s+bath|indirect|heat)",
+            "(?:control|even|gentle|consistent|uniform)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "water baths give more controlled and even heating"
+          ]
+        },
+        {
+          "all": [
+            "(?:indirect|water\\s+bath|no\\s+flame)",
+            "(?:splash|overheat|burn|safer|risk)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "indirect heating reduces the chance of splashing or overheating"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-test-plan",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "iodine",
+            "(?:starch|blue[\\s-]*black)",
+            "blue[\\s-]*black"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "iodine turns blue-black if starch is present"
+          ]
+        },
+        {
+          "all": [
+            "(?:ethanol|emulsion)",
+            "(?:lipid|fat|cloudy|white)",
+            "(?:cloudy|milky|white)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "the ethanol emulsion test turns cloudy white for fat"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-positive-protein-negative-fat",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:biuret|purple|lilac)",
+            "protein",
+            "(?:purple|lilac|positive|present)"
+          ],
+          "notAnywhere": [
+            "\\b(?:purple|lilac)\\b[^.!?;]{0,60}\\b(?:negative|no|absent|not)\\b[^.!?;]{0,25}\\bproteins?\\b"
+          ],
+          "alternatives": [
+            "purple Biuret means protein was detected"
+          ]
+        },
+        {
+          "all": [
+            "(?:lipid|fat)",
+            "(?:no|not|absent|negative|undetect|none)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "no lipid was detected because no white emulsion formed"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-result-not-proof",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:benedict|test|sugar)",
+            "(?:negative|blue|no|not|undetect|absent)",
+            "(?:reducing\\s+sugar|glucose|sugar)"
+          ],
+          "notAnywhere": [
+            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b",
+            "\\bbenedict(?:['’]?s)?\\b[^.!?;]{0,95}\\b(?:does\\s+not|doesn.t|cannot|never)\\s+(?:test|detect)\\s+(?:for\\s+)?reducing\\s+sugars?\\b",
+            "\\bbiuret(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)reducing\\s+sugars?\\b"
+          ],
+          "alternatives": [
+            "the blue Benedict's test did not detect reducing sugar"
+          ]
+        },
+        {
+          "all": [
+            "(?:sweet|taste|sugar)",
+            "(?:not|cannot|does\\s+not|non\\s+reduc|other|doesn.t)"
+          ],
+          "notAnywhere": [
+            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b",
+            "\\bbenedict(?:['’]?s)?\\b[^.!?;]{0,95}\\b(?:does\\s+not|doesn.t|cannot|never)\\s+(?:test|detect)\\s+(?:for\\s+)?reducing\\s+sugars?\\b"
+          ],
+          "alternatives": [
+            "a sweet taste does not mean reducing sugar is present"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-wrong-reagent",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "iodine",
+            "starch",
+            "(?:not|instead|only|rather|no|wrong)"
+          ],
+          "notAnywhere": [
+            "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)proteins?\\b"
+          ],
+          "alternatives": [
+            "iodine tests starch not protein"
+          ]
+        },
+        {
+          "all": [
+            "biuret",
+            "protein",
+            "(?:test|detect|need|use|reagent)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "the Biuret reagent is used to test for protein"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-uncertain-emulsion",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "(?:control|water|reagent|glassware|sample)",
+            "(?:cloudy|contamin|fault|problem|unclean)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "a cloudy water control indicates contamination"
+          ]
+        },
+        {
+          "all": [
+            "(?:repeat|retest|redo)",
+            "(?:clean|fresh|new|equipment|reagent|water)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "repeat with fresh reagents and clean glassware"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-iodine-no-heat",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "iodine",
+            "(?:no\\s+heat|not\\s+heat|without\\s+heat|unheated|unnecessary|does\\s+not\\s+(?:need|require)\\s+heat|no\\s+need\\s+to\\s+heat)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "the iodine starch test does not need heating"
+          ]
+        },
+        {
+          "all": [
+            "iodine",
+            "(?:add|drop|mix|place)",
+            "(?:blue[\\s-]*black|colour|color|observe|starch)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "add iodine and look for blue-black"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-safe-bunsen",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 2,
+      "rules": [
+        {
+          "all": [
+            "ethanol",
+            "(?:vapou?r|flammab|ignite|burn)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "ethanol vapour is flammable"
+          ]
+        },
+        {
+          "all": [
+            "(?:flame|bunsen|ignit|fire)",
+            "ethanol",
+            "(?:ignite|burn|catch|fire|flammab)"
+          ],
+          "notAnywhere": [],
+          "alternatives": [
+            "an open flame might ignite ethanol and cause a fire"
+          ]
+        }
+      ]
+    },
+    {
+      "questionId": "bio-y8-food-tests-application-20261025-sugar-analysis",
+      "qaState": "EVIDENCE_CANDIDATE_NOT_SIGNED",
+      "originalMarks": 3,
+      "rules": [
+        {
+          "all": [
+            "(?:reducing\\s+sugar|glucose)",
+            "(?:present|detect|positive|found|contain)"
+          ],
+          "notAnywhere": [
+            "\\bbenedict(?:['’]?s)?\\b[^.!?;]{0,95}\\b(?:does\\s+not|doesn.t|cannot|never)\\s+(?:test|detect)\\s+(?:for\\s+)?reducing\\s+sugars?\\b"
+          ],
+          "alternatives": [
+            "the Benedict's test shows reducing sugar is present"
+          ]
+        },
+        {
+          "all": [
+            "starch",
+            "(?:not|no|absent|negative|undetect|none)"
+          ],
+          "notAnywhere": [
+            "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)proteins?\\b",
+            "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b",
+            "\\bblue[\\s-]*black\\b[^.!?;]{0,55}\\b(?:no|not|absent|negative)\\b[^.!?;]{0,18}\\bstarch\\b"
+          ],
+          "alternatives": [
+            "iodine did not detect starch"
+          ]
+        },
+        {
+          "all": [
+            "protein",
+            "(?:not|no|absent|negative|undetect|none)"
+          ],
+          "notAnywhere": [
+            "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)proteins?\\b",
+            "\\bbiuret(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)reducing\\s+sugars?\\b"
+          ],
+          "alternatives": [
+            "Biuret did not detect protein"
+          ]
+        }
+      ]
+    }
+  ]
+}

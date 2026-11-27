@@ -1,0 +1,480 @@
+{
+  "kind": "EDITORIAL42_NUMERICAL_AND_DEMAND_RESCREEN",
+  "date": "2026-11-24",
+  "sourceRegister": "qa-staging/math-all200-unified-candidate-review-register-20261124.json",
+  "sourcePackBlobs": [
+    {
+      "path": "qa-staging/math-v315-indices-standard-32-causal-rationale-repaired-candidates-20261123.json",
+      "sha": "a0d30cee5c65257e6128bf44bc64dfaf49f27ff6"
+    },
+    {
+      "path": "qa-staging/math-v314-simultaneous-22-rationale-repair-candidates-20261123.json",
+      "sha": "457b43b377c9512e8b749f40396680b84a4eb3f1"
+    }
+  ],
+  "scope": "All 42 actual selected editorial records recalculated; numerical correctness is not difficulty approval. Original triage preserved. No formal approvals.",
+  "rows": [
+    {
+      "id": "LUX-MATH-Y9-INDICES-010",
+      "revision": "LUX-MATH-Y9-INDICES-010-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "expected": 0.0009765625,
+      "stored": "\\frac{1}{1024}",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-INDICES-011",
+      "revision": "LUX-MATH-Y9-INDICES-011-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "expected": 0.0001220703125,
+      "stored": "\\frac{1}{8192}",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-INDICES-012",
+      "revision": "LUX-MATH-Y9-INDICES-012-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "expected": 0.0000152587890625,
+      "stored": "\\frac{1}{65536}",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-INDICES-026",
+      "revision": "LUX-MATH-Y9-INDICES-026-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "expected": 3,
+      "stored": "3",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-INDICES-027",
+      "revision": "LUX-MATH-Y9-INDICES-027-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "expected": 8,
+      "stored": "8",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-INDICES-028",
+      "revision": "LUX-MATH-Y9-INDICES-028-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "expected": 15,
+      "stored": "15",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-STANDARD_FORM-006",
+      "revision": "LUX-MATH-Y9-STANDARD_FORM-006-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "expected": 1325,
+      "stored": "1.325\\times 10^{3}",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-STANDARD_FORM-007",
+      "revision": "LUX-MATH-Y9-STANDARD_FORM-007-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "expected": 1280,
+      "stored": "1.28\\times 10^{3}",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-STANDARD_FORM-011",
+      "revision": "LUX-MATH-Y9-STANDARD_FORM-011-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "expected": 18750000,
+      "stored": "1.875\\times 10^{7}",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-STANDARD_FORM-012",
+      "revision": "LUX-MATH-Y9-STANDARD_FORM-012-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "expected": 168000000,
+      "stored": "1.68\\times 10^{8}",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-STANDARD_FORM-022",
+      "revision": "LUX-MATH-Y9-STANDARD_FORM-022-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "expected": 26,
+      "stored": "26",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "QUARANTINE_TAUGHT_SCOPE",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-STANDARD_FORM-023",
+      "revision": "LUX-MATH-Y9-STANDARD_FORM-023-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "expected": 43.99999999999999,
+      "stored": "44",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "QUARANTINE_TAUGHT_SCOPE",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-STANDARD_FORM-024",
+      "revision": "LUX-MATH-Y9-STANDARD_FORM-024-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "expected": 8.000000000000007,
+      "stored": "8",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "QUARANTINE_TAUGHT_SCOPE",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-STANDARD_FORM-030",
+      "revision": "LUX-MATH-Y9-STANDARD_FORM-030-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "expected": 4100,
+      "stored": "4.1\\times 10^{3}",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-STANDARD_FORM-031",
+      "revision": "LUX-MATH-Y9-STANDARD_FORM-031-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "expected": 41000,
+      "stored": "4.1\\times 10^{4}",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-STANDARD_FORM-032",
+      "revision": "LUX-MATH-Y9-STANDARD_FORM-032-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "expected": 410000,
+      "stored": "4.1\\times 10^{5}",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-STANDARD_FORM-037",
+      "revision": "LUX-MATH-Y9-STANDARD_FORM-037-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "expected": 30000,
+      "stored": "3\\times 10^{4}",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "QUARANTINE_TAUGHT_SCOPE",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-STANDARD_FORM-038",
+      "revision": "LUX-MATH-Y9-STANDARD_FORM-038-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "expected": 400000,
+      "stored": "4\\times 10^{5}",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "QUARANTINE_TAUGHT_SCOPE",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-STANDARD_FORM-039",
+      "revision": "LUX-MATH-Y9-STANDARD_FORM-039-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "expected": 5000000,
+      "stored": "5\\times 10^{6}",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "QUARANTINE_TAUGHT_SCOPE",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-STANDARD_FORM-040",
+      "revision": "LUX-MATH-Y9-STANDARD_FORM-040-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+      "expected": 60000000,
+      "stored": "6\\times 10^{7}",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "QUARANTINE_TAUGHT_SCOPE",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-001",
+      "revision": "LUX-MATH-Y9-SIMULTANEOUS-001-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "expected": 5,
+      "stored": "5",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-002",
+      "revision": "LUX-MATH-Y9-SIMULTANEOUS-002-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "expected": 11,
+      "stored": "11",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-003",
+      "revision": "LUX-MATH-Y9-SIMULTANEOUS-003-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "expected": 19,
+      "stored": "19",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-004",
+      "revision": "LUX-MATH-Y9-SIMULTANEOUS-004-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "expected": 29,
+      "stored": "29",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-009",
+      "revision": "LUX-MATH-Y9-SIMULTANEOUS-009-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "expected": 12,
+      "stored": "12",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-010",
+      "revision": "LUX-MATH-Y9-SIMULTANEOUS-010-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "expected": 10,
+      "stored": "10",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-011",
+      "revision": "LUX-MATH-Y9-SIMULTANEOUS-011-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "expected": 6,
+      "stored": "6",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-012",
+      "revision": "LUX-MATH-Y9-SIMULTANEOUS-012-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "expected": 21,
+      "stored": "21",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-021",
+      "revision": "LUX-MATH-Y9-SIMULTANEOUS-021-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "expected": 5,
+      "stored": "5",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-022",
+      "revision": "LUX-MATH-Y9-SIMULTANEOUS-022-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "expected": 14,
+      "stored": "14",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-024",
+      "revision": "LUX-MATH-Y9-SIMULTANEOUS-024-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "expected": 46,
+      "stored": "46",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-026",
+      "revision": "LUX-MATH-Y9-SIMULTANEOUS-026-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "expected": 14,
+      "stored": "14",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-027",
+      "revision": "LUX-MATH-Y9-SIMULTANEOUS-027-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "expected": 20,
+      "stored": "20",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-028",
+      "revision": "LUX-MATH-Y9-SIMULTANEOUS-028-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "expected": 27,
+      "stored": "27",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-029",
+      "revision": "LUX-MATH-Y9-SIMULTANEOUS-029-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "expected": 26,
+      "stored": "26",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-030",
+      "revision": "LUX-MATH-Y9-SIMULTANEOUS-030-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "expected": 27,
+      "stored": "27",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-031",
+      "revision": "LUX-MATH-Y9-SIMULTANEOUS-031-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "expected": 45,
+      "stored": "45",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-032",
+      "revision": "LUX-MATH-Y9-SIMULTANEOUS-032-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "expected": 67,
+      "stored": "67",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-033",
+      "revision": "LUX-MATH-Y9-SIMULTANEOUS-033-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "expected": 4,
+      "stored": "4",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-034",
+      "revision": "LUX-MATH-Y9-SIMULTANEOUS-034-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "expected": 5,
+      "stored": "5",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-035",
+      "revision": "LUX-MATH-Y9-SIMULTANEOUS-035-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "expected": 6,
+      "stored": "6",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    },
+    {
+      "id": "LUX-MATH-Y9-SIMULTANEOUS-036",
+      "revision": "LUX-MATH-Y9-SIMULTANEOUS-036-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "expected": 7,
+      "stored": "7",
+      "keyMatches": true,
+      "uniqueCorrect": true,
+      "distinctValues": true,
+      "triage": "UPGRADE_STEM_FOR_G7PLUS",
+      "decision": "REWRITE_OR_BENCHMARK_HOLD_NOT_GRADE_CERTIFIED"
+    }
+  ]
+}

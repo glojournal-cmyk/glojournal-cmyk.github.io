@@ -1,0 +1,1504 @@
+{
+  "kind": "SIMULTANEOUS26_DIFFICULTY_HOLD_REDESIGN_NO_APPROVAL",
+  "date": "2026-11-24",
+  "sourceRegister": "qa-staging/math-final-academic-review-all200-consolidated-20261124.json",
+  "sourceRegisterBlobSha": "c2b3abea3711012c7f00d7355f4f2d332cc9d39c",
+  "count": 26,
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-002",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-002-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-002-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-002-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "error-diagnosis",
+      "stem": "A student obtains (x,y)=(4,8) when solving $3x+2y=16$ and $x-2y=0$. A correction changes x by a and y by b so that both equations become true. Find $a^2+b^2$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "6",
+          "errorPath": "Report the magnitude of the y correction instead of its square."
+        },
+        {
+          "id": "B",
+          "latex": "36"
+        },
+        {
+          "id": "C",
+          "latex": "12",
+          "errorPath": "Report the first equation's residual before correction."
+        },
+        {
+          "id": "D",
+          "latex": "0",
+          "errorPath": "Observe that x is already correct and ignore the required correction to y."
+        },
+        {
+          "id": "E",
+          "latex": "64",
+          "errorPath": "Square the student's incorrect y instead of its correction."
+        },
+        {
+          "id": "F",
+          "latex": "4",
+          "errorPath": "Square the corrected y rather than its change."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "36",
+      "workedSolutionSteps": [
+        "Substitute x=4+a,y=8+b: 3a+2b=−12 and a−2b=12.",
+        "Add to get 4a=0, hence a=0 and b=−6.",
+        "Both corrected equations give (4,2), and a²+b²=36."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Use signed residuals to form and solve a correction system.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-002-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "difficultyResidualNote": "Correction system has a zero correction to one variable; retain benchmark hold if external Grade 7+ calibration is not supported."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-003",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-003-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-003-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-003-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "three-variable-pair-sums",
+      "stem": "Positive quantities A,B,C satisfy $A+B=24$ and $B+C=30$. A fourth quantity D equals half of A+C. If $A+D=22$, find the ratio B:C in simplest form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "29:31"
+        },
+        {
+          "id": "B",
+          "latex": "19:29",
+          "errorPath": "Compare A with B."
+        },
+        {
+          "id": "C",
+          "latex": "31:29",
+          "errorPath": "Reverse B:C."
+        },
+        {
+          "id": "D",
+          "latex": "19:31",
+          "errorPath": "Compare A with C."
+        },
+        {
+          "id": "E",
+          "latex": "4:5",
+          "errorPath": "Use the pair sums 24:30."
+        },
+        {
+          "id": "F",
+          "latex": "29:60",
+          "errorPath": "Compare B with B+C."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "29:31",
+      "workedSolutionSteps": [
+        "Subtract the pair sums to obtain C−A=6; then D=(A+C)/2=A+3.",
+        "A+D=22 gives 2A+3=22, so A=19/2.",
+        "Then B=24−19/2=29/2 and C=30−29/2=31/2, giving B:C=29:31."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Eliminate linked quantities and recover a ratio; exact rational inputs permitted.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-003-V332-EDITORIAL-UPGRADE-QA-ONLY"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-004",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-004-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-004-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-004-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "place-value-model",
+      "stem": "A two-digit integer N has a nonzero tens digit and nonzero units digit. Reversing its digits increases it by 27. The product of its digits is 28. Find N.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "74",
+          "errorPath": "Reverse the required direction of the increase."
+        },
+        {
+          "id": "B",
+          "latex": "28",
+          "errorPath": "Report the digit product."
+        },
+        {
+          "id": "C",
+          "latex": "11",
+          "errorPath": "Report the digit sum."
+        },
+        {
+          "id": "D",
+          "latex": "36",
+          "errorPath": "Use a digit difference of 3 but ignore the product requirement."
+        },
+        {
+          "id": "E",
+          "latex": "7",
+          "errorPath": "Report the units digit only."
+        },
+        {
+          "id": "F",
+          "latex": "47"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "47",
+      "workedSolutionSteps": [
+        "Let tens and units digits be a and b. Reversal gives 9(b−a)=27, so b=a+3.",
+        "The digit product gives a(a+3)=28, or (a−4)(a+7)=0.",
+        "Only a=4 is a permitted digit; b=7. Therefore N=47."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Translate reversal and a nonlinear digit condition, rejecting the negative root.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-004-V332-EDITORIAL-UPGRADE-QA-ONLY"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-007",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-007-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-007-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "linear-combination-target",
+      "stem": "For real x,y, $7x+4y=31$ and $3x-2y=5$. Find the ratio of $23x+2y$ to $-x-8y$ in simplest signed fractional form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac{11}{3}",
+          "errorPath": "Lose the negative sign of the denominator."
+        },
+        {
+          "id": "B",
+          "latex": "77",
+          "errorPath": "Report the first value alone."
+        },
+        {
+          "id": "C",
+          "latex": "-\\frac{11}{3}"
+        },
+        {
+          "id": "D",
+          "latex": "-21",
+          "errorPath": "Report the second value alone."
+        },
+        {
+          "id": "E",
+          "latex": "-\\frac{3}{11}",
+          "errorPath": "Reverse the quotient."
+        },
+        {
+          "id": "F",
+          "latex": "56",
+          "errorPath": "Add the two expression values rather than dividing."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "-\\frac{11}{3}",
+      "workedSolutionSteps": [
+        "Notice that 23x+2y=2(7x+4y)+3(3x−2y), so its value is 77.",
+        "Also −x−8y=2(3x−2y)−(7x+4y), so its value is −21.",
+        "The quotient is 77/(−21)=−11/3."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Identify two independent linear combinations from their coefficients.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-007-V330-REASONING-QA-ONLY"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-008",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-008-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-008-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "quantity-cost-model",
+      "stem": "A club buys exactly 120 items, notebooks at £2.40 and folders at £3.60, spending £360. It then exchanges some notebooks for the same number of folders, at the original price difference. It can spend at most £18 extra and must retain at least 42 notebooks. Find the greatest possible number of folders after the exchange.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "60",
+          "errorPath": "Report the original folder count."
+        },
+        {
+          "id": "B",
+          "latex": "75"
+        },
+        {
+          "id": "C",
+          "latex": "78",
+          "errorPath": "Use only the minimum notebook count of 42, ignoring the budget."
+        },
+        {
+          "id": "D",
+          "latex": "15",
+          "errorPath": "Report the maximum number exchanged."
+        },
+        {
+          "id": "E",
+          "latex": "45",
+          "errorPath": "Report the final notebook count."
+        },
+        {
+          "id": "F",
+          "latex": "65",
+          "errorPath": "Divide the £18 extra budget by the full folder price £3.60 rather than the exchange price £1.20, allowing only five exchanges."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "75",
+      "workedSolutionSteps": [
+        "Let n,f be the original counts. Solve n+f=120 and 2.4n+3.6f=360 to get n=f=60.",
+        "Each exchange costs £1.20, so the budget allows at most 15 exchanges. Retaining at least 42 notebooks permits at most 18 exchanges.",
+        "The binding limit is 15 exchanges, giving 75 folders and 45 notebooks."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Recover original counts then compare budget and minimum remaining stock.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-008-V330-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Recover two component values then optimise a discrete allocation under resource or count constraints; overlaps Standard Form allocation questions."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-009",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "ratio-and-domain",
+      "stem": "Real x,y satisfy $\\frac{x+y}{3}=\\frac{x-y}{2}$ and $2x+3y=k$. For positive integer k≤60, find the sum of all k for which both x and y are positive integers and x+y is divisible by 4.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "78"
+        },
+        {
+          "id": "B",
+          "latex": "26",
+          "errorPath": "Keep only the first feasible k."
+        },
+        {
+          "id": "C",
+          "latex": "52",
+          "errorPath": "Keep only the second feasible k."
+        },
+        {
+          "id": "D",
+          "latex": "130",
+          "errorPath": "Sum all positive multiples of 13 up to 60, ignoring the divisibility constraint."
+        },
+        {
+          "id": "E",
+          "latex": "2",
+          "errorPath": "Report the number of feasible values."
+        },
+        {
+          "id": "F",
+          "latex": "6",
+          "errorPath": "Report the sum of feasible y values instead of k."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "78",
+      "workedSolutionSteps": [
+        "Cross-multiply: 2(x+y)=3(x−y), hence x=5y. Then k=13y.",
+        "For positive integer y, k≤60 implies y=1,2,3,4. The sum x+y=6y is divisible by 4 exactly when y is even.",
+        "Thus y=2,4, giving k=26,52, whose sum is 78."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Derive a ratio and combine integer feasibility with a divisibility constraint.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-ACADEMIC-REVIEW-20261124",
+      "provisionalCrossTopicMasteryHold": "Integer feasibility of a linear model or parameter; cross-topic grouping pending."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-010",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "parameter-invariant",
+      "stem": "For integer c, the equations $x+2y=c$ and $3x-2y=12-c$ have a unique solution. Find the sum of all integers c for which both x,y are positive integers and $2< x+y\\le8$, and y is not a multiple of 3.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "45",
+          "errorPath": "Sum all permitted odd c before excluding y=3."
+        },
+        {
+          "id": "B",
+          "latex": "4",
+          "errorPath": "Report the number of feasible c."
+        },
+        {
+          "id": "C",
+          "latex": "13",
+          "errorPath": "Report the greatest feasible c."
+        },
+        {
+          "id": "D",
+          "latex": "31",
+          "errorPath": "Omit c=5, the smallest valid value."
+        },
+        {
+          "id": "E",
+          "latex": "12",
+          "errorPath": "Report the sum of the feasible y values."
+        },
+        {
+          "id": "F",
+          "latex": "36"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "36",
+      "workedSolutionSteps": [
+        "Add the equations: 4x=12, so x=3. Hence y=(c−3)/2.",
+        "Positivity and 2<3+y≤8 give integer y=1,…,5. Exclude y=3.",
+        "The allowed y=1,2,4,5 give c=5,7,11,13. Their sum is 36."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Derive an invariant, then impose integer constraints on the remaining parameter.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-ACADEMIC-REVIEW-20261124",
+      "provisionalCrossTopicMasteryHold": "Integer feasibility of a linear model or parameter; cross-topic grouping pending."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-011",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-011-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-011-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-011-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "coefficient-recovery",
+      "stem": "The lines $ax+2y=14$ and $3x+by=17$ meet at (2,4). Let C be the first line's x-intercept and D the second line's y-intercept. Find the area of triangle OCD, where O is the origin.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "14",
+          "errorPath": "Report the first equation's constant."
+        },
+        {
+          "id": "B",
+          "latex": "17",
+          "errorPath": "Report the second equation's constant."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{952}{33}",
+          "errorPath": "Omit the triangle factor of one half."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{14}{3}",
+          "errorPath": "Report the x-intercept only."
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{476}{33}"
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{68}{11}",
+          "errorPath": "Report the y-intercept only."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "\\frac{476}{33}",
+      "workedSolutionSteps": [
+        "Substitute (2,4) to obtain a=3,b=11/4.",
+        "The first line's x-intercept is 14/3, and the second line's y-intercept is 17/(11/4)=68/11.",
+        "The area of the triangle with the origin and those intercepts is (14/3)(68/11)/2=476/33."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Recover coefficients and transfer intercepts into an area calculation.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-011-V332-EDITORIAL-UPGRADE-QA-ONLY"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-012",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-012-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-012-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-012-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "difference-square-factorisation",
+      "stem": "The equations $2x+y=11$ and $x-2y=-2$ hold. Define positive numbers u,v by $u+v=x+y$ and $u^2-v^2=3(x^2-y^2)$. Find $uv$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "7",
+          "errorPath": "Report u+v rather than uv."
+        },
+        {
+          "id": "B",
+          "latex": "3",
+          "errorPath": "Report u−v rather than uv."
+        },
+        {
+          "id": "C",
+          "latex": "25",
+          "errorPath": "Square the larger value u."
+        },
+        {
+          "id": "D",
+          "latex": "10"
+        },
+        {
+          "id": "E",
+          "latex": "4",
+          "errorPath": "Square the smaller value v."
+        },
+        {
+          "id": "F",
+          "latex": "21",
+          "errorPath": "Report u²−v² rather than uv."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "10",
+      "workedSolutionSteps": [
+        "Solving the first system gives x=4,y=3.",
+        "Hence u+v=7 and u²−v²=21. Factor: 7(u−v)=21, so u−v=3.",
+        "Solve to get u=5,v=2, both positive, and uv=10."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Transfer a linear solution into a difference-of-squares system.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-012-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Use polynomial identities or symmetric sum/product constraints to recover variables or derived quantities; overlaps other algebra topics."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-015",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-015-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-015-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "proportional-equations-classification",
+      "stem": "For real k, consider $2x+3y=8$ and $(k^2-5)x+6y=4k+4$. Find the sum of all k for which the equations have no solution.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "-3"
+        },
+        {
+          "id": "B",
+          "latex": "0",
+          "errorPath": "Include both singular parameter values regardless of consistency."
+        },
+        {
+          "id": "C",
+          "latex": "3",
+          "errorPath": "Keep the consistent singular value instead of the inconsistent one."
+        },
+        {
+          "id": "D",
+          "latex": "9",
+          "errorPath": "Square the inconsistent parameter."
+        },
+        {
+          "id": "E",
+          "latex": "4",
+          "errorPath": "Report the coefficient needed for proportional equations."
+        },
+        {
+          "id": "F",
+          "latex": "2",
+          "errorPath": "Report the number of singular coefficient values."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "-3",
+      "workedSolutionSteps": [
+        "Multiply the first equation by two and subtract from the second: (k²−9)x=4k−12.",
+        "Only k=±3 can prevent a unique solution. At k=3 the equation is 0=0, giving infinitely many solutions; at k=−3 it is 0=−24.",
+        "Only k=−3 gives no solution, so the requested sum is −3."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Distinguish consistent and inconsistent singular parameters through elimination.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-015-ACADEMIC-REVIEW-20261124",
+      "provisionalCrossTopicMasteryHold": "Proportional equations and dependent systems; overlapping family, no independent credit without review."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-016",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-016-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-016-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "coefficient-recovery",
+      "stem": "The equations $2x+y=9$ and $kx-y=3$ have a unique solution. For positive integer k, find the sum of all k for which x and y are positive integers and x<y.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "10",
+          "errorPath": "Keep only the larger eligible k."
+        },
+        {
+          "id": "B",
+          "latex": "4",
+          "errorPath": "Keep only the smaller eligible k."
+        },
+        {
+          "id": "C",
+          "latex": "2",
+          "errorPath": "Report the number of feasible k."
+        },
+        {
+          "id": "D",
+          "latex": "17",
+          "errorPath": "Include k=1,2 even though x≥y."
+        },
+        {
+          "id": "E",
+          "latex": "1",
+          "errorPath": "Report the smallest possible x."
+        },
+        {
+          "id": "F",
+          "latex": "14"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "14",
+      "workedSolutionSteps": [
+        "Adding gives (k+2)x=12, hence x=12/(k+2) and y=9−2x.",
+        "Positive integer k means k+2≥3 and it must divide 12. Candidates k=1,2,4,10 give x=4,3,2,1.",
+        "The condition x<y requires x<3, leaving k=4,10. Their sum is 14."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Solve a parameterised system and impose divisibility, positivity and strict ordering.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-016-V330-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Integer feasibility of a linear model or parameter; cross-topic grouping pending."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-017",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-017-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-017-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "rate-model",
+      "stem": "Two machines have fixed positive rates a and b in items per hour. A runs for 3 hours and B for 2 hours to make 740 items. A runs for 2 hours and B for 5 hours to make 970 items. For a new order, A and B must run for a combined 10 whole machine-hours. A must run at least 2 hours and B at least 3 hours. What is the greatest number of items they can make?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "1600",
+          "errorPath": "Use A for all ten hours, violating B's minimum."
+        },
+        {
+          "id": "B",
+          "latex": "1300",
+          "errorPath": "Use B for all ten hours."
+        },
+        {
+          "id": "C",
+          "latex": "1360",
+          "errorPath": "Run A for its minimum of two hours."
+        },
+        {
+          "id": "D",
+          "latex": "1450",
+          "errorPath": "Run both machines for five hours."
+        },
+        {
+          "id": "E",
+          "latex": "1510"
+        },
+        {
+          "id": "F",
+          "latex": "7",
+          "errorPath": "Report the optimum number of hours for A."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "1510",
+      "workedSolutionSteps": [
+        "The two observations yield a=160,b=130.",
+        "If A runs for h hours, B runs for 10−h. The permitted integer range is 2≤h≤7, and output is 1300+30h.",
+        "It increases with h, so the maximum occurs at h=7 and equals 1510."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Calibrate two rates then optimise a constrained allocation.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-017-V330-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Recover two component values then optimise a discrete allocation under resource or count constraints; overlaps Standard Form allocation questions."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-018",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-018-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-018-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "weighted-mixture",
+      "stem": "A technician mixes 8% and 20% salt solutions by mass to make 750 g of 16% solution. She then removes 150 g of the well-mixed solution and replaces it with 150 g of a new mixture made from the same two original solutions. The final concentration is exactly 15.2%. How many grams of the 20% solution were used in total across both mixing stages?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "500",
+          "errorPath": "Ignore the replacement stage."
+        },
+        {
+          "id": "B",
+          "latex": "50",
+          "errorPath": "Report only the high-concentration solution used in the replacement."
+        },
+        {
+          "id": "C",
+          "latex": "600",
+          "errorPath": "Assume the replacement has the same concentration as the initial mixture."
+        },
+        {
+          "id": "D",
+          "latex": "550"
+        },
+        {
+          "id": "E",
+          "latex": "650",
+          "errorPath": "Assume all replacement mass is 20% solution."
+        },
+        {
+          "id": "F",
+          "latex": "114",
+          "errorPath": "Report the final salt mass rather than the total high-concentration solution."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "550",
+      "workedSolutionSteps": [
+        "First mix: 0.08(750−h)+0.20h=120, so h=500 g.",
+        "Removing 150 g removes 24 g of salt. Final salt is 0.152×750=114 g, so the replacement contributes 18 g.",
+        "Let H be the high-concentration mass in the 150 g replacement: 0.08(150−H)+0.20H=18 gives H=50. Total=550 g."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Use two successive mixture systems and account for removed salt.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-018-ACADEMIC-REVIEW-20261124",
+      "provisionalCrossTopicMasteryHold": "Two-stage mixture conservation; related to Standard Form dilution and weighted allocations."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-019",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-019-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-019-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "quantity-cost-model",
+      "stem": "A stall sells badges for £3 and keyrings for £5. Its report says 31 items sold for £118. It may correct the reported total revenue by a whole number of pounds, keeping 31 items. At least 13 keyrings and at least 10 badges must have been sold. Find the product of the two item counts for the feasible revenue closest to £118.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "228",
+          "errorPath": "Use 12 keyrings and 19 badges, violating the minimum keyring count."
+        },
+        {
+          "id": "B",
+          "latex": "119",
+          "errorPath": "Report the corrected revenue."
+        },
+        {
+          "id": "C",
+          "latex": "234"
+        },
+        {
+          "id": "D",
+          "latex": "13",
+          "errorPath": "Report the keyring count."
+        },
+        {
+          "id": "E",
+          "latex": "18",
+          "errorPath": "Report the badge count."
+        },
+        {
+          "id": "F",
+          "latex": "31",
+          "errorPath": "Report the total count."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "234",
+      "workedSolutionSteps": [
+        "For k keyrings, the badge count is 31−k and revenue is 93+2k. The count constraints give 13≤k≤21.",
+        "The revenue is increasing in k and its minimum is 119 at k=13. This is the closest feasible revenue to 118.",
+        "The counts are 13 and 18; their product is 234."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Use a bounded integer revenue model and minimise the correction.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-019-V330-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Integer feasibility of a linear model or parameter; cross-topic grouping pending.",
+      "difficultyResidualNote": "Monotonic revenue model makes optimum at a supplied lower boundary; independent demand judgement remains necessary."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-020",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-020-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-020-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "price-change-model",
+      "stem": "Two pens and three notebooks cost £17, and four pens and one notebook cost £19. Later pens rise in price by 25% and notebooks fall by 20%. A customer buys exactly 10 items, at least three of each type, and can spend at most £39.60. What is the greatest number of pens that can be bought?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "7",
+          "errorPath": "Use only the minimum of three notebooks, ignoring the budget."
+        },
+        {
+          "id": "B",
+          "latex": "6"
+        },
+        {
+          "id": "C",
+          "latex": "3",
+          "errorPath": "Report the minimum allowed pen count."
+        },
+        {
+          "id": "D",
+          "latex": "4",
+          "errorPath": "Report the notebook count at the optimum."
+        },
+        {
+          "id": "E",
+          "latex": "5",
+          "errorPath": "Assume the items are split equally."
+        },
+        {
+          "id": "F",
+          "latex": "8",
+          "errorPath": "Divide the budget by the new pen price, ignoring required notebooks."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "6",
+      "workedSolutionSteps": [
+        "Solving the original equations gives pen £4, notebook £3. New prices are £5 and £2.40.",
+        "For p pens and 10−p notebooks, cost=24+2.6p. The budget gives p≤15.6/2.6=6.",
+        "The count constraints give 3≤p≤7. Hence the maximum is 6, with four notebooks and total £39.60."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Calibrate original prices, apply percentage changes and solve a discrete budget constraint.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-020-V330-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Recover two component values then optimise a discrete allocation under resource or count constraints; overlaps Standard Form allocation questions."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-023",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "symmetric-square-identity",
+      "stem": "Real x,y satisfy $x+y=7$ and $x^2+y^2=29$. Find $x^3+y^3$ without assuming which of x,y is larger.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "343",
+          "errorPath": "Cube x+y and omit the mixed terms."
+        },
+        {
+          "id": "B",
+          "latex": "70",
+          "errorPath": "Report xy(x+y)."
+        },
+        {
+          "id": "C",
+          "latex": "10",
+          "errorPath": "Report xy."
+        },
+        {
+          "id": "D",
+          "latex": "203",
+          "errorPath": "Multiply x²+y² by x+y without subtracting the mixed terms."
+        },
+        {
+          "id": "E",
+          "latex": "133"
+        },
+        {
+          "id": "F",
+          "latex": "273",
+          "errorPath": "Subtract only one copy of xy(x+y) from (x+y)^3."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "133",
+      "workedSolutionSteps": [
+        "Use (x+y)²=x²+y²+2xy: 49=29+2xy, so xy=10.",
+        "The identity x³+y³=(x+y)³−3xy(x+y) applies regardless of the order of the roots.",
+        "Thus x³+y³=343−3×10×7=133."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Recover a symmetric invariant and transfer it to a cubic expression.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-023-V330-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Use polynomial identities or symmetric sum/product constraints to recover variables or derived quantities; overlaps other algebra topics."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-024",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "difference-square-factorisation",
+      "stem": "Positive real x,y satisfy $x+y=8$ and $x^2-y^2=16$. Positive p,q satisfy $p:q=x:y$ and $p^2-q^2=100$. Find $p+q$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "8",
+          "errorPath": "Report the original sum x+y."
+        },
+        {
+          "id": "B",
+          "latex": "10",
+          "errorPath": "Use the square root of the new difference of squares as the sum."
+        },
+        {
+          "id": "C",
+          "latex": "50",
+          "errorPath": "Scale linearly by 100/16 instead of using its square root."
+        },
+        {
+          "id": "D",
+          "latex": "20"
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{25}{2}",
+          "errorPath": "Report p alone."
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{15}{2}",
+          "errorPath": "Report q alone."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "20",
+      "workedSolutionSteps": [
+        "Since x+y=8, factor to obtain x−y=2, so x=5,y=3.",
+        "The ratio means p=5t,q=3t for t>0. Then p²−q²=16t²=100, so t=5/2.",
+        "Thus p+q=8t=20."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Transfer a ratio to a new difference-of-squares constraint using a positive scale.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Use polynomial identities or symmetric sum/product constraints to recover variables or derived quantities; overlaps other algebra topics."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-025",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-025-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-025-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "mass-model",
+      "stem": "Two identical boxes containing a total of five identical metal parts weigh 37 kg. Three such boxes containing a total of four parts weigh 38 kg. A shipment must carry exactly 23 parts in boxes, each box holding at most four parts. The shipment may weigh at most 160 kg. Find the greatest total number of boxes that may be included, including any empty boxes.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "6",
+          "errorPath": "Report the minimum number of boxes needed to carry 23 parts."
+        },
+        {
+          "id": "B",
+          "latex": "8",
+          "errorPath": "Round the maximum permitted number of boxes up rather than down."
+        },
+        {
+          "id": "C",
+          "latex": "7"
+        },
+        {
+          "id": "D",
+          "latex": "23",
+          "errorPath": "Report the number of parts."
+        },
+        {
+          "id": "E",
+          "latex": "26",
+          "errorPath": "Divide the mass allowance by the box mass, ignoring the parts."
+        },
+        {
+          "id": "F",
+          "latex": "1",
+          "errorPath": "Report the number of extra boxes beyond the minimum."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "7",
+      "workedSolutionSteps": [
+        "Let b,p be masses. Solve 2b+5p=37 and 3b+4p=38, giving b=6,p=5.",
+        "The 23 parts weigh 115 kg. At most floor((160−115)/6)=7 boxes fit the mass limit; at least ceil(23/4)=6 boxes are needed.",
+        "Seven boxes are feasible, so the maximum is 7."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Calibrate component masses and enforce both capacity and budget bounds.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-025-V330-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Recover two component values then optimise a discrete allocation under resource or count constraints; overlaps Standard Form allocation questions."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-026",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-026-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-026-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-026-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "mass-model",
+      "stem": "Two identical blocks and three identical rods weigh 5.4 kg, and three blocks and one rod weigh 6.0 kg. A package contains exactly 12 components, each a block or rod, and weighs 12 kg before packaging. Wrapping adds 150 g. As many rods as possible are then exchanged for blocks without the wrapped package exceeding 16 kg. Find the final mass in grams.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "12150",
+          "errorPath": "Include wrapping but no exchanges."
+        },
+        {
+          "id": "B",
+          "latex": "15750"
+        },
+        {
+          "id": "C",
+          "latex": "13350",
+          "errorPath": "Make only one exchange."
+        },
+        {
+          "id": "D",
+          "latex": "16950",
+          "errorPath": "Make four exchanges, exceeding the mass cap."
+        },
+        {
+          "id": "E",
+          "latex": "16000",
+          "errorPath": "Report the cap rather than the greatest attainable mass."
+        },
+        {
+          "id": "F",
+          "latex": "3600",
+          "errorPath": "Report the increase from exchanges alone."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "15750",
+      "workedSolutionSteps": [
+        "Solve the two mass equations: a block weighs 1.8 kg, a rod 0.6 kg. For 12 components of total 12 kg, 1.8b+0.6(12−b)=12 gives four blocks and eight rods.",
+        "Each exchange increases mass by 1.2 kg. With wrapping, 12.15+1.2e≤16 gives e≤3.208..., so at most three whole exchanges; eight rods are available.",
+        "Final mass is 12.15+3×1.2=15.75 kg=15750 g."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Calibrate masses, verify feasible exchanges and apply a discrete total mass cap.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-026-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Recover two component values then optimise a discrete allocation under resource or count constraints; overlaps Standard Form allocation questions."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-027",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-027-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-027-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-027-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "age-model",
+      "stem": "Two people have ages A and B in whole years. In five years their ages will sum to 58. Three years ago A was twice B's age. After how many whole years from now will A's age be at most one and a half times B's age for the first time?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "11"
+        },
+        {
+          "id": "B",
+          "latex": "10",
+          "errorPath": "Use the preceding year, when the ratio still exceeds 1.5."
+        },
+        {
+          "id": "C",
+          "latex": "14",
+          "errorPath": "Report the current age difference."
+        },
+        {
+          "id": "D",
+          "latex": "17",
+          "errorPath": "Report B's current age."
+        },
+        {
+          "id": "E",
+          "latex": "28",
+          "errorPath": "Report B's age at the first qualifying year."
+        },
+        {
+          "id": "F",
+          "latex": "31",
+          "errorPath": "Report A's current age."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "11",
+      "workedSolutionSteps": [
+        "Solve A+B=48 and A−3=2(B−3), obtaining A=31,B=17.",
+        "For t≥0, 31+t≤1.5(17+t) gives 5.5≤0.5t, hence t≥11.",
+        "At t=11 the ages are 42 and 28, giving ratio 1.5; t=10 fails."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Recover ages from two time observations and invert a future ratio inequality.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-027-V332-EDITORIAL-UPGRADE-QA-ONLY"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-028",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "ratio-transfer",
+      "stem": "Boxes A and B initially contain unknown positive whole numbers of counters. Moving 15 counters from A to B makes their counts have ratio 2:3. Instead, starting from the original counts, moving 6 counters from B to A makes the ratio 3:2. Find the original total number of counters.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "90",
+          "errorPath": "Reuse an assumed total of 90 instead of solving."
+        },
+        {
+          "id": "B",
+          "latex": "21",
+          "errorPath": "Report the difference between the two values of A after the transfers."
+        },
+        {
+          "id": "C",
+          "latex": "57",
+          "errorPath": "Report A's original count."
+        },
+        {
+          "id": "D",
+          "latex": "48",
+          "errorPath": "Report B's original count."
+        },
+        {
+          "id": "E",
+          "latex": "5",
+          "errorPath": "Report the sum of the ratio parts."
+        },
+        {
+          "id": "F",
+          "latex": "105"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "105",
+      "workedSolutionSteps": [
+        "Let T=A+B. The first operation gives A−15=2T/5; the second gives A+6=3T/5.",
+        "Subtract: 21=T/5, so T=105.",
+        "Then A=57,B=48; both transfers are possible and the two ratios are satisfied."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Derive independent ratio observations and recover an unknown conserved total.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Conserved ratio transfer model; related to Standard Form Q034."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-030",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "linear-combination-target",
+      "stem": "Real x,y satisfy $3x+2y=a$ and $x-2y=b$. Also a+b=18 and ab=32, with a>b. Find $x^2+y^2$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac{81}{4}",
+          "errorPath": "Report x² only."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{25}{16}",
+          "errorPath": "Report y² only."
+        },
+        {
+          "id": "C",
+          "latex": "18",
+          "errorPath": "Report a+b."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{349}{16}"
+        },
+        {
+          "id": "E",
+          "latex": "32",
+          "errorPath": "Report ab."
+        },
+        {
+          "id": "F",
+          "latex": "14",
+          "errorPath": "Report a−b."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "\\frac{349}{16}",
+      "workedSolutionSteps": [
+        "The constants a,b are roots of z²−18z+32=0, so a=16,b=2 by a>b.",
+        "Add the linear equations: 4x=18, so x=9/2. Then x−2y=2 gives y=5/4.",
+        "Therefore x²+y²=81/4+25/16=349/16."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Recover ordered constants from sum and product before solving the linear system.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Use polynomial identities or symmetric sum/product constraints to recover variables or derived quantities; overlaps other algebra topics."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-033",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-033-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-033-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-033-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "dependent-system-extra-constraint",
+      "stem": "The equations $kx+2y=12$ and $3x+y=6$ have infinitely many solutions for one k. With that k, an additional equation $x^2+y=4$ is imposed. Find the sum of the x-coordinates of all common real solutions.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3"
+        },
+        {
+          "id": "B",
+          "latex": "2",
+          "errorPath": "Report the number of intersections."
+        },
+        {
+          "id": "C",
+          "latex": "1",
+          "errorPath": "Keep only one root."
+        },
+        {
+          "id": "D",
+          "latex": "-3",
+          "errorPath": "Take the coefficient of x in x²−3x+2=0 as the sum of the roots without reversing its sign."
+        },
+        {
+          "id": "E",
+          "latex": "4",
+          "errorPath": "Report the extra equation's constant."
+        },
+        {
+          "id": "F",
+          "latex": "6",
+          "errorPath": "Report the parameter k."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "3",
+      "workedSolutionSteps": [
+        "For infinitely many solutions the first equation must be twice the second, so k=6.",
+        "Substitute y=6−3x into x²+y=4 to obtain x²−3x+2=0.",
+        "The roots x=1,2 give y=3,0, both permitted. Their sum is 3."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Identify dependence then intersect with a nonlinear independent constraint.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-033-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Proportional equations and dependent systems; overlapping family, no independent credit without review."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-034",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-034-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-034-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-034-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "linear-combination-target",
+      "stem": "The systems $x+2y=11,\\ 3x-y=5$ and $px+qy=10,\\ qx-py=-5$ share the same solution. Find $p^2+q^2$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3",
+          "errorPath": "Report p+q."
+        },
+        {
+          "id": "B",
+          "latex": "1",
+          "errorPath": "Report p−q."
+        },
+        {
+          "id": "C",
+          "latex": "4",
+          "errorPath": "Report p² only."
+        },
+        {
+          "id": "D",
+          "latex": "2",
+          "errorPath": "Report pq."
+        },
+        {
+          "id": "E",
+          "latex": "25",
+          "errorPath": "Report x²+y² rather than p²+q²."
+        },
+        {
+          "id": "F",
+          "latex": "5"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "5",
+      "workedSolutionSteps": [
+        "Solving the first system gives x=3,y=4.",
+        "The second system then becomes 3p+4q=10 and −4p+3q=−5. Solving gives p=2,q=1.",
+        "Thus p²+q²=5."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Solve one system and use its solution to construct a second coefficient system.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-034-ACADEMIC-REVIEW-20261124"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-035",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-035-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-035-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-035-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "ratio-and-domain",
+      "stem": "The system $kx+y=18$, $x+2y=15$ has a positive solution with $x:y=3:2$. A second system uses the same k but changes the second right-hand side to 22. Find the ratio of the new x to the original x, in simplest form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "1:3",
+          "errorPath": "Compare the change in x with the original x, ignoring the negative sign."
+        },
+        {
+          "id": "B",
+          "latex": "22:15",
+          "errorPath": "Assume both variables scale with the second right-hand side alone."
+        },
+        {
+          "id": "C",
+          "latex": "3:2",
+          "errorPath": "Reverse the required ratio."
+        },
+        {
+          "id": "D",
+          "latex": "1:1",
+          "errorPath": "Assume x stays fixed when the second constant changes."
+        },
+        {
+          "id": "E",
+          "latex": "2:3"
+        },
+        {
+          "id": "F",
+          "latex": "7:15",
+          "errorPath": "Report the increase in the second constant relative to its original value."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "2:3",
+      "workedSolutionSteps": [
+        "Write x=3t,y=2t. Then 7t=15 so x=45/7,y=30/7, and k=(18−30/7)/(45/7)=32/15.",
+        "With the changed second equation, y=(22−x)/2. Substitute into the first: (32/15−1/2)x=7, so x=30/7.",
+        "The ratio new x:old x is (30/7):(45/7)=2:3."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Calibrate a parameter through a ratio and transfer it into a changed system.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-035-V332-EDITORIAL-UPGRADE-QA-ONLY"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-037",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-037-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-037-REVIEW-2",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "proportional-equations-classification",
+      "stem": "For real k,c, the equations $3x+2y=12$ and $(k+1)x+6y=c$ have infinitely many solutions. For those k,c, add $kx-y=c/2$. Find the exact value of $x+y$ for the resulting system.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "8",
+          "errorPath": "Report k."
+        },
+        {
+          "id": "B",
+          "latex": "36",
+          "errorPath": "Report c."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{90}{19}"
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{48}{19}",
+          "errorPath": "Report x alone."
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{42}{19}",
+          "errorPath": "Report y alone."
+        },
+        {
+          "id": "F",
+          "latex": "18",
+          "errorPath": "Report c/2."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "\\frac{90}{19}",
+      "workedSolutionSteps": [
+        "Infinite solutions require k+1=9,c=36, so k=8.",
+        "The added equation is 8x−y=18. Add twice this equation to 3x+2y=12 to obtain 19x=48, so x=48/19.",
+        "Then y=8x−18=42/19. The sum is 90/19."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Identify proportional parameters then solve a new system; same family as Q033, hold separate mastery.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-037-V330-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Proportional equations and dependent systems; overlapping family, no independent credit without review."
+    }
+  ],
+  "verification": "Author review and separate numerical rederivation, feasible integer enumeration, forward substitution and numerical equivalence checks on all 26 selected records. Q003 key and distractors corrected on read-back. Some questions still require external grade judgement. All release/credit gates closed.",
+  "academicApprovals": 0,
+  "dailyEligible": 0,
+  "masteryEligible": 0
+}

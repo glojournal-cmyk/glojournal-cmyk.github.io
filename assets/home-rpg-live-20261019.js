@@ -4,6 +4,7 @@ import { dailyHistorySummary } from './daily-history-display-20261030.js';
  * Integrates the original App state, never awards credit or edits a daily record.
  * The native Recovery module remains authoritative for dated recovery.
  */
+import './practice-drafts-20261004.js?v=20261025-ipad-draft-failopen1';
 import './home-journey-v2-logic-20261010.js?v=20261023-no-zero-flicker1';
 import './journey-navigation-20261004.js?v=20261024-latin-ipad-date2';
 import { A as wardrobeOutfits, C as store, Z as scholarLevelProgress, B as rewardScenes } from './index-BLVOhKhN.js?v=20261026-bio-year9-savefix2&ux=20261013-corrections2&uxfix=20261022-priority-ux1&mpverify=20261030-save-retry3-modeguard2&scienceRecover=20261110a&frenchShopping=20261110a&nov10Fix=20261110c&frenchDaily=20261114b';
@@ -444,7 +445,7 @@ if (!window.__luxRpgLiveHome) {
     if (progress.ready) {
       for (const row of progress.rows) task(panel,row,/vocab/i.test(row.title) ? '⚑' : '▣');
     } else {
-      panel.append(make('p','rpg-loading-live',"Waiting for today's official ten-task plan…"));
+      panel.append(make('p','rpg-loading-live',"Waiting for today's Daily Tasks…"));
       const link = make('a','rpg-open-study-live','Open Study →');link.href='/study';panel.append(link);
     }
     if (progress.ready && progress.next?.href) {
@@ -547,6 +548,7 @@ if (!window.__luxRpgLiveHome) {
   window.addEventListener('storage',schedule);
   window.addEventListener('scholar:pet-changed',schedule);
   document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')schedule();});
+  window.LuxPracticeDrafts?.ready().then(schedule);
   store.subscribe?.(schedule);
   store.persist?.onFinishHydration?.(() => { lastRenderSignature = ''; schedule(); });
   schedule();

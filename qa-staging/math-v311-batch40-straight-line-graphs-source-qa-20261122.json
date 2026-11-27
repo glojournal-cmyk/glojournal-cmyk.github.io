@@ -1,0 +1,2098 @@
+{
+  "status": "40_ITEM_SOURCE_QA_PACKET_NOT_FORMAL_ACADEMIC_APPROVAL",
+  "createdDate": "2026-11-22",
+  "topicId": "math-y9-straight-line-graphs",
+  "sourceDocuments": [
+    "Lux_Maths_Y9_V3_All_200_Student.pdf",
+    "Lux_Maths_Y9_V3_All_200_Answers.pdf",
+    "Lux_Maths_V3_1_Formal_Academic_QA_Register_20261122.csv"
+  ],
+  "sourcePreservationWarning": "Text was extracted from the original uploaded PDF; superscripts/fractions may be flattened and must be checked visually against the original typeset pages before mathematical signing. The PDF text is NOT treated as complete symbolic machine-readable data.",
+  "educationalEvidence": "Existing family-level 200-item triage copied by original ID. No individual GCSE grade certified, no five-pedagogy signer, no observed student misconceptions.",
+  "counts": {
+    "questions": 40,
+    "sourceFamilies": 10,
+    "variantsPerFamily": 4,
+    "sourceAnswerOptionMatch": 40,
+    "allSixALetters": 40,
+    "extractionFlagged": 0,
+    "triageActions": {
+      "QUARANTINE_TAUGHT_SCOPE": 20,
+      "RETAIN_FOR_EXTERNAL_BENCHMARK": 16,
+      "UPGRADE_STEM_FOR_G7PLUS": 4
+    },
+    "formalQAApproved": 0,
+    "mathsDailyEligible": 0
+  },
+  "familyToOriginalQuestionIds": {
+    "V2-GRAPHS-1": [
+      "LUX-MATH-Y9-GRAPHS-001",
+      "LUX-MATH-Y9-GRAPHS-002",
+      "LUX-MATH-Y9-GRAPHS-003",
+      "LUX-MATH-Y9-GRAPHS-004"
+    ],
+    "V2-GRAPHS-2": [
+      "LUX-MATH-Y9-GRAPHS-005",
+      "LUX-MATH-Y9-GRAPHS-006",
+      "LUX-MATH-Y9-GRAPHS-007",
+      "LUX-MATH-Y9-GRAPHS-008"
+    ],
+    "V2-GRAPHS-3": [
+      "LUX-MATH-Y9-GRAPHS-009",
+      "LUX-MATH-Y9-GRAPHS-010",
+      "LUX-MATH-Y9-GRAPHS-011",
+      "LUX-MATH-Y9-GRAPHS-012"
+    ],
+    "V2-GRAPHS-4": [
+      "LUX-MATH-Y9-GRAPHS-013",
+      "LUX-MATH-Y9-GRAPHS-014",
+      "LUX-MATH-Y9-GRAPHS-015",
+      "LUX-MATH-Y9-GRAPHS-016"
+    ],
+    "V3-GRAPH-G8-BISECTOR-LINE-INTERSECTION": [
+      "LUX-MATH-Y9-GRAPHS-017",
+      "LUX-MATH-Y9-GRAPHS-018",
+      "LUX-MATH-Y9-GRAPHS-019",
+      "LUX-MATH-Y9-GRAPHS-020"
+    ],
+    "V3-GRAPH-G8-INTERCEPT-MIDPOINT-NORMAL": [
+      "LUX-MATH-Y9-GRAPHS-021",
+      "LUX-MATH-Y9-GRAPHS-022",
+      "LUX-MATH-Y9-GRAPHS-023",
+      "LUX-MATH-Y9-GRAPHS-024"
+    ],
+    "V3-GRAPH-G8-INTERSECT-PARALLEL-INTERCEPT": [
+      "LUX-MATH-Y9-GRAPHS-025",
+      "LUX-MATH-Y9-GRAPHS-026",
+      "LUX-MATH-Y9-GRAPHS-027",
+      "LUX-MATH-Y9-GRAPHS-028"
+    ],
+    "V3-GRAPH-G8-PARAMETER-PERPENDICULAR": [
+      "LUX-MATH-Y9-GRAPHS-029",
+      "LUX-MATH-Y9-GRAPHS-030",
+      "LUX-MATH-Y9-GRAPHS-031",
+      "LUX-MATH-Y9-GRAPHS-032"
+    ],
+    "V3-GRAPH-G89-INTERSECTION-PERP-AXIS": [
+      "LUX-MATH-Y9-GRAPHS-033",
+      "LUX-MATH-Y9-GRAPHS-034",
+      "LUX-MATH-Y9-GRAPHS-035",
+      "LUX-MATH-Y9-GRAPHS-036"
+    ],
+    "V3-GRAPH-G89-BISECTOR-INTERSECTION-SUM": [
+      "LUX-MATH-Y9-GRAPHS-037",
+      "LUX-MATH-Y9-GRAPHS-038",
+      "LUX-MATH-Y9-GRAPHS-039",
+      "LUX-MATH-Y9-GRAPHS-040"
+    ]
+  },
+  "studentCreditGuard": {
+    "XP": false,
+    "MP": false,
+    "Mastery": false,
+    "Recovery": false,
+    "Daily": false
+  },
+  "sourceQuestionRows": [
+    {
+      "sourceIndex": 121,
+      "id": "LUX-MATH-Y9-GRAPHS-001",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-GRAPHS-1",
+      "originalSourceStudentPdfPage": 47,
+      "originalSourceAnswersPdfPage": 24,
+      "originalRegisteredCorrectOption": "C",
+      "originalPrintedCorrectOption": "C",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q121. Straight-line Graphs                                                              Target: G7 (provisional)\nLine L passes through (−4, 2) and (2, 6). A line through (1, 4) is perpendicular to L. Find the x-coordinate\nwhere this perpendicular line crosses the x-axis.\nA. 1\n         33\nB. −\n         4\n      11\nC.\n       3\n         11\nD. −\n         3\n     8\nE.\n     3\n     14\nF.\n     3",
+      "extractedWorkedAnswerText": "Q121. Straight-line Graphs                                                           Target: G7 (provisional)\nLine L passes through (−4, 2) and (2, 6). A line through (1, 4) is perpendicular to L. Find the x-coordinate\nwhere this perpendicular line crosses the x-axis.\n                       11\nCorrect answer: C\n                       3\n                     6−2      2                                3\n1. Gradient of L is         = ; the perpendicular gradient is − .\n                    2 − −4    3                                2\n                                     3                                11\n2. Equation through (1, 4): y − 4 = − (x − 1). Put y = 0 and solve x = .\n                                     2                                3",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "1"
+        },
+        {
+          "letter": "B",
+          "inlineText": "−"
+        },
+        {
+          "letter": "C",
+          "inlineText": "3"
+        },
+        {
+          "letter": "D",
+          "inlineText": "−"
+        },
+        {
+          "letter": "E",
+          "inlineText": "3"
+        },
+        {
+          "letter": "F",
+          "inlineText": "3"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Perpendicular-gradient inference beyond simple graph-from-two-points outline; verify taught.",
+      "scopeGate": "NORMAL_OR_MIDPOINT_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 122,
+      "id": "LUX-MATH-Y9-GRAPHS-002",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-GRAPHS-1",
+      "originalSourceStudentPdfPage": 47,
+      "originalSourceAnswersPdfPage": 24,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q122. Straight-line Graphs                                                              Target: G7 (provisional)\nLine L passes through (−3, 3) and (3, 9). A line through (2, 5) is perpendicular to L. Find the x-coordinate\nwhere this perpendicular line crosses the x-axis.\nA. −7\n\nB. 8\n\nC. 3\n\nD. 6\n\nE. 2\n\nF. 7\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                                 Page 47 of 74\n<PARSED TEXT FOR PAGE: 48 / 74>\nLux et Labor — Mathematics V3.1                                                          REVIEW COPY",
+      "extractedWorkedAnswerText": "Q122. Straight-line Graphs                                                           Target: G7 (provisional)\nLine L passes through (−3, 3) and (3, 9). A line through (2, 5) is perpendicular to L. Find the x-coordinate\nwhere this perpendicular line crosses the x-axis.\nCorrect answer: F      7\n                     9−3\n1. Gradient of L is         = 1; the perpendicular gradient is −1.\n                    3 − −3\n2. Equation through (2, 5): y − 5 = −1(x − 2). Put y = 0 and solve x = 7.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "−7"
+        },
+        {
+          "letter": "B",
+          "inlineText": "8"
+        },
+        {
+          "letter": "C",
+          "inlineText": "3"
+        },
+        {
+          "letter": "D",
+          "inlineText": "6"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "7"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Perpendicular-gradient inference beyond simple graph-from-two-points outline; verify taught.",
+      "scopeGate": "NORMAL_OR_MIDPOINT_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 123,
+      "id": "LUX-MATH-Y9-GRAPHS-003",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-GRAPHS-1",
+      "originalSourceStudentPdfPage": 48,
+      "originalSourceAnswersPdfPage": 24,
+      "originalRegisteredCorrectOption": "E",
+      "originalPrintedCorrectOption": "E",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q123. Straight-line Graphs                                                        Target: G7 (provisional)\nLine L passes through (−2, 4) and (4, 12). A line through (3, 6) is perpendicular to L. Find the x-\ncoordinate where this perpendicular line crosses the x-axis.\nA. 12\n\nB. 3\n\nC. −11\n\nD. 10\n\nE. 11\n          99\nF. −\n          16",
+      "extractedWorkedAnswerText": "Q123. Straight-line Graphs                                                           Target: G7 (provisional)\nLine L passes through (−2, 4) and (4, 12). A line through (3, 6) is perpendicular to L. Find the x-\ncoordinate where this perpendicular line crosses the x-axis.\nCorrect answer: E 11\n                    12 − 4    4                                3\n1. Gradient of L is         = ; the perpendicular gradient is − .\n                    4 − −2    3                                4\n                                     3\n2. Equation through (3, 6): y − 6 = − (x − 3). Put y = 0 and solve x = 11.\n                                     4",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "12"
+        },
+        {
+          "letter": "B",
+          "inlineText": "3"
+        },
+        {
+          "letter": "C",
+          "inlineText": "−11"
+        },
+        {
+          "letter": "D",
+          "inlineText": "10"
+        },
+        {
+          "letter": "E",
+          "inlineText": "11"
+        },
+        {
+          "letter": "F",
+          "inlineText": "−"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Perpendicular-gradient inference beyond simple graph-from-two-points outline; verify taught.",
+      "scopeGate": "NORMAL_OR_MIDPOINT_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 124,
+      "id": "LUX-MATH-Y9-GRAPHS-004",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-GRAPHS-1",
+      "originalSourceStudentPdfPage": 48,
+      "originalSourceAnswersPdfPage": 24,
+      "originalRegisteredCorrectOption": "E",
+      "originalPrintedCorrectOption": "E",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q124. Straight-line Graphs                                                        Target: G7 (provisional)\nLine L passes through (−1, 5) and (5, 15). A line through (4, 7) is perpendicular to L. Find the x-\ncoordinate where this perpendicular line crosses the x-axis.\n          141\nA. −\n           25\n      50\nB.\n       3\n      44\nC.\n       3\n          47\nD. −\n          3\n     47\nE.\n      3\nF. 4",
+      "extractedWorkedAnswerText": "Q124. Straight-line Graphs                                                           Target: G7 (provisional)\nLine L passes through (−1, 5) and (5, 15). A line through (4, 7) is perpendicular to L. Find the x-\ncoordinate where this perpendicular line crosses the x-axis.\n                       47\nCorrect answer: E\n                       3\n                    15 − 5    5                                3\n1. Gradient of L is         = ; the perpendicular gradient is − .\n                    5 − −1    3                                5\n                                     3                                47\n2. Equation through (4, 7): y − 7 = − (x − 4). Put y = 0 and solve x = .\n                                     5                                3",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "−"
+        },
+        {
+          "letter": "B",
+          "inlineText": "3"
+        },
+        {
+          "letter": "C",
+          "inlineText": "3"
+        },
+        {
+          "letter": "D",
+          "inlineText": "−"
+        },
+        {
+          "letter": "E",
+          "inlineText": "3"
+        },
+        {
+          "letter": "F",
+          "inlineText": "4"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Perpendicular-gradient inference beyond simple graph-from-two-points outline; verify taught.",
+      "scopeGate": "NORMAL_OR_MIDPOINT_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 125,
+      "id": "LUX-MATH-Y9-GRAPHS-005",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-GRAPHS-2",
+      "originalSourceStudentPdfPage": 48,
+      "originalSourceAnswersPdfPage": 24,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q125. Straight-line Graphs                                                        Target: G7 (provisional)\nA(−3, 2) and B(1, 4) are endpoints of a line segment. Find the y-intercept of the perpendicular bisector\nof AB.\nA. −1\n      7\nB.\n      2\nC. 5\n\nD. 2\n\nE. 0\n\nF. 1\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                          Page 48 of 74\n<PARSED TEXT FOR PAGE: 49 / 74>\nLux et Labor — Mathematics V3.1                                                          REVIEW COPY",
+      "extractedWorkedAnswerText": "Q125. Straight-line Graphs                                                           Target: G7 (provisional)\nA(−3, 2) and B(1, 4) are endpoints of a line segment. Find the y-intercept of the perpendicular bisector\nof AB.\nCorrect answer: F          1\n                                        1\n1. Midpoint M = (−1, 3); gradient AB = , so perpendicular gradient is −2.\n                                        2\n2. Using y = −2x + c through M , c = 3 − (−2)(−1) = 1.\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                             Page 24 of 39\n<PARSED TEXT FOR PAGE: 25 / 39>\nLux et Labor — Mathematics V3.1                                                          REVIEW COPY",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "−1"
+        },
+        {
+          "letter": "B",
+          "inlineText": "2"
+        },
+        {
+          "letter": "C",
+          "inlineText": "5"
+        },
+        {
+          "letter": "D",
+          "inlineText": "2"
+        },
+        {
+          "letter": "E",
+          "inlineText": "0"
+        },
+        {
+          "letter": "F",
+          "inlineText": "1"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Perpendicular bisector midpoint/gradient; 4 IDs -005..008 sit in Spring construction/loci.",
+      "scopeGate": "SPRING_PERPENDICULAR_BISECTOR_QUARANTINE",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 126,
+      "id": "LUX-MATH-Y9-GRAPHS-006",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-GRAPHS-2",
+      "originalSourceStudentPdfPage": 49,
+      "originalSourceAnswersPdfPage": 25,
+      "originalRegisteredCorrectOption": "E",
+      "originalPrintedCorrectOption": "E",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q126. Straight-line Graphs                                                        Target: G7 (provisional)\nA(−2, 3) and B(2, 6) are endpoints of a line segment. Find the y-intercept of the perpendicular bisector\nof AB.\n    13\nA.\n     2\n      11\nB.\n       2\n      7\nC.\n      2\nD. 0\n     9\nE.\n     2\n          9\nF. −\n          2",
+      "extractedWorkedAnswerText": "Q126. Straight-line Graphs                                                        Target: G7 (provisional)\nA(−2, 3) and B(2, 6) are endpoints of a line segment. Find the y-intercept of the perpendicular bisector\nof AB.\n                      9\nCorrect answer: E\n                      2\n                    9                   3                                4\n1. Midpoint M = (0, ); gradient AB = , so perpendicular gradient is − .\n                    2                   4                                3\n              4                        9       4      9\n2. Using y = − x + c through M , c = − (− )(0) = .\n              3                        2       3      2",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "2"
+        },
+        {
+          "letter": "B",
+          "inlineText": "2"
+        },
+        {
+          "letter": "C",
+          "inlineText": "2"
+        },
+        {
+          "letter": "D",
+          "inlineText": "0"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "−"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Perpendicular bisector midpoint/gradient; 4 IDs -005..008 sit in Spring construction/loci.",
+      "scopeGate": "SPRING_PERPENDICULAR_BISECTOR_QUARANTINE",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 127,
+      "id": "LUX-MATH-Y9-GRAPHS-007",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-GRAPHS-2",
+      "originalSourceStudentPdfPage": 49,
+      "originalSourceAnswersPdfPage": 25,
+      "originalRegisteredCorrectOption": "B",
+      "originalPrintedCorrectOption": "B",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q127. Straight-line Graphs                                                        Target: G7 (provisional)\nA(−1, 4) and B(3, 8) are endpoints of a line segment. Find the y-intercept of the perpendicular bisector\nof AB.\nA. 8\n\nB. 7\n\nC. 5\n\nD. −7\n\nE. −1\n\nF. 6",
+      "extractedWorkedAnswerText": "Q127. Straight-line Graphs                                                        Target: G7 (provisional)\nA(−1, 4) and B(3, 8) are endpoints of a line segment. Find the y-intercept of the perpendicular bisector\nof AB.\nCorrect answer: B          7\n1. Midpoint M = (1, 6); gradient AB = 1, so perpendicular gradient is −1.\n2. Using y = −x + c through M , c = 6 − (−1)(1) = 7.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "8"
+        },
+        {
+          "letter": "B",
+          "inlineText": "7"
+        },
+        {
+          "letter": "C",
+          "inlineText": "5"
+        },
+        {
+          "letter": "D",
+          "inlineText": "−7"
+        },
+        {
+          "letter": "E",
+          "inlineText": "−1"
+        },
+        {
+          "letter": "F",
+          "inlineText": "6"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Perpendicular bisector midpoint/gradient; 4 IDs -005..008 sit in Spring construction/loci.",
+      "scopeGate": "SPRING_PERPENDICULAR_BISECTOR_QUARANTINE",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 128,
+      "id": "LUX-MATH-Y9-GRAPHS-008",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-GRAPHS-2",
+      "originalSourceStudentPdfPage": 49,
+      "originalSourceAnswersPdfPage": 25,
+      "originalRegisteredCorrectOption": "A",
+      "originalPrintedCorrectOption": "A",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q128. Straight-line Graphs                                                        Target: G7 (provisional)\nA(0, 5) and B(4, 10) are endpoints of a line segment. Find the y-intercept of the perpendicular bisector\nof AB.\n     91\nA.\n     10\n      101\nB.\n       10\n          91\nC. −\n          10\n      59\nD.\n      10\nE. 5\n     81\nF.\n     10\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                          Page 49 of 74\n<PARSED TEXT FOR PAGE: 50 / 74>\nLux et Labor — Mathematics V3.1                                                          REVIEW COPY",
+      "extractedWorkedAnswerText": "Q128. Straight-line Graphs                                                        Target: G7 (provisional)\nA(0, 5) and B(4, 10) are endpoints of a line segment. Find the y-intercept of the perpendicular bisector\nof AB.\n                       91\nCorrect answer: A\n                       10\n                     15                   5                                4\n1. Midpoint M = (2, ); gradient AB = , so perpendicular gradient is − .\n                      2                   4                                5\n               4                       15       4      91\n2. Using y = − x + c through M , c =       − (− )(2) =    .\n               5                        2       5      10",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "10"
+        },
+        {
+          "letter": "B",
+          "inlineText": "10"
+        },
+        {
+          "letter": "C",
+          "inlineText": "−"
+        },
+        {
+          "letter": "D",
+          "inlineText": "10"
+        },
+        {
+          "letter": "E",
+          "inlineText": "5"
+        },
+        {
+          "letter": "F",
+          "inlineText": "10"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Perpendicular bisector midpoint/gradient; 4 IDs -005..008 sit in Spring construction/loci.",
+      "scopeGate": "SPRING_PERPENDICULAR_BISECTOR_QUARANTINE",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 129,
+      "id": "LUX-MATH-Y9-GRAPHS-009",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-GRAPHS-3",
+      "originalSourceStudentPdfPage": 50,
+      "originalSourceAnswersPdfPage": 25,
+      "originalRegisteredCorrectOption": "B",
+      "originalPrintedCorrectOption": "B",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q129. Straight-line Graphs                                                        Target: G7 (provisional)\nLines y = 2x + 1 and y = 5 − 2x meet at P . A third line passes through P and is parallel to y = 3x + 1.\nFind the y-intercept of the third line.\nA. 2\n\nB. 0\n\nC. −2\n\nD. 1\n\nE. 6\n\nF. −1",
+      "extractedWorkedAnswerText": "Q129. Straight-line Graphs                                                        Target: G7 (provisional)\nLines y = 2x + 1 and y = 5 − 2x meet at P . A third line passes through P and is parallel to y = 3x + 1.\nFind the y-intercept of the third line.\nCorrect answer: B          0\n1. Equate the first two lines to get their intersection P = (1, 3).\n2. Parallel gradient is 3; using y = 3x + c and P gives c = 3 − 3(1) = 0.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "2"
+        },
+        {
+          "letter": "B",
+          "inlineText": "0"
+        },
+        {
+          "letter": "C",
+          "inlineText": "−2"
+        },
+        {
+          "letter": "D",
+          "inlineText": "1"
+        },
+        {
+          "letter": "E",
+          "inlineText": "6"
+        },
+        {
+          "letter": "F",
+          "inlineText": "−1"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Line intersection then parallel line intercept; near-identical strategy to G8 intersection-parallel family.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 130,
+      "id": "LUX-MATH-Y9-GRAPHS-010",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-GRAPHS-3",
+      "originalSourceStudentPdfPage": 50,
+      "originalSourceAnswersPdfPage": 25,
+      "originalRegisteredCorrectOption": "D",
+      "originalPrintedCorrectOption": "D",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q130. Straight-line Graphs                                                        Target: G7 (provisional)\nLines y = 3x − 2 and y = 10 − 3x meet at P . A third line passes through P and is parallel to y = 4x + 1.\nFind the y-intercept of the third line.\nA. −2\n\nB. 0\n\nC. 4\n\nD. −4\n\nE. 12\n\nF. −6",
+      "extractedWorkedAnswerText": "Q130. Straight-line Graphs                                                        Target: G7 (provisional)\nLines y = 3x − 2 and y = 10 − 3x meet at P . A third line passes through P and is parallel to y = 4x + 1.\nFind the y-intercept of the third line.\nCorrect answer: D          −4\n1. Equate the first two lines to get their intersection P = (2, 4).\n2. Parallel gradient is 4; using y = 4x + c and P gives c = 4 − 4(2) = −4.\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                          Page 25 of 39\n<PARSED TEXT FOR PAGE: 26 / 39>\nLux et Labor — Mathematics V3.1                                                              REVIEW COPY",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "−2"
+        },
+        {
+          "letter": "B",
+          "inlineText": "0"
+        },
+        {
+          "letter": "C",
+          "inlineText": "4"
+        },
+        {
+          "letter": "D",
+          "inlineText": "−4"
+        },
+        {
+          "letter": "E",
+          "inlineText": "12"
+        },
+        {
+          "letter": "F",
+          "inlineText": "−6"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Line intersection then parallel line intercept; near-identical strategy to G8 intersection-parallel family.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 131,
+      "id": "LUX-MATH-Y9-GRAPHS-011",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-GRAPHS-3",
+      "originalSourceStudentPdfPage": 50,
+      "originalSourceAnswersPdfPage": 26,
+      "originalRegisteredCorrectOption": "A",
+      "originalPrintedCorrectOption": "A",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q131. Straight-line Graphs                                                        Target: G7 (provisional)\nLines y = 4x − 7 and y = 17 − 4x meet at P . A third line passes through P and is parallel to y = 5x + 1.\nFind the y-intercept of the third line.\nA. −10\n\nB. 10\n\nC. 20\n\nD. −13\n\nE. −7\n\nF. 0\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                          Page 50 of 74\n<PARSED TEXT FOR PAGE: 51 / 74>\nLux et Labor — Mathematics V3.1                                                           REVIEW COPY",
+      "extractedWorkedAnswerText": "Q131. Straight-line Graphs                                                          Target: G7 (provisional)\nLines y = 4x − 7 and y = 17 − 4x meet at P . A third line passes through P and is parallel to y = 5x + 1.\nFind the y-intercept of the third line.\nCorrect answer: A          −10\n1. Equate the first two lines to get their intersection P = (3, 5).\n2. Parallel gradient is 5; using y = 5x + c and P gives c = 5 − 5(3) = −10.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "−10"
+        },
+        {
+          "letter": "B",
+          "inlineText": "10"
+        },
+        {
+          "letter": "C",
+          "inlineText": "20"
+        },
+        {
+          "letter": "D",
+          "inlineText": "−13"
+        },
+        {
+          "letter": "E",
+          "inlineText": "−7"
+        },
+        {
+          "letter": "F",
+          "inlineText": "0"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Line intersection then parallel line intercept; near-identical strategy to G8 intersection-parallel family.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 132,
+      "id": "LUX-MATH-Y9-GRAPHS-012",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-GRAPHS-3",
+      "originalSourceStudentPdfPage": 51,
+      "originalSourceAnswersPdfPage": 26,
+      "originalRegisteredCorrectOption": "D",
+      "originalPrintedCorrectOption": "D",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q132. Straight-line Graphs                                                         Target: G7 (provisional)\nLines y = 5x − 14 and y = 26 − 5x meet at P . A third line passes through P and is parallel to y = 6x + 1.\nFind the y-intercept of the third line.\nA. 18\n\nB. 0\n\nC. −14\n\nD. −18\n\nE. 30\n\nF. −22",
+      "extractedWorkedAnswerText": "Q132. Straight-line Graphs                                                          Target: G7 (provisional)\nLines y = 5x − 14 and y = 26 − 5x meet at P . A third line passes through P and is parallel to y = 6x + 1.\nFind the y-intercept of the third line.\nCorrect answer: D          −18\n1. Equate the first two lines to get their intersection P = (4, 6).\n2. Parallel gradient is 6; using y = 6x + c and P gives c = 6 − 6(4) = −18.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "18"
+        },
+        {
+          "letter": "B",
+          "inlineText": "0"
+        },
+        {
+          "letter": "C",
+          "inlineText": "−14"
+        },
+        {
+          "letter": "D",
+          "inlineText": "−18"
+        },
+        {
+          "letter": "E",
+          "inlineText": "30"
+        },
+        {
+          "letter": "F",
+          "inlineText": "−22"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Line intersection then parallel line intercept; near-identical strategy to G8 intersection-parallel family.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 133,
+      "id": "LUX-MATH-Y9-GRAPHS-013",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-GRAPHS-4",
+      "originalSourceStudentPdfPage": 51,
+      "originalSourceAnswersPdfPage": 26,
+      "originalRegisteredCorrectOption": "C",
+      "originalPrintedCorrectOption": "C",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q133. Straight-line Graphs                                                         Target: G7 (provisional)\nLines y = 2x + 2 and y = 6 − 2x meet at P . A line through P is perpendicular to y = 2x − 2. Find its\nx-intercept.\nA. 10\n\nB. −9\n\nC. 9\n\nD. −7\n\nE. 8\n\nF. 1",
+      "extractedWorkedAnswerText": "Q133. Straight-line Graphs                                                          Target: G7 (provisional)\nLines y = 2x + 2 and y = 6 − 2x meet at P . A line through P is perpendicular to y = 2x − 2. Find its\nx-intercept.\nCorrect answer: C          9\n                                                                                        1\n1. The first two lines intersect at P = (1, 4); the required perpendicular gradient is − .\n                                                                                        2\n                    1\n2. Use y − 4 = − (x − 1) and set y = 0; solving gives x = 9.\n                    2",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "10"
+        },
+        {
+          "letter": "B",
+          "inlineText": "−9"
+        },
+        {
+          "letter": "C",
+          "inlineText": "9"
+        },
+        {
+          "letter": "D",
+          "inlineText": "−7"
+        },
+        {
+          "letter": "E",
+          "inlineText": "8"
+        },
+        {
+          "letter": "F",
+          "inlineText": "1"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Find line intersection then perpendicular x-intercept; same strategy as G8-9 INTERSECTION-PERP-AXIS.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 134,
+      "id": "LUX-MATH-Y9-GRAPHS-014",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-GRAPHS-4",
+      "originalSourceStudentPdfPage": 51,
+      "originalSourceAnswersPdfPage": 26,
+      "originalRegisteredCorrectOption": "C",
+      "originalPrintedCorrectOption": "C",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q134. Straight-line Graphs                                                         Target: G7 (provisional)\nLines y = 3x − 1 and y = 11 − 3x meet at P . A line through P is perpendicular to y = 3x − 2. Find its\nx-intercept.\nA. 18\n\nB. −17\n\nC. 17\n\nD. −13\n\nE. 2\n\nF. 16\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                           Page 51 of 74\n<PARSED TEXT FOR PAGE: 52 / 74>\nLux et Labor — Mathematics V3.1                                                         REVIEW COPY",
+      "extractedWorkedAnswerText": "Q134. Straight-line Graphs                                                          Target: G7 (provisional)\nLines y = 3x − 1 and y = 11 − 3x meet at P . A line through P is perpendicular to y = 3x − 2. Find its\nx-intercept.\nCorrect answer: C          17\n                                                                                        1\n1. The first two lines intersect at P = (2, 5); the required perpendicular gradient is − .\n                                                                                        3\n                    1\n2. Use y − 5 = − (x − 2) and set y = 0; solving gives x = 17.\n                    3",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "18"
+        },
+        {
+          "letter": "B",
+          "inlineText": "−17"
+        },
+        {
+          "letter": "C",
+          "inlineText": "17"
+        },
+        {
+          "letter": "D",
+          "inlineText": "−13"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "16"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Find line intersection then perpendicular x-intercept; same strategy as G8-9 INTERSECTION-PERP-AXIS.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 135,
+      "id": "LUX-MATH-Y9-GRAPHS-015",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-GRAPHS-4",
+      "originalSourceStudentPdfPage": 52,
+      "originalSourceAnswersPdfPage": 26,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q135. Straight-line Graphs                                                       Target: G7 (provisional)\nLines y = 4x − 6 and y = 18 − 4x meet at P . A line through P is perpendicular to y = 4x − 2. Find its\nx-intercept.\nA. 28\n\nB. −27\n\nC. −21\n\nD. 3\n\nE. 26\n\nF. 27",
+      "extractedWorkedAnswerText": "Q135. Straight-line Graphs                                                          Target: G7 (provisional)\nLines y = 4x − 6 and y = 18 − 4x meet at P . A line through P is perpendicular to y = 4x − 2. Find its\nx-intercept.\nCorrect answer: F          27\n                                                                                        1\n1. The first two lines intersect at P = (3, 6); the required perpendicular gradient is − .\n                                                                                        4\n                    1\n2. Use y − 6 = − (x − 3) and set y = 0; solving gives x = 27.\n                    4\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                            Page 26 of 39\n<PARSED TEXT FOR PAGE: 27 / 39>\nLux et Labor — Mathematics V3.1                                                              REVIEW COPY",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "28"
+        },
+        {
+          "letter": "B",
+          "inlineText": "−27"
+        },
+        {
+          "letter": "C",
+          "inlineText": "−21"
+        },
+        {
+          "letter": "D",
+          "inlineText": "3"
+        },
+        {
+          "letter": "E",
+          "inlineText": "26"
+        },
+        {
+          "letter": "F",
+          "inlineText": "27"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Find line intersection then perpendicular x-intercept; same strategy as G8-9 INTERSECTION-PERP-AXIS.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 136,
+      "id": "LUX-MATH-Y9-GRAPHS-016",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G7",
+      "templateId": "V2-GRAPHS-4",
+      "originalSourceStudentPdfPage": 52,
+      "originalSourceAnswersPdfPage": 27,
+      "originalRegisteredCorrectOption": "B",
+      "originalPrintedCorrectOption": "B",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q136. Straight-line Graphs                                                       Target: G7 (provisional)\nLines y = 5x − 13 and y = 27 − 5x meet at P . A line through P is perpendicular to y = 5x − 2. Find its\nx-intercept.\nA. 40\n\nB. 39\n\nC. −39\n\nD. −31\n\nE. 4\n\nF. 38",
+      "extractedWorkedAnswerText": "Q136. Straight-line Graphs                                                          Target: G7 (provisional)\nLines y = 5x − 13 and y = 27 − 5x meet at P . A line through P is perpendicular to y = 5x − 2. Find its\nx-intercept.\nCorrect answer: B          39\n                                                                                        1\n1. The first two lines intersect at P = (4, 7); the required perpendicular gradient is − .\n                                                                                        5\n                    1\n2. Use y − 7 = − (x − 4) and set y = 0; solving gives x = 39.\n                    5",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "40"
+        },
+        {
+          "letter": "B",
+          "inlineText": "39"
+        },
+        {
+          "letter": "C",
+          "inlineText": "−39"
+        },
+        {
+          "letter": "D",
+          "inlineText": "−31"
+        },
+        {
+          "letter": "E",
+          "inlineText": "4"
+        },
+        {
+          "letter": "F",
+          "inlineText": "38"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Find line intersection then perpendicular x-intercept; same strategy as G8-9 INTERSECTION-PERP-AXIS.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 137,
+      "id": "LUX-MATH-Y9-GRAPHS-017",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-GRAPH-G8-BISECTOR-LINE-INTERSECTION",
+      "originalSourceStudentPdfPage": 52,
+      "originalSourceAnswersPdfPage": 27,
+      "originalRegisteredCorrectOption": "B",
+      "originalPrintedCorrectOption": "B",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q137. Straight-line Graphs                                                       Target: G8 (provisional)\nPoints A(0, 2) and B(4, 4) form a segment. Its perpendicular bisector meets y = 2x + 3 at P . Find the\nx-coordinate of P .\nA. −1\n\nB. 1\n\nC. 0\n\nD. 3\n\nE. 2\n     1\nF.\n     2\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                         Page 52 of 74\n<PARSED TEXT FOR PAGE: 53 / 74>\nLux et Labor — Mathematics V3.1                                                        REVIEW COPY",
+      "extractedWorkedAnswerText": "Q137. Straight-line Graphs                                                          Target: G8 (provisional)\nPoints A(0, 2) and B(4, 4) form a segment. Its perpendicular bisector meets y = 2x + 3 at P . Find the\nx-coordinate of P .\nCorrect answer: B          1\n                                     1\n1. The midpoint is (2, 3) and mAB = , so the bisector has gradient −2.\n                                     2\n2. Its equation is y = 7 − 2x. Equate this to y = 2x + 3 to obtain x = 1.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "−1"
+        },
+        {
+          "letter": "B",
+          "inlineText": "1"
+        },
+        {
+          "letter": "C",
+          "inlineText": "0"
+        },
+        {
+          "letter": "D",
+          "inlineText": "3"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "2"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Perpendicular bisector then intersection; 4 IDs -017..020 are Spring content unless taught early.",
+      "scopeGate": "SPRING_PERPENDICULAR_BISECTOR_QUARANTINE",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 138,
+      "id": "LUX-MATH-Y9-GRAPHS-018",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-GRAPH-G8-BISECTOR-LINE-INTERSECTION",
+      "originalSourceStudentPdfPage": 53,
+      "originalSourceAnswersPdfPage": 27,
+      "originalRegisteredCorrectOption": "D",
+      "originalPrintedCorrectOption": "D",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q138. Straight-line Graphs                                                      Target: G8 (provisional)\nPoints A(1, 3) and B(7, 5) form a segment. Its perpendicular bisector meets y = 3x + 4 at P . Find the\nx-coordinate of P .\nA. 3\n\nB. 7\n\nC. 4\n\nD. 2\n     5\nE.\n     2\nF. 1",
+      "extractedWorkedAnswerText": "Q138. Straight-line Graphs                                                          Target: G8 (provisional)\nPoints A(1, 3) and B(7, 5) form a segment. Its perpendicular bisector meets y = 3x + 4 at P . Find the\nx-coordinate of P .\nCorrect answer: D          2\n                                     1\n1. The midpoint is (4, 4) and mAB = , so the bisector has gradient −3.\n                                     3\n2. Its equation is y = 16 − 3x. Equate this to y = 3x + 4 to obtain x = 2.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "3"
+        },
+        {
+          "letter": "B",
+          "inlineText": "7"
+        },
+        {
+          "letter": "C",
+          "inlineText": "4"
+        },
+        {
+          "letter": "D",
+          "inlineText": "2"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "1"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Perpendicular bisector then intersection; 4 IDs -017..020 are Spring content unless taught early.",
+      "scopeGate": "SPRING_PERPENDICULAR_BISECTOR_QUARANTINE",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 139,
+      "id": "LUX-MATH-Y9-GRAPHS-019",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-GRAPH-G8-BISECTOR-LINE-INTERSECTION",
+      "originalSourceStudentPdfPage": 53,
+      "originalSourceAnswersPdfPage": 27,
+      "originalRegisteredCorrectOption": "C",
+      "originalPrintedCorrectOption": "C",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q139. Straight-line Graphs                                                      Target: G8 (provisional)\nPoints A(2, 4) and B(6, 6) form a segment. Its perpendicular bisector meets y = 2x + 1 at P . Find the\nx-coordinate of P .\nA. 5\n\nB. 0\n\nC. 3\n\nD. 6\n\nE. 4\n     7\nF.\n     2",
+      "extractedWorkedAnswerText": "Q139. Straight-line Graphs                                                          Target: G8 (provisional)\nPoints A(2, 4) and B(6, 6) form a segment. Its perpendicular bisector meets y = 2x + 1 at P . Find the\nx-coordinate of P .\nCorrect answer: C          3\n                                     1\n1. The midpoint is (4, 5) and mAB = , so the bisector has gradient −2.\n                                     2\n2. Its equation is y = 13 − 2x. Equate this to y = 2x + 1 to obtain x = 3.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "5"
+        },
+        {
+          "letter": "B",
+          "inlineText": "0"
+        },
+        {
+          "letter": "C",
+          "inlineText": "3"
+        },
+        {
+          "letter": "D",
+          "inlineText": "6"
+        },
+        {
+          "letter": "E",
+          "inlineText": "4"
+        },
+        {
+          "letter": "F",
+          "inlineText": "2"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Perpendicular bisector then intersection; 4 IDs -017..020 are Spring content unless taught early.",
+      "scopeGate": "SPRING_PERPENDICULAR_BISECTOR_QUARANTINE",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 140,
+      "id": "LUX-MATH-Y9-GRAPHS-020",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-GRAPH-G8-BISECTOR-LINE-INTERSECTION",
+      "originalSourceStudentPdfPage": 53,
+      "originalSourceAnswersPdfPage": 27,
+      "originalRegisteredCorrectOption": "E",
+      "originalPrintedCorrectOption": "E",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q140. Straight-line Graphs                                                      Target: G8 (provisional)\nPoints A(3, 5) and B(9, 7) form a segment. Its perpendicular bisector meets y = 3x at P . Find the\nx-coordinate of P .\n    7\nA.\n    2\nB. 3\n\nC. −1\n\nD. −4\n\nE. 4\n\nF. 2\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                        Page 53 of 74\n<PARSED TEXT FOR PAGE: 54 / 74>\nLux et Labor — Mathematics V3.1                                                         REVIEW COPY",
+      "extractedWorkedAnswerText": "Q140. Straight-line Graphs                                                          Target: G8 (provisional)\nPoints A(3, 5) and B(9, 7) form a segment. Its perpendicular bisector meets y = 3x at P . Find the\nx-coordinate of P .\nCorrect answer: E          4\n                                      1\n1. The midpoint is (6, 6) and mAB = , so the bisector has gradient −3.\n                                      3\n2. Its equation is y = −3 (x − 8). Equate this to y = 3x to obtain x = 4.\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                            Page 27 of 39\n<PARSED TEXT FOR PAGE: 28 / 39>\nLux et Labor — Mathematics V3.1                                                          REVIEW COPY",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "2"
+        },
+        {
+          "letter": "B",
+          "inlineText": "3"
+        },
+        {
+          "letter": "C",
+          "inlineText": "−1"
+        },
+        {
+          "letter": "D",
+          "inlineText": "−4"
+        },
+        {
+          "letter": "E",
+          "inlineText": "4"
+        },
+        {
+          "letter": "F",
+          "inlineText": "2"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Perpendicular bisector then intersection; 4 IDs -017..020 are Spring content unless taught early.",
+      "scopeGate": "SPRING_PERPENDICULAR_BISECTOR_QUARANTINE",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 141,
+      "id": "LUX-MATH-Y9-GRAPHS-021",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-GRAPH-G8-INTERCEPT-MIDPOINT-NORMAL",
+      "originalSourceStudentPdfPage": 54,
+      "originalSourceAnswersPdfPage": 28,
+      "originalRegisteredCorrectOption": "D",
+      "originalPrintedCorrectOption": "D",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q141. Straight-line Graphs                                                       Target: G8 (provisional)\nThe line y = −2 (x − 3) cuts the axes at A and B. Find the y-intercept of the line through the midpoint\nof AB that is perpendicular to the original line.\n     13\nA.\n     4\n      9\nB.\n      2\n      9\nC.\n      8\n      9\nD.\n      4\n     7\nE.\n     4\n     17\nF.\n     4",
+      "extractedWorkedAnswerText": "Q141. Straight-line Graphs                                                        Target: G8 (provisional)\nThe line y = −2 (x − 3) cuts the axes at A and B. Find the y-intercept of the line through the midpoint\nof AB that is perpendicular to the original line.\n                           9\nCorrect answer: D\n                           4\n                                                              3\n1. The intercepts are A(3, 0) and B(0, 6); their midpoint is ( , 3).\n                                                              2\n                       1          1                                         9\n2. The new gradient is . In y = x + c0 , substitute the midpoint to get c0 = .\n                       2          2                                         4",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "4"
+        },
+        {
+          "letter": "B",
+          "inlineText": "2"
+        },
+        {
+          "letter": "C",
+          "inlineText": "8"
+        },
+        {
+          "letter": "D",
+          "inlineText": "4"
+        },
+        {
+          "letter": "E",
+          "inlineText": "4"
+        },
+        {
+          "letter": "F",
+          "inlineText": "4"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Intercepts, midpoint, normal line; verify midpoint/perpendicular skills and genuinely higher reasoning.",
+      "scopeGate": "NORMAL_OR_MIDPOINT_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 142,
+      "id": "LUX-MATH-Y9-GRAPHS-022",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-GRAPH-G8-INTERCEPT-MIDPOINT-NORMAL",
+      "originalSourceStudentPdfPage": 54,
+      "originalSourceAnswersPdfPage": 28,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q142. Straight-line Graphs                                                       Target: G8 (provisional)\nThe line y = 7 − 3x cuts the axes at A and B. Find the y-intercept of the line through the midpoint of\nAB that is perpendicular to the original line.\n     37\nA.\n     9\n      19\nB.\n       9\n      56\nC.\n       9\n      46\nD.\n       9\n     1\nE.\n     9\n     28\nF.\n     9\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                         Page 54 of 74\n<PARSED TEXT FOR PAGE: 55 / 74>\nLux et Labor — Mathematics V3.1                                                          REVIEW COPY",
+      "extractedWorkedAnswerText": "Q142. Straight-line Graphs                                                        Target: G8 (provisional)\nThe line y = 7 − 3x cuts the axes at A and B. Find the y-intercept of the line through the midpoint of\nAB that is perpendicular to the original line.\n                           28\nCorrect answer: F\n                            9\n                        7                                     7 7\n1. The intercepts are A( , 0) and B(0, 7); their midpoint is ( , ).\n                        3                                     6 2\n                       1         1                                          28\n2. The new gradient is . In y = x + c0 , substitute the midpoint to get c0 = .\n                       3         3                                           9",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "9"
+        },
+        {
+          "letter": "B",
+          "inlineText": "9"
+        },
+        {
+          "letter": "C",
+          "inlineText": "9"
+        },
+        {
+          "letter": "D",
+          "inlineText": "9"
+        },
+        {
+          "letter": "E",
+          "inlineText": "9"
+        },
+        {
+          "letter": "F",
+          "inlineText": "9"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Intercepts, midpoint, normal line; verify midpoint/perpendicular skills and genuinely higher reasoning.",
+      "scopeGate": "NORMAL_OR_MIDPOINT_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 143,
+      "id": "LUX-MATH-Y9-GRAPHS-023",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-GRAPH-G8-INTERCEPT-MIDPOINT-NORMAL",
+      "originalSourceStudentPdfPage": 55,
+      "originalSourceAnswersPdfPage": 28,
+      "originalRegisteredCorrectOption": "B",
+      "originalPrintedCorrectOption": "B",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q143. Straight-line Graphs                                                        Target: G8 (provisional)\nThe line y = −4 (x − 2) cuts the axes at A and B. Find the y-intercept of the line through the midpoint\nof AB that is perpendicular to the original line.\n          15\nA. −\n           4\n      15\nB.\n       4\n      3\nC.\n      4\n          5\nD. −\n          4\n     17\nE.\n      4\n     27\nF.\n     4",
+      "extractedWorkedAnswerText": "Q143. Straight-line Graphs                                                        Target: G8 (provisional)\nThe line y = −4 (x − 2) cuts the axes at A and B. Find the y-intercept of the line through the midpoint\nof AB that is perpendicular to the original line.\n                      15\nCorrect answer: B\n                       4\n1. The intercepts are A(2, 0) and B(0, 8); their midpoint is (1, 4).\n                        1         1                                         15\n2. The new gradient is . In y = x + c0 , substitute the midpoint to get c0 = .\n                        4         4                                          4",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "−"
+        },
+        {
+          "letter": "B",
+          "inlineText": "4"
+        },
+        {
+          "letter": "C",
+          "inlineText": "4"
+        },
+        {
+          "letter": "D",
+          "inlineText": "−"
+        },
+        {
+          "letter": "E",
+          "inlineText": "4"
+        },
+        {
+          "letter": "F",
+          "inlineText": "4"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Intercepts, midpoint, normal line; verify midpoint/perpendicular skills and genuinely higher reasoning.",
+      "scopeGate": "NORMAL_OR_MIDPOINT_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 144,
+      "id": "LUX-MATH-Y9-GRAPHS-024",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-GRAPH-G8-INTERCEPT-MIDPOINT-NORMAL",
+      "originalSourceStudentPdfPage": 55,
+      "originalSourceAnswersPdfPage": 28,
+      "originalRegisteredCorrectOption": "B",
+      "originalPrintedCorrectOption": "B",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q144. Straight-line Graphs                                                        Target: G8 (provisional)\nThe line y = 9 − 5x cuts the axes at A and B. Find the y-intercept of the line through the midpoint of\nAB that is perpendicular to the original line.\n     83\nA.\n     25\n      108\nB.\n       25\n      58\nC.\n      25\n          17\nD. −\n          25\n     158\nE.\n      25\n     54\nF.\n     25",
+      "extractedWorkedAnswerText": "Q144. Straight-line Graphs                                                        Target: G8 (provisional)\nThe line y = 9 − 5x cuts the axes at A and B. Find the y-intercept of the line through the midpoint of\nAB that is perpendicular to the original line.\n                      108\nCorrect answer: B\n                       25\n                         9                                    9 9\n1. The intercepts are A( , 0) and B(0, 9); their midpoint is ( , ).\n                         5                                    10 2\n                        1        1                                           108\n2. The new gradient is . In y = x + c0 , substitute the midpoint to get c0 =     .\n                        5        5                                            25",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "25"
+        },
+        {
+          "letter": "B",
+          "inlineText": "25"
+        },
+        {
+          "letter": "C",
+          "inlineText": "25"
+        },
+        {
+          "letter": "D",
+          "inlineText": "−"
+        },
+        {
+          "letter": "E",
+          "inlineText": "25"
+        },
+        {
+          "letter": "F",
+          "inlineText": "25"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Intercepts, midpoint, normal line; verify midpoint/perpendicular skills and genuinely higher reasoning.",
+      "scopeGate": "NORMAL_OR_MIDPOINT_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 145,
+      "id": "LUX-MATH-Y9-GRAPHS-025",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-GRAPH-G8-INTERSECT-PARALLEL-INTERCEPT",
+      "originalSourceStudentPdfPage": 55,
+      "originalSourceAnswersPdfPage": 28,
+      "originalRegisteredCorrectOption": "C",
+      "originalPrintedCorrectOption": "C",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q145. Straight-line Graphs                                                        Target: G8 (provisional)\nLines y = x + 3 and y = 5 − x meet at P . A line through P is parallel to the segment joining A(1, 2) to\nB(3, 1). Find its x-intercept.\n     1\nA.\n     9\nB. 12\n\nC. 9\n\nD. 6\n\nE. 14\n     17\nF.\n     2\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                          Page 55 of 74\n<PARSED TEXT FOR PAGE: 56 / 74>\nLux et Labor — Mathematics V3.1                                                           REVIEW COPY",
+      "extractedWorkedAnswerText": "Q145. Straight-line Graphs                                                        Target: G8 (provisional)\nLines y = x + 3 and y = 5 − x meet at P . A line through P is parallel to the segment joining A(1, 2) to\nB(3, 1). Find its x-intercept.\nCorrect answer: C          9\n                                                                   −1      1\n1. Solve the two given lines to get P = (1, 4). The gradient of AB is =− .\n                                                                    2      2\n                                                                   1\n2. The line through P has the same gradient. Put y = 0 in y − 4 = − (x − 1), giving x = 9.\n                                                                   2\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                          Page 28 of 39\n<PARSED TEXT FOR PAGE: 29 / 39>\nLux et Labor — Mathematics V3.1                                                           REVIEW COPY",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "9"
+        },
+        {
+          "letter": "B",
+          "inlineText": "12"
+        },
+        {
+          "letter": "C",
+          "inlineText": "9"
+        },
+        {
+          "letter": "D",
+          "inlineText": "6"
+        },
+        {
+          "letter": "E",
+          "inlineText": "14"
+        },
+        {
+          "letter": "F",
+          "inlineText": "2"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Line intersection and parallel intercept; compare G7 V2-GRAPHS-3 before rating G8.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 146,
+      "id": "LUX-MATH-Y9-GRAPHS-026",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-GRAPH-G8-INTERSECT-PARALLEL-INTERCEPT",
+      "originalSourceStudentPdfPage": 56,
+      "originalSourceAnswersPdfPage": 29,
+      "originalRegisteredCorrectOption": "B",
+      "originalPrintedCorrectOption": "B",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q146. Straight-line Graphs                                                        Target: G8 (provisional)\nLines y = 2 (x + 1) and y = −2 (x − 5) meet at P . A line through P is parallel to the segment joining\nA(1, 2) to B(4, 0). Find its x-intercept.\nA. 9\n\nB. 11\n\nC. 10\n\nD. 13\n     21\nE.\n      2\n     11\nF.\n     2",
+      "extractedWorkedAnswerText": "Q146. Straight-line Graphs                                                        Target: G8 (provisional)\nLines y = 2 (x + 1) and y = −2 (x − 5) meet at P . A line through P is parallel to the segment joining\nA(1, 2) to B(4, 0). Find its x-intercept.\nCorrect answer: B          11\n                                                                   −2      2\n1. Solve the two given lines to get P = (2, 6). The gradient of AB is =− .\n                                                                    3      3\n                                                                   2\n2. The line through P has the same gradient. Put y = 0 in y − 6 = − (x − 2), giving x = 11.\n                                                                   3",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "9"
+        },
+        {
+          "letter": "B",
+          "inlineText": "11"
+        },
+        {
+          "letter": "C",
+          "inlineText": "10"
+        },
+        {
+          "letter": "D",
+          "inlineText": "13"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "2"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Line intersection and parallel intercept; compare G7 V2-GRAPHS-3 before rating G8.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 147,
+      "id": "LUX-MATH-Y9-GRAPHS-027",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-GRAPH-G8-INTERSECT-PARALLEL-INTERCEPT",
+      "originalSourceStudentPdfPage": 56,
+      "originalSourceAnswersPdfPage": 29,
+      "originalRegisteredCorrectOption": "D",
+      "originalPrintedCorrectOption": "D",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q147. Straight-line Graphs                                                        Target: G8 (provisional)\nLines y = 3x − 1 and y = 17 − 3x meet at P . A line through P is parallel to the segment joining A(1, 2)\nto B(5, −1). Find its x-intercept.\n     82\nA.\n     3\n      56\nB.\n       3\n      41\nC.\n       6\n      41\nD.\n       3\n     85\nE.\n      6\n     38\nF.\n     3",
+      "extractedWorkedAnswerText": "Q147. Straight-line Graphs                                                        Target: G8 (provisional)\nLines y = 3x − 1 and y = 17 − 3x meet at P . A line through P is parallel to the segment joining A(1, 2)\nto B(5, −1). Find its x-intercept.\n                           41\nCorrect answer: D\n                           3\n                                                                   −3      3\n1. Solve the two given lines to get P = (3, 8). The gradient of AB is =− .\n                                                                    4      4\n                                                                   3                   41\n2. The line through P has the same gradient. Put y = 0 in y − 8 = − (x − 3), giving x = .\n                                                                   4                    3",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "3"
+        },
+        {
+          "letter": "B",
+          "inlineText": "3"
+        },
+        {
+          "letter": "C",
+          "inlineText": "6"
+        },
+        {
+          "letter": "D",
+          "inlineText": "3"
+        },
+        {
+          "letter": "E",
+          "inlineText": "6"
+        },
+        {
+          "letter": "F",
+          "inlineText": "3"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Line intersection and parallel intercept; compare G7 V2-GRAPHS-3 before rating G8.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 148,
+      "id": "LUX-MATH-Y9-GRAPHS-028",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-GRAPH-G8-INTERSECT-PARALLEL-INTERCEPT",
+      "originalSourceStudentPdfPage": 56,
+      "originalSourceAnswersPdfPage": 29,
+      "originalRegisteredCorrectOption": "C",
+      "originalPrintedCorrectOption": "C",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q148. Straight-line Graphs                                                        Target: G8 (provisional)\nLines y = 2 (2x − 3) and y = −2 (2x − 13) meet at P . A line through P is parallel to the segment joining\nA(1, 2) to B(6, −2). Find its x-intercept.\n     37\nA.\n     2\n      27\nB.\n       2\n      33\nC.\n       2\nD. 33\n     35\nE.\n      2\nF. 17\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                          Page 56 of 74\n<PARSED TEXT FOR PAGE: 57 / 74>\nLux et Labor — Mathematics V3.1                                                       REVIEW COPY",
+      "extractedWorkedAnswerText": "Q148. Straight-line Graphs                                                        Target: G8 (provisional)\nLines y = 2 (2x − 3) and y = −2 (2x − 13) meet at P . A line through P is parallel to the segment joining\nA(1, 2) to B(6, −2). Find its x-intercept.\n                           33\nCorrect answer: C\n                           2\n                                                                    −4      4\n1. Solve the two given lines to get P = (4, 10). The gradient of AB is =− .\n                                                                     5      5\n                                                                    4                   33\n2. The line through P has the same gradient. Put y = 0 in y − 10 = − (x − 4), giving x = .\n                                                                    5                   2",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "2"
+        },
+        {
+          "letter": "B",
+          "inlineText": "2"
+        },
+        {
+          "letter": "C",
+          "inlineText": "2"
+        },
+        {
+          "letter": "D",
+          "inlineText": "33"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "17"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Line intersection and parallel intercept; compare G7 V2-GRAPHS-3 before rating G8.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 149,
+      "id": "LUX-MATH-Y9-GRAPHS-029",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-GRAPH-G8-PARAMETER-PERPENDICULAR",
+      "originalSourceStudentPdfPage": 57,
+      "originalSourceAnswersPdfPage": 29,
+      "originalRegisteredCorrectOption": "B",
+      "originalPrintedCorrectOption": "B",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q149. Straight-line Graphs                                                     Target: G8 (provisional)\nThe line through A(k, 5) and B(1, 2) is perpendicular to y = 1 − 2x. Find k.\nA. 5\n\nB. 7\n\nC. 12\n      1\nD.\n      7\nE. 4\n\nF. 2",
+      "extractedWorkedAnswerText": "Q149. Straight-line Graphs                                                        Target: G8 (provisional)\nThe line through A(k, 5) and B(1, 2) is perpendicular to y = 1 − 2x. Find k.\nCorrect answer: B          7\n                                                              1\n1. The known line has gradient −2, so the required gradient is .\n                                                              2\n                  5−2     1\n2. From A and B,        = . Hence k = 7.\n                  k−1     2",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "5"
+        },
+        {
+          "letter": "B",
+          "inlineText": "7"
+        },
+        {
+          "letter": "C",
+          "inlineText": "12"
+        },
+        {
+          "letter": "D",
+          "inlineText": "7"
+        },
+        {
+          "letter": "E",
+          "inlineText": "4"
+        },
+        {
+          "letter": "F",
+          "inlineText": "2"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Single perpendicular gradient equality and linear solve; G8 target appears at risk of overlabelling.",
+      "scopeGate": "NORMAL_OR_MIDPOINT_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 150,
+      "id": "LUX-MATH-Y9-GRAPHS-030",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-GRAPH-G8-PARAMETER-PERPENDICULAR",
+      "originalSourceStudentPdfPage": 57,
+      "originalSourceAnswersPdfPage": 29,
+      "originalRegisteredCorrectOption": "D",
+      "originalPrintedCorrectOption": "D",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q150. Straight-line Graphs                                                     Target: G8 (provisional)\nThe line through A(k, 6) and B(2, 3) is perpendicular to y = 1 − 3x. Find k.\nA. 12\n\nB. 22\n      11\nC.\n       2\nD. 11\n     21\nE.\n      2\nF. 13",
+      "extractedWorkedAnswerText": "Q150. Straight-line Graphs                                                        Target: G8 (provisional)\nThe line through A(k, 6) and B(2, 3) is perpendicular to y = 1 − 3x. Find k.\nCorrect answer: D          11\n                                                              1\n1. The known line has gradient −3, so the required gradient is .\n                                                              3\n                  6−3     1\n2. From A and B,        = . Hence k = 11.\n                  k−2     3\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                          Page 29 of 39\n<PARSED TEXT FOR PAGE: 30 / 39>\nLux et Labor — Mathematics V3.1                                                              REVIEW COPY",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "12"
+        },
+        {
+          "letter": "B",
+          "inlineText": "22"
+        },
+        {
+          "letter": "C",
+          "inlineText": "2"
+        },
+        {
+          "letter": "D",
+          "inlineText": "11"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "13"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Single perpendicular gradient equality and linear solve; G8 target appears at risk of overlabelling.",
+      "scopeGate": "NORMAL_OR_MIDPOINT_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 151,
+      "id": "LUX-MATH-Y9-GRAPHS-031",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-GRAPH-G8-PARAMETER-PERPENDICULAR",
+      "originalSourceStudentPdfPage": 57,
+      "originalSourceAnswersPdfPage": 30,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q151. Straight-line Graphs                                                     Target: G8 (provisional)\nThe line through A(k, 7) and B(3, 4) is perpendicular to y = 1 − 4x. Find k.\nA. 16\n\nB. 14\n\nC. 30\n\nD. 17\n\nE. 12\n\nF. 15\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                       Page 57 of 74\n<PARSED TEXT FOR PAGE: 58 / 74>\nLux et Labor — Mathematics V3.1                                                         REVIEW COPY",
+      "extractedWorkedAnswerText": "Q151. Straight-line Graphs                                                           Target: G8 (provisional)\nThe line through A(k, 7) and B(3, 4) is perpendicular to y = 1 − 4x. Find k.\nCorrect answer: F          15\n                                                              1\n1. The known line has gradient −4, so the required gradient is .\n                                                              4\n                  7−4     1\n2. From A and B,        = . Hence k = 15.\n                  k−3     4",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "16"
+        },
+        {
+          "letter": "B",
+          "inlineText": "14"
+        },
+        {
+          "letter": "C",
+          "inlineText": "30"
+        },
+        {
+          "letter": "D",
+          "inlineText": "17"
+        },
+        {
+          "letter": "E",
+          "inlineText": "12"
+        },
+        {
+          "letter": "F",
+          "inlineText": "15"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Single perpendicular gradient equality and linear solve; G8 target appears at risk of overlabelling.",
+      "scopeGate": "NORMAL_OR_MIDPOINT_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 152,
+      "id": "LUX-MATH-Y9-GRAPHS-032",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8",
+      "templateId": "V3-GRAPH-G8-PARAMETER-PERPENDICULAR",
+      "originalSourceStudentPdfPage": 58,
+      "originalSourceAnswersPdfPage": 30,
+      "originalRegisteredCorrectOption": "B",
+      "originalPrintedCorrectOption": "B",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q152. Straight-line Graphs                                                       Target: G8 (provisional)\nThe line through A(k, 8) and B(4, 5) is perpendicular to y = 1 − 5x. Find k.\nA. −19\n\nB. 19\n\nC. 16\n\nD. 14\n     39\nE.\n      2\nF. 22",
+      "extractedWorkedAnswerText": "Q152. Straight-line Graphs                                                           Target: G8 (provisional)\nThe line through A(k, 8) and B(4, 5) is perpendicular to y = 1 − 5x. Find k.\nCorrect answer: B          19\n                                                              1\n1. The known line has gradient −5, so the required gradient is .\n                                                              5\n                  8−5     1\n2. From A and B,        = . Hence k = 19.\n                  k−4     5",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "−19"
+        },
+        {
+          "letter": "B",
+          "inlineText": "19"
+        },
+        {
+          "letter": "C",
+          "inlineText": "16"
+        },
+        {
+          "letter": "D",
+          "inlineText": "14"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "22"
+        }
+      ],
+      "triageAction": "UPGRADE_STEM_FOR_G7PLUS",
+      "sourceFamilyObservation": "Single perpendicular gradient equality and linear solve; G8 target appears at risk of overlabelling.",
+      "scopeGate": "NORMAL_OR_MIDPOINT_SKILL_NEEDS_TAUGHT_PROOF",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 153,
+      "id": "LUX-MATH-Y9-GRAPHS-033",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-GRAPH-G89-INTERSECTION-PERP-AXIS",
+      "originalSourceStudentPdfPage": 58,
+      "originalSourceAnswersPdfPage": 30,
+      "originalRegisteredCorrectOption": "B",
+      "originalPrintedCorrectOption": "B",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q153. Straight-line Graphs                                                     Target: G8-9 (provisional)\nLines y = 2x − 1 and y = 7 − 2x meet at P . The line through P is perpendicular to segment AB where\nA(1, 1) and B(3, 2). Find the x-intercept of this new line.\n     5\nA.\n     2\n      7\nB.\n      2\n      3\nC.\n      2\n          3\nD. −\n          2\n     11\nE.\n      2\n     7\nF.\n     4",
+      "extractedWorkedAnswerText": "Q153. Straight-line Graphs                                                       Target: G8-9 (provisional)\nLines y = 2x − 1 and y = 7 − 2x meet at P . The line through P is perpendicular to segment AB where\nA(1, 1) and B(3, 2). Find the x-intercept of this new line.\n                           7\nCorrect answer: B\n                           2\n                                                                                1\n1. Equate the first two line equations to find P = (2, 3). The gradient of AB is .\n                                                                                2\n                                                                                 7\n2. The perpendicular gradient is −2. Set y = 0 in y − 3 = −2(x − 2) to obtain x = .\n                                                                                 2",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "2"
+        },
+        {
+          "letter": "B",
+          "inlineText": "2"
+        },
+        {
+          "letter": "C",
+          "inlineText": "2"
+        },
+        {
+          "letter": "D",
+          "inlineText": "−"
+        },
+        {
+          "letter": "E",
+          "inlineText": "2"
+        },
+        {
+          "letter": "F",
+          "inlineText": "4"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Same intersection/perpendicular-axis method as G7 V2-GRAPHS-4; G8-9 target requires evidence.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 154,
+      "id": "LUX-MATH-Y9-GRAPHS-034",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-GRAPH-G89-INTERSECTION-PERP-AXIS",
+      "originalSourceStudentPdfPage": 58,
+      "originalSourceAnswersPdfPage": 30,
+      "originalRegisteredCorrectOption": "C",
+      "originalPrintedCorrectOption": "C",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q154. Straight-line Graphs                                                     Target: G8-9 (provisional)\nLines y = 3x − 5 and y = 13 − 3x meet at P . The line through P is perpendicular to segment AB where\nA(1, 1) and B(4, 2). Find the x-intercept of this new line.\n     3\nA.\n     13\n      22\nB.\n       3\n      13\nC.\n       3\n      4\nD.\n      3\n     28\nE.\n      3\n     23\nF.\n     6\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                         Page 58 of 74\n<PARSED TEXT FOR PAGE: 59 / 74>\nLux et Labor — Mathematics V3.1                                                           REVIEW COPY",
+      "extractedWorkedAnswerText": "Q154. Straight-line Graphs                                                       Target: G8-9 (provisional)\nLines y = 3x − 5 and y = 13 − 3x meet at P . The line through P is perpendicular to segment AB where\nA(1, 1) and B(4, 2). Find the x-intercept of this new line.\n                           13\nCorrect answer: C\n                           3\n                                                                                1\n1. Equate the first two line equations to find P = (3, 4). The gradient of AB is .\n                                                                                3\n                                                                                      13\n2. The perpendicular gradient is −3. Set y = 0 in y − 4 = −3(x − 3) to obtain x =        .\n                                                                                      3",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "13"
+        },
+        {
+          "letter": "B",
+          "inlineText": "3"
+        },
+        {
+          "letter": "C",
+          "inlineText": "3"
+        },
+        {
+          "letter": "D",
+          "inlineText": "3"
+        },
+        {
+          "letter": "E",
+          "inlineText": "3"
+        },
+        {
+          "letter": "F",
+          "inlineText": "6"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Same intersection/perpendicular-axis method as G7 V2-GRAPHS-4; G8-9 target requires evidence.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 155,
+      "id": "LUX-MATH-Y9-GRAPHS-035",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-GRAPH-G89-INTERSECTION-PERP-AXIS",
+      "originalSourceStudentPdfPage": 59,
+      "originalSourceAnswersPdfPage": 30,
+      "originalRegisteredCorrectOption": "B",
+      "originalPrintedCorrectOption": "B",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q155. Straight-line Graphs                                                      Target: G8-9 (provisional)\nLines y = 2x − 3 and y = 13 − 2x meet at P . The line through P is perpendicular to segment AB where\nA(1, 1) and B(5, 2). Find the x-intercept of this new line.\n     13\nA.\n     4\n      21\nB.\n       4\n      17\nC.\n       4\n      29\nD.\n       4\n     19\nE.\n      4\n     21\nF.\n     8",
+      "extractedWorkedAnswerText": "Q155. Straight-line Graphs                                                       Target: G8-9 (provisional)\nLines y = 2x − 3 and y = 13 − 2x meet at P . The line through P is perpendicular to segment AB where\nA(1, 1) and B(5, 2). Find the x-intercept of this new line.\n                           21\nCorrect answer: B\n                           4\n                                                                                1\n1. Equate the first two line equations to find P = (4, 5). The gradient of AB is .\n                                                                                4\n                                                                                      21\n2. The perpendicular gradient is −4. Set y = 0 in y − 5 = −4(x − 4) to obtain x =        .\n                                                                                      4\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                             Page 30 of 39\n<PARSED TEXT FOR PAGE: 31 / 39>\nLux et Labor — Mathematics V3.1                                                              REVIEW COPY",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "4"
+        },
+        {
+          "letter": "B",
+          "inlineText": "4"
+        },
+        {
+          "letter": "C",
+          "inlineText": "4"
+        },
+        {
+          "letter": "D",
+          "inlineText": "4"
+        },
+        {
+          "letter": "E",
+          "inlineText": "4"
+        },
+        {
+          "letter": "F",
+          "inlineText": "8"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Same intersection/perpendicular-axis method as G7 V2-GRAPHS-4; G8-9 target requires evidence.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 156,
+      "id": "LUX-MATH-Y9-GRAPHS-036",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-GRAPH-G89-INTERSECTION-PERP-AXIS",
+      "originalSourceStudentPdfPage": 59,
+      "originalSourceAnswersPdfPage": 31,
+      "originalRegisteredCorrectOption": "D",
+      "originalPrintedCorrectOption": "D",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q156. Straight-line Graphs                                                      Target: G8-9 (provisional)\nLines y = 3 (x − 3) and y = −3 (x − 7) meet at P . The line through P is perpendicular to segment AB\nwhere A(1, 1) and B(6, 2). Find the x-intercept of this new line.\n     62\nA.\n     5\n      56\nB.\n       5\n      31\nC.\n      10\n      31\nD.\n       5\n     67\nE.\n     10\n     26\nF.\n     5",
+      "extractedWorkedAnswerText": "Q156. Straight-line Graphs                                                        Target: G8-9 (provisional)\nLines y = 3 (x − 3) and y = −3 (x − 7) meet at P . The line through P is perpendicular to segment AB\nwhere A(1, 1) and B(6, 2). Find the x-intercept of this new line.\n                           31\nCorrect answer: D\n                           5\n                                                                                1\n1. Equate the first two line equations to find P = (5, 6). The gradient of AB is .\n                                                                                5\n                                                                                      31\n2. The perpendicular gradient is −5. Set y = 0 in y − 6 = −5(x − 5) to obtain x =        .\n                                                                                      5",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "5"
+        },
+        {
+          "letter": "B",
+          "inlineText": "5"
+        },
+        {
+          "letter": "C",
+          "inlineText": "10"
+        },
+        {
+          "letter": "D",
+          "inlineText": "5"
+        },
+        {
+          "letter": "E",
+          "inlineText": "10"
+        },
+        {
+          "letter": "F",
+          "inlineText": "5"
+        }
+      ],
+      "triageAction": "RETAIN_FOR_EXTERNAL_BENCHMARK",
+      "sourceFamilyObservation": "Same intersection/perpendicular-axis method as G7 V2-GRAPHS-4; G8-9 target requires evidence.",
+      "scopeGate": "AUTUMN_BROAD_TOPIC_NOT_CLASSROOM_CONFIRMED",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 157,
+      "id": "LUX-MATH-Y9-GRAPHS-037",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-GRAPH-G89-BISECTOR-INTERSECTION-SUM",
+      "originalSourceStudentPdfPage": 59,
+      "originalSourceAnswersPdfPage": 31,
+      "originalRegisteredCorrectOption": "C",
+      "originalPrintedCorrectOption": "C",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q157. Straight-line Graphs                                                      Target: G8-9 (provisional)\nThe perpendicular bisector of A(1, 2) and B(5, 4) meets y = x + 3 at P . Find xP + yP .\nA. 9\n\nB. 4\n\nC. 7\n\nD. 14\n\nE. 8\n     15\nF.\n     2\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                          Page 59 of 74\n<PARSED TEXT FOR PAGE: 60 / 74>\nLux et Labor — Mathematics V3.1                                                           REVIEW COPY",
+      "extractedWorkedAnswerText": "Q157. Straight-line Graphs                                                        Target: G8-9 (provisional)\nThe perpendicular bisector of A(1, 2) and B(5, 4) meets y = x + 3 at P . Find xP + yP .\nCorrect answer: C          7\n1. The midpoint is (3, 3), and the perpendicular-bisector gradient is −2. Hence its equation is y = 9 − 2x.\n2. Intersect with y = x + 3 to obtain P = (2, 5). Thus xP + yP = 7.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "9"
+        },
+        {
+          "letter": "B",
+          "inlineText": "4"
+        },
+        {
+          "letter": "C",
+          "inlineText": "7"
+        },
+        {
+          "letter": "D",
+          "inlineText": "14"
+        },
+        {
+          "letter": "E",
+          "inlineText": "8"
+        },
+        {
+          "letter": "F",
+          "inlineText": "2"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Perpendicular bisector with second line intersection; 4 IDs -037..040 are Spring content.",
+      "scopeGate": "SPRING_PERPENDICULAR_BISECTOR_QUARANTINE",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 158,
+      "id": "LUX-MATH-Y9-GRAPHS-038",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-GRAPH-G89-BISECTOR-INTERSECTION-SUM",
+      "originalSourceStudentPdfPage": 60,
+      "originalSourceAnswersPdfPage": 31,
+      "originalRegisteredCorrectOption": "B",
+      "originalPrintedCorrectOption": "B",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q158. Straight-line Graphs                                                      Target: G8-9 (provisional)\nThe perpendicular bisector of A(1, 3) and B(5, 5) meets y = 2 (x − 1) at P . Find xP + yP .\nA. 5\n\nB. 7\n\nC. 12\n      1\nD.\n      7\nE. 4\n\nF. 2",
+      "extractedWorkedAnswerText": "Q158. Straight-line Graphs                                                        Target: G8-9 (provisional)\nThe perpendicular bisector of A(1, 3) and B(5, 5) meets y = 2 (x − 1) at P . Find xP + yP .\nCorrect answer: B          7\n1. The midpoint is (3, 4), and the perpendicular-bisector gradient is −2. Hence its equation is y =\n−2 (x − 5).\n2. Intersect with y = 2 (x − 1) to obtain P = (3, 4). Thus xP + yP = 7.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "5"
+        },
+        {
+          "letter": "B",
+          "inlineText": "7"
+        },
+        {
+          "letter": "C",
+          "inlineText": "12"
+        },
+        {
+          "letter": "D",
+          "inlineText": "7"
+        },
+        {
+          "letter": "E",
+          "inlineText": "4"
+        },
+        {
+          "letter": "F",
+          "inlineText": "2"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Perpendicular bisector with second line intersection; 4 IDs -037..040 are Spring content.",
+      "scopeGate": "SPRING_PERPENDICULAR_BISECTOR_QUARANTINE",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 159,
+      "id": "LUX-MATH-Y9-GRAPHS-039",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-GRAPH-G89-BISECTOR-INTERSECTION-SUM",
+      "originalSourceStudentPdfPage": 60,
+      "originalSourceAnswersPdfPage": 31,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q159. Straight-line Graphs                                                      Target: G8-9 (provisional)\nThe perpendicular bisector of A(1, 4) and B(5, 6) meets y = 3 (x − 3) at P . Find xP + yP .\nA. 14\n\nB. 2\n      1\nC.\n      7\nD. 9\n\nE. 6\n\nF. 7",
+      "extractedWorkedAnswerText": "Q159. Straight-line Graphs                                                        Target: G8-9 (provisional)\nThe perpendicular bisector of A(1, 4) and B(5, 6) meets y = 3 (x − 3) at P . Find xP + yP .\nCorrect answer: F          7\n1. The midpoint is (3, 5), and the perpendicular-bisector gradient is −2. Hence its equation is y = 11−2x.\n2. Intersect with y = 3 (x − 3) to obtain P = (4, 3). Thus xP + yP = 7.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "14"
+        },
+        {
+          "letter": "B",
+          "inlineText": "2"
+        },
+        {
+          "letter": "C",
+          "inlineText": "7"
+        },
+        {
+          "letter": "D",
+          "inlineText": "9"
+        },
+        {
+          "letter": "E",
+          "inlineText": "6"
+        },
+        {
+          "letter": "F",
+          "inlineText": "7"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Perpendicular bisector with second line intersection; 4 IDs -037..040 are Spring content.",
+      "scopeGate": "SPRING_PERPENDICULAR_BISECTOR_QUARANTINE",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    },
+    {
+      "sourceIndex": 160,
+      "id": "LUX-MATH-Y9-GRAPHS-040",
+      "sourceTopic": "math-y9-straight-line-graphs",
+      "originalProvisionalGrade": "G8-9",
+      "templateId": "V3-GRAPH-G89-BISECTOR-INTERSECTION-SUM",
+      "originalSourceStudentPdfPage": 60,
+      "originalSourceAnswersPdfPage": 31,
+      "originalRegisteredCorrectOption": "F",
+      "originalPrintedCorrectOption": "F",
+      "originalSixOptionOrder": "ABCDEF",
+      "extractedStudentQuestionText": "Q160. Straight-line Graphs                                                      Target: G8-9 (provisional)\nThe perpendicular bisector of A(1, 5) and B(5, 7) meets y = 2 (2x − 9) at P . Find xP + yP .\nA. 8\n\nB. 6\n\nC. 14\n\nD. 9\n\nE. 4\n\nF. 7\n\n\n\n\nMaths checked · grade/taught-scope/device QA pending                                           Page 60 of 74\n<PARSED TEXT FOR PAGE: 61 / 74>\nLux et Labor — Mathematics V3.1                               REVIEW COPY",
+      "extractedWorkedAnswerText": "Q160. Straight-line Graphs                                                        Target: G8-9 (provisional)\nThe perpendicular bisector of A(1, 5) and B(5, 7) meets y = 2 (2x − 9) at P . Find xP + yP .\nCorrect answer: F          7\n1. The midpoint is (3, 6), and the perpendicular-bisector gradient is −2. Hence its equation is y =\n−2 (x − 6).\n2. Intersect with y = 2 (2x − 9) to obtain P = (5, 2). Thus xP + yP = 7.",
+      "optionLineStartText": [
+        {
+          "letter": "A",
+          "inlineText": "8"
+        },
+        {
+          "letter": "B",
+          "inlineText": "6"
+        },
+        {
+          "letter": "C",
+          "inlineText": "14"
+        },
+        {
+          "letter": "D",
+          "inlineText": "9"
+        },
+        {
+          "letter": "E",
+          "inlineText": "4"
+        },
+        {
+          "letter": "F",
+          "inlineText": "7"
+        }
+      ],
+      "triageAction": "QUARANTINE_TAUGHT_SCOPE",
+      "sourceFamilyObservation": "Perpendicular bisector with second line intersection; 4 IDs -037..040 are Spring content.",
+      "scopeGate": "SPRING_PERPENDICULAR_BISECTOR_QUARANTINE",
+      "sourceSpecificFlags": [],
+      "extractionFlags": [],
+      "mathematicalResolutionStatus": "NOT_INDEPENDENTLY_RESOLVED_FROM_RENDERED_PDF_THIS_PASS",
+      "grade7PlusIndependentSignoff": false,
+      "independentDistractorFiveSignoff": false,
+      "exactSchoolAutumnTaughtSubskillSigned": false,
+      "eligibleForDaily": false
+    }
+  ]
+}

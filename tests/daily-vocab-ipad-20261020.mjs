@@ -36,6 +36,8 @@ try{
   try{
    const context=await browser.newContext({viewport:{width:1194,height:834},isMobile:engine===webkit,hasTouch:engine===webkit});
    const page=await context.newPage(),errors=[];
+   // This regression restores historical V2 receipts that predate year-split evidence.
+   await page.clock.setFixedTime(new Date('2026-11-20T12:00:00Z'));
    page.on("pageerror",error=>errors.push(error.message));
    await page.goto(origin+"/",{waitUntil:"networkidle"});
    await page.waitForFunction(()=>window.__luxAppReady===true);

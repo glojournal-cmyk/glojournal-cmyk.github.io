@@ -1,0 +1,1292 @@
+{
+  "kind": "STANDALONE_22_SIMULTANEOUS_RATIONALE_REPAIR_CANDIDATES_NOT_APPROVED",
+  "date": "2026-11-23",
+  "pr": 306,
+  "sourceBankPath": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "sourceBankUnchanged": true,
+  "editorialEvidenceRegisterPath": "qa-staging/math-v314-simultaneous-61-short-distractor-path-repair-register-20261123.json",
+  "editorialEvidenceRegisterBlobSha": "e901f7d8f1f7c9e14c83987dcd84ff62d5e3337f",
+  "sourceCorrectKeysRecomputed": 40,
+  "sourceMathematicalOptionsRecomputed": 240,
+  "schoolPdf": "SKIPPED_PER_USER_INSTRUCTION",
+  "totals": {
+    "candidateQuestions": 22,
+    "optionStatements": 132,
+    "revisedWrongRationales": 61,
+    "allFiveWrongRationalesPresent": 22,
+    "formalAcademicApprovals": 0,
+    "dailyEnabled": 0,
+    "masteryEnabled": 0
+  },
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-001",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-001-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "Given $\\begin{cases} 2x+3y=7\\\\ 3x-2y=4\\end{cases}$, calculate $x^2+y$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3",
+          "errorPath": "Swap the values of x and y in the final expression."
+        },
+        {
+          "id": "B",
+          "latex": "2",
+          "errorPath": "The original simultaneous equations give x=2, y=1; give x=2 alone instead of evaluating the requested expression, which equals 5."
+        },
+        {
+          "id": "C",
+          "latex": "5"
+        },
+        {
+          "id": "D",
+          "latex": "1",
+          "errorPath": "The equations give x=2, y=1; give y=1 alone instead of evaluating the actual requested expression, which equals 5."
+        },
+        {
+          "id": "E",
+          "latex": "7",
+          "errorPath": "Give the first equation’s right-hand side."
+        },
+        {
+          "id": "F",
+          "latex": "50",
+          "errorPath": "Use the first right-hand side as x."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "5",
+      "workedSolutionSteps": [
+        "Use $2x+3y=7$ and $3x-2y=4$.",
+        "Multiply the first equation by 2 and the second by 3. Add to eliminate y. This gives 13x=26, hence x=2.",
+        "Substitute into the first equation to get y=(7−2×2)/3=1.",
+        "The requested result is 2²+1 = 5.",
+        "Check both original totals: 2(2) + 3(1) = 7 and 3(2) + (-2)(1) = 4."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-001-REVIEW-2",
+      "stagedEditorialQA": "61_SOURCE_DERIVED_REPRODUCIBLE_WRONG_ROUTES_NOT_EMPIRICALLY_CERTIFIED",
+      "changesOnIncorrectOptions": 2,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptEquivalenceIndependentlyApproved": false,
+      "academicQA": "pending",
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-002",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-002-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "Given $\\begin{cases} 3x+4y=17\\\\ 4x-3y=6\\end{cases}$, calculate $x^2+y$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "11"
+        },
+        {
+          "id": "B",
+          "latex": "7",
+          "errorPath": "Swap the values of x and y in the final expression."
+        },
+        {
+          "id": "C",
+          "latex": "3",
+          "errorPath": "The original simultaneous equations give x=3, y=2; give x=3 alone instead of evaluating the requested expression, which equals 11."
+        },
+        {
+          "id": "D",
+          "latex": "2",
+          "errorPath": "The equations give x=3, y=2; give y=2 alone instead of evaluating the actual requested expression, which equals 11."
+        },
+        {
+          "id": "E",
+          "latex": "5",
+          "errorPath": "Give the sum of the coordinates."
+        },
+        {
+          "id": "F",
+          "latex": "1",
+          "errorPath": "Calculate the unrequested difference x−y=3−(2)=1 after solving, rather than the requested product or expression, which equals 11."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "11",
+      "workedSolutionSteps": [
+        "Use $3x+4y=17$ and $4x-3y=6$.",
+        "Multiply the first equation by 3 and the second by 4. Add to eliminate y. This gives 25x=75, hence x=3.",
+        "Substitute into the first equation to get y=(17−3×3)/4=2.",
+        "The requested result is 3²+2 = 11.",
+        "Check both original totals: 3(3) + 4(2) = 17 and 4(3) + (-3)(2) = 6."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-002-REVIEW-2",
+      "stagedEditorialQA": "61_SOURCE_DERIVED_REPRODUCIBLE_WRONG_ROUTES_NOT_EMPIRICALLY_CERTIFIED",
+      "changesOnIncorrectOptions": 3,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptEquivalenceIndependentlyApproved": false,
+      "academicQA": "pending",
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-003",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-003-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "Given $\\begin{cases} 4x+5y=31\\\\ 5x-4y=8\\end{cases}$, calculate $x^2+y$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "13",
+          "errorPath": "Swap the values of x and y in the final expression."
+        },
+        {
+          "id": "B",
+          "latex": "4",
+          "errorPath": "The original simultaneous equations give x=4, y=3; give x=4 alone instead of evaluating the requested expression, which equals 19."
+        },
+        {
+          "id": "C",
+          "latex": "3",
+          "errorPath": "The equations give x=4, y=3; give y=3 alone instead of evaluating the actual requested expression, which equals 19."
+        },
+        {
+          "id": "D",
+          "latex": "7",
+          "errorPath": "Give the sum of the coordinates."
+        },
+        {
+          "id": "E",
+          "latex": "1",
+          "errorPath": "Calculate the unrequested difference x−y=4−(3)=1 after solving, rather than the requested product or expression, which equals 19."
+        },
+        {
+          "id": "F",
+          "latex": "19"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "19",
+      "workedSolutionSteps": [
+        "Use $4x+5y=31$ and $5x-4y=8$.",
+        "Multiply the first equation by 4 and the second by 5. Add to eliminate y. This gives 41x=164, hence x=4.",
+        "Substitute into the first equation to get y=(31−4×4)/5=3.",
+        "The requested result is 4²+3 = 19.",
+        "Check both original totals: 4(4) + 5(3) = 31 and 5(4) + (-4)(3) = 8."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-003-REVIEW-2",
+      "stagedEditorialQA": "61_SOURCE_DERIVED_REPRODUCIBLE_WRONG_ROUTES_NOT_EMPIRICALLY_CERTIFIED",
+      "changesOnIncorrectOptions": 3,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptEquivalenceIndependentlyApproved": false,
+      "academicQA": "pending",
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-004",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-004-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "Given $\\begin{cases} 5x+6y=49\\\\ 6x-5y=10\\end{cases}$, calculate $x^2+y$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "29"
+        },
+        {
+          "id": "B",
+          "latex": "21",
+          "errorPath": "Swap the values of x and y in the final expression."
+        },
+        {
+          "id": "C",
+          "latex": "5",
+          "errorPath": "The original simultaneous equations give x=5, y=4; give x=5 alone instead of evaluating the requested expression, which equals 29."
+        },
+        {
+          "id": "D",
+          "latex": "4",
+          "errorPath": "The equations give x=5, y=4; give y=4 alone instead of evaluating the actual requested expression, which equals 29."
+        },
+        {
+          "id": "E",
+          "latex": "9",
+          "errorPath": "Give the sum of the coordinates."
+        },
+        {
+          "id": "F",
+          "latex": "1",
+          "errorPath": "Calculate the unrequested difference x−y=5−(4)=1 after solving, rather than the requested product or expression, which equals 29."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "29",
+      "workedSolutionSteps": [
+        "Use $5x+6y=49$ and $6x-5y=10$.",
+        "Multiply the first equation by 5 and the second by 6. Add to eliminate y. This gives 61x=305, hence x=5.",
+        "Substitute into the first equation to get y=(49−5×5)/6=4.",
+        "The requested result is 5²+4 = 29.",
+        "Check both original totals: 5(5) + 6(4) = 49 and 6(5) + (-5)(4) = 10."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-004-REVIEW-2",
+      "stagedEditorialQA": "61_SOURCE_DERIVED_REPRODUCIBLE_WRONG_ROUTES_NOT_EMPIRICALLY_CERTIFIED",
+      "changesOnIncorrectOptions": 3,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptEquivalenceIndependentlyApproved": false,
+      "academicQA": "pending",
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-009",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "sourceDisposition": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "Solve $\\begin{cases}\\dfrac{2x+3y}{2}=\\dfrac{17}{2}\\\\3x-2y=6\\end{cases}$ and find $xy$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "-12",
+          "errorPath": "Replace the solved x=4 by x=-4, so the product becomes (-4)×3=-12 instead of xy=12."
+        },
+        {
+          "id": "B",
+          "latex": "4",
+          "errorPath": "The original simultaneous equations give x=4, y=3; give x=4 alone instead of evaluating the requested expression, which equals 12."
+        },
+        {
+          "id": "C",
+          "latex": "12"
+        },
+        {
+          "id": "D",
+          "latex": "3",
+          "errorPath": "The equations give x=4, y=3; give y=3 alone instead of evaluating the actual requested expression, which equals 12."
+        },
+        {
+          "id": "E",
+          "latex": "7",
+          "errorPath": "Give the sum of the coordinates."
+        },
+        {
+          "id": "F",
+          "latex": "1",
+          "errorPath": "Calculate the unrequested difference x−y=4−(3)=1 after solving, rather than the requested product or expression, which equals 12."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "12",
+      "workedSolutionSteps": [
+        "Clear the common denominator in the first equation. Use $2x+3y=17$ and $3x-2y=6$.",
+        "Multiply the first equation by 2 and the second by 3. Add to eliminate y. This gives 13x=52, hence x=4.",
+        "Substitute into the first equation to get y=(17−2×4)/3=3.",
+        "The requested result is 4×3 = 12.",
+        "Check both original totals: 2(4) + 3(3) = 17 and 3(4) + (-2)(3) = 6."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-REVIEW-2",
+      "stagedEditorialQA": "61_SOURCE_DERIVED_REPRODUCIBLE_WRONG_ROUTES_NOT_EMPIRICALLY_CERTIFIED",
+      "changesOnIncorrectOptions": 4,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptEquivalenceIndependentlyApproved": false,
+      "academicQA": "pending",
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-010",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "sourceDisposition": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "Solve $\\begin{cases}\\dfrac{3x+4y}{3}=\\dfrac{26}{3}\\\\4x-3y=-7\\end{cases}$ and find $xy$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "-10",
+          "errorPath": "Replace the solved x=2.0000000000000004 by x=-2.0000000000000004, so the product becomes (-2.0000000000000004)×5=-10.000000000000002 instead of xy=10.000000000000002."
+        },
+        {
+          "id": "B",
+          "latex": "2",
+          "errorPath": "The original simultaneous equations give x=2.0000000000000004, y=5; give x=2.0000000000000004 alone instead of evaluating the requested expression, which equals 10.000000000000002."
+        },
+        {
+          "id": "C",
+          "latex": "10"
+        },
+        {
+          "id": "D",
+          "latex": "5",
+          "errorPath": "The equations give x=2.0000000000000004, y=5; give y=5 alone instead of evaluating the actual requested expression, which equals 10.000000000000002."
+        },
+        {
+          "id": "E",
+          "latex": "7",
+          "errorPath": "Give the sum of the coordinates."
+        },
+        {
+          "id": "F",
+          "latex": "-3",
+          "errorPath": "Calculate the unrequested difference x−y=2.0000000000000004−(5)=-2.9999999999999996 after solving, rather than the requested product or expression, which equals 10.000000000000002."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "10",
+      "workedSolutionSteps": [
+        "Clear the common denominator in the first equation. Use $3x+4y=26$ and $4x-3y=-7$.",
+        "Multiply the first equation by 3 and the second by 4. Add to eliminate y. This gives 25x=50, hence x=2.",
+        "Substitute into the first equation to get y=(26−3×2)/4=5.",
+        "The requested result is 2×5 = 10.",
+        "Check both original totals: 3(2) + 4(5) = 26 and 4(2) + (-3)(5) = -7."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-REVIEW-2",
+      "stagedEditorialQA": "61_SOURCE_DERIVED_REPRODUCIBLE_WRONG_ROUTES_NOT_EMPIRICALLY_CERTIFIED",
+      "changesOnIncorrectOptions": 4,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptEquivalenceIndependentlyApproved": false,
+      "academicQA": "pending",
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-011",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-011-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "sourceDisposition": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "Solve $\\begin{cases}\\dfrac{4x+5y}{4}=\\dfrac{29}{4}\\\\5x-4y=26\\end{cases}$ and find $xy$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "-6",
+          "errorPath": "Replace the solved x=6 by x=-6, so the product becomes (-6)×1=-6 instead of xy=6."
+        },
+        {
+          "id": "B",
+          "latex": "1",
+          "errorPath": "The equations give x=6, y=1; give y=1 alone instead of evaluating the actual requested expression, which equals 6."
+        },
+        {
+          "id": "C",
+          "latex": "7",
+          "errorPath": "Give the sum of the coordinates."
+        },
+        {
+          "id": "D",
+          "latex": "6"
+        },
+        {
+          "id": "E",
+          "latex": "5",
+          "errorPath": "Calculate the unrequested difference x−y=6−(1)=5 after solving, rather than the requested product or expression, which equals 6."
+        },
+        {
+          "id": "F",
+          "latex": "29",
+          "errorPath": "Clear the common denominator by multiplying the first equation by 4, obtaining 4x+5y=29; then report the new right-hand side 29 instead of the requested product xy."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "6",
+      "workedSolutionSteps": [
+        "Clear the common denominator in the first equation. Use $4x+5y=29$ and $5x-4y=26$.",
+        "Multiply the first equation by 4 and the second by 5. Add to eliminate y. This gives 41x=246, hence x=6.",
+        "Substitute into the first equation to get y=(29−4×6)/5=1.",
+        "The requested result is 6×1 = 6.",
+        "Check both original totals: 4(6) + 5(1) = 29 and 5(6) + (-4)(1) = 26."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-011-REVIEW-2",
+      "stagedEditorialQA": "61_SOURCE_DERIVED_REPRODUCIBLE_WRONG_ROUTES_NOT_EMPIRICALLY_CERTIFIED",
+      "changesOnIncorrectOptions": 3,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptEquivalenceIndependentlyApproved": false,
+      "academicQA": "pending",
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-012",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-012-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "sourceDisposition": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "Solve $\\begin{cases}\\dfrac{5x+6y}{5}=\\dfrac{57}{5}\\\\6x-5y=-17\\end{cases}$ and find $xy$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "-21",
+          "errorPath": "Replace the solved x=3.0000000000000004 by x=-3.0000000000000004, so the product becomes (-3.0000000000000004)×7.000000000000001=-21.000000000000007 instead of xy=21.000000000000007."
+        },
+        {
+          "id": "B",
+          "latex": "3",
+          "errorPath": "The original simultaneous equations give x=3.0000000000000004, y=7.000000000000001; give x=3.0000000000000004 alone instead of evaluating the requested expression, which equals 21.000000000000007."
+        },
+        {
+          "id": "C",
+          "latex": "21"
+        },
+        {
+          "id": "D",
+          "latex": "7",
+          "errorPath": "The equations give x=3.0000000000000004, y=7.000000000000001; give y=7.000000000000001 alone instead of evaluating the actual requested expression, which equals 21.000000000000007."
+        },
+        {
+          "id": "E",
+          "latex": "10",
+          "errorPath": "Give the sum of the coordinates."
+        },
+        {
+          "id": "F",
+          "latex": "-4",
+          "errorPath": "Calculate the unrequested difference x−y=3.0000000000000004−(7.000000000000001)=-4 after solving, rather than the requested product or expression, which equals 21.000000000000007."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "21",
+      "workedSolutionSteps": [
+        "Clear the common denominator in the first equation. Use $5x+6y=57$ and $6x-5y=-17$.",
+        "Multiply the first equation by 5 and the second by 6. Add to eliminate y. This gives 61x=183, hence x=3.",
+        "Substitute into the first equation to get y=(57−5×3)/6=7.",
+        "The requested result is 3×7 = 21.",
+        "Check both original totals: 5(3) + 6(7) = 57 and 6(3) + (-5)(7) = -17."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-012-REVIEW-2",
+      "stagedEditorialQA": "61_SOURCE_DERIVED_REPRODUCIBLE_WRONG_ROUTES_NOT_EMPIRICALLY_CERTIFIED",
+      "changesOnIncorrectOptions": 4,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptEquivalenceIndependentlyApproved": false,
+      "academicQA": "pending",
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-021",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-021-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "Given $\\begin{cases} 2x+3y=13\\\\ 3x-2y=0\\end{cases}$, calculate $2x^2-y$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "16",
+          "errorPath": "Swap the values of x and y in the final expression."
+        },
+        {
+          "id": "B",
+          "latex": "11",
+          "errorPath": "Treat the target 2x²−y as 2x²+y: 2×2²+3=11, rather than 2x²−y=5."
+        },
+        {
+          "id": "C",
+          "latex": "2",
+          "errorPath": "The original simultaneous equations give x=2, y=3; give x=2 alone instead of evaluating the requested expression, which equals 5."
+        },
+        {
+          "id": "D",
+          "latex": "3",
+          "errorPath": "The equations give x=2, y=3; give y=3 alone instead of evaluating the actual requested expression, which equals 5."
+        },
+        {
+          "id": "E",
+          "latex": "-1",
+          "errorPath": "Calculate the unrequested difference x−y=2−(3)=-1 after solving, rather than the requested product or expression, which equals 5."
+        },
+        {
+          "id": "F",
+          "latex": "5"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "5",
+      "workedSolutionSteps": [
+        "Use $2x+3y=13$ and $3x-2y=0$.",
+        "Multiply the first equation by 2 and the second by 3. Add to eliminate y. This gives 13x=26, hence x=2.",
+        "Substitute into the first equation to get y=(13−2×2)/3=3.",
+        "The requested result is 2×2²−3 = 5.",
+        "Check both original totals: 2(2) + 3(3) = 13 and 3(2) + (-2)(3) = 0."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-021-REVIEW-2",
+      "stagedEditorialQA": "61_SOURCE_DERIVED_REPRODUCIBLE_WRONG_ROUTES_NOT_EMPIRICALLY_CERTIFIED",
+      "changesOnIncorrectOptions": 4,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptEquivalenceIndependentlyApproved": false,
+      "academicQA": "pending",
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-022",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-022-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "Given $\\begin{cases} 3x+3y=21\\\\ 3x-3y=-3\\end{cases}$, calculate $2x^2-y$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "14"
+        },
+        {
+          "id": "B",
+          "latex": "29",
+          "errorPath": "Swap the values of x and y in the final expression."
+        },
+        {
+          "id": "C",
+          "latex": "22",
+          "errorPath": "Treat the target 2x²−y as 2x²+y: 2×3²+4=22, rather than 2x²−y=14."
+        },
+        {
+          "id": "D",
+          "latex": "3",
+          "errorPath": "The original simultaneous equations give x=3, y=4; give x=3 alone instead of evaluating the requested expression, which equals 14."
+        },
+        {
+          "id": "E",
+          "latex": "4",
+          "errorPath": "The equations give x=3, y=4; give y=4 alone instead of evaluating the actual requested expression, which equals 14."
+        },
+        {
+          "id": "F",
+          "latex": "7",
+          "errorPath": "Give the sum of the coordinates."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "14",
+      "workedSolutionSteps": [
+        "Use $3x+3y=21$ and $3x-3y=-3$.",
+        "Multiply the first equation by 1 and the second by 1. Add to eliminate y. This gives 6x=18, hence x=3.",
+        "Substitute into the first equation to get y=(21−3×3)/3=4.",
+        "The requested result is 2×3²−4 = 14.",
+        "Check both original totals: 3(3) + 3(4) = 21 and 3(3) + (-3)(4) = -3."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-022-REVIEW-2",
+      "stagedEditorialQA": "61_SOURCE_DERIVED_REPRODUCIBLE_WRONG_ROUTES_NOT_EMPIRICALLY_CERTIFIED",
+      "changesOnIncorrectOptions": 3,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptEquivalenceIndependentlyApproved": false,
+      "academicQA": "pending",
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-024",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "Given $\\begin{cases} 5x+3y=37\\\\ 3x-5y=-5\\end{cases}$, calculate $2x^2-y$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "27",
+          "errorPath": "Swap the values of x and y in the final expression."
+        },
+        {
+          "id": "B",
+          "latex": "54",
+          "errorPath": "Treat the target 2x²−y as 2x²+y: 2×5²+4=54, rather than 2x²−y=46."
+        },
+        {
+          "id": "C",
+          "latex": "5",
+          "errorPath": "The original simultaneous equations give x=5, y=4; give x=5 alone instead of evaluating the requested expression, which equals 46."
+        },
+        {
+          "id": "D",
+          "latex": "4",
+          "errorPath": "The equations give x=5, y=4; give y=4 alone instead of evaluating the actual requested expression, which equals 46."
+        },
+        {
+          "id": "E",
+          "latex": "46"
+        },
+        {
+          "id": "F",
+          "latex": "9",
+          "errorPath": "Give the sum of the coordinates."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "46",
+      "workedSolutionSteps": [
+        "Use $5x+3y=37$ and $3x-5y=-5$.",
+        "Multiply the first equation by 5 and the second by 3. Add to eliminate y. This gives 34x=170, hence x=5.",
+        "Substitute into the first equation to get y=(37−5×5)/3=4.",
+        "The requested result is 2×5²−4 = 46.",
+        "Check both original totals: 5(5) + 3(4) = 37 and 3(5) + (-5)(4) = -5."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-REVIEW-2",
+      "stagedEditorialQA": "61_SOURCE_DERIVED_REPRODUCIBLE_WRONG_ROUTES_NOT_EMPIRICALLY_CERTIFIED",
+      "changesOnIncorrectOptions": 3,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptEquivalenceIndependentlyApproved": false,
+      "academicQA": "pending",
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-026",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-026-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "Three crates and two boxes have total mass 35 kg. Two crates and five boxes have total mass 38 kg. By how many kilograms does the mass of two crates exceed the mass of one box?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "9",
+          "errorPath": "Give the mass of a crate only."
+        },
+        {
+          "id": "B",
+          "latex": "4",
+          "errorPath": "Give the mass of a box only."
+        },
+        {
+          "id": "C",
+          "latex": "-1",
+          "errorPath": "Swap crate and box masses."
+        },
+        {
+          "id": "D",
+          "latex": "14"
+        },
+        {
+          "id": "E",
+          "latex": "22",
+          "errorPath": "Use the opposite sign for the boxes."
+        },
+        {
+          "id": "F",
+          "latex": "13",
+          "errorPath": "Solve crate=9 kg, box=4 kg and incorrectly total one of each: 9+4=13 kg instead of the required combination (14 kg)."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "14",
+      "workedSolutionSteps": [
+        "Let c and b be the crate and box masses in kilograms. Use $3c+2b=35$ and $2c+5b=38$.",
+        "Multiply the first equation by 5 and the second by 2. Subtract the second from the first to eliminate b. This gives 11c=99, hence c=9.",
+        "Substitute into the first equation to get b=(35−3×9)/2=4.",
+        "The requested result is 2×9−1×4 = 14 kg.",
+        "Check both original totals: 3(9) + 2(4) = 35 and 2(9) + (5)(4) = 38."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-026-REVIEW-2",
+      "stagedEditorialQA": "61_SOURCE_DERIVED_REPRODUCIBLE_WRONG_ROUTES_NOT_EMPIRICALLY_CERTIFIED",
+      "changesOnIncorrectOptions": 1,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptEquivalenceIndependentlyApproved": false,
+      "academicQA": "pending",
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-027",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-027-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "Three crates and two boxes have total mass 40 kg. Two crates and five boxes have total mass 45 kg. What is the combined mass of one crate and two boxes, in kilograms?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "10",
+          "errorPath": "Give the mass of a crate only."
+        },
+        {
+          "id": "B",
+          "latex": "5",
+          "errorPath": "Give the mass of a box only."
+        },
+        {
+          "id": "C",
+          "latex": "25",
+          "errorPath": "Swap crate and box masses."
+        },
+        {
+          "id": "D",
+          "latex": "20"
+        },
+        {
+          "id": "E",
+          "latex": "0",
+          "errorPath": "Use the opposite sign for the boxes."
+        },
+        {
+          "id": "F",
+          "latex": "15",
+          "errorPath": "Solve crate=10 kg, box=5 kg and incorrectly total one of each: 10+5=15 kg instead of the required combination (20 kg)."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "20",
+      "workedSolutionSteps": [
+        "Let c and b be the crate and box masses in kilograms. Use $3c+2b=40$ and $2c+5b=45$.",
+        "Multiply the first equation by 5 and the second by 2. Subtract the second from the first to eliminate b. This gives 11c=110, hence c=10.",
+        "Substitute into the first equation to get b=(40−3×10)/2=5.",
+        "The requested result is 1×10+2×5 = 20 kg.",
+        "Check both original totals: 3(10) + 2(5) = 40 and 2(10) + (5)(5) = 45."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-027-REVIEW-2",
+      "stagedEditorialQA": "61_SOURCE_DERIVED_REPRODUCIBLE_WRONG_ROUTES_NOT_EMPIRICALLY_CERTIFIED",
+      "changesOnIncorrectOptions": 1,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptEquivalenceIndependentlyApproved": false,
+      "academicQA": "pending",
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-028",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "Three crates and two boxes have total mass 45 kg. Two crates and five boxes have total mass 52 kg. By how many kilograms does the mass of three crates exceed the mass of one box?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "27"
+        },
+        {
+          "id": "B",
+          "latex": "11",
+          "errorPath": "Give the mass of a crate only."
+        },
+        {
+          "id": "C",
+          "latex": "6",
+          "errorPath": "Give the mass of a box only."
+        },
+        {
+          "id": "D",
+          "latex": "7",
+          "errorPath": "Swap crate and box masses."
+        },
+        {
+          "id": "E",
+          "latex": "39",
+          "errorPath": "Use the opposite sign for the boxes."
+        },
+        {
+          "id": "F",
+          "latex": "17",
+          "errorPath": "Solve crate=11 kg, box=6 kg and incorrectly total one of each: 11+6=17 kg instead of the required combination (27 kg)."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "27",
+      "workedSolutionSteps": [
+        "Let c and b be the crate and box masses in kilograms. Use $3c+2b=45$ and $2c+5b=52$.",
+        "Multiply the first equation by 5 and the second by 2. Subtract the second from the first to eliminate b. This gives 11c=121, hence c=11.",
+        "Substitute into the first equation to get b=(45−3×11)/2=6.",
+        "The requested result is 3×11−1×6 = 27 kg.",
+        "Check both original totals: 3(11) + 2(6) = 45 and 2(11) + (5)(6) = 52."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-REVIEW-2",
+      "stagedEditorialQA": "61_SOURCE_DERIVED_REPRODUCIBLE_WRONG_ROUTES_NOT_EMPIRICALLY_CERTIFIED",
+      "changesOnIncorrectOptions": 1,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptEquivalenceIndependentlyApproved": false,
+      "academicQA": "pending",
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-029",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-029-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "sourceDisposition": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "Solve the system $\\begin{cases}2x+3y=14\\\\3x-2y=8\\end{cases}$, then find $4x+5y$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "26"
+        },
+        {
+          "id": "B",
+          "latex": "28",
+          "errorPath": "Swap the values of x and y in the final expression."
+        },
+        {
+          "id": "C",
+          "latex": "-6",
+          "errorPath": "Replace correctly solved x=4 by x=-4 in the derived expression 4x+5y while retaining y=2; obtain -6, not 26."
+        },
+        {
+          "id": "D",
+          "latex": "6",
+          "errorPath": "Replace solved y=2 by y=-2 when evaluating the target 4x+5y, producing 6 instead of 26."
+        },
+        {
+          "id": "E",
+          "latex": "4",
+          "errorPath": "The original simultaneous equations give x=4, y=2; give x=4 alone instead of evaluating the requested expression, which equals 26."
+        },
+        {
+          "id": "F",
+          "latex": "2",
+          "errorPath": "The equations give x=4, y=2; give y=2 alone instead of evaluating the actual requested expression, which equals 26."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "26",
+      "workedSolutionSteps": [
+        "Use $2x+3y=14$ and $3x-2y=8$.",
+        "Multiply the first equation by 2 and the second by 3. Add to eliminate y. This gives 13x=52, hence x=4.",
+        "Substitute into the first equation to get y=(14−2×4)/3=2.",
+        "The requested result is 4×4+5×2 = 26.",
+        "Check both original totals: 2(4) + 3(2) = 14 and 3(4) + (-2)(2) = 8."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-029-REVIEW-2",
+      "stagedEditorialQA": "61_SOURCE_DERIVED_REPRODUCIBLE_WRONG_ROUTES_NOT_EMPIRICALLY_CERTIFIED",
+      "changesOnIncorrectOptions": 4,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptEquivalenceIndependentlyApproved": false,
+      "academicQA": "pending",
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-030",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "Solve the system $\\begin{cases}2x+3y=12\\\\3x-2y=5\\end{cases}$, then find $5x+6y$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "28",
+          "errorPath": "Swap the values of x and y in the final expression."
+        },
+        {
+          "id": "B",
+          "latex": "-3",
+          "errorPath": "Replace correctly solved x=3 by x=-3 in the derived expression 5x+6y while retaining y=2; obtain -3, not 27."
+        },
+        {
+          "id": "C",
+          "latex": "3",
+          "errorPath": "Replace solved y=2 by y=-2 when evaluating the target 5x+6y, producing 3 instead of 27."
+        },
+        {
+          "id": "D",
+          "latex": "2",
+          "errorPath": "The equations give x=3, y=2; give y=2 alone instead of evaluating the actual requested expression, which equals 27."
+        },
+        {
+          "id": "E",
+          "latex": "5",
+          "errorPath": "Give the sum of the coordinates."
+        },
+        {
+          "id": "F",
+          "latex": "27"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "27",
+      "workedSolutionSteps": [
+        "Use $2x+3y=12$ and $3x-2y=5$.",
+        "Multiply the first equation by 2 and the second by 3. Add to eliminate y. This gives 13x=39, hence x=3.",
+        "Substitute into the first equation to get y=(12−2×3)/3=2.",
+        "The requested result is 5×3+6×2 = 27.",
+        "Check both original totals: 2(3) + 3(2) = 12 and 3(3) + (-2)(2) = 5."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-REVIEW-2",
+      "stagedEditorialQA": "61_SOURCE_DERIVED_REPRODUCIBLE_WRONG_ROUTES_NOT_EMPIRICALLY_CERTIFIED",
+      "changesOnIncorrectOptions": 3,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptEquivalenceIndependentlyApproved": false,
+      "academicQA": "pending",
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-031",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-031-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "Solve the system $\\begin{cases}2x+3y=17\\\\3x-2y=6\\end{cases}$, then find $6x+7y$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "45"
+        },
+        {
+          "id": "B",
+          "latex": "46",
+          "errorPath": "Swap the values of x and y in the final expression."
+        },
+        {
+          "id": "C",
+          "latex": "-3",
+          "errorPath": "Replace correctly solved x=4 by x=-4 in the derived expression 6x+7y while retaining y=3; obtain -3, not 45."
+        },
+        {
+          "id": "D",
+          "latex": "3",
+          "errorPath": "Replace solved y=3 by y=-3 when evaluating the target 6x+7y, producing 3 instead of 45."
+        },
+        {
+          "id": "E",
+          "latex": "4",
+          "errorPath": "The original simultaneous equations give x=4, y=3; give x=4 alone instead of evaluating the requested expression, which equals 45."
+        },
+        {
+          "id": "F",
+          "latex": "7",
+          "errorPath": "Give the sum of the coordinates."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "45",
+      "workedSolutionSteps": [
+        "Use $2x+3y=17$ and $3x-2y=6$.",
+        "Multiply the first equation by 2 and the second by 3. Add to eliminate y. This gives 13x=52, hence x=4.",
+        "Substitute into the first equation to get y=(17−2×4)/3=3.",
+        "The requested result is 6×4+7×3 = 45.",
+        "Check both original totals: 2(4) + 3(3) = 17 and 3(4) + (-2)(3) = 6."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-031-REVIEW-2",
+      "stagedEditorialQA": "61_SOURCE_DERIVED_REPRODUCIBLE_WRONG_ROUTES_NOT_EMPIRICALLY_CERTIFIED",
+      "changesOnIncorrectOptions": 3,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptEquivalenceIndependentlyApproved": false,
+      "academicQA": "pending",
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-032",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-032-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "Solve the system $\\begin{cases}2x+3y=22\\\\3x-2y=7\\end{cases}$, then find $7x+8y$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "68",
+          "errorPath": "Swap the values of x and y in the final expression."
+        },
+        {
+          "id": "B",
+          "latex": "-3",
+          "errorPath": "Replace correctly solved x=5 by x=-5 in the derived expression 7x+8y while retaining y=4; obtain -3, not 67."
+        },
+        {
+          "id": "C",
+          "latex": "3",
+          "errorPath": "Replace solved y=4 by y=-4 when evaluating the target 7x+8y, producing 3 instead of 67."
+        },
+        {
+          "id": "D",
+          "latex": "67"
+        },
+        {
+          "id": "E",
+          "latex": "5",
+          "errorPath": "The original simultaneous equations give x=5, y=4; give x=5 alone instead of evaluating the requested expression, which equals 67."
+        },
+        {
+          "id": "F",
+          "latex": "4",
+          "errorPath": "The equations give x=5, y=4; give y=4 alone instead of evaluating the actual requested expression, which equals 67."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "67",
+      "workedSolutionSteps": [
+        "Use $2x+3y=22$ and $3x-2y=7$.",
+        "Multiply the first equation by 2 and the second by 3. Add to eliminate y. This gives 13x=65, hence x=5.",
+        "Substitute into the first equation to get y=(22−2×5)/3=4.",
+        "The requested result is 7×5+8×4 = 67.",
+        "Check both original totals: 2(5) + 3(4) = 22 and 3(5) + (-2)(4) = 7."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-032-REVIEW-2",
+      "stagedEditorialQA": "61_SOURCE_DERIVED_REPRODUCIBLE_WRONG_ROUTES_NOT_EMPIRICALLY_CERTIFIED",
+      "changesOnIncorrectOptions": 4,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptEquivalenceIndependentlyApproved": false,
+      "academicQA": "pending",
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-033",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-033-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "For some real $k$, $\\begin{cases} 3x+2y=19\\\\ kx-3y=14\\end{cases}$ has a solution satisfying $x=2y+1$. Find $k$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac{8}{5}",
+          "errorPath": "Move −3y with the wrong sign."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{14}{5}",
+          "errorPath": "Ignore the −3y term of k×5−3×2=14, giving k=14/5=2.8 rather than k=4."
+        },
+        {
+          "id": "C",
+          "latex": "10",
+          "errorPath": "Divide by y instead of x."
+        },
+        {
+          "id": "D",
+          "latex": "20",
+          "errorPath": "Find the intermediate product kx=20 but neglect to divide by the solved x=5, so report 20 rather than k=4."
+        },
+        {
+          "id": "E",
+          "latex": "4"
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{29}{2}",
+          "errorPath": "Swap the solved coordinates in the parameter equation."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "4",
+      "workedSolutionSteps": [
+        "Using $x=2y+1$ in $3x+2y=19$ gives $8y+3=19$, so $y=2$ and $x=5$.",
+        "Substitute into $kx-3y=14$ to obtain $k=4$.",
+        "With x=5 and y=2, the second left side is 4(5)−3(2)=14."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-033-REVIEW-2",
+      "stagedEditorialQA": "61_SOURCE_DERIVED_REPRODUCIBLE_WRONG_ROUTES_NOT_EMPIRICALLY_CERTIFIED",
+      "changesOnIncorrectOptions": 2,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptEquivalenceIndependentlyApproved": false,
+      "academicQA": "pending",
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-034",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-034-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "For some real $k$, $\\begin{cases} 3x+2y=27\\\\ kx-3y=26\\end{cases}$ has a solution satisfying $x=2y+1$. Find $k$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac{17}{7}",
+          "errorPath": "Move −3y with the wrong sign."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{26}{7}",
+          "errorPath": "Ignore the −3y term of k×7−3×3=26, giving k=26/7=3.7142857142857144 rather than k=5."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{35}{3}",
+          "errorPath": "Divide by y instead of x."
+        },
+        {
+          "id": "D",
+          "latex": "5"
+        },
+        {
+          "id": "E",
+          "latex": "35",
+          "errorPath": "Find the intermediate product kx=35 but neglect to divide by the solved x=7, so report 35 rather than k=5."
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{47}{3}",
+          "errorPath": "Swap the solved coordinates in the parameter equation."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "5",
+      "workedSolutionSteps": [
+        "Using $x=2y+1$ in $3x+2y=27$ gives $8y+3=27$, so $y=3$ and $x=7$.",
+        "Substitute into $kx-3y=26$ to obtain $k=5$.",
+        "With x=7 and y=3, the second left side is 5(7)−3(3)=26."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-034-REVIEW-2",
+      "stagedEditorialQA": "61_SOURCE_DERIVED_REPRODUCIBLE_WRONG_ROUTES_NOT_EMPIRICALLY_CERTIFIED",
+      "changesOnIncorrectOptions": 2,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptEquivalenceIndependentlyApproved": false,
+      "academicQA": "pending",
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-035",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-035-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "For some real $k$, $\\begin{cases} 3x+2y=35\\\\ kx-3y=42\\end{cases}$ has a solution satisfying $x=2y+1$. Find $k$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac{10}{3}",
+          "errorPath": "Move −3y with the wrong sign."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{14}{3}",
+          "errorPath": "Ignore the −3y term of k×9−3×4=42, giving k=42/9=4.666666666666667 rather than k=6."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{27}{2}",
+          "errorPath": "Divide by y instead of x."
+        },
+        {
+          "id": "D",
+          "latex": "54",
+          "errorPath": "Find the intermediate product kx=54 but neglect to divide by the solved x=9, so report 54 rather than k=6."
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{69}{4}",
+          "errorPath": "Swap the solved coordinates in the parameter equation."
+        },
+        {
+          "id": "F",
+          "latex": "6"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "6",
+      "workedSolutionSteps": [
+        "Using $x=2y+1$ in $3x+2y=35$ gives $8y+3=35$, so $y=4$ and $x=9$.",
+        "Substitute into $kx-3y=42$ to obtain $k=6$.",
+        "With x=9 and y=4, the second left side is 6(9)−3(4)=42."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-035-REVIEW-2",
+      "stagedEditorialQA": "61_SOURCE_DERIVED_REPRODUCIBLE_WRONG_ROUTES_NOT_EMPIRICALLY_CERTIFIED",
+      "changesOnIncorrectOptions": 2,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptEquivalenceIndependentlyApproved": false,
+      "academicQA": "pending",
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-036",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "sourceDisposition": "UPGRADE_STEM_FOR_G7PLUS",
+      "topicId": "math-y9-simultaneous-equations",
+      "stem": "For some real $k$, $\\begin{cases} 3x+2y=43\\\\ kx-3y=62\\end{cases}$ has a solution satisfying $x=2y+1$. Find $k$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac{47}{11}",
+          "errorPath": "Move −3y with the wrong sign."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{62}{11}",
+          "errorPath": "Ignore the −3y term of k×11−3×5=62, giving k=62/11=5.636363636363637 rather than k=7."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{77}{5}",
+          "errorPath": "Divide by y instead of x."
+        },
+        {
+          "id": "D",
+          "latex": "77",
+          "errorPath": "Find the intermediate product kx=77 but neglect to divide by the solved x=11, so report 77 rather than k=7."
+        },
+        {
+          "id": "E",
+          "latex": "19",
+          "errorPath": "Swap the solved coordinates in the parameter equation."
+        },
+        {
+          "id": "F",
+          "latex": "7"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "7",
+      "workedSolutionSteps": [
+        "Using $x=2y+1$ in $3x+2y=43$ gives $8y+3=43$, so $y=5$ and $x=11$.",
+        "Substitute into $kx-3y=62$ to obtain $k=7$.",
+        "With x=11 and y=5, the second left side is 7(11)−3(5)=62."
+      ],
+      "revisionBasis": "current revision",
+      "dailyEligible": false,
+      "replacesRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-REVIEW-2",
+      "stagedEditorialQA": "61_SOURCE_DERIVED_REPRODUCIBLE_WRONG_ROUTES_NOT_EMPIRICALLY_CERTIFIED",
+      "changesOnIncorrectOptions": 2,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibrated": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptEquivalenceIndependentlyApproved": false,
+      "academicQA": "pending",
+      "masteryEligible": false
+    }
+  ]
+}

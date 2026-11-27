@@ -1,0 +1,1249 @@
+{
+  "kind": "V332_EDITORIAL22_SIMULTANEOUS_REASONING_UPGRADES_QA_ONLY",
+  "date": "2026-11-24",
+  "sourceBankPath": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "priorRegister": "qa-staging/math-all200-unified-candidate-review-register-20261124.json",
+  "priorRegisterBlobSha": "b8ebeceb5dd2799ab00814484b87bc1fae82f3a4",
+  "count": 22,
+  "optionsCount": 132,
+  "wrongOptionExplanationsCount": 110,
+  "academicApprovals": 0,
+  "dailyEligible": 0,
+  "masteryEligible": 0,
+  "status": "STAGING_ONLY",
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-001",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-001-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-001-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-001-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "dependent-plus-extra-constraint",
+      "stem": "The equations $2x+3y=19$ and $4x+ky=38$ have infinitely many real solutions. For that value of k, add the equation $x-y=1$. Find x+y.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "6",
+          "errorPath": "Report k instead."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{39}{5}"
+        },
+        {
+          "id": "C",
+          "latex": "1",
+          "errorPath": "Report x−y."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{22}{5}",
+          "errorPath": "Report x alone."
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{17}{5}",
+          "errorPath": "Report y alone."
+        },
+        {
+          "id": "F",
+          "latex": "19",
+          "errorPath": "Report the first constant."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "\\frac{39}{5}",
+      "workedSolutionSteps": [
+        "The second equation must be twice the first, so k=6.",
+        "Use x=y+1 in 2x+3y=19, yielding 5y=17; x=22/5.",
+        "The sum is 39/5."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Dependent equations with an extra independent observation.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-002",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-002-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-002-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-002-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "linear-error-residual-diagnosis",
+      "stem": "A student solves $3x+2y=16$ and $x-2y=0$ by adding the equations and finding x=4. They then incorrectly set y=2x. By how much does the value of $3x+2y$ from their incorrect pair exceed the required value?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "12"
+        },
+        {
+          "id": "B",
+          "latex": "28",
+          "errorPath": "Report the incorrect left-hand side without subtracting 16."
+        },
+        {
+          "id": "C",
+          "latex": "8",
+          "errorPath": "Report the incorrect y-value."
+        },
+        {
+          "id": "D",
+          "latex": "6",
+          "errorPath": "Report the error in y rather than its effect on 3x+2y."
+        },
+        {
+          "id": "E",
+          "latex": "16",
+          "errorPath": "Report the required value."
+        },
+        {
+          "id": "F",
+          "latex": "-12",
+          "errorPath": "Reverse the subtraction."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "12",
+      "workedSolutionSteps": [
+        "Adding gives 4x=16 so x=4.",
+        "The erroneous y=8 gives 3(4)+2(8)=28; the correct y would be 2.",
+        "The excess is 28−16=12."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Quantify the effect of a substitution error.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-003",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-003-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-003-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-003-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "pairwise-sums-three-unknowns",
+      "stem": "Positive quantities A,B,C satisfy $A+B=24$, $B+C=30$, $C+A=26$. Find A:C in simplest form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "5:7",
+          "errorPath": "Compare A with B."
+        },
+        {
+          "id": "B",
+          "latex": "8:5",
+          "errorPath": "Reverse the ratio."
+        },
+        {
+          "id": "C",
+          "latex": "12:13",
+          "errorPath": "Compare A+B with A+C."
+        },
+        {
+          "id": "D",
+          "latex": "7:8",
+          "errorPath": "Compare B with C."
+        },
+        {
+          "id": "E",
+          "latex": "1:1",
+          "errorPath": "Assume all quantities equal."
+        },
+        {
+          "id": "F",
+          "latex": "5:8"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "5:8",
+      "workedSolutionSteps": [
+        "Add the three equations: 2(A+B+C)=80.",
+        "Subtract each pair sum from 40: A=10,B=14,C=16.",
+        "A:C=10:16=5:8."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Elimination involving three variables, taught scope unconfirmed.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-004",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-004-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-004-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-004-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "place-value-reversal",
+      "stem": "A two-digit positive integer has digit sum 11. Reversing the digits increases the number by 27. Find the original number.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "74",
+          "errorPath": "Report the reversed number."
+        },
+        {
+          "id": "B",
+          "latex": "38",
+          "errorPath": "Use digit difference 5."
+        },
+        {
+          "id": "C",
+          "latex": "56",
+          "errorPath": "Use digit difference 1."
+        },
+        {
+          "id": "D",
+          "latex": "65",
+          "errorPath": "Use digit difference −1."
+        },
+        {
+          "id": "E",
+          "latex": "47"
+        },
+        {
+          "id": "F",
+          "latex": "29",
+          "errorPath": "Use digit difference 7."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "47",
+      "workedSolutionSteps": [
+        "Let tens and units digits be a,b; a+b=11.",
+        "The increase is (10b+a)−(10a+b)=9(b−a)=27, so b−a=3.",
+        "Thus a=4,b=7; 74−47=27."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Place-value modelling and integer constraints.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-009",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-009-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "fractional-ratio-transfer",
+      "stem": "Real x,y satisfy $\\frac{x+y}{3}=\\frac{x-y}{2}$ and $2x+3y=26$. Find the exact value of $\\frac{x-y}{x+y}$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac{3}{2}",
+          "errorPath": "Reverse the requested ratio."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{1}{5}",
+          "errorPath": "Report y/x."
+        },
+        {
+          "id": "C",
+          "latex": "5",
+          "errorPath": "Report x/y."
+        },
+        {
+          "id": "D",
+          "latex": "8",
+          "errorPath": "Report x−y."
+        },
+        {
+          "id": "E",
+          "latex": "12",
+          "errorPath": "Report x+y."
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{2}{3}"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "\\frac{2}{3}",
+      "workedSolutionSteps": [
+        "Cross-multiply: 2(x+y)=3(x−y), so x=5y.",
+        "Use 2x+3y=26: 13y=26; y=2,x=10.",
+        "The requested ratio is 8/12=2/3; denominator is nonzero."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Rational coefficients, ratio and nonzero denominator.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-010",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-010-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "parameter-invariant",
+      "stem": "For every real c, the equations $x+2y=c$ and $3x-2y=12-c$ have a unique solution. Which expression has the same value for every c?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "y",
+          "errorPath": "y varies with c."
+        },
+        {
+          "id": "B",
+          "latex": "x+y",
+          "errorPath": "Contains a nonzero coefficient of varying y."
+        },
+        {
+          "id": "C",
+          "latex": "x-y",
+          "errorPath": "Contains a nonzero coefficient of varying y."
+        },
+        {
+          "id": "D",
+          "latex": "2x+y",
+          "errorPath": "Contains a nonzero coefficient of varying y."
+        },
+        {
+          "id": "E",
+          "latex": "x"
+        },
+        {
+          "id": "F",
+          "latex": "2y-x",
+          "errorPath": "Contains a nonzero coefficient of varying y."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "x",
+      "workedSolutionSteps": [
+        "Add the equations: 4x=12, so x=3 independent of c.",
+        "Then y=(c−3)/2, so y varies.",
+        "Only x is invariant among the listed expressions."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Eliminate an unknown constant and identify an invariant.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-011",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-011-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-011-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-011-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "recover-coefficients-from-intersection",
+      "stem": "The lines $ax+2y=14$ and $3x+by=17$ meet at $(2,4)$. Find a+b.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3",
+          "errorPath": "Report a alone."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{11}{4}",
+          "errorPath": "Report b alone."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{1}{4}",
+          "errorPath": "Subtract b from a."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{23}{4}"
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{29}{4}",
+          "errorPath": "Ignore 3x=6 when finding b, then add a."
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{17}{4}",
+          "errorPath": "Ignore 3x=6 and report only the resulting b."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "\\frac{23}{4}",
+      "workedSolutionSteps": [
+        "Substitute in the first equation: 2a+8=14 so a=3.",
+        "The second gives 6+4b=17 so b=11/4.",
+        "Their sum is 23/4."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Recover coefficients from a shared solution.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-012",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-012-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-012-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-012-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "solve-and-transfer-rational-identity",
+      "stem": "The equations $2x+y=11$ and $x-2y=-2$ hold. Find $\\frac{x^2-y^2}{x+y}$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "7",
+          "errorPath": "Report x+y."
+        },
+        {
+          "id": "B",
+          "latex": "-1",
+          "errorPath": "Reverse the difference of squares."
+        },
+        {
+          "id": "C",
+          "latex": "1"
+        },
+        {
+          "id": "D",
+          "latex": "16",
+          "errorPath": "Report x²."
+        },
+        {
+          "id": "E",
+          "latex": "9",
+          "errorPath": "Report y²."
+        },
+        {
+          "id": "F",
+          "latex": "49",
+          "errorPath": "Square the sum."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "1",
+      "workedSolutionSteps": [
+        "Twice the first plus the second gives 5x=20, so x=4,y=3.",
+        "Factor x²−y²=(x+y)(x−y); x+y=7 is nonzero.",
+        "Cancel to give x−y=1."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Elimination and factorisation with domain check.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-021",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-021-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-021-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-021-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "linear-quadratic-tangency",
+      "stem": "For real x,y, $y=2x+k$ and $y=x^2+1$ have exactly one common point. Find k.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "1",
+          "errorPath": "Use the parabola intercept."
+        },
+        {
+          "id": "B",
+          "latex": "2",
+          "errorPath": "Report the line gradient."
+        },
+        {
+          "id": "C",
+          "latex": "-1",
+          "errorPath": "Reverse the parabola intercept sign."
+        },
+        {
+          "id": "D",
+          "latex": "4",
+          "errorPath": "Report the squared coefficient of x without completing the square."
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{1}{2}",
+          "errorPath": "Divide the turning-point x-value by the gradient."
+        },
+        {
+          "id": "F",
+          "latex": "0"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "0",
+      "workedSolutionSteps": [
+        "Equate: x²−2x+1−k=0.",
+        "Complete the square: (x−1)²=k.",
+        "Exactly one real x occurs at k=0, giving (1,2)."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Repeated root and quadratic-linear intersections.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-022",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-022-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-022-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-022-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "absolute-value-branches-signed-products",
+      "stem": "Real x,y satisfy $x+y=-3$ and $|x-y|=7$. Find the sum of xy over all distinct ordered solution pairs.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "-10",
+          "errorPath": "Keep only one ordered pair."
+        },
+        {
+          "id": "B",
+          "latex": "20",
+          "errorPath": "Lose both negative signs."
+        },
+        {
+          "id": "C",
+          "latex": "10",
+          "errorPath": "Report one product's magnitude."
+        },
+        {
+          "id": "D",
+          "latex": "-3",
+          "errorPath": "Report the given sum."
+        },
+        {
+          "id": "E",
+          "latex": "-20"
+        },
+        {
+          "id": "F",
+          "latex": "49",
+          "errorPath": "Square the difference."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "-20",
+      "workedSolutionSteps": [
+        "Split x−y=7 or −7.",
+        "Combine with x+y=−3: (2,−5) or (−5,2).",
+        "Both products are −10; their sum is −20."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Two absolute-value branches; same family as V330 Q040.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-024",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-024-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "difference-of-squares-system",
+      "stem": "Positive x,y satisfy $x+y=8$ and $x^2-y^2=16$. Find x/y.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3",
+          "errorPath": "Report y."
+        },
+        {
+          "id": "B",
+          "latex": "5",
+          "errorPath": "Report x."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{5}{3}"
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{3}{5}",
+          "errorPath": "Reverse the ratio."
+        },
+        {
+          "id": "E",
+          "latex": "2",
+          "errorPath": "Report x−y."
+        },
+        {
+          "id": "F",
+          "latex": "8",
+          "errorPath": "Report the sum."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "\\frac{5}{3}",
+      "workedSolutionSteps": [
+        "Factor x²−y²=(x+y)(x−y).",
+        "Since x+y=8, x−y=2; solve to obtain x=5,y=3.",
+        "Both are positive and x/y=5/3."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Reduce a nonlinear relation to two linear equations.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-026",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-026-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-026-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-026-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "mass-unit-transfer",
+      "stem": "Two identical blocks and three identical rods weigh 5.4 kg in total. Three blocks and one rod weigh 6.0 kg. How many grams does one rod weigh?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "600"
+        },
+        {
+          "id": "B",
+          "latex": "1800",
+          "errorPath": "Report the mass of a block in grams."
+        },
+        {
+          "id": "C",
+          "latex": "0.6",
+          "errorPath": "Report kilograms instead of grams."
+        },
+        {
+          "id": "D",
+          "latex": "5400",
+          "errorPath": "Convert the first combined mass."
+        },
+        {
+          "id": "E",
+          "latex": "3600",
+          "errorPath": "Report two blocks' mass."
+        },
+        {
+          "id": "F",
+          "latex": "60",
+          "errorPath": "Use 100 grams per kg."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "600",
+      "workedSolutionSteps": [
+        "Let block mass b and rod mass r in kg: 2b+3r=5.4,3b+r=6.",
+        "Substitute r=6−3b: −7b=−12.6, so b=1.8,r=0.6.",
+        "Multiply by 1000 to obtain 600 g."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Decimal simultaneous equations and unit conversion.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-027",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-027-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-027-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-027-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "age-two-times-model",
+      "stem": "Two people have ages A and B in whole years. In five years their ages will sum to 58. Three years ago A was twice B's age. Find A's current age.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "17",
+          "errorPath": "Report B's age."
+        },
+        {
+          "id": "B",
+          "latex": "36",
+          "errorPath": "Report A in five years."
+        },
+        {
+          "id": "C",
+          "latex": "28",
+          "errorPath": "Report A three years ago."
+        },
+        {
+          "id": "D",
+          "latex": "48",
+          "errorPath": "Report the current combined age."
+        },
+        {
+          "id": "E",
+          "latex": "32",
+          "errorPath": "Apply the doubling condition to current ages."
+        },
+        {
+          "id": "F",
+          "latex": "31"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "31",
+      "workedSolutionSteps": [
+        "The future sum gives A+B=48.",
+        "The past condition gives A−3=2(B−3), or A=2B−3.",
+        "Hence 3B=51,B=17,A=31; both constraints hold."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Model two different times and verify whole-year ages.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-028",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-028-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "transfer-ratio-conservation",
+      "stem": "Boxes A and B contain 90 counters altogether. Transferring 15 from A to B makes the ratio A:B equal 2:3. Find the original ratio.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2:3",
+          "errorPath": "Report the final ratio."
+        },
+        {
+          "id": "B",
+          "latex": "13:17",
+          "errorPath": "Reverse the original ratio."
+        },
+        {
+          "id": "C",
+          "latex": "17:18",
+          "errorPath": "Restore A to 51 but leave B at 54."
+        },
+        {
+          "id": "D",
+          "latex": "1:1",
+          "errorPath": "Assume equal original counts."
+        },
+        {
+          "id": "E",
+          "latex": "17:13"
+        },
+        {
+          "id": "F",
+          "latex": "3:2",
+          "errorPath": "Reverse the final ratio rather than undoing the transfer."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "17:13",
+      "workedSolutionSteps": [
+        "The final counts are 36 and 54.",
+        "Undo transfer: A=51,B=39.",
+        "51:39=17:13."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Conserved total and reverse transfer; same family as Standard Form ratio transfer.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-029",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-029-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-029-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-029-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "linear-combination-fractional-target",
+      "stem": "Real x,y satisfy $2x+3y=11$ and $5x-y=7$. Find $\\frac{7x+2y}{3x-4y}$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac{9}{2}",
+          "errorPath": "Ignore the negative sign of the denominator."
+        },
+        {
+          "id": "B",
+          "latex": "18",
+          "errorPath": "Report the numerator alone."
+        },
+        {
+          "id": "C",
+          "latex": "-4",
+          "errorPath": "Report the denominator alone."
+        },
+        {
+          "id": "D",
+          "latex": "-\\frac{9}{2}"
+        },
+        {
+          "id": "E",
+          "latex": "-\\frac{2}{9}",
+          "errorPath": "Reverse the requested quotient."
+        },
+        {
+          "id": "F",
+          "latex": "14",
+          "errorPath": "Add numerator and denominator rather than dividing."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "-\\frac{9}{2}",
+      "workedSolutionSteps": [
+        "Add the given equations to obtain 7x+2y=18.",
+        "Subtract the first from the second: 3x−4y=−4.",
+        "The quotient is 18/(−4)=−9/2."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Two different linear combinations and signed quotient.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-030",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-030-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "linear-system-unknown-constants",
+      "stem": "Real x,y satisfy $3x+2y=a$ and $x-2y=b$. Also $2x=9$ and $a-b=14$. Find ab.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "18",
+          "errorPath": "Report a+b."
+        },
+        {
+          "id": "B",
+          "latex": "14",
+          "errorPath": "Report a−b."
+        },
+        {
+          "id": "C",
+          "latex": "32"
+        },
+        {
+          "id": "D",
+          "latex": "16",
+          "errorPath": "Report a alone."
+        },
+        {
+          "id": "E",
+          "latex": "2",
+          "errorPath": "Report b alone."
+        },
+        {
+          "id": "F",
+          "latex": "256",
+          "errorPath": "Square a instead of multiplying."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "32",
+      "workedSolutionSteps": [
+        "Add the equations to get a+b=4x=18.",
+        "Together with a−b=14, solve a=16,b=2.",
+        "Their product is 32."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Use two independent conditions to reconstruct constants.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-031",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-031-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-031-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-031-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "parameter-strict-inequality",
+      "stem": "Real x,y satisfy $x+y=10$ and $2x-y=k$. For which k is x>y?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "k\\ge5",
+          "errorPath": "Include equality x=y=5."
+        },
+        {
+          "id": "B",
+          "latex": "k>5"
+        },
+        {
+          "id": "C",
+          "latex": "k<5",
+          "errorPath": "Reverse the inequality."
+        },
+        {
+          "id": "D",
+          "latex": "k>10",
+          "errorPath": "Use the sum as threshold."
+        },
+        {
+          "id": "E",
+          "latex": "k>0",
+          "errorPath": "Assume positive k is sufficient."
+        },
+        {
+          "id": "F",
+          "latex": "k>15",
+          "errorPath": "Forget to subtract the total 10."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "k>5",
+      "workedSolutionSteps": [
+        "Substitute y=10−x: 3x=k+10.",
+        "x>y means x>5.",
+        "Thus k+10>15, so k>5; equality excluded."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Parameterised solution and strict comparison.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-032",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-032-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-032-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-032-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "bounded-integer-system",
+      "stem": "Integers x,y satisfy $x+y=15$ and $3x-y=k$. For $20\\le k\\le32$, how many integer k give positive integer x and y?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3"
+        },
+        {
+          "id": "B",
+          "latex": "4",
+          "errorPath": "Include k=35 outside the interval."
+        },
+        {
+          "id": "C",
+          "latex": "13",
+          "errorPath": "Count every k without requiring integer x."
+        },
+        {
+          "id": "D",
+          "latex": "2",
+          "errorPath": "Omit valid k=21."
+        },
+        {
+          "id": "E",
+          "latex": "1",
+          "errorPath": "Keep only k=25."
+        },
+        {
+          "id": "F",
+          "latex": "0",
+          "errorPath": "Assume odd total makes integer solutions impossible."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "3",
+      "workedSolutionSteps": [
+        "Adding gives 4x=k+15.",
+        "The only allowed k making k+15 divisible by 4 are 21,25,29.",
+        "The x values are 9,10,11; y=6,5,4, all positive. Count 3."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Divisibility and bounded integer feasibility.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-033",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-033-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-033-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-033-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "dependent-plus-extra-constraint",
+      "stem": "The equations $kx+2y=12$ and $3x+y=6$ have infinitely many solutions for one k. With that k, add $x+y=4$. Find (x,y).",
+      "options": [
+        {
+          "id": "A",
+          "latex": "(3,1)",
+          "errorPath": "Reverse the coordinates."
+        },
+        {
+          "id": "B",
+          "latex": "(0,4)",
+          "errorPath": "Use the new equation alone."
+        },
+        {
+          "id": "C",
+          "latex": "(2,2)",
+          "errorPath": "Assume equal variables from the sum."
+        },
+        {
+          "id": "D",
+          "latex": "(6,4)",
+          "errorPath": "Report k and the new constant."
+        },
+        {
+          "id": "E",
+          "latex": "(0,6)",
+          "errorPath": "Use the original y-intercept."
+        },
+        {
+          "id": "F",
+          "latex": "(1,3)"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "(1,3)",
+      "workedSolutionSteps": [
+        "The first equation must be twice the second, so k=6.",
+        "Subtract x+y=4 from 3x+y=6, giving 2x=2.",
+        "x=1,y=3; all equations are satisfied."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Dependent system made unique; same family as Q001.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-034",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-034-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-034-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-034-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "shared-solution-transfer",
+      "stem": "The systems $x+2y=11,\\ 3x-y=5$ and $2x+y=p,\\ x-y=q$ share the same solution. Find p−q.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "10",
+          "errorPath": "Report p."
+        },
+        {
+          "id": "B",
+          "latex": "-1",
+          "errorPath": "Report q."
+        },
+        {
+          "id": "C",
+          "latex": "9",
+          "errorPath": "Add p and q."
+        },
+        {
+          "id": "D",
+          "latex": "1",
+          "errorPath": "Report |q|."
+        },
+        {
+          "id": "E",
+          "latex": "11"
+        },
+        {
+          "id": "F",
+          "latex": "5",
+          "errorPath": "Report 3x−y."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "11",
+      "workedSolutionSteps": [
+        "Solve the first system: y=3x−5, so 7x=21,x=3,y=4.",
+        "Then p=10,q=−1.",
+        "Thus p−q=11."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Transfer a solution between systems.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-035",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-035-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-035-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-035-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "parameter-ratio-constraint",
+      "stem": "The system $kx+y=18$, $x+2y=15$ has a positive solution satisfying x:y=3:2. Find k.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3",
+          "errorPath": "Report first ratio part."
+        },
+        {
+          "id": "B",
+          "latex": "2",
+          "errorPath": "Report second ratio part."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{15}{7}",
+          "errorPath": "Report common scale t."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{32}{15}"
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{42}{15}",
+          "errorPath": "Ignore y when isolating k."
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{2}{3}",
+          "errorPath": "Report y/x."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "\\frac{32}{15}",
+      "workedSolutionSteps": [
+        "Set x=3t,y=2t; 7t=15, so t=15/7.",
+        "Then x=45/7,y=30/7. Substitute: 45k+30=126.",
+        "k=96/45=32/15."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Ratio substitution and parameter recovery.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-036",
+      "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-V332-EDITORIAL-UPGRADE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-REVIEW-2",
+      "replacesEditorialRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-036-V314-61_WRONG_ROUTE_WORDING_REPAIRS_DRAFT",
+      "topicId": "math-y9-simultaneous-equations",
+      "provisionalConceptFamily": "two-singular-parameter-cases",
+      "stem": "For real k, consider $(k-2)x+3y=9$ and $6x+(k-2)y=12$. Find the sum of all k for which there is no solution.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "0",
+          "errorPath": "Sum the shifted roots k−2."
+        },
+        {
+          "id": "B",
+          "latex": "2",
+          "errorPath": "Report the midpoint."
+        },
+        {
+          "id": "C",
+          "latex": "4"
+        },
+        {
+          "id": "D",
+          "latex": "18",
+          "errorPath": "Report 3×6."
+        },
+        {
+          "id": "E",
+          "latex": "-14",
+          "errorPath": "Report product of the two k values."
+        },
+        {
+          "id": "F",
+          "latex": "-4",
+          "errorPath": "Reverse the sum's sign."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "4",
+      "workedSolutionSteps": [
+        "The coefficient determinant is (k−2)²−18; zero is necessary for inconsistency.",
+        "Thus k=2±3√2; the row scale factor is ±√2, not the constant ratio 4/3.",
+        "Both cases are inconsistent, so their sum is 4."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; Grade 7+ not externally certified",
+      "unverifiedTaughtSubskill": "Singular parameter cases; related to V324 Q014.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    }
+  ]
+}

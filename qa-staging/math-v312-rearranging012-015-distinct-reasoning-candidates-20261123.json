@@ -1,0 +1,222 @@
+{
+  "kind": "STANDALONE_QA_REPLACEMENT_CANDIDATES_NOT_APPROVED",
+  "date": "2026-11-23",
+  "version": "3.1.2-rearranging-012-015-distinct-reasoning",
+  "pr": 306,
+  "sourceBank": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "sourceBankQuestionCount": 200,
+  "sourceBankUnchanged": true,
+  "schoolPdfVerification": "SKIPPED_AS_REQUESTED",
+  "academicApproval": 0,
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-012",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-012-V312-REASONING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-012-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "STANDALONE_DIFFERENT_REASONING_GOAL_REPLACEMENT_CANDIDATE",
+      "stem": "For real $x\\ge0$, the formula is $y=2+\\frac{6}{3x+2}$. Which choice makes $x$ the subject and states the exact range of $y$?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "x=\\frac{10-2y}{3(y-2)},2<y\\le5"
+        },
+        {
+          "id": "B",
+          "latex": "x=\\frac{10-2y}{3(y-2)},2\\le y\\le5",
+          "errorPath": "Include the never-attained limit y=2 as though a finite x could give it."
+        },
+        {
+          "id": "C",
+          "latex": "x=\\frac{10-2y}{3(y-2)},2<y<5",
+          "errorPath": "Treat the admissible x=0 endpoint as excluded, incorrectly removing y=5."
+        },
+        {
+          "id": "D",
+          "latex": "x=\\frac{10+2y}{3(y-2)},2<y\\le5",
+          "errorPath": "Move the term 2y with the wrong sign in the numerator."
+        },
+        {
+          "id": "E",
+          "latex": "x=\\frac{10-2y}{3(y+2)},2<y\\le5",
+          "errorPath": "Move the outer +2 shift with the wrong sign in the denominator."
+        },
+        {
+          "id": "F",
+          "latex": "x=\\frac{3(y-2)}{10-2y},2<y\\le5",
+          "errorPath": "Invert the final fraction for x after collecting coefficients."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "x=\\frac{10-2y}{3(y-2)},2<y\\le5",
+      "workedSolutionSteps": [
+        "Multiply out $(y-2)(3x+2)=6$ and collect x: $3x(y-2)=10-2y$, so $x=\\frac{10-2y}{3(y-2)}$.",
+        "Because $x\\ge0$, the denominator $3x+2$ is at least 2 and $0<\\frac{6}{3x+2}\\le3$.",
+        "Hence $2<y\\le5$: $y=5$ occurs at $x=0$, but $y=2$ is approached only as x increases without bound."
+      ],
+      "provisionalAOFocus": "Inverse plus strict/weak range endpoints under a non-negative input constraint.",
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-013",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-013-V312-REASONING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-013-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "STANDALONE_DIFFERENT_REASONING_GOAL_REPLACEMENT_CANDIDATE",
+      "stem": "A formula is $y=a+\\frac{b}{x+2}$, with constants $a$ and $b$. When $x=1$, $y=7$; when $x=4$, $y=4$. Which choice makes $x$ the subject and states the excluded value of $y$?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "x=\\frac{18}{y-1}-2,y\\ne1"
+        },
+        {
+          "id": "B",
+          "latex": "x=\\frac{18}{y+1}-2,y\\ne-1",
+          "errorPath": "Use a=-1 instead of a=1 when reversing the outer shift."
+        },
+        {
+          "id": "C",
+          "latex": "x=\\frac{18}{y-1}+2,y\\ne1",
+          "errorPath": "Move the +2 term from x+2 with the wrong sign."
+        },
+        {
+          "id": "D",
+          "latex": "x=\\frac{6}{y-1}-2,y\\ne1",
+          "errorPath": "From b/6=3, incorrectly multiply by 2 rather than by 6, obtaining b=6."
+        },
+        {
+          "id": "E",
+          "latex": "x=\\frac{18}{y-1}-2,y\\ne7",
+          "errorPath": "Copy the observed y=7 as an excluded output value instead of finding y=a."
+        },
+        {
+          "id": "F",
+          "latex": "x=\\frac{18}{y-1}-2,y\\ne4",
+          "errorPath": "Copy the observed y=4 as an excluded output value instead of finding y=a."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "x=\\frac{18}{y-1}-2,y\\ne1",
+      "workedSolutionSteps": [
+        "The two observations give $a+\\frac{b}{3}=7$ and $a+\\frac{b}{6}=4$. Subtract them to obtain $\\frac{b}{6}=3$, so $b=18$.",
+        "Substitution gives $a=1$; hence $y=1+\\frac{18}{x+2}$.",
+        "Rearrange $y-1=\\frac{18}{x+2}$ to get $x=\\frac{18}{y-1}-2$, with $y\\ne1$."
+      ],
+      "provisionalAOFocus": "Infer two unknown coefficients from observations, then invert and preserve an excluded output.",
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-014",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-014-V312-REASONING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-014-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "STANDALONE_DIFFERENT_REASONING_GOAL_REPLACEMENT_CANDIDATE",
+      "stem": "Given $y=(x-3)^2+4$ for real $x\\ge3$, which option makes $x$ the subject and gives the exact possible range of $y$?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "x=3+\\sqrt{y-4},y\\ge4"
+        },
+        {
+          "id": "B",
+          "latex": "x=3-\\sqrt{y-4},y\\ge4",
+          "errorPath": "Choose the negative square-root branch despite the restriction x≥3."
+        },
+        {
+          "id": "C",
+          "latex": "x=3+\\sqrt{y+4},y\\ge4",
+          "errorPath": "Move the +4 in the original formula with the wrong sign."
+        },
+        {
+          "id": "D",
+          "latex": "x=3+\\sqrt{y-4},y>4",
+          "errorPath": "Incorrectly remove the allowed vertex x=3, at which y=4."
+        },
+        {
+          "id": "E",
+          "latex": "x=3+\\sqrt{y-4},y\\le4",
+          "errorPath": "Reverse the inequality describing the square's nonnegative value."
+        },
+        {
+          "id": "F",
+          "latex": "x=\\sqrt{y-4}-3,y\\ge4",
+          "errorPath": "Move the translation −3 inside the original square with the wrong sign."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "x=3+\\sqrt{y-4},y\\ge4",
+      "workedSolutionSteps": [
+        "Subtract the outside constant 4 from both sides to isolate the square: $y-4=(x-3)^2$.",
+        "Because $x\\ge3$, the quantity x−3 is non-negative, so $x-3=\\sqrt{y-4}$ and $x=3+\\sqrt{y-4}$.",
+        "The square cannot be negative and equals zero when x=3, so the correct output range is $y\\ge4$."
+      ],
+      "provisionalAOFocus": "Justify the principal square-root branch and the closed image endpoint under a domain restriction.",
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-015",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-015-V312-REASONING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-015-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "STANDALONE_DIFFERENT_REASONING_GOAL_REPLACEMENT_CANDIDATE",
+      "stem": "For real $x$, $y$ and $k$, the relation is $y=(k-3)x+2k$. Which option gives $x$ when there is a unique solution and the correct condition on $y$ for the exceptional case $k=3$?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "k\\ne3:x=\\frac{y-2k}{k-3};k=3:y=3",
+          "errorPath": "When k=3, substitute the coefficient 3 as the output value and forget the constant 2k=6."
+        },
+        {
+          "id": "B",
+          "latex": "k\\ne3:x=\\frac{y+2k}{k-3};k=3:y=6",
+          "errorPath": "Move +2k across with the wrong sign while collecting the term in x."
+        },
+        {
+          "id": "C",
+          "latex": "k\\ne3:x=\\frac{y-2k}{3-k};k=3:y=6",
+          "errorPath": "Reverse the sign of the coefficient k−3 when dividing."
+        },
+        {
+          "id": "D",
+          "latex": "k\\ne3:x=\\frac{y-2k}{k-3};k=3:y=6"
+        },
+        {
+          "id": "E",
+          "latex": "k\\ne3:x=\\frac{y-2k}{k-3};k=3:y=0",
+          "errorPath": "Assume the vanishing x-coefficient means the whole right-hand side is zero."
+        },
+        {
+          "id": "F",
+          "latex": "k\\ne3:x=\\frac{y-2k}{k-3};k=3:y\\ne6",
+          "errorPath": "Reverse the exceptional existence condition: when k=3 the equation has a solution only for y=6."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "k\\ne3:x=\\frac{y-2k}{k-3};k=3:y=6",
+      "workedSolutionSteps": [
+        "For $k\\ne3$, subtract $2k$ from both sides: $y-2k=(k-3)x$, so $x=\\frac{y-2k}{k-3}$.",
+        "For $k=3$, the coefficient of x becomes zero and the relation reduces to $y=6$, independently of x.",
+        "Thus with k=3 every real x works if y=6, while no x works if y differs from 6. There is no unique solution in that exceptional case."
+      ],
+      "provisionalAOFocus": "Parameter-dependent solvability: uniquely invertible equation versus infinitely many or no solutions.",
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    }
+  ]
+}

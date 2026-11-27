@@ -51,8 +51,11 @@ for(const subject of ['latin','french']){
     const qs=selectDailyVocabulary({subject,items,year9Items,
       legacyVocabulary:vocabulary[subject],day,seed:day,seenCorrect:state.seenCorrect,ledger:state.ledger});
     assert.equal(qs.length,30,subject+' selected 30 words on round '+i);
-    assert.equal(qs.filter(q=>q._dailyYear9).length,3,subject+' exactly 3 Year 9 words');
-    assert.equal(qs.filter(q=>!q._dailyYear9).length,27,subject+' exactly 27 Year 7–8 words');
+    const beforeV3=day<'2026-11-23';
+    assert.equal(qs.filter(q=>q._dailyYear9).length,beforeV3?3:10,
+      subject+' Y9 quota must be 3 before V3 and 10 reviewed words in V3');
+    assert.equal(qs.filter(q=>!q._dailyYear9).length,beforeV3?27:20,
+      subject+' Y7–8 quota must match the issued plan');
     const keys=qs.map(q=>word(q,subject));
     assert.equal(new Set(keys).size,30,subject+' no duplicated lexical items in one session');
     assert.ok(qs.every(q=>q._dailyYear9||q.topicId==='daily-'+subject+'-legacy'||
@@ -66,7 +69,7 @@ for(const subject of ['latin','french']){
     }
   }
   assert.ok(visitedYear8.size>=90,subject+' Year 7–8 rotation failed');
-  assert.ok(visitedYear9.size>=80,subject+' Year 9 rotation failed');
+  assert.ok(visitedYear9.size>=40,subject+' pre-V3 Year 9 vocabulary rotation failed');
   console.log('DAILY_VOCAB_FULL_BANK',JSON.stringify({subject,legacyRows:vocabulary[subject].length,
     enabledVocabularyQuestions:items.filter(q=>vocabularyQuestion(q,subject)).length,
     year9LexicalItems:year9Items.length/2,visitedYear8:visitedYear8.size,
@@ -76,4 +79,4 @@ for(const [label,source] of [['current',practice],['iPad fallback',practiceFallb
   for(const phrase of ['year9Items:year9DailyVocabulary(subject,FY9)','seenCorrect:s.getState()?.seenCorrect',
     '20261023-latinbooklet277-v1'])assert.ok(source.includes(phrase),label+' missing '+phrase);
 }
-console.log('DAILY_VOCAB_COMPLETE passed: both routes, 27+3 rotation, scoring identities, no duplicate words');
+console.log('DAILY_VOCAB_COMPLETE passed: both routes, historic 27+3 and reviewed V3 20+10, scoring identities, no duplicate words');

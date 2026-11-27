@@ -1,0 +1,330 @@
+{
+  "kind": "BORDERLINE35_SECOND_PASS_REPAIRS_NO_RELEASE",
+  "date": "2026-11-25",
+  "sourceRegister": "qa-staging/math-priority116-post-borderline35-rewrite-register-20261125.json",
+  "sourceRegisterBlobSha": "e5b9411a5eeeec52ab3f413706004877a91438f2",
+  "sourceCommit": "f10a66d21735ef8323d67cde77d461307bc15aeb",
+  "counts": {
+    "stemRedesign": 4,
+    "distractorRepair": 1,
+    "formalApproved": 0
+  },
+  "limits": "All five changes need fresh review. Grade 7+ and class exposure not confirmed. No runtime/Vercel changes.",
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-021",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-021-AUTUMN-DEMAND-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority35-autumn-demand-rewrite-indices-standard11-20261125.json",
+      "priorRecordBlobSha": "6cbd596fc0e2ce34a573dc95248b02aa16b6e5e8",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-021",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-021-POST35-QA-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-021-AUTUMN-DEMAND-REWRITE-20261125",
+        "topicId": "math-y9-standard-form",
+        "stem": "Instrument A reads $6\\times10^8$ milliunits and instrument B reads $4\\times10^5$ units, where 1000 milliunits = 1 unit. In each complete calibration step, A's reading decreases by $2.5\\times10^4$ units and B's reading increases by $1.5\\times10^4$ units. Both instruments undergo the same non-negative whole number of steps. Their combined corrected reading must be between $9.5\\times10^5$ and $9.7\\times10^5$ units inclusive, and A must read at least $4\\times10^4$ units more than B. Find the greatest possible total reduction in A's reading, in units and in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "7.5\\times10^4",
+            "errorPath": "Use three steps, which is feasible but not maximal."
+          },
+          {
+            "id": "B",
+            "latex": "1\\times10^5"
+          },
+          {
+            "id": "C",
+            "latex": "1.25\\times10^5",
+            "errorPath": "Use five steps to satisfy the combined reading, ignoring that A and B become equal."
+          },
+          {
+            "id": "D",
+            "latex": "4\\times10^4",
+            "errorPath": "Report the reduction in the combined reading at four steps."
+          },
+          {
+            "id": "E",
+            "latex": "5\\times10^5",
+            "errorPath": "Report A's final reading at four steps."
+          },
+          {
+            "id": "F",
+            "latex": "1\\times10^8",
+            "errorPath": "Report A's reduction in milliunits instead of units."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "1\\times10^5",
+        "workedSolutionSteps": [
+          "A initially reads 6×10^5 units and B reads 4×10^5 units. After n steps their sum is 10^6−10^4n and their difference is 2×10^5−4×10^4n.",
+          "The combined reading permits n=3,4,5. The differences are 80000,40000,0 respectively; the last fails the minimum difference.",
+          "Four is the greatest valid step count. A decreases by 4×2.5×10^4=1×10^5 units."
+        ],
+        "unverifiedTaughtSubskill": "Standard form unit conversion, signed addition and subtraction, linked discrete constraints.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false,
+        "importAllowed": false
+      },
+      "provisionalMasteryExclusionGroup": "INTEGER_FEASIBILITY",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-014",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-014-AUTUMN-DEMAND-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority35-autumn-demand-rewrite-changing-subject10-20261125.json",
+      "priorRecordBlobSha": "61dda8211f2182798fc8a7d8a2b9a1a15f52e800",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-014",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-014-POST35-QA-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-014-AUTUMN-DEMAND-REWRITE-20261125",
+        "topicId": "math-y9-changing-subject",
+        "stem": "Two machines accept integer inputs from 0 to 7 inclusive. Machine A outputs $y=2(x-3)+4$ and machine B outputs $y=3(x+1)$. An output is shared if BOTH machines can produce it, possibly using different inputs. Which option gives the inverse formula for machine A (x in terms of y) AND the complete set S of shared outputs?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=\\frac{y+2}{2},\\ S=\\{6,12,18\\}",
+            "errorPath": "Ignore the maximum input for A, so include output 18."
+          },
+          {
+            "id": "B",
+            "latex": "x=\\frac{y-2}{2},\\ S=\\{6,12\\}",
+            "errorPath": "Move −2 with the wrong sign when isolating x; shared outputs found separately."
+          },
+          {
+            "id": "C",
+            "latex": "x=\\frac{y+2}{2},\\ S=\\{6\\}",
+            "errorPath": "Exclude input 7 in A."
+          },
+          {
+            "id": "D",
+            "latex": "x=\\frac{y+2}{2},\\ S=\\{3,6,9,12\\}",
+            "errorPath": "Allow fractional inputs to A."
+          },
+          {
+            "id": "E",
+            "latex": "x=\\frac{y+2}{2},\\ S=\\{6,12\\}"
+          },
+          {
+            "id": "F",
+            "latex": "x=\\frac{y+6}{2},\\ S=\\{6,12\\}",
+            "errorPath": "Forget +4 in A before rearranging; shared outputs found separately."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "x=\\frac{y+2}{2},\\ S=\\{6,12\\}",
+        "workedSolutionSteps": [
+          "A expands to y=2x−2, so x=(y+2)/2. B's inverse is x=y/3−1.",
+          "A outputs even integers from −2 to 12 and B outputs multiples of 3 from 3 to 24.",
+          "Only 6 and 12 are in both sets, using A inputs 4 and 7 and B inputs 1 and 3."
+        ],
+        "unverifiedTaughtSubskill": "Linear inverse plus finite integer-domain intersection.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false,
+        "importAllowed": false
+      },
+      "provisionalMasteryExclusionGroup": "INTEGER_FEASIBILITY",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-017",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-017-AUTUMN-DEMAND-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority35-autumn-demand-rewrite-changing-subject10-20261125.json",
+      "priorRecordBlobSha": "61dda8211f2182798fc8a7d8a2b9a1a15f52e800",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-017",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-017-POST35-QA-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-017-AUTUMN-DEMAND-REWRITE-20261125",
+        "topicId": "math-y9-changing-subject",
+        "stem": "For a whole number x between 0 and 20 inclusive, let $y=(3x-2)/5$ and $z=(2x+6)/4$. Which option correctly makes x the subject of the formula for y AND gives the sum T of all x for which BOTH y and z are integers?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=\\frac{5y+2}{3},\\ T=46",
+            "errorPath": "Enforce only integer y: 4+9+14+19."
+          },
+          {
+            "id": "B",
+            "latex": "x=\\frac{5y-2}{3},\\ T=28",
+            "errorPath": "Move −2 with wrong sign; sum found separately."
+          },
+          {
+            "id": "C",
+            "latex": "x=\\frac{5y+2}{3},\\ T=28"
+          },
+          {
+            "id": "D",
+            "latex": "x=\\frac{5y+2}{3},\\ T=9",
+            "errorPath": "Keep smaller valid x only."
+          },
+          {
+            "id": "E",
+            "latex": "x=\\frac{5y+2}{3},\\ T=19",
+            "errorPath": "Keep larger valid x only."
+          },
+          {
+            "id": "F",
+            "latex": "x=\\frac{5y+2}{3},\\ T=18",
+            "errorPath": "Select even rather than odd inputs from the first set."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "x=\\frac{5y+2}{3},\\ T=28",
+        "workedSolutionSteps": [
+          "5y=3x−2, so x=(5y+2)/3. z=(x+3)/2.",
+          "Within the domain y is integer precisely at x=4,9,14,19. Integer z requires odd x.",
+          "The common inputs are 9 and 19; T=28."
+        ],
+        "unverifiedTaughtSubskill": "Making x the subject, integer outputs and intersecting constraints.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false,
+        "importAllowed": false
+      },
+      "provisionalMasteryExclusionGroup": "INTEGER_FEASIBILITY",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-021",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-021-AUTUMN-DEMAND-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority35-autumn-demand-rewrite-changing-subject10-20261125.json",
+      "priorRecordBlobSha": "61dda8211f2182798fc8a7d8a2b9a1a15f52e800",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-021",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-021-POST35-QA-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-021-AUTUMN-DEMAND-REWRITE-20261125",
+        "topicId": "math-y9-changing-subject",
+        "stem": "Machine A triples its input, adds 4 and divides by 2. Machine B doubles its input, subtracts 5 and divides by 3. Let w be the final output when an input x passes through B then A. Which option gives x in terms of w AND the output when the same x passes through A then B, given w=9?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "x=w-\\frac12,\\ \\frac{49}{6}",
+            "errorPath": "Reverse the sign when rearranging w=x−1/2, then use A followed by B."
+          },
+          {
+            "id": "B",
+            "latex": "x=w+\\frac12,\\ \\frac{55}{6}"
+          },
+          {
+            "id": "C",
+            "latex": "x=w+\\frac12,\\ \\frac{19}{2}",
+            "errorPath": "Report the original input rather than the final output."
+          },
+          {
+            "id": "D",
+            "latex": "x=w+\\frac13,\\ \\frac{53}{6}",
+            "errorPath": "Reverse the order in both parts of the question."
+          },
+          {
+            "id": "E",
+            "latex": "x=w+\\frac12,\\ 9",
+            "errorPath": "Assume the two orders give the same output."
+          },
+          {
+            "id": "F",
+            "latex": "x=w+\\frac12,\\ \\frac{65}{4}",
+            "errorPath": "Apply A alone to the recovered input."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "x=w+\\frac12,\\ \\frac{55}{6}",
+        "workedSolutionSteps": [
+          "B then A gives w=(2x−5+4)/2=x−1/2. Therefore x=w+1/2.",
+          "At w=9, x=19/2. A then B gives (3x+4−5)/3=x−1/3.",
+          "Final output=19/2−1/3=55/6."
+        ],
+        "unverifiedTaughtSubskill": "Explicit inverse of a chain of linear operations and different order of operations.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false,
+        "importAllowed": false
+      },
+      "provisionalMasteryExclusionGroup": "CALIBRATION_AND_INVERSE",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-011",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-011-AUTUMN-DEMAND-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority35-autumn-demand-rewrite-changing-subject10-20261125.json",
+      "priorRecordBlobSha": "61dda8211f2182798fc8a7d8a2b9a1a15f52e800",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-011",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-011-POST35-QA-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-011-AUTUMN-DEMAND-REWRITE-20261125",
+        "topicId": "math-y9-changing-subject",
+        "stem": "Two outputs are $y=(kx+6)/3$ and $z=(2x-k)/5$. The real constant k is chosen so that y+z is the same for every real x. Let d=y−z. Which choice gives k and makes x the subject in terms of d?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "k=\\frac65,\\ \\text{no unique }x",
+            "errorPath": "Set coefficient of x in y−z to zero rather than in y+z; at k=6/5 the difference d is constant and cannot recover unique x."
+          },
+          {
+            "id": "B",
+            "latex": "k=-\\frac65,\\ x=\\frac{44+25d}{20}",
+            "errorPath": "Move d with wrong sign."
+          },
+          {
+            "id": "C",
+            "latex": "k=-\\frac65,\\ x=\\frac{56-25d}{20}",
+            "errorPath": "Use 30−3k in difference instead of 30+3k; numerator becomes56."
+          },
+          {
+            "id": "D",
+            "latex": "k=-\\frac65,\\ x=\\frac{44-25d}{20}"
+          },
+          {
+            "id": "E",
+            "latex": "k=-\\frac65,\\ x=\\frac{25d-44}{20}",
+            "errorPath": "Reverse the signs of numerator."
+          },
+          {
+            "id": "F",
+            "latex": "k=-\\frac65,\\ x=\\frac{44-25d}{12}",
+            "errorPath": "Use coefficient12 rather than20 in the reduced equation 25d=44−20x."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "k=-\\frac65,\\ x=\\frac{44-25d}{20}",
+        "workedSolutionSteps": [
+          "15(y+z)=(5k+6)x+30−3k; coefficient zero gives k=−6/5.",
+          "15d=(5k−6)x+30+3k=−12x+132/5.",
+          "75d=−60x+132, hence x=(44−25d)/20."
+        ],
+        "unverifiedTaughtSubskill": "Linear or squared-variable formula rearrangement; linked equations, integer constraints or calibration as specified in stem.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false,
+        "importAllowed": false
+      },
+      "provisionalMasteryExclusionGroup": "LINEAR_SYSTEM_TRANSFER",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ]
+}

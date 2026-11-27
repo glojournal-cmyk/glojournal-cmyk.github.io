@@ -1,0 +1,720 @@
+{
+  "kind": "BORDERLINE35_AUTUMN_CORE_REWRITE_BATCH_NO_RELEASE",
+  "date": "2026-11-25",
+  "sourceRegister": "qa-staging/math-priority116-school-scope-higher-demand-screen-20261124.json",
+  "sourceRegisterBlobSha": "1f60b643177afaa70f41f7091da9c2d5b72e74ba",
+  "sourceCommit": "142635a6365618ef78d01fe9f9c7c403977097ac",
+  "counts": {
+    "rewritten": 11,
+    "indices": 7,
+    "standardForm": 4,
+    "formalApproved": 0
+  },
+  "limits": "New source-preserving replacement candidates; qualitative difficulty only, independent review and exact class exposure pending. Public curriculum PDF not reverified this turn; based on existing register. No runtime or Vercel changes.",
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-003",
+      "priorRevisionId": "LUX-MATH-Y9-INDICES-003-V327-REASONING-QA-ONLY",
+      "priorRecordPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "priorRecordBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "priorAnswer": "16",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-INDICES-003",
+        "revisionId": "LUX-MATH-Y9-INDICES-003-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-INDICES-003-V327-REASONING-QA-ONLY",
+        "topicId": "math-y9-indices",
+        "stem": "For integers $1\\le n\\le8$, let $A=2^{2n+3}$, $B=8^{n-1}$ and $C=4^{n+1}/2^{n-2}$. Retain n only if $A/B>1$ and $2^4\\le C/(A/B)\\le2^{10}$. Find the sum of C over all retained n.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "896"
+          },
+          {
+            "id": "B",
+            "latex": "1920",
+            "errorPath": "Ignore A/B>1: include n=6 and add 1024."
+          },
+          {
+            "id": "C",
+            "latex": "960",
+            "errorPath": "Include n=2 as well, adding 64."
+          },
+          {
+            "id": "D",
+            "latex": "768",
+            "errorPath": "Omit the smallest valid C=128."
+          },
+          {
+            "id": "E",
+            "latex": "384",
+            "errorPath": "Omit the largest valid C=512."
+          },
+          {
+            "id": "F",
+            "latex": "16777216",
+            "errorPath": "Multiply C values rather than add: 128×256×512=16777216."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "896",
+        "workedSolutionSteps": [
+          "A/B=2^(6−n), C=2^(n+4); C/(A/B)=2^(2n−2).",
+          "The second condition gives 3≤n≤6; the first gives n<6. Therefore n=3,4,5.",
+          "C=128,256,512; sum896."
+        ],
+        "unverifiedTaughtSubskill": "Common-base exponent comparisons, bounded integer search and sum of powers.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "MONOMIAL_EXPONENT_RELATIONS",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-009",
+      "priorRevisionId": "LUX-MATH-Y9-INDICES-009-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-indices10-20261124.json",
+      "priorRecordBlobSha": "dc5c25e2a0befe73b3b8963aa1aaee40c43118c5",
+      "priorAnswer": "256",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-INDICES-009",
+        "revisionId": "LUX-MATH-Y9-INDICES-009-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-INDICES-009-DISTRACTOR-REPAIR-20261124",
+        "topicId": "math-y9-indices",
+        "stem": "Let $x=2^a$, $y=2^b$, where a,b are positive integers. Given $xy=2^7$ and $x^2/y=2^2$, double x and halve y. Evaluate $\\frac{(x^2y^{-1})^2}{x^{-1}y}$ using the NEW values of x and y.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "8",
+            "errorPath": "Use original x,y: 2^(15−12)=8."
+          },
+          {
+            "id": "B",
+            "latex": "2048"
+          },
+          {
+            "id": "C",
+            "latex": "256",
+            "errorPath": "Double x but do not halve y: 2^(20−12)=256."
+          },
+          {
+            "id": "D",
+            "latex": "64",
+            "errorPath": "Halve y but do not double x: 2^(15−9)=64."
+          },
+          {
+            "id": "E",
+            "latex": "512",
+            "errorPath": "Multiply by the denominator instead of dividing: x³/y=2^(12−3)."
+          },
+          {
+            "id": "F",
+            "latex": "16384",
+            "errorPath": "Omit the y term in the denominator: x^5/y²=2^(20−6)=16384."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "2048",
+        "workedSolutionSteps": [
+          "a+b=7 and 2a−b=2 imply a=3,b=4.",
+          "New x=2^4, new y=2^3. The expression simplifies to x^5/y^3.",
+          "Value=2^(20−9)=2048."
+        ],
+        "unverifiedTaughtSubskill": "Solve exponent relationships and apply negative index laws after changing both variables.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "MONOMIAL_EXPONENT_RELATIONS",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-010",
+      "priorRevisionId": "LUX-MATH-Y9-INDICES-010-ACADEMIC-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-final-academic-review-indices40-20261124.json",
+      "priorRecordBlobSha": "546171964cb9a55ab382fb7ca33219b2d60f670d",
+      "priorAnswer": "8",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-INDICES-010",
+        "revisionId": "LUX-MATH-Y9-INDICES-010-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-INDICES-010-ACADEMIC-REVIEW-20261124",
+        "topicId": "math-y9-indices",
+        "stem": "For positive x,y define $E=(x^2y^{-1})^2/(x^{-2}y^4)$. Experiment A doubles x and halves y. Experiment B multiplies the original x by $2^a$ and the original y by 4, where a is an integer. The value of E in A is 64 times its value in B. Find the factor by which x is multiplied in B.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "4",
+            "errorPath": "Ignore halving y in A: ratio exponent18−6a=6, a=2."
+          },
+          {
+            "id": "B",
+            "latex": "2",
+            "errorPath": "Ignore multiplying y by 4 in B: exponent12−6a=6, a=1."
+          },
+          {
+            "id": "C",
+            "latex": "32",
+            "errorPath": "Reverse the ratio: 24−6a=−6, a=5."
+          },
+          {
+            "id": "D",
+            "latex": "8"
+          },
+          {
+            "id": "E",
+            "latex": "3",
+            "errorPath": "Report a, not 2^a."
+          },
+          {
+            "id": "F",
+            "latex": "16",
+            "errorPath": "Set experiment multipliers equal: a=4."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "8",
+        "workedSolutionSteps": [
+          "E=x^6/y^6. Experiment A gives multiplier 2^12.",
+          "Experiment B gives multiplier 2^(6a−12). Their ratio is 2^(24−6a)=2^6.",
+          "a=3, so factor=8."
+        ],
+        "unverifiedTaughtSubskill": "Negative indices and comparing two independent multiplicative transformations.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "MONOMIAL_EXPONENT_RELATIONS",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-019",
+      "priorRevisionId": "LUX-MATH-Y9-INDICES-019-SECOND-PASS-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority116-second-pass-six-repairs-20261124.json",
+      "priorRecordBlobSha": "5891d9ad4724999a42efd0c5471139bfdf47ec89",
+      "priorAnswer": "3",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-INDICES-019",
+        "revisionId": "LUX-MATH-Y9-INDICES-019-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-INDICES-019-SECOND-PASS-REPAIR-20261124",
+        "topicId": "math-y9-indices",
+        "stem": "Integers n,m satisfy $0\\le n,m\\le5$ and $2^{n+1}+2^{n+3}+2^{m+2}=176$. Find $2^{n+m}$.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "20",
+            "errorPath": "Add 2^n+2^m=16+4."
+          },
+          {
+            "id": "B",
+            "latex": "6",
+            "errorPath": "Report n+m."
+          },
+          {
+            "id": "C",
+            "latex": "64"
+          },
+          {
+            "id": "D",
+            "latex": "4",
+            "errorPath": "Subtract the exponents instead: 2^(4−2)."
+          },
+          {
+            "id": "E",
+            "latex": "128",
+            "errorPath": "Use the shifted exponent n+m+1."
+          },
+          {
+            "id": "F",
+            "latex": "48",
+            "errorPath": "Report 2^(n+1)+2^(m+2)=32+16."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "64",
+        "workedSolutionSteps": [
+          "Factor and divide by 2: 5·2^n+2^(m+1)=88.",
+          "For n=0,1,2,3,4,5 the residuals 88−5·2^n are 83,78,68,48,8,−72. Only 8 is a permitted power 2^(m+1).",
+          "n=4,m=2; 2^(n+m)=64."
+        ],
+        "unverifiedTaughtSubskill": "Factor sums of powers and exhaust a short bounded integer search without quadratic substitution.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "EXPONENTIAL_EXPRESSION_AND_SHIFT",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-022",
+      "priorRevisionId": "LUX-MATH-Y9-INDICES-022-DISTRACTOR-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority42-distractor-repair-indices10-20261124.json",
+      "priorRecordBlobSha": "dc5c25e2a0befe73b3b8963aa1aaee40c43118c5",
+      "priorAnswer": "-\\frac{8}{7}",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-INDICES-022",
+        "revisionId": "LUX-MATH-Y9-INDICES-022-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-INDICES-022-DISTRACTOR-REPAIR-20261124",
+        "topicId": "math-y9-indices",
+        "stem": "Positive integers a,b satisfy $3a-2b=7$ and $a+b=9$. With x=2 and y=4, find $\\frac{(x^{-a}y^b)^2}{x^b y^{-a}}$.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "32768",
+            "errorPath": "Swap a and b: x^-13 y^14=2^15."
+          },
+          {
+            "id": "B",
+            "latex": "\\frac1{256}",
+            "errorPath": "Use y^a in the denominator instead of y^-a: x^-14 y^3=2^-8."
+          },
+          {
+            "id": "C",
+            "latex": "\\frac1{4096}",
+            "errorPath": "Invert the whole expression."
+          },
+          {
+            "id": "D",
+            "latex": "64",
+            "errorPath": "Ignore denominator: x^-10 y^8=2^6."
+          },
+          {
+            "id": "E",
+            "latex": "4096"
+          },
+          {
+            "id": "F",
+            "latex": "512",
+            "errorPath": "Do not square numerator: x^(-a−b)y^(b+a)=2^9."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "4096",
+        "workedSolutionSteps": [
+          "Solve the linear equations: a=5,b=4.",
+          "Expression is x^(-2a−b)y^(2b+a)=x^-14 y^13.",
+          "At x=2,y=2² the result is 2^(-14+26)=4096."
+        ],
+        "unverifiedTaughtSubskill": "Integer simultaneous equations and negative exponent substitution.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "MONOMIAL_EXPONENT_RELATIONS",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-032",
+      "priorRevisionId": "LUX-MATH-Y9-INDICES-032-V327-REASONING-QA-ONLY",
+      "priorRecordPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "priorRecordBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "priorAnswer": "\\frac{65}{8}",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-INDICES-032",
+        "revisionId": "LUX-MATH-Y9-INDICES-032-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-INDICES-032-V327-REASONING-QA-ONLY",
+        "topicId": "math-y9-indices",
+        "stem": "Integers n,m satisfy $0\\le n<m\\le8$, $2^n4^m=2^{18}$ and $(2^n+2^m)/2^n\\le17$. Find $2^m-2^n$.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "252",
+            "errorPath": "Ignore second condition and choose n=2,m=8: 256−4."
+          },
+          {
+            "id": "B",
+            "latex": "144",
+            "errorPath": "Add powers instead of subtracting."
+          },
+          {
+            "id": "C",
+            "latex": "112"
+          },
+          {
+            "id": "D",
+            "latex": "0",
+            "errorPath": "Permit n=m=6 and choose that pair."
+          },
+          {
+            "id": "E",
+            "latex": "128",
+            "errorPath": "Report 2^m alone."
+          },
+          {
+            "id": "F",
+            "latex": "16",
+            "errorPath": "Report 2^n alone."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "112",
+        "workedSolutionSteps": [
+          "n+2m=18 and n<m imply m=7 or 8 within the bounds (m=6 gives n=m).",
+          "Second condition is 1+2^(m−n)≤17, so m−n≤4. Pair (n,m)=(4,7) fits; (2,8) does not.",
+          "Difference128−16=112."
+        ],
+        "unverifiedTaughtSubskill": "Convert powers to a common base and use bounded integer cases.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTEGER_FEASIBILITY",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-037",
+      "priorRevisionId": "LUX-MATH-Y9-INDICES-037-V316-HIGHER-REASONING-QA-ONLY",
+      "priorRecordPath": "qa-staging/math-v316-indices009-037-standard029-021-four-distinct-reasoning-candidates-20261123.json",
+      "priorRecordBlobSha": "edabd5df1666732ae7315222d14d45b50431b2cc",
+      "priorAnswer": "(3,0)",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-INDICES-037",
+        "revisionId": "LUX-MATH-Y9-INDICES-037-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-INDICES-037-V316-HIGHER-REASONING-QA-ONLY",
+        "topicId": "math-y9-indices",
+        "stem": "For integer $0\\le n\\le8$, define $T=\\sqrt{2^{2n+6}}\\,16^{n-1}/8^{n-2}$ and $U=2^{n+4}$. Retain n only if $2^3\\le T/U\\le2^7$ and $TU\\le2^{24}$. Find the sum of T/U over all retained n.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "248",
+            "errorPath": "Ignore product restriction and include n=6."
+          },
+          {
+            "id": "B",
+            "latex": "126",
+            "errorPath": "Ignore lower ratio bound and include n=0,1."
+          },
+          {
+            "id": "C",
+            "latex": "56",
+            "errorPath": "Treat product cap as strict; omit n=5."
+          },
+          {
+            "id": "D",
+            "latex": "120"
+          },
+          {
+            "id": "E",
+            "latex": "18",
+            "errorPath": "Add the exponents 3,4,5,6."
+          },
+          {
+            "id": "F",
+            "latex": "262144",
+            "errorPath": "Multiply the four ratios: 2^18."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "120",
+        "workedSolutionSteps": [
+          "T=2^(2n+5), U=2^(n+4). Ratio=2^(n+1), product=2^(3n+9).",
+          "Ratio requires 2≤n≤6; product requires n≤5. Retain 2,3,4,5.",
+          "Sum8+16+32+64=120."
+        ],
+        "unverifiedTaughtSubskill": "Simplify powers, combine two constraints and distinguish sums from products.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "MONOMIAL_EXPONENT_RELATIONS",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-014-ACADEMIC-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-final-academic-review-standard-form40-20261124.json",
+      "priorRecordBlobSha": "f0029eb6e6635251e0d24c38876ccf0f1d21cd3d",
+      "priorAnswer": "4.72\\times10^{0}",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-014-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-014-ACADEMIC-REVIEW-20261124",
+        "topicId": "math-y9-standard-form",
+        "stem": "Two detectors record $3.2\\times10^5$ pulses per second for $2.5\\times10^2$ seconds and $4.8\\times10^4$ pulses per second for $1.5\\times10^3$ seconds respectively. Exactly $1.6\\times10^7$ pulses from the combined total are removed as calibration data. The remainder is packed into groups of exactly $2.4\\times10^6$ pulses, with as many full groups as possible. Which pair gives (full groups, leftover pulses in standard form)?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "(63,8\\times10^5)",
+            "errorPath": "Ignore removal: 152000000 gives 63 groups and 800000 remainder."
+          },
+          {
+            "id": "B",
+            "latex": "(56,1.6\\times10^6)"
+          },
+          {
+            "id": "C",
+            "latex": "(57,-8\\times10^5)",
+            "errorPath": "Round group count up to57, giving a negative remainder."
+          },
+          {
+            "id": "D",
+            "latex": "(56,1.6\\times10^5)",
+            "errorPath": "Normalize 16×10^5 wrongly as 1.6×10^5."
+          },
+          {
+            "id": "E",
+            "latex": "(26,1.6\\times10^6)",
+            "errorPath": "Ignore second detector: 64000000 gives26 groups and1600000 remainder."
+          },
+          {
+            "id": "F",
+            "latex": "(56,1.36\\times10^8)",
+            "errorPath": "Report total retained instead of leftover."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "(56,1.6\\times10^6)",
+        "workedSolutionSteps": [
+          "Detector totals 8×10^7 and 7.2×10^7. Retained total=1.36×10^8.",
+          "136000000/2400000=56 remainder1600000. 57 groups would require136800000.",
+          "Answer (56,1.6×10^6)."
+        ],
+        "unverifiedTaughtSubskill": "Multiply/add/subtract quantities in standard form and calculate whole groups and remainder.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "FIXED_TOTAL_RESOURCE_ALLOCATION",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-021",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-021-SECOND-PASS-REPAIR-20261124",
+      "priorRecordPath": "qa-staging/math-priority116-second-pass-six-repairs-20261124.json",
+      "priorRecordBlobSha": "5891d9ad4724999a42efd0c5471139bfdf47ec89",
+      "priorAnswer": "9.6\\times10^4",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-021",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-021-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-021-SECOND-PASS-REPAIR-20261124",
+        "topicId": "math-y9-standard-form",
+        "stem": "An earlier reading was $4\\times10^5$ units. A newer reading is $6\\times10^8$ milliunits, where 1000 milliunits = 1 unit. The newer reading can be reduced in whole steps of $2.5\\times10^4$ units. The corrected value must lie between $5\\times10^5$ and $5.4\\times10^5$ units inclusive. Find the greatest total reduction, in units, in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "7.5\\times10^4",
+            "errorPath": "Choose3 steps rather than4."
+          },
+          {
+            "id": "B",
+            "latex": "1\\times10^5"
+          },
+          {
+            "id": "C",
+            "latex": "1.25\\times10^5",
+            "errorPath": "Choose5 steps; corrected reading475000 fails."
+          },
+          {
+            "id": "D",
+            "latex": "4\\times10^0",
+            "errorPath": "Report number of steps."
+          },
+          {
+            "id": "E",
+            "latex": "5\\times10^5",
+            "errorPath": "Report final corrected reading."
+          },
+          {
+            "id": "F",
+            "latex": "1\\times10^8",
+            "errorPath": "Express reduction in milliunits but label as units."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "1\\times10^5",
+        "workedSolutionSteps": [
+          "Convert newer reading to 6×10^5 units.",
+          "Permitted reduction is 60000 to100000 units. Whole steps of25000 permit 3 or4 steps.",
+          "Greatest reduction=100000 units, leaving500000."
+        ],
+        "unverifiedTaughtSubskill": "Standard form conversion, discrete steps and comparing numerical limits; no percentage or formal inequality prerequisite.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "INTEGER_FEASIBILITY",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-026-DEMAND-UPGRADE-20261124",
+      "priorRecordPath": "qa-staging/math-demand-upgrade-standard-form16-20261124.json",
+      "priorRecordBlobSha": "2864adb12ed72cc45bf6a2decb4e5c1b2b764504",
+      "priorAnswer": "2.56\\times10^{5}",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-026-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-026-DEMAND-UPGRADE-20261124",
+        "topicId": "math-y9-standard-form",
+        "stem": "Pump A delivers $2.4\\times10^{-3}$ m³ per minute; pump B delivers $6\\times10^{-4}$ m³ per minute. A tank needs exactly $3.6\\times10^{-1}$ m³. Pump A runs alone for 75 minutes and then both pumps run together until the target is reached. Find the total elapsed time in seconds, in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "3.6\\times10^3",
+            "errorPath": "Report only combined stage60 minutes."
+          },
+          {
+            "id": "B",
+            "latex": "4.5\\times10^3",
+            "errorPath": "Report only first75 minutes."
+          },
+          {
+            "id": "C",
+            "latex": "9\\times10^3",
+            "errorPath": "Use A alone throughout: 150 minutes."
+          },
+          {
+            "id": "D",
+            "latex": "8.1\\times10^3"
+          },
+          {
+            "id": "E",
+            "latex": "2.25\\times10^4",
+            "errorPath": "Use only B after first stage: 75+300 minutes."
+          },
+          {
+            "id": "F",
+            "latex": "1.35\\times10^2",
+            "errorPath": "Leave the answer in minutes."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "8.1\\times10^3",
+        "workedSolutionSteps": [
+          "A supplies 75×0.0024=0.18 m³. Remaining volume0.18.",
+          "Combined rate0.003 m³/min; remaining time60 minutes.",
+          "Total135 minutes=8100 seconds."
+        ],
+        "unverifiedTaughtSubskill": "Standard form with different negative powers, combined rates and time conversion.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "CALIBRATION_AND_INVERSE",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-027",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-027-PRIORITY-CONTENT-REVIEW-20261124",
+      "priorRecordPath": "qa-staging/math-priority116-content-acceptance-standard-form18-20261124.json",
+      "priorRecordBlobSha": "87a55441e7484611550734260dea9cda096b3808",
+      "priorAnswer": "7.2\\times10^{-1}",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-027",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-027-AUTUMN-DEMAND-REWRITE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-027-PRIORITY-CONTENT-REVIEW-20261124",
+        "topicId": "math-y9-standard-form",
+        "stem": "A sample has $2.4\\times10^8$ particles per mL. Processing removes exactly $9\\times10^7$ particles per mL of sample. The retained sample must contain at least $7.5\\times10^{10}$ particles. Each complete container processes 160 mL of sample and uses 20 mL extra particle-free flush. Using the fewest complete containers, find the number of retained particles ABOVE the target, in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "9.6\\times10^{10}",
+            "errorPath": "Report all retained particles."
+          },
+          {
+            "id": "B",
+            "latex": "2.1\\times10^{10}"
+          },
+          {
+            "id": "C",
+            "latex": "3.3\\times10^{10}",
+            "errorPath": "Include 80mL flush as sample: 720×1.5×10^8−7.5×10^10."
+          },
+          {
+            "id": "D",
+            "latex": "7.86\\times10^{10}",
+            "errorPath": "At the correct four-container count, ignore removal: 640×2.4×10^8−7.5×10^10."
+          },
+          {
+            "id": "E",
+            "latex": "7.5\\times10^{10}",
+            "errorPath": "Report target instead of excess."
+          },
+          {
+            "id": "F",
+            "latex": "9\\times10^9",
+            "errorPath": "Use 560mL sample by subtracting flush from the stated 640mL sample: 560×1.5×10^8−7.5×10^10."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "2.1\\times10^{10}",
+        "workedSolutionSteps": [
+          "Retention per mL=1.5×10^8. Target needs500 mL; three containers provide480 mL, four provide640 mL.",
+          "Four containers retain9.6×10^10 particles. Flush is particle-free.",
+          "Excess=9.6×10^10−7.5×10^10=2.1×10^10."
+        ],
+        "unverifiedTaughtSubskill": "Standard form subtraction, integer capacity and excess; no percentage prerequisite.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "provisionalMasteryExclusionGroup": "FIXED_TOTAL_RESOURCE_ALLOCATION",
+      "scopeDisposition": "AUTUMN_CORE_METHOD_CANDIDATE_CLASS_EXPOSURE_UNVERIFIED",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ]
+}

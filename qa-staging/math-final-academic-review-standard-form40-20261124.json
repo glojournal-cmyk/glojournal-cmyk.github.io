@@ -1,0 +1,1439 @@
+{
+  "kind": "STANDARD_FORM40_ITEM_LEVEL_ACADEMIC_REVIEW_AND_CORRECTIONS_NO_IMPORT",
+  "date": "2026-11-24",
+  "registerPath": "qa-staging/math-all200-reasoning-candidate-review-register-20261124.json",
+  "registerBlobSha": "fc389023285fa8514e866fc4a4e764f5d5e3e3fa",
+  "counts": {
+    "reviewed": 40,
+    "mathsContentChecked": 40,
+    "corrected": 11,
+    "higherReasoningCandidates": 24,
+    "benchmarkOrDifficultyReview": 16,
+    "provisionalSharedMasteryFamilies": 12,
+    "formalApprovals": 0
+  },
+  "limitations": "Author review of selected actual question records. Numerical keys recomputed, two compound choices checked by finite feasibility search. Grade, taught scope, empirical distractor evidence and rendering remain unverified. Family grouping conservative and cross-topic reconciliation pending. Historical source packs remain pinned; corrections are replacement records for next review only.",
+  "masteryGroups": {
+    "effective-density-and-dilution": [
+      1,
+      2,
+      18,
+      25,
+      27
+    ],
+    "percentage-change-with-offset": [
+      3,
+      4,
+      15,
+      20,
+      22,
+      35,
+      37,
+      39
+    ],
+    "average-speed-and-time-budget": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "discrete-capacity-and-optimisation": [
+      9,
+      10,
+      13,
+      29,
+      31,
+      32,
+      36,
+      40
+    ],
+    "tare-and-unit-count": [
+      11
+    ],
+    "weighted-yield-and-mixture": [
+      12,
+      38
+    ],
+    "error-intervals": [
+      14,
+      23,
+      33
+    ],
+    "geometric-scaling-and-unit-conversion": [
+      16,
+      19,
+      26,
+      28
+    ],
+    "area-rate-and-unit-conversion": [
+      17
+    ],
+    "relative-percentage-comparison": [
+      21,
+      24
+    ],
+    "reverse-numerical-expression": [
+      30
+    ],
+    "ratio-transfer": [
+      34
+    ]
+  },
+  "rows": [
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-001",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-001-V324-REASONING_REDESIGN_QA_ONLY",
+      "selectedPackPath": "qa-staging/math-v324-four-source-linked-multiconstraint-reasoning-candidates-20261124.json",
+      "selectedPackBlobSha": "9eeab6a50c05876420ffb910676e26922f629b44",
+      "reviewedCorrectKey": "2\\times10^{1}",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Defined effective storage density; exact threshold and positive options.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "effective-density-and-dilution",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-002",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-002-V328-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v328-standard-form17-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "ddfd9f25302522546608e31d99e07189e10939fc",
+      "reviewedCorrectKey": "5.5\\times10^{5}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Conserved salt and reverse dilution correct; routine division/subtraction.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "effective-density-and-dilution",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-003",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-003-V328-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v328-standard-form17-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "ddfd9f25302522546608e31d99e07189e10939fc",
+      "reviewedCorrectKey": "2.83\\times10^{11}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Compression and fixed overhead correct; modest percentage arithmetic.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "percentage-change-with-offset",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-004",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-004-V328-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v328-standard-form17-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "ddfd9f25302522546608e31d99e07189e10939fc",
+      "reviewedCorrectKey": "9.75\\times10^{8}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Exact tiny sampling fraction and reverse scaling, then retention.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "percentage-change-with-offset",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-005",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-005-V328-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v328-standard-form17-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "ddfd9f25302522546608e31d99e07189e10939fc",
+      "reviewedCorrectKey": "3.75\\times10^{3}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Elapsed time includes mandatory stop; both leg times verified.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "average-speed-and-time-budget",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-006",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-006-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v331-editorial20-indices-standard-form-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "3908a383c2bac92cf901fb8548071b6ec1e562e9",
+      "reviewedCorrectKey": "4.5\\times10^{3}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Equal leg times give arithmetic mean coincidentally; limited additional demand.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "average-speed-and-time-budget",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-007",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-007-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v331-editorial20-indices-standard-form-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "3908a383c2bac92cf901fb8548071b6ec1e562e9",
+      "reviewedCorrectKey": "6\\times10^{1}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Round-trip average reversed via total time; positive return speed.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "average-speed-and-time-budget",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-008",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-008-V328-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v328-standard-form17-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "ddfd9f25302522546608e31d99e07189e10939fc",
+      "reviewedCorrectKey": "1\\times10^{9}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Remaining time and records both correctly derived; minimum rate valid.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "average-speed-and-time-budget",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-009",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-009-V320-TOPIC-REBALANCE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v320-two-standard-form-n9-final-output-rebalanced-candidates-20261123.json",
+      "selectedPackBlobSha": "318e1465cd4a94cd753cc7d8aa54fb3d59c55334",
+      "reviewedCorrectKey": "(3,2,250,9\\times10^4)",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Enumerated feasible container mixes; mass-capacity wording corrected.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "discrete-capacity-and-optimisation",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-010",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-010-V328-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v328-standard-form17-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "ddfd9f25302522546608e31d99e07189e10939fc",
+      "reviewedCorrectKey": "6.833\\times10^{3}",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Both integer ceilings essential; subtraction distractor repaired.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "discrete-capacity-and-optimisation",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-011",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-011-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v331-editorial20-indices-standard-form-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "3908a383c2bac92cf901fb8548071b6ec1e562e9",
+      "reviewedCorrectKey": "1.7\\times10^{4}",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Tare and retention correct; straightforward chained calculation.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "tare-and-unit-count",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-012",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-012-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v331-editorial20-indices-standard-form-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "3908a383c2bac92cf901fb8548071b6ec1e562e9",
+      "reviewedCorrectKey": "5.04\\times10^{7}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Unequal weighted yields and mass balance correct.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "weighted-yield-and-mixture",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-013",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-013-V312-REASONING-CANDIDATE",
+      "selectedPackPath": "qa-staging/math-v312-standard-form013-016-reasoning-replacement-candidates-20261123.json",
+      "selectedPackBlobSha": "740c7a7605bcf608851d7d9ebaaf0f4a70a55f50",
+      "reviewedCorrectKey": "174",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Enumerated all economically relevant drive mixes; minimum cost £174.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "discrete-capacity-and-optimisation",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-014-V312-REASONING-CANDIDATE",
+      "selectedPackPath": "qa-staging/math-v312-standard-form013-016-reasoning-replacement-candidates-20261123.json",
+      "selectedPackBlobSha": "740c7a7605bcf608851d7d9ebaaf0f4a70a55f50",
+      "reviewedCorrectKey": "4.72\\times10^{0}",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Both rounding intervals checked; unattained limiting density rounded as requested.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "error-intervals",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-015",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-015-V312-REASONING-CANDIDATE",
+      "selectedPackPath": "qa-staging/math-v312-standard-form013-016-reasoning-replacement-candidates-20261123.json",
+      "selectedPackBlobSha": "740c7a7605bcf608851d7d9ebaaf0f4a70a55f50",
+      "reviewedCorrectKey": "4.5\\times10^{8}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Reverse separate retention factors; exact B input.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "percentage-change-with-offset",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-016",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-016-V312-REASONING-CANDIDATE",
+      "selectedPackPath": "qa-staging/math-v312-standard-form013-016-reasoning-replacement-candidates-20261123.json",
+      "selectedPackBlobSha": "740c7a7605bcf608851d7d9ebaaf0f4a70a55f50",
+      "reviewedCorrectKey": "2.5\\times10^{1}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Length conversion, area ratio and positive root correct.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "geometric-scaling-and-unit-conversion",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-017",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-017-V328-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v328-standard-form17-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "ddfd9f25302522546608e31d99e07189e10939fc",
+      "reviewedCorrectKey": "3\\times10^{-1}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Active area conversion and rate correct; routine chained calculation.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "area-rate-and-unit-conversion",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-018",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-018-V328-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v328-standard-form17-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "ddfd9f25302522546608e31d99e07189e10939fc",
+      "reviewedCorrectKey": "2\\times10^{5}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Weighted concentration equation yields feasible positive volumes.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "effective-density-and-dilution",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-019",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-019-V328-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v328-standard-form17-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "ddfd9f25302522546608e31d99e07189e10939fc",
+      "reviewedCorrectKey": "7\\times10^{0}",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Outer-volume definition clarified; volume factor 50³ and cavity deduction correct but familiar method.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "geometric-scaling-and-unit-conversion",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-020",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-020-V328-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v328-standard-form17-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "ddfd9f25302522546608e31d99e07189e10939fc",
+      "reviewedCorrectKey": "2.4\\times10^{7}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Successive losses, target recovery and nonadditive percentages correct.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "percentage-change-with-offset",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-021",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-021-V316-HIGHER-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v316-indices009-037-standard029-021-four-distinct-reasoning-candidates-20261123.json",
+      "selectedPackBlobSha": "edabd5df1666732ae7315222d14d45b50431b2cc",
+      "reviewedCorrectKey": "7",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Inclusive calibration inequality gives integer p=10 through 16.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "relative-percentage-comparison",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-022",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-022-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v331-editorial20-indices-standard-form-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "3908a383c2bac92cf901fb8548071b6ec1e562e9",
+      "reviewedCorrectKey": "8\\times10^{6}",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Reverse fixed offset before percentage; modest two-operation inverse.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "percentage-change-with-offset",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-023",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-023-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v331-editorial20-indices-standard-form-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "3908a383c2bac92cf901fb8548071b6ec1e562e9",
+      "reviewedCorrectKey": "2.3\\times10^{5}",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Unattained lower difference bound clarified.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "error-intervals",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-024",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-024-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v331-editorial20-indices-standard-form-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "3908a383c2bac92cf901fb8548071b6ec1e562e9",
+      "reviewedCorrectKey": "4\\times10^{4}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Different population bases and final difference; routine percentage arithmetic.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "relative-percentage-comparison",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-025",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-025-V320-TOPIC-REBALANCE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v320-two-standard-form-n9-final-output-rebalanced-candidates-20261123.json",
+      "selectedPackBlobSha": "318e1465cd4a94cd753cc7d8aa54fb3d59c55334",
+      "reviewedCorrectKey": "(2,3,1.2\\times10^7)",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Whole-pack enumeration and exact concentration; greatest feasible offered volume.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "effective-density-and-dilution",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-026-V328-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v328-standard-form17-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "ddfd9f25302522546608e31d99e07189e10939fc",
+      "reviewedCorrectKey": "4.8\\times10^{4}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Cube conversion and remaining volume correct; conversion supplied.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "geometric-scaling-and-unit-conversion",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-027",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-027-V328-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v328-standard-form17-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "ddfd9f25302522546608e31d99e07189e10939fc",
+      "reviewedCorrectKey": "5\\times10^{-1}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Minimum volume from retained particles; modest direct rate calculation.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "effective-density-and-dilution",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-028",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-028-V328-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v328-standard-form17-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "ddfd9f25302522546608e31d99e07189e10939fc",
+      "reviewedCorrectKey": "9.6\\times10^{-2}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Independent area and thickness conversions and density product verified.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "geometric-scaling-and-unit-conversion",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-029",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-029-V316-HIGHER-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v316-indices009-037-standard029-021-four-distinct-reasoning-candidates-20261123.json",
+      "selectedPackBlobSha": "edabd5df1666732ae7315222d14d45b50431b2cc",
+      "reviewedCorrectKey": "50",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Finite integer divisibility search proves greatest cartridge count.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "discrete-capacity-and-optimisation",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-030",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-030-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v331-editorial20-indices-standard-form-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "3908a383c2bac92cf901fb8548071b6ec1e562e9",
+      "reviewedCorrectKey": "9\\times10^{3}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Reverse first equation and transfer N to second; straightforward calculation.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "reverse-numerical-expression",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-031",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-031-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v331-editorial20-indices-standard-form-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "3908a383c2bac92cf901fb8548071b6ec1e562e9",
+      "reviewedCorrectKey": "2.5\\times10^{3}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Exact integer capacity quotient, floor not active; modest demand.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "discrete-capacity-and-optimisation",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-032",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-032-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v331-editorial20-indices-standard-form-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "3908a383c2bac92cf901fb8548071b6ec1e562e9",
+      "reviewedCorrectKey": "3.6\\times10^{3}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Area-only maximum, layout explicitly ignored; straightforward quotient.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "discrete-capacity-and-optimisation",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-033",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-033-V328-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v328-standard-form17-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "ddfd9f25302522546608e31d99e07189e10939fc",
+      "reviewedCorrectKey": "5.0375\\times10^{7}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Upper area bound from both upper limits; exact product.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "error-intervals",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-034",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-034-V328-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v328-standard-form17-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "ddfd9f25302522546608e31d99e07189e10939fc",
+      "reviewedCorrectKey": "3\\times10^{8}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Conserved ratio transfer correct; overlaps simultaneous transfer family.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "ratio-transfer",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-035",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-035-V328-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v328-standard-form17-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "ddfd9f25302522546608e31d99e07189e10939fc",
+      "reviewedCorrectKey": "4\\times10^{8}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Reverse two compounded rises and fixed addition in correct order.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "percentage-change-with-offset",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-036",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-036-V328-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v328-standard-form17-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "ddfd9f25302522546608e31d99e07189e10939fc",
+      "reviewedCorrectKey": "2\\times10^{4}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Two resource caps; B is genuinely binding.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "discrete-capacity-and-optimisation",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-037",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-037-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v331-editorial20-indices-standard-form-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "3908a383c2bac92cf901fb8548071b6ec1e562e9",
+      "reviewedCorrectKey": "3\\times10^{4}",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Recovered rejected fraction and reverse yield; revised distractors.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "percentage-change-with-offset",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-038",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-038-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v331-editorial20-indices-standard-form-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "3908a383c2bac92cf901fb8548071b6ec1e562e9",
+      "reviewedCorrectKey": "2\\times10^{4}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Reverse removal and two batch sizes; feasible integer solution.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "weighted-yield-and-mixture",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-039",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-039-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v331-editorial20-indices-standard-form-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "3908a383c2bac92cf901fb8548071b6ec1e562e9",
+      "reviewedCorrectKey": "1\\times10^{4}",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Compound growth and equal distribution; integral choices repaired, modest calculation.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "percentage-change-with-offset",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-040",
+      "reviewedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-040-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v331-editorial20-indices-standard-form-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "3908a383c2bac92cf901fb8548071b6ec1e562e9",
+      "reviewedCorrectKey": "3.125\\times10^{4}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Remaining resource and changed unit consumption; exact capacity, modest demand.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "discrete-capacity-and-optimisation",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    }
+  ],
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-001",
+      "reason": "Define effective chamber density explicitly rather than bulk material density; remove zero option from positive standard form.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-001",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-001-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-001-REVIEW-2",
+        "topicId": "math-y9-standard-form",
+        "stem": "A storage chamber initially contains $3\\times10^{11}$ identical grains, each of mass $4\\times10^{-10}$ g, with $2\\times10^2$ cm³ of available internal volume. A filter removes 25% of the mass, and the chamber's available volume is then reduced by 20%. For this problem, effective storage density means the remaining grain mass divided by the total available chamber volume, including any empty space. The effective storage density must be at most $5\\times10^{-1}$ g/cm³. What minimum additional chamber volume in cm³ must be made available without adding mass? Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "2\\times10^{1}"
+          },
+          {
+            "id": "B",
+            "latex": "2\\times10^{2}",
+            "errorPath": "Find the correct numerical extra volume 20 but shift the standard-form exponent one place too high, reporting 200."
+          },
+          {
+            "id": "C",
+            "latex": "4\\times10^{1}",
+            "errorPath": "Ignore both changes: the original 120 g requires 240 cm³, so subtract the original 200 cm³."
+          },
+          {
+            "id": "D",
+            "latex": "8\\times10^{1}",
+            "errorPath": "Apply compaction to volume but forget the removed mass: 120/0.5−160=80 cm³."
+          },
+          {
+            "id": "E",
+            "latex": "1.8\\times10^{2}",
+            "errorPath": "Find the required total final volume 90/0.5=180 cm³ but fail to subtract the already occupied 160 cm³."
+          },
+          {
+            "id": "F",
+            "latex": "3\\times10^{1}",
+            "errorPath": "Reduce the initial available volume by 25% instead of 20%, giving 150 cm³; subtract this from the required 180 cm³."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "2\\times10^{1}",
+        "workedSolutionSteps": [
+          "Initial mass is (3×10^11)(4×10^-10)=120 g; remaining mass is 0.75×120=90 g.",
+          "Available volume after reduction is 0.8×200=160 cm³. The required total available volume is at least 90/0.5=180 cm³ by the stated effective-density definition.",
+          "Minimum extra volume is 180−160=20=2×10^1 cm³. At that total available volume the stated density is exactly 0.5 g/cm³."
+        ],
+        "provisionalAOFocus": "AO3 candidate: derive two changing physical quantities, enforce a safety inequality, optimize a positive extra volume.",
+        "explicitDifferenceFromRoutineSource": "Unlike original direct density arithmetic, determine a minimum buffer under independent mass and volume changes.",
+        "unverifiedTaughtSubskill": "Percentage changes, density constraints and optimization wording require classroom confirmation.",
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-001-V324-REASONING_REDESIGN_QA_ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-009",
+      "reason": "Distinguish mass-capacity limits from unspecified physical empty volume.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-009",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-009-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-009-REVIEW-2",
+        "replacesPreviousCandidateRevisionId": "LUX-MATH-Y9-STANDARD_FORM-009-V318-CONSTRAINT-TRANSFER-DRAFT-20261123",
+        "topicId": "math-y9-standard-form",
+        "oldLowerDemandVerdict": "LOWER",
+        "newUnverifiedReasoningDemand": "Requires making a feasible integer model with two unequal safe capacities and competing costs, demonstrating why cheaper mixes fail, not just dividing a known mass by one container capacity.",
+        "stem": "A factory makes $6\\times10^5$ g of material and discards $3\\times10^4$ g. It can use at most **5 containers**. A type A container costs £40, holds at most $1.2\\times10^5$ g, and may be loaded to at most **85% of its nominal mass capacity**; a type B costs £65, holds at most $1.5\\times10^5$ g, and may be loaded to at most **90% of its nominal mass capacity**. All remaining material must be packed, but its distribution among containers may vary. Find the **lowest total cost**. Give $(a,b,C,U)$, where $a,b$ are the numbers of type A and B containers, $C$ is the cost in pounds, and $U$ is the **unused nominal container capacity in grams**. Express $U$ in standard form $A\\times10^n$ where $1\\le A<10$ and integer $n$.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "(4,1,225,6\\times10^4)",
+            "errorPath": "Choose 4 A and 1 B: nominal unused capacity is 630000−570000=60000g and £225 cost, but usable safe capacity is only 543000g, below what must be packed."
+          },
+          {
+            "id": "B",
+            "latex": "(5,0,200,3\\times10^4)",
+            "errorPath": "Choose 5 A: nominal spare 600000−570000=30000g and cost £200, but 15% safe empty requirement limits usable load to 510000g."
+          },
+          {
+            "id": "C",
+            "latex": "(3,2,250,6\\times10^3)",
+            "errorPath": "Find correct cheapest mix of 3 A, 2 B, but calculate only unused safe loading capacity 576000−570000=6000g instead of unused full nominal mass capacity."
+          },
+          {
+            "id": "D",
+            "latex": "(3,2,250,9\\times10^4)"
+          },
+          {
+            "id": "E",
+            "latex": "(4,2,290,2.1\\times10^5)",
+            "errorPath": "Use 4 A plus 2 B, costing £290, nominal spare 780000−570000=210000g, but that is six containers, above the maximum of five."
+          },
+          {
+            "id": "F",
+            "latex": "(2,3,275,1.2\\times10^5)",
+            "errorPath": "Use a feasible 2 A plus 3 B mixture: nominal spare 690000−570000=120000g but cost £275, not cheapest £250."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "(3,2,250,9\\times10^4)",
+        "workedSolutionSteps": [
+          "The mass retained is $6\\times10^5-3\\times10^4=5.7\\times10^5$ g. Safe usable capacities are $0.85(1.2\\times10^5)=1.02\\times10^5$ g per A and $0.90(1.5\\times10^5)=1.35\\times10^5$ g per B.",
+          "With at most 5, feasibility requires $1.02\\times10^5a+1.35\\times10^5b\\ge5.7\\times10^5$ and $a+b\\le5$. Even 4 B cannot hold all mass. The five-container feasible costs are £250, £275, £300, £325; minimum cost £250 is $a=3,b=2$.",
+          "Unused **nominal**, not safe, capacity is $U=(3\\times1.2\\times10^5+2\\times1.5\\times10^5)-5.7\\times10^5=9\\times10^4$ g. Answer $(a,b,C,U)=(3,2,250,9\\times10^4)$."
+        ],
+        "exactTaughtSubskillUnverified": "Mixed-integer feasibility, capacity headroom and cost optimisation need independent taught-curriculum check.",
+        "reviewClassification": "AO2_AO3_CANDIDATE_NOT_CERTIFIED_G7_PLUS",
+        "academicQA": "pending",
+        "independentGrade7PlusCertification": false,
+        "teacherTaughtConfirmed": false,
+        "empiricalStudentMisconceptionEvidence": false,
+        "independentMasteryConceptApproved": false,
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "scoringWritesAllowed": false,
+        "N9NewEvidence": "Scientific quantity normalization 9×10^4 grams is explicitly assessed as final value.",
+        "topicAlignmentReview": "REBALANCED_TO_EXPLICIT_N9_FINAL_STANDARD_FORM_PENDING_INDEPENDENT_REVIEW",
+        "grade7PlusCertified": false,
+        "empiricalWrongAnswerEvidence": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-009-V320-TOPIC-REBALANCE-QA-ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-010",
+      "reason": "Replace two-error subtraction route with one exact error.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-010",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-010-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-010-REVIEW-2",
+        "topicId": "math-y9-standard-form",
+        "provisionalConceptFamily": "capacity-ceiling-with-reserve",
+        "stem": "A machine produces $2.5301\\times10^8$ usable components. Each shipping crate may contain at most $4\\times10^4$ components. In addition to the minimum number of crates needed for shipping, the company must purchase spare empty crates equal to 8% of that minimum, rounded up to a whole crate. How many crates must be purchased in total? Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "6.831\\times10^{3}",
+            "errorPath": "Round both shipping and spare requirements down: 6325+506."
+          },
+          {
+            "id": "B",
+            "latex": "6.326\\times10^{3}",
+            "errorPath": "Round the shipping requirement up correctly but omit the spare crates."
+          },
+          {
+            "id": "C",
+            "latex": "5.07\\times10^{2}",
+            "errorPath": "Report only the correctly rounded spare requirement."
+          },
+          {
+            "id": "D",
+            "latex": "6.832\\times10^{3}",
+            "errorPath": "Round shipping up, but round the 506.08 spare crates down to 506."
+          },
+          {
+            "id": "E",
+            "latex": "5.819\\times10^{3}",
+            "errorPath": "Find both rounded requirements correctly but subtract the 507 spare crates from 6326 instead of adding."
+          },
+          {
+            "id": "F",
+            "latex": "6.833\\times10^{3}"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "6.833\\times10^{3}",
+        "workedSolutionSteps": [
+          "Shipping requires ceil(2.5301×10^8/(4×10^4))=ceil(6325.25)=6326 crates.",
+          "Spare requirement = ceil(0.08×6326)=ceil(506.08)=507 crates.",
+          "Total is 6326+507=6833=6.833×10^3 crates."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+        "unverifiedTaughtSubskill": "Discrete capacity and reserve percentage.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-010-V328-REASONING-QA-ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-011",
+      "reason": "Replace arbitrary additional 20% loss with the stated percentage applied in the wrong direction.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-011",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-011-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-011-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-011-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+        "topicId": "math-y9-standard-form",
+        "provisionalConceptFamily": "packaging-tare-capacity",
+        "stem": "A shipment has total mass $9.6\\times10^5$ g, including $2\\times10^2$ identical empty boxes of mass $8\\times10^2$ g each. The contents are identical items of mass $4\\times10^1$ g. After removing 15% of the items, how many items remain? Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "2\\times10^{4}",
+            "errorPath": "Find the original number of items but omit the removal."
+          },
+          {
+            "id": "B",
+            "latex": "3\\times10^{3}",
+            "errorPath": "Report the number of items removed."
+          },
+          {
+            "id": "C",
+            "latex": "2.04\\times10^{4}",
+            "errorPath": "Use the entire shipment mass as the item mass, ignoring the boxes."
+          },
+          {
+            "id": "D",
+            "latex": "2.4\\times10^{4}",
+            "errorPath": "Ignore box mass and item removal."
+          },
+          {
+            "id": "E",
+            "latex": "1.7\\times10^{4}"
+          },
+          {
+            "id": "F",
+            "latex": "2.3\\times10^{4}",
+            "errorPath": "Increase the original 20000 items by 15% rather than removing 15%."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "1.7\\times10^{4}",
+        "workedSolutionSteps": [
+          "Empty boxes weigh (2×10^2)(8×10^2)=1.6×10^5 g.",
+          "Contents weigh 8×10^5 g, corresponding to 20000 items.",
+          "Keep 85%: 0.85×20000=1.7×10^4 items."
+        ],
+        "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+        "unverifiedTaughtSubskill": "Tare subtraction, unit mass and retention.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-011-V331-EDITORIAL-UPGRADE-QA-ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+      "reason": "Explicit volume error interval and correct limiting-value interpretation.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-014-ACADEMIC-REVIEW-20261124",
+        "replacesRevisionId": "LUX-MATH-Y9-STANDARD_FORM-014-REVIEW-2",
+        "topicId": "math-y9-standard-form",
+        "sourceDisposition": "PROPOSED_REPLACEMENT_OF_ROUTINE_ARITHMETIC_NUMERIC_ROTATION",
+        "stem": "A mineral sample's mass is recorded as $3.7\\times10^{3}$ g to 2 significant figures and its volume as $8.0\\times10^{2}$ cm³ to 2 significant figures. Find the limiting upper bound for its density in g/cm³, expressing the limiting value to 3 significant figures in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "4.63\\times10^{0}",
+            "errorPath": "Use both reported central measurements, 3700÷800, instead of their bounding values."
+          },
+          {
+            "id": "B",
+            "latex": "4.59\\times10^{0}",
+            "errorPath": "Take the lower bound of mass rather than the upper bound, while still using the lower volume bound."
+          },
+          {
+            "id": "C",
+            "latex": "4.66\\times10^{0}",
+            "errorPath": "Use upper bounds for both mass and volume rather than the lower volume bound."
+          },
+          {
+            "id": "D",
+            "latex": "4.69\\times10^{0}",
+            "errorPath": "Use the upper mass bound but keep the volume at its central reported value."
+          },
+          {
+            "id": "E",
+            "latex": "4.72\\times10^{0}"
+          },
+          {
+            "id": "F",
+            "latex": "4.75\\times10^{0}",
+            "errorPath": "Mistake the lower volume bound as 790 cm³ instead of 795 cm³."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "4.72\\times10^{0}",
+        "workedSolutionSteps": [
+          "Rounding mass $3.7\\times10^3$ g to two significant figures gives the interval $3.65\\times10^3\\le m<3.75\\times10^3$ g.",
+          "Volume recorded as 8.0×10^2 cm³ to two significant figures lies in 795≤V<805 cm³. The limiting upper density uses the upper mass bound 3750 g and lower volume bound 795 cm³.",
+          "The limiting quotient is 3750/795=4.716981... g/cm³, which rounds to 4.72×10^0 g/cm³ to three significant figures. The limiting value itself is not attained."
+        ],
+        "provisionalAOFocus": "AO2 candidate: distinguish bounds from central values and use monotonicity of a positive quotient.",
+        "unverifiedTaughtSubskill": "Upper/lower bounds, inequalities and measured quantities to 2sf must be established as taught at the student's current stage.",
+        "academicQA": "pending",
+        "gradeStatus": "PROVISIONAL_REASONING_NOT_G7PLUS_CERTIFIED",
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "independentStudentMisconceptionCertified": false,
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-014-V312-REASONING-CANDIDATE"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-019",
+      "reason": "Specify outer geometry so cavity fraction applies to the correct volume.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-019",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-019-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-019-REVIEW-2",
+        "topicId": "math-y9-standard-form",
+        "provisionalConceptFamily": "scale-model-volume-factor",
+        "stem": "A cubic model has outer volume $6.4\\times10^{-5}$ m³. A full-size object with a geometrically similar outer shape has every linear dimension 50 times that of the model. A hollow cavity occupies 12.5% of the full-size object's outer volume. Find the volume of solid material in m³. Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "8\\times10^{0}",
+            "errorPath": "Find the full-size outer volume but omit the cavity."
+          },
+          {
+            "id": "B",
+            "latex": "1\\times10^{0}",
+            "errorPath": "Report only the cavity volume."
+          },
+          {
+            "id": "C",
+            "latex": "7\\times10^{0}"
+          },
+          {
+            "id": "D",
+            "latex": "1.4\\times10^{-1}",
+            "errorPath": "Use an area scale factor 50² instead of volume scale 50³."
+          },
+          {
+            "id": "E",
+            "latex": "2.8\\times10^{-3}",
+            "errorPath": "Use a linear scale factor of 50 instead of 50³."
+          },
+          {
+            "id": "F",
+            "latex": "9\\times10^{0}",
+            "errorPath": "Add the cavity volume instead of subtracting it."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "7\\times10^{0}",
+        "workedSolutionSteps": [
+          "Volume scale factor is 50³=125000=1.25×10^5.",
+          "Outer volume is (6.4×10^-5)(1.25×10^5)=8 m³.",
+          "Solid fraction is 87.5%, so volume is 0.875×8=7 m³."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+        "unverifiedTaughtSubskill": "Geometric similarity in three dimensions and volume fraction.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-019-V328-REASONING-QA-ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-022",
+      "reason": "Correct stale scope annotation and replace a combined forward-operation error with an exact normalization distractor.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-022",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-022-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-022-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-022-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+        "topicId": "math-y9-standard-form",
+        "provisionalConceptFamily": "reverse-calibration-two-stage",
+        "stem": "A sensor first increases its true reading by 5%, then subtracts a fixed offset of $2\\times10^5$ units. Its final display is $8.2\\times10^6$ units. What was the true reading before both adjustments? Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "8.4\\times10^{6}",
+            "errorPath": "Report the display before the offset instead of reversing the increase."
+          },
+          {
+            "id": "B",
+            "latex": "8\\times10^{5}",
+            "errorPath": "Shift the correct exponent down by one."
+          },
+          {
+            "id": "C",
+            "latex": "7.98\\times10^{6}",
+            "errorPath": "Reduce the pre-offset display by 5% instead of dividing by 1.05."
+          },
+          {
+            "id": "D",
+            "latex": "8.2\\times10^{6}",
+            "errorPath": "Report the post-offset reading."
+          },
+          {
+            "id": "E",
+            "latex": "8.82\\times10^{6}",
+            "errorPath": "Apply another 5% increase instead of reversing it."
+          },
+          {
+            "id": "F",
+            "latex": "8\\times10^{6}"
+          }
+        ],
+        "correctOptionId": "F",
+        "correctAnswerLatex": "8\\times10^{6}",
+        "workedSolutionSteps": [
+          "Undo the fixed subtraction first: 8.2×10^6+2×10^5=8.4×10^6.",
+          "That value is 1.05 times the true reading.",
+          "True reading = 8.4×10^6/1.05=8×10^6."
+        ],
+        "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+        "unverifiedTaughtSubskill": "Reverse fixed offset and percentage increase in reverse order.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-022-V331-EDITORIAL-UPGRADE-QA-ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-023",
+      "reason": "Clarify unattained lower bound and replace distractor with actual interval width.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-023",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-023-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-023-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-023-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+        "topicId": "math-y9-standard-form",
+        "provisionalConceptFamily": "error-interval-difference-lower-bound",
+        "stem": "Two lengths are recorded as $7.2\\times10^5$ m and $4.8\\times10^5$ m, each correct to two significant figures. Find the lower bound of the first length minus the second length, in metres. Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "2.4\\times10^{5}",
+            "errorPath": "Subtract the recorded values without using error intervals."
+          },
+          {
+            "id": "B",
+            "latex": "2.5\\times10^{5}",
+            "errorPath": "Use the upper bound of the first length and lower bound of the second."
+          },
+          {
+            "id": "C",
+            "latex": "2.35\\times10^{5}",
+            "errorPath": "Use the lower bound of the first length but the recorded second length."
+          },
+          {
+            "id": "D",
+            "latex": "2.45\\times10^{5}",
+            "errorPath": "Use the recorded first length and lower bound of the second."
+          },
+          {
+            "id": "E",
+            "latex": "2.3\\times10^{5}"
+          },
+          {
+            "id": "F",
+            "latex": "2\\times10^{4}",
+            "errorPath": "Report the width of the possible difference interval, 250000−230000, rather than its lower bound."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "2.3\\times10^{5}",
+        "workedSolutionSteps": [
+          "The first length lies in [715000,725000) m; the second lies in [475000,485000) m.",
+          "The difference approaches its lower bound when the first length is 715000 and the second approaches 485000 from below.",
+          "The lower bound is 715000−485000=2.3×10^5 m. It is a limiting value, not attained under these half-open intervals."
+        ],
+        "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+        "unverifiedTaughtSubskill": "Error intervals and lower bound of a difference.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-023-V331-EDITORIAL-UPGRADE-QA-ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-029",
+      "reason": "Supply explicit divisibility evidence for maximality.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-029",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-029-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-029-REVIEW-2",
+        "originalSourceTemplateGroup": "S-THREE-TERM-ARITHMETIC",
+        "proposedDistinctReasoningDemand": "Solve scientific-notation quantity, integer loading range and exact particle divisibility simultaneously.",
+        "topicId": "math-y9-standard-form",
+        "stem": "A research facility has $8\\times10^8$ identical particles, gains $4\\times10^7$, and then loses $2\\times10^7$. It must divide the remaining particles **equally**, with a whole number of particles in each cartridge. Each cartridge must hold at least $1.5\\times10^7$ and at most $2\\times10^7$ particles. What is the **greatest possible integer number $N$ of cartridges**?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "54",
+            "errorPath": "Use the largest integer count below the capacity quotient 820 million divided by 15 million, ignoring that particles per cartridge must be an integer."
+          },
+          {
+            "id": "B",
+            "latex": "41",
+            "errorPath": "Choose the minimum permitted cartridge count from the maximum cartridge load, rather than the greatest possible count."
+          },
+          {
+            "id": "C",
+            "latex": "50"
+          },
+          {
+            "id": "D",
+            "latex": "56",
+            "errorPath": "Omit the actual loss of 2×10^7 particles: use 840 million, then divide by 15 million to claim 56 equal cartridges, which fits only the incorrect total."
+          },
+          {
+            "id": "E",
+            "latex": "55",
+            "errorPath": "Round the upper cartridge-count bound 820 million divided by 15 million upward, violating the minimum per-cartridge load."
+          },
+          {
+            "id": "F",
+            "latex": "40",
+            "errorPath": "Ignore both later changes of plus 4×10^7 and minus 2×10^7, use the initial 8×10^8 alone, and divide it by the maximum load 2×10^7 to report 40 cartridges instead of optimising the true net count."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "50",
+        "workedSolutionSteps": [
+          "The remaining particle count is $8\\times10^8+4\\times10^7-2\\times10^7=8.2\\times10^8=820000000$.",
+          "If there are $N$ equal cartridges, the load limit gives $1.5\\times10^7\\le\\frac{820000000}{N}\\le2\\times10^7$, so integer $N$ lies from $41$ through $54$.",
+          "Whole particles per cartridge require N to divide 820000000. For N=54,53,52,51 the remainders are respectively 10, 6, 40, 19; none divides it. N=50 divides exactly, giving 16400000 particles per cartridge within the interval. Hence 50 is greatest."
+        ],
+        "intendedAODemand": "AO3 modelling: interpret standard-form quantities, capacity inequalities and divisibility of indivisible particles.",
+        "exactTaughtScopeUnverified": "Exact teaching of discrete divisibility within contextual inequality and scientific notation is unverified.",
+        "conceptDistinctnessFromPriorCandidatesUnverified": true,
+        "empiricalDistractorVerification": false,
+        "independentGrade7PlusCertification": false,
+        "teacherTaughtConfirmed": false,
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-029-V316-HIGHER-REASONING-QA-ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-037",
+      "reason": "Replace arbitrary retention and divisor values with reproducible yield-direction and exponent errors.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-037",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-037-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-037-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-037-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+        "topicId": "math-y9-standard-form",
+        "provisionalConceptFamily": "successive-batch-yield-with-rework",
+        "stem": "A production line makes N batches of $2.5\\times10^4$ items. Exactly 12% are rejected. One quarter of the rejected items are successfully repaired and returned to stock. The final usable count is $6.825\\times10^8$. Find N. Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "2.73\\times10^{4}",
+            "errorPath": "Divide usable items by batch size but ignore both rejection and repair."
+          },
+          {
+            "id": "B",
+            "latex": "2.4843\\times10^{4}",
+            "errorPath": "Multiply 27300 (the count ignoring yield) by the 91% usable fraction instead of dividing by 0.91."
+          },
+          {
+            "id": "C",
+            "latex": "3\\times10^{4}"
+          },
+          {
+            "id": "D",
+            "latex": "2.275\\times10^{4}",
+            "errorPath": "Report usable items per batch rather than the original number of batches."
+          },
+          {
+            "id": "E",
+            "latex": "7.5\\times10^{3}",
+            "errorPath": "Report one quarter of the required batch count."
+          },
+          {
+            "id": "F",
+            "latex": "3\\times10^{3}",
+            "errorPath": "Find the correct batch count but shift its standard-form exponent down one place."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "3\\times10^{4}",
+        "workedSolutionSteps": [
+          "For each original item, 88% survive and 25% of the rejected 12% return, adding 3%.",
+          "The final usable fraction is 91%, so usable count is N(2.5×10^4)(0.91).",
+          "N=6.825×10^8/(2.275×10^4)=3×10^4."
+        ],
+        "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+        "unverifiedTaughtSubskill": "Recover a fraction of rejected output, then reverse the overall yield.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-037-V331-EDITORIAL-UPGRADE-QA-ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-039",
+      "reason": "Remove fractional record-count distractors so choices remain credible whole-number counts.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-039",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-039-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-039-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-STANDARD_FORM-039-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+        "topicId": "math-y9-standard-form",
+        "provisionalConceptFamily": "standard-form-compound-time-growth",
+        "stem": "A data store contains $3.125\\times10^8$ records. It increases by 20% in each of two months, then $5\\times10^7$ records are deleted. The remaining records are distributed equally across $4\\times10^4$ storage units. How many records per unit result? Give your answer in standard form.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "1\\times10^{4}"
+          },
+          {
+            "id": "B",
+            "latex": "1.125\\times10^{4}",
+            "errorPath": "Omit deletion: distribute the grown 4.5×10^8 records."
+          },
+          {
+            "id": "C",
+            "latex": "1.25\\times10^{4}",
+            "errorPath": "Add the deleted records to the grown count: (4.5×10^8+5×10^7)/(4×10^4)."
+          },
+          {
+            "id": "D",
+            "latex": "1.25\\times10^{3}",
+            "errorPath": "Distribute only the deleted records."
+          },
+          {
+            "id": "E",
+            "latex": "8.125\\times10^{3}",
+            "errorPath": "Apply only one 20% increase, then subtract the deleted records and divide: (3.125×10^8×1.2−5×10^7)/(4×10^4)."
+          },
+          {
+            "id": "F",
+            "latex": "1\\times10^{5}",
+            "errorPath": "Shift the correct exponent up by one."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "1\\times10^{4}",
+        "workedSolutionSteps": [
+          "Two 20% increases give 3.125×10^8×1.44=4.5×10^8 records.",
+          "After deletion, 4×10^8 records remain.",
+          "Divide by 4×10^4 to get 1×10^4 per unit."
+        ],
+        "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+        "unverifiedTaughtSubskill": "Compound growth, fixed subtraction and distribution.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-039-V331-EDITORIAL-UPGRADE-QA-ONLY"
+      }
+    }
+  ]
+}

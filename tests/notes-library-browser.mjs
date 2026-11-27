@@ -21,7 +21,9 @@ for(const [name,engine,viewport] of [
    status:200,contentType:'application/pdf',body:'%PDF-1.4\n%%EOF\n',
    headers:{'Access-Control-Allow-Origin':'*'}}));
  await page.goto(BASE+'/notes/',{waitUntil:'domcontentloaded'});
- await page.waitForFunction(()=>document.querySelector('#status')?.textContent?.includes('7 / 96 Notes available'));
+ // Six on-site Latin image PDFs + one on-site HTML reading edition + the one
+ // mocked French Cloudflare PDF = eight available resources, out of 97 entries.
+ await page.waitForFunction(()=>document.querySelector('#status')?.textContent?.includes('8 / 97 Notes available'));
  assert.equal(await page.locator('#yearSelect').inputValue(),'year9');
  assert.equal(await page.locator('#subjectScreen').isVisible(),true);
  assert.equal(await page.locator('#detailScreen').isVisible(),false);
@@ -94,10 +96,11 @@ for(const [name,engine,viewport] of [
  await page.locator('.subject-card[data-subject="latin"]').click();
  await page.waitForURL(/#year9\/latin/);
  await page.locator('#detailScreen').waitFor({state:'visible'});
- assert.equal(await page.locator('.note-row').count(),13,'seven topical Latin notes plus six vocabulary chapters');
+ assert.equal(await page.locator('.note-row').count(),14,'six Latin topics, six vocabulary chapters, one named topic and one HTML reading edition');
  assert.equal(await page.locator('.topic-section[data-group="Topics"] .note-row').count(),6);
  assert.equal(await page.locator('.topic-section[data-group="Vocabulary Chapters"] .note-row').count(),6);
  assert.equal(await page.locator('.topic-section[data-group="Named Topics"] .note-row').count(),1);
+ assert.equal(await page.locator('.topic-section[data-group="Test Revision"] .note-row').count(),1,'preserve ten-page Latin HTML reading edition');
  assert.equal(await page.locator('.topic-section[data-group="Topics"] .note-row').first().locator('.row-topic').textContent(),'Topic 1');
  assert.equal(await page.locator('.topic-section[data-group="Topics"] .note-row').first().locator('.row-name').textContent(),'Sum & Possum');
  assert.equal(await page.locator('.note-row .row-name').filter({hasText:'ImageGenerated'}).count(),0,'Raw production filenames must be hidden');
@@ -115,6 +118,10 @@ for(const [name,engine,viewport] of [
  assert.equal(await page.locator('#viewer').isVisible(),true);
  assert.equal(new URL(await page.locator('#openTab').getAttribute('href')).searchParams.get('key'),
    'year9/latin/Latin_Topic_3_Adjectives_One_Image_Per_Page.pdf');
+ await page.locator('#closeReader').click();
+ await page.locator('.topic-section[data-group="Test Revision"] .note-row').click();
+ assert.equal(await page.locator('#viewer').isVisible(),true);
+ assert.equal(await page.locator('#openTab').getAttribute('href'),'/notes/year9-latin-key-revision-20261120/');
  await page.locator('#closeReader').click();
  await page.locator('.note-row',{hasText:'Latin Vocabulary — Chapter 6'}).click();
  assert.equal(await page.locator('#viewer').isVisible(),true);

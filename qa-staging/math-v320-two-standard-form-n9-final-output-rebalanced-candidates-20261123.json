@@ -1,0 +1,150 @@
+{
+  "kind": "V320_TWO_STANDARD_FORM_N9_EXPLICIT_OUTPUT_REBALANCED_DRAFTS_NO_CREDIT",
+  "date": "2026-11-23",
+  "pr": 306,
+  "branch": "feature/daily-tasks-v3-20261122",
+  "canonicalBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "sourceBankUnchanged": true,
+  "priorV318PackPath": "qa-staging/math-v318-three-lower-demand-indices-standard-replacements-20261123.json",
+  "priorV318BlobSha": "8cc0e489be650f8445619d8e7f0b55b0cc996bef",
+  "topicRiskEvidencePath": "qa-staging/math-v319-aqa-2024-higher-comparator-three-topic-content-audit-20261123.json",
+  "topicRiskEvidenceBlobSha": "c1e5089da11284ee0c8aaf40e14a5b8c90f942b6",
+  "externalN9Spec": "https://www.aqa.org.uk/subjects/mathematics/gcse/mathematics-8300/specification/subject-content/3.1-number",
+  "totals": {
+    "rebalanced": 2,
+    "options": 12,
+    "wrongRationales": 10,
+    "explicitN9FinalNormalization": 2,
+    "grade7PlusCertified": 0,
+    "academicApproved": 0,
+    "dailyEligible": 0,
+    "masteryEligible": 0
+  },
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-009",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-009-V320-TOPIC-REBALANCE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-009-REVIEW-2",
+      "replacesPreviousCandidateRevisionId": "LUX-MATH-Y9-STANDARD_FORM-009-V318-CONSTRAINT-TRANSFER-DRAFT-20261123",
+      "topicId": "math-y9-standard-form",
+      "oldLowerDemandVerdict": "LOWER",
+      "newUnverifiedReasoningDemand": "Requires making a feasible integer model with two unequal safe capacities and competing costs, demonstrating why cheaper mixes fail, not just dividing a known mass by one container capacity.",
+      "stem": "A factory makes $6\\times10^5$ g of material and discards $3\\times10^4$ g. It can use at most **5 containers**. A type A container costs £40, holds at most $1.2\\times10^5$ g, and must remain **15% empty**; a type B costs £65, holds at most $1.5\\times10^5$ g, and must remain **10% empty**. Empty percentages are minimums, and all remaining material must be packed, but its distribution among containers may vary. Find the **lowest total cost**. Give $(a,b,C,U)$, where $a,b$ are the numbers of type A and B containers, $C$ is the cost in pounds, and $U$ is the **unused nominal container capacity in grams**. Express $U$ in standard form $A\\times10^n$ where $1\\le A<10$ and integer $n$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "(4,1,225,6\\times10^4)",
+          "errorPath": "Choose 4 A and 1 B: nominal unused capacity is 630000−570000=60000g and £225 cost, but usable safe capacity is only 543000g, below what must be packed."
+        },
+        {
+          "id": "B",
+          "latex": "(5,0,200,3\\times10^4)",
+          "errorPath": "Choose 5 A: nominal spare 600000−570000=30000g and cost £200, but 15% safe empty requirement limits usable load to 510000g."
+        },
+        {
+          "id": "C",
+          "latex": "(3,2,250,6\\times10^3)",
+          "errorPath": "Find correct cheapest mix of 3 A, 2 B, but calculate only unused safe loading capacity 576000−570000=6000g instead of unused full nominal volume."
+        },
+        {
+          "id": "D",
+          "latex": "(3,2,250,9\\times10^4)"
+        },
+        {
+          "id": "E",
+          "latex": "(4,2,290,2.1\\times10^5)",
+          "errorPath": "Use 4 A plus 2 B, costing £290, nominal spare 780000−570000=210000g, but that is six containers, above the maximum of five."
+        },
+        {
+          "id": "F",
+          "latex": "(2,3,275,1.2\\times10^5)",
+          "errorPath": "Use a feasible 2 A plus 3 B mixture: nominal spare 690000−570000=120000g but cost £275, not cheapest £250."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "(3,2,250,9\\times10^4)",
+      "workedSolutionSteps": [
+        "The mass retained is $6\\times10^5-3\\times10^4=5.7\\times10^5$ g. Safe usable capacities are $0.85(1.2\\times10^5)=1.02\\times10^5$ g per A and $0.90(1.5\\times10^5)=1.35\\times10^5$ g per B.",
+        "With at most 5, feasibility requires $1.02\\times10^5a+1.35\\times10^5b\\ge5.7\\times10^5$ and $a+b\\le5$. Even 4 B cannot hold all mass. The five-container feasible costs are £250, £275, £300, £325; minimum cost £250 is $a=3,b=2$.",
+        "Unused **nominal**, not safe, capacity is $U=(3\\times1.2\\times10^5+2\\times1.5\\times10^5)-5.7\\times10^5=9\\times10^4$ g. Answer $(a,b,C,U)=(3,2,250,9\\times10^4)$."
+      ],
+      "exactTaughtSubskillUnverified": "Mixed-integer feasibility, capacity headroom and cost optimisation need independent taught-curriculum check.",
+      "reviewClassification": "AO2_AO3_CANDIDATE_NOT_CERTIFIED_G7_PLUS",
+      "academicQA": "pending",
+      "independentGrade7PlusCertification": false,
+      "teacherTaughtConfirmed": false,
+      "empiricalStudentMisconceptionEvidence": false,
+      "independentMasteryConceptApproved": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "scoringWritesAllowed": false,
+      "N9NewEvidence": "Scientific quantity normalization 9×10^4 grams is explicitly assessed as final value.",
+      "topicAlignmentReview": "REBALANCED_TO_EXPLICIT_N9_FINAL_STANDARD_FORM_PENDING_INDEPENDENT_REVIEW",
+      "grade7PlusCertified": false,
+      "empiricalWrongAnswerEvidence": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-025",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-025-V320-TOPIC-REBALANCE-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-025-REVIEW-2",
+      "replacesPreviousCandidateRevisionId": "LUX-MATH-Y9-STANDARD_FORM-025-V318-CONSTRAINT-TRANSFER-DRAFT-20261123",
+      "topicId": "math-y9-standard-form",
+      "oldLowerDemandVerdict": "LOWER",
+      "newUnverifiedReasoningDemand": "Requires an inverse concentration model, allowable discrete volume selection and unsplittable whole-pack count under a maximum-pack condition, rather than following a prescribed chronological arithmetic chain.",
+      "stem": "A chamber initially has volume $2.5\\times10^{-3}$ m$^3$ and $4\\times10^3$ particles per cm$^3$. A filter removes **25%** of the particles. The chamber is then compressed to one of the volumes $1.5$, $1.75$, $2$, or $2.25$, each multiplied by $10^{-3}$ m$^3$. A technician may add at most **3 sealed packs**, each containing $1.5\\times10^6$ particles; a pack must be added whole. There is no further loss. The final concentration must be **exactly** $6\\times10^3$ particles per cm$^3$. Which available volume is **greatest** while meeting all these conditions? Give $(v,p,T)$, where the volume is $v\\times10^{-3}$ m$^3$, $p$ is the number of whole packs, and $T$ is the final number of particles, expressed in standard form $A\\times10^n$ where $1\\le A<10$ and integer $n$. ($1$ m$^3=10^6$ cm$^3$.)",
+      "options": [
+        {
+          "id": "A",
+          "latex": "(2.25,3,1.2\\times10^7)",
+          "errorPath": "At 2250cm³ and 12 million particles, the resulting concentration is 5333.33/cm³ rather than exactly the specified 6000/cm³."
+        },
+        {
+          "id": "B",
+          "latex": "(2.25,4,1.35\\times10^7)",
+          "errorPath": "Four sealed packs give 13.5 million particles and 6000/cm³ for 2250cm³, but exceed the maximum of three packs."
+        },
+        {
+          "id": "C",
+          "latex": "(2,3,1.2\\times10^7)"
+        },
+        {
+          "id": "D",
+          "latex": "(1.75,2,1.05\\times10^7)",
+          "errorPath": "Two packs in 1750cm³ give 10.5 million particles and the correct 6000/cm³, but 1750cm³ is not the greatest feasible offered volume."
+        },
+        {
+          "id": "E",
+          "latex": "(2,2,1.05\\times10^7)",
+          "errorPath": "Two packs give exactly 10.5 million particles, but in 2000cm³ they give 5250/cm³ not the required 6000/cm³."
+        },
+        {
+          "id": "F",
+          "latex": "(2,3,1.2\\times10^6)",
+          "errorPath": "Keep the correct largest-volume and three-pack decision, but incorrectly normalize 12×10^6 by reducing 12 to 1.2 without increasing the exponent from 6 to 7. This gives 1.2×10^6, ten times too small."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "(2,3,1.2\\times10^7)",
+      "workedSolutionSteps": [
+        "Initial count $(2.5\\times10^{-3})(10^6)(4\\times10^3)=1\\times10^7$. After 25% removal, $7.5\\times10^6$ particles remain.",
+        "With $p$ whole packs, $T=7.5\\times10^6+p(1.5\\times10^6)$. In a chamber of $v\\times10^{-3}$ m$^3$, required $T=(6\\times10^3)(1000v)=6\\times10^6v$. Thus $v=1.25+0.25p$.",
+        "For $p=0,1,2,3$, candidate $v$ values are $1.25,1.5,1.75,2$. The greatest offered feasible volume is $v=2,p=3$. Then $T=7.5\\times10^6+3(1.5\\times10^6)=12\\times10^6=1.2\\times10^7$ particles, in normalized standard form."
+      ],
+      "exactTaughtSubskillUnverified": "Particle-concentration conservation, constrained integer packs, model choice and volume conversion require actual taught-skill verification.",
+      "reviewClassification": "AO2_AO3_CANDIDATE_NOT_CERTIFIED_G7_PLUS",
+      "academicQA": "pending",
+      "independentGrade7PlusCertification": false,
+      "teacherTaughtConfirmed": false,
+      "empiricalStudentMisconceptionEvidence": false,
+      "independentMasteryConceptApproved": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "scoringWritesAllowed": false,
+      "N9NewEvidence": "Final count 12×10^6 normalized as 1.2×10^7 particles is explicitly assessed.",
+      "topicAlignmentReview": "REBALANCED_TO_EXPLICIT_N9_FINAL_STANDARD_FORM_PENDING_INDEPENDENT_REVIEW",
+      "grade7PlusCertified": false,
+      "empiricalWrongAnswerEvidence": false
+    }
+  ],
+  "qaEditorialCorrection": "STANDARD_FORM-025 now has two options with the identical correct (v,p)=(2,3) and different final T, so a solver must inspect scientific-notation calculation rather than select solely on v,p."
+}

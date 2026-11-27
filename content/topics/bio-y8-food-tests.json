@@ -100,7 +100,26 @@
         "markPoints": [
           "the reagent used to test for starch"
         ],
-        "modelAnswer": "the reagent used to test for starch"
+        "modelAnswer": "the reagent used to test for starch",
+        "markPointEvidence": [
+          {
+            "all": [
+              "\\bstarch\\b",
+              "\\b(?:test\\w*|detect\\w*|reagent)\\b"
+            ],
+            "notAnywhere": [
+              "\\bbenedict(?:['’]?s)?\\s+(?:solution|reagent|test)?\\s*(?:is\\s+(?:a\\s+)?(?:starch\\s+test|for\\s+starch)|(?:tests?|detects?)\\s+(?:for\\s+)?starch)\\b",
+              "\\bbiuret\\s+(?:solution|reagent|test)?\\s*(?:is\\s+(?:a\\s+)?(?:starch\\s+test|for\\s+starch)|(?:tests?|detects?)\\s+(?:for\\s+)?starch)\\b"
+            ]
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "iodine tests for starch",
+            "iodine detects starch"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {
         "text": "iodine solution"
@@ -217,23 +236,43 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "the reagent heated in a water bath to test for reducing sugar"
+          "the reagent used to detect reducing sugar"
         ],
-        "modelAnswer": "the reagent heated in a water bath to test for reducing sugar"
+        "modelAnswer": "the reagent used to detect reducing sugar",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:reduc\\w*\\s+sugar|glucose|sugars?)",
+              "(?:detect|test|reagent|used|benedict)"
+            ],
+            "notAnywhere": [
+              "\\b(?:iodine|biuret)\\b.{0,25}\\b(?:sugar|glucose)\\b",
+              "\\bbrick[\\s-]*red\\b[^.!?;]{0,55}\\b(?:reducing\\s+)?sugars?\\s+(?:is\\s+)?(?:absent|not\\s+present|not\\s+detected)\\b",
+              "\\bbrick[\\s-]*red\\b[^.!?;]{0,50}\\b(?:no|not|absent|negative)\\b[^.!?;]{0,20}\\b(?:reducing\\s+)?sugars?\\b",
+              "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b"
+            ]
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "Benedict's solution tests for reducing sugars"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {
         "text": "Benedict's solution"
       },
       "feedback": {
-        "short": "Benedict's solution: the reagent heated in a water bath to test for reducing sugar.",
+        "short": "Benedict's solution: the reagent used to detect reducing sugar.",
         "steps": [
           "Read the command word.",
           "Retrieve the scientific term and its defining feature.",
-          "Check the precise source statement: the reagent heated in a water bath to test for reducing sugar.",
+          "Check the precise source statement: the reagent used to detect reducing sugar.",
           "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
         ],
         "commonError": "Using an everyday description without the defining scientific feature.",
-        "remember": "Benedict's solution = the reagent heated in a water bath to test for reducing sugar"
+        "remember": "Benedict's solution = the reagent used to detect reducing sugar"
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -338,7 +377,26 @@
         "markPoints": [
           "the reagent used to test for protein"
         ],
-        "modelAnswer": "the reagent used to test for protein"
+        "modelAnswer": "the reagent used to test for protein",
+        "markPointEvidence": [
+          {
+            "all": [
+              "\\bproteins?\\b",
+              "\\b(?:test\\w*|detect\\w*|reagent|positive)\\b"
+            ],
+            "notAnywhere": [
+              "\\biodine\\s+(?:solution|reagent|test)?\\s*(?:is\\s+(?:a\\s+)?(?:protein\\s+test|for\\s+proteins?)|(?:tests?|detects?)\\s+(?:for\\s+)?proteins?)\\b",
+              "\\bbenedict(?:['’]?s)?\\s+(?:solution|reagent|test)?\\s*(?:is\\s+(?:a\\s+)?(?:protein\\s+test|for\\s+proteins?)|(?:tests?|detects?)\\s+(?:for\\s+)?proteins?)\\b"
+            ]
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "Biuret detects protein",
+            "Biuret tests for proteins"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {
         "text": "Biuret solution"
@@ -456,7 +514,24 @@
         "markPoints": [
           "the lipid test in which ethanol is shaken with the sample before water is added"
         ],
-        "modelAnswer": "the lipid test in which ethanol is shaken with the sample before water is added"
+        "modelAnswer": "the lipid test in which ethanol is shaken with the sample before water is added",
+        "markPointEvidence": [
+          {
+            "all": [
+              "ethanol",
+              "(?:emulsion|lipid|fat)"
+            ],
+            "notAnywhere": [
+              "\\bethanol\\b[^.!?;]{0,40}\\b(?:must|should|needs?\\s+to)\\s+(?:be\\s+)?(?:heat|boil|warm)\\w*\\b"
+            ]
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "the ethanol test is used for fats"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {
         "text": "ethanol emulsion test"
@@ -573,7 +648,22 @@
         "markPoints": [
           "the positive colour for starch after iodine is added"
         ],
-        "modelAnswer": "the positive colour for starch after iodine is added"
+        "modelAnswer": "the positive colour for starch after iodine is added",
+        "markPointEvidence": [
+          {
+            "all": [
+              "starch",
+              "(?:iodine|blue[\\s-]*black|colour|color|positive)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "blue-black shows that starch is present"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {
         "text": "blue-black"
@@ -692,7 +782,25 @@
         "markPoints": [
           "a strong positive Benedict's result for reducing sugar after heating"
         ],
-        "modelAnswer": "a strong positive Benedict's result for reducing sugar after heating"
+        "modelAnswer": "a strong positive Benedict's result for reducing sugar after heating",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:reducing\\s+sugar|glucose|benedict)",
+              "(?:positive|red|heating|heat|sugar)"
+            ],
+            "notAnywhere": [
+              "\\bbrick[\\s-]*red\\b[^.!?;]{0,55}\\b(?:reducing\\s+)?sugars?\\s+(?:is\\s+)?(?:absent|not\\s+present|not\\s+detected)\\b",
+              "\\bbrick[\\s-]*red\\b[^.!?;]{0,50}\\b(?:no|not|absent|negative)\\b[^.!?;]{0,20}\\b(?:reducing\\s+)?sugars?\\b"
+            ]
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "brick red is a positive result for reducing sugar"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {
         "text": "brick-red"
@@ -811,7 +919,22 @@
         "markPoints": [
           "the positive colour produced by protein in the Biuret test"
         ],
-        "modelAnswer": "the positive colour produced by protein in the Biuret test"
+        "modelAnswer": "the positive colour produced by protein in the Biuret test",
+        "markPointEvidence": [
+          {
+            "all": [
+              "protein",
+              "(?:biuret|positive|lilac|purple|violet|colour|color)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "purple means the Biuret test detected protein"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {
         "text": "lilac or purple"
@@ -930,7 +1053,22 @@
         "markPoints": [
           "the positive result for lipid in the ethanol emulsion test"
         ],
-        "modelAnswer": "the positive result for lipid in the ethanol emulsion test"
+        "modelAnswer": "the positive result for lipid in the ethanol emulsion test",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:lipid|fat)",
+              "(?:ethanol|emulsion|cloudy|milky|white|positive)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "a milky white emulsion indicates fat"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {
         "text": "cloudy white emulsion"
@@ -959,14 +1097,14 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mc_single",
-      "prompt": "Which scientific term matches this description: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol?",
+      "prompt": "Which scientific term matches this description: a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating?",
       "difficulty": 1,
       "status": "enabled",
       "options": [
-        "lipid",
-        "biotic factor",
+        "Bunsen burner",
         "water bath",
-        "validity"
+        "test-tube rack",
+        "heatproof mat"
       ],
       "answer": {
         "mode": "choice",
@@ -975,18 +1113,18 @@
         ]
       },
       "stimulus": {
-        "text": "a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+        "text": "a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating"
       },
       "feedback": {
-        "short": "water bath: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+        "short": "water bath: a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating.",
         "steps": [
           "Read the command word.",
           "Retrieve the scientific term and its defining feature.",
-          "Check the precise source statement: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+          "Check the precise source statement: a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating.",
           "Identify the defining feature before comparing the options. Select the one option that satisfies every part of the prompt."
         ],
         "commonError": "Using an everyday description without the defining scientific feature.",
-        "remember": "water bath = a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+        "remember": "water bath = a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating"
       },
       "task": {
         "label": "CHOOSE THE ANSWER",
@@ -1001,7 +1139,7 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "typed_exact",
-      "prompt": "Name the scientific term: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+      "prompt": "Name the scientific term: a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating.",
       "difficulty": 1,
       "status": "enabled",
       "options": null,
@@ -1012,18 +1150,18 @@
         ]
       },
       "stimulus": {
-        "text": "a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+        "text": "a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating"
       },
       "feedback": {
-        "short": "water bath: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+        "short": "water bath: a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating.",
         "steps": [
           "Read the command word.",
           "Retrieve the scientific term and its defining feature.",
-          "Check the precise source statement: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+          "Check the precise source statement: a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating.",
           "Give the complete requested form or meaning. Equivalent wording is accepted only when it preserves every required grammatical or scientific detail."
         ],
         "commonError": "Using an everyday description without the defining scientific feature.",
-        "remember": "water bath = a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+        "remember": "water bath = a safe, controlled way to heat the Benedict's test mixture; the ethanol emulsion test does not require heating"
       },
       "task": {
         "label": "TYPE THE ANSWER",
@@ -1045,23 +1183,38 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+          "a safe, controlled method for heating Benedict's test mixture indirectly"
         ],
-        "modelAnswer": "a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+        "modelAnswer": "a safe, controlled method for heating Benedict's test mixture indirectly",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:water\\s*bath|indirect|controlled|safe)",
+              "(?:benedict|heat|warm)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "heat Benedict's reagent indirectly in a water bath"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {
         "text": "water bath"
       },
       "feedback": {
-        "short": "water bath: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+        "short": "water bath: a safe, controlled method for heating Benedict's test mixture indirectly.",
         "steps": [
           "Read the command word.",
           "Retrieve the scientific term and its defining feature.",
-          "Check the precise source statement: a safer, even way to heat Benedict's test and the required indirect heating method for ethanol.",
+          "Check the precise source statement: a safe, controlled method for heating Benedict's test mixture indirectly.",
           "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once."
         ],
         "commonError": "Using an everyday description without the defining scientific feature.",
-        "remember": "water bath = a safer, even way to heat Benedict's test and the required indirect heating method for ethanol"
+        "remember": "water bath = a safe, controlled method for heating Benedict's test mixture indirectly"
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -1187,7 +1340,41 @@
           "heat in a hot-water bath",
           "positive result changes from blue towards green, yellow, orange or brick-red"
         ],
-        "totalMarks": 3
+        "totalMarks": 3,
+        "markPointEvidence": [
+          {
+            "all": [
+              "\\b(?:add|mix|put|pour|pipette|use)\\b",
+              "\\bbenedict\\w*\\b"
+            ]
+          },
+          {
+            "all": [
+              "\\b(?:heat|warm|hot|boil)\\b",
+              "\\bwater\\s*bath\\b"
+            ]
+          },
+          {
+            "all": [
+              "\\b(?:green|yellow|orange|red|brick)\\b"
+            ]
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "mix Benedict's reagent with the sample",
+            "add Benedict's reagent to the food"
+          ],
+          [
+            "warm the mixture in a water bath",
+            "heat it in a hot water bath"
+          ],
+          [
+            "turns orange",
+            "a green yellow orange or brick red colour forms"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -1306,29 +1493,53 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mark_points",
-      "prompt": "Explain why ethanol must be heated in a water bath rather than over a naked flame.",
+      "prompt": "Explain why the ethanol emulsion test must be carried out away from naked flames, and why heating is unnecessary.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "ethanol is highly flammable",
-          "a water bath avoids direct ignition / is safer"
+          "ethanol is highly flammable, so it must be kept away from naked flames",
+          "heating is not needed for the ethanol emulsion test"
         ],
-        "totalMarks": 2
+        "totalMarks": 2,
+        "markPointEvidence": [
+          {
+            "all": [
+              "ethanol",
+              "(?:flammable|ignite|fire|flame|burn)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:ethanol|emulsion)",
+              "(?:no\\s+heat|not\\s+heat|need\\s+not\\s+be\\s+heat|without\\s+heat|unheated|heating\\s+is\\s+not\\s+needed|does\\s+not\\s+need\\s+heat|no\\s+heating)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "ethanol is flammable so keep it away from fire"
+          ],
+          [
+            "the ethanol emulsion test does not need heating"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
-        "short": "ethanol is highly flammable; a water bath avoids direct ignition / is safer",
+        "short": "Ethanol is highly flammable and must be kept away from naked flames. The emulsion test uses ethanol followed by water; no heating is needed.",
         "steps": [
-          "ethanol is highly flammable",
-          "a water bath avoids direct ignition / is safer",
-          "Use the number of marks to judge the number of distinct points needed. Credit each scientifically or grammatically correct point once.",
-          "Suggested answer: ethanol is highly flammable; a water bath avoids direct ignition / is safer"
+          "Ethanol is highly flammable: avoid naked flames and other ignition sources.",
+          "Shake the food sample with ethanol, then add water; a cloudy white emulsion indicates lipid. Heating is not required.",
+          "Award each separate scientific mark point once."
         ],
-        "commonError": "Answering generally without covering every requested part or mark point.",
-        "remember": "ethanol is highly flammable; a water bath avoids direct ignition / is safer"
+        "commonError": "Confusing heating the Benedict's reducing-sugar test with the unheated ethanol emulsion test.",
+        "remember": "Ethanol emulsion test: shake with ethanol, then add water; look for a cloudy white emulsion. Keep ethanol away from naked flames; do not heat."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -3782,18 +3993,44 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "reagents can interfere with one another",
-          "each test needs its own uncontaminated sample"
+          "using separate portions prevents reagent from one test interfering with the other",
+          "iodine and Benedict's tests use different reagents and conditions"
         ],
         "totalMarks": 2,
-        "modelAnswer": "reagents can interfere with one another; each test needs its own uncontaminated sample"
+        "modelAnswer": "using separate portions prevents reagent from one test interfering with the other; iodine and Benedict's tests use different reagents and conditions",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:separat|reagent|portion)",
+              "(?:interfer|contamin|mix)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:iodine|starch)",
+              "(?:benedict|sugar)",
+              "(?:different|heat|unheated|condition|reagent)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "use separate portions to avoid the two reagents mixing"
+          ],
+          [
+            "Benedict's sugar test requires heating whereas the iodine starch test does not"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
-        "short": "reagents can interfere with one another; each test needs its own uncontaminated sample",
+        "short": "using separate portions prevents reagent from one test interfering with the other; iodine and Benedict's tests use different reagents and conditions",
         "steps": [
-          "reagents can interfere with one another",
-          "each test needs its own uncontaminated sample"
+          "using separate portions prevents reagent from one test interfering with the other",
+          "iodine and Benedict's tests use different reagents and conditions"
         ],
         "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
         "remember": "Use the observations, not guesses, to identify food groups."
@@ -3822,7 +4059,33 @@
           "use the same measured volume of sample and iodine"
         ],
         "totalMarks": 2,
-        "modelAnswer": "repeat the tests using fresh samples; use the same measured volume of sample and iodine"
+        "modelAnswer": "repeat the tests using fresh samples; use the same measured volume of sample and iodine",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:repeat|redo|retest)",
+              "(?:fresh|clean|new|sample)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:same|equal|measure|control)",
+              "(?:volum|amount|quantit)",
+              "(?:iodine|sample|reagent|food)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "repeat the iodine test with a fresh food sample"
+          ],
+          [
+            "keep the iodine and food sample volumes the same"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -3858,7 +4121,32 @@
           "without heating the expected positive colour change may not occur"
         ],
         "totalMarks": 2,
-        "modelAnswer": "Benedict's reducing-sugar test requires heating; without heating the expected positive colour change may not occur"
+        "modelAnswer": "Benedict's reducing-sugar test requires heating; without heating the expected positive colour change may not occur",
+        "markPointEvidence": [
+          {
+            "all": [
+              "benedict",
+              "(?:heat|hot|warm|boil|water\\s*bath)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:no\\s+heat|cold|without\\s+heat|lack\\s+of\\s+heat|unheated)",
+              "(?:blue|colour|color|change|false\\s+negative|positive)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "Benedict's reagent must be heated for the test to work"
+          ],
+          [
+            "if left cold the sample may not change colour despite containing sugar"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -3894,7 +4182,32 @@
           "no reducing sugar was detected"
         ],
         "totalMarks": 2,
-        "modelAnswer": "Benedict's solution remains blue; no reducing sugar was detected"
+        "modelAnswer": "Benedict's solution remains blue; no reducing sugar was detected",
+        "markPointEvidence": [
+          {
+            "all": [
+              "\\bblue\\b"
+            ]
+          },
+          {
+            "all": [
+              "\\b(?:reduc\\w*\\s+sugar|glucose)\\b",
+              "\\b(?:no|not|absent|negative|undetected|none)\\b"
+            ]
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "the solution stays blue",
+            "Benedict's reagent is still blue"
+          ],
+          [
+            "no reducing sugar was found",
+            "reducing sugar is absent",
+            "negative for reducing sugar"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -3926,17 +4239,43 @@
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "a colour change from blue indicates a positive test",
+          "heated Benedict's solution changes from blue to orange",
           "reducing sugar is present"
         ],
         "totalMarks": 2,
-        "modelAnswer": "a colour change from blue indicates a positive test; reducing sugar is present"
+        "modelAnswer": "heated Benedict's solution changes from blue to orange; reducing sugar is present",
+        "markPointEvidence": [
+          {
+            "all": [
+              "benedict",
+              "(?:blue|orange|colour|color)",
+              "(?:orange|change)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:reducing\\s+sugar|glucose)",
+              "(?:present|contain|detect|positive|found)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "the heated Benedict's solution changed from blue to orange"
+          ],
+          [
+            "reducing sugar was detected"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
-        "short": "a colour change from blue indicates a positive test; reducing sugar is present",
+        "short": "heated Benedict's solution changes from blue to orange; reducing sugar is present",
         "steps": [
-          "a colour change from blue indicates a positive test",
+          "heated Benedict's solution changes from blue to orange",
           "reducing sugar is present"
         ],
         "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
@@ -3966,7 +4305,32 @@
           "it should stay blue to check for contamination"
         ],
         "totalMarks": 2,
-        "modelAnswer": "use water as a negative control; it should stay blue to check for contamination"
+        "modelAnswer": "use water as a negative control; it should stay blue to check for contamination",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:water|distilled)",
+              "(?:negative|control|blank)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:blue|unchanged|no\\s+change)",
+              "(?:contamin|control|protein|stay|remain)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "distilled water can be used as a negative control"
+          ],
+          [
+            "the control should remain blue, showing no contamination"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4002,7 +4366,31 @@
           "iodine should turn blue-black"
         ],
         "totalMarks": 2,
-        "modelAnswer": "test a known starch solution; iodine should turn blue-black"
+        "modelAnswer": "test a known starch solution; iodine should turn blue-black",
+        "markPointEvidence": [
+          {
+            "all": [
+              "\\b(?:known|control)\\b",
+              "\\bstarch\\b"
+            ]
+          },
+          {
+            "all": [
+              "\\bblue[\\s-]*black\\b"
+            ]
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "use a known sample containing starch",
+            "use starch as the positive control"
+          ],
+          [
+            "iodine turns blue-black",
+            "it should go blue-black"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4038,7 +4426,33 @@
           "keep the heating time or water bath temperature the same"
         ],
         "totalMarks": 2,
-        "modelAnswer": "use the same volume or mass of food extract; keep the heating time or water bath temperature the same"
+        "modelAnswer": "use the same volume or mass of food extract; keep the heating time or water bath temperature the same",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:same|equal|keep|control|constant)",
+              "(?:volum|mass|amount|size)",
+              "(?:sample|extract|food)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:same|equal|constant|control|keep)",
+              "(?:heat|temperature|time|water\\s*bath)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "use equal amounts of food extract each time"
+          ],
+          [
+            "keep the water bath temperature or heating time constant"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4074,7 +4488,32 @@
           "contamination can cause a false positive or unreliable result"
         ],
         "totalMarks": 2,
-        "modelAnswer": "reagent or food from one sample could contaminate another; contamination can cause a false positive or unreliable result"
+        "modelAnswer": "reagent or food from one sample could contaminate another; contamination can cause a false positive or unreliable result",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:pipette|reagent|sample|food|tube)",
+              "(?:contamin|transfer|carry|mix|leftover)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:contamin|false|unreliab|incorrect|wrong)",
+              "(?:positive|result|conclusion|test)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "residue in the pipette can transfer into another sample"
+          ],
+          [
+            "the contamination might produce a false positive result"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4107,17 +4546,44 @@
         "mode": "mark_points",
         "markPoints": [
           "shake the food sample with ethanol",
-          "add water and look for a cloudy white emulsion"
+          "add water after shaking the sample with ethanol"
         ],
         "totalMarks": 2,
-        "modelAnswer": "shake the food sample with ethanol; add water and look for a cloudy white emulsion"
+        "modelAnswer": "shake the food sample with ethanol; add water after shaking the sample with ethanol",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:shake|mix|dissolv|agitat)",
+              "(?:food|sample|lipid|fat)",
+              "ethanol"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:add|pour|introduc|mix)",
+              "water",
+              "(?:ethanol|after|then|first)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "mix the food sample with ethanol first"
+          ],
+          [
+            "after mixing with ethanol add water"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
-        "short": "shake the food sample with ethanol; add water and look for a cloudy white emulsion",
+        "short": "shake the food sample with ethanol; add water after shaking the sample with ethanol",
         "steps": [
           "shake the food sample with ethanol",
-          "add water and look for a cloudy white emulsion"
+          "add water after shaking the sample with ethanol"
         ],
         "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
         "remember": "Use the observations, not guesses, to identify food groups."
@@ -4146,7 +4612,32 @@
           "wear safety goggles to protect eyes"
         ],
         "totalMarks": 2,
-        "modelAnswer": "keep ethanol away from naked flames because it is flammable; wear safety goggles to protect eyes"
+        "modelAnswer": "keep ethanol away from naked flames because it is flammable; wear safety goggles to protect eyes",
+        "markPointEvidence": [
+          {
+            "all": [
+              "ethanol",
+              "(?:flame|flammable|ignite|fire|bunsen|heat)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:goggle|eye\\s+protect|safety\\s+glasses)",
+              "(?:eye|protect|wear|splash|goggle)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "keep ethanol away from naked flames"
+          ],
+          [
+            "wear safety goggles to protect your eyes"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4182,7 +4673,32 @@
           "hot liquid could splash onto another person"
         ],
         "totalMarks": 2,
-        "modelAnswer": "the test tube and water can be hot and cause burns; hot liquid could splash onto another person"
+        "modelAnswer": "the test tube and water can be hot and cause burns; hot liquid could splash onto another person",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:hot|heat|burn|scald)",
+              "(?:tube|glass|water|holder|hand)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:splash|spray|spill|scald)",
+              "(?:person|people|other|skin|face|tube)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "hold the hot test tube with a holder to prevent burns"
+          ],
+          [
+            "point the test tube away so hot liquid cannot splash onto others"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4218,7 +4734,32 @@
           "mixing with water allows a testable extract to be produced"
         ],
         "totalMarks": 2,
-        "modelAnswer": "crushing breaks up the sample to expose substances; mixing with water allows a testable extract to be produced"
+        "modelAnswer": "crushing breaks up the sample to expose substances; mixing with water allows a testable extract to be produced",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:crush|grind|break)",
+              "(?:expos|release|surface|smaller|cell|sample|protein)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "water",
+              "(?:mix|extract|dissolv|suspend|testab|reagent|liquid)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "crushing the food breaks it up and exposes its contents"
+          ],
+          [
+            "water makes a liquid extract for the Biuret test"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4254,7 +4795,32 @@
           "iodine can contact the starch more easily"
         ],
         "totalMarks": 2,
-        "modelAnswer": "crushing increases exposed surface area or releases starch; iodine can contact the starch more easily"
+        "modelAnswer": "crushing increases exposed surface area or releases starch; iodine can contact the starch more easily",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:crush|grind|break)",
+              "(?:starch|surface|release|expos|potato)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "iodine",
+              "(?:contact|react|reach|mix|starch|expos)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "crushing releases starch from the potato"
+          ],
+          [
+            "iodine can then contact the exposed starch"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4279,28 +4845,56 @@
       "topicId": "bio-y8-food-tests",
       "topic": "Food tests and laboratory safety",
       "format": "mark_points",
-      "prompt": "Two bread samples are compared using iodine. Explain why equal masses of each sample should be tested.",
+      "prompt": "Two bread samples are compared using iodine. Identify the variable that should be kept constant and explain why this matters for a fair comparison.",
       "difficulty": 2,
       "status": "enabled",
       "options": null,
       "answer": {
         "mode": "mark_points",
         "markPoints": [
-          "the amount of sample is a control variable",
-          "different masses could make the comparison unfair"
+          "keep the mass of each bread sample the same",
+          "unequal sample masses can affect the iodine result"
         ],
         "totalMarks": 2,
-        "modelAnswer": "the amount of sample is a control variable; different masses could make the comparison unfair"
+        "modelAnswer": "keep the mass of each bread sample the same; unequal sample masses can affect the iodine result",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:mass|amount|quantity|weight|sample)",
+              "(?:same|equal|control|constant)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:fair|compar|result|iodine|starch)",
+              "(?:mass|amount|quantity|sample|difference)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "keep the mass of bread equal for both samples"
+          ],
+          [
+            "this makes the comparison fair because a larger sample might give a different result",
+            "Masses unequal might change the iodine result so we cannot compare starch fairly",
+            "If the sample masses differ the iodine result may be misleading"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
-        "short": "the amount of sample is a control variable; different masses could make the comparison unfair",
+        "short": "keep the mass of each bread sample the same; unequal sample masses can affect the iodine result",
         "steps": [
-          "the amount of sample is a control variable",
-          "different masses could make the comparison unfair"
+          "keep the mass of each bread sample the same",
+          "unequal sample masses can affect the iodine result",
+          "Award one mark for identifying sample mass as a controlled variable, and a separate mark for explaining how different masses could change the observed iodine result."
         ],
-        "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
-        "remember": "Use the observations, not guesses, to identify food groups."
+        "commonError": "Giving only 'make it fair' without explaining which sample variable is controlled or why unequal sample masses might affect interpretation.",
+        "remember": "Equal bread sample masses make the iodine-test comparison fairer; otherwise different sample amounts can influence the observed result."
       },
       "task": {
         "label": "SHORT EXAM ANSWER",
@@ -4326,7 +4920,32 @@
           "any difference in result could be due to reagent volume rather than the samples"
         ],
         "totalMarks": 2,
-        "modelAnswer": "the reagent volume is not controlled; any difference in result could be due to reagent volume rather than the samples"
+        "modelAnswer": "the reagent volume is not controlled; any difference in result could be due to reagent volume rather than the samples",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:benedict|reagent)",
+              "(?:volum|amount|different|unequal|control)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:result|colour|color|change|difference)",
+              "(?:reagent|benedict|volum|amount|not\\s+sample)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "the Benedict's reagent volume is not controlled"
+          ],
+          [
+            "different results might be caused by the different amount of reagent"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4362,7 +4981,33 @@
           "the colour test gives an approximate result rather than an exact concentration"
         ],
         "totalMarks": 2,
-        "modelAnswer": "brick-red suggests a greater amount of reducing sugar than green; the colour test gives an approximate result rather than an exact concentration"
+        "modelAnswer": "brick-red suggests a greater amount of reducing sugar than green; the colour test gives an approximate result rather than an exact concentration",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:brick[\\s-]*red|red\\s+precipitate)",
+              "green",
+              "(?:more|higher|greater|concentrat|sugar)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:approximat|rough|qualitat|not\\s+exact|estimate|precision)",
+              "(?:sugar|concentrat|amount|result|colour|color)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "brick-red suggests more reducing sugar than green"
+          ],
+          [
+            "the colour change is only an estimate not an exact sugar concentration"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4398,7 +5043,32 @@
           "protein needs a separate Biuret test"
         ],
         "totalMarks": 2,
-        "modelAnswer": "cloudy white is evidence for lipid in the ethanol emulsion test; protein needs a separate Biuret test"
+        "modelAnswer": "cloudy white is evidence for lipid in the ethanol emulsion test; protein needs a separate Biuret test",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:cloudy|white|emulsion|ethanol)",
+              "(?:lipid|fat)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:biuret|protein)",
+              "(?:separat|test|need|require)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "the milky emulsion indicates fat rather than protein"
+          ],
+          [
+            "protein needs a Biuret test instead"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4434,7 +5104,38 @@
           "reducing sugar was not detected"
         ],
         "totalMarks": 2,
-        "modelAnswer": "starch was detected in the sample; reducing sugar was not detected"
+        "modelAnswer": "starch was detected in the sample; reducing sugar was not detected",
+        "markPointEvidence": [
+          {
+            "all": [
+              "starch",
+              "(?:detect|present|positive|found|contain)"
+            ],
+            "notAnywhere": [
+              "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b",
+              "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)proteins?\\b"
+            ]
+          },
+          {
+            "all": [
+              "(?:reducing\\s+sugar|glucose|benedict)",
+              "(?:no|not|absent|negative|undetect|none)"
+            ],
+            "notAnywhere": [
+              "\\bbenedict(?:['’]?s)?\\b[^.!?;]{0,95}\\b(?:does\\s+not|doesn.t|cannot|never)\\s+(?:test|detect)\\s+(?:for\\s+)?reducing\\s+sugars?\\b",
+              "\\bbiuret(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)reducing\\s+sugars?\\b"
+            ]
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "iodine shows starch was detected"
+          ],
+          [
+            "no reducing sugar was detected"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4470,7 +5171,36 @@
           "starch was not detected"
         ],
         "totalMarks": 2,
-        "modelAnswer": "reducing sugar was detected; starch was not detected"
+        "modelAnswer": "reducing sugar was detected; starch was not detected",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:reducing\\s+sugar|glucose)",
+              "(?:detect|present|positive|found|contain)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "starch",
+              "(?:no|not|absent|negative|undetect|none)"
+            ],
+            "notAnywhere": [
+              "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)proteins?\\b",
+              "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b",
+              "\\bblue[\\s-]*black\\b[^.!?;]{0,55}\\b(?:no|not|absent|negative)\\b[^.!?;]{0,18}\\bstarch\\b"
+            ]
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "Benedict's shows reducing sugar was detected"
+          ],
+          [
+            "no starch was detected"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4506,7 +5236,36 @@
           "reducing sugar was not detected"
         ],
         "totalMarks": 2,
-        "modelAnswer": "protein was detected; reducing sugar was not detected"
+        "modelAnswer": "protein was detected; reducing sugar was not detected",
+        "markPointEvidence": [
+          {
+            "all": [
+              "protein",
+              "(?:detect|present|positive|found|contain)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:reducing\\s+sugar|glucose|benedict)",
+              "(?:no|not|absent|negative|undetect|none)"
+            ],
+            "notAnywhere": [
+              "\\bbenedict(?:['’]?s)?\\b[^.!?;]{0,95}\\b(?:does\\s+not|doesn.t|cannot|never)\\s+(?:test|detect)\\s+(?:for\\s+)?reducing\\s+sugars?\\b",
+              "\\bbiuret(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)reducing\\s+sugars?\\b",
+              "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b"
+            ]
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "Biuret indicates protein was detected"
+          ],
+          [
+            "no reducing sugar was detected"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4542,7 +5301,36 @@
           "starch was not detected"
         ],
         "totalMarks": 2,
-        "modelAnswer": "lipid was detected; starch was not detected"
+        "modelAnswer": "lipid was detected; starch was not detected",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:lipid|fat)",
+              "(?:detect|present|positive|found|contain)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "starch",
+              "(?:no|not|absent|negative|undetect|none)"
+            ],
+            "notAnywhere": [
+              "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)proteins?\\b",
+              "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b",
+              "\\bblue[\\s-]*black\\b[^.!?;]{0,55}\\b(?:no|not|absent|negative)\\b[^.!?;]{0,18}\\bstarch\\b"
+            ]
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "the emulsion indicates lipid was detected"
+          ],
+          [
+            "the iodine test found no starch"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4578,7 +5366,32 @@
           "a negative test does not prove the food contains no nutrients of any kind"
         ],
         "totalMarks": 2,
-        "modelAnswer": "none of starch reducing sugar protein or lipid were detected by these tests; a negative test does not prove the food contains no nutrients of any kind"
+        "modelAnswer": "none of starch reducing sugar protein or lipid were detected by these tests; a negative test does not prove the food contains no nutrients of any kind",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:none|no|not|negative|undetect)",
+              "(?:starch|sugar|protein|lipid|nutrient|substance|test)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:negative|no|not|cannot|does\\s+not|isn.t)",
+              "(?:prove|mean|rule\\s+out|other|all|nutrient)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "none of the four tested nutrients was detected"
+          ],
+          [
+            "a negative result does not mean there are no other nutrients"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4614,7 +5427,33 @@
           "a valid result requires the correct ethanol then water procedure"
         ],
         "totalMarks": 2,
-        "modelAnswer": "the sample or glassware may have been contaminated; a valid result requires the correct ethanol then water procedure"
+        "modelAnswer": "the sample or glassware may have been contaminated; a valid result requires the correct ethanol then water procedure",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:contamin|dirty|unclean|impurit|carryover)",
+              "(?:sample|tube|glass|reagent|ethanol|water|test)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:ethanol|alcohol)",
+              "water",
+              "(?:after|then|sequence|correct|add|before)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "the sample or test tube may have been contaminated"
+          ],
+          [
+            "repeat the proper method: ethanol first then add water"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4650,7 +5489,32 @@
           "clean tubes avoid contamination that could change results"
         ],
         "totalMarks": 2,
-        "modelAnswer": "labels prevent samples from being mixed up; clean tubes avoid contamination that could change results"
+        "modelAnswer": "labels prevent samples from being mixed up; clean tubes avoid contamination that could change results",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:label|identif|name)",
+              "(?:mix|confus|sample|tube|identit|wrong)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:clean|wash|fresh)",
+              "(?:contamin|residu|mix|transfer|carry)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "labels stop the food samples being mixed up"
+          ],
+          [
+            "clean tubes prevent contamination"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4686,7 +5550,32 @@
           "careful handling or pipetting reduces splashes"
         ],
         "totalMarks": 2,
-        "modelAnswer": "goggles reduce risk of chemicals reaching the eyes; careful handling or pipetting reduces splashes"
+        "modelAnswer": "goggles reduce risk of chemicals reaching the eyes; careful handling or pipetting reduces splashes",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:goggle|safety\\s+glasses|eye\\s+protect)",
+              "(?:eye|splash|chemical|protect)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:careful|gentle|slow|safe|pipett|handle)",
+              "(?:splash|spill|spray|reagent|chemical)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "goggles protect the eyes from reagent splashes"
+          ],
+          [
+            "handle reagents carefully to prevent splashes"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4722,7 +5611,32 @@
           "the colour difference might be due to heating time not sugar concentration"
         ],
         "totalMarks": 2,
-        "modelAnswer": "heating time is a variable that was changed; the colour difference might be due to heating time not sugar concentration"
+        "modelAnswer": "heating time is a variable that was changed; the colour difference might be due to heating time not sugar concentration",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:time|second|minute|duration)",
+              "(?:different|varie|variab|chang|longer|shorter|unequal)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:colour|color|result|difference)",
+              "(?:time|heat|not\\s+sugar|instead\\s+of|rather\\s+than)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "the heating times were different"
+          ],
+          [
+            "the colour difference might be caused by heating time rather than sugar content"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4758,7 +5672,32 @@
           "laboratory substances and chemicals must not be ingested"
         ],
         "totalMarks": 2,
-        "modelAnswer": "the sample may contain harmful or contaminated substances; laboratory substances and chemicals must not be ingested"
+        "modelAnswer": "the sample may contain harmful or contaminated substances; laboratory substances and chemicals must not be ingested",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:unknown|sample|food)",
+              "(?:harm|contamin|poison|unsafe|danger|pathogen)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:chemical|reagent|laboratory|lab)",
+              "(?:ingest|eat|swallow|taste|consume|poison|harm)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "the unknown food might be contaminated or harmful"
+          ],
+          [
+            "laboratory chemicals must never be swallowed"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4791,17 +5730,42 @@
         "mode": "mark_points",
         "markPoints": [
           "record the reagent or type of test used",
-          "record the observed colour change or appearance and conclusion"
+          "record the observed colour change or appearance"
         ],
         "totalMarks": 2,
-        "modelAnswer": "record the reagent or type of test used; record the observed colour change or appearance and conclusion"
+        "modelAnswer": "record the reagent or type of test used; record the observed colour change or appearance",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:record|note|write|list|name)",
+              "(?:reagent|type\\s+of\\s+test|iodine|benedict|biuret|ethanol)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:record|note|write|observe)",
+              "(?:colour|color|appearance|cloudy|result|change)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "record which food test or reagent was used"
+          ],
+          [
+            "record the observed colour change or appearance"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
-        "short": "record the reagent or type of test used; record the observed colour change or appearance and conclusion",
+        "short": "record the reagent or type of test used; record the observed colour change or appearance",
         "steps": [
           "record the reagent or type of test used",
-          "record the observed colour change or appearance and conclusion"
+          "record the observed colour change or appearance"
         ],
         "commonError": "Check the reagent, colour change, experimental controls and safety before deciding.",
         "remember": "Use the observations, not guesses, to identify food groups."
@@ -4830,7 +5794,32 @@
           "healthiness depends on amounts and other dietary factors"
         ],
         "totalMarks": 2,
-        "modelAnswer": "food tests identify some nutrient groups but not overall nutritional balance; healthiness depends on amounts and other dietary factors"
+        "modelAnswer": "food tests identify some nutrient groups but not overall nutritional balance; healthiness depends on amounts and other dietary factors",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:food\\s*test|nutrient|protein|sugar|balance)",
+              "(?:not|cannot|does\\s+not|only|limited|health|balance)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:amount|quantity|balance|diet|calor|fat|salt|overall|other)",
+              "(?:health|nutrient|depend|diet|factor|sugar)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "food tests identify some nutrients but cannot prove a snack is healthy"
+          ],
+          [
+            "healthiness depends on quantities and overall dietary balance"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4866,7 +5855,32 @@
           "compare the result with a known positive and negative control"
         ],
         "totalMarks": 2,
-        "modelAnswer": "repeat the test with a clean sample or equipment; compare the result with a known positive and negative control"
+        "modelAnswer": "repeat the test with a clean sample or equipment; compare the result with a known positive and negative control",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:repeat|retest|redo|try\\s+again)",
+              "(?:fresh|clean|sample|equipment|iodine)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:compar|check|use)",
+              "(?:positive|negative|control|known)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "repeat the test using fresh clean equipment"
+          ],
+          [
+            "compare with a known positive and negative control"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4902,7 +5916,32 @@
           "indirect heating lowers the risk of splashing or overheating"
         ],
         "totalMarks": 2,
-        "modelAnswer": "a water bath provides more even or controlled heating; indirect heating lowers the risk of splashing or overheating"
+        "modelAnswer": "a water bath provides more even or controlled heating; indirect heating lowers the risk of splashing or overheating",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:water\\s+bath|indirect|heat)",
+              "(?:control|even|gentle|consistent|uniform)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:indirect|water\\s+bath|no\\s+flame)",
+              "(?:splash|overheat|burn|safer|risk)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "water baths give more controlled and even heating"
+          ],
+          [
+            "indirect heating reduces the chance of splashing or overheating"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4938,7 +5977,34 @@
           "ethanol emulsion test for fat gives cloudy white"
         ],
         "totalMarks": 2,
-        "modelAnswer": "iodine test for starch gives blue-black; ethanol emulsion test for fat gives cloudy white"
+        "modelAnswer": "iodine test for starch gives blue-black; ethanol emulsion test for fat gives cloudy white",
+        "markPointEvidence": [
+          {
+            "all": [
+              "iodine",
+              "(?:starch|blue[\\s-]*black)",
+              "blue[\\s-]*black"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:ethanol|emulsion)",
+              "(?:lipid|fat|cloudy|white)",
+              "(?:cloudy|milky|white)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "iodine turns blue-black if starch is present"
+          ],
+          [
+            "the ethanol emulsion test turns cloudy white for fat"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -4974,7 +6040,35 @@
           "no cloudy emulsion means lipid was not detected"
         ],
         "totalMarks": 2,
-        "modelAnswer": "purple Biuret is a positive test for protein; no cloudy emulsion means lipid was not detected"
+        "modelAnswer": "purple Biuret is a positive test for protein; no cloudy emulsion means lipid was not detected",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:biuret|purple|lilac)",
+              "protein",
+              "(?:purple|lilac|positive|present)"
+            ],
+            "notAnywhere": [
+              "\\b(?:purple|lilac)\\b[^.!?;]{0,60}\\b(?:negative|no|absent|not)\\b[^.!?;]{0,25}\\bproteins?\\b"
+            ]
+          },
+          {
+            "all": [
+              "(?:lipid|fat)",
+              "(?:no|not|absent|negative|undetect|none)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "purple Biuret means protein was detected"
+          ],
+          [
+            "no lipid was detected because no white emulsion formed"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -5010,7 +6104,40 @@
           "sweetness does not prove that a reducing sugar is present"
         ],
         "totalMarks": 2,
-        "modelAnswer": "the test did not detect reducing sugar under the test conditions; sweetness does not prove that a reducing sugar is present"
+        "modelAnswer": "the test did not detect reducing sugar under the test conditions; sweetness does not prove that a reducing sugar is present",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:benedict|test|sugar)",
+              "(?:negative|blue|no|not|undetect|absent)",
+              "(?:reducing\\s+sugar|glucose|sugar)"
+            ],
+            "notAnywhere": [
+              "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b",
+              "\\bbenedict(?:['’]?s)?\\b[^.!?;]{0,95}\\b(?:does\\s+not|doesn.t|cannot|never)\\s+(?:test|detect)\\s+(?:for\\s+)?reducing\\s+sugars?\\b",
+              "\\bbiuret(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)reducing\\s+sugars?\\b"
+            ]
+          },
+          {
+            "all": [
+              "(?:sweet|taste|sugar)",
+              "(?:not|cannot|does\\s+not|non\\s+reduc|other|doesn.t)"
+            ],
+            "notAnywhere": [
+              "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b",
+              "\\bbenedict(?:['’]?s)?\\b[^.!?;]{0,95}\\b(?:does\\s+not|doesn.t|cannot|never)\\s+(?:test|detect)\\s+(?:for\\s+)?reducing\\s+sugars?\\b"
+            ]
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "the blue Benedict's test did not detect reducing sugar"
+          ],
+          [
+            "a sweet taste does not mean reducing sugar is present"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -5046,7 +6173,36 @@
           "Biuret reagent is required to test for protein"
         ],
         "totalMarks": 2,
-        "modelAnswer": "iodine tests for starch not protein; Biuret reagent is required to test for protein"
+        "modelAnswer": "iodine tests for starch not protein; Biuret reagent is required to test for protein",
+        "markPointEvidence": [
+          {
+            "all": [
+              "iodine",
+              "starch",
+              "(?:not|instead|only|rather|no|wrong)"
+            ],
+            "notAnywhere": [
+              "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)proteins?\\b"
+            ]
+          },
+          {
+            "all": [
+              "biuret",
+              "protein",
+              "(?:test|detect|need|use|reagent)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "iodine tests starch not protein"
+          ],
+          [
+            "the Biuret reagent is used to test for protein"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -5082,7 +6238,32 @@
           "repeat using fresh clean equipment and reagents"
         ],
         "totalMarks": 2,
-        "modelAnswer": "the control suggests contamination or a problem with reagents; repeat using fresh clean equipment and reagents"
+        "modelAnswer": "the control suggests contamination or a problem with reagents; repeat using fresh clean equipment and reagents",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:control|water|reagent|glassware|sample)",
+              "(?:cloudy|contamin|fault|problem|unclean)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:repeat|retest|redo)",
+              "(?:clean|fresh|new|equipment|reagent|water)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "a cloudy water control indicates contamination"
+          ],
+          [
+            "repeat with fresh reagents and clean glassware"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -5118,7 +6299,33 @@
           "add iodine solution to the sample and observe whether it turns blue-black"
         ],
         "totalMarks": 2,
-        "modelAnswer": "iodine starch testing does not require heating; add iodine solution to the sample and observe whether it turns blue-black"
+        "modelAnswer": "iodine starch testing does not require heating; add iodine solution to the sample and observe whether it turns blue-black",
+        "markPointEvidence": [
+          {
+            "all": [
+              "iodine",
+              "(?:no\\s+heat|not\\s+heat|without\\s+heat|unheated|unnecessary|does\\s+not\\s+(?:need|require)\\s+heat|no\\s+need\\s+to\\s+heat)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "iodine",
+              "(?:add|drop|mix|place)",
+              "(?:blue[\\s-]*black|colour|color|observe|starch)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "the iodine starch test does not need heating"
+          ],
+          [
+            "add iodine and look for blue-black"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -5154,7 +6361,33 @@
           "an open flame can ignite the ethanol causing fire"
         ],
         "totalMarks": 2,
-        "modelAnswer": "ethanol vapour is flammable; an open flame can ignite the ethanol causing fire"
+        "modelAnswer": "ethanol vapour is flammable; an open flame can ignite the ethanol causing fire",
+        "markPointEvidence": [
+          {
+            "all": [
+              "ethanol",
+              "(?:vapou?r|flammab|ignite|burn)"
+            ],
+            "notAnywhere": []
+          },
+          {
+            "all": [
+              "(?:flame|bunsen|ignit|fire)",
+              "ethanol",
+              "(?:ignite|burn|catch|fire|flammab)"
+            ],
+            "notAnywhere": []
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "ethanol vapour is flammable"
+          ],
+          [
+            "an open flame might ignite ethanol and cause a fire"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -5191,7 +6424,45 @@
           "lipid was not detected"
         ],
         "totalMarks": 3,
-        "modelAnswer": "starch is present; protein is present; lipid was not detected"
+        "modelAnswer": "starch is present; protein is present; lipid was not detected",
+        "markPointEvidence": [
+          {
+            "all": [
+              "\\bstarch\\b",
+              "\\b(?:present|detect\\w*|contain\\w*|positive|found)\\b"
+            ]
+          },
+          {
+            "all": [
+              "\\bprotein\\b",
+              "\\b(?:present|detect\\w*|contain\\w*|positive)\\b"
+            ],
+            "notAnywhere": [
+              "\\bbiuret\\b[^.!?;\\n]*\\b(?:remain\\w*|stay\\w*|is)\\s+blue\\b"
+            ]
+          },
+          {
+            "all": [
+              "\\blipid\\w*\\b",
+              "\\b(?:no|not|absent|negative|undetected|none)\\b"
+            ]
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "starch is detected",
+            "contains starch"
+          ],
+          [
+            "protein was found",
+            "contains protein"
+          ],
+          [
+            "there were no lipids detected",
+            "lipid is absent"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {
@@ -5229,7 +6500,51 @@
           "protein was not detected"
         ],
         "totalMarks": 3,
-        "modelAnswer": "reducing sugar is present; starch was not detected; protein was not detected"
+        "modelAnswer": "reducing sugar is present; starch was not detected; protein was not detected",
+        "markPointEvidence": [
+          {
+            "all": [
+              "(?:reducing\\s+sugar|glucose)",
+              "(?:present|detect|positive|found|contain)"
+            ],
+            "notAnywhere": [
+              "\\bbenedict(?:['’]?s)?\\b[^.!?;]{0,95}\\b(?:does\\s+not|doesn.t|cannot|never)\\s+(?:test|detect)\\s+(?:for\\s+)?reducing\\s+sugars?\\b"
+            ]
+          },
+          {
+            "all": [
+              "starch",
+              "(?:not|no|absent|negative|undetect|none)"
+            ],
+            "notAnywhere": [
+              "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)proteins?\\b",
+              "\\bbenedict(?:['’]?s)?(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)starch\\b",
+              "\\bblue[\\s-]*black\\b[^.!?;]{0,55}\\b(?:no|not|absent|negative)\\b[^.!?;]{0,18}\\bstarch\\b"
+            ]
+          },
+          {
+            "all": [
+              "protein",
+              "(?:not|no|absent|negative|undetect|none)"
+            ],
+            "notAnywhere": [
+              "\\biodine(?:\\s+(?:solution|reagent|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)proteins?\\b",
+              "\\bbiuret(?:\\s+(?:reagent|solution|test))?\\s+(?:(?:tests?|detects?)\\s+(?:for\\s+)?|is\\s+(?:used\\s+to\\s+)?(?:test|detect|for)\\s+(?:for\\s+)?)reducing\\s+sugars?\\b"
+            ]
+          }
+        ],
+        "markPointAlternatives": [
+          [
+            "the Benedict's test shows reducing sugar is present"
+          ],
+          [
+            "iodine did not detect starch"
+          ],
+          [
+            "Biuret did not detect protein"
+          ]
+        ],
+        "markPointQAStatus": "SOURCE_LEVEL_SCREENED_INDEPENDENT_SIGNOFF_PENDING"
       },
       "stimulus": {},
       "feedback": {

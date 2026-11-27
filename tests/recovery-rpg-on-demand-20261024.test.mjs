@@ -26,9 +26,19 @@ test('Recovery never overlays ordinary Home and does not observe all animated DO
 });
 
 test('iPad module bootstrap cache versions match after Recovery fix', () => {
- assert.match(html, /home-extras-restorer-20261023\.js\?v=20261026-bio-year9-savefix2/);
- assert.match(restorer, /home-continue-20261010\.js\?v=20261026-bio-year9-savefix2/);
- assert.match(continueJS, /home-rpg-live-20261019\.js\?v=20261026-bio-year9-savefix2/);
+ // Compare actual shell-to-restorer-to-RPG cache stamps, not an obsolete
+ // hard-coded version. A mixed version is unsafe for iPad offline resume.
+ const versionFor=(source,stem)=>{
+   const marker=stem+'.js?v=';
+   const at=source.indexOf(marker);
+   return at<0?null:source.slice(at+marker.length).split(/["'<>\s]/)[0];
+ };
+ const shellBoot=versionFor(html,'home-extras-restorer-20261023');
+ const restorerNext=versionFor(restorer,'home-continue-20261010');
+ const continueNext=versionFor(continueJS,'home-rpg-live-20261019');
+ assert.ok(shellBoot,'root must specify Recovery bootstrap cache version');
+ assert.equal(restorerNext,shellBoot,'Recovery restorer and continuation must have one version');
+ assert.equal(continueNext,shellBoot,'Home RPG must have the same continuation version');
  assert.match(home, /home-rpg-live-20261019\.css\?v=20261024-recovery-dialog1/);
  assert.match(restorer, /quest-recovery-20261011\.js\?v=20261026-bio-year9-savefix2&ten=20261030-1/);
  const shellVersion=(html.match(/index-BLVOhKhN\.js\?v=([^&"'\s]+)/)||[])[1];

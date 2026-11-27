@@ -22,9 +22,14 @@ async function session(goal){
     let page=await newPage();
     await page.goto(url+'/');
     await page.waitForFunction(()=>window.__luxStore?.getState().daily?.length>0);
-    await page.goto(url+'/study/maths/higher-practice/?topic=math-y9-indices');
-    assert.equal(await page.locator('article').count(),200);
-    await page.locator('#switch-mode').click();
+    await page.getByRole('link',{name:/Year 9 Higher Maths MCQ/}).waitFor();
+    await page.waitForFunction(day=>window.__luxStore.getState().dailyLog?.[day]?.total===11,day);
+    assert.deepEqual(await page.evaluate(day=>{
+      const s=window.__luxStore.getState(), tasks=s.daily;
+      return [tasks.length,tasks.reduce((n,t)=>n+t.target,0),s.dailyLog[day].tasks.length];
+    },day),[11,175,11]);
+    await page.getByRole('link',{name:/Year 9 Higher Maths MCQ/}).click();
+    await page.waitForURL('**/higher-practice/**');
     for(const [i,[id,key]] of keys.entries()){
       const card=page.locator('article:visible');
       await card.waitFor();

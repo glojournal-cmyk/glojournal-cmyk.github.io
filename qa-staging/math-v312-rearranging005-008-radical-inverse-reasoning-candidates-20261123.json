@@ -1,0 +1,225 @@
+{
+  "kind": "STANDALONE_QA_REPLACEMENT_CANDIDATES_NOT_APPROVED",
+  "date": "2026-11-23",
+  "version": "3.1.2-rearranging005-008-radical-inverse-reasoning",
+  "pr": 306,
+  "sourceBank": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "sourceBankQuestionCount": 200,
+  "sourceBankUnchanged": true,
+  "tgsCurriculumPDF": "SKIPPED_PER_PARENT_INSTRUCTION",
+  "grade7PlusExternalBenchmark": "NOT_COMPLETED",
+  "realPupilMisconceptionEvidence": "NOT_AVAILABLE",
+  "formalApproval": 0,
+  "releaseDisposition": "HOLD_NO_DAILY_NO_MASTERY",
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-005",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-005-V312-MULTI-RADICAL-INVERSE-REASONING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-005-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "STANDALONE_REDESIGNED_RADICAL_REASONING_CANDIDATE_NOT_LIVE",
+      "stem": "For real $x\\ge0$, let $y=\\sqrt{x+4}+\\sqrt{x}$. Which choice makes $x$ the subject and gives the exact possible values of $y$?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "x=\\frac{(y^2+4)^2}{4y^2}, y\\ge2",
+          "errorPath": "Move the +4 from the squared difference with the wrong sign, replacing y squared minus 4 by y squared plus 4."
+        },
+        {
+          "id": "B",
+          "latex": "x=\\frac{(y^2-4)^2}{4y^2}, y\\ge2"
+        },
+        {
+          "id": "C",
+          "latex": "x=\\frac{(y^2-4)^2}{4y}, y\\ge2",
+          "errorPath": "After isolating the root, square only the numerator but not the denominator 2y."
+        },
+        {
+          "id": "D",
+          "latex": "x=\\frac{y^2-4}{2y}, y\\ge2",
+          "errorPath": "Fail to square the final expression for the non-negative square root of x."
+        },
+        {
+          "id": "E",
+          "latex": "x=\\frac{(y^2-4)^2}{4y^2}, y>2",
+          "errorPath": "Incorrectly exclude x=0 and its permitted lower endpoint y=2."
+        },
+        {
+          "id": "F",
+          "latex": "x=\\frac{(y^2-4)^2}{4y^2}, y\\ge0",
+          "errorPath": "Mistake the image of the sum of roots as y at least zero instead of y at least two; y=0 also makes the inverse undefined."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "x=\\frac{(y^2-4)^2}{4y^2}, y\\ge2",
+      "workedSolutionSteps": [
+        "Starting with $y=\\sqrt{x+4}+\\sqrt{x}$, move the second root and square to obtain $y^2+x-2y\\sqrt{x}=x+4$.",
+        "As $y>0$, isolate the remaining root: $\\sqrt{x}=\\frac{y^2-4}{2y}$. Squaring gives $x=\\frac{(y^2-4)^2}{4y^2}$.",
+        "The right side before squaring must be non-negative. Since $x\\ge0$, the original sum has minimum $y=2$ at x=0, so the exact image is $y\\ge2$; values below 2 are extraneous after squaring."
+      ],
+      "provisionalAOFocus": "Two-root inverse, isolate an intermediate radical and prevent extraneous solutions by checking the unsquared sign condition.",
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-006",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-006-V312-MULTI-RADICAL-INVERSE-REASONING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-006-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "STANDALONE_REDESIGNED_RADICAL_REASONING_CANDIDATE_NOT_LIVE",
+      "stem": "For real $x\\ge3$, let $y=\\sqrt{x+1}+\\frac{4}{\\sqrt{x+1}}$. Which choice makes $x$ the subject and gives the exact possible values of $y$?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "x=\\frac{(y-\\sqrt{y^2-16})^2}{4}-1, y\\ge4",
+          "errorPath": "Choose the smaller quadratic root for the positive substitution sqrt(x+1), which is less than 2 when y>4 and violates x at least 3."
+        },
+        {
+          "id": "B",
+          "latex": "x=\\frac{(y+\\sqrt{y^2-16})^2}{4}-1, y>4",
+          "errorPath": "Reject the permitted boundary x=3, which gives y=4."
+        },
+        {
+          "id": "C",
+          "latex": "x=\\frac{(y+\\sqrt{y^2+16})^2}{4}-1, y\\ge4",
+          "errorPath": "Put a plus rather than a minus before 16 in the quadratic discriminant."
+        },
+        {
+          "id": "D",
+          "latex": "x=\\frac{(y+\\sqrt{y^2-16})^2}{4}-1, y\\ge4"
+        },
+        {
+          "id": "E",
+          "latex": "x=\\frac{y+\\sqrt{y^2-16}}{2}-1, y\\ge4",
+          "errorPath": "Forget to square the recovered value of sqrt(x+1) before subtracting one."
+        },
+        {
+          "id": "F",
+          "latex": "x=\\frac{(y+\\sqrt{y^2-16})^2}{2}-1, y\\ge4",
+          "errorPath": "After finding the root t=(y+sqrt(y squared minus 16))/2, square its numerator without squaring the denominator 2."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "x=\\frac{(y+\\sqrt{y^2-16})^2}{4}-1, y\\ge4",
+      "workedSolutionSteps": [
+        "Put $t=\\sqrt{x+1}$, so $t\\ge2$. The original equation becomes $y=t+\\frac{4}{t}$; multiplying by t gives $t^2-yt+4=0$.",
+        "Using the quadratic formula, $t=\\frac{y\\pm\\sqrt{y^2-16}}{2}$. Only the plus branch meets $t\\ge2$ for y>4; both branches give t=2 at y=4.",
+        "The inequality $t+\\frac{4}{t}-4=\\frac{(t-2)^2}{t}\\ge0$ shows $y\\ge4$, including the boundary. Then $x=t^2-1=\\frac{(y+\\sqrt{y^2-16})^2}{4}-1$."
+      ],
+      "provisionalAOFocus": "Substitution converts a radical and its reciprocal to a quadratic; prove the admissible root and exact endpoint without calculus.",
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-007",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-007-V312-MULTI-RADICAL-INVERSE-REASONING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-007-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "STANDALONE_REDESIGNED_RADICAL_REASONING_CANDIDATE_NOT_LIVE",
+      "stem": "For real $x\\ge-1$, let $y=\\frac{\\sqrt{x+2}-1}{\\sqrt{x+2}+1}$. Which choice makes $x$ the subject and gives the exact possible values of $y$?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "x=\\frac{(1-y)^2}{(1+y)^2}-2, 0\\le y<1",
+          "errorPath": "Invert the ratio while solving for sqrt(x+2), obtaining (1-y)/(1+y) instead of (1+y)/(1-y)."
+        },
+        {
+          "id": "B",
+          "latex": "x=\\frac{(1+y)^2}{(1-y)^2}-2, 0<y<1",
+          "errorPath": "Exclude the allowed endpoint x=-1, where sqrt(x+2)=1 and y=0."
+        },
+        {
+          "id": "C",
+          "latex": "x=\\frac{(1+y)^2}{(1-y)^2}-2, 0\\le y\\le1",
+          "errorPath": "Include y=1 even though the original denominator stays positive and y approaches one only as x tends to infinity."
+        },
+        {
+          "id": "D",
+          "latex": "x=\\frac{(1+y)^2}{(1-y)^2}+2, 0\\le y<1",
+          "errorPath": "Move the original +2 inside sqrt(x+2) to the other side with the wrong sign."
+        },
+        {
+          "id": "E",
+          "latex": "x=\\frac{1+y}{1-y}-2, 0\\le y<1",
+          "errorPath": "Forget to square the recovered value of sqrt(x+2) before subtracting two."
+        },
+        {
+          "id": "F",
+          "latex": "x=\\frac{(1+y)^2}{(1-y)^2}-2, 0\\le y<1"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "x=\\frac{(1+y)^2}{(1-y)^2}-2, 0\\le y<1",
+      "workedSolutionSteps": [
+        "Set $u=\\sqrt{x+2}\\ge1$. Multiply $y=\\frac{u-1}{u+1}$ to obtain $y(u+1)=u-1$, hence $(1-y)u=1+y$.",
+        "So $u=\\frac{1+y}{1-y}$. Since $x+2=u^2$, the inverse formula is $x=\\frac{(1+y)^2}{(1-y)^2}-2$.",
+        "Because $u\\ge1$, the output is non-negative, taking y=0 when u=1; for every finite u the ratio is less than 1. The exact image is $0\\le y<1$."
+      ],
+      "provisionalAOFocus": "Couple a fractional-linear inverse with a nested square root and preserve the half-open image after squaring.",
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-008",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-008-V312-MULTI-RADICAL-INVERSE-REASONING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-008-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "STANDALONE_REDESIGNED_RADICAL_REASONING_CANDIDATE_NOT_LIVE",
+      "stem": "For real $x\\ge0$, let $y=\\sqrt{(x-3)^2}$. For $y>0$, which choice gives the two algebraic branches for $x$ and states exactly when **both branches** are distinct and permitted non-negative solutions?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "x=3\\pm y, 0<y<3",
+          "errorPath": "Exclude y=3, although x=0 and x=6 are both permitted distinct solutions."
+        },
+        {
+          "id": "B",
+          "latex": "x=3\\pm y, 0<y\\le3"
+        },
+        {
+          "id": "C",
+          "latex": "x=3\\pm y, 0<y\\le9",
+          "errorPath": "Mistake the boundary x=3 for a boundary of 9 by squaring 3; x=3-y is negative when y>3."
+        },
+        {
+          "id": "D",
+          "latex": "x=3+y, 0<y\\le3",
+          "errorPath": "Discard the valid x=3-y branch when 0<y≤3."
+        },
+        {
+          "id": "E",
+          "latex": "x=3\\pm\\sqrt{y}, 0<y\\le3",
+          "errorPath": "Apply another square root after sqrt((x-3) squared) has already become the absolute value of x-3."
+        },
+        {
+          "id": "F",
+          "latex": "x=3\\pm y, y\\ge0",
+          "errorPath": "Claim there are two distinct non-negative solutions at y=0 and for y>3, despite duplicate or negative branches."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "x=3\\pm y, 0<y\\le3",
+      "workedSolutionSteps": [
+        "Since $\\sqrt{(x-3)^2}=|x-3|$, the equation is $y=|x-3|$, not simply y=x-3.",
+        "For $y>0$, the two algebraic branches are $x=3+y$ and $x=3-y$. The first is always non-negative; the second is permitted exactly when $y\\le3$.",
+        "The two branches coincide only at y=0, which is excluded by the question. Therefore there are two distinct non-negative solutions exactly for $0<y\\le3$."
+      ],
+      "provisionalAOFocus": "Recognise the hidden absolute value after a squared radical; distinguish two admissible inverse branches from a one-to-one inverse.",
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    }
+  ]
+}

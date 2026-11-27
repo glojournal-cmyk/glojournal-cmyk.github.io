@@ -1,0 +1,146 @@
+{
+  "kind": "FINAL_TWO_DEMAND_CANDIDATES_NO_RELEASE",
+  "date": "2026-11-25",
+  "sourceCommit": "9268be234354651ec3cb23ea550a0ebd314a43e7",
+  "sourceRegister": "qa-staging/math-priority116-post30-second-pass-review-20261125.json",
+  "sourceRegisterBlobSha": "fff9bf58efe474db991b4df6776a3e481be4241a",
+  "counts": {
+    "rewritten": 2,
+    "exactSubstitutionChecks": 4,
+    "formalApproved": 0
+  },
+  "limits": "Author and exact substitution checks only; internal second-pass review and classroom/grade acceptance pending. No runtime or deployment change.",
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-026-DEMAND-SECOND-PASS-REPAIR-20261125",
+      "priorRecordPath": "qa-staging/math-priority30-demand-second-pass-six-repairs-20261125.json",
+      "priorRecordBlobSha": "c7528e84b822baaa7a0c42f985421eeece95fa69",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-026",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-026-FINAL-DEMAND-CANDIDATE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-026-DEMAND-SECOND-PASS-REPAIR-20261125",
+        "topicId": "math-y9-standard-form",
+        "stem": "Pump A delivers $2.4\\times10^{-3}$ m³ per minute and pump B delivers $6\\times10^{-4}$ m³ per minute. Each of two separate runs starts with an empty tank. In both runs A operates for all 150 minutes and B starts once, then runs until the end. In run 1, water leaks out at an unknown constant rate L m³ per minute, and the final volume is $3.6\\times10^{-1}$ m³. In run 2, B starts 30 minutes earlier than in run 1, but the leak rate is twice L. The final volume in run 2 is $3.42\\times10^{-1}$ m³. Which pair gives (L in m³ per minute, the time in seconds before B starts in run 1), both in standard form?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "(1.2\\times10^{-4},7.2\\times10^3)",
+            "errorPath": "Ignore the extra input from B in run 2: infer 150L=0.018, then B runs 30 min in run 1 and starts after 120 min."
+          },
+          {
+            "id": "B",
+            "latex": "(2.4\\times10^{-4},5.4\\times10^3)"
+          },
+          {
+            "id": "C",
+            "latex": "(2.4\\times10^{-4},3.6\\times10^3)",
+            "errorPath": "Report B's operating duration (60 min) rather than its start time (90 min)."
+          },
+          {
+            "id": "D",
+            "latex": "(3.6\\times10^{-2},5.4\\times10^3)",
+            "errorPath": "Report total leaked volume in run 1 instead of leakage per minute."
+          },
+          {
+            "id": "E",
+            "latex": "(1.8\\times10^{-4},6.3\\times10^3)",
+            "errorPath": "Divide the extra leakage of 0.036 by 200 rather than 150; then first-run B duration45 min and start105 min."
+          },
+          {
+            "id": "F",
+            "latex": "(2.4\\times10^{-4},9\\times10^1)",
+            "errorPath": "Calculate correct time in minutes but fail to convert it to seconds."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "(2.4\\times10^{-4},5.4\\times10^3)",
+        "workedSolutionSteps": [
+          "Let B run for t minutes in run 1. The first-run balance is 0.36+0.0006t−150L=0.36.",
+          "Run 2 has B duration t+30 and leakage 300L. Subtract run 1 balance: 0.0006×30−150L=0.342−0.36=−0.018.",
+          "Hence 150L=0.036, L=0.00024=2.4×10^−4. First balance gives 0.0006t=0.036, t=60 minutes.",
+          "B starts after 150−60=90 minutes=5400 seconds=5.4×10^3. Check run 2: 0.36+0.054−0.072=0.342."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "proposedPrimarySkill": "standard-form-two-run-net-rate-comparison",
+      "scopeNote": "Standard form, signed rate/volume balance, comparison of two linear equations and time conversion.",
+      "demandNote": "Must compare two experiments to eliminate unknown duration, then back-substitute; no calculus, percentage or formal inequality needed.",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-014",
+      "priorRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-014-DEMAND-ORDER-RECONCILED-20261125",
+      "priorRecordPath": "qa-staging/math-priority52-demand-order-reconciliation-20261125.json",
+      "priorRecordBlobSha": "105c1d90a5c0f6e04e9b7aa60640de01fd4c73f8",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-SIMULTANEOUS-014",
+        "revisionId": "LUX-MATH-Y9-SIMULTANEOUS-014-FINAL-DEMAND-CANDIDATE-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-SIMULTANEOUS-014-DEMAND-ORDER-RECONCILED-20261125",
+        "topicId": "math-y9-simultaneous-equations",
+        "stem": "The original system is $3x+2y=17$ and $5x-2y=7$. In experiment 1, add p to the first right-hand side and q to the second. The resulting solution has the same value of x+y as the original solution. In experiment 2, start again from the original system but add q to the first right-hand side and p to the second. The resulting value of x−y is 2 less than the original value of x−y. Find the ordered pair (p,q).",
+        "options": [
+          {
+            "id": "A",
+            "latex": "(14,2)",
+            "errorPath": "Interchange the two increments after solving."
+          },
+          {
+            "id": "B",
+            "latex": "(-2,-14)",
+            "errorPath": "Treat the second experiment's difference as increasing by 2 rather than decreasing by 2."
+          },
+          {
+            "id": "C",
+            "latex": "(2,14)"
+          },
+          {
+            "id": "D",
+            "latex": "(1,7)",
+            "errorPath": "Use a decrease of 1 rather than 2 in the second constraint."
+          },
+          {
+            "id": "E",
+            "latex": "(2,12)",
+            "errorPath": "Report q−p in place of q."
+          },
+          {
+            "id": "F",
+            "latex": "(4,28)",
+            "errorPath": "Use a decrease of 4 rather than 2 in the second constraint."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "(2,14)",
+        "workedSolutionSteps": [
+          "Original solution is (3,4), with sum7 and difference−1. In experiment 1, x+y=7, hence y=7−x.",
+          "Then 3x+2(7−x)=17+p gives x=3+p. The second equation yields 5x−2(7−x)=7+q, so q=7p.",
+          "In experiment 2, x−y=−3, hence y=x+3. First equation gives 5x+6=17+q, or 5x=11+q. Second gives 3x−6=7+p, or 3x=13+p.",
+          "Eliminate x: 3(11+q)=5(13+p), so 3q−5p=32. Substitute q=7p: 16p=32, p=2 and q=14.",
+          "Check experiment 1: RHS19,21 gives (5,2), sum7. Experiment 2: RHS31,9 gives (5,8), difference−3."
+        ],
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "importAllowed": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false
+      },
+      "proposedPrimarySkill": "simultaneous-swapped-increment-invariants",
+      "scopeNote": "Linear substitution and elimination, comparing solutions under two specified RHS changes.",
+      "demandNote": "Translate solution invariants into equations for increments, eliminate across experiments, and verify both constraints.",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ]
+}

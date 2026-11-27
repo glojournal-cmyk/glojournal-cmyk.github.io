@@ -1,0 +1,243 @@
+{
+  "kind": "STANDALONE_QA_REPLACEMENT_CANDIDATES_NOT_APPROVED",
+  "date": "2026-11-23",
+  "version": "3.1.2-standard-form-013-016-reasoning-draft",
+  "pr": 306,
+  "sourceBank": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "intendedReplacementIds": [
+    "LUX-MATH-Y9-STANDARD_FORM-013",
+    "LUX-MATH-Y9-STANDARD_FORM-014",
+    "LUX-MATH-Y9-STANDARD_FORM-015",
+    "LUX-MATH-Y9-STANDARD_FORM-016"
+  ],
+  "sourceBankQuestionCount": 200,
+  "sourceBankUnchanged": true,
+  "externalGradeEvidence": "NOT_YET_CALIBRATED",
+  "tgsClassTaughtEvidence": "NOT_VERIFIED",
+  "wrongOptionStudentRealism": "NOT_INDEPENDENTLY_REVIEWED",
+  "releaseDisposition": "HOLD_NO_DAILY_NO_XP_MP_MASTERY",
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-013",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-013-V312-REASONING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-STANDARD_FORM-013-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "sourceDisposition": "PROPOSED_REPLACEMENT_OF_ROUTINE_ARITHMETIC_NUMERIC_ROTATION",
+      "stem": "A monitoring station records $2.4\\times10^{7}$ bytes per minute for $1.5\\times10^{2}$ minutes. Compression reduces the data to 70% of their original size. Drive A stores $5.0\\times10^{8}$ bytes and costs £32; Drive B stores $8.0\\times10^{8}$ bytes and costs £55. Drives may be mixed. What is the minimum total cost in pounds to store all the compressed data?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "160",
+          "errorPath": "Buy five type-A drives for £160 but overlook that they hold only 2.5×10^9 bytes, less than the compressed data."
+        },
+        {
+          "id": "B",
+          "latex": "174"
+        },
+        {
+          "id": "C",
+          "latex": "183",
+          "errorPath": "Buy four A drives and one B drive, a feasible but more expensive combination."
+        },
+        {
+          "id": "D",
+          "latex": "192",
+          "errorPath": "Use only six type-A drives, missing a cheaper mixed-drive combination."
+        },
+        {
+          "id": "E",
+          "latex": "197",
+          "errorPath": "Buy one A drive and three B drives, a feasible but more expensive combination."
+        },
+        {
+          "id": "F",
+          "latex": "220",
+          "errorPath": "Use only four type-B drives, missing the lower-cost mixed-drive option."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "174",
+      "workedSolutionSteps": [
+        "The raw data size is $(2.4\\times10^7)(1.5\\times10^2)=3.6\\times10^9$ bytes. After 70% retention, $2.52\\times10^9$ bytes must be stored.",
+        "If $a$ A-drives and $b$ B-drives are purchased, capacity requires $a(5.0\\times10^8)+b(8.0\\times10^8)\\ge2.52\\times10^9$ and the cost is $32a+55b$ pounds.",
+        "For $b=0,1,2,3,4$, the cheapest feasible costs are respectively £192, £183, £174, £197, £220. For $b\\ge5$, the B drives alone cost at least £275. Hence £174 is the global minimum, achieved by $a=b=2$."
+      ],
+      "provisionalAOFocus": "AO3 candidate: optimise two integer resource choices under a capacity constraint after scientific-notation and percentage modelling; comparison requires proof of minimality.",
+      "unverifiedTaughtSubskill": "Actual Year 9 teaching of two-variable integer resource-optimisation and capacity inequality not verified; independent Grade7+ benchmarking required.",
+      "academicQA": "pending",
+      "gradeStatus": "PROVISIONAL_REASONING_NOT_G7PLUS_CERTIFIED",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-014",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-014-V312-REASONING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-STANDARD_FORM-014-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "sourceDisposition": "PROPOSED_REPLACEMENT_OF_ROUTINE_ARITHMETIC_NUMERIC_ROTATION",
+      "stem": "A mineral sample's mass is recorded as $3.7\\times10^{3}$ g to 2 significant figures and its volume as $8.0\\times10^{2}$ cm³ to 2 significant figures. Find the limiting upper bound for its density in g/cm³, expressing the limiting value to 3 significant figures in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "4.63\\times10^{0}",
+          "errorPath": "Use both reported central measurements, 3700÷800, instead of their bounding values."
+        },
+        {
+          "id": "B",
+          "latex": "4.59\\times10^{0}",
+          "errorPath": "Take the lower bound of mass rather than the upper bound, while still using the lower volume bound."
+        },
+        {
+          "id": "C",
+          "latex": "4.66\\times10^{0}",
+          "errorPath": "Use upper bounds for both mass and volume rather than the lower volume bound."
+        },
+        {
+          "id": "D",
+          "latex": "4.69\\times10^{0}",
+          "errorPath": "Use the upper mass bound but keep the volume at its central reported value."
+        },
+        {
+          "id": "E",
+          "latex": "4.72\\times10^{0}"
+        },
+        {
+          "id": "F",
+          "latex": "4.75\\times10^{0}",
+          "errorPath": "Mistake the lower volume bound as 790 cm³ instead of 795 cm³."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "4.72\\times10^{0}",
+      "workedSolutionSteps": [
+        "Rounding mass $3.7\\times10^3$ g to two significant figures gives the interval $3.65\\times10^3\\le m<3.75\\times10^3$ g.",
+        "For the density supremum, use the limiting upper mass and the lower volume; the mass upper endpoint is not itself attainable.",
+        "The limiting (unattained) quotient is $\\dfrac{3.75\\times10^{3}}{795}$ g/cm³, approximately 4.71698 g/cm³, which is $4.72\\times10^0$ g/cm³ to three significant figures."
+      ],
+      "provisionalAOFocus": "AO2 candidate: distinguish bounds from central values and use monotonicity of a positive quotient.",
+      "unverifiedTaughtSubskill": "Upper/lower bounds, inequalities and measured quantities to 2sf must be established as taught at the student's current stage.",
+      "academicQA": "pending",
+      "gradeStatus": "PROVISIONAL_REASONING_NOT_G7PLUS_CERTIFIED",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-015",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-015-V312-REASONING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-STANDARD_FORM-015-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "sourceDisposition": "PROPOSED_REPLACEMENT_OF_ROUTINE_ARITHMETIC_NUMERIC_ROTATION",
+      "stem": "Before processing, a mixture contains $3.2\\times10^{8}$ g of material A and an unknown mass of material B. Processing removes 20% of material A and 10% of material B, leaving $6.61\\times10^{8}$ g in total. What initial mass of B was added? Give your answer in standard form in grams.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "4.5\\times10^{8}"
+        },
+        {
+          "id": "B",
+          "latex": "3.41\\times10^{8}",
+          "errorPath": "Ignore both percentage losses and subtract the original mass of A directly from the final mass."
+        },
+        {
+          "id": "C",
+          "latex": "4.05\\times10^{8}",
+          "errorPath": "Correctly reduce A by 20% but report the retained B mass without undoing B's 10% loss."
+        },
+        {
+          "id": "D",
+          "latex": "5.0625\\times10^{8}",
+          "errorPath": "Use A's 20% loss rate for B as well, dividing B's retained mass by 80% instead of 90%."
+        },
+        {
+          "id": "E",
+          "latex": "3.645\\times10^{8}",
+          "errorPath": "After finding the retained B mass, apply B's 10% loss again instead of reversing it."
+        },
+        {
+          "id": "F",
+          "latex": "2.9\\times10^{8}",
+          "errorPath": "Reverse A's 20% loss instead of applying it, then correctly reverse B's 10% loss."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "4.5\\times10^{8}",
+      "workedSolutionSteps": [
+        "Material A retains 80% of its original mass, so A contributes $0.80(3.2\\times10^8)=2.56\\times10^8$ g after processing.",
+        "The amount of B remaining is $6.61\\times10^8-2.56\\times10^8=4.05\\times10^8$ g.",
+        "Material B retains 90% of its initial mass, so the original B mass is $\\dfrac{4.05\\times10^8}{0.90}=4.5\\times10^8$ g."
+      ],
+      "provisionalAOFocus": "AO3 modelling candidate: apply distinct percentage retention rates and reverse only one unknown contribution in a mass-balance relationship.",
+      "unverifiedTaughtSubskill": "Two different retention rates, conservation of mass and inverse percentage calculation require individual school-taught confirmation; Grade7+ not externally certified.",
+      "academicQA": "pending",
+      "gradeStatus": "PROVISIONAL_REASONING_NOT_G7PLUS_CERTIFIED",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-016",
+      "revisionId": "LUX-MATH-Y9-STANDARD_FORM-016-V312-REASONING-CANDIDATE",
+      "replacesRevisionId": "LUX-MATH-Y9-STANDARD_FORM-016-REVIEW-2",
+      "topicId": "math-y9-standard-form",
+      "sourceDisposition": "PROPOSED_REPLACEMENT_OF_ROUTINE_ARITHMETIC_NUMERIC_ROTATION",
+      "stem": "A square panel has side length $2.4\\times10^{3}$ mm. A similar larger square panel has a side length $k$ times as long. Its area is $3.6\\times10^{7}$ cm². What is the scale factor $k$? Give your answer in standard form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "6.25\\times10^{2}",
+          "errorPath": "Calculate the ratio of the areas, 625, but forget to take the square root to get the length scale factor."
+        },
+        {
+          "id": "B",
+          "latex": "2.5\\times10^{0}",
+          "errorPath": "Treat 2.4×10^3 mm as if it were 2.4×10^3 cm, omitting the mm-to-cm conversion."
+        },
+        {
+          "id": "C",
+          "latex": "2.5\\times10^{2}",
+          "errorPath": "Convert mm to cm by dividing by 100 rather than by 10."
+        },
+        {
+          "id": "D",
+          "latex": "6\\times10^{3}",
+          "errorPath": "Find the larger panel's side length in centimetres but report that length instead of the scale factor."
+        },
+        {
+          "id": "E",
+          "latex": "2.5\\times10^{1}"
+        },
+        {
+          "id": "F",
+          "latex": "3.75\\times10^{4}",
+          "errorPath": "Treat the given area as a perimeter and divide it by four times the original side length."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "2.5\\times10^{1}",
+      "workedSolutionSteps": [
+        "The original side length is $2.4\\times10^2$ cm, so its area is $(2.4\\times10^2)^2=5.76\\times10^4$ cm².",
+        "The ratio of areas is $\\dfrac{3.6\\times10^7}{5.76\\times10^4}=625$. For similar squares the area ratio is $k^2$.",
+        "Take the positive square root: $k=\\sqrt{625}=25=2.5\\times10^1$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate: connect mixed linear units, square area scaling and inverse square roots.",
+      "unverifiedTaughtSubskill": "Similarity and squared scale factor must be verified as taught before integrating in a Standard Form Daily topic.",
+      "academicQA": "pending",
+      "gradeStatus": "PROVISIONAL_REASONING_NOT_G7PLUS_CERTIFIED",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false
+    }
+  ],
+  "stagingSourceEditorialCorrection": "2026-11-23 QA correction: STANDARD_FORM-014 original mass 370000g for 800cm^3 implied ~463 g/cm^3, implausible for an ordinary mineral; revised to 3700g and answer 4.72 g/cm^3 with all six options and explanations consistently rescaled. Source bank 200 untouched, educational approvals remain zero."
+}

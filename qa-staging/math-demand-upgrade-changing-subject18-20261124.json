@@ -1,0 +1,1042 @@
+{
+  "kind": "CHANGING_SUBJECT18_DIFFICULTY_HOLD_REDESIGN_NO_APPROVAL",
+  "date": "2026-11-24",
+  "sourceRegister": "qa-staging/math-final-academic-review-all200-consolidated-20261124.json",
+  "sourceRegisterBlobSha": "c2b3abea3711012c7f00d7355f4f2d332cc9d39c",
+  "count": 18,
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-004",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-004-DEMAND-UPGRADE-20261124",
+      "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-004-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "STANDALONE_AO2_AO3_REDESIGN_NOT_IMPORTED",
+      "stem": "For concentric circles with inner radius r≥0 and outer radius r+d, d>0, let $A(d)=\\pi((r+d)^2-r^2)$. Keeping r fixed, doubling d triples the area. If $A(d)=98\\pi$ cm², find the original outer radius in cm.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "7",
+          "errorPath": "Report the gap d instead of the outer radius."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{7}{2}",
+          "errorPath": "Report the inner radius r."
+        },
+        {
+          "id": "C",
+          "latex": "14",
+          "errorPath": "Report twice the original gap."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{35}{2}",
+          "errorPath": "Report the outer radius after doubling the gap."
+        },
+        {
+          "id": "E",
+          "latex": "49",
+          "errorPath": "Report d² rather than a radius."
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{21}{2}"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "\\frac{21}{2}",
+      "workedSolutionSteps": [
+        "Expand A(d)=π(2rd+d²). The triple-area condition gives 4rd+4d²=6rd+3d², hence r=d/2.",
+        "Then A(d)=2πd²=98π, so d²=49 and d=7 since d>0.",
+        "The original outer radius is r+d=7/2+7=21/2 cm."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-004-ACADEMIC-REVIEW-20261124",
+      "provisionalConceptFamily": "annulus-linear-expansion",
+      "unverifiedTaughtSubskill": "Reverse a geometric area model under a change in its parameter.",
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-008",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-008-DEMAND-UPGRADE-20261124",
+      "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-008-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "STANDALONE_REDESIGNED_RADICAL_REASONING_CANDIDATE_NOT_LIVE",
+      "stem": "For integer inputs $1\\le x\\le8$, define $y=\\sqrt{(2x-6)^2}$. Find the sum of all positive integer outputs y for which exactly two distinct permitted integer inputs produce that output.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "4",
+          "errorPath": "Report the largest eligible y only."
+        },
+        {
+          "id": "B",
+          "latex": "6"
+        },
+        {
+          "id": "C",
+          "latex": "2",
+          "errorPath": "Report the number of eligible outputs."
+        },
+        {
+          "id": "D",
+          "latex": "10",
+          "errorPath": "Include y=6 despite its lower branch x=0 falling outside the domain."
+        },
+        {
+          "id": "E",
+          "latex": "12",
+          "errorPath": "Double the correct sum by counting each output once for each input."
+        },
+        {
+          "id": "F",
+          "latex": "30",
+          "errorPath": "Sum every positive even output through 10, ignoring the two-input requirement."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "6",
+      "workedSolutionSteps": [
+        "Since y=|2x−6|, for positive y the two branches are x=3±y/2.",
+        "Both are integers exactly when y is even. The lower branch requires y≤4; the upper branch requires y≤10, so the binding bound is 4.",
+        "The eligible outputs are 2 and 4. Each has exactly two permitted inputs, so the sum is 6."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-008-V312-MULTI-RADICAL-INVERSE-REASONING-CANDIDATE",
+      "provisionalConceptFamily": "absolute-square-inverse-branches",
+      "unverifiedTaughtSubskill": "Combine inverse branches, integer parity and both domain bounds.",
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-010",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-010-DEMAND-UPGRADE-20261124",
+      "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-010-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "SEPARATE_REASONING_REDESIGN_CANDIDATE_ORIGINAL_NUMERIC_TEMPLATE_RETAINED",
+      "stem": "For positive real p, let $t(p)=\\frac{3p+12}{p+2}$. It is known that $t(p)+t(2p)=\\frac{17}{2}$. Find $t(3p)$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2",
+          "errorPath": "Report p rather than t(3p)."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{9}{2}",
+          "errorPath": "Report t(p) rather than t(3p)."
+        },
+        {
+          "id": "C",
+          "latex": "4",
+          "errorPath": "Report t(2p) rather than t(3p)."
+        },
+        {
+          "id": "D",
+          "latex": "6",
+          "errorPath": "Report the new input 3p."
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{17}{2}",
+          "errorPath": "Report the given sum."
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{15}{4}"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "\\frac{15}{4}",
+      "workedSolutionSteps": [
+        "Rewrite t(p)=3+6/(p+2). Then 6/(p+2)+3/(p+1)=5/2.",
+        "Multiply by 2(p+2)(p+1), which is positive, to obtain 5p²−3p−14=0=(p−2)(5p+7).",
+        "Only p=2 is positive. Hence t(6)=3+6/8=15/4."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "domainReasoningQA": "PENDING_INDEPENDENT_DOMAIN_AND_MISCONCEPTION_REVIEW",
+      "gradeStatus": "POTENTIAL_AO2_AO3_UNBENCHMARKED",
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-010-V312-INVERSE-REASONING-CANDIDATE",
+      "provisionalConceptFamily": "rational-inverse-domain-range",
+      "unverifiedTaughtSubskill": "Combine two rational evaluations, derive a quadratic and reject a nonpermitted root.",
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "provisionalCrossTopicMasteryHold": "Rational two-input constraint and quadratic reduction; overlaps other inverse and simultaneous-equation reasoning; no independent concept credit without review."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-013",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-013-DEMAND-UPGRADE-20261124",
+      "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-013-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "STANDALONE_DIFFERENT_REASONING_GOAL_REPLACEMENT_CANDIDATE",
+      "stem": "A formula is $f(x)=a+\\frac{b}{x+2}$ for x>0. When x=1, f(x)=7; when x=4, f(x)=4. Find the product of all positive real values of x satisfying $f(x)-f(2x)=1$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "6",
+          "errorPath": "Report the sum of the two roots."
+        },
+        {
+          "id": "B",
+          "latex": "3",
+          "errorPath": "Report their midpoint."
+        },
+        {
+          "id": "C",
+          "latex": "2"
+        },
+        {
+          "id": "D",
+          "latex": "4",
+          "errorPath": "Report the constant term of 2x²−12x+4 without dividing by its leading coefficient."
+        },
+        {
+          "id": "E",
+          "latex": "-2",
+          "errorPath": "Reverse the sign of the product of roots."
+        },
+        {
+          "id": "F",
+          "latex": "18",
+          "errorPath": "Report the calibrated parameter b."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "2",
+      "workedSolutionSteps": [
+        "The calibration equations give a+b/3=7 and a+b/6=4, hence b=18,a=1.",
+        "The difference condition gives 18x/[(x+2)(2x+2)]=1. Rearrange to 2x²−12x+4=0.",
+        "The roots are 3±√7, both positive because √7<3. Their product is 9−7=2."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-013-V312-REASONING-CANDIDATE",
+      "provisionalConceptFamily": "rational-inverse-domain-range",
+      "unverifiedTaughtSubskill": "Calibrate a rational formula and solve a two-input difference with both branches.",
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "provisionalCrossTopicMasteryHold": "Rational two-input constraint and quadratic reduction; overlaps other inverse and simultaneous-equation reasoning; no independent concept credit without review."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-015",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-015-DEMAND-UPGRADE-20261124",
+      "replacesRevisionId": "LUX-MATH-Y9-REARRANGING-015-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "sourceDisposition": "STANDALONE_DIFFERENT_REASONING_GOAL_REPLACEMENT_CANDIDATE",
+      "stem": "For real k, consider $y=(k-3)x+2k$. The output is 12 and the input equals k. Find the sum of the squares of all k for which making x the subject gives a unique permitted solution with x=k.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "25"
+        },
+        {
+          "id": "B",
+          "latex": "1",
+          "errorPath": "Report the sum of the valid k."
+        },
+        {
+          "id": "C",
+          "latex": "-12",
+          "errorPath": "Report the product of the valid k."
+        },
+        {
+          "id": "D",
+          "latex": "16",
+          "errorPath": "Keep only the positive root and square it."
+        },
+        {
+          "id": "E",
+          "latex": "9",
+          "errorPath": "Keep only the negative root and square it."
+        },
+        {
+          "id": "F",
+          "latex": "49",
+          "errorPath": "Square the difference of the roots instead of adding their squares."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "25",
+      "workedSolutionSteps": [
+        "For a unique x, k≠3 and x=(12−2k)/(k−3). Impose x=k.",
+        "This gives k²−k−12=0=(k−4)(k+3), so k=4 or −3.",
+        "Neither equals 3 and each satisfies the original equation. The sum of squares is 16+9=25."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "academicQA": "pending",
+      "independentGradeCalibrated": false,
+      "independentStudentMisconceptionCertified": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-015-ACADEMIC-REVIEW-20261124",
+      "provisionalConceptFamily": "degenerate-parameter-identity",
+      "unverifiedTaughtSubskill": "Combine an inverse formula, fixed-input constraint and exceptional parameter exclusion.",
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-016",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-016-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-016-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "degenerate-parameter-identity",
+      "stem": "For real x≠−2, let $y=\\frac{ax+6}{x+2}$ with real constant a. The inverse for y=4 must give a positive x, and the inverse for y=2 must give an x strictly between −1 and −1/2. Which option gives exactly the possible values of a?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "a>4",
+          "errorPath": "Use only the positive-input requirement for y=4."
+        },
+        {
+          "id": "B",
+          "latex": "a<6",
+          "errorPath": "Use only the upper bound for a."
+        },
+        {
+          "id": "C",
+          "latex": "4\\le a\\le6",
+          "errorPath": "Include the strict endpoints."
+        },
+        {
+          "id": "D",
+          "latex": "3<a<6",
+          "errorPath": "Confuse the excluded constant-function parameter a=3 with the lower threshold."
+        },
+        {
+          "id": "E",
+          "latex": "a>6",
+          "errorPath": "Reverse the upper-bound inequality."
+        },
+        {
+          "id": "F",
+          "latex": "4<a<6"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "4<a<6",
+      "workedSolutionSteps": [
+        "Rearrange to x=(6−2y)/(y−a). At y=4 this is 2/(a−4), so positivity requires a>4.",
+        "At y=2 the inverse is −2/(a−2). For a>4, the bound −1<x holds automatically. The bound x<−1/2 requires 2/(a−2)>1/2, hence a<6.",
+        "Thus 4<a<6. Both inverse inputs are permitted and the endpoints are excluded."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Intersect two inverse-output constraints with careful denominator signs.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-016-V329-REASONING-QA-ONLY"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-023",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-023-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-023-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "rational-inverse-domain-range",
+      "stem": "The formula $y=\\frac{ax+5}{x+1}$ is defined for x≠−1. When x=2, y=4. Find the sum of all positive integer inputs x for which $3.6\\le y\\le3.75$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "10",
+          "errorPath": "Report the number of eligible integer inputs."
+        },
+        {
+          "id": "B",
+          "latex": "5",
+          "errorPath": "Report the smallest eligible input."
+        },
+        {
+          "id": "C",
+          "latex": "14",
+          "errorPath": "Report the largest eligible input."
+        },
+        {
+          "id": "D",
+          "latex": "90",
+          "errorPath": "Omit the included lower input x=5."
+        },
+        {
+          "id": "E",
+          "latex": "95"
+        },
+        {
+          "id": "F",
+          "latex": "81",
+          "errorPath": "Omit the included upper input x=14."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "95",
+      "workedSolutionSteps": [
+        "Substitution gives 2a+5=12, hence a=7/2. Rewrite y=3.5+1.5/(x+1).",
+        "The requested interval gives 0.1≤1.5/(x+1)≤0.25. Since x+1>0, this is equivalent to 6≤x+1≤15.",
+        "Thus x runs from 5 to 14 inclusive. Their sum is 10(5+14)/2=95."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Calibrate and invert a rational interval to obtain a bounded integer set.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-023-V329-REASONING-QA-ONLY"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-025",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-025-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-025-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "inverse-square-scaling",
+      "stem": "For x>−2, define $f(x)=1+\\frac{6}{\\sqrt{2x+4}}$. A positive input x satisfies $f(x)-1=2(f(x+12)-1)$. Find the exact value of f(x+12).",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2",
+          "errorPath": "Report x rather than the requested output."
+        },
+        {
+          "id": "B",
+          "latex": "14",
+          "errorPath": "Report x+12."
+        },
+        {
+          "id": "C",
+          "latex": "1+\\frac{3\\sqrt{2}}{4}"
+        },
+        {
+          "id": "D",
+          "latex": "1+\\frac{3\\sqrt{2}}{2}",
+          "errorPath": "Report f(x) instead of f(x+12)."
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{3\\sqrt{2}}{4}",
+          "errorPath": "Omit the constant 1 from the output."
+        },
+        {
+          "id": "F",
+          "latex": "1+\\frac{3}{4}",
+          "errorPath": "Replace √2 with 1 in the exact result."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "1+\\frac{3\\sqrt{2}}{4}",
+      "workedSolutionSteps": [
+        "The condition gives √(2x+28)=2√(2x+4). Both roots are positive, so squaring is reversible.",
+        "Then 2x+28=8x+16, giving x=2. This is positive and satisfies the original condition.",
+        "At x+12=14, f(14)=1+6/√32=1+3√2/4."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Use a shifted inverse-square condition and exact surd evaluation.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-025-V329-REASONING-QA-ONLY"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-026",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-026-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-026-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "reciprocal-shift-and-range",
+      "stem": "For positive integer x, let $y=2-\\frac{3}{\\sqrt{x+1}}$. Find the sum of all such x for which y is rational and $0\\le y\\le1$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3",
+          "errorPath": "Keep only the first eligible x."
+        },
+        {
+          "id": "B",
+          "latex": "11"
+        },
+        {
+          "id": "C",
+          "latex": "8",
+          "errorPath": "Keep only the second eligible x."
+        },
+        {
+          "id": "D",
+          "latex": "2",
+          "errorPath": "Report the number of eligible inputs."
+        },
+        {
+          "id": "E",
+          "latex": "35",
+          "errorPath": "Sum every integer from 2 to 8, ignoring rationality."
+        },
+        {
+          "id": "F",
+          "latex": "13",
+          "errorPath": "Report the sum of the two perfect-square radicands rather than the inputs."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "11",
+      "workedSolutionSteps": [
+        "From 0≤y≤1, obtain 1≤3/√(x+1)≤2, hence 3/2≤√(x+1)≤3.",
+        "For integer x, rational y requires √(x+1) rational, so x+1 must be a perfect square integer.",
+        "The only square radicands in [9/4,9] are 4 and 9. They give x=3,8, both satisfying the interval. Sum=11."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Transfer an output interval and rationality restriction to integer square radicands.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-026-V329-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Integer inverse with perfect-square and divisibility constraints; overlaps Indices prime-power reasoning; cross-topic review pending."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-027",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-027-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-027-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "inverse-square-scaling",
+      "stem": "A positive quantity t is related to x by $t=\\frac{4}{\\sqrt{3x+1}}$. The initial t is twice the final t. When t changes between these values, x increases by 9. Find the sum of the initial and final values of t.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2"
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{2}{3}",
+          "errorPath": "Report the final t only."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{4}{3}",
+          "errorPath": "Report the initial t only."
+        },
+        {
+          "id": "D",
+          "latex": "4",
+          "errorPath": "Square the correct sum of the two values instead of reporting the sum."
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{9}{4}",
+          "errorPath": "Report 1/u² from 4/u²=9 rather than the sum of the initial and final values."
+        },
+        {
+          "id": "F",
+          "latex": "9",
+          "errorPath": "Report the given increase in x."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "2",
+      "workedSolutionSteps": [
+        "Rearrange to x=(16/t²−1)/3. Let the final t be u>0; the initial t is 2u.",
+        "The increase in x is [(16/u²−1)−(4/u²−1)]/3=4/u²=9. Hence u=2/3.",
+        "The initial value is 4/3, and their sum is 2."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Recover an unknown inverse-square scale from a difference of two inputs.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-027-V329-REASONING-QA-ONLY"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-028",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-028-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-028-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "extraneous-output-after-squaring",
+      "stem": "A student rearranges $y=3+\\frac{2}{\\sqrt{x-1}}$ for x>1 to $x=1+\\frac{4}{(y-3)^2}$. Consider every integer y from −2 to 8 inclusive, excluding 3. Find the sum of the y values for which the student's expression gives an integer x>1 but the original formula is not satisfied.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2",
+          "errorPath": "Keep only y=2."
+        },
+        {
+          "id": "B",
+          "latex": "1",
+          "errorPath": "Keep only y=1."
+        },
+        {
+          "id": "C",
+          "latex": "7",
+          "errorPath": "Sum the two extraneous inverse inputs 2 and 5 rather than the outputs."
+        },
+        {
+          "id": "D",
+          "latex": "9",
+          "errorPath": "Sum the two permitted original outputs 4 and 5 rather than the extraneous ones."
+        },
+        {
+          "id": "E",
+          "latex": "4",
+          "errorPath": "Report the number of outputs that give integral inverse inputs without testing the original sign."
+        },
+        {
+          "id": "F",
+          "latex": "3"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "3",
+      "workedSolutionSteps": [
+        "Integer x requires (y−3)² to divide 4, so y−3=±1 or ±2. Thus y=1,2,4,5.",
+        "The original formula requires y>3 because its denominator is positive.",
+        "Only y=1 and 2 are extraneous integer outputs, giving permitted x=2 and 5 but failing the original equation. Their sum is 3."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Enumerate integral inverse values, then eliminate extraneous sign branches.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-028-ACADEMIC-REVIEW-20261124"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-030",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-030-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-030-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "calibrate-then-invert",
+      "stem": "Let $f(x)=2+\\frac{a(x+1)}{2x+3}$ for x≥0. Given f(1)=6, find the input x satisfying $f(x+1)-f(x)=\\frac{10}{63}$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "1",
+          "errorPath": "Reuse the calibration input."
+        },
+        {
+          "id": "B",
+          "latex": "3",
+          "errorPath": "Report x+1 rather than x."
+        },
+        {
+          "id": "C",
+          "latex": "-6",
+          "errorPath": "Keep the negative root that is outside the specified domain."
+        },
+        {
+          "id": "D",
+          "latex": "2"
+        },
+        {
+          "id": "E",
+          "latex": "10",
+          "errorPath": "Report the parameter a."
+        },
+        {
+          "id": "F",
+          "latex": "63",
+          "errorPath": "Report the denominator in the given difference."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "2",
+      "workedSolutionSteps": [
+        "At x=1, 4=2a/5, so a=10. Then f(x)=7−5/(2x+3).",
+        "The difference is 10/[(2x+3)(2x+5)]=10/63, giving (2x+3)(2x+5)=63.",
+        "This gives x²+4x−12=0=(x−2)(x+6). Only x=2 is permitted."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Calibrate a rational formula, form a shifted difference and select the permitted quadratic root.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-030-V329-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Rational two-input constraint and quadratic reduction; overlaps other inverse and simultaneous-equation reasoning; no independent concept credit without review."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-031",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-031-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-031-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "positive-denominator-inequality",
+      "stem": "For nonnegative integer x, let $y=1+\\frac{4x+2}{x+3}$. The output must satisfy $4\\le y\\le4.5$, and x must be a positive multiple of 4. Find the sum of all permitted x.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "20",
+          "errorPath": "Omit the final eligible input 16."
+        },
+        {
+          "id": "B",
+          "latex": "12",
+          "errorPath": "Report only the middle eligible input."
+        },
+        {
+          "id": "C",
+          "latex": "36"
+        },
+        {
+          "id": "D",
+          "latex": "3",
+          "errorPath": "Report the number of eligible inputs."
+        },
+        {
+          "id": "E",
+          "latex": "40",
+          "errorPath": "Include the excluded input 4 along with the three valid inputs."
+        },
+        {
+          "id": "F",
+          "latex": "132",
+          "errorPath": "Sum all integers from 7 to 17 without the divisibility condition."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "36",
+      "workedSolutionSteps": [
+        "Write y=5−10/(x+3). The output interval gives 1/2≤10/(x+3)≤1.",
+        "Because x+3>0, this gives 10≤x+3≤20, hence 7≤x≤17.",
+        "The multiples of 4 in this interval are 8,12,16; their sum is 36."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Invert two inequalities then apply a discrete input condition.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-031-V329-REASONING-QA-ONLY"
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-034",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-034-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-034-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "cancelled-domain-hole",
+      "stem": "For real x≠−1,−2, let $y=\\frac{2}{1+\\frac{1}{x+1}}$. Find the sum of all integer outputs y in the interval −5≤y≤5 for which the original formula has an integer input.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "10",
+          "errorPath": "Include the excluded y=2 as though it had an inverse."
+        },
+        {
+          "id": "B",
+          "latex": "4",
+          "errorPath": "Report the largest valid output."
+        },
+        {
+          "id": "C",
+          "latex": "3",
+          "errorPath": "Report the number of permitted outputs."
+        },
+        {
+          "id": "D",
+          "latex": "7",
+          "errorPath": "Omit the valid output y=1."
+        },
+        {
+          "id": "E",
+          "latex": "5",
+          "errorPath": "Omit the valid output y=3."
+        },
+        {
+          "id": "F",
+          "latex": "8"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "8",
+      "workedSolutionSteps": [
+        "Rearranging gives x=(2y−2)/(2−y)=−2+2/(2−y). For integer y≠2, integer x requires 2−y to divide 2.",
+        "Thus 2−y=±1,±2, giving y=0,1,3,4. At y=0, x=−1 is excluded by the inner denominator.",
+        "For y=1,3,4 the inputs are 0,−4,−3, all permitted. Their sum is 8."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Preserve nested denominator exclusions while enumerating integer inverse pairs.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-034-ACADEMIC-REVIEW-20261124",
+      "provisionalCrossTopicMasteryHold": "Same integer inverse and cancelled denominator hole method as Q35; do not treat as independent mastery."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-035",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-035-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-035-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "calibrate-then-invert",
+      "stem": "Let $y=\\frac{6}{2+\\frac{k}{x+1}}$, with every denominator nonzero. Given x=2 produces y=2, find the sum of all integer outputs y from −4 to 8 inclusive for which the original formula has an integer input.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "15",
+          "errorPath": "Include the excluded output y=3."
+        },
+        {
+          "id": "B",
+          "latex": "3",
+          "errorPath": "Report the number of valid outputs."
+        },
+        {
+          "id": "C",
+          "latex": "8",
+          "errorPath": "Omit the valid output y=4."
+        },
+        {
+          "id": "D",
+          "latex": "6",
+          "errorPath": "Report only the largest valid output."
+        },
+        {
+          "id": "E",
+          "latex": "12"
+        },
+        {
+          "id": "F",
+          "latex": "10",
+          "errorPath": "Omit the valid output y=2."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "12",
+      "workedSolutionSteps": [
+        "The calibration gives 3=2+k/3, hence k=3. Then y=6(x+1)/(2x+5), with x≠−1,−5/2.",
+        "Rearrange to 2x=−5−9/(y−3), for y≠3. For integer x, y−3 must divide 9 and the quotient must be odd. Within the stated bounds, y−3=±1,±3.",
+        "This gives y=0,2,4,6. The inverse for y=0 is x=−1, excluded. The others are permitted and sum to 12."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Calibrate a nested reciprocal then enumerate integer inverses and reject a domain hole.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-035-V329-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Same integer inverse and cancelled denominator hole method as Q35; do not treat as independent mastery."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-036",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-036-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-036-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "nested-inverse-difference",
+      "stem": "For real x≠0,−3, let $f(x)=1+\\frac{2}{1+\\frac{3}{x}}$. A positive input t satisfies $f(t)+f(-2t)=7$, with both inputs permitted. Find the product of the two inputs.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3",
+          "errorPath": "Report t alone."
+        },
+        {
+          "id": "B",
+          "latex": "-6",
+          "errorPath": "Report −2t alone."
+        },
+        {
+          "id": "C",
+          "latex": "-3",
+          "errorPath": "Add the two inputs instead of multiplying."
+        },
+        {
+          "id": "D",
+          "latex": "-18"
+        },
+        {
+          "id": "E",
+          "latex": "18",
+          "errorPath": "Lose the negative sign of the product."
+        },
+        {
+          "id": "F",
+          "latex": "9",
+          "errorPath": "Square t instead of multiplying t and −2t."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "-18",
+      "workedSolutionSteps": [
+        "Write f(t)=1+2t/(t+3), f(−2t)=1+4t/(2t−3). Here t>0 and t≠3/2.",
+        "The sum condition gives 2t/(t+3)+4t/(2t−3)=5. Multiplying by the nonzero denominators yields 2t²+9t−45=0=(t−3)(2t+15).",
+        "Only t=3 is positive and permitted. The inputs 3 and −6 satisfy the original condition, and their product is −18."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Combine nested inverse evaluations, solve a quadratic and check denominator exclusions.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-036-V329-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Rational two-input constraint and quadratic reduction; overlaps other inverse and simultaneous-equation reasoning; no independent concept credit without review."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-039",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-039-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-039-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "radical-mobius-inversion",
+      "stem": "For integer x≠−1, let $y=2+\\sqrt{\\frac{4x+49}{x+1}}$ wherever the real square root exists. Find the sum of all integer inputs x for which y is also an integer.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "-8"
+        },
+        {
+          "id": "B",
+          "latex": "8",
+          "errorPath": "Ignore the negative valid input x=−16."
+        },
+        {
+          "id": "C",
+          "latex": "16",
+          "errorPath": "Report the magnitude of the negative input."
+        },
+        {
+          "id": "D",
+          "latex": "-16",
+          "errorPath": "Keep only the negative input."
+        },
+        {
+          "id": "E",
+          "latex": "3",
+          "errorPath": "Report the number of eligible inputs."
+        },
+        {
+          "id": "F",
+          "latex": "17",
+          "errorPath": "Sum the outputs 9,5,3 instead of the inputs."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "-8",
+      "workedSolutionSteps": [
+        "The radicand is 4+45/(x+1). Integral y requires it to be a nonnegative perfect square integer, so x+1 must divide 45.",
+        "For positive divisors 1,3,5,9,15,45, the radicands are 49,19,13,9,7,5; for their negatives they are −41,−11,−5,−1,1,3.",
+        "Only divisors 1,9,−15 give square radicands, hence x=0,8,−16. Their sum is −8."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Invert a radical rational expression using integer divisibility and exact square testing.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-039-ACADEMIC-REVIEW-20261124",
+      "provisionalCrossTopicMasteryHold": "Integer inverse with perfect-square and divisibility constraints; overlaps Indices prime-power reasoning; cross-topic review pending."
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-040",
+      "revisionId": "LUX-MATH-Y9-REARRANGING-040-DEMAND-UPGRADE-20261124",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-REARRANGING-040-REVIEW-2",
+      "topicId": "math-y9-changing-subject",
+      "provisionalConceptFamily": "inverse-square-scaling",
+      "stem": "Let $x=1/n$, where n is an integer satisfying $1\\le n\\le50$. Define $y=\\sqrt{\\frac{9x+4}{x}}$. Find the sum of all n for which y is an integer.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "5",
+          "errorPath": "Report the number of valid inputs."
+        },
+        {
+          "id": "B",
+          "latex": "40",
+          "errorPath": "Report the largest valid n."
+        },
+        {
+          "id": "C",
+          "latex": "60",
+          "errorPath": "Omit the largest valid n."
+        },
+        {
+          "id": "D",
+          "latex": "45",
+          "errorPath": "Sum the eligible outputs 5,7,9,11,13 instead of n."
+        },
+        {
+          "id": "E",
+          "latex": "154",
+          "errorPath": "Include n=54, which exceeds the given upper bound."
+        },
+        {
+          "id": "F",
+          "latex": "100"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "100",
+      "workedSolutionSteps": [
+        "Substitute x=1/n to obtain y²=9+4n. Thus 13≤y²≤209 and y² leaves remainder 1 on division by 4.",
+        "The principal integer square root must therefore be odd and positive, giving y=5,7,9,11,13.",
+        "Rearrange to n=(y²−9)/4. The values are 4,10,18,28,40, whose sum is 100."
+      ],
+      "provisionalAOFocus": "Multi-condition reasoning candidate; independent Grade 7+ calibration pending",
+      "unverifiedTaughtSubskill": "Transfer inverse formula into bounded parity and perfect-square constraints.",
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-040-V329-REASONING-QA-ONLY",
+      "provisionalCrossTopicMasteryHold": "Integer inverse with perfect-square and divisibility constraints; overlaps Indices prime-power reasoning; cross-topic review pending."
+    }
+  ],
+  "verification": "Author algebra and bounded enumeration, 18 answer keys checked, 108 option strings and 90 explanations. Grade and taught scope require independent review; retain existing shared mastery groups. No student credit.",
+  "academicApprovals": 0,
+  "dailyEligible": 0,
+  "masteryEligible": 0
+}

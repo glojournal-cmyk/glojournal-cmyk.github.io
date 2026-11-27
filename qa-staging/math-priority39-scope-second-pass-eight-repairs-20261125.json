@@ -1,0 +1,518 @@
+{
+  "kind": "PRIORITY39_SCOPE_SECOND_PASS_REPAIRS_NO_RELEASE",
+  "date": "2026-11-25",
+  "sourceRegister": "qa-staging/math-priority116-post39-scope-rewrite-register-20261125.json",
+  "sourceRegisterBlobSha": "aa86c1e07cdea9119113bf81985377eeacefb463",
+  "sourceCommit": "a1b137f3c5a92ef55b4aa6b7aa76626d9eca516a",
+  "counts": {
+    "revised": 8,
+    "formalApproved": 0
+  },
+  "limits": "AI-authored follow-up; no external approval, grade calibration or runtime deployment.",
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-019",
+      "priorRevisionId": "LUX-MATH-Y9-STANDARD_FORM-019-AUTUMN-SCOPE-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority39-scope-rewrite-indices-standard-simultaneous10-20261125.json",
+      "priorRecordBlobSha": "92b05428aca8094016954af39b63cc3770e37eaa",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-STANDARD_FORM-019",
+        "revisionId": "LUX-MATH-Y9-STANDARD_FORM-019-SCOPE-SECOND-PASS-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-STANDARD_FORM-019-AUTUMN-SCOPE-REWRITE-20261125",
+        "topicId": "math-y9-standard-form",
+        "stem": "A first machine processes $2.4\\times10^5$ items per minute for $1.5\\times10^2$ minutes. Of these items, $3.6\\times10^6$ are rejected. A second machine can process up to $1.2\\times10^6$ remaining items per operating minute. Each shift lasts a whole number of operating minutes, at least 5, and its allocated processing capacity (minutes multiplied by maximum rate) must not exceed $1.0\\times10^7$ items. The final shift may run below its maximum rate to finish the remaining items. Which pair gives the greatest permitted number of operating minutes per shift and the fewest shifts needed?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "(8,4)"
+          },
+          {
+            "id": "B",
+            "latex": "(8,27)",
+            "errorPath": "Divide remaining items by the per-minute rate to get 27 operating minutes, then report those minutes as shifts."
+          },
+          {
+            "id": "C",
+            "latex": "(9,3)",
+            "errorPath": "Round 8⅓ up to9, then ceil(32.4/10.8)=3."
+          },
+          {
+            "id": "D",
+            "latex": "(5,6)",
+            "errorPath": "Use minimum5 minutes instead of maximum; ceil(32.4/6)=6."
+          },
+          {
+            "id": "E",
+            "latex": "(8,3)",
+            "errorPath": "Round down the required shift count."
+          },
+          {
+            "id": "F",
+            "latex": "(10,3)",
+            "errorPath": "Treat 10 million capacity as 10 minutes."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "(8,4)",
+        "workedSolutionSteps": [
+          "Remaining items=2.4×10^5×1.5×10^2−3.6×10^6=3.24×10^7.",
+          "Maximum minutes=floor(10^7/(1.2×10^6))=8; capacity9.6×10^6 per shift.",
+          "Three shifts have capacity2.88×10^7, insufficient. Four shifts suffice: after three full shifts, 3.6×10^6 items remain, within a final five-minute shift's capacity6×10^6. Answer (8,4)."
+        ],
+        "unverifiedTaughtSubskill": "Core methods with listed constraints; specific classroom exposure and Grade 7+ demand unverified.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false,
+        "importAllowed": false
+      },
+      "provisionalMasteryExclusionGroup": "FIXED_TOTAL_RESOURCE_ALLOCATION",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-035",
+      "priorRevisionId": "LUX-MATH-Y9-INDICES-035-AUTUMN-SCOPE-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority39-scope-rewrite-indices-standard-simultaneous10-20261125.json",
+      "priorRecordBlobSha": "92b05428aca8094016954af39b63cc3770e37eaa",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-INDICES-035",
+        "revisionId": "LUX-MATH-Y9-INDICES-035-SCOPE-SECOND-PASS-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-INDICES-035-AUTUMN-SCOPE-REWRITE-20261125",
+        "topicId": "math-y9-indices",
+        "stem": "Positive integers a,b satisfy $2^a4^b=2^{14}$ and $a>b$. Let $x=2^a$ and $y=2^b$. Find the sum of all possible values of x/y.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "2340"
+          },
+          {
+            "id": "B",
+            "latex": "2336",
+            "errorPath": "Omit b4 and ratio4."
+          },
+          {
+            "id": "C",
+            "latex": "5460",
+            "errorPath": "Misread 4^b as 2^b, so a+b=14. Then a>b gives b=1..6, and sum 2^12+2^10+2^8+2^6+2^4+2^2=5460."
+          },
+          {
+            "id": "D",
+            "latex": "4680",
+            "errorPath": "Evaluate 2^(a−b+1) for each valid pair, doubling the correct sum."
+          },
+          {
+            "id": "E",
+            "latex": "2048",
+            "errorPath": "Keep only b1."
+          },
+          {
+            "id": "F",
+            "latex": "10",
+            "errorPath": "Sum b values instead of ratios."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "2340",
+        "workedSolutionSteps": [
+          "a+2b=14, a>b, b positive. Thus b=1,2,3,4 and a=12,10,8,6.",
+          "Ratios are 2^11,2^8,2^5,2²=2048,256,32,4.",
+          "Sum2048+256+32+4=2340."
+        ],
+        "unverifiedTaughtSubskill": "Core methods with listed constraints; specific classroom exposure and Grade 7+ demand unverified.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false,
+        "importAllowed": false
+      },
+      "provisionalMasteryExclusionGroup": "INTEGER_FEASIBILITY",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-014",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-014-AUTUMN-SCOPE-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority39-scope-rewrite-graphs12-20261125.json",
+      "priorRecordBlobSha": "894c187e3cb43684d07c76986599d5354663efe1",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-014",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-014-SCOPE-SECOND-PASS-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-014-AUTUMN-SCOPE-REWRITE-20261125",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "Lines $y=2x+1$ and $y=7-x$ meet at P. Together with the y-axis they form a triangle. The vertical line $x=k$ with $0<k<2$ divides it, leaving a trapezium next to the y-axis. The VERTICAL separation of the two lines at x=k is exactly 3 units. Find the area of the trapezium and its width k.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\frac92;\\ 1"
+          },
+          {
+            "id": "B",
+            "latex": "3;\\ 1",
+            "errorPath": "Use shorter side3 as rectangle height."
+          },
+          {
+            "id": "C",
+            "latex": "6;\\ 1",
+            "errorPath": "Use longer side6 as rectangle height."
+          },
+          {
+            "id": "D",
+            "latex": "\\frac32;\\ 1",
+            "errorPath": "Use triangular area with height3 and base1."
+          },
+          {
+            "id": "E",
+            "latex": "\\frac92;\\ 3",
+            "errorPath": "Report vertical separation3 as width."
+          },
+          {
+            "id": "F",
+            "latex": "9;\\ 1",
+            "errorPath": "Omit factor1/2."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "\\frac92;\\ 1",
+        "workedSolutionSteps": [
+          "Vertical separation at x=k is (7−k)−(2k+1)=6−3k.",
+          "Set equal3, obtaining k1.",
+          "Trapezium has parallel sides length6 and3 separated by1; area(6+3)/2=9/2."
+        ],
+        "unverifiedTaughtSubskill": "Linear equations, gradients, parallel lines, intersections, integer enumeration and direct area as applicable. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false,
+        "importAllowed": false
+      },
+      "provisionalMasteryExclusionGroup": "INTERCEPT_AREA",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-019",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-019-AUTUMN-SCOPE-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority39-scope-rewrite-graphs12-20261125.json",
+      "priorRecordBlobSha": "894c187e3cb43684d07c76986599d5354663efe1",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-019",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-019-SCOPE-SECOND-PASS-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-019-AUTUMN-SCOPE-REWRITE-20261125",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "For each integer k from −8 to 14 inclusive, the horizontal line $y=k$ meets lines A: $y=2x+1$ and B: $y=5-3x$. Find the sum of all k for which BOTH intersection x-coordinates are integers and the intersection with A is strictly to the right of the intersection with B.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "16"
+          },
+          {
+            "id": "B",
+            "latex": "8",
+            "errorPath": "Ignore the order condition: −7−1+5+11=8."
+          },
+          {
+            "id": "C",
+            "latex": "38",
+            "errorPath": "Check only B's integral x-coordinate and the order: k=5,8,11,14."
+          },
+          {
+            "id": "D",
+            "latex": "48",
+            "errorPath": "Check only A's integral x-coordinate and the order: k=3,5,7,9,11,13."
+          },
+          {
+            "id": "E",
+            "latex": "-8",
+            "errorPath": "Reverse the order condition: k=−7,−1."
+          },
+          {
+            "id": "F",
+            "latex": "11",
+            "errorPath": "Keep only the larger qualifying k."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "16",
+        "workedSolutionSteps": [
+          "The intersection x-coordinates are (k−1)/2 and (5−k)/3. Both are integers exactly at k=−7,−1,5,11 within the domain.",
+          "A is to the right iff 3(k−1)>2(5−k), equivalent to 5k>13. Equivalently compare the two x values for each of the four candidates.",
+          "Only k=5,11 qualify. Sum16."
+        ],
+        "unverifiedTaughtSubskill": "Linear equations, gradients, parallel lines, intersections, integer enumeration and direct area as applicable. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false,
+        "importAllowed": false
+      },
+      "provisionalMasteryExclusionGroup": "INTEGER_FEASIBILITY",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-027",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-027-AUTUMN-SCOPE-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority39-scope-rewrite-graphs12-20261125.json",
+      "priorRecordBlobSha": "894c187e3cb43684d07c76986599d5354663efe1",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-027",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-027-SCOPE-SECOND-PASS-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-027-AUTUMN-SCOPE-REWRITE-20261125",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "Parallel lines $y=mx+2$ and $y=mx+8$ have x-intercepts 3 units apart, and m<0. A third parallel line passes through the midpoint of those two x-intercepts. Where does the third line meet the line $y=x-1$?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "(2,1)"
+          },
+          {
+            "id": "B",
+            "latex": "(1,0)",
+            "errorPath": "Use first line instead: −2x+2=x−1 gives1,0."
+          },
+          {
+            "id": "C",
+            "latex": "(3,2)",
+            "errorPath": "Use second line instead: −2x+8=x−1 gives3,2."
+          },
+          {
+            "id": "D",
+            "latex": "(2,5)",
+            "errorPath": "Report y-intercept5 as y at x2."
+          },
+          {
+            "id": "E",
+            "latex": "(1,2)",
+            "errorPath": "Report first x-intercept and first y-intercept."
+          },
+          {
+            "id": "F",
+            "latex": "(\\frac52,0)",
+            "errorPath": "Report midpoint of original x-intercepts instead of intersecting the third line with y=x−1."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "(2,1)",
+        "workedSolutionSteps": [
+          "The x-intercept difference is 6/|m|=3, so m=−2.",
+          "First intercept1, second4, midpoint(2.5,0); third line y=−2x+5.",
+          "Equate −2x+5=x−1: x2,y1."
+        ],
+        "unverifiedTaughtSubskill": "Linear equations, gradients, parallel lines, intersections, integer enumeration and direct area as applicable. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false,
+        "importAllowed": false
+      },
+      "provisionalMasteryExclusionGroup": "LINEAR_SYSTEM_TRANSFER",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-028",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-028-AUTUMN-SCOPE-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority39-scope-rewrite-changing-subject17-20261125.json",
+      "priorRecordBlobSha": "f14045b533a04c46b9652f38580c9f7995b55bc6",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-028",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-028-SCOPE-SECOND-PASS-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-028-AUTUMN-SCOPE-REWRITE-20261125",
+        "topicId": "math-y9-changing-subject",
+        "stem": "A student rearranges $y=3+(x-2)^2$ to $x=2+\\sqrt{y-3}$. For original inputs x from −2 to 6 inclusive, which is the complete set of inputs producing y=12, and which input does the student's formula miss?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "\\{5\\};\\ \\text{none}",
+            "errorPath": "Keep only positive branch."
+          },
+          {
+            "id": "B",
+            "latex": "\\{-5,5\\};\\ -5",
+            "errorPath": "Reflect positive root about zero instead of2."
+          },
+          {
+            "id": "C",
+            "latex": "\\{-1,5\\};\\ -1"
+          },
+          {
+            "id": "D",
+            "latex": "\\{-1,5\\};\\ 5",
+            "errorPath": "Misidentify missing branch."
+          },
+          {
+            "id": "E",
+            "latex": "\\{-3,3\\};\\ -3",
+            "errorPath": "Forget shift2."
+          },
+          {
+            "id": "F",
+            "latex": "\\{2-2\\sqrt3,2+2\\sqrt3\\};\\ 2-2\\sqrt3",
+            "errorPath": "Forget to subtract 3 before taking the square root, solving (x−2)²=12 rather than 9."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "\\{-1,5\\};\\ -1",
+        "workedSolutionSteps": [
+          "(x−2)²=9; x−2=±3.",
+          "Both x−1 and5 are in the domain.",
+          "Student's formula gives5 and misses−1."
+        ],
+        "unverifiedTaughtSubskill": "Linear rearrangement or isolation of one squared variable with explicit domain; finite integer reasoning where specified. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false,
+        "importAllowed": false
+      },
+      "provisionalMasteryExclusionGroup": "QUADRATIC_AND_BRANCH_REASONING",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-REARRANGING-036",
+      "priorRevisionId": "LUX-MATH-Y9-REARRANGING-036-AUTUMN-SCOPE-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority39-scope-rewrite-changing-subject17-20261125.json",
+      "priorRecordBlobSha": "f14045b533a04c46b9652f38580c9f7995b55bc6",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-REARRANGING-036",
+        "revisionId": "LUX-MATH-Y9-REARRANGING-036-SCOPE-SECOND-PASS-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-REARRANGING-036-AUTUMN-SCOPE-REWRITE-20261125",
+        "topicId": "math-y9-changing-subject",
+        "stem": "Let $f(x)=(3x+7)/4$. A positive input t gives $f(t)+2f(-t)=3$. Find t and make t the subject in terms of S, where $S=f(t)+2f(-t)$.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "t=(21-4S)/3;\\ t=3"
+          },
+          {
+            "id": "B",
+            "latex": "t=(4S-21)/3;\\ t=-3",
+            "errorPath": "Reverse subtraction."
+          },
+          {
+            "id": "C",
+            "latex": "t=(4S-21)/9;\\ t=-1",
+            "errorPath": "Replace f(−t) with f(t), giving 4S=9t+21."
+          },
+          {
+            "id": "D",
+            "latex": "t=(21-4S)/3;\\ t=9",
+            "errorPath": "Forget division by3 in numerical result."
+          },
+          {
+            "id": "E",
+            "latex": "t=(21-4S)/3;\\ t=11",
+            "errorPath": "Add 4S to 21 instead of subtracting when evaluating at S=3."
+          },
+          {
+            "id": "F",
+            "latex": "t=(21-4S)/3;\\ t=7",
+            "errorPath": "Ignore 4S when evaluating."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "t=(21-4S)/3;\\ t=3",
+        "workedSolutionSteps": [
+          "4S=3t+7+2(−3t+7)=21−3t.",
+          "t=(21−4S)/3.",
+          "At S3, t3."
+        ],
+        "unverifiedTaughtSubskill": "Linear rearrangement or isolation of one squared variable with explicit domain; finite integer reasoning where specified. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false,
+        "importAllowed": false
+      },
+      "provisionalMasteryExclusionGroup": "CALIBRATION_AND_INVERSE",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-020",
+      "priorRevisionId": "LUX-MATH-Y9-GRAPHS-020-AUTUMN-SCOPE-REWRITE-20261125",
+      "priorRecordPath": "qa-staging/math-priority39-scope-rewrite-graphs12-20261125.json",
+      "priorRecordBlobSha": "894c187e3cb43684d07c76986599d5354663efe1",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-GRAPHS-020",
+        "revisionId": "LUX-MATH-Y9-GRAPHS-020-SCOPE-SECOND-PASS-REPAIR-20261125",
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-GRAPHS-020-AUTUMN-SCOPE-REWRITE-20261125",
+        "topicId": "math-y9-straight-line-graphs",
+        "stem": "Three lines give $A=2x+3$, $B=5x-9$ and $C=3x-1$. At integer x from 0 to 8, retain x when B lies above A and C lies strictly between A and B. The vertical gap from A to B must be at most 9 units. Find the sum of the vertical gaps B−C over all retained x. You may compare the line heights directly at the nine integer inputs.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "12"
+          },
+          {
+            "id": "B",
+            "latex": "6",
+            "errorPath": "Report largest B−C only."
+          },
+          {
+            "id": "C",
+            "latex": "9",
+            "errorPath": "Report greatest B−A only."
+          },
+          {
+            "id": "D",
+            "latex": "18",
+            "errorPath": "Sum B−A rather than B−C:3+6+9=18."
+          },
+          {
+            "id": "E",
+            "latex": "20",
+            "errorPath": "Ignore gap cap and include x8, adding8."
+          },
+          {
+            "id": "F",
+            "latex": "3",
+            "errorPath": "Report count of valid x."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "12",
+        "workedSolutionSteps": [
+          "B>A requires x>4. C−A=x−4 and B−C=2x−8, both positive for x>4.",
+          "Gap B−A=3x−12≤9 gives x≤7, so x5,6,7.",
+          "B−C=2,4,6; sum12."
+        ],
+        "unverifiedTaughtSubskill": "Linear equations, gradients, parallel lines, intersections, integer enumeration and direct area as applicable. Class exposure not confirmed.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "teacherTaughtConfirmed": false,
+        "independentGradeCalibrated": false,
+        "importAllowed": false
+      },
+      "provisionalMasteryExclusionGroup": "LINEAR_INEQUALITY_CONSTRAINTS",
+      "academicApproval": false,
+      "dailyEligible": false,
+      "masteryEligible": false,
+      "importAllowed": false
+    }
+  ]
+}

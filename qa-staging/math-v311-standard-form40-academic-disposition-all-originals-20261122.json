@@ -1,0 +1,1256 @@
+{
+  "status": "COMPLETE_STANDARD_FORM_40_ORIGINAL_QA_DISPOSITION_ALL_STUDENT_CREDITS_BLOCKED",
+  "date": "2026-11-22",
+  "evidence": [
+    "qa-staging/math-v311-batch40-standard-form-source-qa-20261122.json",
+    "qa-staging/math-v311-standard-form40-source-240-option-numeric-review-20261122.json",
+    "qa-staging/math-v311-standard-form40-original-200-distractor-operation-candidates-20261122.json"
+  ],
+  "summary": {
+    "sourceOriginalQuestions": 40,
+    "fullWrongOptionSlots": 200,
+    "arithmeticallyReproducedErrorModelSlots": 107,
+    "numericalWrongButUnmodelledSlots": 85,
+    "visuallyAmbiguousOriginalChoiceSlots": 8,
+    "upgradeOriginals": 20,
+    "rewriteOriginals": 12,
+    "schoolScopeHoldOriginals": 8,
+    "independentlyAcademicApprovedOriginals": 0
+  },
+  "tenOriginalTemplateDecisions": [
+    {
+      "originalQuestionNumbers": [
+        41,
+        42,
+        43,
+        44
+      ],
+      "sourceTemplate": "V2-STANDARD-FORM-1",
+      "action": "REWRITE_CONTEXT",
+      "reason": "Unrealistic original bulk densities; existing QA-only replacement versions must receive new source hashes and independent grade QA",
+      "independentGradeCalibrationPassed": false,
+      "actualAutumnTaughtProven": false,
+      "sourceQuestionsCount": 4,
+      "errorRoutesReproduced": 16
+    },
+    {
+      "originalQuestionNumbers": [
+        45,
+        46,
+        47,
+        48
+      ],
+      "sourceTemplate": "V2-STANDARD-FORM-2",
+      "action": "UPGRADE_GRADE_DEMAND",
+      "reason": "Simple two-term addition followed by division is routine AO1 until independently benchmarked",
+      "independentGradeCalibrationPassed": false,
+      "actualAutumnTaughtProven": false,
+      "sourceQuestionsCount": 4,
+      "errorRoutesReproduced": 14
+    },
+    {
+      "originalQuestionNumbers": [
+        49,
+        50,
+        51,
+        52
+      ],
+      "sourceTemplate": "V2-STANDARD-FORM-3",
+      "action": "UPGRADE_GRADE_DEMAND",
+      "reason": "Standard form subtraction followed by a short division is a repeated numerical method",
+      "independentGradeCalibrationPassed": false,
+      "actualAutumnTaughtProven": false,
+      "sourceQuestionsCount": 4,
+      "errorRoutesReproduced": 10
+    },
+    {
+      "originalQuestionNumbers": [
+        53,
+        54,
+        55,
+        56
+      ],
+      "sourceTemplate": "V2-STANDARD-FORM-4",
+      "action": "UPGRADE_GRADE_DEMAND",
+      "reason": "Numerical difficulty from large powers is not equivalent to distinct AO2/AO3 mathematical reasoning",
+      "independentGradeCalibrationPassed": false,
+      "actualAutumnTaughtProven": false,
+      "sourceQuestionsCount": 4,
+      "errorRoutesReproduced": 13
+    },
+    {
+      "originalQuestionNumbers": [
+        57,
+        58,
+        59,
+        60
+      ],
+      "sourceTemplate": "V3-SF-G8-FILTER-DENSITY",
+      "action": "REWRITE_CONTEXT_AND_DUPLICATES",
+      "reason": "Filtered density original values are 300,30,300,30 g/cm3; stage unapproved separate solutions",
+      "independentGradeCalibrationPassed": false,
+      "actualAutumnTaughtProven": false,
+      "sourceQuestionsCount": 4,
+      "errorRoutesReproduced": 13
+    },
+    {
+      "originalQuestionNumbers": [
+        61,
+        62,
+        63,
+        64
+      ],
+      "sourceTemplate": "V3-SF-G8-RELATIVE-PERCENTAGE",
+      "action": "QUARANTINE_ACTUAL_TAUGHT_SCOPE",
+      "reason": "Relative percentage timing and original stacked mathematical fractions require school+visual confirmation",
+      "independentGradeCalibrationPassed": false,
+      "actualAutumnTaughtProven": false,
+      "sourceQuestionsCount": 4,
+      "errorRoutesReproduced": 1
+    },
+    {
+      "originalQuestionNumbers": [
+        65,
+        66,
+        67,
+        68
+      ],
+      "sourceTemplate": "V3-SF-G8-UNITS-AND-PARTICLE-COUNT",
+      "action": "UPGRADE_GRADE_DEMAND",
+      "reason": "Metric volume conversion and multiplying a concentration is not intrinsically GCSE Grade8 reasoning",
+      "independentGradeCalibrationPassed": false,
+      "actualAutumnTaughtProven": false,
+      "sourceQuestionsCount": 4,
+      "errorRoutesReproduced": 14
+    },
+    {
+      "originalQuestionNumbers": [
+        69,
+        70,
+        71,
+        72
+      ],
+      "sourceTemplate": "V3-SF-G8-COMBINE-THREE-TERMS",
+      "action": "UPGRADE_GRADE_DEMAND",
+      "reason": "Three-term arithmetic and a quotient is still predominantly algorithmic without independent exam benchmarking",
+      "independentGradeCalibrationPassed": false,
+      "actualAutumnTaughtProven": false,
+      "sourceQuestionsCount": 4,
+      "errorRoutesReproduced": 11
+    },
+    {
+      "originalQuestionNumbers": [
+        73,
+        74,
+        75,
+        76
+      ],
+      "sourceTemplate": "V3-SF-G89-TRANSFER-LOSS-QUANTITY",
+      "action": "REWRITE_REPEATED_RESULT",
+      "reason": "Four original results identical 111600 g; staged replacements include two Spring percentages and stay blocked",
+      "independentGradeCalibrationPassed": false,
+      "actualAutumnTaughtProven": false,
+      "sourceQuestionsCount": 4,
+      "errorRoutesReproduced": 10
+    },
+    {
+      "originalQuestionNumbers": [
+        77,
+        78,
+        79,
+        80
+      ],
+      "sourceTemplate": "V3-SF-G89-INVERSE-BALANCE",
+      "action": "QUARANTINE_SPRING_REVERSE_PERCENT",
+      "reason": "School TGS published scope has reverse percentage in Spring; don't credit in Autumn without teacher proof",
+      "independentGradeCalibrationPassed": false,
+      "actualAutumnTaughtProven": false,
+      "sourceQuestionsCount": 4,
+      "errorRoutesReproduced": 5
+    }
+  ],
+  "fortyOriginalQuestionDecisions": [
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-001",
+      "originalQuestion": 41,
+      "sourceTemplate": "V2-STANDARD-FORM-1",
+      "originalGradeLabelProvisional": "G7",
+      "originalTriage": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalCorrectLetter": "F",
+      "releaseDisposition": "REWRITE_CONTEXT",
+      "reason": "Unrealistic original bulk densities; existing QA-only replacement versions must receive new source hashes and independent grade QA",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "A",
+          "B",
+          "C",
+          "E"
+        ],
+        "wrongValueNoModeledError": [
+          "D"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-002",
+      "originalQuestion": 42,
+      "sourceTemplate": "V2-STANDARD-FORM-1",
+      "originalGradeLabelProvisional": "G7",
+      "originalTriage": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalCorrectLetter": "E",
+      "releaseDisposition": "REWRITE_CONTEXT",
+      "reason": "Unrealistic original bulk densities; existing QA-only replacement versions must receive new source hashes and independent grade QA",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "A",
+          "B",
+          "D",
+          "F"
+        ],
+        "wrongValueNoModeledError": [
+          "C"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-003",
+      "originalQuestion": 43,
+      "sourceTemplate": "V2-STANDARD-FORM-1",
+      "originalGradeLabelProvisional": "G7",
+      "originalTriage": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalCorrectLetter": "C",
+      "releaseDisposition": "REWRITE_CONTEXT",
+      "reason": "Unrealistic original bulk densities; existing QA-only replacement versions must receive new source hashes and independent grade QA",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "A",
+          "B",
+          "E",
+          "F"
+        ],
+        "wrongValueNoModeledError": [
+          "D"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-004",
+      "originalQuestion": 44,
+      "sourceTemplate": "V2-STANDARD-FORM-1",
+      "originalGradeLabelProvisional": "G7",
+      "originalTriage": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalCorrectLetter": "A",
+      "releaseDisposition": "REWRITE_CONTEXT",
+      "reason": "Unrealistic original bulk densities; existing QA-only replacement versions must receive new source hashes and independent grade QA",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "B",
+          "C",
+          "E",
+          "F"
+        ],
+        "wrongValueNoModeledError": [
+          "D"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-005",
+      "originalQuestion": 45,
+      "sourceTemplate": "V2-STANDARD-FORM-2",
+      "originalGradeLabelProvisional": "G7",
+      "originalTriage": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalCorrectLetter": "D",
+      "releaseDisposition": "UPGRADE_GRADE_DEMAND",
+      "reason": "Simple two-term addition followed by division is routine AO1 until independently benchmarked",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "B",
+          "E",
+          "F"
+        ],
+        "wrongValueNoModeledError": [
+          "A",
+          "C"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-006",
+      "originalQuestion": 46,
+      "sourceTemplate": "V2-STANDARD-FORM-2",
+      "originalGradeLabelProvisional": "G7",
+      "originalTriage": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalCorrectLetter": "A",
+      "releaseDisposition": "UPGRADE_GRADE_DEMAND",
+      "reason": "Simple two-term addition followed by division is routine AO1 until independently benchmarked",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "B",
+          "D",
+          "F"
+        ],
+        "wrongValueNoModeledError": [
+          "C",
+          "E"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-007",
+      "originalQuestion": 47,
+      "sourceTemplate": "V2-STANDARD-FORM-2",
+      "originalGradeLabelProvisional": "G7",
+      "originalTriage": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalCorrectLetter": "E",
+      "releaseDisposition": "UPGRADE_GRADE_DEMAND",
+      "reason": "Simple two-term addition followed by division is routine AO1 until independently benchmarked",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "B",
+          "C",
+          "D",
+          "F"
+        ],
+        "wrongValueNoModeledError": [
+          "A"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-008",
+      "originalQuestion": 48,
+      "sourceTemplate": "V2-STANDARD-FORM-2",
+      "originalGradeLabelProvisional": "G7",
+      "originalTriage": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalCorrectLetter": "B",
+      "releaseDisposition": "UPGRADE_GRADE_DEMAND",
+      "reason": "Simple two-term addition followed by division is routine AO1 until independently benchmarked",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "A",
+          "D",
+          "E",
+          "F"
+        ],
+        "wrongValueNoModeledError": [
+          "C"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-009",
+      "originalQuestion": 49,
+      "sourceTemplate": "V2-STANDARD-FORM-3",
+      "originalGradeLabelProvisional": "G7",
+      "originalTriage": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalCorrectLetter": "C",
+      "releaseDisposition": "UPGRADE_GRADE_DEMAND",
+      "reason": "Standard form subtraction followed by a short division is a repeated numerical method",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "A",
+          "D",
+          "F"
+        ],
+        "wrongValueNoModeledError": [
+          "B",
+          "E"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-010",
+      "originalQuestion": 50,
+      "sourceTemplate": "V2-STANDARD-FORM-3",
+      "originalGradeLabelProvisional": "G7",
+      "originalTriage": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalCorrectLetter": "D",
+      "releaseDisposition": "UPGRADE_GRADE_DEMAND",
+      "reason": "Standard form subtraction followed by a short division is a repeated numerical method",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "B"
+        ],
+        "wrongValueNoModeledError": [
+          "A",
+          "C",
+          "E",
+          "F"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-011",
+      "originalQuestion": 51,
+      "sourceTemplate": "V2-STANDARD-FORM-3",
+      "originalGradeLabelProvisional": "G7",
+      "originalTriage": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalCorrectLetter": "A",
+      "releaseDisposition": "UPGRADE_GRADE_DEMAND",
+      "reason": "Standard form subtraction followed by a short division is a repeated numerical method",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "C",
+          "D",
+          "F"
+        ],
+        "wrongValueNoModeledError": [
+          "B",
+          "E"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-012",
+      "originalQuestion": 52,
+      "sourceTemplate": "V2-STANDARD-FORM-3",
+      "originalGradeLabelProvisional": "G7",
+      "originalTriage": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalCorrectLetter": "B",
+      "releaseDisposition": "UPGRADE_GRADE_DEMAND",
+      "reason": "Standard form subtraction followed by a short division is a repeated numerical method",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "C",
+          "D",
+          "E"
+        ],
+        "wrongValueNoModeledError": [
+          "A",
+          "F"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-013",
+      "originalQuestion": 53,
+      "sourceTemplate": "V2-STANDARD-FORM-4",
+      "originalGradeLabelProvisional": "G7",
+      "originalTriage": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalCorrectLetter": "B",
+      "releaseDisposition": "UPGRADE_GRADE_DEMAND",
+      "reason": "Numerical difficulty from large powers is not equivalent to distinct AO2/AO3 mathematical reasoning",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "A",
+          "C",
+          "E",
+          "F"
+        ],
+        "wrongValueNoModeledError": [
+          "D"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-014",
+      "originalQuestion": 54,
+      "sourceTemplate": "V2-STANDARD-FORM-4",
+      "originalGradeLabelProvisional": "G7",
+      "originalTriage": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalCorrectLetter": "D",
+      "releaseDisposition": "UPGRADE_GRADE_DEMAND",
+      "reason": "Numerical difficulty from large powers is not equivalent to distinct AO2/AO3 mathematical reasoning",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "E"
+        ],
+        "wrongValueNoModeledError": [
+          "A",
+          "B",
+          "C",
+          "F"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-015",
+      "originalQuestion": 55,
+      "sourceTemplate": "V2-STANDARD-FORM-4",
+      "originalGradeLabelProvisional": "G7",
+      "originalTriage": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalCorrectLetter": "C",
+      "releaseDisposition": "UPGRADE_GRADE_DEMAND",
+      "reason": "Numerical difficulty from large powers is not equivalent to distinct AO2/AO3 mathematical reasoning",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "A",
+          "B",
+          "D",
+          "F"
+        ],
+        "wrongValueNoModeledError": [
+          "E"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-016",
+      "originalQuestion": 56,
+      "sourceTemplate": "V2-STANDARD-FORM-4",
+      "originalGradeLabelProvisional": "G7",
+      "originalTriage": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalCorrectLetter": "C",
+      "releaseDisposition": "UPGRADE_GRADE_DEMAND",
+      "reason": "Numerical difficulty from large powers is not equivalent to distinct AO2/AO3 mathematical reasoning",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "A",
+          "B",
+          "E",
+          "F"
+        ],
+        "wrongValueNoModeledError": [
+          "D"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-017",
+      "originalQuestion": 57,
+      "sourceTemplate": "V3-SF-G8-FILTER-DENSITY",
+      "originalGradeLabelProvisional": "G8",
+      "originalTriage": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalCorrectLetter": "C",
+      "releaseDisposition": "REWRITE_CONTEXT_AND_DUPLICATES",
+      "reason": "Filtered density original values are 300,30,300,30 g/cm3; stage unapproved separate solutions",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "A",
+          "B",
+          "D",
+          "F"
+        ],
+        "wrongValueNoModeledError": [
+          "E"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-018",
+      "originalQuestion": 58,
+      "sourceTemplate": "V3-SF-G8-FILTER-DENSITY",
+      "originalGradeLabelProvisional": "G8",
+      "originalTriage": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalCorrectLetter": "B",
+      "releaseDisposition": "REWRITE_CONTEXT_AND_DUPLICATES",
+      "reason": "Filtered density original values are 300,30,300,30 g/cm3; stage unapproved separate solutions",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "C",
+          "E",
+          "F"
+        ],
+        "wrongValueNoModeledError": [
+          "A",
+          "D"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-019",
+      "originalQuestion": 59,
+      "sourceTemplate": "V3-SF-G8-FILTER-DENSITY",
+      "originalGradeLabelProvisional": "G8",
+      "originalTriage": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalCorrectLetter": "C",
+      "releaseDisposition": "REWRITE_CONTEXT_AND_DUPLICATES",
+      "reason": "Filtered density original values are 300,30,300,30 g/cm3; stage unapproved separate solutions",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "A",
+          "B",
+          "E"
+        ],
+        "wrongValueNoModeledError": [
+          "D",
+          "F"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-020",
+      "originalQuestion": 60,
+      "sourceTemplate": "V3-SF-G8-FILTER-DENSITY",
+      "originalGradeLabelProvisional": "G8",
+      "originalTriage": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalCorrectLetter": "A",
+      "releaseDisposition": "REWRITE_CONTEXT_AND_DUPLICATES",
+      "reason": "Filtered density original values are 300,30,300,30 g/cm3; stage unapproved separate solutions",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "B",
+          "D",
+          "E"
+        ],
+        "wrongValueNoModeledError": [
+          "C",
+          "F"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-021",
+      "originalQuestion": 61,
+      "sourceTemplate": "V3-SF-G8-RELATIVE-PERCENTAGE",
+      "originalGradeLabelProvisional": "G8",
+      "originalTriage": "QUARANTINE_TAUGHT_SCOPE",
+      "originalCorrectLetter": "F",
+      "releaseDisposition": "QUARANTINE_ACTUAL_TAUGHT_SCOPE",
+      "reason": "Relative percentage timing and original stacked mathematical fractions require school+visual confirmation",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [],
+        "wrongValueNoModeledError": [
+          "A"
+        ],
+        "unresolvedOriginalMath": [
+          "B",
+          "C",
+          "D",
+          "E"
+        ]
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-022",
+      "originalQuestion": 62,
+      "sourceTemplate": "V3-SF-G8-RELATIVE-PERCENTAGE",
+      "originalGradeLabelProvisional": "G8",
+      "originalTriage": "QUARANTINE_TAUGHT_SCOPE",
+      "originalCorrectLetter": "B",
+      "releaseDisposition": "QUARANTINE_ACTUAL_TAUGHT_SCOPE",
+      "reason": "Relative percentage timing and original stacked mathematical fractions require school+visual confirmation",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "D"
+        ],
+        "wrongValueNoModeledError": [
+          "A",
+          "C",
+          "E",
+          "F"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-023",
+      "originalQuestion": 63,
+      "sourceTemplate": "V3-SF-G8-RELATIVE-PERCENTAGE",
+      "originalGradeLabelProvisional": "G8",
+      "originalTriage": "QUARANTINE_TAUGHT_SCOPE",
+      "originalCorrectLetter": "C",
+      "releaseDisposition": "QUARANTINE_ACTUAL_TAUGHT_SCOPE",
+      "reason": "Relative percentage timing and original stacked mathematical fractions require school+visual confirmation",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [],
+        "wrongValueNoModeledError": [
+          "A",
+          "B",
+          "D"
+        ],
+        "unresolvedOriginalMath": [
+          "E",
+          "F"
+        ]
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-024",
+      "originalQuestion": 64,
+      "sourceTemplate": "V3-SF-G8-RELATIVE-PERCENTAGE",
+      "originalGradeLabelProvisional": "G8",
+      "originalTriage": "QUARANTINE_TAUGHT_SCOPE",
+      "originalCorrectLetter": "A",
+      "releaseDisposition": "QUARANTINE_ACTUAL_TAUGHT_SCOPE",
+      "reason": "Relative percentage timing and original stacked mathematical fractions require school+visual confirmation",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [],
+        "wrongValueNoModeledError": [
+          "B",
+          "C",
+          "D"
+        ],
+        "unresolvedOriginalMath": [
+          "E",
+          "F"
+        ]
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-025",
+      "originalQuestion": 65,
+      "sourceTemplate": "V3-SF-G8-UNITS-AND-PARTICLE-COUNT",
+      "originalGradeLabelProvisional": "G8",
+      "originalTriage": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalCorrectLetter": "F",
+      "releaseDisposition": "UPGRADE_GRADE_DEMAND",
+      "reason": "Metric volume conversion and multiplying a concentration is not intrinsically GCSE Grade8 reasoning",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "E"
+        ],
+        "wrongValueNoModeledError": [],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-026",
+      "originalQuestion": 66,
+      "sourceTemplate": "V3-SF-G8-UNITS-AND-PARTICLE-COUNT",
+      "originalGradeLabelProvisional": "G8",
+      "originalTriage": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalCorrectLetter": "C",
+      "releaseDisposition": "UPGRADE_GRADE_DEMAND",
+      "reason": "Metric volume conversion and multiplying a concentration is not intrinsically GCSE Grade8 reasoning",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "A",
+          "E"
+        ],
+        "wrongValueNoModeledError": [
+          "B",
+          "D",
+          "F"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-027",
+      "originalQuestion": 67,
+      "sourceTemplate": "V3-SF-G8-UNITS-AND-PARTICLE-COUNT",
+      "originalGradeLabelProvisional": "G8",
+      "originalTriage": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalCorrectLetter": "B",
+      "releaseDisposition": "UPGRADE_GRADE_DEMAND",
+      "reason": "Metric volume conversion and multiplying a concentration is not intrinsically GCSE Grade8 reasoning",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "A",
+          "C",
+          "D",
+          "E",
+          "F"
+        ],
+        "wrongValueNoModeledError": [],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-028",
+      "originalQuestion": 68,
+      "sourceTemplate": "V3-SF-G8-UNITS-AND-PARTICLE-COUNT",
+      "originalGradeLabelProvisional": "G8",
+      "originalTriage": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalCorrectLetter": "C",
+      "releaseDisposition": "UPGRADE_GRADE_DEMAND",
+      "reason": "Metric volume conversion and multiplying a concentration is not intrinsically GCSE Grade8 reasoning",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "D",
+          "F"
+        ],
+        "wrongValueNoModeledError": [
+          "A",
+          "B",
+          "E"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-029",
+      "originalQuestion": 69,
+      "sourceTemplate": "V3-SF-G8-COMBINE-THREE-TERMS",
+      "originalGradeLabelProvisional": "G8",
+      "originalTriage": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalCorrectLetter": "F",
+      "releaseDisposition": "UPGRADE_GRADE_DEMAND",
+      "reason": "Three-term arithmetic and a quotient is still predominantly algorithmic without independent exam benchmarking",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "C",
+          "D"
+        ],
+        "wrongValueNoModeledError": [
+          "A",
+          "B",
+          "E"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-030",
+      "originalQuestion": 70,
+      "sourceTemplate": "V3-SF-G8-COMBINE-THREE-TERMS",
+      "originalGradeLabelProvisional": "G8",
+      "originalTriage": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalCorrectLetter": "D",
+      "releaseDisposition": "UPGRADE_GRADE_DEMAND",
+      "reason": "Three-term arithmetic and a quotient is still predominantly algorithmic without independent exam benchmarking",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "B",
+          "C",
+          "E",
+          "F"
+        ],
+        "wrongValueNoModeledError": [
+          "A"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-031",
+      "originalQuestion": 71,
+      "sourceTemplate": "V3-SF-G8-COMBINE-THREE-TERMS",
+      "originalGradeLabelProvisional": "G8",
+      "originalTriage": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalCorrectLetter": "F",
+      "releaseDisposition": "UPGRADE_GRADE_DEMAND",
+      "reason": "Three-term arithmetic and a quotient is still predominantly algorithmic without independent exam benchmarking",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "B",
+          "C",
+          "D"
+        ],
+        "wrongValueNoModeledError": [
+          "A",
+          "E"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-032",
+      "originalQuestion": 72,
+      "sourceTemplate": "V3-SF-G8-COMBINE-THREE-TERMS",
+      "originalGradeLabelProvisional": "G8",
+      "originalTriage": "UPGRADE_STEM_FOR_G7PLUS",
+      "originalCorrectLetter": "D",
+      "releaseDisposition": "UPGRADE_GRADE_DEMAND",
+      "reason": "Three-term arithmetic and a quotient is still predominantly algorithmic without independent exam benchmarking",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "C",
+          "F"
+        ],
+        "wrongValueNoModeledError": [
+          "A",
+          "B",
+          "E"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-033",
+      "originalQuestion": 73,
+      "sourceTemplate": "V3-SF-G89-TRANSFER-LOSS-QUANTITY",
+      "originalGradeLabelProvisional": "G8-9",
+      "originalTriage": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalCorrectLetter": "B",
+      "releaseDisposition": "REWRITE_REPEATED_RESULT",
+      "reason": "Four original results identical 111600 g; staged replacements include two Spring percentages and stay blocked",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "A",
+          "C",
+          "D",
+          "F"
+        ],
+        "wrongValueNoModeledError": [
+          "E"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-034",
+      "originalQuestion": 74,
+      "sourceTemplate": "V3-SF-G89-TRANSFER-LOSS-QUANTITY",
+      "originalGradeLabelProvisional": "G8-9",
+      "originalTriage": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalCorrectLetter": "F",
+      "releaseDisposition": "REWRITE_REPEATED_RESULT",
+      "reason": "Four original results identical 111600 g; staged replacements include two Spring percentages and stay blocked",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "C",
+          "D",
+          "E"
+        ],
+        "wrongValueNoModeledError": [
+          "A",
+          "B"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-035",
+      "originalQuestion": 75,
+      "sourceTemplate": "V3-SF-G89-TRANSFER-LOSS-QUANTITY",
+      "originalGradeLabelProvisional": "G8-9",
+      "originalTriage": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalCorrectLetter": "C",
+      "releaseDisposition": "REWRITE_REPEATED_RESULT",
+      "reason": "Four original results identical 111600 g; staged replacements include two Spring percentages and stay blocked",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "A"
+        ],
+        "wrongValueNoModeledError": [
+          "B",
+          "D",
+          "E",
+          "F"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-036",
+      "originalQuestion": 76,
+      "sourceTemplate": "V3-SF-G89-TRANSFER-LOSS-QUANTITY",
+      "originalGradeLabelProvisional": "G8-9",
+      "originalTriage": "REWRITE_CONTEXT_OR_DUPLICATE",
+      "originalCorrectLetter": "B",
+      "releaseDisposition": "REWRITE_REPEATED_RESULT",
+      "reason": "Four original results identical 111600 g; staged replacements include two Spring percentages and stay blocked",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "C",
+          "F"
+        ],
+        "wrongValueNoModeledError": [
+          "A",
+          "D",
+          "E"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-037",
+      "originalQuestion": 77,
+      "sourceTemplate": "V3-SF-G89-INVERSE-BALANCE",
+      "originalGradeLabelProvisional": "G8-9",
+      "originalTriage": "QUARANTINE_TAUGHT_SCOPE",
+      "originalCorrectLetter": "C",
+      "releaseDisposition": "QUARANTINE_SPRING_REVERSE_PERCENT",
+      "reason": "School TGS published scope has reverse percentage in Spring; don't credit in Autumn without teacher proof",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "D"
+        ],
+        "wrongValueNoModeledError": [
+          "A",
+          "B",
+          "E",
+          "F"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-038",
+      "originalQuestion": 78,
+      "sourceTemplate": "V3-SF-G89-INVERSE-BALANCE",
+      "originalGradeLabelProvisional": "G8-9",
+      "originalTriage": "QUARANTINE_TAUGHT_SCOPE",
+      "originalCorrectLetter": "F",
+      "releaseDisposition": "QUARANTINE_SPRING_REVERSE_PERCENT",
+      "reason": "School TGS published scope has reverse percentage in Spring; don't credit in Autumn without teacher proof",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "C"
+        ],
+        "wrongValueNoModeledError": [
+          "A",
+          "B",
+          "D",
+          "E"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-039",
+      "originalQuestion": 79,
+      "sourceTemplate": "V3-SF-G89-INVERSE-BALANCE",
+      "originalGradeLabelProvisional": "G8-9",
+      "originalTriage": "QUARANTINE_TAUGHT_SCOPE",
+      "originalCorrectLetter": "A",
+      "releaseDisposition": "QUARANTINE_SPRING_REVERSE_PERCENT",
+      "reason": "School TGS published scope has reverse percentage in Spring; don't credit in Autumn without teacher proof",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "D"
+        ],
+        "wrongValueNoModeledError": [
+          "B",
+          "C",
+          "E",
+          "F"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    },
+    {
+      "originalId": "LUX-MATH-Y9-STANDARD_FORM-040",
+      "originalQuestion": 80,
+      "sourceTemplate": "V3-SF-G89-INVERSE-BALANCE",
+      "originalGradeLabelProvisional": "G8-9",
+      "originalTriage": "QUARANTINE_TAUGHT_SCOPE",
+      "originalCorrectLetter": "F",
+      "releaseDisposition": "QUARANTINE_SPRING_REVERSE_PERCENT",
+      "reason": "School TGS published scope has reverse percentage in Spring; don't credit in Autumn without teacher proof",
+      "sourceOriginalFiveWrongLetterStatus": {
+        "arithmeticallyReproduced": [
+          "B",
+          "C"
+        ],
+        "wrongValueNoModeledError": [
+          "A",
+          "D",
+          "E"
+        ],
+        "unresolvedOriginalMath": []
+      },
+      "independentTeacherPedagogyApproved": false,
+      "independentAQA7PlusCertified": false,
+      "tgsAutumnActualTaughtVerified": false,
+      "exactOriginalOptionVisualCertified": false,
+      "creditAllowed": false
+    }
+  ],
+  "physicalIpadSignoff": false,
+  "originalQuestionBankUnchanged": true,
+  "availableForDailyCredit": false,
+  "independentlyApprovedOriginals": 0
+}

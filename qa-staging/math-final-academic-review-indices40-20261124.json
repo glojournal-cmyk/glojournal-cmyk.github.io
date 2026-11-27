@@ -1,0 +1,1134 @@
+{
+  "kind": "INDICES40_ITEM_LEVEL_ACADEMIC_REVIEW_AND_CORRECTIONS_NO_IMPORT",
+  "date": "2026-11-24",
+  "registerPath": "qa-staging/math-all200-reasoning-candidate-review-register-20261124.json",
+  "registerBlobSha": "fc389023285fa8514e866fc4a4e764f5d5e3e3fa",
+  "counts": {
+    "reviewed": 40,
+    "mathsContentChecked": 40,
+    "corrected": 6,
+    "higherReasoningCandidates": 28,
+    "benchmarkOrDifficultyReview": 12,
+    "provisionalSharedMasteryFamilies": 15,
+    "formalApprovals": 0
+  },
+  "limitations": "Author review, not independent grade certification. Some distractors represent omissions rather than empirically validated misconceptions; mathematical equivalence and rendering require further checks. Conservative grouping not approved for learner credit. Corrections are complete replacement records for next review; historical packs remain pinned.",
+  "masteryGroups": {
+    "prime-power-divisibility": [
+      1,
+      5,
+      6,
+      7,
+      13,
+      17,
+      37,
+      39
+    ],
+    "exponential-order-and-bounds": [
+      2,
+      38
+    ],
+    "hcf-exponent-cases": [
+      3
+    ],
+    "shifted-exponent-ratio": [
+      4,
+      40
+    ],
+    "bounded-integer-exponent-optimisation": [
+      8,
+      11,
+      12,
+      25
+    ],
+    "monomial-identity-coefficient-matching": [
+      9,
+      14,
+      15,
+      16,
+      22,
+      33,
+      34
+    ],
+    "monomial-scaling-inverse": [
+      10
+    ],
+    "factor-exponential-sum-difference": [
+      18,
+      20
+    ],
+    "exponential-quadratic-substitution": [
+      19,
+      28,
+      32
+    ],
+    "composite-power-invariant": [
+      21,
+      23,
+      35
+    ],
+    "fractional-power-ordering": [
+      24,
+      36
+    ],
+    "exponential-product-quotient": [
+      26
+    ],
+    "sum-product-reconstruction": [
+      27
+    ],
+    "exponential-identity-cancellation": [
+      29,
+      30
+    ],
+    "principal-root-branches": [
+      31
+    ]
+  },
+  "rows": [
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-001",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-001-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "14",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Cube and square constraints intersect at n=4,10.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "prime-power-divisibility",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-002",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-002-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "1",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Correct common-base inequality; only one integer; modest demand.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "exponential-order-and-bounds",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-003",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-003-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "16",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Both minimum-exponent HCF cases meet other prime conditions.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "hcf-exponent-cases",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-004",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-004-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "\\frac{1}{2}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Shifted ratio cancels parameter; exact half.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "shifted-exponent-ratio",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-005",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-005-V312-GRADE-DEMAND-DRAFT",
+      "selectedPackPath": "qa-staging/math-v312-indices005-008-reasoning-replacement-candidates-20261123.json",
+      "selectedPackBlobSha": "a2539b36260d44bc3ef10ed0a4769fb33d93967e",
+      "reviewedCorrectKey": "7",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Divisibility window correctly includes exponents 4 and 5.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "prime-power-divisibility",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-006",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-006-V313-AO2-AO3-REDESIGN-DRAFT",
+      "selectedPackPath": "qa-staging/math-v313-eight-grade-demand-redesign-candidates-20261123.json",
+      "selectedPackBlobSha": "85ae5991c94fadfb09489dcdd8ef9f3f0a2b91a1",
+      "reviewedCorrectKey": "54",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "All three feasible pairs enumerated; global maximum 54.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "prime-power-divisibility",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-007",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-007-V312-GRADE-DEMAND-DRAFT",
+      "selectedPackPath": "qa-staging/math-v312-indices005-008-reasoning-replacement-candidates-20261123.json",
+      "selectedPackBlobSha": "a2539b36260d44bc3ef10ed0a4769fb33d93967e",
+      "reviewedCorrectKey": "33",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Cube versus sixth-power classification correct.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "prime-power-divisibility",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-008",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-008-V312-GRADE-DEMAND-DRAFT",
+      "selectedPackPath": "qa-staging/math-v312-indices005-008-reasoning-replacement-candidates-20261123.json",
+      "selectedPackBlobSha": "a2539b36260d44bc3ef10ed0a4769fb33d93967e",
+      "reviewedCorrectKey": "48",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Maximum under p≥q verified by completing square or finite enumeration.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "bounded-integer-exponent-optimisation",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-009",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-009-V316-HIGHER-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v316-indices009-037-standard029-021-four-distinct-reasoning-candidates-20261123.json",
+      "selectedPackBlobSha": "edabd5df1666732ae7315222d14d45b50431b2cc",
+      "reviewedCorrectKey": "256",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Two exponent equations yield a=3,b=2.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "monomial-identity-coefficient-matching",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-010",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-010-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v331-editorial20-indices-standard-form-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "3908a383c2bac92cf901fb8548071b6ec1e562e9",
+      "reviewedCorrectKey": "8",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Scale factor exact; three distractors repaired.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "monomial-scaling-inverse",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-011",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-011-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v331-editorial20-indices-standard-form-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "3908a383c2bac92cf901fb8548071b6ec1e562e9",
+      "reviewedCorrectKey": "20",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Coprime coefficients give minimum positive pair and same-sign condition.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "bounded-integer-exponent-optimisation",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-012",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-012-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v331-editorial20-indices-standard-form-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "3908a383c2bac92cf901fb8548071b6ec1e562e9",
+      "reviewedCorrectKey": "16",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Both feasible bounded integer pairs enumerated.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "bounded-integer-exponent-optimisation",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-013",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-013-V324-REASONING_REDESIGN_QA_ONLY",
+      "selectedPackPath": "qa-staging/math-v324-four-source-linked-multiconstraint-reasoning-candidates-20261124.json",
+      "selectedPackBlobSha": "9eeab6a50c05876420ffb910676e26922f629b44",
+      "reviewedCorrectKey": "8",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "All three constraints checked; parity-error distractor repaired.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "prime-power-divisibility",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-014",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-014-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "7",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Two exponent equations correctly solved; related to 022/033.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "monomial-identity-coefficient-matching",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-015",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-015-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "3",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "One exponent equation plus substitution; modest demand.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "monomial-identity-coefficient-matching",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-016",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-016-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "b-a",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Universal identity wording repaired; elimination valid.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "monomial-identity-coefficient-matching",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-017",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-017-V315-REASONING-REDESIGN-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v315-indices017-025-standard009-025-distinct-reasoning-candidates-20261123.json",
+      "selectedPackBlobSha": "2c061a93256cf685ce5d45c4e21e78b636224e6c",
+      "reviewedCorrectKey": "120",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Strict square bounds and excluded neighbours verified.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "prime-power-divisibility",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-018",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-018-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "16",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Single common-factor equation then final power; modest demand.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "factor-exponential-sum-difference",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-019",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-019-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "3",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Quadratic substitution yields two positive roots and both integer exponents.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "exponential-quadratic-substitution",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-020",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-020-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "3",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Single exponential equation after factoring; modest demand.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "factor-exponential-sum-difference",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-021",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-021-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "0.5",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Composite ratio elimination valid but short.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "composite-power-invariant",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-022",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-022-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "-\\frac{8}{7}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Fractional solution of two coefficient equations verified.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "monomial-identity-coefficient-matching",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-023",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-023-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "16",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "One composite-power quotient; modest demand.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "composite-power-invariant",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-024",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-024-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "(x^{-2})^{3/2}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Six distinct exponents; order reverses for 0<x<1.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "fractional-power-ordering",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-025",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-025-V318-CONSTRAINT-TRANSFER-DRAFT-20261123",
+      "selectedPackPath": "qa-staging/math-v318-three-lower-demand-indices-standard-replacements-20261123.json",
+      "selectedPackBlobSha": "8cc0e489be650f8445619d8e7f0b55b0cc996bef",
+      "reviewedCorrectKey": "24",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Product, ratio, square and ordering constraints give exactly two pairs.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "bounded-integer-exponent-optimisation",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-026",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-026-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v331-editorial20-indices-standard-form-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "3908a383c2bac92cf901fb8548071b6ec1e562e9",
+      "reviewedCorrectKey": "2",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Straightforward product constraint then quotient; modest demand.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "exponential-product-quotient",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-027",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-027-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v331-editorial20-indices-standard-form-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "3908a383c2bac92cf901fb8548071b6ec1e562e9",
+      "reviewedCorrectKey": "192",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Sum and product yield powers 64 and 256; distractor repaired.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "sum-product-reconstruction",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-028",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-028-V331-EDITORIAL-UPGRADE-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v331-editorial20-indices-standard-form-reasoning-upgrades-20261124.json",
+      "selectedPackBlobSha": "3908a383c2bac92cf901fb8548071b6ec1e562e9",
+      "reviewedCorrectKey": "5",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Both reciprocal quadratic roots yield integer n; related to 019/032.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "exponential-quadratic-substitution",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-029",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-029-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "1",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Identity clarified; straightforward cancellation only.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "exponential-identity-cancellation",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-030",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-030-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "\\text{Every integer }n",
+      "contentStatus": "CORRECTED_MATHS_CONTENT_CHECKED",
+      "reviewNote": "Identity holds for every integer; text options normalized.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "exponential-identity-cancellation",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-031",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-031-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "x=-1",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Principal root and both branches considered; one valid solution.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "principal-root-branches",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-032",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-032-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "\\frac{65}{8}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Reciprocal quadratic then cube both solutions.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "exponential-quadratic-substitution",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-033",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-033-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "9",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Two fractional exponent equations; same family as 014/022.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "monomial-identity-coefficient-matching",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-034",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-034-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "8",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "One exponent equation and substitution; modest demand.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "monomial-identity-coefficient-matching",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-035",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-035-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "\\frac{1}{64}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Single composite-power recognition; modest demand.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "composite-power-invariant",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-036",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-036-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "32^{3/8}",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Exact ordering of six distinct rational exponents.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "fractional-power-ordering",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-037",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-037-V316-HIGHER-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v316-indices009-037-standard029-021-four-distinct-reasoning-candidates-20261123.json",
+      "selectedPackBlobSha": "edabd5df1666732ae7315222d14d45b50431b2cc",
+      "reviewedCorrectKey": "(3,0)",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Cube count and square count correct; exponent always odd.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "prime-power-divisibility",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-038",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-038-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "2",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Strict/inclusive endpoints correct; shares 002 concept.",
+      "difficultyDisposition": "HIGHER_REASONING_CANDIDATE",
+      "provisionalSharedMasteryFamily": "exponential-order-and-bounds",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-039",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-039-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "22",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Square condition automatically satisfied; only cube condition restrictive.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "prime-power-divisibility",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-040",
+      "reviewedRevisionId": "LUX-MATH-Y9-INDICES-040-V327-REASONING-QA-ONLY",
+      "selectedPackPath": "qa-staging/math-v327-indices25-reasoning-replacements-20261124.json",
+      "selectedPackBlobSha": "b40bad584651525cc1e3d087d7c0f545c8ee9ed2",
+      "reviewedCorrectKey": "32",
+      "contentStatus": "MATHS_CONTENT_CHECKED",
+      "reviewNote": "Direct shifted quotient; same family as 004.",
+      "difficultyDisposition": "BENCHMARK_OR_DIFFICULTY_REVIEW",
+      "provisionalSharedMasteryFamily": "shifted-exponent-ratio",
+      "academicApproval": false,
+      "teacherTaughtConfirmed": false,
+      "independentGradeCalibration": false,
+      "masteryEligible": false,
+      "dailyEligible": false,
+      "importAllowed": false
+    }
+  ],
+  "corrections": [
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-010",
+      "reason": "Three exact single-error distractors replace speculative routes.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-INDICES-010",
+        "revisionId": "LUX-MATH-Y9-INDICES-010-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-010-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-INDICES-010-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+        "topicId": "math-y9-indices",
+        "provisionalConceptFamily": "monomial-scaling-inverse",
+        "stem": "For positive x,y, let $E=\\frac{(x^2y^{-3})^2}{x^{-2}y^2}$. The value of y is doubled and x is multiplied by a positive factor k. The new E is exactly 1024 times the original E. Find k.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "8"
+          },
+          {
+            "id": "B",
+            "latex": "2^{5/3}",
+            "errorPath": "Ignore the change in y, giving k^6=2^10."
+          },
+          {
+            "id": "C",
+            "latex": "2^{1/3}",
+            "errorPath": "Treat doubling y as multiplying E by 2^8 instead of dividing, giving k^6=2^2."
+          },
+          {
+            "id": "D",
+            "latex": "2^{9/4}",
+            "errorPath": "Use exponent 8 for x instead of 6, giving k^8=2^18."
+          },
+          {
+            "id": "E",
+            "latex": "64",
+            "errorPath": "Take the cube root of 2^18 instead of the sixth root."
+          },
+          {
+            "id": "F",
+            "latex": "512",
+            "errorPath": "Take the square root of 2^18 instead of the sixth root."
+          }
+        ],
+        "correctOptionId": "A",
+        "correctAnswerLatex": "8",
+        "workedSolutionSteps": [
+          "Simplify E=x^6y^{-8}. The new-to-old ratio is k^6/2^8.",
+          "Set k^6/2^8=1024=2^10, so k^6=2^18.",
+          "Because k>0, k=2^3=8."
+        ],
+        "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+        "unverifiedTaughtSubskill": "Negative indices and inverse scaling.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-INDICES-010-V331-EDITORIAL-UPGRADE-QA-ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-013",
+      "reason": "Previous parity-error route incorrectly included n=6 despite comparison failure.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-INDICES-013",
+        "revisionId": "LUX-MATH-Y9-INDICES-013-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-013-REVIEW-2",
+        "topicId": "math-y9-indices",
+        "stem": "For integer $n$, let $P(n)=\\dfrac{4^{n+2}8^{4-n}}{2^3}$ and $Q(n)=\\dfrac{16^{n-1}}{2^{2n-1}}$. Find the sum of all integer values of $n$ for which $P(n)$ is a perfect square, $2^5<P(n)<2^{11}$ and $P(n)>Q(n)$.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "3",
+            "errorPath": "Find the smallest valid value n=3 but omit the other valid value n=5."
+          },
+          {
+            "id": "B",
+            "latex": "8"
+          },
+          {
+            "id": "C",
+            "latex": "15",
+            "errorPath": "Use all n=3,5,7 that satisfy the strict bounds and square condition, but forget to test P(n)>Q(n), giving 15."
+          },
+          {
+            "id": "D",
+            "latex": "5",
+            "errorPath": "Impose the unnecessary stronger condition that the exponent of P(n) be divisible by 4, leaving n=5 alone."
+          },
+          {
+            "id": "E",
+            "latex": "7",
+            "errorPath": "Take the largest bound-eligible odd n=7 without testing the comparison P(7)>Q(7), which is false."
+          },
+          {
+            "id": "F",
+            "latex": "4",
+            "errorPath": "Test whether n is even instead of whether 13−n is even, then enforce all the other conditions; only n=4 remains."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "8",
+        "workedSolutionSteps": [
+          "Rewrite both as base 2: $P(n)=2^{13-n}$ and $Q(n)=2^{2n-3}$.",
+          "Strict bounds give $5<13-n<11$, hence integer $n\\in\\{3,4,5,6,7\\}$. The exponent $13-n$ must be even for a perfect square, giving n=3,5,7.",
+          "Since $P(n)>Q(n)$, $13-n>2n-3$, or $n<16/3$. Only n=3,5 remain; sum $=8$."
+        ],
+        "provisionalAOFocus": "AO2 reasoning candidate: combine integer bounds, perfect-square exponent, and an independent inequality.",
+        "explicitDifferenceFromRoutineSource": "Replaces exponent matching alone with intersection of three constraints and multiple valid answers.",
+        "unverifiedTaughtSubskill": "Year 9 exposure to exponent inequalities and perfect-power reasoning remains unverified.",
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-INDICES-013-V324-REASONING_REDESIGN_QA_ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-016",
+      "reason": "Explicit universal identity is required to infer exponent coefficients.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-INDICES-016",
+        "revisionId": "LUX-MATH-Y9-INDICES-016-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-016-REVIEW-2",
+        "topicId": "math-y9-indices",
+        "provisionalConceptFamily": "identity-invariant",
+        "stem": "Let n and m be fixed integers, and define $P=(x^2y^3)^n/(xy)^m$ for positive real x,y. The identity $P=x^ay^b$ holds for every positive x,y, with fixed real a,b. Which expression must equal n?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "a-b",
+            "errorPath": "Reverse the order of subtraction."
+          },
+          {
+            "id": "B",
+            "latex": "a+b",
+            "errorPath": "Add exponents, retaining the unwanted m term."
+          },
+          {
+            "id": "C",
+            "latex": "b",
+            "errorPath": "Ignore the factor y^m in the denominator."
+          },
+          {
+            "id": "D",
+            "latex": "a",
+            "errorPath": "Ignore the factor x^m and the coefficient 2."
+          },
+          {
+            "id": "E",
+            "latex": "b-a"
+          },
+          {
+            "id": "F",
+            "latex": "2b-3a",
+            "errorPath": "This expression equals m, not n."
+          }
+        ],
+        "correctOptionId": "E",
+        "correctAnswerLatex": "b-a",
+        "workedSolutionSteps": [
+          "The x exponent is a=2n-m; the y exponent is b=3n-m.",
+          "Subtract the first relation from the second to eliminate m.",
+          "The result is b-a=n."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+        "unverifiedTaughtSubskill": "Eliminate a nuisance exponent symbolically.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-INDICES-016-V327-REASONING-QA-ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-027",
+      "reason": "Replace arbitrary addition with a defined competing result.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-INDICES-027",
+        "revisionId": "LUX-MATH-Y9-INDICES-027-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-027-REVIEW-2",
+        "replacesEditorialRevisionId": "LUX-MATH-Y9-INDICES-027-V315-74-ERROR-ROUTE-EDITORIAL-QA-HOLD",
+        "topicId": "math-y9-indices",
+        "provisionalConceptFamily": "two-power-constraints-reconstruct-sum",
+        "stem": "Positive A and B are powers of 2 with integer exponents. Their product is $2^{14}$ and their sum is 320. Find the positive difference between A and B.",
+        "options": [
+          {
+            "id": "A",
+            "latex": "320",
+            "errorPath": "Report the given sum."
+          },
+          {
+            "id": "B",
+            "latex": "192"
+          },
+          {
+            "id": "C",
+            "latex": "128",
+            "errorPath": "Assume both powers equal 2^7 and report that value."
+          },
+          {
+            "id": "D",
+            "latex": "256",
+            "errorPath": "Report the larger power rather than the difference."
+          },
+          {
+            "id": "E",
+            "latex": "64",
+            "errorPath": "Report the smaller power rather than the difference."
+          },
+          {
+            "id": "F",
+            "latex": "16384",
+            "errorPath": "Report the product 2^14 rather than the positive difference."
+          }
+        ],
+        "correctOptionId": "B",
+        "correctAnswerLatex": "192",
+        "workedSolutionSteps": [
+          "Let A=2^a,B=2^b, with a+b=14. The product is 16384.",
+          "The numbers are roots of t²−320t+16384=0, which factors as (t−64)(t−256)=0.",
+          "Both 64=2^6 and 256=2^8 are powers of 2, and the difference is 256−64=192."
+        ],
+        "provisionalAOFocus": "AO2/AO3 reasoning candidate; Grade 7+ not externally certified",
+        "unverifiedTaughtSubskill": "Product and sum of powers; quadratic or factor-pair reasoning.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-INDICES-027-V331-EDITORIAL-UPGRADE-QA-ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-029",
+      "reason": "Clarify identity rather than equality at isolated n.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-INDICES-029",
+        "revisionId": "LUX-MATH-Y9-INDICES-029-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-029-REVIEW-2",
+        "topicId": "math-y9-indices",
+        "provisionalConceptFamily": "radical-exponent-cancellation-identity",
+        "stem": "Which expression is identically equal to $\\frac{\\sqrt{2^{4n+6}}\\,8^{1-n}}{2^{6-n}}$ for every real n?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "2^n",
+            "errorPath": "Reverse the subtraction of variable exponents after incorrectly dropping the variable term in the denominator."
+          },
+          {
+            "id": "B",
+            "latex": "2^{-n}",
+            "errorPath": "Ignore the variable term in the denominator, leaving the variable term in the numerator."
+          },
+          {
+            "id": "C",
+            "latex": "2^3",
+            "errorPath": "Keep a constant contribution of 3 rather than cancelling all constant terms."
+          },
+          {
+            "id": "D",
+            "latex": "1"
+          },
+          {
+            "id": "E",
+            "latex": "2^6",
+            "errorPath": "Ignore the denominator's constant exponent after cancelling the variable."
+          },
+          {
+            "id": "F",
+            "latex": "0",
+            "errorPath": "Interpret exponent zero as a numerical value of zero."
+          }
+        ],
+        "correctOptionId": "D",
+        "correctAnswerLatex": "1",
+        "workedSolutionSteps": [
+          "The square root is $2^{2n+3}$ because powers of 2 are positive.",
+          "The numerator is $2^{2n+3+3-3n}=2^{6-n}$.",
+          "Numerator and denominator agree for all real n, giving 1."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+        "unverifiedTaughtSubskill": "Square roots of positive powers and cancellation of parameter dependence.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-INDICES-029-V327-REASONING-QA-ONLY"
+      }
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-030",
+      "reason": "Normalize prose notation for later rendering test.",
+      "question": {
+        "sourceId": "LUX-MATH-Y9-INDICES-030",
+        "revisionId": "LUX-MATH-Y9-INDICES-030-ACADEMIC-REVIEW-20261124",
+        "replacesOriginalRevisionId": "LUX-MATH-Y9-INDICES-030-REVIEW-2",
+        "topicId": "math-y9-indices",
+        "provisionalConceptFamily": "fractional-index-equation-two-bases",
+        "stem": "Which statement describes all integer solutions n of $\\frac{27^{(n+2)/3}\\sqrt{9^{n-1}}}{3^{2n-4}}=243$?",
+        "options": [
+          {
+            "id": "A",
+            "latex": "0",
+            "errorPath": "Choose one valid integer but assume it is unique."
+          },
+          {
+            "id": "B",
+            "latex": "1",
+            "errorPath": "Choose a second valid integer but assume it is unique."
+          },
+          {
+            "id": "C",
+            "latex": "\\text{Every integer }n"
+          },
+          {
+            "id": "D",
+            "latex": "5",
+            "errorPath": "Set n equal to the exponent of 243."
+          },
+          {
+            "id": "E",
+            "latex": "\\text{No integer }n",
+            "errorPath": "Assume cancellation of n proves inconsistency rather than an identity."
+          },
+          {
+            "id": "F",
+            "latex": "\\text{Only positive integers}",
+            "errorPath": "Impose an unnecessary restriction although all exponential bases are positive."
+          }
+        ],
+        "correctOptionId": "C",
+        "correctAnswerLatex": "\\text{Every integer }n",
+        "workedSolutionSteps": [
+          "The numerator is $3^{n+2}3^{n-1}=3^{2n+1}$.",
+          "Divide by $3^{2n-4}$ to get $3^5=243$.",
+          "The equation is true for every integer n."
+        ],
+        "provisionalAOFocus": "AO2/AO3 candidate; MCQ recognition not externally grade-certified",
+        "unverifiedTaughtSubskill": "Fractional powers and distinction between identities and equations.",
+        "academicQA": "pending",
+        "dailyEligible": false,
+        "masteryEligible": false,
+        "independentGradeCalibrated": false,
+        "teacherTaughtConfirmed": false,
+        "studentMisconceptionsEmpiricallyVerified": false,
+        "conceptFamilyIndependentlyApproved": false,
+        "replacesSelectedRevisionId": "LUX-MATH-Y9-INDICES-030-V327-REASONING-QA-ONLY"
+      }
+    }
+  ]
+}

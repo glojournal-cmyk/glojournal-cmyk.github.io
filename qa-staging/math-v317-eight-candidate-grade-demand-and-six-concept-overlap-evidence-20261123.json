@@ -1,0 +1,375 @@
+{
+  "kind": "V317_EIGHT_HIGHER_MATHS_CANDIDATE_AO_GRADE_DEMAND_AND_SIX_CONCEPT_COLLISION_GATE",
+  "date": "2026-11-23",
+  "pr": 306,
+  "branch": "feature/daily-tasks-v3-20261122",
+  "canonicalPath": "qa-staging/math-v311-reviewed-200.json",
+  "canonicalBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "canonicalUnmodified": true,
+  "version315CandidatePath": "qa-staging/math-v315-indices017-025-standard009-025-distinct-reasoning-candidates-20261123.json",
+  "version315BlobSha": "2c061a93256cf685ce5d45c4e21e78b636224e6c",
+  "version316CandidatePath": "qa-staging/math-v316-indices009-037-standard029-021-four-distinct-reasoning-candidates-20261123.json",
+  "version316BlobSha": "edabd5df1666732ae7315222d14d45b50431b2cc",
+  "sourceMethodRegisterPath": "qa-staging/math-v316-indices-standard-80-method-families-and-mastery-collisions-20261123.json",
+  "sourceMethodRegisterBlobSha": "9310d6c17562cc8f60d040645988b8c3f1e03bf9",
+  "externalAOReference": "https://www.aqa.org.uk/subjects/mathematics/gcse/mathematics-8300/specification/scheme-of-assessment",
+  "reviewMethod": "Question-by-question mathematical-decision screen against AO1 standard techniques versus AO2 reasoning and AO3 problem-solving. No numerical individual-item GCSE grade implied by this qualitative screen.",
+  "schoolYear9PDF": "SKIPPED_PER_PARENT_INSTRUCTION",
+  "counts": {
+    "candidateItems": 8,
+    "choiceStatements": 48,
+    "provisionalHigherPriority": 2,
+    "provisionalIntermediatePriority": 3,
+    "provisionalLowerPriority": 3,
+    "independentlyGrade7PlusCertified": 0,
+    "masteryCreditsApproved": 0,
+    "provisionalCollisionPairs": 6,
+    "closeCorePairs": 4,
+    "distinctExtraStepPairs": 2,
+    "dailyEligible": 0,
+    "masteryEligible": 0
+  },
+  "candidateGradeDemandScreens": [
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-017",
+      "candidateRevisionId": "LUX-MATH-Y9-INDICES-017-V315-REASONING-REDESIGN-QA-ONLY",
+      "originalRevisionId": "LUX-MATH-Y9-INDICES-017-REVIEW-2",
+      "originalSourceStem": "Solve $2^{2n}+2^{2n+2}=80$ for the integer $n$.",
+      "candidateStem": "For every integer $n\\ge0$, define $S(n)=2^{2n}+2^{2n+2}$. A positive integer $k$ satisfies $S(2)<k^2<S(5)$. It is divisible by $8$ but **not** by $16$. Find the sum of **all** possible values of $k$.",
+      "correctOptionId": "D",
+      "candidateCorrectAnswer": "120",
+      "provisionalAOClassification": "A2_A3_PARTIAL",
+      "benchmarkingPriority": "INTERMEDIATE",
+      "reasoningDecisionsToTest": [
+        "Factor power sum into one base-2 expression",
+        "derive strict square bounds",
+        "intersect with mod-16 divisibility",
+        "exhaust all permitted positive integers"
+      ],
+      "reasonGrade7PlusNotEstablished": "The question supplies both bounds and divisibility tests; enumeration is more demanding than one-step indices but could be rehearsed. Do not assume Grade7.",
+      "AOAssessmentComment": "Plausible conditional multistep AO2/3; source lacks evidence of independent proof-writing.",
+      "potentialMethodOverlap": [
+        "I-EXPONENTIAL-FACTOR"
+      ],
+      "requiredNextEvidence": "Check GCSE Higher demand benchmark and age suitability of modular terminology (divisible by 8 but not 16).",
+      "grade7PlusCertification": "NOT_ESTABLISHED",
+      "grade7PlusApproved": false,
+      "independentTeacherCurricularApproval": false,
+      "observedPupilWrongAnswerFrequencyAvailable": false,
+      "MCQCanShowWrittenReasoning": false,
+      "academicDecision": "HOLD",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-025",
+      "candidateRevisionId": "LUX-MATH-Y9-INDICES-025-V315-REASONING-REDESIGN-QA-ONLY",
+      "originalRevisionId": "LUX-MATH-Y9-INDICES-025-REVIEW-2",
+      "originalSourceStem": "Let $A=2^{3n-1}$ and $B=4^{n+1}$. Given $\\dfrac{A}{B}=2^{-1}$, find $n^2-2n$.",
+      "candidateStem": "For an integer $n\\ge0$, let $A=2^{3n-1}$ and $B=4^{n+1}$. The ratio $\\frac{A}{B}$ is an **integer perfect square**, and $2^4\\le\\frac{A}{B}\\le2^9$. Find the sum of **all** possible values of $n$.",
+      "correctOptionId": "E",
+      "candidateCorrectAnswer": "27",
+      "provisionalAOClassification": "A2_PARTIAL",
+      "benchmarkingPriority": "LOWER",
+      "reasoningDecisionsToTest": [
+        "Rewrite 4^(n+1) in powers of 2",
+        "derive exponent inequality",
+        "enforce even nonnegative exponent for square",
+        "list valid n and sum"
+      ],
+      "reasonGrade7PlusNotEstablished": "Once ratio is simplified, parity and bounded enumeration are standard techniques; may be Grade5-6 level in an advanced class.",
+      "AOAssessmentComment": "AO2 selection of a square-exponent test, but maths pathway is strongly signposted.",
+      "potentialMethodOverlap": [
+        "I-RATIO-SECONDARY",
+        "I-MATCH-EXPONENTS"
+      ],
+      "requiredNextEvidence": "Compare with independent grade6 and grade7 source tasks.",
+      "grade7PlusCertification": "NOT_ESTABLISHED",
+      "grade7PlusApproved": false,
+      "independentTeacherCurricularApproval": false,
+      "observedPupilWrongAnswerFrequencyAvailable": false,
+      "MCQCanShowWrittenReasoning": false,
+      "academicDecision": "HOLD",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-009",
+      "candidateRevisionId": "LUX-MATH-Y9-STANDARD_FORM-009-V315-REASONING-REDESIGN-QA-ONLY",
+      "originalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-009-REVIEW-2",
+      "originalSourceStem": "A factory makes $6\\times 10^{5}$ g of material. During processing $3\\times 10^{4}$ g is discarded. The remainder is divided equally into 2 containers. What mass (g) is in each container? Give your answer in standard form.",
+      "candidateStem": "A factory produces $6\\times10^5$ g of material and discards $3\\times10^4$ g. The retained material is divided equally among $N$ identical containers, each of total capacity $1.2\\times10^5$ g. For safe shipping, **at least 10% of each container's capacity must remain empty**. Find the **minimum whole number $N$** and the **total unused capacity $U$** in grams of those $N$ containers.",
+      "correctOptionId": "B",
+      "candidateCorrectAnswer": "N=6,U=1.5\\times10^5",
+      "provisionalAOClassification": "A3_PARTIAL",
+      "benchmarkingPriority": "LOWER",
+      "reasoningDecisionsToTest": [
+        "Compute retained total after discard",
+        "apply 10 percent empty headroom",
+        "take integer ceiling of required capacity",
+        "calculate unoccupied mass"
+      ],
+      "reasonGrade7PlusNotEstablished": "Despite context, the request explicitly states all steps and constraints; mostly straightforward quantity processing.",
+      "AOAssessmentComment": "Compounding standard operations does not demonstrate independent non-routine planning.",
+      "potentialMethodOverlap": [
+        "S-WASTE-CONTAINERS"
+      ],
+      "requiredNextEvidence": "Investigate whether Grade7+ expectation genuinely exceeded.",
+      "grade7PlusCertification": "NOT_ESTABLISHED",
+      "grade7PlusApproved": false,
+      "independentTeacherCurricularApproval": false,
+      "observedPupilWrongAnswerFrequencyAvailable": false,
+      "MCQCanShowWrittenReasoning": false,
+      "academicDecision": "HOLD",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-025",
+      "candidateRevisionId": "LUX-MATH-Y9-STANDARD_FORM-025-V315-REASONING-REDESIGN-QA-ONLY",
+      "originalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-025-REVIEW-2",
+      "originalSourceStem": "A chamber has volume $2.5\\times 10^{-3}$ m$^3$. It contains $4\\times 10^{3}$ particles per cm$^3$. How many particles are in the chamber? Give your answer in standard form. ($1$ m$^3=10^6$ cm$^3$.)",
+      "candidateStem": "A chamber of volume $2.5\\times10^{-3}$ m$^3$ initially contains $4\\times10^3$ particles per cm$^3$. A filter removes **25%** of its particles. The chamber is then compressed to $2.0\\times10^{-3}$ m$^3$ without further loss. How many particles must be added to reach $6\\times10^3$ particles per cm$^3$? Give the number to add in standard form. ($1$ m$^3=10^6$ cm$^3$.)",
+      "correctOptionId": "B",
+      "candidateCorrectAnswer": "4.5\\times10^6",
+      "provisionalAOClassification": "A3_PARTIAL",
+      "benchmarkingPriority": "LOWER",
+      "reasoningDecisionsToTest": [
+        "Convert m³ and cm³",
+        "obtain initial particle count",
+        "apply 25 percent loss",
+        "use compressed target volume to derive added count"
+      ],
+      "reasonGrade7PlusNotEstablished": "Every operation is explicitly prompted in chronological order; strongly resembles routine multistep AO1 despite science context.",
+      "AOAssessmentComment": "Potential source of contextual misconception, not necessarily strong AO3.",
+      "potentialMethodOverlap": [
+        "S-VOLUME-CONCENTRATION"
+      ],
+      "requiredNextEvidence": "Needs independent higher-demand exemplar; currently Grade7 intent weak.",
+      "grade7PlusCertification": "NOT_ESTABLISHED",
+      "grade7PlusApproved": false,
+      "independentTeacherCurricularApproval": false,
+      "observedPupilWrongAnswerFrequencyAvailable": false,
+      "MCQCanShowWrittenReasoning": false,
+      "academicDecision": "HOLD",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-009",
+      "candidateRevisionId": "LUX-MATH-Y9-INDICES-009-V316-HIGHER-REASONING-QA-ONLY",
+      "originalRevisionId": "LUX-MATH-Y9-INDICES-009-REVIEW-2",
+      "originalSourceStem": "Let $E=\\dfrac{(x^{1}y^{-2})^2}{x^{-1}y^{1}}$. Find the exact value of $E$ when $x=2$ and $y=4$.",
+      "candidateStem": "Let $x=2^a$ and $y=2^b$, where $a$ and $b$ are integers from $1$ to $8$ inclusive. You are told that $xy=2^5$ and $\\frac{(xy^{-2})^2}{x^{-1}y}=2^{-1}$. What is the exact value of $x^2y$?",
+      "correctOptionId": "B",
+      "candidateCorrectAnswer": "256",
+      "provisionalAOClassification": "A2_A3_POSSIBLE",
+      "benchmarkingPriority": "HIGHER",
+      "reasoningDecisionsToTest": [
+        "Simplify complex negative exponent expression to x³y⁻⁵",
+        "introduce a,b as powers of 2",
+        "solve two linked exponent constraints",
+        "apply derived a,b to a different expression x²y"
+      ],
+      "reasonGrade7PlusNotEstablished": "The student must connect two power identities rather than substitute; the most demanding part is recognising exponent comparison plus simultaneous constraints.",
+      "AOAssessmentComment": "This is a reasonable AO2 candidate; cannot infer official Grade7 or course taught status.",
+      "potentialMethodOverlap": [
+        "I-SUBSTITUTE-POWERS",
+        "I-MATCH-EXPONENTS",
+        "I-MATCH-NEGATIVE"
+      ],
+      "requiredNextEvidence": "Check independence from earlier REARRANGING/simultaneous linear-system drafts.",
+      "grade7PlusCertification": "NOT_ESTABLISHED",
+      "grade7PlusApproved": false,
+      "independentTeacherCurricularApproval": false,
+      "observedPupilWrongAnswerFrequencyAvailable": false,
+      "MCQCanShowWrittenReasoning": false,
+      "academicDecision": "HOLD",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-INDICES-037",
+      "candidateRevisionId": "LUX-MATH-Y9-INDICES-037-V316-HIGHER-REASONING-QA-ONLY",
+      "originalRevisionId": "LUX-MATH-Y9-INDICES-037-REVIEW-2",
+      "originalSourceStem": "Find $n$ such that $\\dfrac{\\sqrt{2^{2n+6}}\\times16^{n-1}}{8^{n-2}}=2^{9}$, and then give $n^2-n$.",
+      "candidateStem": "For integers $0\\le n\\le8$, define $T(n)=\\frac{\\sqrt{2^{2n+6}}\\times16^{n-1}}{8^{n-2}}$. Let $C$ be the number of these $n$ for which $T(n)$ is a **perfect cube**, and $S$ the number for which $T(n)$ is a **perfect square**. What is the ordered pair $(C,S)$?",
+      "correctOptionId": "C",
+      "candidateCorrectAnswer": "(3,0)",
+      "provisionalAOClassification": "A2_POSSIBLE",
+      "benchmarkingPriority": "INTERMEDIATE",
+      "reasoningDecisionsToTest": [
+        "Simplify radical and composite powers to 2^(2n+5)",
+        "derive perfect-cube criterion mod3",
+        "prove square criterion never satisfied via parity",
+        "count admissible integers with endpoints"
+      ],
+      "reasonGrade7PlusNotEstablished": "The parity impossibility is genuine reasoning, but after simplifying it is a familiar divisibility question; an experienced Y9 pupil may complete it rapidly.",
+      "AOAssessmentComment": "May qualify as AO2; not reliably enough evidence of Grade7+ demand.",
+      "potentialMethodOverlap": [
+        "I-ROOT-POWER",
+        "I-ROOT-QUADRATIC"
+      ],
+      "requiredNextEvidence": "Check fractional/negative power teaching and whether modulo proof is expected.",
+      "grade7PlusCertification": "NOT_ESTABLISHED",
+      "grade7PlusApproved": false,
+      "independentTeacherCurricularApproval": false,
+      "observedPupilWrongAnswerFrequencyAvailable": false,
+      "MCQCanShowWrittenReasoning": false,
+      "academicDecision": "HOLD",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-029",
+      "candidateRevisionId": "LUX-MATH-Y9-STANDARD_FORM-029-V316-HIGHER-REASONING-QA-ONLY",
+      "originalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-029-REVIEW-2",
+      "originalSourceStem": "Evaluate $\\dfrac{(8\\times 10^{8})+(4\\times 10^{7})-(2\\times 10^{7})}{2\\times 10^{6}}$ and give the exact result in standard form.",
+      "candidateStem": "A research facility has $8\\times10^8$ identical particles, gains $4\\times10^7$, and then loses $2\\times10^7$. It must divide the remaining particles **equally**, with a whole number of particles in each cartridge. Each cartridge must hold at least $1.5\\times10^7$ and at most $2\\times10^7$ particles. What is the **greatest possible integer number $N$ of cartridges**?",
+      "correctOptionId": "C",
+      "candidateCorrectAnswer": "50",
+      "provisionalAOClassification": "A3_POSSIBLE",
+      "benchmarkingPriority": "HIGHER",
+      "reasoningDecisionsToTest": [
+        "Derive net number in scientific notation",
+        "convert the two load constraints to integer interval 41–54",
+        "notice N must divide total exactly",
+        "search for largest admissible divisor and justify rejected larger candidates"
+      ],
+      "reasonGrade7PlusNotEstablished": "The extra whole-particle divisibility test is an independent decision; verify that number-theory trick is curricular and realistic, not contrived.",
+      "AOAssessmentComment": "Stronger problem-solving candidate, but no official grade calibration; 56 wrong option had to be repaired for causal validity.",
+      "potentialMethodOverlap": [
+        "S-THREE-TERM-ARITHMETIC"
+      ],
+      "requiredNextEvidence": "Explicitly check whether divisor enumeration is age-appropriate and too artificial for a daily diagnostic.",
+      "grade7PlusCertification": "NOT_ESTABLISHED",
+      "grade7PlusApproved": false,
+      "independentTeacherCurricularApproval": false,
+      "observedPupilWrongAnswerFrequencyAvailable": false,
+      "MCQCanShowWrittenReasoning": false,
+      "academicDecision": "HOLD",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-STANDARD_FORM-021",
+      "candidateRevisionId": "LUX-MATH-Y9-STANDARD_FORM-021-V316-HIGHER-REASONING-QA-ONLY",
+      "originalRevisionId": "LUX-MATH-Y9-STANDARD_FORM-021-REVIEW-2",
+      "originalSourceStem": "An instrument reads $6\\times 10^{5}$ units, compared with an earlier reading of $4\\times 10^{5}$ units. A calibration correction then reduces the newer reading by $10\\%$. By what percentage is the corrected reading greater than the earlier reading?",
+      "candidateStem": "An instrument currently reads $6\\times10^5$ units; its earlier reading was $4\\times10^5$ units. The newer reading is corrected downwards by an **integer percentage $p$**, with $0\\le p\\le20$. The corrected reading must be between **25% and 35% greater than** the earlier reading, including both boundaries. How many different integer values of $p$ meet all the conditions?",
+      "correctOptionId": "B",
+      "candidateCorrectAnswer": "7",
+      "provisionalAOClassification": "A2_A3_PARTIAL",
+      "benchmarkingPriority": "INTERMEDIATE",
+      "reasoningDecisionsToTest": [
+        "Model corrected reading with unknown integer p",
+        "form inclusive percent-increase double inequality",
+        "solve the full double inequality and isolate the allowable calibration parameter p",
+        "count permitted integer values and endpoints"
+      ],
+      "reasonGrade7PlusNotEstablished": "The compound inequality and inclusive boundaries add reasoning, though manipulation after the stated model may be routine.",
+      "AOAssessmentComment": "Potential AO2/3 diagnostic; no signed grade or student misconception evidence.",
+      "potentialMethodOverlap": [
+        "S-CALIBRATED-PERCENT"
+      ],
+      "requiredNextEvidence": "Compare with worked GCSE Higher inequality examples before Grade7 label.",
+      "grade7PlusCertification": "NOT_ESTABLISHED",
+      "grade7PlusApproved": false,
+      "independentTeacherCurricularApproval": false,
+      "observedPupilWrongAnswerFrequencyAvailable": false,
+      "MCQCanShowWrittenReasoning": false,
+      "academicDecision": "HOLD",
+      "dailyEligible": false,
+      "masteryEligible": false
+    }
+  ],
+  "sourceCollisionDecisions": [
+    {
+      "familyA": "I-MATCH-EXPONENTS",
+      "familyB": "I-MATCH-NEGATIVE",
+      "exactSourceIds": [
+        "LUX-MATH-Y9-INDICES-013",
+        "LUX-MATH-Y9-INDICES-021"
+      ],
+      "comparisonClass": "SAME_CORE",
+      "sourceMathematicalRationale": "Compare actual original INDICES-013 and -021: both expand powers of x and y then equate coefficients to solve one n. Negative exponent signs increase fluency demand, not necessarily a distinct method.",
+      "provisionalNonCreditTreatment": "EXCLUDE_SEPARATE_MASTERY_POINTS_UNTIL_REVIEW",
+      "remainingEvidence": "Independently review whether negative-index representation warrants a distinct scaffolded subskill, but not fresh full credit.",
+      "confirmedPsychometricEquivalence": false,
+      "separateMasteryCreditApproved": false
+    },
+    {
+      "familyA": "I-ROOT-POWER",
+      "familyB": "I-ROOT-QUADRATIC",
+      "exactSourceIds": [
+        "LUX-MATH-Y9-INDICES-029",
+        "LUX-MATH-Y9-INDICES-037"
+      ],
+      "comparisonClass": "SAME_CORE_PLUS_POSTPROCESSING",
+      "sourceMathematicalRationale": "Original INDICES-029 and -037 share exactly sqrt(2^(2n+6))*16^(n-1)/8^(n-2), simplifying to 2^(2n+5); -037 then asks n²−n.",
+      "provisionalNonCreditTreatment": "SHARE_EXPONENT_CORE_AND_TRACK_FINAL_EXPRESSION_SEPARATELY",
+      "remainingEvidence": "Do not count final polynomial evaluation as independent exponent mastery without evidence.",
+      "confirmedPsychometricEquivalence": false,
+      "separateMasteryCreditApproved": false
+    },
+    {
+      "familyA": "S-WASTE-CONTAINERS",
+      "familyB": "S-ARITHMETIC-FRACTION",
+      "exactSourceIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-009",
+        "LUX-MATH-Y9-STANDARD_FORM-013"
+      ],
+      "comparisonClass": "SAME_ARITHMETIC_DIFFERENT_TRANSLATION",
+      "sourceMathematicalRationale": "Original STANDARD_FORM-009 is (600000−30000)/2 and -013 is (600000000−30000000)/2000000; the numerical structure is subtract then divide, despite different contexts.",
+      "provisionalNonCreditTreatment": "SHARE_NUMERIC_AO1_CORE_KEEP_CONTEXT_INTERPRETATION_GUARD",
+      "remainingEvidence": "A contextual translation may require separate diagnostics if independently demonstrated.",
+      "confirmedPsychometricEquivalence": false,
+      "separateMasteryCreditApproved": false
+    },
+    {
+      "familyA": "S-DENSITY-REMOVAL",
+      "familyB": "S-FILTERED-DENSITY",
+      "exactSourceIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-003",
+        "LUX-MATH-Y9-STANDARD_FORM-017"
+      ],
+      "comparisonClass": "SAME_PHYSICAL_COMPOUND_CORE",
+      "sourceMathematicalRationale": "Original STANDARD_FORM-003 and -017 both form mass=count×mass-per-particle, retain a given percentage, divide by retained sample volume.",
+      "provisionalNonCreditTreatment": "EXCLUDE_INDEPENDENT_MASTERY_CREDITS_PENDING_REVIEW",
+      "remainingEvidence": "Check relative context wording, removed fraction, units and original taught scope.",
+      "confirmedPsychometricEquivalence": false,
+      "separateMasteryCreditApproved": false
+    },
+    {
+      "familyA": "S-DENSITY-MIX",
+      "familyB": "S-MIX-FILTER-DENSITY",
+      "exactSourceIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-002",
+        "LUX-MATH-Y9-STANDARD_FORM-018"
+      ],
+      "comparisonClass": "CORE_SHARED_ADDITIONAL_PERCENTAGE",
+      "sourceMathematicalRationale": "Original STANDARD_FORM-002 aggregates two batches and divides by total volume; -018 aggregates two different masses, then applies filtration and divides by given volume.",
+      "provisionalNonCreditTreatment": "KEEP_EXTRA_FILTER_STEP_AS_SEPARATE_EVIDENCE_NOT_FULLY_EQUIVALENT",
+      "remainingEvidence": "Do not flatten the filtration decision into mere numeric change or give twice MP without evidence.",
+      "confirmedPsychometricEquivalence": false,
+      "separateMasteryCreditApproved": false
+    },
+    {
+      "familyA": "S-PACK-FORWARD",
+      "familyB": "S-PACK-RESERVE",
+      "exactSourceIds": [
+        "LUX-MATH-Y9-STANDARD_FORM-033",
+        "LUX-MATH-Y9-STANDARD_FORM-034"
+      ],
+      "comparisonClass": "CORE_SHARED_ORDER_MATTERS",
+      "sourceMathematicalRationale": "Original STANDARD_FORM-033 adds initial and received mass, then applies percentage loss before division; -034 applies loss to initial mass, then reserves a fixed test mass before division.",
+      "provisionalNonCreditTreatment": "KEEP_ORDER_AND_PERCENT_BASIS_SEPARATE_DO_NOT_ASSERT_EQUIVALENCE",
+      "remainingEvidence": "Distinguish percent-of-combined from percent-of-initial; same narrative label does not imply identical calculation.",
+      "confirmedPsychometricEquivalence": false,
+      "separateMasteryCreditApproved": false
+    }
+  ],
+  "releaseDecision": "BLOCKED_0_OF_200_APPROVED",
+  "liveAppChanged": false,
+  "learnerScoreWrites": false
+}

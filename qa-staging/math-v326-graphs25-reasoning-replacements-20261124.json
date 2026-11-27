@@ -1,0 +1,1395 @@
+{
+  "kind": "MATHS_V326_GRAPHS_25_REASONING_CANDIDATES_QA_ONLY",
+  "date": "2026-11-24",
+  "branch": "feature/daily-tasks-v3-20261122",
+  "pr": 306,
+  "sourceBankPath": "qa-staging/math-v311-reviewed-200.json",
+  "sourceBankBlobSha": "0655fbc1b796bff68f533c060a43339dff6664be",
+  "priorV323Register": "qa-staging/math-v323-canonical200-all-topics-hold-dispositions-source-exact-20261124.json",
+  "priorV324Pack": "qa-staging/math-v324-four-source-linked-multiconstraint-reasoning-candidates-20261124.json",
+  "priorV325Pack": "qa-staging/math-v325-graphs12-reasoning-replacements-20261124.json",
+  "status": "STAGING_ONLY_NOT_APPROVED_NOT_IMPORTED",
+  "count": 25,
+  "optionsCount": 150,
+  "wrongOptionExplanationsCount": 125,
+  "academicApprovals": 0,
+  "dailyEligible": 0,
+  "masteryEligible": 0,
+  "questions": [
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-014",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-014-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-014-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "intersection-area-similarity",
+      "stem": "The lines $y=2x+1$ and $y=7-x$ meet at P. Together with the y-axis they bound a triangle. The vertical line $x=1$ cuts off a smaller triangle containing P. What fraction of the original triangle's area is the smaller triangle?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac{1}{2}",
+          "errorPath": "Use the horizontal length ratio 1/2 directly as the area ratio."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{3}{4}",
+          "errorPath": "Find the complement, the remaining trapezium's fraction."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{1}{8}",
+          "errorPath": "Multiply the correct area ratio 1/4 by the horizontal scale factor 1/2 once more."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{1}{3}",
+          "errorPath": "Use the gap at x=1, which is 3, as a denominator for the horizontal width 1."
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{1}{16}",
+          "errorPath": "Square the correct area ratio 1/4 again."
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{1}{4}"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "\\frac{1}{4}",
+      "workedSolutionSteps": [
+        "Intersection: $2x+1=7-x$, so $P=(2,5)$.",
+        "At x=0 the vertical gap is 6; at x=1 it is 3. The triangle widths are 2 and 1.",
+        "Areas are $\\frac12(6)(2)=6$ and $\\frac12(3)(1)=3/2$. Their ratio is $1/4$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Line intersection and triangle area scale.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-015",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-015-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-015-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "integer-lattice-region",
+      "stem": "For integer x from 0 to 3 inclusive, count all integer-coordinate points (x,y) satisfying $2x+1<y\\le10-x$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "22",
+          "errorPath": "Include the lower boundary as well as the upper boundary."
+        },
+        {
+          "id": "B",
+          "latex": "15",
+          "errorPath": "Exclude both boundaries, giving counts 8, 5, 2, 0."
+        },
+        {
+          "id": "C",
+          "latex": "9",
+          "errorPath": "Omit the allowed x=0 column, leaving 6+3+0."
+        },
+        {
+          "id": "D",
+          "latex": "6",
+          "errorPath": "Count only the x=1 column, where y=4 through 9."
+        },
+        {
+          "id": "E",
+          "latex": "18"
+        },
+        {
+          "id": "F",
+          "latex": "4",
+          "errorPath": "Count the four permitted x-values instead of the coordinate pairs."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "18",
+      "workedSolutionSteps": [
+        "For x=0, the possible y are 2 through 10: 9 points.",
+        "For x=1, y=4 through 9 gives 6; for x=2, y=6 through 8 gives 3.",
+        "At x=3 the bounds meet, and no y qualifies. Total $9+6+3=18$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Linear inequality regions and inclusive/exclusive integer boundaries.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-016",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-016-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-016-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "parallelogram-vector-area",
+      "stem": "A, B, C and D are consecutive vertices of a parallelogram. $A=(1,2)$, $B=(5,4)$ and $C=(8,1)$. Find its area.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "9",
+          "errorPath": "Compute the area of triangle ABC but forget that it is half the parallelogram."
+        },
+        {
+          "id": "B",
+          "latex": "6",
+          "errorPath": "Subtract the two cross-products of magnitudes 12 and 6 instead of accounting for the opposite vertical directions."
+        },
+        {
+          "id": "C",
+          "latex": "12",
+          "errorPath": "Use only the horizontal change AB=4 and vertical change BC=3."
+        },
+        {
+          "id": "D",
+          "latex": "18"
+        },
+        {
+          "id": "E",
+          "latex": "35",
+          "errorPath": "Use the area of the axis-aligned bounding rectangle of width 7 and height 5."
+        },
+        {
+          "id": "F",
+          "latex": "3",
+          "errorPath": "Report only the vertical change from B to C."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "18",
+      "workedSolutionSteps": [
+        "The adjacent side vectors are $(4,2)$ and $(3,-3)$; $D=(4,-1)$.",
+        "The signed cross-product is $4(-3)-2(3)=-18$. Equivalently subtract the corner triangles from the bounding rectangle.",
+        "The parallelogram area is the magnitude, 18 square units."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Coordinate geometry; vector area or equivalent rectangle subtraction.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-017",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-017-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-017-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "equidistance-on-nonaxis-line",
+      "stem": "A point P lies on $y=x+1$ and is equally distant from $A(0,0)$ and $B(6,2)$. Find the x-coordinate of P.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3",
+          "errorPath": "Use the x-coordinate of midpoint AB rather than intersecting the equidistance locus with the specified line."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{13}{4}",
+          "errorPath": "Find P correctly but report its y-coordinate."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{9}{4}"
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{9}{2}",
+          "errorPath": "Use 8x=36 instead of 16x=36, dropping half the linear coefficient."
+        },
+        {
+          "id": "E",
+          "latex": "-\\frac{9}{4}",
+          "errorPath": "Reverse the sign of the constant after cancelling squared terms."
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{37}{16}",
+          "errorPath": "Omit the constant 1 on the left after expanding (x+1)^2."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "\\frac{9}{4}",
+      "workedSolutionSteps": [
+        "Write $P=(x,x+1)$. Equal squared distances give $x^2+(x+1)^2=(x-6)^2+(x-1)^2$.",
+        "Cancel $2x^2$: $2x+1=-14x+37$. Thus $16x=36$.",
+        "$x=9/4$ and $y=13/4$; the squared distances agree."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Equidistance and intersection with a non-axis line.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-018",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-018-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-018-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "line-circle-root-sum",
+      "stem": "The line $y=2x+1$ intersects the circle $x^2+y^2=10$ at two points. Find the sum of their x-coordinates.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac{4}{5}",
+          "errorPath": "Reverse the sign in the sum-of-roots expression."
+        },
+        {
+          "id": "B",
+          "latex": "-\\frac{4}{5}"
+        },
+        {
+          "id": "C",
+          "latex": "-\\frac{9}{5}",
+          "errorPath": "Report the product of the roots rather than their sum."
+        },
+        {
+          "id": "D",
+          "latex": "1",
+          "errorPath": "Keep only the positive root x=1."
+        },
+        {
+          "id": "E",
+          "latex": "-4",
+          "errorPath": "Use the negative linear coefficient without dividing by the quadratic coefficient."
+        },
+        {
+          "id": "F",
+          "latex": "-\\frac{1}{5}",
+          "errorPath": "Use 1 instead of 4 as the linear coefficient when expanding (2x+1)^2."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "-\\frac{4}{5}",
+      "workedSolutionSteps": [
+        "Substitute the line into the circle: $x^2+(2x+1)^2=10$.",
+        "This gives $5x^2+4x-9=0=(x-1)(5x+9)$.",
+        "The two x-coordinates are $1$ and $-9/5$, with sum $-4/5$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Line-circle intersection and factorising quadratics; confirm taught scope.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-019",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-019-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-019-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "unknown-circle-point-product",
+      "stem": "A circle has centre $(2,3)$ and passes through $(0,0)$. It also passes through two points of the form $(2,k)$. Find the product of their two k-values.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "-4"
+        },
+        {
+          "id": "B",
+          "latex": "4",
+          "errorPath": "Discard the negative sign of the product."
+        },
+        {
+          "id": "C",
+          "latex": "6",
+          "errorPath": "Add the two k-values rather than multiplying them."
+        },
+        {
+          "id": "D",
+          "latex": "13",
+          "errorPath": "Report the radius squared instead of the product."
+        },
+        {
+          "id": "E",
+          "latex": "9",
+          "errorPath": "Use the centre's y-coordinate twice, ignoring the radius."
+        },
+        {
+          "id": "F",
+          "latex": "-13",
+          "errorPath": "Multiply the shifted values k-3 instead of the actual k-values."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "-4",
+      "workedSolutionSteps": [
+        "Radius squared is $(2-0)^2+(3-0)^2=13$.",
+        "The points $(2,k)$ satisfy $(k-3)^2=13$, so $k=3\\pm\\sqrt{13}$.",
+        "The product is $(3+\\sqrt{13})(3-\\sqrt{13})=9-13=-4$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Circle coordinates and conjugate roots.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-020",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-020-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-020-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "distance-difference-interval",
+      "stem": "For a point $P=(x,0)$, let $A=(2,3)$ and $B=(6,1)$. Find the length of the interval of x-values for which the absolute difference between $PA^2$ and $PB^2$ is at most 20.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2.5",
+          "errorPath": "Use only the half-width from the central value x=3 to either endpoint."
+        },
+        {
+          "id": "B",
+          "latex": "3",
+          "errorPath": "Report the central value where the squared distances are equal."
+        },
+        {
+          "id": "C",
+          "latex": "5.5",
+          "errorPath": "Report the upper endpoint instead of the interval length."
+        },
+        {
+          "id": "D",
+          "latex": "4",
+          "errorPath": "Use the horizontal separation of A and B instead of the allowed interval."
+        },
+        {
+          "id": "E",
+          "latex": "10",
+          "errorPath": "Double the full interval length a second time."
+        },
+        {
+          "id": "F",
+          "latex": "5"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "5",
+      "workedSolutionSteps": [
+        "$PA^2-PB^2=(x-2)^2+9-((x-6)^2+1)=8x-24$.",
+        "$|8x-24|\\le20$ gives $-20\\le8x-24\\le20$, so $0.5\\le x\\le5.5$.",
+        "The interval length is $5.5-0.5=5$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Absolute-value linear inequalities from squared distances.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-021",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-021-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-021-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "parallel-intercept-area-scaling",
+      "stem": "A line cuts the positive axes at A and B. The midpoint of AB is $(3,4)$. A second parallel line also cuts both positive axes, forming with them a triangle of twice the first triangle's area. Find the second line's y-intercept.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "16",
+          "errorPath": "Double the intercept directly; this would quadruple the area."
+        },
+        {
+          "id": "B",
+          "latex": "4\\sqrt{2}",
+          "errorPath": "Use the inverse length scale factor, giving half the original area."
+        },
+        {
+          "id": "C",
+          "latex": "8",
+          "errorPath": "Keep the original y-intercept, giving the original area."
+        },
+        {
+          "id": "D",
+          "latex": "12",
+          "errorPath": "Apply an arbitrary linear increase of 50% instead of the area-derived scale factor."
+        },
+        {
+          "id": "E",
+          "latex": "8\\sqrt{2}"
+        },
+        {
+          "id": "F",
+          "latex": "8\\sqrt{3}",
+          "errorPath": "Treat twice the area as the original area plus twice the original, giving three times the area."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "8\\sqrt{2}",
+      "workedSolutionSteps": [
+        "The first intercepts are $(6,0)$ and $(0,8)$ because their midpoint is $(3,4)$.",
+        "The first triangle has area 24. Parallel lines create similar axis triangles, so area ratio 2 means length ratio $\\sqrt2$.",
+        "The second y-intercept is $8\\sqrt2$; both intercepts are positive."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Similar triangles, parallel lines and square-root area scale.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-022",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-022-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-022-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "perpendicular-axis-triangle-area",
+      "stem": "The line $y=12-3x$ meets the x-axis at P and the y-axis at A. The perpendicular line through P meets the y-axis at B. Find the area of triangle PAB.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "24",
+          "errorPath": "Ignore B below the x-axis and use only the original triangle's area."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{64}{3}",
+          "errorPath": "Subtract the magnitude of the negative y-intercept instead of adding it to the positive height."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{40}{3}",
+          "errorPath": "Apply the triangle factor 1/2 twice."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{80}{3}"
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{160}{3}",
+          "errorPath": "Omit the triangle factor 1/2."
+        },
+        {
+          "id": "F",
+          "latex": "4",
+          "errorPath": "Report P's x-coordinate rather than the area."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "\\frac{80}{3}",
+      "workedSolutionSteps": [
+        "$P=(4,0)$ and $A=(0,12)$. The perpendicular gradient is $1/3$.",
+        "The perpendicular line is $y=(x-4)/3$, so $B=(0,-4/3)$.",
+        "The vertical base length is $12+4/3=40/3$ and the perpendicular height is 4. Area $=80/3$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Signed intercepts, perpendicular gradients and triangle area.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-023",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-023-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-023-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "intercept-ratio-area",
+      "stem": "A straight line through $(2,3)$ crosses both positive axes. Its x-intercept is twice its y-intercept. Find the area of the triangle it forms with the axes.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "32",
+          "errorPath": "Use the product of the intercepts without halving."
+        },
+        {
+          "id": "B",
+          "latex": "8",
+          "errorPath": "Report the x-intercept instead of the area."
+        },
+        {
+          "id": "C",
+          "latex": "16"
+        },
+        {
+          "id": "D",
+          "latex": "4",
+          "errorPath": "Report the y-intercept instead of the area."
+        },
+        {
+          "id": "E",
+          "latex": "3",
+          "errorPath": "Use the coordinates of the given point as base and height, then halve."
+        },
+        {
+          "id": "F",
+          "latex": "2",
+          "errorPath": "Report the intercept ratio rather than the area."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "16",
+      "workedSolutionSteps": [
+        "Let the y-intercept be b, so the x-intercept is 2b and the slope is $-1/2$.",
+        "The line is $y=b-x/2$. Substitution of $(2,3)$ gives $b=4$, so the x-intercept is 8.",
+        "Area is $\\frac12(8)(4)=16$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Recover line from an intercept ratio and a point.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-024",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-024-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-024-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "intercept-sum-area-two-slopes",
+      "stem": "A straight line meets the positive axes at $(a,0)$ and $(0,b)$, with $a+b=12$. The triangle formed by the line and the axes has area 16. Find the sum of the gradients of all lines satisfying both conditions.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac{5}{2}",
+          "errorPath": "Use magnitudes of the gradients and omit their negative signs."
+        },
+        {
+          "id": "B",
+          "latex": "-\\frac{5}{2}"
+        },
+        {
+          "id": "C",
+          "latex": "-1",
+          "errorPath": "Assume equal intercepts and hence gradient -1, without checking the area."
+        },
+        {
+          "id": "D",
+          "latex": "-2",
+          "errorPath": "Keep only the line with a=4 and b=8."
+        },
+        {
+          "id": "E",
+          "latex": "-\\frac{1}{2}",
+          "errorPath": "Keep only the line with a=8 and b=4."
+        },
+        {
+          "id": "F",
+          "latex": "-\\frac{3}{2}",
+          "errorPath": "Subtract the two gradients instead of adding them."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "-\\frac{5}{2}",
+      "workedSolutionSteps": [
+        "The area condition gives $ab=32$. With $a+b=12$, the intercepts are 4 and 8 in either order.",
+        "The corresponding slopes are $-8/4=-2$ and $-4/8=-1/2$.",
+        "Both pairs are positive and satisfy both conditions. The sum is $-5/2$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Intercept geometry, quadratic constraints and all valid configurations.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-025",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-025-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-025-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "linear-model-tolerance",
+      "stem": "Two instruments give readings $A=2x+3$ and $B=5x-9$ for non-negative integer inputs x. For how many inputs do the readings differ by at most 6?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "5"
+        },
+        {
+          "id": "B",
+          "latex": "4",
+          "errorPath": "Exclude one equality endpoint of the interval 2 through 6."
+        },
+        {
+          "id": "C",
+          "latex": "3",
+          "errorPath": "Require a difference strictly less than 6, excluding both endpoints."
+        },
+        {
+          "id": "D",
+          "latex": "7",
+          "errorPath": "Apply only the upper bound x<=6, ignoring the lower bound."
+        },
+        {
+          "id": "E",
+          "latex": "2",
+          "errorPath": "Report the half-width 6/3 instead of the count."
+        },
+        {
+          "id": "F",
+          "latex": "6",
+          "errorPath": "Report the greatest allowed input instead of the number of inputs."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "5",
+      "workedSolutionSteps": [
+        "The signed difference is $B-A=3x-12$.",
+        "$|3x-12|\\le6$ implies $2\\le x\\le6$.",
+        "There are five non-negative integer inputs: 2,3,4,5,6."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Interpret two linear models and absolute tolerance.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-026",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-026-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-026-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "graph-transform-intersection",
+      "stem": "The graph $y=2x-3$ is reflected in the y-axis, then translated 3 units right and 4 units up. Find the x-coordinate where the final graph meets the original graph.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "4",
+          "errorPath": "Reflect in the x-axis instead, yielding final equation y=-2x+13."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{3}{2}",
+          "errorPath": "Omit the upward translation, yielding y=-2x+3."
+        },
+        {
+          "id": "C",
+          "latex": "1",
+          "errorPath": "Omit the horizontal translation, yielding y=-2x+1."
+        },
+        {
+          "id": "D",
+          "latex": "-\\frac{1}{2}",
+          "errorPath": "Translate left rather than right, yielding y=-2x-5."
+        },
+        {
+          "id": "E",
+          "latex": "2",
+          "errorPath": "Find the correct intersection but report its y-coordinate."
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{5}{2}"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "\\frac{5}{2}",
+      "workedSolutionSteps": [
+        "Reflection in the y-axis gives $y=-2x-3$.",
+        "The translation gives $y=-2(x-3)-3+4=-2x+7$.",
+        "Set $2x-3=-2x+7$, giving $x=5/2$ and $y=2$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Coordinate reflection and translation of a linear graph.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-027",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-027-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-027-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "parallel-lines-perpendicular-separation",
+      "stem": "The parallel lines $y=mx+2$ and $y=mx+8$ have x-intercepts 3 units apart. Given $m<0$, find the square of the perpendicular distance between the lines.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "36",
+          "errorPath": "Square the vertical separation rather than the perpendicular distance."
+        },
+        {
+          "id": "B",
+          "latex": "9",
+          "errorPath": "Square the horizontal separation rather than the perpendicular distance."
+        },
+        {
+          "id": "C",
+          "latex": "12",
+          "errorPath": "Divide 36 by 1+|m| rather than 1+m^2."
+        },
+        {
+          "id": "D",
+          "latex": "6",
+          "errorPath": "Report the vertical separation rather than the square of the perpendicular distance."
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{36}{5}"
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{6}{\\sqrt5}",
+          "errorPath": "Report the perpendicular distance without squaring it."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "\\frac{36}{5}",
+      "workedSolutionSteps": [
+        "The x-intercepts are $-2/m$ and $-8/m$, so $6/|m|=3$ and $m=-2$.",
+        "Take $(0,2)$ on the first line. Its perpendicular has gradient $1/2$ and equation $y=x/2+2$. It meets $y=-2x+8$ at $(12/5,16/5)$.",
+        "Squared separation is $(12/5)^2+(6/5)^2=180/25=36/5$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Distance between parallel lines using perpendicular intersection.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-028",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-028-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-028-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "two-intersections-reconstruct-line",
+      "stem": "A line L passes through $(2,5)$ and intersects $y=x+1$ at a point with x-coordinate 3. Find the x-coordinate where L intersects $y=2x-1$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "3",
+          "errorPath": "Report the first intersection's x-coordinate."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{13}{3}",
+          "errorPath": "Find the second intersection but report its y-coordinate."
+        },
+        {
+          "id": "C",
+          "latex": "4",
+          "errorPath": "Mistake the second graph for y=x-1 when solving the intersection."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{8}{3}"
+        },
+        {
+          "id": "E",
+          "latex": "8",
+          "errorPath": "Reach 3x=8 but forget to divide by 3."
+        },
+        {
+          "id": "F",
+          "latex": "2",
+          "errorPath": "Use y=-x+5 for L, incorrectly treating the given point's y-coordinate as its intercept."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "\\frac{8}{3}",
+      "workedSolutionSteps": [
+        "The first intersection is $(3,4)$. Along with $(2,5)$ this gives L gradient -1.",
+        "Hence $L:y=-x+7$.",
+        "Solve $-x+7=2x-1$: $x=8/3$, with y=13/3."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Reconstruct a line from intersection evidence and transfer it to another intersection.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-031",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-031-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-031-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "collinearity-two-parameter-roots",
+      "stem": "The points $A=(0,1)$, $B=(k,3)$ and $C=(4,k+1)$ are collinear. Find the product of all real values of k.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "-8"
+        },
+        {
+          "id": "B",
+          "latex": "8",
+          "errorPath": "Drop the negative sign when multiplying the opposite roots."
+        },
+        {
+          "id": "C",
+          "latex": "0",
+          "errorPath": "Add the two opposite roots rather than multiplying them."
+        },
+        {
+          "id": "D",
+          "latex": "2\\sqrt2",
+          "errorPath": "Keep only the positive root."
+        },
+        {
+          "id": "E",
+          "latex": "-2\\sqrt2",
+          "errorPath": "Keep only the negative root."
+        },
+        {
+          "id": "F",
+          "latex": "-4",
+          "errorPath": "Use a vertical displacement of 1 rather than 2 for AB, producing k^2=4."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "-8",
+      "workedSolutionSteps": [
+        "The vectors from A are $(k,2)$ and $(4,k)$. Collinearity requires $k^2-8=0$.",
+        "Thus $k=\\pm2\\sqrt2$. Neither is zero, and both give equal gradients.",
+        "Their product is -8."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Variable-coordinate collinearity and both quadratic roots.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-032",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-032-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-032-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "perpendicular-parameter-quadratic",
+      "stem": "Points $A=(0,0)$, $B=(k,2)$ and $C=(2k,k-4)$ form a right angle at B. Find the product of all real values of k satisfying this condition.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "12",
+          "errorPath": "Drop the sign of the product."
+        },
+        {
+          "id": "B",
+          "latex": "-2",
+          "errorPath": "Report the sum of the roots instead of their product."
+        },
+        {
+          "id": "C",
+          "latex": "-6",
+          "errorPath": "Replace the dot product condition by k^2+k-6=0, omitting the factor 2 in the vertical component; the product would be -6."
+        },
+        {
+          "id": "D",
+          "latex": "13",
+          "errorPath": "Report the expression under the square root after solving."
+        },
+        {
+          "id": "E",
+          "latex": "-1",
+          "errorPath": "Report the midpoint of the two k-values rather than their product."
+        },
+        {
+          "id": "F",
+          "latex": "-12"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "-12",
+      "workedSolutionSteps": [
+        "Vectors BA and BC are $(-k,-2)$ and $(k,k-6)$.",
+        "Perpendicularity requires $-k^2-2(k-6)=0$, so $k^2+2k-12=0$.",
+        "The roots are $-1\\pm\\sqrt{13}$, neither zero. Both vectors are non-zero and perpendicular. Their product is -12."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Variable-coordinate perpendicularity and quadratic solution branches.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-033",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-033-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-033-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "parallel-strip-area",
+      "stem": "The line $y=2x+3$ and the parallel line through $(4,1)$ bound a strip. Find the area of the part of this strip between the vertical lines $x=-1$ and $x=3$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "20",
+          "errorPath": "Halve the parallelogram area as if it were a triangle."
+        },
+        {
+          "id": "B",
+          "latex": "10",
+          "errorPath": "Report the constant vertical separation rather than the area."
+        },
+        {
+          "id": "C",
+          "latex": "4",
+          "errorPath": "Report the width between the vertical boundaries."
+        },
+        {
+          "id": "D",
+          "latex": "28",
+          "errorPath": "Use the magnitude of the second line's y-intercept (7) as the strip height."
+        },
+        {
+          "id": "E",
+          "latex": "40"
+        },
+        {
+          "id": "F",
+          "latex": "12",
+          "errorPath": "Use the first line's y-intercept (3) as the strip height."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "40",
+      "workedSolutionSteps": [
+        "The parallel line is $y=2x-7$.",
+        "At every x the vertical separation is $(2x+3)-(2x-7)=10$. The vertical boundaries are 4 units apart.",
+        "The enclosed parallelogram area is $10\\times4=40$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Parallel-line invariance and area between vertical boundaries.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-034",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-034-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-034-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "concurrent-lines-perpendicular-intercept",
+      "stem": "The three lines $y=2x+1$, $y=10-x$ and $y=(k-1)x+2k$ meet at P. The line through P perpendicular to the third line meets the x-axis at $(a,0)$. Find $(k,a)$.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "(2,7)",
+          "errorPath": "Find k correctly but report P's y-coordinate as the x-intercept."
+        },
+        {
+          "id": "B",
+          "latex": "(1,10)",
+          "errorPath": "Report the third line's gradient k-1 rather than k."
+        },
+        {
+          "id": "C",
+          "latex": "(4,10)",
+          "errorPath": "Report the third line's y-intercept 2k rather than k."
+        },
+        {
+          "id": "D",
+          "latex": "(2,10)"
+        },
+        {
+          "id": "E",
+          "latex": "(2,-4)",
+          "errorPath": "Use the third line's positive slope rather than its negative reciprocal, giving a=3-7."
+        },
+        {
+          "id": "F",
+          "latex": "(2,3)",
+          "errorPath": "Report P's x-coordinate instead of the perpendicular line's x-intercept."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "(2,10)",
+      "workedSolutionSteps": [
+        "The first two lines meet at $(3,7)$, since $2x+1=10-x$.",
+        "The third passes through P: $7=3(k-1)+2k$, hence $k=2$ and its gradient is 1.",
+        "The perpendicular line has gradient -1 and equation $y=10-x$, so $a=10$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Concurrency, parameter inference and perpendicular intercept.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-035",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-035-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-035-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "axis-distance-ratio",
+      "stem": "A line segment joins $(0,6)$ to $(8,0)$. Point P lies on the segment and its distance from the y-axis is twice its distance from the x-axis. Find P's x-coordinate.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac{12}{5}",
+          "errorPath": "Report the correct y-coordinate instead of the x-coordinate."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{24}{11}",
+          "errorPath": "Reverse the distance ratio, using y=2x: 2x=6-3x/4 gives x=24/11."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{24}{5}"
+        },
+        {
+          "id": "D",
+          "latex": "4",
+          "errorPath": "Use the segment midpoint rather than the stated distance ratio."
+        },
+        {
+          "id": "E",
+          "latex": "8",
+          "errorPath": "Report the x-intercept, where the stated ratio is not satisfied."
+        },
+        {
+          "id": "F",
+          "latex": "6",
+          "errorPath": "Report the original y-intercept as the x-coordinate."
+        }
+      ],
+      "correctOptionId": "C",
+      "correctAnswerLatex": "\\frac{24}{5}",
+      "workedSolutionSteps": [
+        "The segment has equation $y=6-3x/4$. Its points have non-negative coordinates.",
+        "Distance from the y-axis is x, and distance from the x-axis is y. Thus $x=2y$.",
+        "Solve $x=2(6-3x/4)$, giving $x=24/5$ and $y=12/5$. P is on the segment."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Axis distances, ratio and line-segment domain.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-036",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-036-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-036-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "piecewise-cost-threshold",
+      "stem": "A shop charges £6 plus £2 per item for up to five items. For more than five items, the first five still cost £16 in total and each extra item costs £1. A second shop charges £3 per item with no fixed fee. What is the smallest positive integer quantity for which the first shop is strictly cheaper?",
+      "options": [
+        {
+          "id": "A",
+          "latex": "5",
+          "errorPath": "Assume the price break itself makes the first shop cheaper; at five items £16 exceeds £15."
+        },
+        {
+          "id": "B",
+          "latex": "6"
+        },
+        {
+          "id": "C",
+          "latex": "7",
+          "errorPath": "Extend the first pricing rule beyond five items, yielding n>6."
+        },
+        {
+          "id": "D",
+          "latex": "12",
+          "errorPath": "Use the later model n+11 but compare with 2n instead of 3n."
+        },
+        {
+          "id": "E",
+          "latex": "1",
+          "errorPath": "Omit the fixed fee when comparing the initial price rules."
+        },
+        {
+          "id": "F",
+          "latex": "5.5",
+          "errorPath": "Report the equality threshold rather than the smallest permitted integer above it."
+        }
+      ],
+      "correctOptionId": "B",
+      "correctAnswerLatex": "6",
+      "workedSolutionSteps": [
+        "For $1\\le n\\le5$, first shop cost is $6+2n$. Being cheaper than $3n$ would require $n>6$, impossible in this segment.",
+        "For $n>5$, cost is $16+(n-5)=n+11$. The inequality $n+11<3n$ gives $n>5.5$.",
+        "The first valid integer is 6: costs are £17 and £18."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Piecewise linear models, strict inequality and integer domain.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-037",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-037-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-037-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "equidistance-origin-distance-squared",
+      "stem": "Point P lies on $y=2x$ and is equally distant from $A=(-1,4)$ and $B=(5,0)$. Find $OP^2$, where O is the origin.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "20"
+        },
+        {
+          "id": "B",
+          "latex": "4",
+          "errorPath": "Use only P's horizontal displacement squared."
+        },
+        {
+          "id": "C",
+          "latex": "16",
+          "errorPath": "Use only P's vertical displacement squared."
+        },
+        {
+          "id": "D",
+          "latex": "-6",
+          "errorPath": "Add the signed coordinate values instead of calculating squared distance."
+        },
+        {
+          "id": "E",
+          "latex": "6",
+          "errorPath": "Add the absolute coordinate values instead of their squares."
+        },
+        {
+          "id": "F",
+          "latex": "\\sqrt{20}",
+          "errorPath": "Report the distance OP rather than its square."
+        }
+      ],
+      "correctOptionId": "A",
+      "correctAnswerLatex": "20",
+      "workedSolutionSteps": [
+        "Let $P=(x,2x)$. Equal distances give $(x+1)^2+(2x-4)^2=(x-5)^2+4x^2$.",
+        "Simplify to $-14x+17=-10x+25$, so $x=-2$ and $P=(-2,-4)$.",
+        "$OP^2=(-2)^2+(-4)^2=20$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Equidistance followed by a second distance calculation.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-038",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-038-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-038-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "area-constraint-slope-domain",
+      "stem": "Let $O=(0,0)$ and $A=(6,0)$. Point P lies on $y=2x+1$ above the x-axis. Triangle OAP has area 15. Find the gradient of AP.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "\\frac{5}{4}",
+          "errorPath": "Ignore the negative horizontal displacement when calculating gradient."
+        },
+        {
+          "id": "B",
+          "latex": "-\\frac{4}{5}",
+          "errorPath": "Use the reciprocal of the correct gradient."
+        },
+        {
+          "id": "C",
+          "latex": "-\\frac{5}{6}",
+          "errorPath": "Use the full base OA=6 rather than the horizontal displacement from A to P."
+        },
+        {
+          "id": "D",
+          "latex": "2",
+          "errorPath": "Report the gradient of the given line through P rather than AP."
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{5}{9}",
+          "errorPath": "Use the below-axis solution P=(-3,-5), which violates the domain."
+        },
+        {
+          "id": "F",
+          "latex": "-\\frac{5}{4}"
+        }
+      ],
+      "correctOptionId": "F",
+      "correctAnswerLatex": "-\\frac{5}{4}",
+      "workedSolutionSteps": [
+        "Area is $\\frac12(6)y_P=15$ because P is above the axis, so $y_P=5$.",
+        "Substitute into $y=2x+1$: $x_P=2$.",
+        "Gradient AP is $(5-0)/(2-6)=-5/4$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Triangle area, domain restriction and a different line's gradient.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-039",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-039-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-039-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "segment-division-ratio",
+      "stem": "A segment joins $A=(1,2)$ and $B=(7,8)$. It intersects $y=10-x$ at P. Find the ratio $AP:PB$ in its simplest form.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "5:7",
+          "errorPath": "Reverse the required order of the lengths."
+        },
+        {
+          "id": "B",
+          "latex": "7:12",
+          "errorPath": "Compare AP to the entire segment AB instead of PB."
+        },
+        {
+          "id": "C",
+          "latex": "1:1",
+          "errorPath": "Assume the intersection is the segment midpoint."
+        },
+        {
+          "id": "D",
+          "latex": "9:5",
+          "errorPath": "Use P's x-coordinate 4.5 rather than the displacement from A, while using the correct remaining displacement 2.5."
+        },
+        {
+          "id": "E",
+          "latex": "7:5"
+        },
+        {
+          "id": "F",
+          "latex": "9:11",
+          "errorPath": "Use the coordinates of P as a ratio rather than the lengths of the subsegments."
+        }
+      ],
+      "correctOptionId": "E",
+      "correctAnswerLatex": "7:5",
+      "workedSolutionSteps": [
+        "The segment is part of $y=x+1$. Intersect with $y=10-x$ to obtain $P=(9/2,11/2)$.",
+        "Along the same non-vertical line, lengths are proportional to horizontal displacement: $AP:PB=(9/2-1):(7-9/2)$.",
+        "This is $(7/2):(5/2)=7:5$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Coordinate segment division and ratio.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    },
+    {
+      "sourceId": "LUX-MATH-Y9-GRAPHS-040",
+      "revisionId": "LUX-MATH-Y9-GRAPHS-040-V326-REASONING-QA-ONLY",
+      "replacesOriginalRevisionId": "LUX-MATH-Y9-GRAPHS-040-REVIEW-2",
+      "topicId": "math-y9-straight-line-graphs",
+      "provisionalConceptFamily": "midpoint-of-two-intersections-gradient",
+      "stem": "The line $y=2x+1$ intersects $y=7-x$ at P and $y=x+4$ at Q. Let M be the midpoint of PQ. Find the gradient of OM, where O is the origin.",
+      "options": [
+        {
+          "id": "A",
+          "latex": "2",
+          "errorPath": "Report the gradient of PQ instead of OM."
+        },
+        {
+          "id": "B",
+          "latex": "\\frac{5}{2}",
+          "errorPath": "Report the gradient of OP instead of OM."
+        },
+        {
+          "id": "C",
+          "latex": "\\frac{7}{3}",
+          "errorPath": "Report the gradient of OQ instead of OM."
+        },
+        {
+          "id": "D",
+          "latex": "\\frac{12}{5}"
+        },
+        {
+          "id": "E",
+          "latex": "\\frac{5}{12}",
+          "errorPath": "Use run over rise instead of rise over run."
+        },
+        {
+          "id": "F",
+          "latex": "\\frac{6}{5}",
+          "errorPath": "Use the average y-coordinate but the sum rather than the average of the x-coordinates."
+        }
+      ],
+      "correctOptionId": "D",
+      "correctAnswerLatex": "\\frac{12}{5}",
+      "workedSolutionSteps": [
+        "The two intersections are $P=(2,5)$ and $Q=(3,7)$.",
+        "Their midpoint is $M=(5/2,6)$.",
+        "The gradient from the origin to M is $6/(5/2)=12/5$."
+      ],
+      "provisionalAOFocus": "AO2/AO3 candidate; recognition-based MCQ, not certified grade",
+      "unverifiedTaughtSubskill": "Two intersections, midpoint and transfer to an origin gradient.",
+      "independentGradeCalibrated": false,
+      "teacherTaughtConfirmed": false,
+      "studentMisconceptionsEmpiricallyVerified": false,
+      "conceptFamilyIndependentlyApproved": false,
+      "academicQA": "pending",
+      "dailyEligible": false,
+      "masteryEligible": false
+    }
+  ]
+}
